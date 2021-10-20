@@ -6,7 +6,7 @@ bonjour-py==0.3
 cffi==1.14.3
 configparser==4.0.2
 contextlib2==0.6.0.post1
-cryptography==1.7.2
+cryptography==3.3.2
 distlib==0.3.3
 enum34==1.1.6
 filelock==3.2.1
