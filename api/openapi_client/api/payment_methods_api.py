@@ -27,7 +27,7 @@ from openapi_client.model.error404_not_found import Error404NotFound
 from openapi_client.model.payment_method import PaymentMethod
 from openapi_client.model.payment_methods import PaymentMethods
 from openapi_client.model.payment_methods_tokenized import PaymentMethodsTokenized
-from openapi_client.model.unknownbasetype import UNKNOWNBASETYPE
+#from openapi_client.model.unknownbasetype import UNKNOWNBASETYPE
 
 
 class PaymentMethodsApi(object):

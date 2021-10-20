@@ -1,8 +1,8 @@
-from api.openapi_client.api import payment_service_definitions_api
+from openapi_client.api import payment_service_definitions_api
 import time
-import api.openapi_client
-from api.openapi_client.model.error404_not_found import Error404NotFound
-from api.openapi_client.model.error401_unauthorized import Error401Unauthorized
+import openapi_client
+from openapi_client.model.error404_not_found import Error404NotFound
+from openapi_client.model.error401_unauthorized import Error401Unauthorized
 from pprint import pprint
 
 class gr4vyPaymentServiceDefinitions(payment_service_definitions_api.PaymentServiceDefinitionsApi):
@@ -14,13 +14,13 @@ class gr4vyPaymentServiceDefinitions(payment_service_definitions_api.PaymentServ
             # Get payment service definition
             api_response = self.get_payment_service_definition(payment_service_definition_id)
             pprint(api_response)
-        except api.openapi_client.ApiException as e:
+        except openapi_client.ApiException as e:
             print("Exception when calling PaymentServiceDefinitionsApi->get_payment_service_definition: %s\n" % e)
 
-    def listPaymentServiceDefintions(self, limit = None, cursor = None):
+    def listPaymentServiceDefintions(self, **kwargs):
         try:
             # List payment service definitions
-            api_response = self.list_payment_service_definitions(limit=limit, cursor=cursor)
+            api_response = self.list_payment_service_definitions(**kwargs)
             pprint(api_response)
-        except api.openapi_client.ApiException as e:
+        except openapi_client.ApiException as e:
             print("Exception when calling PaymentServiceDefinitionsApi->list_payment_service_definitions: %s\n" % e)

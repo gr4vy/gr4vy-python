@@ -4,8 +4,6 @@ from datetime import datetime, timezone, timedelta
 import sys
 from pem import parse_file
 
-import api.openapi_client
-
 from sdk_Buyers import gr4vyBuyers
 from sdk_PaymentMethods import gr4vyPaymentMethods
 from sdk_PaymentMethodTokens import gr4vyPaymentMethodTokens
@@ -14,16 +12,18 @@ from sdk_PaymentServiceDefinitions import gr4vyPaymentServiceDefinitions
 from sdk_PaymentServices import gr4vyPaymentServices
 from sdk_Transactions import gr4vyTransactions
 
-from api.openapi_client.model.payment_service_update import PaymentServiceUpdate
-from api.openapi_client.model.payment_service_update_fields import PaymentServiceUpdateFields
-from api.openapi_client.model.payment_service_request import PaymentServiceRequest
-from api.openapi_client.model.payment_method import PaymentMethod
-from api.openapi_client.model.buyer_request import BuyerRequest
-from api.openapi_client.model.billing_details import BillingDetails
-from api.openapi_client.model.buyer_update import BuyerUpdate
-from api.openapi_client.model.transaction_request import TransactionRequest
-from api.openapi_client.model.transaction_capture_request import TransactionCaptureRequest
-from api.openapi_client.model.transaction_refund_request import TransactionRefundRequest
+from openapi_client import Configuration, ApiClient
+
+from openapi_client.model.payment_service_update import PaymentServiceUpdate
+from openapi_client.model.payment_service_update_fields import PaymentServiceUpdateFields
+from openapi_client.model.payment_service_request import PaymentServiceRequest
+from openapi_client.model.payment_method import PaymentMethod
+from openapi_client.model.buyer_request import BuyerRequest
+from openapi_client.model.billing_details import BillingDetails
+from openapi_client.model.buyer_update import BuyerUpdate
+from openapi_client.model.transaction_request import TransactionRequest
+from openapi_client.model.transaction_capture_request import TransactionCaptureRequest
+from openapi_client.model.transaction_refund_request import TransactionRefundRequest
 
 
 
@@ -53,29 +53,30 @@ class Gr4vyClient:
                 }
         if embed_data:
             data["embed"] = embed_data
+        jwt.encode
         self.token = jwt.encode(data, private_key, algorithm="ES512", headers={"kid": kid})
     
     def generate_embed_token(self, scope, embed_data):
         self.generate_token(self, scope, embed_data)
 
     def createConfiguration(self):
-        self.configuration = api.openapi_client.Configuration(
+        self.configuration = Configuration(
                             access_token = self.token,
                             host = 'https://api.{}.gr4vy.app'.format(self.gr4vyId)
                             )
 
     def createClient(self):
-        self.client = api.openapi_client.ApiClient(self.configuration)
+        self.client = ApiClient(self.configuration)
     
     def getBuyer(self, buyer_id):
         with self.client as api_client:
             api_instance = gr4vyBuyers(api_client)
             api_instance.getBuyer(buyer_id)
     
-    def listBuyers(self, search = '', limit = None, cursor = ''):
+    def listBuyers(self, **kwargs):
         with self.client as api_client:
             api_instance = gr4vyBuyers(api_client)
-            api_instance.listBuyers(search = search, limit = limit, cursor = cursor)
+            api_instance.listBuyers(**kwargs)
 
     def addBuyer(self, buyer_request):
         with self.client as api_client:
@@ -92,24 +93,20 @@ class Gr4vyClient:
             api_instance = gr4vyPaymentMethods(api_client)
             api_instance.getPaymentMethod(payment_method_id)
     
-    def listBuyerPaymentMethods(self, buyer_id=None, buyer_external_identifier=None, country=None, 
-                                currency=None, environment=None):
+    def listBuyerPaymentMethods(self, buyer_id, **kwargs):
         with self.client as api_client:
             api_instance = gr4vyPaymentMethods(api_client)
-            api_instance.listBuyerPaymentMethods(buyer_id=buyer_id, buyer_external_identifier=buyer_external_identifier, country=country, 
-                                currency=currency, environment=environment)
+            api_instance.listBuyerPaymentMethods(buyer_id=buyer_id, **kwargs)
 
-    def listPaymentMethods(self, environment=None, buyer_id=None, buyer_external_identifier=None,
-                            limit=None, cursor=None):
+    def listPaymentMethods(self, **kwargs):
         with self.client as api_client:
             api_instance = gr4vyPaymentMethods(api_client)
-            api_instance.listPaymentMethods(environment=environment, buyer_id=buyer_id, buyer_external_identifier=buyer_external_identifier,
-                            limit=limit, cursor=cursor)
+            api_instance.listPaymentMethods(**kwargs)
 
-    def storePaymentMethod(self, payment_method=None, unknown_base_type=None):
+    def storePaymentMethod(self, payment_method):
         with self.client as api_client:
             api_instance = gr4vyPaymentMethods(api_client)
-            api_instance.storePaymentMethod(payment_method=payment_method, unknown_base_type=unknown_base_type)
+            api_instance.storePaymentMethod(payment_method=payment_method)
 
     def deletePaymentMethod(self, payment_method_id):
         with self.client as api_client:
@@ -121,25 +118,25 @@ class Gr4vyClient:
             api_instance = gr4vyPaymentMethodTokens(api_client)
             api_instance.listPaymentMethodTokens(payment_method_id)
 
-    def listPaymentOptions(self, country=None, currency=None, environment=None, locale=None):
+    def listPaymentOptions(self, **kwargs):
         with self.client as api_client:
             api_instance = gr4vyPaymentOptions(api_client)
-            api_instance.listPaymentOptions(country=country, currency=currency, environment=environment, locale=locale)
+            api_instance.listPaymentOptions(**kwargs)
 
     def getPaymentServiceDefinition(self, payment_service_definition_id):
         with self.client as api_client:
             api_instance = gr4vyPaymentOptions(api_client)
             api_instance.getPaymentServiceDefinition(payment_service_definition_id)
 
-    def listPaymentServiceDefintions(self, limit = None, cursor = None):
+    def listPaymentServiceDefintions(self, **kwargs):
         with self.client as api_client:
             api_instance = gr4vyPaymentServiceDefinitions(api_client)
-            api_instance.listPaymentServiceDefintions(limit = limit, cursor = cursor)
+            api_instance.listPaymentServiceDefintions(**kwargs)
 
-    def listPaymentServices(self, limit=None, cursor=None, method=None, environment=None):
+    def listPaymentServices(self, **kwargs):
         with self.client as api_client:
             api_instance = gr4vyPaymentServices(api_client)
-            api_instance.listPaymentServices(limit=limit, cursor=cursor, method=method, environment=environment)
+            api_instance.listPaymentServices(**kwargs)
 
     def addPaymentService(self, payment_service_request):
         with self.client as api_client:
@@ -156,21 +153,32 @@ class Gr4vyClient:
             api_instance = gr4vyPaymentServices(api_client)
             api_instance.getPaymentService(payment_service_id)
 
-    def updatePaymentService(self, payment_service_id, payment_service_update=None):
+    def updatePaymentService(self, payment_service_id, payment_service_update):
         with self.client as api_client:
             api_instance = gr4vyPaymentServices(api_client)
             api_instance.updatePaymentService(payment_service_id, payment_service_update=payment_service_update)
 
-    def authorizeNewTransaction(self, transaction_request = None):
+    def authorizeNewTransaction(self, transaction_request):
         with self.client as api_client:
             api_instance = gr4vyTransactions(api_client)
             api_instance.authorizeNewTransaction(transaction_request = transaction_request)
 
-    def captureTransaction(self, transaction_id, transaction_capture_request = None):
+    def captureTransaction(self, transaction_id, transaction_capture_request):
         with self.client as api_client:
             api_instance = gr4vyTransactions(api_client)
-            api_instance.captureTransaction(transaction_id, transaction_capture_request = transaction_capture_request)
+            api_instance.captureTransaction(transaction_id, transaction_capture_request)
 
+    def getTransaction(self,transaction_id):
+        with self.client as api_client:
+            api_instance = gr4vyTransactions(api_client)
+            api_instance.getTransaction(transaction_id, transaction_id)
 
-#Gr4vyClient_obj = Gr4vyClient("spider","private_key.pem")
-#Gr4vyClient_obj.listBuyers('Phil Thomas')
+    def listTransactions(self, **kwargs):
+        with self.client as api_client:
+            api_instance = gr4vyTransactions(api_client)
+            api_instance.listTransactions(**kwargs)
+   
+    def refundTransaction(self, transaction_id, transaction_refund_request):
+        with self.client as api_client:
+            api_instance = gr4vyTransactions(api_client)
+            api_instance.refundTransaction(transaction_id, transaction_refund_request)
