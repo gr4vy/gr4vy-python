@@ -1,5 +1,8 @@
 import setuptools
 from setuptools import setup,find_packages
+
+#path_to_my_project = "gr4vy_python/api/"
+
 setup(
     name="gr4vy_python",
     version="0.0.1",
@@ -12,10 +15,34 @@ setup(
         "Bug Tracker": "https://github.com/gr4vy/gr4vy-python/issues",
     },
     python_requires=">=3.6",
-    install_requires=["openapi-client==1.0.0",
-	"pem==21.2.0",
-	"PyJWT==2.3.0",
-	"python-dateutil==2.8.2",
-	"six==1.16.0",
-	"urllib3==1.26.7"]
-    )
+    install_requires=[
+        "certifi",
+        "pycryptodome",
+        "PyJWT",
+        "pyOpenSSL",
+        "DateTime",
+        "setuptools",
+        "six",
+        "urllib3==1.26.5",
+        "crypto",
+        "cryptography"],
+    #install_requires=["pem==21.2.0",
+	#"PyJWT==2.3.0",
+	#"python-dateutil==2.8.2",
+	#"six==1.16.0",
+	#"urllib3==1.26.7",]
+    #"cryptography==1.7.2"],
+    include_package_data=True)
+'''
+    install_requires=[
+        "certifi",
+        "pycryptodome",
+        "PyJWT",
+        "pyOpenSSL",
+        "DateTime",
+        "setuptools",
+        "six",
+        "urllib3==1.26.5",
+        "crypto",
+        "cryptography",
+    ],'''

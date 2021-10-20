@@ -3,6 +3,7 @@ import uuid
 from datetime import datetime, timezone, timedelta
 import sys
 from pem import parse_file
+from gr4vy_api.openapi_client import Configuration, ApiClient
 
 from .sdk_Buyers import gr4vyBuyers
 from .sdk_PaymentMethods import gr4vyPaymentMethods
@@ -11,21 +12,6 @@ from .sdk_PaymentOptions import gr4vyPaymentOptions
 from .sdk_PaymentServiceDefinitions import gr4vyPaymentServiceDefinitions
 from .sdk_PaymentServices import gr4vyPaymentServices
 from .sdk_Transactions import gr4vyTransactions
-
-from openapi_client import Configuration, ApiClient
-
-from openapi_client.model.payment_service_update import PaymentServiceUpdate
-from openapi_client.model.payment_service_update_fields import PaymentServiceUpdateFields
-from openapi_client.model.payment_service_request import PaymentServiceRequest
-from openapi_client.model.payment_method import PaymentMethod
-from openapi_client.model.buyer_request import BuyerRequest
-from openapi_client.model.billing_details import BillingDetails
-from openapi_client.model.buyer_update import BuyerUpdate
-from openapi_client.model.transaction_request import TransactionRequest
-from openapi_client.model.transaction_capture_request import TransactionCaptureRequest
-from openapi_client.model.transaction_refund_request import TransactionRefundRequest
-
-
 
 VERSION = 0.1
 PYTHON_VERSION = '{}.{}.{}'.format(sys.version_info[0], sys.version_info[1], sys.version_info[2])
