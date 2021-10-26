@@ -43,6 +43,7 @@ class gr4vyBuyers(buyers_api.BuyersApi):
     def deleteBuyer(self, buyer_id):
         try:
             # Delete buyer
-            self.delete_buyer(buyer_id)
+            api_response = self.delete_buyer(buyer_id)
+            return api_response
         except gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling BuyersApi->delete_buyer: %s\n" % e)
