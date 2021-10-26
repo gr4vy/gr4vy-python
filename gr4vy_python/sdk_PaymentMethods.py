@@ -1,9 +1,9 @@
 import time
-import gr4vy_api.openapi_client
-from gr4vy_api.openapi_client.api import payment_methods_api
-from gr4vy_api.openapi_client.model.error404_not_found import Error404NotFound
-from gr4vy_api.openapi_client.model.error401_unauthorized import Error401Unauthorized
-from gr4vy_api.openapi_client.model.payment_method import PaymentMethod
+import gr4vy_python.gr4vy_api.openapi_client
+from gr4vy_python.gr4vy_api.openapi_client.api import payment_methods_api
+from gr4vy_python.gr4vy_api.openapi_client.model.error404_not_found import Error404NotFound
+from gr4vy_python.gr4vy_api.openapi_client.model.error401_unauthorized import Error401Unauthorized
+from gr4vy_python.gr4vy_api.openapi_client.model.payment_method import PaymentMethod
 
 
 from pprint import pprint

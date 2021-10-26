@@ -1,9 +1,9 @@
-from gr4vy_api.openapi_client.api import payment_options_api
+from gr4vy_python.gr4vy_api.openapi_client.api import payment_options_api
 import time
-import gr4vy_api.openapi_client
-from gr4vy_api.openapi_client.api import payment_options_api
-from gr4vy_api.openapi_client.model.error401_unauthorized import Error401Unauthorized
-from gr4vy_api.openapi_client.model.error400_bad_request import Error400BadRequest
+import gr4vy_python.gr4vy_api.openapi_client
+from gr4vy_python.gr4vy_api.openapi_client.api import payment_options_api
+from gr4vy_python.gr4vy_api.openapi_client.model.error401_unauthorized import Error401Unauthorized
+from gr4vy_python.gr4vy_api.openapi_client.model.error400_bad_request import Error400BadRequest
 from pprint import pprint
 
 

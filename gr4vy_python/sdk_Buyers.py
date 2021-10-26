@@ -1,7 +1,7 @@
-import gr4vy_api.openapi_client
-from gr4vy_api.openapi_client.api import buyers_api
+import gr4vy_python.gr4vy_api.openapi_client
+from gr4vy_python.gr4vy_api.openapi_client.api import buyers_api
 from pprint import pprint
-from gr4vy_api.openapi_client.model.error401_unauthorized import Error401Unauthorized
+from gr4vy_python.gr4vy_api.openapi_client.model.error401_unauthorized import Error401Unauthorized
 
 
 class gr4vyBuyers(buyers_api.BuyersApi):

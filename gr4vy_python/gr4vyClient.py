@@ -4,7 +4,7 @@ from datetime import datetime, timezone, timedelta
 import sys
 from pem import parse_file
 
-from gr4vy_api.openapi_client import Configuration, ApiClient
+from gr4vy_python.gr4vy_api.openapi_client import Configuration, ApiClient
 
 from gr4vy_python.sdk_Buyers import gr4vyBuyers
 from gr4vy_python.sdk_PaymentMethods import gr4vyPaymentMethods

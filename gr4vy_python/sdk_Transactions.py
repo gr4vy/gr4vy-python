@@ -1,5 +1,5 @@
-import gr4vy_api.openapi_client
-from gr4vy_api.openapi_client.api import transactions_api
+import gr4vy_python.gr4vy_api.openapi_client
+from gr4vy_python.gr4vy_api.openapi_client.api import transactions_api
 from pprint import pprint
 
 class gr4vyTransactions(transactions_api.TransactionsApi):

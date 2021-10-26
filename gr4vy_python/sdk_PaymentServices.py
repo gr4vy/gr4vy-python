@@ -1,5 +1,5 @@
-import gr4vy_api.openapi_client
-from gr4vy_api.openapi_client.api import payment_services_api
+import gr4vy_python.gr4vy_api.openapi_client
+from gr4vy_python.gr4vy_api.openapi_client.api import payment_services_api
 from pprint import pprint
 
 class gr4vyPaymentServices(payment_services_api.PaymentServicesApi):
