@@ -27,10 +27,9 @@ VERSION = 0.1
 PYTHON_VERSION = '{}.{}.{}'.format(sys.version_info[0], sys.version_info[1], sys.version_info[2])
 
 class Gr4vyClient:
-    def __init__(self, gr4vyId, private_key_file, scopes = ["*.read", "*.write"]):
+    def __init__(self, gr4vyId, private_key_file):
         self.gr4vyId = gr4vyId
         self.private_key_file = private_key_file
-        self.scopes = scopes
         self.GenerateToken(self.scopes)
         self.CreateConfiguration()
         self.CreateClient()
@@ -46,13 +45,13 @@ class Gr4vyClient:
         kid = str(self.thumbprint(jwk))
         return private_key_string, kid
 
-    def GenerateToken(self, embed_data = None):
+    def GenerateToken(self, scopes = ["*.read", "*.write"], embed_data = None):
         private_key, kid = self.private_key_file_to_string()
         data = {"iss": "Gr4vy SDK {} - {}".format(VERSION, PYTHON_VERSION),
                 "nbf": datetime.now(tz=timezone.utc),
                 "exp": datetime.now(tz=timezone.utc) + timedelta(seconds=3000),
                 "jti": str(uuid.uuid4()),
-                "scopes": self.scopes
+                "scopes": scopes
                 }
         if embed_data:
             data["embed"] = embed_data
@@ -60,7 +59,7 @@ class Gr4vyClient:
         return self.token
     
     def GenerateEmbedToken(self, embed_data):
-        self.GenerateToken(embed_data)
+        self.GenerateToken(embed_data=embed_data)
         return self.token
 
     def CreateConfiguration(self):
