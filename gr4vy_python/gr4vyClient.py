@@ -30,7 +30,7 @@ class Gr4vyClient:
     def __init__(self, gr4vyId, private_key_file):
         self.gr4vyId = gr4vyId
         self.private_key_file = private_key_file
-        self.GenerateToken(self.scopes)
+        self.GenerateToken()
         self.CreateConfiguration()
         self.CreateClient()
 
