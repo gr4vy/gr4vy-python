@@ -10,7 +10,7 @@ from gr4vy_python import Gr4vyClient
 from gr4vy_python import Gr4vyClientWithBaseUrl
 
 gr4vy_id = "YOURGR4VYID"
-private_key_location = "PRIVATE_KEY_LOCATION"
+private_key_location = "./private_key.pem"
 
 client = Gr4vyClient(gr4vy_id,private_key_location)
 
