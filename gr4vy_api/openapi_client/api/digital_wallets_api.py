@@ -12,8 +12,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from openapi_client.api_client import ApiClient, Endpoint as _Endpoint
-from openapi_client.model_utils import (  # noqa: F401
+from gr4vy_api.openapi_client.api_client import ApiClient, Endpoint as _Endpoint
+from gr4vy_api.openapi_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -22,12 +22,12 @@ from openapi_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from openapi_client.model.digital_wallet import DigitalWallet
-from openapi_client.model.digital_wallet_request import DigitalWalletRequest
-from openapi_client.model.digital_wallet_update import DigitalWalletUpdate
-from openapi_client.model.digital_wallets import DigitalWallets
-from openapi_client.model.error401_unauthorized import Error401Unauthorized
-from openapi_client.model.error404_not_found import Error404NotFound
+from gr4vy_api.openapi_client.model.digital_wallet import DigitalWallet
+from gr4vy_api.openapi_client.model.digital_wallet_request import DigitalWalletRequest
+from gr4vy_api.openapi_client.model.digital_wallet_update import DigitalWalletUpdate
+from gr4vy_api.openapi_client.model.digital_wallets import DigitalWallets
+from gr4vy_api.openapi_client.model.error401_unauthorized import Error401Unauthorized
+from gr4vy_api.openapi_client.model.error404_not_found import Error404NotFound
 
 
 class DigitalWalletsApi(object):

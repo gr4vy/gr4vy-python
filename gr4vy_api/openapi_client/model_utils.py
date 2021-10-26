@@ -19,7 +19,7 @@ import tempfile
 
 from dateutil.parser import parse
 
-from openapi_client.exceptions import (
+from gr4vy_api.openapi_client.exceptions import (
     ApiKeyError,
     ApiAttributeError,
     ApiTypeError,

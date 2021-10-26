@@ -12,7 +12,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from openapi_client.model_utils import (  # noqa: F401
+from gr4vy_api.openapi_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -28,7 +28,7 @@ from openapi_client.model_utils import (  # noqa: F401
 )
 
 def lazy_import():
-    from openapi_client.model.address import Address
+    from gr4vy_api.openapi_client.model.address import Address
     globals()['Address'] = Address
 
 

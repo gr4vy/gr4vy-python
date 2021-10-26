@@ -12,8 +12,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from openapi_client.api_client import ApiClient, Endpoint as _Endpoint
-from openapi_client.model_utils import (  # noqa: F401
+from gr4vy_api.openapi_client.api_client import ApiClient, Endpoint as _Endpoint
+from gr4vy_api.openapi_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -22,14 +22,14 @@ from openapi_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from openapi_client.model.buyer import Buyer
-from openapi_client.model.buyer_request import BuyerRequest
-from openapi_client.model.buyer_update import BuyerUpdate
-from openapi_client.model.buyers import Buyers
-from openapi_client.model.error401_unauthorized import Error401Unauthorized
-from openapi_client.model.error404_not_found import Error404NotFound
-from openapi_client.model.error409_duplicate_record import Error409DuplicateRecord
-from openapi_client.model.error_generic import ErrorGeneric
+from gr4vy_api.openapi_client.model.buyer import Buyer
+from gr4vy_api.openapi_client.model.buyer_request import BuyerRequest
+from gr4vy_api.openapi_client.model.buyer_update import BuyerUpdate
+from gr4vy_api.openapi_client.model.buyers import Buyers
+from gr4vy_api.openapi_client.model.error401_unauthorized import Error401Unauthorized
+from gr4vy_api.openapi_client.model.error404_not_found import Error404NotFound
+from gr4vy_api.openapi_client.model.error409_duplicate_record import Error409DuplicateRecord
+from gr4vy_api.openapi_client.model.error_generic import ErrorGeneric
 
 
 class BuyersApi(object):

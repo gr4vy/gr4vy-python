@@ -12,7 +12,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from openapi_client.model_utils import (  # noqa: F401
+from gr4vy_api.openapi_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
     ModelNormal,
@@ -28,9 +28,9 @@ from openapi_client.model_utils import (  # noqa: F401
 )
 
 def lazy_import():
-    from openapi_client.model.payment_service_request_all_of import PaymentServiceRequestAllOf
-    from openapi_client.model.payment_service_update import PaymentServiceUpdate
-    from openapi_client.model.payment_service_update_fields import PaymentServiceUpdateFields
+    from gr4vy_api.openapi_client.model.payment_service_request_all_of import PaymentServiceRequestAllOf
+    from gr4vy_api.openapi_client.model.payment_service_update import PaymentServiceUpdate
+    from gr4vy_api.openapi_client.model.payment_service_update_fields import PaymentServiceUpdateFields
     globals()['PaymentServiceRequestAllOf'] = PaymentServiceRequestAllOf
     globals()['PaymentServiceUpdate'] = PaymentServiceUpdate
     globals()['PaymentServiceUpdateFields'] = PaymentServiceUpdateFields

@@ -12,6 +12,12 @@ sed -i '' "s/$var1/$rep1/g" ./gr4vy_api/openapi_client/api/*_api.py
 
 var1='from openapi_client.'
 rep1='from gr4vy_api.openapi_client.'
-sed -i '' "s/$var1/$rep1/g" ./gr4vy_api/openapi_client/__init__.py
+sed -i '' "s/$var1/$rep1/g" ./gr4vy_api/openapi_client/*.py
 
+var1='from openapi_client.'
+rep1='from gr4vy_api.openapi_client.'
+sed -i '' "s/$var1/$rep1/g" ./gr4vy_api/openapi_client/model/*.py
 
+var1='from openapi_client.'
+rep1='from gr4vy_api.openapi_client.'
+sed -i '' "s/$var1/$rep1/g" ./gr4vy_api/openapi_client/api/*.py

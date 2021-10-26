@@ -12,8 +12,8 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
-from openapi_client.api_client import ApiClient, Endpoint as _Endpoint
-from openapi_client.model_utils import (  # noqa: F401
+from gr4vy_api.openapi_client.api_client import ApiClient, Endpoint as _Endpoint
+from gr4vy_api.openapi_client.model_utils import (  # noqa: F401
     check_allowed_values,
     check_validations,
     date,
@@ -22,9 +22,9 @@ from openapi_client.model_utils import (  # noqa: F401
     none_type,
     validate_and_convert_types
 )
-from openapi_client.model.error401_unauthorized import Error401Unauthorized
-from openapi_client.model.error404_not_found import Error404NotFound
-from openapi_client.model.payment_method_tokens import PaymentMethodTokens
+from gr4vy_api.openapi_client.model.error401_unauthorized import Error401Unauthorized
+from gr4vy_api.openapi_client.model.error404_not_found import Error404NotFound
+from gr4vy_api.openapi_client.model.payment_method_tokens import PaymentMethodTokens
 
 
 class PaymentMethodTokensApi(object):

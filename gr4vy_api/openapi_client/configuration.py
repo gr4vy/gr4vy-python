@@ -16,7 +16,7 @@ import sys
 import urllib3
 
 from http import client as http_client
-from openapi_client.exceptions import ApiValueError
+from gr4vy_api.openapi_client.exceptions import ApiValueError
 
 
 JSON_SCHEMA_VALIDATION_KEYWORDS = {
