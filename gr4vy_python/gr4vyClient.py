@@ -210,5 +210,5 @@ class Gr4vyClient:
         return self.b64e(digest.finalize())    
 
 class Gr4vyClientWithBaseUrl(Gr4vyClient):
-    def __init__(self, base_url, private_key, scopes = ["*.read", "*.write"]):
-        super().__init__(base_url, private_key, scopes)
+    def __init__(self, base_url, private_key):
+        super().__init__(base_url, private_key)
