@@ -16,7 +16,7 @@ class gr4vyPaymentMethods(payment_methods_api.PaymentMethodsApi):
         try:
             # Delete payment method
             self.delete_payment_method(payment_method_id)
-        except api.openapi_client.ApiException as e:
+        except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling PaymentMethodsApi->delete_payment_method: %s\n" % e)
 
     def getPaymentMethod(self, payment_method_id):
@@ -24,7 +24,7 @@ class gr4vyPaymentMethods(payment_methods_api.PaymentMethodsApi):
             # Get stored payment method
             api_response = self.get_payment_method(payment_method_id)
             return api_response
-        except api.openapi_client.ApiException as e:
+        except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling PaymentMethodsApi->get_payment_method: %s\n" % e)
 
     def storePaymentMethod(self, payment_method=None):
@@ -32,7 +32,7 @@ class gr4vyPaymentMethods(payment_methods_api.PaymentMethodsApi):
             # New payment method
             api_response = self.store_payment_method(payment_method)
             return api_response
-        except api.openapi_client.ApiException as e:
+        except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling PaymentMethodsApi->store_payment_method: %s\n" % e)
 
     def listBuyerPaymentMethods(self, buyer_id, **kwargs):
@@ -40,7 +40,7 @@ class gr4vyPaymentMethods(payment_methods_api.PaymentMethodsApi):
             # List stored payment methods for a buyer
             api_response = self.list_buyer_payment_methods(buyer_id=buyer_id, **kwargs)
             return api_response
-        except api.openapi_client.ApiException as e:
+        except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling PaymentMethodsApi->list_buyer_payment_methods: %s\n" % e)
 
     def listPaymentMethods(self, **kwargs):
@@ -48,5 +48,5 @@ class gr4vyPaymentMethods(payment_methods_api.PaymentMethodsApi):
             # List payment methods
             api_response = self.list_payment_methods(**kwargs)
             return api_response
-        except api.openapi_client.ApiException as e:
+        except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling PaymentMethodsApi->list_payment_methods: %s\n" % e)

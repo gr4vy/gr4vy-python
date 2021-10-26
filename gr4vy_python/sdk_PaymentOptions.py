@@ -16,5 +16,5 @@ class gr4vyPaymentOptions(payment_options_api.PaymentOptionsApi):
             # List payment options
             api_response = self.list_payment_options(**kwargs)
             return api_response
-        except api.openapi_client.ApiException as e:
+        except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling PaymentOptionsApi->list_payment_options: %s\n" % e)

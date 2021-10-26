@@ -11,7 +11,7 @@ class gr4vyTransactions(transactions_api.TransactionsApi):
             # New transaction
             api_response = self.authorize_new_transaction(transaction_request=transaction_request)
             return api_response
-        except api.openapi_client.ApiException as e:
+        except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling TransactionsApi->authorize_new_transaction: %s\n" % e)
 
     def captureTransaction(self, transaction_id, transaction_capture_request):
@@ -19,7 +19,7 @@ class gr4vyTransactions(transactions_api.TransactionsApi):
             # Capture transaction
             api_response = self.capture_transaction(transaction_id, transaction_capture_request=transaction_capture_request)
             return api_response
-        except api.openapi_client.ApiException as e:
+        except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling TransactionsApi->capture_transaction: %s\n" % e)
 
     def getTransaction(self,transaction_id):
@@ -27,7 +27,7 @@ class gr4vyTransactions(transactions_api.TransactionsApi):
             # Get transaction
             api_response = self.get_transaction(transaction_id)
             return api_response
-        except api.openapi_client.ApiException as e:
+        except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling TransactionsApi->get_transaction: %s\n" % e)
 
     def listTransactions(self, **kwargs):
@@ -35,7 +35,7 @@ class gr4vyTransactions(transactions_api.TransactionsApi):
             # List transactions
             api_response = self.list_transactions(**kwargs)
             return api_response
-        except api.openapi_client.ApiException as e:
+        except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling TransactionsApi->list_transactions: %s\n" % e)
 
     def refundTransaction(self, transaction_id, **kwargs):
@@ -43,5 +43,5 @@ class gr4vyTransactions(transactions_api.TransactionsApi):
             # Refund or void transactions
             api_response = self.refund_transaction(transaction_id, **kwargs)
             return api_response
-        except api.openapi_client.ApiException as e:
+        except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling TransactionsApi->refund_transaction: %s\n" % e)
