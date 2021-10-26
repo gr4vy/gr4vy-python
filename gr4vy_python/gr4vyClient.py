@@ -138,7 +138,7 @@ class Gr4vyClient:
 
     def GetPaymentServiceDefinition(self, payment_service_definition_id):
         with self.client as api_client:
-            api_instance = gr4vyPaymentOptions(api_client)
+            api_instance = gr4vyPaymentServiceDefinitions(api_client)
             return api_instance.getPaymentServiceDefinition(payment_service_definition_id)
 
     def ListPaymentServiceDefintions(self, **kwargs):

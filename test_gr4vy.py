@@ -110,21 +110,23 @@ def testDeleteBuyer():
 '''
 def testGetPaymentMethod():
     assert client.GetPaymentMethod(payment_method_id)
-
+'''
 def testListBuyerPaymentMethods():
+    buyer_id = client.ListBuyers()["items"][0]["id"]
     assert client.ListBuyerPaymentMethods(buyer_id)
 
 def testListPaymentMethods():
     assert client.ListPaymentMethods()
-
+'''
 def testStorePaymentMethod():
     assert client.StorePaymentMethod(payment_method)
 
 def testDeletePaymentMethod():
     assert client.DeletePaymentMethod(payment_method_id)
-
+'''
 def testListPaymentMethodTokens():
-    assert client.listPaymentMethodTokens(payment_method_id)
+    payment_method_id = client.ListPaymentMethods()["items"][0]["id"]
+    assert client.ListPaymentMethodTokens(payment_method_id)
 
 
 def testListPaymentOptions():
@@ -136,7 +138,7 @@ def testGetPaymentServiceDefinition():
 
 def testListPaymentServiceDefintions():
     assert client.ListPaymentServiceDefintions()
-'''
+
 def testListPaymentServices():
     assert client.ListPaymentServices()
 '''
