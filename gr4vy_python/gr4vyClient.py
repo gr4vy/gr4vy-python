@@ -147,6 +147,7 @@ class Gr4vyClient:
             return api_instance.listPaymentServiceDefintions(**kwargs)
 
     def ListPaymentServices(self, **kwargs):
+        print(**kwargs)
         with self.client as api_client:
             api_instance = gr4vyPaymentServices(api_client)
             return api_instance.listPaymentServices(**kwargs)
@@ -184,7 +185,7 @@ class Gr4vyClient:
     def GetTransaction(self,transaction_id):
         with self.client as api_client:
             api_instance = gr4vyTransactions(api_client)
-            return api_instance.getTransaction(transaction_id, transaction_id)
+            return api_instance.getTransaction(transaction_id)
 
     def ListTransactions(self, **kwargs):
         with self.client as api_client:

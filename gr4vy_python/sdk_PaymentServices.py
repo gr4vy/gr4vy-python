@@ -3,7 +3,7 @@ from gr4vy_python.gr4vy_api.openapi_client.api import payment_services_api
 from pprint import pprint
 
 class gr4vyPaymentServices(payment_services_api.PaymentServicesApi):
-    def __init__(client):
+    def __init__(self, client):
         super().__init__(client)
 
     def listPaymentServices(self, **kwargs):

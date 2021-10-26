@@ -14,9 +14,6 @@ private_key_location = "./private_key.pem"
 
 client = Gr4vyClient(gr4vy_id,private_key_location)
 
-buyer_request = BuyerRequest(display_name="Testing")
-buyer_id = client.AddBuyer(buyer_request).id
-
 # method = {
 #   "method": "card",
 #   "number": "4111111111111111",
@@ -68,6 +65,9 @@ buyer_id = client.AddBuyer(buyer_request).id
 def testCreateClient():
     assert client
 
+def testGr4vyClientWithBaseUrl():
+    assert Gr4vyClientWithBaseUrl("https://spider.gr4vy.app", "private_key.pem")
+
 def testprivate_key_file_to_string():
     assert client.private_key_file_to_string()
 
@@ -75,25 +75,38 @@ def testGenerateToken():
     assert client.GenerateToken()
 
 def testGenerateEmbedToken():
+    buyer_id = client.ListBuyers()["items"][0]["id"]
     embed = {"amount": 1299,
             "currency": "USD",
             "buyerId": buyer_id,
             } 
     assert client.GenerateEmbedToken(embed)
-
-def testGetBuyer():
-    assert client.GetBuyer(buyer_id)
-
-def testListBuyers():
-    client.ListBuyers()
-
+'''
 def testAddBuyer():
     buyer_request = BuyerRequest(display_name="Test")
     assert client.AddBuyer(buyer_request)
+'''
+def testGetBuyer():
+    buyer_id = client.ListBuyers()["items"][0]["id"]
+    assert client.GetBuyer(buyer_id)
+
+def testListBuyers():
+    assert client.ListBuyers()
 
 def testUpdateBuyer():
+    buyer_id = client.ListBuyers()["items"][0]["id"]
     buyer_update = BuyerUpdate()
     assert client.UpdateBuyer(buyer_id, buyer_update)
+
+'''
+def testDeleteBuyer():
+    try:
+        buyer_id = client.ListBuyers()["items"][0]
+        client.DeleteBuyer(buyer_id)
+    except KeyError:
+        print("No buyer's to delete")
+        assert False
+'''
 '''
 def testGetPaymentMethod():
     assert client.GetPaymentMethod(payment_method_id)
@@ -123,16 +136,17 @@ def testGetPaymentServiceDefinition():
 
 def testListPaymentServiceDefintions():
     assert client.ListPaymentServiceDefintions()
-
+'''
 def testListPaymentServices():
     assert client.ListPaymentServices()
-
+'''
 def testAddPaymentService():
     assert client.AddPaymentService(payment_service_request)
-
+'''
 def testGetPaymentService():
+    payment_service_id = client.ListPaymentServices()["items"][0]["id"]
     assert client.GetPaymentService(payment_service_id)
-
+'''
 def testUpdatePaymentService():
     payment_service_update = PaymentServiceUpdate(payment_service)
     assert client.UpdatePaymentService(payment_service_update)
@@ -147,25 +161,21 @@ def testCaptureTransaction():
     }
     transaction_capture_request = TransactionCaptureRequest(**transaction_capture)
     assert client.CaptureTransaction(transaction_id, transaction_capture_request)
-
+'''
 def testGetTransaction():
+    transaction_id = client.ListTransactions()["items"][0]["id"]
     assert client.GetTransaction(transaction_id)
 
 def testListTransactions():
     assert client.ListTransactions()
-
-def RefundTransaction():
-    assert client.RefundTransaction(transaction_id)
-
-class testGr4vyClientWithBaseUrl(Gr4vyClient):
-    assert Gr4vyClientWithBaseUrl("https://spider.gr4vy.app", "private_key.pem")
-
-def testDeleteBuyer():
-    assert client.DeleteBuyer(buyer_id)
+'''
+def testRefundTransaction():
+    transaction_id = client.ListTransactions()["items"][0]["id"]
+    TransactionRefundRequest()
+    assert client.RefundTransaction(transaction_id, )
 
 def testDeletePaymentService():
     assert client.DeletePaymentService(payment_service_id)
-
 
 def testDeletePaymentMethod():
     assert client.DeletePaymentMethod(payment_method_id)
