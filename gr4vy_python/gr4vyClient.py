@@ -4,7 +4,7 @@ from datetime import datetime, timezone, timedelta
 import sys
 from pem import parse_file
 
-from gr4vy_api.openapi_client import Configuration, ApiClient
+from gr4vy_python.gr4vy_api.openapi_client import Configuration, ApiClient
 
 from gr4vy_python.sdk_Buyers import gr4vyBuyers
 from gr4vy_python.sdk_PaymentMethods import gr4vyPaymentMethods
@@ -27,11 +27,10 @@ VERSION = 0.1
 PYTHON_VERSION = '{}.{}.{}'.format(sys.version_info[0], sys.version_info[1], sys.version_info[2])
 
 class Gr4vyClient:
-    def __init__(self, gr4vyId, private_key_file, scopes = ["*.read", "*.write"]):
+    def __init__(self, gr4vyId, private_key_file):
         self.gr4vyId = gr4vyId
         self.private_key_file = private_key_file
-        self.scopes = scopes
-        self.GenerateToken(self.scopes)
+        self.GenerateToken()
         self.CreateConfiguration()
         self.CreateClient()
 
@@ -46,13 +45,13 @@ class Gr4vyClient:
         kid = str(self.thumbprint(jwk))
         return private_key_string, kid
 
-    def GenerateToken(self, embed_data = None):
+    def GenerateToken(self, scopes = ["*.read", "*.write"], embed_data = None):
         private_key, kid = self.private_key_file_to_string()
         data = {"iss": "Gr4vy SDK {} - {}".format(VERSION, PYTHON_VERSION),
                 "nbf": datetime.now(tz=timezone.utc),
                 "exp": datetime.now(tz=timezone.utc) + timedelta(seconds=3000),
                 "jti": str(uuid.uuid4()),
-                "scopes": self.scopes
+                "scopes": scopes
                 }
         if embed_data:
             data["embed"] = embed_data
@@ -60,7 +59,7 @@ class Gr4vyClient:
         return self.token
     
     def GenerateEmbedToken(self, embed_data):
-        self.GenerateToken(embed_data)
+        self.GenerateToken(embed_data=embed_data)
         return self.token
 
     def CreateConfiguration(self):
@@ -115,12 +114,12 @@ class Gr4vyClient:
     def ListPaymentMethods(self, **kwargs):
         with self.client as api_client:
             api_instance = gr4vyPaymentMethods(api_client)
-            return api_instance.listPaymentMethods(**kwargs)
+            return api_instance.listPaymentMethods()
 
-    def StorePaymentMethod(self, payment_method):
+    def StorePaymentMethod(self, payment_method_request):
         with self.client as api_client:
             api_instance = gr4vyPaymentMethods(api_client)
-            return api_instance.storePaymentMethod(payment_method=payment_method)
+            return api_instance.storePaymentMethod(payment_method_request=payment_method_request)
 
     def DeletePaymentMethod(self, payment_method_id):
         with self.client as api_client:
@@ -139,7 +138,7 @@ class Gr4vyClient:
 
     def GetPaymentServiceDefinition(self, payment_service_definition_id):
         with self.client as api_client:
-            api_instance = gr4vyPaymentOptions(api_client)
+            api_instance = gr4vyPaymentServiceDefinitions(api_client)
             return api_instance.getPaymentServiceDefinition(payment_service_definition_id)
 
     def ListPaymentServiceDefintions(self, **kwargs):
@@ -148,6 +147,7 @@ class Gr4vyClient:
             return api_instance.listPaymentServiceDefintions(**kwargs)
 
     def ListPaymentServices(self, **kwargs):
+        print(**kwargs)
         with self.client as api_client:
             api_instance = gr4vyPaymentServices(api_client)
             return api_instance.listPaymentServices(**kwargs)
@@ -185,7 +185,7 @@ class Gr4vyClient:
     def GetTransaction(self,transaction_id):
         with self.client as api_client:
             api_instance = gr4vyTransactions(api_client)
-            return api_instance.getTransaction(transaction_id, transaction_id)
+            return api_instance.getTransaction(transaction_id)
 
     def ListTransactions(self, **kwargs):
         with self.client as api_client:
@@ -195,7 +195,7 @@ class Gr4vyClient:
     def RefundTransaction(self, transaction_id, transaction_refund_request):
         with self.client as api_client:
             api_instance = gr4vyTransactions(api_client)
-            return api_instance.refundTransaction(transaction_id, transaction_refund_request)
+            return api_instance.refundTransaction(transaction_id=transaction_id, transaction_refund_request=transaction_refund_request)
 
     def b64e(self, value: bytes) -> str:
         return base64.urlsafe_b64encode(value).decode("utf8").strip("=")
@@ -211,5 +211,5 @@ class Gr4vyClient:
         return self.b64e(digest.finalize())    
 
 class Gr4vyClientWithBaseUrl(Gr4vyClient):
-    def __init__(self, base_url, private_key, scopes = ["*.read", "*.write"]):
-        super().__init__(base_url, private_key, scopes)
+    def __init__(self, base_url, private_key):
+        super().__init__(base_url, private_key)

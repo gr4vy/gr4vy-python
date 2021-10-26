@@ -1,7 +1,7 @@
-import gr4vy_api.openapi_client
-from gr4vy_api.openapi_client.api import buyers_api
+import gr4vy_python.gr4vy_api.openapi_client
+from gr4vy_python.gr4vy_api.openapi_client.api import buyers_api
 from pprint import pprint
-from gr4vy_api.openapi_client.model.error401_unauthorized import Error401Unauthorized
+from gr4vy_python.gr4vy_api.openapi_client.model.error401_unauthorized import Error401Unauthorized
 
 
 class gr4vyBuyers(buyers_api.BuyersApi):
@@ -13,7 +13,7 @@ class gr4vyBuyers(buyers_api.BuyersApi):
             # List buyers
             api_response = self.list_buyers(**kwargs)
             return api_response
-        except gr4vy_api.openapi_client.ApiException as e:
+        except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling BuyersApi->list_buyers: %s\n" % e)
     
     def addBuyer(self, buyer_request):
@@ -21,7 +21,7 @@ class gr4vyBuyers(buyers_api.BuyersApi):
             # New buyer
             api_response = self.add_buyer(buyer_request=buyer_request)
             return api_response
-        except gr4vy_api.openapi_client.ApiException as e:
+        except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling BuyersApi->add_buyer: %s\n" % e)
     
     def getBuyer(self, buyer_id):
@@ -29,7 +29,7 @@ class gr4vyBuyers(buyers_api.BuyersApi):
             # Get buyer
             api_response = self.get_buyer(buyer_id)
             return api_response
-        except gr4vy_api.openapi_client.ApiException as e:
+        except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling BuyersApi->get_buyer: %s\n" % e)
 
     def updateBuyer(self, buyer_id, buyer_update):
@@ -37,12 +37,13 @@ class gr4vyBuyers(buyers_api.BuyersApi):
             # Update buyer
             api_response = self.update_buyer(buyer_id, buyer_update=buyer_update)
             return api_response
-        except gr4vy_api.openapi_client.ApiException as e:
+        except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling BuyersApi->update_buyer: %s\n" % e)
     
     def deleteBuyer(self, buyer_id):
         try:
             # Delete buyer
-            self.delete_buyer(buyer_id)
-        except gr4vy_api.openapi_client.ApiException as e:
+            api_response = self.delete_buyer(buyer_id)
+            return api_response
+        except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling BuyersApi->delete_buyer: %s\n" % e)

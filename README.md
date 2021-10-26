@@ -14,7 +14,7 @@ pip install ./gravy-python
 
 Add import:
 
-```pylang
+```python
 import "gr4vy_python"
 ```
 
@@ -27,7 +27,7 @@ Once you have been set up with a Gr4vy account you will need to head over to the
 **Integrations** panel and generate a private key. We recommend storing this key
 in a secure location but in this code sample we simply read the file from disk.
 
-```golang
+```python
 from gr4vy_python import Gr4vyClient
 client = Gr4vyClient("gr4vyInstance","location_of_key_file")
 client.ListBuyers()
@@ -40,7 +40,7 @@ To create a token for Gr4vy Embed, call the `client.GetEmbedToken(embed)`
 function with the amount, currency, and optional buyer information for Gr4vy
 Embed.
 
-```golang
+```python
 embed = {
   "amount": 1299,
   "currency": "USD",
@@ -57,7 +57,7 @@ The `buyer_id` and/or `buyer_external_identifier` fields can be used to allow
 the token to pull in previously stored payment methods for a user. A buyer
 needs to be created before it can be used in this way.
 
-```golang
+```python
   from gr4vy_python import Gr4vyClient
   from gr4vy_python import BuyerRequest
   client = Gr4vyClient("spider","private_key.pem")
@@ -81,14 +81,14 @@ needs to be created before it can be used in this way.
 
 The client can be initialized with the Gr4vy ID (`gr4vyId`) and the location of the private key
 
-```golang
+```python
   client = Gr4vyClient("spider","private_key.pem")
 ```
 
 Alternatively, instead of the `gr4vyId` it can be initialized with the `baseUrl`
 of the server to use directly.
 
-```golang
+```python
   client = Gr4vyClientWithBaseUrl("https://spider.gr4vy.app","private_key.pem")
 ```
 
@@ -101,7 +101,7 @@ tab.
 This library conveniently maps every API path to a seperate function. For
 example, `GET /buyers?limit=100` would be:
 
-```golang
+```python
   client.ListBuyers(2)
 ```
 
@@ -112,7 +112,7 @@ for that resource that is named `Gr4vy<Resource>Update`.
 For example, to create a buyer you will need to pass a `Gr4vyBuyerRequest` object to
 the `AddBuyer` method.
 
-```golang
+```python
   from gr4vy_python import BuyerRequest
 
   buyer_request = BuyerRequest(display_name = "Jane Smith")
@@ -123,7 +123,7 @@ the `AddBuyer` method.
 So to update a buyer you will need to pass in the `Gr4vyBuyerUpdate` to the
 `UpdateBuyer` method.
 
-```golang
+```python
   buyer_request = BuyerUpdate(display_name = "Jane Changed")
   buyer_update = client.UpdateBuyer(buyer_id, buyer_request)
 ```
@@ -133,7 +133,7 @@ So to update a buyer you will need to pass in the `Gr4vyBuyerUpdate` to the
 Every resolved API call returns the requested resource, errors are printed to the console
 
 
-```golang
+```python
   print(client.ListBuyers())
 ```
 
@@ -141,7 +141,7 @@ Every resolved API call returns the requested resource, errors are printed to th
 
 The SDK makes it easy possible to log responses to the console.
 
-```golang
+```python
   print(client.ListBuyers())
 ```
 
@@ -165,7 +165,7 @@ on the API spec.
 Run the tests to ensure the changes do not break any existing tests. Using PyTest. In test.py update the following lines with your gr4vy id and the location of the private key file
 
 
-```golang
+```python
 gr4vy_id = "YOURGR4VYID"
 private_key_location = "PRIVATE_KEY_LOCATION"
 ```
