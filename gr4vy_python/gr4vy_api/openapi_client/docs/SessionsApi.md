@@ -18,6 +18,7 @@ Authenticate a user.
 
 ### Example
 
+
 ```python
 import time
 import openapi_client
@@ -38,7 +39,7 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = sessions_api.SessionsApi(api_client)
-    unknown_base_type =  # UNKNOWN_BASE_TYPE |  (optional)
+    unknown_base_type = None # UNKNOWN_BASE_TYPE |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
@@ -72,6 +73,7 @@ No authorization required
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a session object. |  -  |
@@ -91,6 +93,7 @@ Ends a user's session by invalidating the used access token.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -145,6 +148,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Returns an empty response. |  -  |
@@ -162,6 +166,7 @@ Re-authenticate a user using a refresh token.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -218,6 +223,7 @@ This endpoint does not need any parameter.
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a session object. |  -  |

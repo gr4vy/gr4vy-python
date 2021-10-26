@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **private_key** | **str, none_type** | The private key for the key-pair. This is only returned after the key is initially requested. For subsequent API calls this value is &#x60;null&#x60;. | [optional] 
 **created_at** | **datetime** | The date and time when this key pair was created. | [optional] 
 **updated_at** | **datetime** | The date and time when this key pair was last updated. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -22,6 +22,7 @@ Internal API used as a redirect endpoint for payment methods that require buyer 
 
 ### Example
 
+
 ```python
 import time
 import openapi_client
@@ -73,6 +74,7 @@ No authorization required
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **302** | Redirects the browser back to the &#x60;redirect_url&#x60; specified when the payment method was first created. It appends the payment method&#39;s ID and status. |  * location - The URL to redirect the browser to. This is the &#x60;redirect_url&#x60; specified when the payment method was first created with some additional query parameters appended.  * &#x60;payment_method_id&#x60; - The ID of the payment method. * &#x60;payment_method_status&#x60; - The current value of the   &#x60;status&#x60;  field of the payment method. <br>  |
@@ -90,6 +92,7 @@ Removes a stored payment method.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -149,6 +152,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Returns an empty response. |  -  |
@@ -167,6 +171,7 @@ Gets the details for a stored payment method.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -228,6 +233,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a payment method. |  -  |
@@ -246,6 +252,7 @@ Returns a list of stored (tokenized) payment methods for a buyer in a short toke
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -316,6 +323,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of available payment methods for a buyer, filtered by the given currency and country code. |  -  |
@@ -334,6 +342,7 @@ Returns a list of stored (tokenized) payment methods.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -403,6 +412,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of payment methods. |  -  |
@@ -418,6 +428,7 @@ Redirect buyer to service
 Redirect a buyer to an alternative payment provider to approve their payment method. This is mainly used with providers like GoCardless and Klarna to redirect a buyer to their sites.
 
 ### Example
+
 
 ```python
 import time
@@ -468,6 +479,7 @@ No authorization required
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **302** | Redirect the buyer to approve this payment method. |  * location - The URL to redirect the browser to. This is the approval URL for an alternative payment method like GoCardless. <br>  |
@@ -485,6 +497,7 @@ Stores and tokenizes a new payment method.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -513,7 +526,7 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = payment_methods_api.PaymentMethodsApi(api_client)
-    unknown_base_type =  # UNKNOWN_BASE_TYPE |  (optional)
+    unknown_base_type = None # UNKNOWN_BASE_TYPE |  (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
@@ -547,6 +560,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns the created payment method. |  -  |

@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **status** | **int** | The HTTP status code of this error. | [optional]  if omitted the server will use the default value of 0
 **message** | **str** | A human readable message that describes the error. The content of this field should not be used to determine any business logic.  | [optional] 
 **details** | [**[ErrorDetail]**](ErrorDetail.md) | A list of detail objects that further clarify the reason for the error. Not every error supports more detail. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

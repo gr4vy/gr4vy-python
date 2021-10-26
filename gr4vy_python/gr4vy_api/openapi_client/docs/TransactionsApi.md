@@ -22,6 +22,7 @@ Internal API used as a redirect endpoint for transactions that require buyer aut
 
 ### Example
 
+
 ```python
 import time
 import openapi_client
@@ -71,6 +72,7 @@ No authorization required
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **302** | Redirects the browser back to the &#x60;redirect_url&#x60; specified when the transaction was first created. It appends the transaction&#39;s ID and status. |  * location - The URL to redirect the browser to. This is the &#x60;redirect_url&#x60; specified when the transaction was first created with some additional query parameters appended.  * &#x60;transaction_id&#x60; - The ID of the transaction * &#x60;transaction_status&#x60; - The current value of the   &#x60;status&#x60;  field of the transaction. <br>  |
@@ -88,6 +90,7 @@ Attempts to create an authorization for a payment method. In some cases it is no
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -119,12 +122,12 @@ with openapi_client.ApiClient(configuration) as api_client:
     transaction_request = TransactionRequest(
         amount=1299,
         currency="USD",
-        payment_method=,
+        payment_method=None,
         store=True,
         intent="capture",
         external_identifier="user-789123",
         environment="staging",
-        three_d_secure_data=,
+        three_d_secure_data=None,
     ) # TransactionRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -159,6 +162,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns the created transaction. |  -  |
@@ -177,6 +181,7 @@ Captures a previously authorized transaction.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -251,6 +256,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns the captured transaction. |  -  |
@@ -270,6 +276,7 @@ Get information about a transaction.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -330,6 +337,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a transaction resource. |  -  |
@@ -348,6 +356,7 @@ Lists all transactions for an account. Sorted by last `updated_at` status.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -429,6 +438,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a paginated list of transactions for an account. |  -  |
@@ -444,6 +454,7 @@ Redirect buyer to service
 Redirect a buyer to an alternative payment provider to approve their transaction. This is mainly used with providers like GoCardless and Klarna to redirect a buyer to their sites.
 
 ### Example
+
 
 ```python
 import time
@@ -494,6 +505,7 @@ No authorization required
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **302** | Redirect the buyer to approve this transaction. |  * location - The URL to redirect the browser to. This is the approval URL for an alternative payment method like GoCardless. <br>  |
@@ -511,6 +523,7 @@ Refunds or voids transaction. If this transaction was already captured, it will 
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -585,6 +598,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns cancelled transaction. |  -  |

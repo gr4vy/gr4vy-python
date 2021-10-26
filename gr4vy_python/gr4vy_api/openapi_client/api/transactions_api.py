@@ -42,74 +42,7 @@ class TransactionsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __approve_transaction(
-            self,
-            transaction_id,
-            **kwargs
-        ):
-            """Buyer approval callback  # noqa: E501
-
-            Internal API used as a redirect endpoint for transactions that require buyer authorization.  For example, when a buyer tries to create a PayPal transaction, the buyer needs to be sent to PayPal, after which they are sent back to this endpoint upon completion.  This API applies any required updates for the transaction based on its query parameters and then redirects the browser back to the `redirect_url` specified when the payment method was first created.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.approve_transaction(transaction_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                transaction_id (str): The ID for the transaction to get the information for.
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['transaction_id'] = \
-                transaction_id
-            return self.call_with_http_info(**kwargs)
-
-        self.approve_transaction = _Endpoint(
+        self.approve_transaction_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [],
@@ -156,73 +89,9 @@ class TransactionsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__approve_transaction
+            api_client=api_client
         )
-
-        def __authorize_new_transaction(
-            self,
-            **kwargs
-        ):
-            """New transaction  # noqa: E501
-
-            Attempts to create an authorization for a payment method. In some cases it is not possible to create the authorization without redirecting the user for their authorization. In these cases the status is set to `buyer_approval_pending` and an `approval_url` is returned.  Additionally, this endpoint accepts a few additional fields that allow for simultaneous capturing and storage of the payment method.  * `store` - Use this field to store the payment method for future use. Not all payment methods support this feature. * `capture` - Use this method to also perform a capture of the transaction after it has been authorized.   # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.authorize_new_transaction(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                transaction_request (TransactionRequest): [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Transaction
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.authorize_new_transaction = _Endpoint(
+        self.authorize_new_transaction_endpoint = _Endpoint(
             settings={
                 'response_type': (Transaction,),
                 'auth': [
@@ -270,78 +139,9 @@ class TransactionsApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__authorize_new_transaction
+            api_client=api_client
         )
-
-        def __capture_transaction(
-            self,
-            transaction_id,
-            **kwargs
-        ):
-            """Capture transaction  # noqa: E501
-
-            Captures a previously authorized transaction.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.capture_transaction(transaction_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                transaction_id (str): The ID for the transaction to get the information for.
-
-            Keyword Args:
-                transaction_capture_request (TransactionCaptureRequest): [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Transaction
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['transaction_id'] = \
-                transaction_id
-            return self.call_with_http_info(**kwargs)
-
-        self.capture_transaction = _Endpoint(
+        self.capture_transaction_endpoint = _Endpoint(
             settings={
                 'response_type': (Transaction,),
                 'auth': [
@@ -396,77 +196,9 @@ class TransactionsApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__capture_transaction
+            api_client=api_client
         )
-
-        def __get_transaction(
-            self,
-            transaction_id,
-            **kwargs
-        ):
-            """Get transaction  # noqa: E501
-
-            Get information about a transaction.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.get_transaction(transaction_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                transaction_id (str): The ID for the transaction to get the information for.
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Transaction
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['transaction_id'] = \
-                transaction_id
-            return self.call_with_http_info(**kwargs)
-
-        self.get_transaction = _Endpoint(
+        self.get_transaction_endpoint = _Endpoint(
             settings={
                 'response_type': (Transaction,),
                 'auth': [
@@ -515,83 +247,9 @@ class TransactionsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__get_transaction
+            api_client=api_client
         )
-
-        def __list_transactions(
-            self,
-            **kwargs
-        ):
-            """List transactions  # noqa: E501
-
-            Lists all transactions for an account. Sorted by last `updated_at` status.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.list_transactions(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                search (str): Filters the transactions to only the items for which the `id` or `external_identifier` matches this value. This field allows for a partial match, matching any transaction for which either of the fields partially or completely matches.. [optional]
-                transaction_status (str): Filters the results to only the transactions for which the `status` matches this value.. [optional]
-                buyer_id (str): Filters the results to only the items for which the `buyer` has an `id` that matches this value.. [optional]
-                buyer_external_identifier (str): Filters the results to only the items for which the `buyer` has an `external_identifier` that matches this value.. [optional]
-                before_created_at (str): Filters the results to only transactions created before this ISO date-time string.. [optional]
-                after_created_at (str): Filters the results to only transactions created after this ISO date-time string.. [optional]
-                before_updated_at (str): Filters the results to only transactions last updated before this ISO date-time string.. [optional]
-                after_updated_at (str): Filters the results to only transactions last updated after this ISO date-time string.. [optional]
-                environment (str): Filters the results to only the items available in this environment.. [optional] if omitted the server will use the default value of "production"
-                limit (int): Defines the maximum number of items to return for this request.. [optional] if omitted the server will use the default value of 20
-                cursor (str): A cursor that identifies the page of results to return. This is used to paginate the results of this API.  For the first page of results, this parameter can be left out. For additional pages, use the value returned by the API in the `next_cursor` field. Similarly the `previous_cursor` can be used to reverse backwards in the list.. [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Transactions
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.list_transactions = _Endpoint(
+        self.list_transactions_endpoint = _Endpoint(
             settings={
                 'response_type': (Transactions,),
                 'auth': [
@@ -726,77 +384,9 @@ class TransactionsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__list_transactions
+            api_client=api_client
         )
-
-        def __redirect_transaction_approval(
-            self,
-            transaction_approval_token,
-            **kwargs
-        ):
-            """Redirect buyer to service  # noqa: E501
-
-            Redirect a buyer to an alternative payment provider to approve their transaction. This is mainly used with providers like GoCardless and Klarna to redirect a buyer to their sites.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.redirect_transaction_approval(transaction_approval_token, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                transaction_approval_token (str): The token used to redirect the buyer for approval of a transaction. This token does not represent anything to the consumer and no value should be derived from it except for internal use.
-
-            Keyword Args:
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                None
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['transaction_approval_token'] = \
-                transaction_approval_token
-            return self.call_with_http_info(**kwargs)
-
-        self.redirect_transaction_approval = _Endpoint(
+        self.redirect_transaction_approval_endpoint = _Endpoint(
             settings={
                 'response_type': None,
                 'auth': [],
@@ -843,78 +433,9 @@ class TransactionsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__redirect_transaction_approval
+            api_client=api_client
         )
-
-        def __refund_transaction(
-            self,
-            transaction_id,
-            **kwargs
-        ):
-            """Refund or void transactions  # noqa: E501
-
-            Refunds or voids transaction. If this transaction was already captured, it will issue a refund. If the transaction was not yet captured the authorization will instead be voided.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.refund_transaction(transaction_id, async_req=True)
-            >>> result = thread.get()
-
-            Args:
-                transaction_id (str): The ID for the transaction to get the information for.
-
-            Keyword Args:
-                transaction_refund_request (TransactionRefundRequest): [optional]
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                Transaction
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['transaction_id'] = \
-                transaction_id
-            return self.call_with_http_info(**kwargs)
-
-        self.refund_transaction = _Endpoint(
+        self.refund_transaction_endpoint = _Endpoint(
             settings={
                 'response_type': (Transaction,),
                 'auth': [
@@ -969,6 +490,472 @@ class TransactionsApi(object):
                     'application/json'
                 ]
             },
-            api_client=api_client,
-            callable=__refund_transaction
+            api_client=api_client
         )
+
+    def approve_transaction(
+        self,
+        transaction_id,
+        **kwargs
+    ):
+        """Buyer approval callback  # noqa: E501
+
+        Internal API used as a redirect endpoint for transactions that require buyer authorization.  For example, when a buyer tries to create a PayPal transaction, the buyer needs to be sent to PayPal, after which they are sent back to this endpoint upon completion.  This API applies any required updates for the transaction based on its query parameters and then redirects the browser back to the `redirect_url` specified when the payment method was first created.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.approve_transaction(transaction_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            transaction_id (str): The ID for the transaction to get the information for.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['transaction_id'] = \
+            transaction_id
+        return self.approve_transaction_endpoint.call_with_http_info(**kwargs)
+
+    def authorize_new_transaction(
+        self,
+        **kwargs
+    ):
+        """New transaction  # noqa: E501
+
+        Attempts to create an authorization for a payment method. In some cases it is not possible to create the authorization without redirecting the user for their authorization. In these cases the status is set to `buyer_approval_pending` and an `approval_url` is returned.  Additionally, this endpoint accepts a few additional fields that allow for simultaneous capturing and storage of the payment method.  * `store` - Use this field to store the payment method for future use. Not all payment methods support this feature. * `capture` - Use this method to also perform a capture of the transaction after it has been authorized.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.authorize_new_transaction(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            transaction_request (TransactionRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Transaction
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.authorize_new_transaction_endpoint.call_with_http_info(**kwargs)
+
+    def capture_transaction(
+        self,
+        transaction_id,
+        **kwargs
+    ):
+        """Capture transaction  # noqa: E501
+
+        Captures a previously authorized transaction.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.capture_transaction(transaction_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            transaction_id (str): The ID for the transaction to get the information for.
+
+        Keyword Args:
+            transaction_capture_request (TransactionCaptureRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Transaction
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['transaction_id'] = \
+            transaction_id
+        return self.capture_transaction_endpoint.call_with_http_info(**kwargs)
+
+    def get_transaction(
+        self,
+        transaction_id,
+        **kwargs
+    ):
+        """Get transaction  # noqa: E501
+
+        Get information about a transaction.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_transaction(transaction_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            transaction_id (str): The ID for the transaction to get the information for.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Transaction
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['transaction_id'] = \
+            transaction_id
+        return self.get_transaction_endpoint.call_with_http_info(**kwargs)
+
+    def list_transactions(
+        self,
+        **kwargs
+    ):
+        """List transactions  # noqa: E501
+
+        Lists all transactions for an account. Sorted by last `updated_at` status.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_transactions(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            search (str): Filters the transactions to only the items for which the `id` or `external_identifier` matches this value. This field allows for a partial match, matching any transaction for which either of the fields partially or completely matches.. [optional]
+            transaction_status (str): Filters the results to only the transactions for which the `status` matches this value.. [optional]
+            buyer_id (str): Filters the results to only the items for which the `buyer` has an `id` that matches this value.. [optional]
+            buyer_external_identifier (str): Filters the results to only the items for which the `buyer` has an `external_identifier` that matches this value.. [optional]
+            before_created_at (str): Filters the results to only transactions created before this ISO date-time string.. [optional]
+            after_created_at (str): Filters the results to only transactions created after this ISO date-time string.. [optional]
+            before_updated_at (str): Filters the results to only transactions last updated before this ISO date-time string.. [optional]
+            after_updated_at (str): Filters the results to only transactions last updated after this ISO date-time string.. [optional]
+            environment (str): Filters the results to only the items available in this environment.. [optional] if omitted the server will use the default value of "production"
+            limit (int): Defines the maximum number of items to return for this request.. [optional] if omitted the server will use the default value of 20
+            cursor (str): A cursor that identifies the page of results to return. This is used to paginate the results of this API.  For the first page of results, this parameter can be left out. For additional pages, use the value returned by the API in the `next_cursor` field. Similarly the `previous_cursor` can be used to reverse backwards in the list.. [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Transactions
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.list_transactions_endpoint.call_with_http_info(**kwargs)
+
+    def redirect_transaction_approval(
+        self,
+        transaction_approval_token,
+        **kwargs
+    ):
+        """Redirect buyer to service  # noqa: E501
+
+        Redirect a buyer to an alternative payment provider to approve their transaction. This is mainly used with providers like GoCardless and Klarna to redirect a buyer to their sites.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.redirect_transaction_approval(transaction_approval_token, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            transaction_approval_token (str): The token used to redirect the buyer for approval of a transaction. This token does not represent anything to the consumer and no value should be derived from it except for internal use.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['transaction_approval_token'] = \
+            transaction_approval_token
+        return self.redirect_transaction_approval_endpoint.call_with_http_info(**kwargs)
+
+    def refund_transaction(
+        self,
+        transaction_id,
+        **kwargs
+    ):
+        """Refund or void transactions  # noqa: E501
+
+        Refunds or voids transaction. If this transaction was already captured, it will issue a refund. If the transaction was not yet captured the authorization will instead be voided.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.refund_transaction(transaction_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            transaction_id (str): The ID for the transaction to get the information for.
+
+        Keyword Args:
+            transaction_refund_request (TransactionRefundRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            Transaction
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['transaction_id'] = \
+            transaction_id
+        return self.refund_transaction_endpoint.call_with_http_info(**kwargs)
+

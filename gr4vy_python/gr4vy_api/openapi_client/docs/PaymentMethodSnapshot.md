@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **scheme** | **str, none_type** | An additional label used to differentiate different sub-types of a payment method. Most notably this can include the type of card used in a transaction. | [optional] 
 **expiration_date** | **str, none_type** | The expiration date for this payment method. This is mostly used by cards where the card might have an expiration date. | [optional] 
 **approval_url** | **str, none_type** | The optional URL that the buyer needs to be redirected to to further authorize their payment. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

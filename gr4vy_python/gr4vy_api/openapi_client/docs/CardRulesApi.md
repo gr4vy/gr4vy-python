@@ -21,6 +21,7 @@ Creates a new rule that is used for card transactions.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -54,7 +55,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         environment="production",
         position=1,
         conditions=[
-            ,
+            None,
         ],
         payment_service_ids=["f47db210-8e30-4f74-8123-b834604f2042","0bb93ab0-86ef-4ad5-addf-b69913128d96"],
         unprocessable_fallback_strategy="use_all_providers",
@@ -93,6 +94,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns the newly created rule. |  -  |
@@ -111,6 +113,7 @@ Deletes a specific card rule.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -171,6 +174,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Returns an empty response. |  -  |
@@ -190,6 +194,7 @@ Returns a rule that can be used for card transactions.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -251,6 +256,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a card rule. |  -  |
@@ -269,6 +275,7 @@ Returns a list of rules for card transactions.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -334,6 +341,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of card rules. |  -  |
@@ -351,6 +359,7 @@ Updates a rule that can be used for card transactions.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -386,7 +395,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         environment="production",
         position=1,
         conditions=[
-            ,
+            None,
         ],
         payment_service_ids=["f47db210-8e30-4f74-8123-b834604f2042","0bb93ab0-86ef-4ad5-addf-b69913128d96"],
         unprocessable_fallback_strategy="use_all_providers",
@@ -434,6 +443,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns the updated card rule. |  -  |

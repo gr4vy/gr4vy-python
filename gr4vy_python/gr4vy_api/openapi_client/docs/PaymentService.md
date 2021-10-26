@@ -29,6 +29,7 @@ Name | Type | Description | Notes
 **position** | **float** | The numeric rank of a payment service. Payment services with a lower position value are processed first. | [optional] 
 **created_at** | **datetime** | The date and time when this service was created. | [optional] 
 **updated_at** | **datetime** | The date and time when this service was last updated. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

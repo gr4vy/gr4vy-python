@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **display_name** | **str** | The name to display for a field in the dashboard. | [optional] 
 **required** | **bool** | Defines if this field is required when the service is created. | [optional] 
 **format** | **str** | Defines the type of input that needs to be rendered for this field. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

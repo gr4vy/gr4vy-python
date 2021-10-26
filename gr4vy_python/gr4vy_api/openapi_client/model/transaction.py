@@ -26,6 +26,9 @@ from gr4vy_python.gr4vy_api.openapi_client.model_utils import (  # noqa: F401
     none_type,
     validate_get_composed_info,
 )
+from ..model_utils import OpenApiModel
+from gr4vy_python.gr4vy_api.openapi_client.exceptions import ApiAttributeError
+
 
 
 class Transaction(ModelNormal):
@@ -101,7 +104,13 @@ class Transaction(ModelNormal):
         },
     }
 
-    additional_properties_type = None
+    @cached_property
+    def additional_properties_type():
+        """
+        This must be a method because a model may have properties that are
+        of type self, this must run after the class is loaded
+        """
+        return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
 
@@ -123,12 +132,12 @@ class Transaction(ModelNormal):
             'captured_amount': (int,),  # noqa: E501
             'refunded_amount': (int,),  # noqa: E501
             'currency': (str,),  # noqa: E501
-            'payment_method': (object,),  # noqa: E501
-            'buyer': (object, none_type,),  # noqa: E501
+            'payment_method': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'buyer': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'external_identifier': (str, none_type,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'payment_service': (object,),  # noqa: E501
+            'payment_service': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'environment': (str,),  # noqa: E501
         }
 
@@ -154,7 +163,97 @@ class Transaction(ModelNormal):
         'environment': 'environment',  # noqa: E501
     }
 
+    read_only_vars = {
+    }
+
     _composed_schemas = {}
+
+    @classmethod
+    @convert_js_args_to_python_args
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+        """Transaction - a model defined in OpenAPI
+
+        Keyword Args:
+            _check_type (bool): if True, values for parameters in openapi_types
+                                will be type checked and a TypeError will be
+                                raised if the wrong type is input.
+                                Defaults to True
+            _path_to_item (tuple/list): This is a list of keys or values to
+                                drill down to the model in received_data
+                                when deserializing a response
+            _spec_property_naming (bool): True if the variable names in the input data
+                                are serialized names, as specified in the OpenAPI document.
+                                False if the variable names in the input data
+                                are pythonic names, e.g. snake case (default)
+            _configuration (Configuration): the instance to use when
+                                deserializing a file_type parameter.
+                                If passed, type conversion is attempted
+                                If omitted no type conversion is done.
+            _visited_composed_classes (tuple): This stores a tuple of
+                                classes that we have traveled through so that
+                                if we see that class again we will not use its
+                                discriminator again.
+                                When traveling through a discriminator, the
+                                composed schema that is
+                                is traveled through is added to this set.
+                                For example if Animal has a discriminator
+                                petType and we pass in "Dog", and the class Dog
+                                allOf includes Animal, we move through Animal
+                                once using the discriminator, and pick Dog.
+                                Then in Dog, we will make an instance of the
+                                Animal class but this time we won't travel
+                                through its discriminator because we passed in
+                                _visited_composed_classes = (Animal,)
+            type (str): The type of this resource. Is always `transaction`.. [optional] if omitted the server will use the default value of "transaction"  # noqa: E501
+            id (str): The unique identifier for this transaction.. [optional]  # noqa: E501
+            status (str): The status of the transaction. The status may change over time as asynchronous  processing events occur.. [optional]  # noqa: E501
+            amount (int): The authorized amount for this transaction. This can be different than the actual captured amount and part of this amount may be refunded.. [optional]  # noqa: E501
+            captured_amount (int): The captured amount for this transaction. This can be a part and in some cases even more than the authorized amount.. [optional]  # noqa: E501
+            refunded_amount (int): The refunded amount for this transaction. This can be a part or all of the captured amount.. [optional]  # noqa: E501
+            currency (str): The currency code for this transaction.. [optional]  # noqa: E501
+            payment_method (bool, date, datetime, dict, float, int, list, str, none_type): The payment method used for this transaction.. [optional]  # noqa: E501
+            buyer (bool, date, datetime, dict, float, int, list, str, none_type): The buyer used for this transaction.. [optional]  # noqa: E501
+            created_at (datetime): The date and time when this transaction was created in our system.. [optional]  # noqa: E501
+            external_identifier (str, none_type): An external identifier that can be used to match the transaction against your own records.. [optional]  # noqa: E501
+            updated_at (datetime): Defines when the transaction was last updated.. [optional]  # noqa: E501
+            payment_service (bool, date, datetime, dict, float, int, list, str, none_type): The payment service used for this transaction.. [optional]  # noqa: E501
+            environment (str): The environment this transaction has been created in.. [optional] if omitted the server will use the default value of "production"  # noqa: E501
+        """
+
+        _check_type = kwargs.pop('_check_type', True)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _path_to_item = kwargs.pop('_path_to_item', ())
+        _configuration = kwargs.pop('_configuration', None)
+        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
+
+        self = super(OpenApiModel, cls).__new__(cls)
+
+        if args:
+            raise ApiTypeError(
+                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                    args,
+                    self.__class__.__name__,
+                ),
+                path_to_item=_path_to_item,
+                valid_classes=(self.__class__,),
+            )
+
+        self._data_store = {}
+        self._check_type = _check_type
+        self._spec_property_naming = _spec_property_naming
+        self._path_to_item = _path_to_item
+        self._configuration = _configuration
+        self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
+
+        for var_name, var_value in kwargs.items():
+            if var_name not in self.attribute_map and \
+                        self._configuration is not None and \
+                        self._configuration.discard_unknown_keys and \
+                        self.additional_properties_type is None:
+                # discard variable.
+                continue
+            setattr(self, var_name, var_value)
+        return self
 
     required_properties = set([
         '_data_store',
@@ -207,12 +306,12 @@ class Transaction(ModelNormal):
             captured_amount (int): The captured amount for this transaction. This can be a part and in some cases even more than the authorized amount.. [optional]  # noqa: E501
             refunded_amount (int): The refunded amount for this transaction. This can be a part or all of the captured amount.. [optional]  # noqa: E501
             currency (str): The currency code for this transaction.. [optional]  # noqa: E501
-            payment_method (object): The payment method used for this transaction.. [optional]  # noqa: E501
-            buyer (object, none_type): The buyer used for this transaction.. [optional]  # noqa: E501
+            payment_method (bool, date, datetime, dict, float, int, list, str, none_type): The payment method used for this transaction.. [optional]  # noqa: E501
+            buyer (bool, date, datetime, dict, float, int, list, str, none_type): The buyer used for this transaction.. [optional]  # noqa: E501
             created_at (datetime): The date and time when this transaction was created in our system.. [optional]  # noqa: E501
             external_identifier (str, none_type): An external identifier that can be used to match the transaction against your own records.. [optional]  # noqa: E501
             updated_at (datetime): Defines when the transaction was last updated.. [optional]  # noqa: E501
-            payment_service (object): The payment service used for this transaction.. [optional]  # noqa: E501
+            payment_service (bool, date, datetime, dict, float, int, list, str, none_type): The payment service used for this transaction.. [optional]  # noqa: E501
             environment (str): The environment this transaction has been created in.. [optional] if omitted the server will use the default value of "production"  # noqa: E501
         """
 
@@ -247,3 +346,6 @@ class Transaction(ModelNormal):
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
+            if var_name in self.read_only_vars:
+                raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
+                                     f"class with read only attributes.")

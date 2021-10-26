@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **scheme** | **str, none_type** | The type of the card, if the payment method is a card. | [optional] 
 **expiration_date** | **str, none_type** | The expiration date for the payment method. | [optional] 
 **approval_url** | **str, none_type** | The optional URL that the buyer needs to be redirected to to further authorize their payment. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

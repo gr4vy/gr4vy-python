@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **has_valid_password** | **bool** | The user has set a valid password. | [optional] 
 **reset_token** | **str, none_type** | The token required when setting a password. | [optional] 
 **reset_token_expires_at** | **datetime, none_type** | The expiration date for the reset token. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
