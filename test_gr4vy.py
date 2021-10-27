@@ -14,6 +14,7 @@ gr4vy_id = "spider"
 private_key_location = "./private_key.pem"
 
 client = Gr4vyClient(gr4vy_id,private_key_location)
+client.client.configuration.debug = True
 global buyer_id, payment_method_id, payment_service_id, transaction_id
 
 def testCreateClient():
@@ -96,10 +97,14 @@ def testGetPaymentMethod():
 def testListPaymentMethodTokens():
     payment_method_id = client.ListPaymentMethods()['items'][0]['id']
     assert client.ListPaymentMethodTokens(payment_method_id)
-'''
-def testDeletePaymentMethod(payment_method_id):
-    assert not client.DeletePaymentMethod(payment_method_id)
-'''
+
+def testDeletePaymentMethod():
+    payment_method_id = client.ListPaymentMethods()['items'][0]['id']
+    if client.DeletePaymentMethod(payment_method_id) == None:
+        assert True
+    else:
+        assert False
+
 def testListPaymentOptions():
     assert client.ListPaymentOptions()
 
@@ -209,4 +214,3 @@ def testRefundTransaction():
 
     transaction_refund_request = TransactionRefundRequest(amount=10)
     assert client.RefundTransaction(transaction_id, transaction_refund_request=transaction_refund_request)
-
