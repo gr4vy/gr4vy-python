@@ -30,7 +30,7 @@ class gr4vyPaymentMethods(payment_methods_api.PaymentMethodsApi):
     def storePaymentMethod(self, payment_method=None):
         try:
             # New payment method
-            api_response = self.store_payment_method(payment_method)
+            api_response = self.store_payment_method(payment_method=payment_method)
             return api_response
         except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling PaymentMethodsApi->store_payment_method: %s\n" % e)

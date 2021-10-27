@@ -195,7 +195,7 @@ class Gr4vyClient:
     def RefundTransaction(self, transaction_id, transaction_refund_request):
         with self.client as api_client:
             api_instance = gr4vyTransactions(api_client)
-            return api_instance.refundTransaction(transaction_id, transaction_refund_request)
+            return api_instance.refundTransaction(transaction_id=transaction_id, transaction_refund_request=transaction_refund_request)
 
     def b64e(self, value: bytes) -> str:
         return base64.urlsafe_b64encode(value).decode("utf8").strip("=")

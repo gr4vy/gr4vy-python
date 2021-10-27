@@ -3,6 +3,7 @@ from gr4vy_python.gr4vy_api.openapi_client.model.buyer_update import BuyerUpdate
 from gr4vy_python.gr4vy_api.openapi_client.model.payment_method import PaymentMethod
 from gr4vy_python.gr4vy_api.openapi_client.model.payment_service_request import PaymentServiceRequest
 from gr4vy_python.gr4vy_api.openapi_client.model.payment_service_update import PaymentServiceUpdate
+from gr4vy_python.gr4vy_api.openapi_client.model.payment_service_update_fields import PaymentServiceUpdateFields
 from gr4vy_python.gr4vy_api.openapi_client.model.transaction_capture_request import TransactionCaptureRequest
 from gr4vy_python.gr4vy_api.openapi_client.model.transaction_refund_request import TransactionRefundRequest
 from gr4vy_python.gr4vy_api.openapi_client.model.transaction_request import TransactionRequest
@@ -13,54 +14,7 @@ gr4vy_id = "spider"
 private_key_location = "./private_key.pem"
 
 client = Gr4vyClient(gr4vy_id,private_key_location)
-
-# method = {
-#   "method": "card",
-#   "number": "4111111111111111",
-#   "expiration_date": "11/25",
-#   "security_code": "123"
-# }
-# payment_method = PaymentMethod(**method)
-# payment_method_id = client.StorePaymentMethod(payment_method).id
-
-# payment_service = {
-# "id": "faaad066-30b4-4997-a438-242b0752d7e1",
-# "type": "payment-service",
-# "payment_service_definition_id": "stripe",
-# "method": "card",
-# "display_name": "Stripe",
-# "status": "pending",
-# "accepted_currencies": [
-# "EUR"
-# ],
-# "accepted_countries": [
-# "DE"
-# ],
-# "environment": "production"
-# }
-
-# payment_service_request = PaymentServiceRequest(**payment_service
-# )
-
-# payment_service_request = PaymentServiceRequest(**payment_service)
-# payment_service_id = client.AddPaymentService(payment_service_request).id
-
-
-# transaction_request = {
-#   "amount": 1299,
-#   "currency": "USD",
-#   "payment_method": {
-#     "method": "card",
-#     "number": "4111111111111111",
-#     "expiration_date": "11/25",
-#     "security_code": "123",
-#     "redirect_url": "https://example.com/callback"
-#   }
-# }
-
-# transaction_request = TransactionRequest(**transaction_request)
-# transaction_id = client.AuthorizeNewTransaction(transaction_request).id
-
+global buyer_id, payment_method_id, payment_service_id, transaction_id
 
 def testCreateClient():
     assert client
@@ -81,54 +35,71 @@ def testGenerateEmbedToken():
             "buyerId": buyer_id,
             } 
     assert client.GenerateEmbedToken(embed)
-'''
-def testAddBuyer():
-    buyer_request = BuyerRequest(display_name="Test")
-    assert client.AddBuyer(buyer_request)
-'''
-def testGetBuyer():
-    buyer_id = client.ListBuyers()["items"][0]["id"]
-    assert client.GetBuyer(buyer_id)
 
 def testListBuyers():
     assert client.ListBuyers()
 
+def testAddBuyer():
+    buyer_request = BuyerRequest(display_name="Test")
+    buyer_id = client.AddBuyer(buyer_request)['id']
+    assert buyer_id
+
+def testGetBuyer():
+    for buyer in client.ListBuyers()["items"]:
+        if buyer["display_name"] == "Test":
+            buyer_id = buyer["id"]
+    assert client.GetBuyer(buyer_id)
+
 def testUpdateBuyer():
-    buyer_id = client.ListBuyers()["items"][0]["id"]
+    for buyer in client.ListBuyers()["items"]:
+        if buyer["display_name"] == "Test":
+            buyer_id = buyer["id"]
+
     buyer_update = BuyerUpdate()
     assert client.UpdateBuyer(buyer_id, buyer_update)
 
-'''
+def testListBuyerPaymentMethods():
+    for buyer in client.ListBuyers()["items"]:
+        if buyer["display_name"] == "Test":
+            buyer_id = buyer["id"]
+
+    assert client.ListBuyerPaymentMethods(buyer_id=buyer_id)
+
 def testDeleteBuyer():
+    for buyer in client.ListBuyers()["items"]:
+        if buyer["display_name"] == "Test":
+            buyer_id = buyer["id"]
+
     try:
-        buyer_id = client.ListBuyers()["items"][0]
         client.DeleteBuyer(buyer_id)
     except KeyError:
         print("No buyer's to delete")
         assert False
-'''
-'''
-def testGetPaymentMethod():
-    assert client.GetPaymentMethod(payment_method_id)
-'''
-def testListBuyerPaymentMethods():
-    buyer_id = client.ListBuyers()["items"][0]["id"]
-    assert client.ListBuyerPaymentMethods(buyer_id)
 
 def testListPaymentMethods():
     assert client.ListPaymentMethods()
 '''
 def testStorePaymentMethod():
-    assert client.StorePaymentMethod(payment_method)
-
-def testDeletePaymentMethod():
-    assert client.DeletePaymentMethod(payment_method_id)
+    payment_method = PaymentMethod(
+        method= "card",
+        number= "4111111111111111",
+        expiration_date= "11/25",
+        security_code= "123"
+        )
+    payment_method_id = client.StorePaymentMethod(payment_method)['id']
+    assert payment_method_id
 '''
+def testGetPaymentMethod():
+    payment_method_id = client.ListPaymentMethods()['items'][0]['id']
+    assert client.GetPaymentMethod(payment_method_id)
+
 def testListPaymentMethodTokens():
-    payment_method_id = client.ListPaymentMethods()["items"][0]["id"]
+    payment_method_id = client.ListPaymentMethods()['items'][0]['id']
     assert client.ListPaymentMethodTokens(payment_method_id)
-
-
+'''
+def testDeletePaymentMethod(payment_method_id):
+    assert not client.DeletePaymentMethod(payment_method_id)
+'''
 def testListPaymentOptions():
     assert client.ListPaymentOptions()
 
@@ -141,44 +112,101 @@ def testListPaymentServiceDefintions():
 
 def testListPaymentServices():
     assert client.ListPaymentServices()
-'''
+
 def testAddPaymentService():
-    assert client.AddPaymentService(payment_service_request)
-'''
+    api_key = PaymentServiceUpdateFields(key='api_key',value='12345678')
+    merchant_account = PaymentServiceUpdateFields(key='merchant_account', value='12345678')
+    live_endpoint_prefix = PaymentServiceUpdateFields(key='live_endpoint_prefix', value="phillip")
+    payment_service_definition_id = "adyen-card"
+    payment_service_request = PaymentServiceRequest(display_name="TestAddService",fields=[api_key, merchant_account,live_endpoint_prefix], accepted_countries=['US'], accepted_currencies=['USD'], payment_service_definition_id=payment_service_definition_id,three_d_secure_enabled=False)
+    payment_service_id = client.AddPaymentService(payment_service_request)['id']
+    assert payment_service_id
+
 def testGetPaymentService():
-    payment_service_id = client.ListPaymentServices()["items"][0]["id"]
+    for payment_service in client.ListPaymentServices()["items"]:
+        if payment_service["display_name"] == "TestAddService":
+            payment_service_id = payment_service['id']
     assert client.GetPaymentService(payment_service_id)
-'''
+
 def testUpdatePaymentService():
-    payment_service_update = PaymentServiceUpdate(payment_service)
-    assert client.UpdatePaymentService(payment_service_update)
+    for payment_service in client.ListPaymentServices()["items"]:
+        if payment_service["display_name"] == "TestAddService":
+            payment_service_id = payment_service['id']
 
-def testAuthorizeNewTransaction():
-    assert client.AuthorizeNewTransaction(transaction_request)
+    api_key = PaymentServiceUpdateFields(key='api_key',value='12345678')
+    merchant_account = PaymentServiceUpdateFields(key='merchant_account', value='12345678')
+    live_endpoint_prefix = PaymentServiceUpdateFields(key='live_endpoint_prefix', value="testing")
 
-def testCaptureTransaction():
-    transaction_capture = {
-        "amount": 1299,
-        "currency": "USD"
-    }
-    transaction_capture_request = TransactionCaptureRequest(**transaction_capture)
-    assert client.CaptureTransaction(transaction_id, transaction_capture_request)
-'''
-def testGetTransaction():
-    transaction_id = client.ListTransactions()["items"][0]["id"]
-    assert client.GetTransaction(transaction_id)
+    payment_service_update = PaymentServiceUpdate(display_name="TestAddService",fields=[api_key, merchant_account,
+                                                live_endpoint_prefix], accepted_countries=['US'], accepted_currencies=['USD'], 
+                                                three_d_secure_enabled=False)
+
+
+    assert client.UpdatePaymentService(payment_service_id=payment_service_id, payment_service_update=payment_service_update)
+
+def testDeletePaymentService():
+    for payment_service in client.ListPaymentServices()["items"]:
+        if payment_service["display_name"] == "TestAddService":
+            payment_service_id = payment_service['id']
+
+    if client.DeletePaymentService(payment_service_id) == None:
+        assert True
+    else:
+        assert False
 
 def testListTransactions():
     assert client.ListTransactions()
-'''
+
+def testAuthorizeNewTransaction():
+    transaction_request = TransactionRequest(
+        amount= 1299,
+        currency= "USD",
+        payment_method= PaymentMethod(
+            method= "card",
+            number= "4111111111111111",
+            expiration_date= "11/25",
+            security_code= "123",
+            redirect_url= "https://example.com/callback"
+        )
+    )
+    transaction_id = client.AuthorizeNewTransaction(transaction_request)['id']
+    assert transaction_id
+
+def testCaptureTransaction():
+    transaction_request = TransactionRequest(
+        amount= 1299,
+        currency= "USD",
+        payment_method= PaymentMethod(
+            method= "card",
+            number= "4111111111111111",
+            expiration_date= "11/25",
+            security_code= "123",
+            redirect_url= "https://example.com/callback"
+        )
+    )
+    transaction_id = client.AuthorizeNewTransaction(transaction_request)['id']
+
+    transaction_capture_request = TransactionCaptureRequest(amount=1299)
+    assert client.CaptureTransaction(transaction_id, transaction_capture_request)
+
+def testGetTransaction():
+    transaction_id = client.ListTransactions()["items"][0]['id']
+    assert client.GetTransaction(transaction_id)
+
 def testRefundTransaction():
-    transaction_id = client.ListTransactions()["items"][0]["id"]
-    TransactionRefundRequest()
-    assert client.RefundTransaction(transaction_id, )
+    transaction_request = TransactionRequest(
+        amount= 1299,
+        currency= "USD",
+        payment_method= PaymentMethod(
+            method= "card",
+            number= "4111111111111111",
+            expiration_date= "11/25",
+            security_code= "123",
+            redirect_url= "https://example.com/callback"
+        )
+    )
+    transaction_id = client.AuthorizeNewTransaction(transaction_request)['id']
 
-def testDeletePaymentService():
-    assert client.DeletePaymentService(payment_service_id)
+    transaction_refund_request = TransactionRefundRequest(amount=10)
+    assert client.RefundTransaction(transaction_id, transaction_refund_request=transaction_refund_request)
 
-def testDeletePaymentMethod():
-    assert client.DeletePaymentMethod(payment_method_id)
-'''
