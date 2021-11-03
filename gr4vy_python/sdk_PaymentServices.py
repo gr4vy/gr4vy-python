@@ -40,7 +40,8 @@ class gr4vyPaymentServices(payment_services_api.PaymentServicesApi):
     def updatePaymentService(self, payment_service_id, payment_service_update):
         try:
             # Update payment service
-            api_response = self.update_payment_service(payment_service_id, payment_service_update)
+
+            api_response = self.update_payment_service(payment_service_id=payment_service_id, payment_service_update=payment_service_update)
             return api_response
         except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling PaymentServicesApi->update_payment_service: %s\n" % e)
