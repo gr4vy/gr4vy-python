@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **resource_type** | **str** | The type of the object that is pending.  | [optional] 
 **resource_id** | **str** | The ID of the object for which this status has been created. | [optional] 
 **external_identifier** | **str, none_type** | An external identifier that can be used to match the record against your own records. | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,8 +9,6 @@
 # import sys
 # sys.setrecursionlimit(n)
 
-from openapi_client.model.api_key_pair import APIKeyPair
-from openapi_client.model.api_key_pairs import APIKeyPairs
 from openapi_client.model.address import Address
 from openapi_client.model.address_update import AddressUpdate
 from openapi_client.model.billing_details import BillingDetails
@@ -21,13 +19,6 @@ from openapi_client.model.buyer_snapshot import BuyerSnapshot
 from openapi_client.model.buyer_update import BuyerUpdate
 from openapi_client.model.buyers import Buyers
 from openapi_client.model.card_request import CardRequest
-from openapi_client.model.card_rule import CardRule
-from openapi_client.model.card_rule_condition import CardRuleCondition
-from openapi_client.model.card_rule_number_condition import CardRuleNumberCondition
-from openapi_client.model.card_rule_request import CardRuleRequest
-from openapi_client.model.card_rule_text_condition import CardRuleTextCondition
-from openapi_client.model.card_rule_update import CardRuleUpdate
-from openapi_client.model.card_rules import CardRules
 from openapi_client.model.digital_wallet import DigitalWallet
 from openapi_client.model.digital_wallet_request import DigitalWalletRequest
 from openapi_client.model.digital_wallet_update import DigitalWalletUpdate
@@ -64,9 +55,6 @@ from openapi_client.model.payment_service_update_fields import PaymentServiceUpd
 from openapi_client.model.payment_services import PaymentServices
 from openapi_client.model.redirect_request import RedirectRequest
 from openapi_client.model.reset_password_request import ResetPasswordRequest
-from openapi_client.model.session import Session
-from openapi_client.model.session_request import SessionRequest
-from openapi_client.model.session_request_token import SessionRequestToken
 from openapi_client.model.set_password_request import SetPasswordRequest
 from openapi_client.model.status import Status
 from openapi_client.model.statuses import Statuses
@@ -83,6 +71,4 @@ from openapi_client.model.transaction_refund_request import TransactionRefundReq
 from openapi_client.model.transaction_request import TransactionRequest
 from openapi_client.model.transactions import Transactions
 from openapi_client.model.transactions_batch_capture_request import TransactionsBatchCaptureRequest
-from openapi_client.model.user import User
 from openapi_client.model.user_request import UserRequest
-from openapi_client.model.users import Users

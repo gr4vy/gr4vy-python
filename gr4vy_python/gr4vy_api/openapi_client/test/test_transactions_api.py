@@ -24,13 +24,6 @@ class TestTransactionsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_approve_transaction(self):
-        """Test case for approve_transaction
-
-        Buyer approval callback  # noqa: E501
-        """
-        pass
-
     def test_authorize_new_transaction(self):
         """Test case for authorize_new_transaction
 
@@ -56,13 +49,6 @@ class TestTransactionsApi(unittest.TestCase):
         """Test case for list_transactions
 
         List transactions  # noqa: E501
-        """
-        pass
-
-    def test_redirect_transaction_approval(self):
-        """Test case for redirect_transaction_approval
-
-        Redirect buyer to service  # noqa: E501
         """
         pass
 

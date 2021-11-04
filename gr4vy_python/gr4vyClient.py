@@ -114,12 +114,12 @@ class Gr4vyClient:
     def ListPaymentMethods(self, **kwargs):
         with self.client as api_client:
             api_instance = gr4vyPaymentMethods(api_client)
-            return api_instance.listPaymentMethods(**kwargs)
+            return api_instance.listPaymentMethods()
 
-    def StorePaymentMethod(self, payment_method):
+    def StorePaymentMethod(self, payment_method_request):
         with self.client as api_client:
             api_instance = gr4vyPaymentMethods(api_client)
-            return api_instance.storePaymentMethod(payment_method=payment_method)
+            return api_instance.storePaymentMethod(payment_method_request=payment_method_request)
 
     def DeletePaymentMethod(self, payment_method_id):
         with self.client as api_client:

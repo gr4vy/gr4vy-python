@@ -4,81 +4,12 @@ All URIs are relative to *https://api.plantly.gr4vy.app*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**approve_transaction**](TransactionsApi.md#approve_transaction) | **GET** /transactions/{transaction_id}/approve | Buyer approval callback
 [**authorize_new_transaction**](TransactionsApi.md#authorize_new_transaction) | **POST** /transactions | New transaction
 [**capture_transaction**](TransactionsApi.md#capture_transaction) | **POST** /transactions/{transaction_id}/capture | Capture transaction
 [**get_transaction**](TransactionsApi.md#get_transaction) | **GET** /transactions/{transaction_id} | Get transaction
 [**list_transactions**](TransactionsApi.md#list_transactions) | **GET** /transactions | List transactions
-[**redirect_transaction_approval**](TransactionsApi.md#redirect_transaction_approval) | **GET** /transactions/approvals/{transaction_approval_token} | Redirect buyer to service
 [**refund_transaction**](TransactionsApi.md#refund_transaction) | **POST** /transactions/{transaction_id}/refund | Refund or void transactions
 
-
-# **approve_transaction**
-> approve_transaction(transaction_id)
-
-Buyer approval callback
-
-Internal API used as a redirect endpoint for transactions that require buyer authorization.  For example, when a buyer tries to create a PayPal transaction, the buyer needs to be sent to PayPal, after which they are sent back to this endpoint upon completion.  This API applies any required updates for the transaction based on its query parameters and then redirects the browser back to the `redirect_url` specified when the payment method was first created.
-
-### Example
-
-
-```python
-import time
-import openapi_client
-from openapi_client.api import transactions_api
-from openapi_client.model.error404_not_found import Error404NotFound
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.plantly.gr4vy.app
-# See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.plantly.gr4vy.app"
-)
-
-
-# Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
-    # Create an instance of the API class
-    api_instance = transactions_api.TransactionsApi(api_client)
-    transaction_id = "fe26475d-ec3e-4884-9553-f7356683f7f9" # str | The ID for the transaction to get the information for.
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Buyer approval callback
-        api_instance.approve_transaction(transaction_id)
-    except openapi_client.ApiException as e:
-        print("Exception when calling TransactionsApi->approve_transaction: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **transaction_id** | **str**| The ID for the transaction to get the information for. |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**302** | Redirects the browser back to the &#x60;redirect_url&#x60; specified when the transaction was first created. It appends the transaction&#39;s ID and status. |  * location - The URL to redirect the browser to. This is the &#x60;redirect_url&#x60; specified when the transaction was first created with some additional query parameters appended.  * &#x60;transaction_id&#x60; - The ID of the transaction * &#x60;transaction_status&#x60; - The current value of the   &#x60;status&#x60;  field of the transaction. <br>  |
-**404** | Returns an error if the resource can not be found. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **authorize_new_transaction**
 > Transaction authorize_new_transaction()
@@ -90,11 +21,11 @@ Attempts to create an authorization for a payment method. In some cases it is no
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
 from openapi_client.api import transactions_api
+from openapi_client.model.error_generic import ErrorGeneric
 from openapi_client.model.transaction import Transaction
 from openapi_client.model.transaction_request import TransactionRequest
 from openapi_client.model.error401_unauthorized import Error401Unauthorized
@@ -122,12 +53,22 @@ with openapi_client.ApiClient(configuration) as api_client:
     transaction_request = TransactionRequest(
         amount=1299,
         currency="USD",
-        payment_method=None,
+        payment_method=TransactionPaymentMethodRequest(
+            method="card",
+            number="4111111111111111",
+            expiration_date="11/15",
+            security_code="123",
+            external_identifier="user-789123",
+            buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9",
+            buyer_external_identifier="user-789123",
+            redirect_url="https://example.com/callback",
+            id="77a76f7e-d2de-4bbc-ada9-d6a0015e6bd5",
+        ),
         store=True,
         intent="capture",
         external_identifier="user-789123",
         environment="staging",
-        three_d_secure_data=None,
+        three_d_secure_data=ThreeDSecureDataV1V2(),
     ) # TransactionRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -162,7 +103,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns the created transaction. |  -  |
@@ -181,11 +121,11 @@ Captures a previously authorized transaction.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
 from openapi_client.api import transactions_api
+from openapi_client.model.error_generic import ErrorGeneric
 from openapi_client.model.transaction import Transaction
 from openapi_client.model.transaction_capture_request import TransactionCaptureRequest
 from openapi_client.model.error401_unauthorized import Error401Unauthorized
@@ -256,7 +196,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns the captured transaction. |  -  |
@@ -276,11 +215,11 @@ Get information about a transaction.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
 from openapi_client.api import transactions_api
+from openapi_client.model.error_generic import ErrorGeneric
 from openapi_client.model.transaction import Transaction
 from openapi_client.model.error401_unauthorized import Error401Unauthorized
 from pprint import pprint
@@ -337,7 +276,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a transaction resource. |  -  |
@@ -356,7 +294,6 @@ Lists all transactions for an account. Sorted by last `updated_at` status.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
@@ -438,78 +375,10 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a paginated list of transactions for an account. |  -  |
 **401** | Returns an error if no valid authentication was provided. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **redirect_transaction_approval**
-> redirect_transaction_approval(transaction_approval_token)
-
-Redirect buyer to service
-
-Redirect a buyer to an alternative payment provider to approve their transaction. This is mainly used with providers like GoCardless and Klarna to redirect a buyer to their sites.
-
-### Example
-
-
-```python
-import time
-import openapi_client
-from openapi_client.api import transactions_api
-from openapi_client.model.error404_not_found import Error404NotFound
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.plantly.gr4vy.app
-# See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.plantly.gr4vy.app"
-)
-
-
-# Enter a context with an instance of the API client
-with openapi_client.ApiClient() as api_client:
-    # Create an instance of the API class
-    api_instance = transactions_api.TransactionsApi(api_client)
-    transaction_approval_token = "NDY5NzNlOWQtODhhNy00NGE2LWFiZmUtYmU0ZmYwMTM0ZmY0" # str | The token used to redirect the buyer for approval of a transaction. This token does not represent anything to the consumer and no value should be derived from it except for internal use.
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Redirect buyer to service
-        api_instance.redirect_transaction_approval(transaction_approval_token)
-    except openapi_client.ApiException as e:
-        print("Exception when calling TransactionsApi->redirect_transaction_approval: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **transaction_approval_token** | **str**| The token used to redirect the buyer for approval of a transaction. This token does not represent anything to the consumer and no value should be derived from it except for internal use. |
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**302** | Redirect the buyer to approve this transaction. |  * location - The URL to redirect the browser to. This is the approval URL for an alternative payment method like GoCardless. <br>  |
-**404** | Returns an error if the resource can not be found. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -523,12 +392,12 @@ Refunds or voids transaction. If this transaction was already captured, it will 
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
 from openapi_client.api import transactions_api
 from openapi_client.model.transaction_refund_request import TransactionRefundRequest
+from openapi_client.model.error_generic import ErrorGeneric
 from openapi_client.model.transaction import Transaction
 from openapi_client.model.error401_unauthorized import Error401Unauthorized
 from pprint import pprint
@@ -598,7 +467,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns cancelled transaction. |  -  |

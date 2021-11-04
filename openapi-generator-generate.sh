@@ -1,11 +1,9 @@
-#!/bin/bash
-
 #delete previous api directory
 rm -rf gr4vy_api
 rm -rf gr4vy_python/gr4vy_api
 docker run --rm \
   -v ${PWD}:/local openapitools/openapi-generator-cli generate \
-  -i https://raw.githubusercontent.com/gr4vy/gr4vy-openapi/openapi-3.0/openapi.v1.json \
+  -i https://raw.githubusercontent.com/gr4vy/gr4vy-openapi/sdks/openapi.v1.json \
   -g python \
   --git-user-id gr4vy \
   --git-repo-id gr4vy-python \

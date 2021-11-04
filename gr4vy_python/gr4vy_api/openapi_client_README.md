@@ -31,11 +31,15 @@ you can run the following:
 import time
 import openapi_client
 from pprint import pprint
-from openapi_client.api import api_key_pairs_api
-from openapi_client.model.api_key_pair import APIKeyPair
-from openapi_client.model.api_key_pairs import APIKeyPairs
+from openapi_client.api import buyers_api
+from openapi_client.model.buyer import Buyer
+from openapi_client.model.buyer_request import BuyerRequest
+from openapi_client.model.buyer_update import BuyerUpdate
+from openapi_client.model.buyers import Buyers
 from openapi_client.model.error401_unauthorized import Error401Unauthorized
 from openapi_client.model.error404_not_found import Error404NotFound
+from openapi_client.model.error409_duplicate_record import Error409DuplicateRecord
+from openapi_client.model.error_generic import ErrorGeneric
 # Defining the host is optional and defaults to https://api.plantly.gr4vy.app
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
@@ -56,14 +60,19 @@ configuration = openapi_client.Configuration(
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = api_key_pairs_api.APIKeyPairsApi(api_client)
-    
+    api_instance = buyers_api.BuyersApi(api_client)
+    buyer_request = BuyerRequest(
+        external_identifier="user-789123",
+        display_name="John L.",
+        billing_details=,
+    ) # BuyerRequest |  (optional)
+
     try:
-        # Create an API key-pair
-        api_response = api_instance.create_api_key_pair()
+        # New buyer
+        api_response = api_instance.add_buyer(buyer_request=buyer_request)
         pprint(api_response)
     except openapi_client.ApiException as e:
-        print("Exception when calling APIKeyPairsApi->create_api_key_pair: %s\n" % e)
+        print("Exception when calling BuyersApi->add_buyer: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -72,31 +81,21 @@ All URIs are relative to *https://api.plantly.gr4vy.app*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*APIKeyPairsApi* | [**create_api_key_pair**](openapi_client/docs/APIKeyPairsApi.md#create_api_key_pair) | **POST** /api-key-pairs | Create an API key-pair
-*APIKeyPairsApi* | [**delete_api_key_pair**](openapi_client/docs/APIKeyPairsApi.md#delete_api_key_pair) | **DELETE** /api-key-pairs/{api_key_pair_id} | Delete an API key-pair
-*APIKeyPairsApi* | [**list_api_key_pairs**](openapi_client/docs/APIKeyPairsApi.md#list_api_key_pairs) | **GET** /api-key-pairs | List API key-pairs
 *BuyersApi* | [**add_buyer**](openapi_client/docs/BuyersApi.md#add_buyer) | **POST** /buyers | New buyer
 *BuyersApi* | [**delete_buyer**](openapi_client/docs/BuyersApi.md#delete_buyer) | **DELETE** /buyers/{buyer_id} | Delete buyer
 *BuyersApi* | [**get_buyer**](openapi_client/docs/BuyersApi.md#get_buyer) | **GET** /buyers/{buyer_id} | Get buyer
 *BuyersApi* | [**list_buyers**](openapi_client/docs/BuyersApi.md#list_buyers) | **GET** /buyers | List buyers
 *BuyersApi* | [**update_buyer**](openapi_client/docs/BuyersApi.md#update_buyer) | **PUT** /buyers/{buyer_id} | Update buyer
-*CardRulesApi* | [**add_card_rule**](openapi_client/docs/CardRulesApi.md#add_card_rule) | **POST** /card-rules | Create card rule
-*CardRulesApi* | [**delete_card_rule**](openapi_client/docs/CardRulesApi.md#delete_card_rule) | **DELETE** /card-rules/{card_rule_id} | Delete card rule
-*CardRulesApi* | [**get_card_rule**](openapi_client/docs/CardRulesApi.md#get_card_rule) | **GET** /card-rules/{card_rule_id} | Get card rule
-*CardRulesApi* | [**list_cards_rules**](openapi_client/docs/CardRulesApi.md#list_cards_rules) | **GET** /card-rules | List card rules
-*CardRulesApi* | [**update_card_rule**](openapi_client/docs/CardRulesApi.md#update_card_rule) | **PUT** /card-rules/{card_rule_id} | Update card rule
 *DigitalWalletsApi* | [**deregister_digital_wallet**](openapi_client/docs/DigitalWalletsApi.md#deregister_digital_wallet) | **DELETE** /digital-wallets/{digital_wallet_id} | De-register digital wallet
 *DigitalWalletsApi* | [**get_digital_wallet**](openapi_client/docs/DigitalWalletsApi.md#get_digital_wallet) | **GET** /digital-wallets/{digital_wallet_id} | Get digital wallet
 *DigitalWalletsApi* | [**list_digital_wallets**](openapi_client/docs/DigitalWalletsApi.md#list_digital_wallets) | **GET** /digital-wallets | List digital wallets
 *DigitalWalletsApi* | [**register_digital_wallet**](openapi_client/docs/DigitalWalletsApi.md#register_digital_wallet) | **POST** /digital-wallets | Register digital wallet
 *DigitalWalletsApi* | [**update_digital_wallet**](openapi_client/docs/DigitalWalletsApi.md#update_digital_wallet) | **PUT** /digital-wallets/{digital_wallet_id} | Update digital wallet
 *PaymentMethodTokensApi* | [**list_payment_method_tokens**](openapi_client/docs/PaymentMethodTokensApi.md#list_payment_method_tokens) | **GET** /payment-methods/{payment_method_id}/tokens | List payment method tokens
-*PaymentMethodsApi* | [**approve_payment_method**](openapi_client/docs/PaymentMethodsApi.md#approve_payment_method) | **GET** /payment-methods/{payment_method_id}/approve/{payment_service_id} | Buyer approval callback
 *PaymentMethodsApi* | [**delete_payment_method**](openapi_client/docs/PaymentMethodsApi.md#delete_payment_method) | **DELETE** /payment-methods/{payment_method_id} | Delete payment method
 *PaymentMethodsApi* | [**get_payment_method**](openapi_client/docs/PaymentMethodsApi.md#get_payment_method) | **GET** /payment-methods/{payment_method_id} | Get stored payment method
 *PaymentMethodsApi* | [**list_buyer_payment_methods**](openapi_client/docs/PaymentMethodsApi.md#list_buyer_payment_methods) | **GET** /buyers/payment-methods | List stored payment methods for a buyer
 *PaymentMethodsApi* | [**list_payment_methods**](openapi_client/docs/PaymentMethodsApi.md#list_payment_methods) | **GET** /payment-methods | List payment methods
-*PaymentMethodsApi* | [**redirect_payment_method_approval**](openapi_client/docs/PaymentMethodsApi.md#redirect_payment_method_approval) | **GET** /payment-methods/approvals/{payment_method_approval_token} | Redirect buyer to service
 *PaymentMethodsApi* | [**store_payment_method**](openapi_client/docs/PaymentMethodsApi.md#store_payment_method) | **POST** /payment-methods | New payment method
 *PaymentOptionsApi* | [**list_payment_options**](openapi_client/docs/PaymentOptionsApi.md#list_payment_options) | **GET** /payment-options | List payment options
 *PaymentServiceDefinitionsApi* | [**get_payment_service_definition**](openapi_client/docs/PaymentServiceDefinitionsApi.md#get_payment_service_definition) | **GET** /payment-service-definitions/{payment_service_definition_id} | Get payment service definition
@@ -106,29 +105,15 @@ Class | Method | HTTP request | Description
 *PaymentServicesApi* | [**get_payment_service**](openapi_client/docs/PaymentServicesApi.md#get_payment_service) | **GET** /payment-services/{payment_service_id} | Get payment service
 *PaymentServicesApi* | [**list_payment_services**](openapi_client/docs/PaymentServicesApi.md#list_payment_services) | **GET** /payment-services | List payment services
 *PaymentServicesApi* | [**update_payment_service**](openapi_client/docs/PaymentServicesApi.md#update_payment_service) | **PUT** /payment-services/{payment_service_id} | Update payment service
-*SessionsApi* | [**login**](openapi_client/docs/SessionsApi.md#login) | **POST** /auth/sessions | Create a user session (Login)
-*SessionsApi* | [**logout**](openapi_client/docs/SessionsApi.md#logout) | **DELETE** /auth/sessions | Ends a user session (Logout)
-*SessionsApi* | [**refresh_session**](openapi_client/docs/SessionsApi.md#refresh_session) | **PUT** /auth/sessions | Renew a user session
-*TransactionsApi* | [**approve_transaction**](openapi_client/docs/TransactionsApi.md#approve_transaction) | **GET** /transactions/{transaction_id}/approve | Buyer approval callback
 *TransactionsApi* | [**authorize_new_transaction**](openapi_client/docs/TransactionsApi.md#authorize_new_transaction) | **POST** /transactions | New transaction
 *TransactionsApi* | [**capture_transaction**](openapi_client/docs/TransactionsApi.md#capture_transaction) | **POST** /transactions/{transaction_id}/capture | Capture transaction
 *TransactionsApi* | [**get_transaction**](openapi_client/docs/TransactionsApi.md#get_transaction) | **GET** /transactions/{transaction_id} | Get transaction
 *TransactionsApi* | [**list_transactions**](openapi_client/docs/TransactionsApi.md#list_transactions) | **GET** /transactions | List transactions
-*TransactionsApi* | [**redirect_transaction_approval**](openapi_client/docs/TransactionsApi.md#redirect_transaction_approval) | **GET** /transactions/approvals/{transaction_approval_token} | Redirect buyer to service
 *TransactionsApi* | [**refund_transaction**](openapi_client/docs/TransactionsApi.md#refund_transaction) | **POST** /transactions/{transaction_id}/refund | Refund or void transactions
-*UsersApi* | [**add_user**](openapi_client/docs/UsersApi.md#add_user) | **POST** /users | New user
-*UsersApi* | [**delete_user**](openapi_client/docs/UsersApi.md#delete_user) | **DELETE** /users/{user_id} | Delete user
-*UsersApi* | [**get_current_user**](openapi_client/docs/UsersApi.md#get_current_user) | **GET** /users/me | Get current
-*UsersApi* | [**get_user**](openapi_client/docs/UsersApi.md#get_user) | **GET** /users/{user_id} | Get user
-*UsersApi* | [**list_users**](openapi_client/docs/UsersApi.md#list_users) | **GET** /users | List users
-*UsersApi* | [**reset_user_password**](openapi_client/docs/UsersApi.md#reset_user_password) | **POST** /users/reset-password | Reset user password
-*UsersApi* | [**set_user_password**](openapi_client/docs/UsersApi.md#set_user_password) | **POST** /users/set-password | Set user password
 
 
 ## Documentation For Models
 
- - [APIKeyPair](openapi_client/docs/APIKeyPair.md)
- - [APIKeyPairs](openapi_client/docs/APIKeyPairs.md)
  - [Address](openapi_client/docs/Address.md)
  - [AddressUpdate](openapi_client/docs/AddressUpdate.md)
  - [BillingDetails](openapi_client/docs/BillingDetails.md)
@@ -139,13 +124,6 @@ Class | Method | HTTP request | Description
  - [BuyerUpdate](openapi_client/docs/BuyerUpdate.md)
  - [Buyers](openapi_client/docs/Buyers.md)
  - [CardRequest](openapi_client/docs/CardRequest.md)
- - [CardRule](openapi_client/docs/CardRule.md)
- - [CardRuleCondition](openapi_client/docs/CardRuleCondition.md)
- - [CardRuleNumberCondition](openapi_client/docs/CardRuleNumberCondition.md)
- - [CardRuleRequest](openapi_client/docs/CardRuleRequest.md)
- - [CardRuleTextCondition](openapi_client/docs/CardRuleTextCondition.md)
- - [CardRuleUpdate](openapi_client/docs/CardRuleUpdate.md)
- - [CardRules](openapi_client/docs/CardRules.md)
  - [DigitalWallet](openapi_client/docs/DigitalWallet.md)
  - [DigitalWalletRequest](openapi_client/docs/DigitalWalletRequest.md)
  - [DigitalWalletUpdate](openapi_client/docs/DigitalWalletUpdate.md)
@@ -182,9 +160,6 @@ Class | Method | HTTP request | Description
  - [PaymentServices](openapi_client/docs/PaymentServices.md)
  - [RedirectRequest](openapi_client/docs/RedirectRequest.md)
  - [ResetPasswordRequest](openapi_client/docs/ResetPasswordRequest.md)
- - [Session](openapi_client/docs/Session.md)
- - [SessionRequest](openapi_client/docs/SessionRequest.md)
- - [SessionRequestToken](openapi_client/docs/SessionRequestToken.md)
  - [SetPasswordRequest](openapi_client/docs/SetPasswordRequest.md)
  - [Status](openapi_client/docs/Status.md)
  - [Statuses](openapi_client/docs/Statuses.md)
@@ -201,9 +176,7 @@ Class | Method | HTTP request | Description
  - [TransactionRequest](openapi_client/docs/TransactionRequest.md)
  - [Transactions](openapi_client/docs/Transactions.md)
  - [TransactionsBatchCaptureRequest](openapi_client/docs/TransactionsBatchCaptureRequest.md)
- - [User](openapi_client/docs/User.md)
  - [UserRequest](openapi_client/docs/UserRequest.md)
- - [Users](openapi_client/docs/Users.md)
 
 
 ## Documentation For Authorization

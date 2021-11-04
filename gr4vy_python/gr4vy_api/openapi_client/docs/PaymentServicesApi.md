@@ -21,11 +21,11 @@ Adds a new payment service by providing a custom name and a value for each of th
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
 from openapi_client.api import payment_services_api
+from openapi_client.model.error_generic import ErrorGeneric
 from openapi_client.model.payment_service import PaymentService
 from openapi_client.model.payment_service_request import PaymentServiceRequest
 from openapi_client.model.error401_unauthorized import Error401Unauthorized
@@ -84,7 +84,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns the created payment service. |  -  |
@@ -103,7 +102,6 @@ Deletes a specific active payment service.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
@@ -163,7 +161,6 @@ void (empty response body)
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Returns an empty response. |  -  |
@@ -182,7 +179,6 @@ Retrieves the details of a single configured payment service.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
@@ -244,7 +240,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a payment service. |  -  |
@@ -263,7 +258,6 @@ Lists the currently configured and activated payment services.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
@@ -331,7 +325,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of payment services. |  -  |
@@ -349,13 +342,13 @@ Updates an existing payment service. Allows all fields to be changed except for 
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
 from openapi_client.api import payment_services_api
 from openapi_client.model.payment_service_update import PaymentServiceUpdate
 from openapi_client.model.error404_not_found import Error404NotFound
+from openapi_client.model.error_generic import ErrorGeneric
 from openapi_client.model.payment_service import PaymentService
 from openapi_client.model.error401_unauthorized import Error401Unauthorized
 from pprint import pprint
@@ -447,7 +440,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns the updated payment service. |  -  |

@@ -21,13 +21,13 @@ Adds a buyer, allowing for payment methods and transactions to be associated to 
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
 from openapi_client.api import buyers_api
 from openapi_client.model.buyer import Buyer
 from openapi_client.model.error409_duplicate_record import Error409DuplicateRecord
+from openapi_client.model.error_generic import ErrorGeneric
 from openapi_client.model.buyer_request import BuyerRequest
 from openapi_client.model.error401_unauthorized import Error401Unauthorized
 from pprint import pprint
@@ -54,7 +54,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     buyer_request = BuyerRequest(
         external_identifier="user-789123",
         display_name="John L.",
-        billing_details=None,
+        billing_details=,
     ) # BuyerRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -89,7 +89,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns the buyer that was added. |  -  |
@@ -109,7 +108,6 @@ Deletes a buyer record. Any associated tokenized payment methods will remain in 
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
@@ -169,7 +167,6 @@ void (empty response body)
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Returns an empty response. |  -  |
@@ -188,7 +185,6 @@ Gets the information about a buyer.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
@@ -251,7 +247,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns the information about a buyer. |  -  |
@@ -271,7 +266,6 @@ Returns a list of buyers.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
@@ -337,7 +331,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of buyers. |  -  |
@@ -355,13 +348,13 @@ Updates a buyer's details.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
 from openapi_client.api import buyers_api
 from openapi_client.model.buyer import Buyer
 from openapi_client.model.error404_not_found import Error404NotFound
+from openapi_client.model.error_generic import ErrorGeneric
 from openapi_client.model.buyer_update import BuyerUpdate
 from openapi_client.model.error401_unauthorized import Error401Unauthorized
 from pprint import pprint
@@ -387,7 +380,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     api_instance = buyers_api.BuyersApi(api_client)
     buyer_id = "8724fd24-5489-4a5d-90fd-0604df7d3b83" # str | The unique ID for a buyer.
     buyer_update = BuyerUpdate(
-        billing_details=None,
+        billing_details=,
     ) # BuyerUpdate |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -431,7 +424,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns the updated buyer record. |  -  |

@@ -27,10 +27,10 @@ class gr4vyPaymentMethods(payment_methods_api.PaymentMethodsApi):
         except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling PaymentMethodsApi->get_payment_method: %s\n" % e)
 
-    def storePaymentMethod(self, payment_method=None):
+    def storePaymentMethod(self, payment_method_request=None):
         try:
             # New payment method
-            api_response = self.store_payment_method(payment_method=payment_method)
+            api_response = self.store_payment_method(payment_method_request=payment_method_request)
             return api_response
         except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling PaymentMethodsApi->store_payment_method: %s\n" % e)
@@ -46,7 +46,7 @@ class gr4vyPaymentMethods(payment_methods_api.PaymentMethodsApi):
     def listPaymentMethods(self, **kwargs):
         try:
             # List payment methods
-            api_response = self.list_payment_methods(**kwargs)
+            api_response = self.list_payment_methods()
             return api_response
         except gr4vy_python.gr4vy_api.openapi_client.ApiException as e:
             print("Exception when calling PaymentMethodsApi->list_payment_methods: %s\n" % e)

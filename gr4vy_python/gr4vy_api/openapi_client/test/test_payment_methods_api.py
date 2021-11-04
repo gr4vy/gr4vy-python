@@ -24,13 +24,6 @@ class TestPaymentMethodsApi(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_approve_payment_method(self):
-        """Test case for approve_payment_method
-
-        Buyer approval callback  # noqa: E501
-        """
-        pass
-
     def test_delete_payment_method(self):
         """Test case for delete_payment_method
 
@@ -56,13 +49,6 @@ class TestPaymentMethodsApi(unittest.TestCase):
         """Test case for list_payment_methods
 
         List payment methods  # noqa: E501
-        """
-        pass
-
-    def test_redirect_payment_method_approval(self):
-        """Test case for redirect_payment_method_approval
-
-        Redirect buyer to service  # noqa: E501
         """
         pass
 

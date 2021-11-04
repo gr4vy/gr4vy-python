@@ -26,9 +26,12 @@ from gr4vy_python.gr4vy_api.openapi_client.model_utils import (  # noqa: F401
     none_type,
     validate_get_composed_info,
 )
-from ..model_utils import OpenApiModel
-from gr4vy_python.gr4vy_api.openapi_client.exceptions import ApiAttributeError
 
+def lazy_import():
+    from gr4vy_python.gr4vy_api.openapi_client.model.three_d_secure_data_v1_v2 import ThreeDSecureDataV1V2
+    from gr4vy_python.gr4vy_api.openapi_client.model.transaction_payment_method_request import TransactionPaymentMethodRequest
+    globals()['ThreeDSecureDataV1V2'] = ThreeDSecureDataV1V2
+    globals()['TransactionPaymentMethodRequest'] = TransactionPaymentMethodRequest
 
 
 class TransactionRequest(ModelNormal):
@@ -74,13 +77,7 @@ class TransactionRequest(ModelNormal):
         },
     }
 
-    @cached_property
-    def additional_properties_type():
-        """
-        This must be a method because a model may have properties that are
-        of type self, this must run after the class is loaded
-        """
-        return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
+    additional_properties_type = None
 
     _nullable = False
 
@@ -94,15 +91,16 @@ class TransactionRequest(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
             'amount': (int,),  # noqa: E501
             'currency': (str,),  # noqa: E501
-            'payment_method': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'payment_method': (TransactionPaymentMethodRequest,),  # noqa: E501
             'store': (bool,),  # noqa: E501
             'intent': (str,),  # noqa: E501
             'external_identifier': (str, none_type,),  # noqa: E501
             'environment': (str,),  # noqa: E501
-            'three_d_secure_data': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'three_d_secure_data': (ThreeDSecureDataV1V2,),  # noqa: E501
         }
 
     @cached_property
@@ -121,96 +119,7 @@ class TransactionRequest(ModelNormal):
         'three_d_secure_data': 'three_d_secure_data',  # noqa: E501
     }
 
-    read_only_vars = {
-    }
-
     _composed_schemas = {}
-
-    @classmethod
-    @convert_js_args_to_python_args
-    def _from_openapi_data(cls, amount, currency, payment_method, *args, **kwargs):  # noqa: E501
-        """TransactionRequest - a model defined in OpenAPI
-
-        Args:
-            amount (int): The monetary amount to create an authorization for, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`.
-            currency (str): A supported ISO-4217 currency code.
-            payment_method (bool, date, datetime, dict, float, int, list, str, none_type): The optional payment method details to create an authorization for. This field is required for processing a card.
-
-        Keyword Args:
-            _check_type (bool): if True, values for parameters in openapi_types
-                                will be type checked and a TypeError will be
-                                raised if the wrong type is input.
-                                Defaults to True
-            _path_to_item (tuple/list): This is a list of keys or values to
-                                drill down to the model in received_data
-                                when deserializing a response
-            _spec_property_naming (bool): True if the variable names in the input data
-                                are serialized names, as specified in the OpenAPI document.
-                                False if the variable names in the input data
-                                are pythonic names, e.g. snake case (default)
-            _configuration (Configuration): the instance to use when
-                                deserializing a file_type parameter.
-                                If passed, type conversion is attempted
-                                If omitted no type conversion is done.
-            _visited_composed_classes (tuple): This stores a tuple of
-                                classes that we have traveled through so that
-                                if we see that class again we will not use its
-                                discriminator again.
-                                When traveling through a discriminator, the
-                                composed schema that is
-                                is traveled through is added to this set.
-                                For example if Animal has a discriminator
-                                petType and we pass in "Dog", and the class Dog
-                                allOf includes Animal, we move through Animal
-                                once using the discriminator, and pick Dog.
-                                Then in Dog, we will make an instance of the
-                                Animal class but this time we won't travel
-                                through its discriminator because we passed in
-                                _visited_composed_classes = (Animal,)
-            store (bool): Whether or not to also try and store the payment method with us so that it can be used again for future use. This is only supported for payment methods that support this feature.. [optional] if omitted the server will use the default value of False  # noqa: E501
-            intent (str): Defines the intent of this API call. This determines the desired initial state of the transaction.  * `authorize` - (Default) Optionally approves and then authorizes a transaction but does not capture the funds. * `capture` - Optionally approves and then authorizes and captures the funds of the transaction.. [optional] if omitted the server will use the default value of "authorize"  # noqa: E501
-            external_identifier (str, none_type): An external identifier that can be used to match the transaction against your own records.. [optional]  # noqa: E501
-            environment (str): Defines the environment to create this transaction in. Setting this to anything other than `production` will force Gr4vy to use the payment a service configured for that environment.. [optional]  # noqa: E501
-            three_d_secure_data (bool, date, datetime, dict, float, int, list, str, none_type): Pass through 3-D Secure data to support external 3-D Secure authorisation. If using an external 3-D Secure provider, you should not pass a `redirect_url` in the `payment_method` object for a transaction.. [optional]  # noqa: E501
-        """
-
-        _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
-        _path_to_item = kwargs.pop('_path_to_item', ())
-        _configuration = kwargs.pop('_configuration', None)
-        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
-
-        self = super(OpenApiModel, cls).__new__(cls)
-
-        if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
-
-        self._data_store = {}
-        self._check_type = _check_type
-        self._spec_property_naming = _spec_property_naming
-        self._path_to_item = _path_to_item
-        self._configuration = _configuration
-        self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
-
-        self.amount = amount
-        self.currency = currency
-        self.payment_method = payment_method
-        for var_name, var_value in kwargs.items():
-            if var_name not in self.attribute_map and \
-                        self._configuration is not None and \
-                        self._configuration.discard_unknown_keys and \
-                        self.additional_properties_type is None:
-                # discard variable.
-                continue
-            setattr(self, var_name, var_value)
-        return self
 
     required_properties = set([
         '_data_store',
@@ -228,7 +137,7 @@ class TransactionRequest(ModelNormal):
         Args:
             amount (int): The monetary amount to create an authorization for, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`.
             currency (str): A supported ISO-4217 currency code.
-            payment_method (bool, date, datetime, dict, float, int, list, str, none_type): The optional payment method details to create an authorization for. This field is required for processing a card.
+            payment_method (TransactionPaymentMethodRequest):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -265,7 +174,7 @@ class TransactionRequest(ModelNormal):
             intent (str): Defines the intent of this API call. This determines the desired initial state of the transaction.  * `authorize` - (Default) Optionally approves and then authorizes a transaction but does not capture the funds. * `capture` - Optionally approves and then authorizes and captures the funds of the transaction.. [optional] if omitted the server will use the default value of "authorize"  # noqa: E501
             external_identifier (str, none_type): An external identifier that can be used to match the transaction against your own records.. [optional]  # noqa: E501
             environment (str): Defines the environment to create this transaction in. Setting this to anything other than `production` will force Gr4vy to use the payment a service configured for that environment.. [optional]  # noqa: E501
-            three_d_secure_data (bool, date, datetime, dict, float, int, list, str, none_type): Pass through 3-D Secure data to support external 3-D Secure authorisation. If using an external 3-D Secure provider, you should not pass a `redirect_url` in the `payment_method` object for a transaction.. [optional]  # noqa: E501
+            three_d_secure_data (ThreeDSecureDataV1V2): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -302,6 +211,3 @@ class TransactionRequest(ModelNormal):
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
-            if var_name in self.read_only_vars:
-                raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
-                                     f"class with read only attributes.")
