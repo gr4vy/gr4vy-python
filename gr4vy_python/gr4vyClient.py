@@ -2,6 +2,7 @@ from jwt import api_jwt
 import uuid
 from datetime import datetime, timezone, timedelta
 import sys
+from os import environ
 from pem import parse_file
 
 from gr4vy_python.gr4vy_api.openapi_client import Configuration, ApiClient
@@ -35,7 +36,10 @@ class Gr4vyClient:
         self.CreateClient()
 
     def private_key_file_to_string(self):
-        private_key_string = str(parse_file(self.private_key_file)[0])
+        if environ.get('PRIVATE_KEY') is not None:
+            private_key_string = environ.get('PRIVATE_KEY')
+        else:
+            private_key_string = str(parse_file(self.private_key_file)[0])
         private_key_pem = textwrap.dedent(private_key_string).encode()
 
         private_pem = serialization.load_pem_private_key(private_key_pem, password=None)
