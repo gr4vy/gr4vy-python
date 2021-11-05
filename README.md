@@ -9,7 +9,7 @@ To add Gr4vy to your project, clone the repo `github.com/gr4vy/gr4vy-python` and
 
 ```python
 git@github.com:gr4vy/gr4vy-python.git
-```python
+```
 
 
 Add import:
