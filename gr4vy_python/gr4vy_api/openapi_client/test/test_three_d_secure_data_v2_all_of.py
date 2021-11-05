@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import openapi_client
-from openapi_client.model.status import Status
+from openapi_client.model.three_d_secure_data_v2_all_of import ThreeDSecureDataV2AllOf
 
 
-class TestStatus(unittest.TestCase):
-    """Status unit test stubs"""
+class TestThreeDSecureDataV2AllOf(unittest.TestCase):
+    """ThreeDSecureDataV2AllOf unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestStatus(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testStatus(self):
-        """Test Status"""
+    def testThreeDSecureDataV2AllOf(self):
+        """Test ThreeDSecureDataV2AllOf"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = Status()  # noqa: E501
+        # model = ThreeDSecureDataV2AllOf()  # noqa: E501
         pass
 
 

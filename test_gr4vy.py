@@ -80,8 +80,7 @@ def testDeleteBuyer():
         assert False
 
 def testListPaymentMethods():
-    assert True
-    # assert client.ListPaymentMethods()
+    assert client.ListPaymentMethods()
 
 def testStorePaymentMethod():
     payment_method_request = PaymentMethodRequest(
@@ -94,59 +93,37 @@ def testStorePaymentMethod():
     assert payment_method.id
 
 def testGetPaymentMethod():
-    assert True
-    # payment_method_id = client.ListPaymentMethods()['items'][0]['id']
-    # assert client.GetPaymentMethod(payment_method_id)
+    payment_method_id = client.ListPaymentMethods()['items'][0]['id']
+    assert client.GetPaymentMethod(payment_method_id)
 
 def testListPaymentMethodTokens():
-    assert True
-    # payment_method_request = PaymentMethodRequest(
-    #     method= "card",
-    #     number= "4111111111111111",
-    #     expiration_date= "11/25",
-    #     security_code= "123",
-    # )
-    # payment_method = client.StorePaymentMethod(payment_method_request)
-    # # assert payment_method.id
+    payment_method_request = PaymentMethodRequest(
+        method= "card",
+        number= "4111111111111111",
+        expiration_date= "11/25",
+        security_code= "123",
+    )
+    payment_method = client.StorePaymentMethod(payment_method_request)
+    assert payment_method.id
     # print(payment_method.id)
-    # print("===")
-    # print(payment_method)
-    # print("===")
-    # print(type(payment_method.id))
-    # print("===")
-    # print(payment_method.id)
-    # print("===")
-
-    # # req = client.ListPaymentMethods()
-    # # print(req)
-    # # payment_method_id = str(req['items'][0]['id'])
-    # # print(payment_method_id)
-    # res = client.ListPaymentMethodTokens(payment_method.id)
+    res = client.ListPaymentMethodTokens(payment_method.id)
     # print(res)
-    # assert True
+    assert res
 
 def testDeletePaymentMethod():
-    assert True
-    # payment_method_id = client.ListPaymentMethods()['items'][0]['id']
-    # if client.DeletePaymentMethod(payment_method_id) == None:
-    #     assert True
-    # else:
-    #     assert False
+    payment_method_id = client.ListPaymentMethods()['items'][0]['id']
+    assert client.DeletePaymentMethod(payment_method_id) == None
 
 def testListPaymentOptions():
-    pass
-    # req = client.ListPaymentOptions()
-    # print(req)
-    # assert req
+    req = client.ListPaymentOptions()
+    assert req
 
 def testGetPaymentServiceDefinition():
-    pass
-    # payment_service_definition_id = client.ListPaymentServiceDefintions(limit=1)["items"][0]["id"]
-    # assert client.GetPaymentServiceDefinition(payment_service_definition_id)
+    payment_service_definitions = client.ListPaymentServiceDefintions(limit=1)
+    assert client.GetPaymentServiceDefinition(payment_service_definitions["items"][0]["id"])
 
 def testListPaymentServiceDefintions():
-    pass
-    # assert client.ListPaymentServiceDefintions()
+    assert client.ListPaymentServiceDefintions()
 
 def testListPaymentServices():
     assert client.ListPaymentServices()
@@ -193,62 +170,57 @@ def testDeletePaymentService():
         assert False
 
 def testListTransactions():
-    pass
-    # assert client.ListTransactions()
+    assert client.ListTransactions()
 
 def testAuthorizeNewTransaction():
-    pass
-    # transaction_request = TransactionRequest(
-    #     amount= 1299,
-    #     currency= "USD",
-    #     payment_method= TransactionPaymentMethodRequest(
-    #         method= "card",
-    #         number= "4111111111111111",
-    #         expiration_date= "11/25",
-    #         security_code= "123",
-    #         redirect_url= "https://example.com/callback"
-    #     )
-    # )
-    # transaction_id = client.AuthorizeNewTransaction(transaction_request)['id']
-    # assert transaction_id
+    transaction_request = TransactionRequest(
+        amount= 1299,
+        currency= "USD",
+        payment_method= TransactionPaymentMethodRequest(
+            method= "card",
+            number= "4111111111111111",
+            expiration_date= "11/25",
+            security_code= "123",
+            redirect_url= "https://example.com/callback"
+        )
+    )
+    transaction_id = client.AuthorizeNewTransaction(transaction_request)['id']
+    assert transaction_id
 
 def testCaptureTransaction():
-    pass
-    # transaction_request = TransactionRequest(
-    #     amount= 1299,
-    #     currency= "USD",
-    #     payment_method= TransactionPaymentMethodRequest(
-    #         method= "card",
-    #         number= "4111111111111111",
-    #         expiration_date= "11/25",
-    #         security_code= "123",
-    #         redirect_url= "https://example.com/callback"
-    #     )
-    # )
-    # transaction_id = client.AuthorizeNewTransaction(transaction_request)['id']
+    transaction_request = TransactionRequest(
+        amount= 1299,
+        currency= "USD",
+        payment_method= TransactionPaymentMethodRequest(
+            method= "card",
+            number= "4111111111111111",
+            expiration_date= "11/25",
+            security_code= "123",
+            redirect_url= "https://example.com/callback"
+        )
+    )
+    transaction_id = client.AuthorizeNewTransaction(transaction_request)['id']
 
-    # transaction_capture_request = TransactionCaptureRequest(amount=1299)
-    # assert client.CaptureTransaction(transaction_id, transaction_capture_request)
+    transaction_capture_request = TransactionCaptureRequest(amount=1299)
+    assert client.CaptureTransaction(transaction_id, transaction_capture_request)
 
 def testGetTransaction():
-    pass
-    # transaction_id = client.ListTransactions()["items"][0]['id']
-    # assert client.GetTransaction(transaction_id)
+    transaction_id = client.ListTransactions()["items"][0]['id']
+    assert client.GetTransaction(transaction_id)
 
 def testRefundTransaction():
-    pass
-    # transaction_request = TransactionRequest(
-    #     amount= 1299,
-    #     currency= "USD",
-    #     payment_method= TransactionPaymentMethodRequest(
-    #         method= "card",
-    #         number= "4111111111111111",
-    #         expiration_date= "11/25",
-    #         security_code= "123",
-    #         redirect_url= "https://example.com/callback"
-    #     )
-    # )
-    # transaction_id = client.AuthorizeNewTransaction(transaction_request)['id']
+    transaction_request = TransactionRequest(
+        amount= 1299,
+        currency= "USD",
+        payment_method= TransactionPaymentMethodRequest(
+            method= "card",
+            number= "4111111111111111",
+            expiration_date= "11/25",
+            security_code= "123",
+            redirect_url= "https://example.com/callback"
+        )
+    )
+    transaction_id = client.AuthorizeNewTransaction(transaction_request)['id']
 
-    # transaction_refund_request = TransactionRefundRequest(amount=10)
-    # assert client.RefundTransaction(transaction_id, transaction_refund_request=transaction_refund_request)
+    transaction_refund_request = TransactionRefundRequest(amount=10)
+    assert client.RefundTransaction(transaction_id, transaction_refund_request=transaction_refund_request)

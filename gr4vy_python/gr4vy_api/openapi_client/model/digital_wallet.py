@@ -96,7 +96,7 @@ class DigitalWallet(ModelNormal):
             'provider': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'merchant_name': (str,),  # noqa: E501
-            'merchant_url': (str,),  # noqa: E501
+            'merchant_url': (str, none_type,),  # noqa: E501
             'domain_names': ([str],),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
@@ -170,7 +170,7 @@ class DigitalWallet(ModelNormal):
             provider (str): The name of the digital wallet provider.. [optional] if omitted the server will use the default value of "apple"  # noqa: E501
             id (str): The ID of the registered digital wallet.. [optional]  # noqa: E501
             merchant_name (str): The name of the merchant the digital wallet is registered to.. [optional]  # noqa: E501
-            merchant_url (str): The main URL of the merchant.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
+            merchant_url (str, none_type): The main URL of the merchant.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             domain_names ([str]): The list of fully qualified domain names that a digital wallet provider processes payments for.. [optional]  # noqa: E501
             created_at (datetime): The date and time when this digital wallet was registered.. [optional]  # noqa: E501
             updated_at (datetime): The date and time when this digital wallet was last updated.. [optional]  # noqa: E501

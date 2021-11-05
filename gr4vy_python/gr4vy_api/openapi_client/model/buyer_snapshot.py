@@ -88,7 +88,7 @@ class BuyerSnapshot(ModelNormal):
             'id': (str,),  # noqa: E501
             'external_identifier': (str, none_type,),  # noqa: E501
             'display_name': (str, none_type,),  # noqa: E501
-            'billing_details': (object, none_type,),  # noqa: E501
+            'billing_details': (object,),  # noqa: E501
         }
 
     @cached_property
@@ -154,7 +154,7 @@ class BuyerSnapshot(ModelNormal):
             id (str): The unique Gr4vy ID for this buyer.. [optional]  # noqa: E501
             external_identifier (str, none_type): An external identifier that can be used to match the buyer against your own records.. [optional]  # noqa: E501
             display_name (str, none_type): A unique name for this buyer which is used in the Gr4vy admin panel to give a buyer a human readable name.. [optional]  # noqa: E501
-            billing_details (object, none_type): The billing details associated with the buyer, which include the address and tax ID.. [optional]  # noqa: E501
+            billing_details (object): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

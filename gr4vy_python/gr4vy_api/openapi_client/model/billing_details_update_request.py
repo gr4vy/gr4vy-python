@@ -109,7 +109,7 @@ class BillingDetailsUpdateRequest(ModelComposed):
             'last_name': (str, none_type,),  # noqa: E501
             'email_address': (str, none_type,),  # noqa: E501
             'phone_number': (str, none_type,),  # noqa: E501
-            'tax_id': (object, none_type,),  # noqa: E501
+            'tax_id': (object,),  # noqa: E501
         }
 
     @cached_property
@@ -178,7 +178,7 @@ class BillingDetailsUpdateRequest(ModelComposed):
             last_name (str, none_type): The last name, or family name, of the buyer.. [optional]  # noqa: E501
             email_address (str, none_type): The email address for the buyer.. [optional]  # noqa: E501
             phone_number (str, none_type): The phone number to use for this request. This expect the number in the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
-            tax_id (object, none_type): The tax information associated with the billing details.. [optional]  # noqa: E501
+            tax_id (object): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

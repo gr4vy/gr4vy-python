@@ -14,7 +14,9 @@ import unittest
 
 import openapi_client
 from openapi_client.model.three_d_secure_data import ThreeDSecureData
+from openapi_client.model.three_d_secure_data_v2_all_of import ThreeDSecureDataV2AllOf
 globals()['ThreeDSecureData'] = ThreeDSecureData
+globals()['ThreeDSecureDataV2AllOf'] = ThreeDSecureDataV2AllOf
 from openapi_client.model.three_d_secure_data_v2 import ThreeDSecureDataV2
 
 

@@ -29,7 +29,9 @@ from gr4vy_python.gr4vy_api.openapi_client.model_utils import (  # noqa: F401
 
 def lazy_import():
     from gr4vy_python.gr4vy_api.openapi_client.model.three_d_secure_data import ThreeDSecureData
+    from gr4vy_python.gr4vy_api.openapi_client.model.three_d_secure_data_v1_all_of import ThreeDSecureDataV1AllOf
     globals()['ThreeDSecureData'] = ThreeDSecureData
+    globals()['ThreeDSecureDataV1AllOf'] = ThreeDSecureDataV1AllOf
 
 
 class ThreeDSecureDataV1(ModelComposed):
@@ -60,12 +62,6 @@ class ThreeDSecureDataV1(ModelComposed):
     }
 
     validations = {
-        ('authentication_response',): {
-            'max_length': 1,
-        },
-        ('cavv_algorithm',): {
-            'max_length': 1,
-        },
         ('eci',): {
             'max_length': 2,
             'min_length': 1,
@@ -79,6 +75,12 @@ class ThreeDSecureDataV1(ModelComposed):
             },
         },
         ('directory_response',): {
+            'max_length': 1,
+        },
+        ('authentication_response',): {
+            'max_length': 1,
+        },
+        ('cavv_algorithm',): {
             'max_length': 1,
         },
     }
@@ -106,13 +108,13 @@ class ThreeDSecureDataV1(ModelComposed):
         """
         lazy_import()
         return {
-            'authentication_response': (str,),  # noqa: E501
-            'cavv_algorithm': (str,),  # noqa: E501
-            'xid': (str,),  # noqa: E501
             'cavv': (str,),  # noqa: E501
             'eci': (str,),  # noqa: E501
             'version': (str,),  # noqa: E501
             'directory_response': (str,),  # noqa: E501
+            'authentication_response': (str,),  # noqa: E501
+            'cavv_algorithm': (str,),  # noqa: E501
+            'xid': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -121,13 +123,13 @@ class ThreeDSecureDataV1(ModelComposed):
 
 
     attribute_map = {
-        'authentication_response': 'authentication_response',  # noqa: E501
-        'cavv_algorithm': 'cavv_algorithm',  # noqa: E501
-        'xid': 'xid',  # noqa: E501
         'cavv': 'cavv',  # noqa: E501
         'eci': 'eci',  # noqa: E501
         'version': 'version',  # noqa: E501
         'directory_response': 'directory_response',  # noqa: E501
+        'authentication_response': 'authentication_response',  # noqa: E501
+        'cavv_algorithm': 'cavv_algorithm',  # noqa: E501
+        'xid': 'xid',  # noqa: E501
     }
 
     required_properties = set([
@@ -143,17 +145,17 @@ class ThreeDSecureDataV1(ModelComposed):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, authentication_response, cavv_algorithm, xid, cavv, eci, version, directory_response, *args, **kwargs):  # noqa: E501
+    def __init__(self, cavv, eci, version, directory_response, authentication_response, cavv_algorithm, xid, *args, **kwargs):  # noqa: E501
         """ThreeDSecureDataV1 - a model defined in OpenAPI
 
         Args:
-            authentication_response (str): The authentication response.
-            cavv_algorithm (str): The CAVV Algorithm used.
-            xid (str): The transaction identifier.
             cavv (str): The cardholder authentication value or AAV.
             eci (str): The electronic commerce indicator for the 3DS transaction.
             version (str): The version of 3-D Secure that was used.
             directory_response (str): For 3-D Secure version 1, the enrolment response. For 3-D Secure version , the transaction status from the `ARes`.
+            authentication_response (str): The authentication response.
+            cavv_algorithm (str): The CAVV Algorithm used.
+            xid (str): The transaction identifier.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -219,13 +221,13 @@ class ThreeDSecureDataV1(ModelComposed):
             '_visited_composed_classes': self._visited_composed_classes,
         }
         required_args = {
-            'authentication_response': authentication_response,
-            'cavv_algorithm': cavv_algorithm,
-            'xid': xid,
             'cavv': cavv,
             'eci': eci,
             'version': version,
             'directory_response': directory_response,
+            'authentication_response': authentication_response,
+            'cavv_algorithm': cavv_algorithm,
+            'xid': xid,
         }
         model_args = {}
         model_args.update(required_args)
@@ -263,6 +265,7 @@ class ThreeDSecureDataV1(ModelComposed):
           ],
           'allOf': [
               ThreeDSecureData,
+              ThreeDSecureDataV1AllOf,
           ],
           'oneOf': [
           ],

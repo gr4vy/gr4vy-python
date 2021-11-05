@@ -1,11 +1,12 @@
-# Statuses
+# ThreeDSecureDataV1AllOf
 
-A list of status resources.
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**[Status]**](Status.md) | A list of authorizations. | [optional] 
+**authentication_response** | **str** | The authentication response. | 
+**cavv_algorithm** | **str** | The CAVV Algorithm used. | 
+**xid** | **str** | The transaction identifier. | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

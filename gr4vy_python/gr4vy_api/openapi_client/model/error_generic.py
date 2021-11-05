@@ -153,7 +153,7 @@ class ErrorGeneric(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             type (str): The type of this object. This is always `error`.. [optional] if omitted the server will use the default value of "error"  # noqa: E501
             code (str): A custom code to further describe the type of error being returned. This code provides further specification within the HTTP `status` code and can be used by a program to define logic based on the error.. [optional]  # noqa: E501
-            status (int): The HTTP status code of this error.. [optional] if omitted the server will use the default value of 0  # noqa: E501
+            status (int): The HTTP status code of this error.. [optional]  # noqa: E501
             message (str): A human readable message that describes the error. The content of this field should not be used to determine any business logic. . [optional]  # noqa: E501
             details ([ErrorDetail]): A list of detail objects that further clarify the reason for the error. Not every error supports more detail.. [optional]  # noqa: E501
         """

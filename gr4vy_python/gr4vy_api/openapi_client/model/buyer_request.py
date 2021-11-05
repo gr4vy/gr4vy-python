@@ -83,7 +83,7 @@ class BuyerRequest(ModelNormal):
         return {
             'external_identifier': (str, none_type,),  # noqa: E501
             'display_name': (str, none_type,),  # noqa: E501
-            'billing_details': (object, none_type,),  # noqa: E501
+            'billing_details': (object,),  # noqa: E501
         }
 
     @cached_property
@@ -145,7 +145,7 @@ class BuyerRequest(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             external_identifier (str, none_type): An external identifier that can be used to match the buyer against your own records. This value needs to be unique for all buyers.. [optional]  # noqa: E501
             display_name (str, none_type): A unique name for this buyer which is used in the Gr4vy admin panel to give a buyer a human readable name.. [optional]  # noqa: E501
-            billing_details (object, none_type): The optional billing details to create a buyer.. [optional]  # noqa: E501
+            billing_details (object): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

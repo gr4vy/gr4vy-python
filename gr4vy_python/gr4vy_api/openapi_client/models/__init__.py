@@ -56,13 +56,13 @@ from openapi_client.model.payment_services import PaymentServices
 from openapi_client.model.redirect_request import RedirectRequest
 from openapi_client.model.reset_password_request import ResetPasswordRequest
 from openapi_client.model.set_password_request import SetPasswordRequest
-from openapi_client.model.status import Status
-from openapi_client.model.statuses import Statuses
 from openapi_client.model.tax_id import TaxId
 from openapi_client.model.three_d_secure_data import ThreeDSecureData
 from openapi_client.model.three_d_secure_data_v1 import ThreeDSecureDataV1
+from openapi_client.model.three_d_secure_data_v1_all_of import ThreeDSecureDataV1AllOf
 from openapi_client.model.three_d_secure_data_v1_v2 import ThreeDSecureDataV1V2
 from openapi_client.model.three_d_secure_data_v2 import ThreeDSecureDataV2
+from openapi_client.model.three_d_secure_data_v2_all_of import ThreeDSecureDataV2AllOf
 from openapi_client.model.tokenized_request import TokenizedRequest
 from openapi_client.model.transaction import Transaction
 from openapi_client.model.transaction_capture_request import TransactionCaptureRequest

@@ -93,7 +93,7 @@ class DigitalWalletRequest(ModelNormal):
             'merchant_name': (str,),  # noqa: E501
             'domain_names': ([str],),  # noqa: E501
             'accept_terms_and_conditions': (bool,),  # noqa: E501
-            'merchant_url': (str,),  # noqa: E501
+            'merchant_url': (str, none_type,),  # noqa: E501
             'environments': ([str],),  # noqa: E501
         }
 
@@ -163,7 +163,7 @@ class DigitalWalletRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            merchant_url (str): The main URL of the merchant. This is used to register the merchant with a digital wallet provider and this URL is not displayed to the buyer.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
+            merchant_url (str, none_type): The main URL of the merchant. This is used to register the merchant with a digital wallet provider and this URL is not displayed to the buyer.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
             environments ([str]): Determines the Gr4vy environments in which this digital wallet should be available.. [optional] if omitted the server will use the default value of ["production"]  # noqa: E501
         """
 

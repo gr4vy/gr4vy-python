@@ -77,6 +77,12 @@ class ThreeDSecureDataV1V2(ModelComposed):
         ('directory_response',): {
             'max_length': 1,
         },
+        ('authentication_response',): {
+            'max_length': 1,
+        },
+        ('cavv_algorithm',): {
+            'max_length': 1,
+        },
     }
 
     @cached_property
@@ -106,6 +112,10 @@ class ThreeDSecureDataV1V2(ModelComposed):
             'eci': (str,),  # noqa: E501
             'version': (str,),  # noqa: E501
             'directory_response': (str,),  # noqa: E501
+            'authentication_response': (str,),  # noqa: E501
+            'cavv_algorithm': (str,),  # noqa: E501
+            'xid': (str,),  # noqa: E501
+            'directory_transaction_id': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -118,6 +128,10 @@ class ThreeDSecureDataV1V2(ModelComposed):
         'eci': 'eci',  # noqa: E501
         'version': 'version',  # noqa: E501
         'directory_response': 'directory_response',  # noqa: E501
+        'authentication_response': 'authentication_response',  # noqa: E501
+        'cavv_algorithm': 'cavv_algorithm',  # noqa: E501
+        'xid': 'xid',  # noqa: E501
+        'directory_transaction_id': 'directory_transaction_id',  # noqa: E501
     }
 
     required_properties = set([
@@ -133,7 +147,7 @@ class ThreeDSecureDataV1V2(ModelComposed):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, cavv, eci, version, directory_response, *args, **kwargs):  # noqa: E501
+    def __init__(self, cavv, eci, version, directory_response, authentication_response, cavv_algorithm, xid, directory_transaction_id, *args, **kwargs):  # noqa: E501
         """ThreeDSecureDataV1V2 - a model defined in OpenAPI
 
         Args:
@@ -141,6 +155,10 @@ class ThreeDSecureDataV1V2(ModelComposed):
             eci (str): The electronic commerce indicator for the 3DS transaction.
             version (str): The version of 3-D Secure that was used.
             directory_response (str): For 3-D Secure version 1, the enrolment response. For 3-D Secure version , the transaction status from the `ARes`.
+            authentication_response (str): The transaction status from the challenge result (not required for frictionless).
+            cavv_algorithm (str): The CAVV Algorithm used.
+            xid (str): The transaction identifier.
+            directory_transaction_id (str): The transaction identifier.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -210,6 +228,10 @@ class ThreeDSecureDataV1V2(ModelComposed):
             'eci': eci,
             'version': version,
             'directory_response': directory_response,
+            'authentication_response': authentication_response,
+            'cavv_algorithm': cavv_algorithm,
+            'xid': xid,
+            'directory_transaction_id': directory_transaction_id,
         }
         model_args = {}
         model_args.update(required_args)

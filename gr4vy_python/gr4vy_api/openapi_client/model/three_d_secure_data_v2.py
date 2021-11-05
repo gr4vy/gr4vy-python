@@ -29,7 +29,9 @@ from gr4vy_python.gr4vy_api.openapi_client.model_utils import (  # noqa: F401
 
 def lazy_import():
     from gr4vy_python.gr4vy_api.openapi_client.model.three_d_secure_data import ThreeDSecureData
+    from gr4vy_python.gr4vy_api.openapi_client.model.three_d_secure_data_v2_all_of import ThreeDSecureDataV2AllOf
     globals()['ThreeDSecureData'] = ThreeDSecureData
+    globals()['ThreeDSecureDataV2AllOf'] = ThreeDSecureDataV2AllOf
 
 
 class ThreeDSecureDataV2(ModelComposed):
@@ -103,11 +105,11 @@ class ThreeDSecureDataV2(ModelComposed):
         """
         lazy_import()
         return {
-            'directory_transaction_id': (str,),  # noqa: E501
             'cavv': (str,),  # noqa: E501
             'eci': (str,),  # noqa: E501
             'version': (str,),  # noqa: E501
             'directory_response': (str,),  # noqa: E501
+            'directory_transaction_id': (str,),  # noqa: E501
             'authentication_response': (str,),  # noqa: E501
         }
 
@@ -117,11 +119,11 @@ class ThreeDSecureDataV2(ModelComposed):
 
 
     attribute_map = {
-        'directory_transaction_id': 'directory_transaction_id',  # noqa: E501
         'cavv': 'cavv',  # noqa: E501
         'eci': 'eci',  # noqa: E501
         'version': 'version',  # noqa: E501
         'directory_response': 'directory_response',  # noqa: E501
+        'directory_transaction_id': 'directory_transaction_id',  # noqa: E501
         'authentication_response': 'authentication_response',  # noqa: E501
     }
 
@@ -138,15 +140,15 @@ class ThreeDSecureDataV2(ModelComposed):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, directory_transaction_id, cavv, eci, version, directory_response, *args, **kwargs):  # noqa: E501
+    def __init__(self, cavv, eci, version, directory_response, directory_transaction_id, *args, **kwargs):  # noqa: E501
         """ThreeDSecureDataV2 - a model defined in OpenAPI
 
         Args:
-            directory_transaction_id (str): The transaction identifier.
             cavv (str): The cardholder authentication value or AAV.
             eci (str): The electronic commerce indicator for the 3DS transaction.
             version (str): The version of 3-D Secure that was used.
             directory_response (str): For 3-D Secure version 1, the enrolment response. For 3-D Secure version , the transaction status from the `ARes`.
+            directory_transaction_id (str): The transaction identifier.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -213,11 +215,11 @@ class ThreeDSecureDataV2(ModelComposed):
             '_visited_composed_classes': self._visited_composed_classes,
         }
         required_args = {
-            'directory_transaction_id': directory_transaction_id,
             'cavv': cavv,
             'eci': eci,
             'version': version,
             'directory_response': directory_response,
+            'directory_transaction_id': directory_transaction_id,
         }
         model_args = {}
         model_args.update(required_args)
@@ -255,6 +257,7 @@ class ThreeDSecureDataV2(ModelComposed):
           ],
           'allOf': [
               ThreeDSecureData,
+              ThreeDSecureDataV2AllOf,
           ],
           'oneOf': [
           ],
