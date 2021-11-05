@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "gr4vy_python"
+name = "gr4vy"
 version = "0.1.0"
 description = ""
 authors = ["Gr4vy <gr4vy@gr4vy.com>"]

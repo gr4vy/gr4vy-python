@@ -1,8 +1,8 @@
 import setuptools
-from setuptools import setup,find_packages
+from setuptools import find_packages, setup
 
 setup(
-    name="gr4vy_python",
+    name="gr4vy",
     version="0.0.1",
     packages=find_packages(),
     author="gr4vy",
@@ -21,10 +21,14 @@ setup(
         "DateTime",
         "setuptools",
         "six",
-        "urllib3==1.26.5",
+        "urllib3",
         "python-dateutil",
         "crypto",
-        "cryptography==3.3.2", 
+        "cryptography",
         "pem",
-        "python-jose"],
-    include_package_data=True)
+        "python-jose",
+        "pytest",
+        "jwt",
+    ],
+    include_package_data=True,
+)

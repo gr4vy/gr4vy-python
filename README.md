@@ -7,15 +7,15 @@ more details, visit [gr4vy.com](https://gr4vy.com).
 
 To add Gr4vy to your project, clone the repo `github.com/gr4vy/gr4vy-python` and install it to you python environment with pip
 
-''sh
-pip install ./gravy-python
-''sh
+```python
+pip install git+ssh://git@github.com/gr4vy/gr4vy-python.git
+```
 
 
 Add import:
 
 ```python
-import "gr4vy_python"
+import gr4vy
 ```
 
 ## Getting Started
@@ -28,7 +28,7 @@ Once you have been set up with a Gr4vy account you will need to head over to the
 in a secure location but in this code sample we simply read the file from disk.
 
 ```python
-from gr4vy_python import Gr4vyClient
+from gr4vy import Gr4vyClient
 client = Gr4vyClient("gr4vyInstance","location_of_key_file")
 client.ListBuyers()
 
@@ -58,8 +58,8 @@ the token to pull in previously stored payment methods for a user. A buyer
 needs to be created before it can be used in this way.
 
 ```python
-  from gr4vy_python import Gr4vyClient
-  from gr4vy_python import BuyerRequest
+  from gr4vy import Gr4vyClient
+  from gr4vy import BuyerRequest
   client = Gr4vyClient("spider","private_key.pem")
 
   buyer_request = BuyerRequest(display_name = "Jane Smith")
@@ -82,14 +82,14 @@ needs to be created before it can be used in this way.
 The client can be initialized with the Gr4vy ID (`gr4vyId`) and the location of the private key
 
 ```python
-  client = Gr4vyClient("spider","private_key.pem")
+  client = Gr4vyClient("gr4vyId","private_key.pem")
 ```
 
 Alternatively, instead of the `gr4vyId` it can be initialized with the `baseUrl`
 of the server to use directly.
 
 ```python
-  client = Gr4vyClientWithBaseUrl("https://spider.gr4vy.app","private_key.pem")
+  client = Gr4vyClientWithBaseUrl("https://*gr4vyId*.gr4vy.app","private_key.pem")
 ```
 
 Your API private key can be created in your admin panel on the **Integrations**
@@ -113,7 +113,7 @@ For example, to create a buyer you will need to pass a `Gr4vyBuyerRequest` objec
 the `AddBuyer` method.
 
 ```python
-  from gr4vy_python import BuyerRequest
+  from gr4vy import BuyerRequest
 
   buyer_request = BuyerRequest(display_name = "Jane Smith")
   new_buyer = client.AddBuyer(buyer_request)
