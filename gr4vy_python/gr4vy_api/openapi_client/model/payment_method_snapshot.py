@@ -85,7 +85,7 @@ class PaymentMethodSnapshot(ModelNormal):
         return {
             'type': (str,),  # noqa: E501
             'id': (str, none_type,),  # noqa: E501
-            'method': (object,),  # noqa: E501
+            'method': (str, none_type),  # noqa: E501
             'external_identifier': (str, none_type,),  # noqa: E501
             'label': (str,),  # noqa: E501
             'scheme': (str, none_type,),  # noqa: E501

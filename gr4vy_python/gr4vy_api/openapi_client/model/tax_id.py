@@ -117,7 +117,7 @@ class TaxId(ModelNormal):
         """
         return {
             'kind': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
+            'id': (str, none_type),  # noqa: E501
         }
 
     @cached_property

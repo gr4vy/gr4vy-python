@@ -11,25 +11,26 @@ var1="'buyer': (object,),"
 rep1="'buyer': (Buyer, none_type),"
 sed -i '' "s/$var1/$rep1/g" ./gr4vy_python/gr4vy_api/openapi_client/model/payment_method.py
 
-var1="'buyer': (object,),"
-rep1="'buyer': (Buyer, none_type),"
-sed -i '' "s/$var1/$rep1/g" ./gr4vy_python/gr4vy_api/openapi_client/model/payment_method.py
+var1="'mode': (object,),"
+rep1="'mode': (str, none_type),"
+sed -i '' "s/$var1/$rep1/g" ./gr4vy_python/gr4vy_api/openapi_client/model/*.py
 
 var1="'method': (object,),"
 rep1="'method': (str, none_type),"
-sed -i '' "s/$var1/$rep1/g" ./gr4vy_python/gr4vy_api/openapi_client/model/payment_method.py
+sed -i '' "s/$var1/$rep1/g" ./gr4vy_python/gr4vy_api/openapi_client/model/*.py
 
-var1="'mode': (object,),"
-rep1="'mode': (str, none_type),"
-sed -i '' "s/$var1/$rep1/g" ./gr4vy_python/gr4vy_api/openapi_client/model/payment_method.py
+var1="'id': (str,),"
+rep1="'id': (str, none_type),"
+sed -i '' "s/$var1/$rep1/g" ./gr4vy_python/gr4vy_api/openapi_client/model/*.py
+
+
+var1="'context': (PaymentOptionContext,),"
+rep1="'context': (PaymentOptionContext, none_type),"
+sed -i '' "s/$var1/$rep1/g" ./gr4vy_python/gr4vy_api/openapi_client/model/*.py
 
 var1="class PaymentMethod(ModelNormal):"
 rep1="from gr4vy_python.gr4vy_api.openapi_client.model.buyer import Buyer\nclass PaymentMethod(ModelNormal):"
 sed -i '' "s/$var1/$rep1/g" ./gr4vy_python/gr4vy_api/openapi_client/model/payment_method.py
-
-var1="'id': (str,),"
-rep1="'id': (str, none_type),"
-sed -i '' "s/$var1/$rep1/g" ./gr4vy_python/gr4vy_api/openapi_client/model/payment_method_token.py
 
 var1="'token': (str,),"
 rep1="'token': (str, none_type),"
@@ -42,10 +43,6 @@ sed -i '' "s/$var1/$rep1/g" ./gr4vy_python/gr4vy_api/openapi_client/model/paymen
 var1="class PaymentMethodToken(ModelNormal):"
 rep1="from gr4vy_python.gr4vy_api.openapi_client.model.payment_service import PaymentService\nclass PaymentMethodToken(ModelNormal):"
 sed -i '' "s/$var1/$rep1/g" ./gr4vy_python/gr4vy_api/openapi_client/model/payment_method_token.py
-
-var1="'mode': (str,),"
-rep1="'mode': (str, none_type),"
-sed -i '' "s/$var1/$rep1/g" ./gr4vy_python/gr4vy_api/openapi_client/model/payment_service_definition.py
 
 var1="'buyer': (object,),"
 rep1="'buyer': (Buyer, none_type),"

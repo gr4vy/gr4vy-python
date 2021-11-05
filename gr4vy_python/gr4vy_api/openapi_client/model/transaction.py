@@ -120,7 +120,7 @@ class Transaction(ModelNormal):
         """
         return {
             'type': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
+            'id': (str, none_type),  # noqa: E501
             'status': (str,),  # noqa: E501
             'amount': (int,),  # noqa: E501
             'captured_amount': (int,),  # noqa: E501

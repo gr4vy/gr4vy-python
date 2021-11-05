@@ -220,7 +220,10 @@ def testRefundTransaction():
             redirect_url= "https://example.com/callback"
         )
     )
-    transaction_id = client.AuthorizeNewTransaction(transaction_request)['id']
+    transaction = client.AuthorizeNewTransaction(transaction_request)
 
+    print("===")
+    print(transaction)
+    print("===")
     transaction_refund_request = TransactionRefundRequest(amount=10)
-    assert client.RefundTransaction(transaction_id, transaction_refund_request=transaction_refund_request)
+    assert client.RefundTransaction(transaction.id, transaction_refund_request=transaction_refund_request)

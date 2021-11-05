@@ -78,7 +78,7 @@ class RedirectRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'method': (object,),  # noqa: E501
+            'method': (str, none_type),  # noqa: E501
             'redirect_url': (str,),  # noqa: E501
             'currency': (str,),  # noqa: E501
             'country': (str,),  # noqa: E501

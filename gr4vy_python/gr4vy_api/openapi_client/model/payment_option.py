@@ -82,12 +82,12 @@ class PaymentOption(ModelNormal):
         lazy_import()
         return {
             'type': (str,),  # noqa: E501
-            'method': (object,),  # noqa: E501
+            'method': (str, none_type),  # noqa: E501
             'icon_url': (str, none_type,),  # noqa: E501
-            'mode': (object,),  # noqa: E501
+            'mode': (str, none_type),  # noqa: E501
             'label': (str,),  # noqa: E501
             'can_store_payment_method': (bool,),  # noqa: E501
-            'context': (PaymentOptionContext,),  # noqa: E501
+            'context': (PaymentOptionContext, none_type),  # noqa: E501
         }
 
     @cached_property

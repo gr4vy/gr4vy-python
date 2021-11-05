@@ -94,7 +94,7 @@ class DigitalWallet(ModelNormal):
         return {
             'type': (str,),  # noqa: E501
             'provider': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
+            'id': (str, none_type),  # noqa: E501
             'merchant_name': (str,),  # noqa: E501
             'merchant_url': (str, none_type,),  # noqa: E501
             'domain_names': ([str],),  # noqa: E501

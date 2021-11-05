@@ -94,7 +94,7 @@ class TransactionPaymentMethodRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'method': (object,),  # noqa: E501
+            'method': (str, none_type),  # noqa: E501
             'number': (str,),  # noqa: E501
             'expiration_date': (str,),  # noqa: E501
             'security_code': (str,),  # noqa: E501
@@ -102,7 +102,7 @@ class TransactionPaymentMethodRequest(ModelNormal):
             'buyer_id': (str,),  # noqa: E501
             'buyer_external_identifier': (str,),  # noqa: E501
             'redirect_url': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
+            'id': (str, none_type),  # noqa: E501
         }
 
     @cached_property

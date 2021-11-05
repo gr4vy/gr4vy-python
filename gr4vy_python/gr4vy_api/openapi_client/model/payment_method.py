@@ -97,7 +97,7 @@ class PaymentMethod(ModelNormal):
         """
         return {
             'type': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
+            'id': (str, none_type),  # noqa: E501
             'status': (str,),  # noqa: E501
             'method': (str, none_type),  # noqa: E501
             'mode': (str, none_type),  # noqa: E501

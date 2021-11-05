@@ -89,14 +89,14 @@ class PaymentServiceDefinition(ModelNormal):
         """
         lazy_import()
         return {
-            'id': (str,),  # noqa: E501
+            'id': (str, none_type),  # noqa: E501
             'type': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
-            'method': (object,),  # noqa: E501
+            'method': (str, none_type),  # noqa: E501
             'fields': ([PaymentServiceDefinitionFields],),  # noqa: E501
             'supported_currencies': ([str],),  # noqa: E501
             'supported_countries': ([str],),  # noqa: E501
-            'mode': (object,),  # noqa: E501
+            'mode': (str, none_type),  # noqa: E501
             'supported_features': (PaymentServiceDefinitionSupportedFeatures,),  # noqa: E501
             'icon_url': (str, none_type,),  # noqa: E501
         }

@@ -77,7 +77,7 @@ class TokenizedRequest(ModelNormal):
         """
         return {
             'method': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
+            'id': (str, none_type),  # noqa: E501
             'redirect_url': (str,),  # noqa: E501
         }
 

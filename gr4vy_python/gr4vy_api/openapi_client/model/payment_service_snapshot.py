@@ -84,10 +84,10 @@ class PaymentServiceSnapshot(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'id': (str,),  # noqa: E501
+            'id': (str, none_type),  # noqa: E501
             'type': (str,),  # noqa: E501
             'payment_service_definition_id': (str,),  # noqa: E501
-            'method': (object,),  # noqa: E501
+            'method': (str, none_type),  # noqa: E501
         }
 
     @cached_property

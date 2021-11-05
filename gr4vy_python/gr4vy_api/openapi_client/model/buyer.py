@@ -86,7 +86,7 @@ class Buyer(ModelNormal):
         """
         return {
             'type': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
+            'id': (str, none_type),  # noqa: E501
             'external_identifier': (str, none_type,),  # noqa: E501
             'display_name': (str, none_type,),  # noqa: E501
             'billing_details': (BillingDetails, none_type),  # noqa: E501
