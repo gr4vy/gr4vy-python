@@ -4,4 +4,4 @@ lint:
 	poetry run black --check .
 
 test:
-	pytest -vv test_gr4vy.py
+	poetry run pytest -vv test_gr4vy.py
