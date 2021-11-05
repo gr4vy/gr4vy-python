@@ -21,10 +21,10 @@ setup(
         "DateTime",
         "setuptools",
         "six",
-        "urllib3==1.26.5",
+        "urllib3",
         "python-dateutil",
         "crypto",
-        "cryptography==3.3.2", 
+        "cryptography", 
         "pem",
         "python-jose"],
     include_package_data=True)
