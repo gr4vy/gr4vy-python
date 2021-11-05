@@ -76,6 +76,7 @@ class PaymentServiceDefinitionSupportedFeatures(ModelNormal):
             'payment_method_tokenization': (bool,),  # noqa: E501
             'three_d_secure_hosted': (bool,),  # noqa: E501
             'three_d_secure_pass_through': (bool,),  # noqa: E501
+            'apple_pay': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -87,6 +88,7 @@ class PaymentServiceDefinitionSupportedFeatures(ModelNormal):
         'payment_method_tokenization': 'payment_method_tokenization',  # noqa: E501
         'three_d_secure_hosted': 'three_d_secure_hosted',  # noqa: E501
         'three_d_secure_pass_through': 'three_d_secure_pass_through',  # noqa: E501
+        'apple_pay': 'apple_pay',  # noqa: E501
     }
 
     _composed_schemas = {}

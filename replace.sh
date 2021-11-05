@@ -35,6 +35,10 @@ var1="class PaymentMethodToken(ModelNormal):"
 rep1="from gr4vy_python.gr4vy_api.openapi_client.model.payment_service import PaymentService\nclass PaymentMethodToken(ModelNormal):"
 sed -i '' "s/$var1/$rep1/g" ./gr4vy_python/gr4vy_api/openapi_client/model/payment_method_token.py
 
+var1="'mode': (str,),"
+rep1="'mode': (str, none_type),"
+sed -i '' "s/$var1/$rep1/g" ./gr4vy_python/gr4vy_api/openapi_client/model/payment_service_definition.py
+
 var1="'buyer': (object,),"
 rep1="'buyer': (Buyer, none_type),"
 sed -i '' "s/$var1/$rep1/g" ./gr4vy_python/gr4vy_api/openapi_client/model/transaction.py

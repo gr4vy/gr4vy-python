@@ -66,6 +66,11 @@ class PaymentServiceDefinition(ModelNormal):
             'GOCARDLESS': "gocardless",
             'STRIPEDD': "stripedd",
         },
+        ('mode',): {
+            'CARD': "card",
+            'REDIRECT': "redirect",
+            'APPLEPAY': "applepay",
+        },
     }
 
     validations = {
@@ -103,6 +108,7 @@ class PaymentServiceDefinition(ModelNormal):
             'fields': ([PaymentServiceDefinitionFields],),  # noqa: E501
             'supported_currencies': ([str],),  # noqa: E501
             'supported_countries': ([str],),  # noqa: E501
+            'mode': (str, none_type),  # noqa: E501
             'supported_features': (PaymentServiceDefinitionSupportedFeatures,),  # noqa: E501
             'icon_url': (str, none_type,),  # noqa: E501
         }
@@ -120,6 +126,7 @@ class PaymentServiceDefinition(ModelNormal):
         'fields': 'fields',  # noqa: E501
         'supported_currencies': 'supported_currencies',  # noqa: E501
         'supported_countries': 'supported_countries',  # noqa: E501
+        'mode': 'mode',  # noqa: E501
         'supported_features': 'supported_features',  # noqa: E501
         'icon_url': 'icon_url',  # noqa: E501
     }
@@ -177,6 +184,7 @@ class PaymentServiceDefinition(ModelNormal):
             fields ([PaymentServiceDefinitionFields]): A list of fields that need to be submitted when activating the payment. service.. [optional]  # noqa: E501
             supported_currencies ([str]): A list of three-letter ISO currency codes that this service supports.. [optional]  # noqa: E501
             supported_countries ([str]): A list of two-letter ISO country codes that this service supports.. [optional]  # noqa: E501
+            mode (str): The mode of the payment service definition.. [optional]  # noqa: E501
             supported_features (PaymentServiceDefinitionSupportedFeatures): [optional]  # noqa: E501
             icon_url (str, none_type): An icon to display for the payment service.. [optional]  # noqa: E501
         """

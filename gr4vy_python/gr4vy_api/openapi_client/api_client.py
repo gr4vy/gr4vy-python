@@ -221,9 +221,6 @@ class ApiClient(object):
                         encoding = match.group(1)
                 response_data.data = response_data.data.decode(encoding)
 
-            print("========")
-            print(response_data.data)
-            print("========")
             return_data = self.deserialize(
                 response_data,
                 response_type,

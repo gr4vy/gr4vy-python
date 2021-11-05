@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **fields** | [**[PaymentServiceDefinitionFields]**](PaymentServiceDefinitionFields.md) | A list of fields that need to be submitted when activating the payment. service. | [optional] 
 **supported_currencies** | **[str]** | A list of three-letter ISO currency codes that this service supports. | [optional] 
 **supported_countries** | **[str]** | A list of two-letter ISO country codes that this service supports. | [optional] 
+**mode** | **str** | The mode of the payment service definition. | [optional] 
 **supported_features** | [**PaymentServiceDefinitionSupportedFeatures**](PaymentServiceDefinitionSupportedFeatures.md) |  | [optional] 
 **icon_url** | **str, none_type** | An icon to display for the payment service. | [optional] 
 
