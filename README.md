@@ -7,9 +7,9 @@ more details, visit [gr4vy.com](https://gr4vy.com).
 
 To add Gr4vy to your project, clone the repo `github.com/gr4vy/gr4vy-python` and install it to you python environment with pip
 
-''python
+```python
 git@github.com:gr4vy/gr4vy-python.git
-''python
+```python
 
 
 Add import:
