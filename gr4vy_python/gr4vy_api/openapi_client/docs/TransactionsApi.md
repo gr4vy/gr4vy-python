@@ -54,7 +54,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         amount=1299,
         currency="USD",
         payment_method=TransactionPaymentMethodRequest(
-            method="card",
+            method=,
             number="4111111111111111",
             expiration_date="11/15",
             security_code="123",

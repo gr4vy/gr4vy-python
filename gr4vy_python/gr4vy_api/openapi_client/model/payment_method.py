@@ -63,17 +63,6 @@ class PaymentMethod(ModelNormal):
             'SUCCEEDED': "succeeded",
             'FAILED': "failed",
         },
-        ('method',): {
-            'CARD': "card",
-            'GOCARDLESS': "gocardless",
-            'STRIPEDD': "stripedd",
-            'PAYPAL': "paypal",
-            'BANKED': "banked",
-        },
-        ('mode',): {
-            'CARD': "card",
-            'REDIRECT': "redirect",
-        },
         ('environment',): {
             'None': None,
             'DEVELOPMENT': "development",
@@ -108,10 +97,10 @@ class PaymentMethod(ModelNormal):
         """
         return {
             'type': (str,),  # noqa: E501
-            'id': (str, none_type),  # noqa: E501
+            'id': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
-            'method': (str,),  # noqa: E501
-            'mode': (str,),  # noqa: E501
+            'method': (str, none_type),  # noqa: E501
+            'mode': (str, none_type),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'external_identifier': (str, none_type,),  # noqa: E501
@@ -194,8 +183,8 @@ class PaymentMethod(ModelNormal):
             type (str): `payment-method`.. [optional] if omitted the server will use the default value of "payment-method"  # noqa: E501
             id (str): The unique ID of the payment method.. [optional]  # noqa: E501
             status (str): The state of the payment method.  - `processing` - The payment method is still being stored. - `buyer_approval_required` - Storing the payment method requires   the buyer to provide approval. Follow the `approval_url` for next steps. - `succeeded` - The payment method is approved and stored with all   relevant payment services. - `failed` - Storing the payment method did not succeed.. [optional]  # noqa: E501
-            method (str): The type of this payment method.. [optional]  # noqa: E501
-            mode (str): The mode to use with this payment method.. [optional]  # noqa: E501
+            method (object): [optional]  # noqa: E501
+            mode (object): [optional]  # noqa: E501
             created_at (datetime): The date and time when this payment method was first created in our system.. [optional]  # noqa: E501
             updated_at (datetime): The date and time when this payment method was last updated in our system.. [optional]  # noqa: E501
             external_identifier (str, none_type): An external identifier that can be used to match the payment method against your own records.. [optional]  # noqa: E501

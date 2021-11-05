@@ -56,13 +56,6 @@ class PaymentServiceSnapshot(ModelNormal):
         ('type',): {
             'PAYMENT-SERVICE': "payment-service",
         },
-        ('method',): {
-            'CARD': "card",
-            'PAYPAL': "paypal",
-            'BANKED': "banked",
-            'GOCARDLESS': "gocardless",
-            'STRIPEDD': "stripedd",
-        },
     }
 
     validations = {
@@ -94,7 +87,7 @@ class PaymentServiceSnapshot(ModelNormal):
             'id': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'payment_service_definition_id': (str,),  # noqa: E501
-            'method': (str,),  # noqa: E501
+            'method': (object,),  # noqa: E501
         }
 
     @cached_property
@@ -158,7 +151,7 @@ class PaymentServiceSnapshot(ModelNormal):
             id (str): The ID of this payment service.. [optional]  # noqa: E501
             type (str): The type of this resource.. [optional] if omitted the server will use the default value of "payment-service"  # noqa: E501
             payment_service_definition_id (str): The ID of the payment service definition used to create this service. . [optional]  # noqa: E501
-            method (str): Defines the ID of the payment method that this service handles.. [optional]  # noqa: E501
+            method (object): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

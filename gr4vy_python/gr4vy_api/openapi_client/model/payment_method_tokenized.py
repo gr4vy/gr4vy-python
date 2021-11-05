@@ -56,13 +56,6 @@ class PaymentMethodTokenized(ModelNormal):
         ('type',): {
             'PAYMENT-METHOD': "payment-method",
         },
-        ('method',): {
-            'CARD': "card",
-            'PAYPAL': "paypal",
-            'BANKED': "banked",
-            'GOCARDLESS': "gocardless",
-            'STRIPEDD': "stripedd",
-        },
         ('scheme',): {
             'None': None,
             'VISA': "visa",
@@ -107,7 +100,7 @@ class PaymentMethodTokenized(ModelNormal):
         return {
             'type': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
-            'method': (str,),  # noqa: E501
+            'method': (object,),  # noqa: E501
             'label': (str,),  # noqa: E501
             'scheme': (str, none_type,),  # noqa: E501
             'expiration_date': (str, none_type,),  # noqa: E501
@@ -177,7 +170,7 @@ class PaymentMethodTokenized(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             type (str): `payment-method`.. [optional] if omitted the server will use the default value of "payment-method"  # noqa: E501
             id (str): The unique ID of the payment method.. [optional]  # noqa: E501
-            method (str): The type of this payment method.. [optional]  # noqa: E501
+            method (object): [optional]  # noqa: E501
             label (str): A label for the payment method. For a `card` payment method this is the last 4 digits on the card. For others it would be the email address.. [optional]  # noqa: E501
             scheme (str, none_type): The type of the card, if the payment method is a card.. [optional]  # noqa: E501
             expiration_date (str, none_type): The expiration date for the payment method.. [optional]  # noqa: E501

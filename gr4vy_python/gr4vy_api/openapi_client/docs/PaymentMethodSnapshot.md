@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | **str** | &#x60;payment-method&#x60;. | [optional]  if omitted the server will use the default value of "payment-method"
 **id** | **str, none_type** | The unique ID of the payment method. | [optional] 
-**method** | **str** | The type of this payment method. | [optional] 
+**method** | **object** |  | [optional] 
 **external_identifier** | **str, none_type** | An external identifier that can be used to match the payment method against your own records. | [optional] 
 **label** | **str** | A label for the payment method. This can be the last 4 digits for a card, or the email address for an alternative payment method. | [optional] 
 **scheme** | **str, none_type** | An additional label used to differentiate different sub-types of a payment method. Most notably this can include the type of card used in a transaction. | [optional] 

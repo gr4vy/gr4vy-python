@@ -56,13 +56,6 @@ class PaymentMethodSnapshot(ModelNormal):
         ('type',): {
             'PAYMENT-METHOD': "payment-method",
         },
-        ('method',): {
-            'CARD': "card",
-            'PAYPAL': "paypal",
-            'BANKED': "banked",
-            'GOCARDLESS': "gocardless",
-            'STRIPEDD': "stripedd",
-        },
     }
 
     validations = {
@@ -92,7 +85,7 @@ class PaymentMethodSnapshot(ModelNormal):
         return {
             'type': (str,),  # noqa: E501
             'id': (str, none_type,),  # noqa: E501
-            'method': (str,),  # noqa: E501
+            'method': (object,),  # noqa: E501
             'external_identifier': (str, none_type,),  # noqa: E501
             'label': (str,),  # noqa: E501
             'scheme': (str, none_type,),  # noqa: E501
@@ -164,7 +157,7 @@ class PaymentMethodSnapshot(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             type (str): `payment-method`.. [optional] if omitted the server will use the default value of "payment-method"  # noqa: E501
             id (str, none_type): The unique ID of the payment method.. [optional]  # noqa: E501
-            method (str): The type of this payment method.. [optional]  # noqa: E501
+            method (object): [optional]  # noqa: E501
             external_identifier (str, none_type): An external identifier that can be used to match the payment method against your own records.. [optional]  # noqa: E501
             label (str): A label for the payment method. This can be the last 4 digits for a card, or the email address for an alternative payment method.. [optional]  # noqa: E501
             scheme (str, none_type): An additional label used to differentiate different sub-types of a payment method. Most notably this can include the type of card used in a transaction.. [optional]  # noqa: E501

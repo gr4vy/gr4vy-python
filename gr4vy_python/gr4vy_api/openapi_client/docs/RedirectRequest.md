@@ -5,7 +5,7 @@ Request to use a redirect payment method in a transaction.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**method** | **str** | The method to use, this can be any of the methods that support redirect requests.  When storing a new payment method, only &#x60;gocardless&#x60; and &#x60;stripedd&#x60; is currently supported. | 
+**method** | **object** |  | 
 **redirect_url** | **str** | The redirect URL to redirect a buyer to after they have authorized their transaction. | 
 **currency** | **str** | The ISO-4217 currency code to use this payment method for. This is used to select the payment service to use. | 
 **country** | **str** | The 2-letter ISO code of the country to use this payment method for. This is used to select the payment service to use. | 

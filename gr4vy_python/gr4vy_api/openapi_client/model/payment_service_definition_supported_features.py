@@ -140,6 +140,7 @@ class PaymentServiceDefinitionSupportedFeatures(ModelNormal):
             payment_method_tokenization (bool): Supports storing a payment method via tokenization.. [optional]  # noqa: E501
             three_d_secure_hosted (bool): Supports hosted 3-D Secure with a redirect.. [optional]  # noqa: E501
             three_d_secure_pass_through (bool): Supports passing 3-D Secure data to the underlying processor.. [optional]  # noqa: E501
+            apple_pay (bool): Supports passing decrypted apple pay token to the underlying processor.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

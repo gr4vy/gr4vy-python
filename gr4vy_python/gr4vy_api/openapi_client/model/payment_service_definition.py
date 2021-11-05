@@ -59,18 +59,6 @@ class PaymentServiceDefinition(ModelNormal):
     """
 
     allowed_values = {
-        ('method',): {
-            'CARD': "card",
-            'PAYPAL': "paypal",
-            'BANKED': "banked",
-            'GOCARDLESS': "gocardless",
-            'STRIPEDD': "stripedd",
-        },
-        ('mode',): {
-            'CARD': "card",
-            'REDIRECT': "redirect",
-            'APPLEPAY': "applepay",
-        },
     }
 
     validations = {
@@ -104,11 +92,11 @@ class PaymentServiceDefinition(ModelNormal):
             'id': (str,),  # noqa: E501
             'type': (str,),  # noqa: E501
             'display_name': (str,),  # noqa: E501
-            'method': (str,),  # noqa: E501
+            'method': (object,),  # noqa: E501
             'fields': ([PaymentServiceDefinitionFields],),  # noqa: E501
             'supported_currencies': ([str],),  # noqa: E501
             'supported_countries': ([str],),  # noqa: E501
-            'mode': (str, none_type),  # noqa: E501
+            'mode': (object,),  # noqa: E501
             'supported_features': (PaymentServiceDefinitionSupportedFeatures,),  # noqa: E501
             'icon_url': (str, none_type,),  # noqa: E501
         }
@@ -180,11 +168,11 @@ class PaymentServiceDefinition(ModelNormal):
             id (str): The ID of the payment service. This is the underlying provider followed by a dash followed by the payment method ID.. [optional]  # noqa: E501
             type (str): `payment-service-definition`.. [optional] if omitted the server will use the default value of "payment-service-definition"  # noqa: E501
             display_name (str): The display name of this service.. [optional]  # noqa: E501
-            method (str): The ID of the payment method that this services handles.. [optional]  # noqa: E501
+            method (object): [optional]  # noqa: E501
             fields ([PaymentServiceDefinitionFields]): A list of fields that need to be submitted when activating the payment. service.. [optional]  # noqa: E501
             supported_currencies ([str]): A list of three-letter ISO currency codes that this service supports.. [optional]  # noqa: E501
             supported_countries ([str]): A list of two-letter ISO country codes that this service supports.. [optional]  # noqa: E501
-            mode (str): The mode of the payment service definition.. [optional]  # noqa: E501
+            mode (object): [optional]  # noqa: E501
             supported_features (PaymentServiceDefinitionSupportedFeatures): [optional]  # noqa: E501
             icon_url (str, none_type): An icon to display for the payment service.. [optional]  # noqa: E501
         """

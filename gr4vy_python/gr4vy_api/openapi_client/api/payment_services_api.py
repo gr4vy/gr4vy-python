@@ -504,7 +504,8 @@ class PaymentServicesApi(object):
                         "PAYPAL": "paypal",
                         "BANKED": "banked",
                         "GOCARDLESS": "gocardless",
-                        "STRIPEDD": "stripedd"
+                        "STRIPEDD": "stripedd",
+                        "APPLEPAY": "applepay"
                     },
                     ('environment',): {
 

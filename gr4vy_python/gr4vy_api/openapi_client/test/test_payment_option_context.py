@@ -14,12 +14,10 @@ import unittest
 
 import openapi_client
 from openapi_client.model.payment_option_context import PaymentOptionContext
-globals()['PaymentOptionContext'] = PaymentOptionContext
-from openapi_client.model.payment_option import PaymentOption
 
 
-class TestPaymentOption(unittest.TestCase):
-    """PaymentOption unit test stubs"""
+class TestPaymentOptionContext(unittest.TestCase):
+    """PaymentOptionContext unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestPaymentOption(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testPaymentOption(self):
-        """Test PaymentOption"""
+    def testPaymentOptionContext(self):
+        """Test PaymentOptionContext"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = PaymentOption()  # noqa: E501
+        # model = PaymentOptionContext()  # noqa: E501
         pass
 
 

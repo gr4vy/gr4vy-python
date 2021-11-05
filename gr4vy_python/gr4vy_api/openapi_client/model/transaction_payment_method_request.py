@@ -53,14 +53,6 @@ class TransactionPaymentMethodRequest(ModelNormal):
     """
 
     allowed_values = {
-        ('method',): {
-            'CARD': "card",
-            'PAYPAL': "paypal",
-            'BANKED': "banked",
-            'GOCARDLESS': "gocardless",
-            'STRIPEDD': "stripedd",
-            'ID': "id",
-        },
     }
 
     validations = {
@@ -102,7 +94,7 @@ class TransactionPaymentMethodRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'method': (str,),  # noqa: E501
+            'method': (object,),  # noqa: E501
             'number': (str,),  # noqa: E501
             'expiration_date': (str,),  # noqa: E501
             'security_code': (str,),  # noqa: E501
@@ -146,7 +138,7 @@ class TransactionPaymentMethodRequest(ModelNormal):
         """TransactionPaymentMethodRequest - a model defined in OpenAPI
 
         Args:
-            method (str): The method to use for this request.
+            method (object):
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types

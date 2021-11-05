@@ -11,6 +11,8 @@
 
 from openapi_client.model.address import Address
 from openapi_client.model.address_update import AddressUpdate
+from openapi_client.model.apple_pay_request import ApplePayRequest
+from openapi_client.model.apple_pay_session_request import ApplePaySessionRequest
 from openapi_client.model.billing_details import BillingDetails
 from openapi_client.model.billing_details_update_request import BillingDetailsUpdateRequest
 from openapi_client.model.buyer import Buyer
@@ -41,6 +43,7 @@ from openapi_client.model.payment_method_tokens import PaymentMethodTokens
 from openapi_client.model.payment_methods import PaymentMethods
 from openapi_client.model.payment_methods_tokenized import PaymentMethodsTokenized
 from openapi_client.model.payment_option import PaymentOption
+from openapi_client.model.payment_option_context import PaymentOptionContext
 from openapi_client.model.payment_options import PaymentOptions
 from openapi_client.model.payment_service import PaymentService
 from openapi_client.model.payment_service_definition import PaymentServiceDefinition

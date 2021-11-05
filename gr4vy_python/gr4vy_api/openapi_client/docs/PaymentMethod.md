@@ -8,8 +8,8 @@ Name | Type | Description | Notes
 **type** | **str** | &#x60;payment-method&#x60;. | [optional]  if omitted the server will use the default value of "payment-method"
 **id** | **str** | The unique ID of the payment method. | [optional] 
 **status** | **str** | The state of the payment method.  - &#x60;processing&#x60; - The payment method is still being stored. - &#x60;buyer_approval_required&#x60; - Storing the payment method requires   the buyer to provide approval. Follow the &#x60;approval_url&#x60; for next steps. - &#x60;succeeded&#x60; - The payment method is approved and stored with all   relevant payment services. - &#x60;failed&#x60; - Storing the payment method did not succeed. | [optional] 
-**method** | **str** | The type of this payment method. | [optional] 
-**mode** | **str** | The mode to use with this payment method. | [optional] 
+**method** | **object** |  | [optional] 
+**mode** | **object** |  | [optional] 
 **created_at** | **datetime** | The date and time when this payment method was first created in our system. | [optional] 
 **updated_at** | **datetime** | The date and time when this payment method was last updated in our system. | [optional] 
 **external_identifier** | **str, none_type** | An external identifier that can be used to match the payment method against your own records. | [optional] 

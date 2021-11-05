@@ -116,6 +116,8 @@ Class | Method | HTTP request | Description
 
  - [Address](openapi_client/docs/Address.md)
  - [AddressUpdate](openapi_client/docs/AddressUpdate.md)
+ - [ApplePayRequest](openapi_client/docs/ApplePayRequest.md)
+ - [ApplePaySessionRequest](openapi_client/docs/ApplePaySessionRequest.md)
  - [BillingDetails](openapi_client/docs/BillingDetails.md)
  - [BillingDetailsUpdateRequest](openapi_client/docs/BillingDetailsUpdateRequest.md)
  - [Buyer](openapi_client/docs/Buyer.md)
@@ -146,6 +148,7 @@ Class | Method | HTTP request | Description
  - [PaymentMethods](openapi_client/docs/PaymentMethods.md)
  - [PaymentMethodsTokenized](openapi_client/docs/PaymentMethodsTokenized.md)
  - [PaymentOption](openapi_client/docs/PaymentOption.md)
+ - [PaymentOptionContext](openapi_client/docs/PaymentOptionContext.md)
  - [PaymentOptions](openapi_client/docs/PaymentOptions.md)
  - [PaymentService](openapi_client/docs/PaymentService.md)
  - [PaymentServiceDefinition](openapi_client/docs/PaymentServiceDefinition.md)

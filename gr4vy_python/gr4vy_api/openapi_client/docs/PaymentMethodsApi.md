@@ -381,7 +381,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = payment_methods_api.PaymentMethodsApi(api_client)
     payment_method_request = PaymentMethodRequest(
-        method="card",
+        method=,
         number="4111111111111111",
         expiration_date="11/15",
         security_code="123",
