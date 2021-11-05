@@ -142,3 +142,6 @@ cython_debug/
 *.key
 
 .DS_STORE
+
+# Requirements
+requirements.txt
