@@ -21,6 +21,7 @@ Removes a stored payment method.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -80,6 +81,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Returns an empty response. |  -  |
@@ -98,6 +100,7 @@ Gets the details for a stored payment method.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -159,6 +162,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a payment method. |  -  |
@@ -177,6 +181,7 @@ Returns a list of stored (tokenized) payment methods for a buyer in a short toke
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -247,6 +252,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of available payment methods for a buyer, filtered by the given currency and country code. |  -  |
@@ -265,6 +271,7 @@ Returns a list of stored (tokenized) payment methods.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -334,6 +341,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of payment methods. |  -  |
@@ -351,6 +359,7 @@ Stores and tokenizes a new payment method.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -381,7 +390,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = payment_methods_api.PaymentMethodsApi(api_client)
     payment_method_request = PaymentMethodRequest(
-        method=,
+        method=None,
         number="4111111111111111",
         expiration_date="11/15",
         security_code="123",
@@ -426,6 +435,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns the created payment method. |  -  |

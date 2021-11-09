@@ -1,8 +1,9 @@
 [tool.poetry]
 name = "gr4vy"
 version = "0.1.0"
-description = ""
-authors = ["Gr4vy <gr4vy@gr4vy.com>"]
+description = "Python SDK for Gr4vy"
+authors = ["Gr4vy <code@gr4vy.com>"]
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
