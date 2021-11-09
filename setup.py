@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="gr4vy",
-    version="0.0.1",
+    version="0.1.1",
     packages=find_packages(),
     author="gr4vy",
     author_email="phillip@gr4vy.com",
