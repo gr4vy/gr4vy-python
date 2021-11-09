@@ -64,7 +64,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     buyer_request = BuyerRequest(
         external_identifier="user-789123",
         display_name="John L.",
-        billing_details=None,
+        billing_details=,
     ) # BuyerRequest |  (optional)
 
     try:

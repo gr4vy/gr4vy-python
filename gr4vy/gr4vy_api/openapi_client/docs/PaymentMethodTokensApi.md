@@ -17,7 +17,6 @@ Returns a list of PSP tokens for a given payment method.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
@@ -79,7 +78,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of payment method tokens. |  -  |

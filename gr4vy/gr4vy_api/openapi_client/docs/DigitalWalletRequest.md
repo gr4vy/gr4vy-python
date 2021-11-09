@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **provider** | **str** | The name of the digital wallet provider. | defaults to "apple"
 **merchant_url** | **str, none_type** | The main URL of the merchant. This is used to register the merchant with a digital wallet provider and this URL is not displayed to the buyer. | [optional]  if omitted the server will use the default value of "null"
 **environments** | **[str]** | Determines the Gr4vy environments in which this digital wallet should be available. | [optional]  if omitted the server will use the default value of ["production"]
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -21,7 +21,6 @@ Adds a new payment service by providing a custom name and a value for each of th
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
@@ -85,7 +84,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns the created payment service. |  -  |
@@ -104,7 +102,6 @@ Deletes a specific active payment service.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
@@ -164,7 +161,6 @@ void (empty response body)
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Returns an empty response. |  -  |
@@ -183,7 +179,6 @@ Retrieves the details of a single configured payment service.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
@@ -245,7 +240,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a payment service. |  -  |
@@ -264,7 +258,6 @@ Lists the currently configured and activated payment services.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
@@ -332,7 +325,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of payment services. |  -  |
@@ -350,7 +342,6 @@ Updates an existing payment service. Allows all fields to be changed except for 
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
-
 ```python
 import time
 import openapi_client
@@ -449,7 +440,6 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
-
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns the updated payment service. |  -  |

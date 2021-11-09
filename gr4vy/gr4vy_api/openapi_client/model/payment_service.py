@@ -26,9 +26,6 @@ from gr4vy.gr4vy_api.openapi_client.model_utils import (  # noqa: F401
     none_type,
     validate_get_composed_info,
 )
-from ..model_utils import OpenApiModel
-from gr4vy.gr4vy_api.openapi_client.exceptions import ApiAttributeError
-
 
 
 class PaymentService(ModelNormal):
@@ -130,13 +127,7 @@ class PaymentService(ModelNormal):
         },
     }
 
-    @cached_property
-    def additional_properties_type():
-        """
-        This must be a method because a model may have properties that are
-        of type self, this must run after the class is loaded
-        """
-        return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
+    additional_properties_type = None
 
     _nullable = False
 
@@ -154,7 +145,7 @@ class PaymentService(ModelNormal):
             'id': (str, none_type),  # noqa: E501
             'type': (str,),  # noqa: E501
             'payment_service_definition_id': (str,),  # noqa: E501
-            'method': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'method': (str, none_type),  # noqa: E501
             'display_name': (str,),  # noqa: E501
             'status': (str,),  # noqa: E501
             'accepted_currencies': ([str],),  # noqa: E501
@@ -209,107 +200,7 @@ class PaymentService(ModelNormal):
         'updated_at': 'updated_at',  # noqa: E501
     }
 
-    read_only_vars = {
-    }
-
     _composed_schemas = {}
-
-    @classmethod
-    @convert_js_args_to_python_args
-    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
-        """PaymentService - a model defined in OpenAPI
-
-        Keyword Args:
-            _check_type (bool): if True, values for parameters in openapi_types
-                                will be type checked and a TypeError will be
-                                raised if the wrong type is input.
-                                Defaults to True
-            _path_to_item (tuple/list): This is a list of keys or values to
-                                drill down to the model in received_data
-                                when deserializing a response
-            _spec_property_naming (bool): True if the variable names in the input data
-                                are serialized names, as specified in the OpenAPI document.
-                                False if the variable names in the input data
-                                are pythonic names, e.g. snake case (default)
-            _configuration (Configuration): the instance to use when
-                                deserializing a file_type parameter.
-                                If passed, type conversion is attempted
-                                If omitted no type conversion is done.
-            _visited_composed_classes (tuple): This stores a tuple of
-                                classes that we have traveled through so that
-                                if we see that class again we will not use its
-                                discriminator again.
-                                When traveling through a discriminator, the
-                                composed schema that is
-                                is traveled through is added to this set.
-                                For example if Animal has a discriminator
-                                petType and we pass in "Dog", and the class Dog
-                                allOf includes Animal, we move through Animal
-                                once using the discriminator, and pick Dog.
-                                Then in Dog, we will make an instance of the
-                                Animal class but this time we won't travel
-                                through its discriminator because we passed in
-                                _visited_composed_classes = (Animal,)
-            id (str): The ID of this payment service.. [optional]  # noqa: E501
-            type (str): The type of this resource.. [optional] if omitted the server will use the default value of "payment-service"  # noqa: E501
-            payment_service_definition_id (str): The ID of the payment service definition used to create this service. . [optional]  # noqa: E501
-            method (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
-            display_name (str): The custom name set for this service.. [optional]  # noqa: E501
-            status (str): The current status of this service. This will start off as pending, move to created, and might eventually move to an error status if and when the credentials are no longer valid. . [optional]  # noqa: E501
-            accepted_currencies ([str]): A list of currencies for which this service is enabled, in ISO 4217 three-letter code format.. [optional]  # noqa: E501
-            accepted_countries ([str]): A list of countries for which this service is enabled, in ISO two-letter code format.. [optional]  # noqa: E501
-            three_d_secure_enabled (bool): Defines if 3-D Secure is enabled for the service (can only be enabled if the payment service definition supports the `three_d_secure_hosted` feature). This does not affect pass through 3-D Secure data.. [optional] if omitted the server will use the default value of False  # noqa: E501
-            acquirer_bin_visa (str, none_type): Acquiring institution identification code for VISA.. [optional]  # noqa: E501
-            acquirer_bin_mastercard (str, none_type): Acquiring institution identification code for Mastercard.. [optional]  # noqa: E501
-            acquirer_bin_amex (str, none_type): Acquiring institution identification code for Amex.. [optional]  # noqa: E501
-            acquirer_bin_discover (str, none_type): Acquiring institution identification code for Discover.. [optional]  # noqa: E501
-            acquirer_merchant_id (str, none_type): Merchant identifier used in authorisation requests (assigned by the acquirer).. [optional]  # noqa: E501
-            merchant_name (str, none_type): Merchant name (assigned by the acquirer).. [optional]  # noqa: E501
-            merchant_country_code (str, none_type): ISO 3166-1 numeric three-digit country code.. [optional]  # noqa: E501
-            merchant_category_code (str, none_type): Merchant category code that describes the business.. [optional]  # noqa: E501
-            merchant_url (str, none_type): Fully qualified URL of 3-D Secure requestor website or customer care site.. [optional]  # noqa: E501
-            credentials_mode (str): Defines if the credentials are intended for the service's live API or sandbox/test API.. [optional] if omitted the server will use the default value of "live"  # noqa: E501
-            active (bool): Defines if this service is currently active or not.. [optional] if omitted the server will use the default value of True  # noqa: E501
-            environments ([str]): Determines the Gr4vy environments in which this service should be available. This can be used in combination with the `environment` parameters in the payment method and transaction APIs to route transactions through this service.. [optional] if omitted the server will use the default value of ["production"]  # noqa: E501
-            position (float): The numeric rank of a payment service. Payment services with a lower position value are processed first.. [optional]  # noqa: E501
-            created_at (datetime): The date and time when this service was created.. [optional]  # noqa: E501
-            updated_at (datetime): The date and time when this service was last updated.. [optional]  # noqa: E501
-        """
-
-        _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
-        _path_to_item = kwargs.pop('_path_to_item', ())
-        _configuration = kwargs.pop('_configuration', None)
-        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
-
-        self = super(OpenApiModel, cls).__new__(cls)
-
-        if args:
-            raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
-                    args,
-                    self.__class__.__name__,
-                ),
-                path_to_item=_path_to_item,
-                valid_classes=(self.__class__,),
-            )
-
-        self._data_store = {}
-        self._check_type = _check_type
-        self._spec_property_naming = _spec_property_naming
-        self._path_to_item = _path_to_item
-        self._configuration = _configuration
-        self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
-
-        for var_name, var_value in kwargs.items():
-            if var_name not in self.attribute_map and \
-                        self._configuration is not None and \
-                        self._configuration.discard_unknown_keys and \
-                        self.additional_properties_type is None:
-                # discard variable.
-                continue
-            setattr(self, var_name, var_value)
-        return self
 
     required_properties = set([
         '_data_store',
@@ -358,7 +249,7 @@ class PaymentService(ModelNormal):
             id (str): The ID of this payment service.. [optional]  # noqa: E501
             type (str): The type of this resource.. [optional] if omitted the server will use the default value of "payment-service"  # noqa: E501
             payment_service_definition_id (str): The ID of the payment service definition used to create this service. . [optional]  # noqa: E501
-            method (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            method (object): [optional]  # noqa: E501
             display_name (str): The custom name set for this service.. [optional]  # noqa: E501
             status (str): The current status of this service. This will start off as pending, move to created, and might eventually move to an error status if and when the credentials are no longer valid. . [optional]  # noqa: E501
             accepted_currencies ([str]): A list of currencies for which this service is enabled, in ISO 4217 three-letter code format.. [optional]  # noqa: E501
@@ -412,6 +303,3 @@ class PaymentService(ModelNormal):
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
-            if var_name in self.read_only_vars:
-                raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
-                                     f"class with read only attributes.")
