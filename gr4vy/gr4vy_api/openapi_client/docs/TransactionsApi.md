@@ -21,6 +21,7 @@ Attempts to create an authorization for a payment method. In some cases it is no
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -54,7 +55,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         amount=1299,
         currency="USD",
         payment_method=TransactionPaymentMethodRequest(
-            method=,
+            method=None,
             number="4111111111111111",
             expiration_date="11/15",
             security_code="123",
@@ -103,6 +104,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns the created transaction. |  -  |
@@ -121,6 +123,7 @@ Captures a previously authorized transaction.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -196,6 +199,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns the captured transaction. |  -  |
@@ -215,6 +219,7 @@ Get information about a transaction.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -276,6 +281,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a transaction resource. |  -  |
@@ -294,6 +300,7 @@ Lists all transactions for an account. Sorted by last `updated_at` status.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -375,6 +382,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a paginated list of transactions for an account. |  -  |
@@ -392,6 +400,7 @@ Refunds or voids transaction. If this transaction was already captured, it will 
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -467,6 +476,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns cancelled transaction. |  -  |

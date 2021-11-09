@@ -21,6 +21,7 @@ De-registers a digital wallet with a provider. Upon successful de-registration, 
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -80,6 +81,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Returns an empty response. |  -  |
@@ -98,6 +100,7 @@ Returns a registered digital wallet.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -159,6 +162,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a registered digital wallet. |  -  |
@@ -177,6 +181,7 @@ Returns a list of all registered digital wallets.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -233,6 +238,7 @@ This endpoint does not need any parameter.
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of registered digital wallets. |  -  |
@@ -250,6 +256,7 @@ Register with a digital wallet provider.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -320,6 +327,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns the newly registered digital wallet. |  -  |
@@ -338,6 +346,7 @@ Updates the values a digital wallet was registered with, and the Gr4vy environme
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -416,6 +425,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns the updated digital wallet. |  -  |

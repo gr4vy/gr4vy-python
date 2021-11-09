@@ -12,13 +12,14 @@ Name | Type | Description | Notes
 **captured_amount** | **int** | The captured amount for this transaction. This can be a part and in some cases even more than the authorized amount. | [optional] 
 **refunded_amount** | **int** | The refunded amount for this transaction. This can be a part or all of the captured amount. | [optional] 
 **currency** | **str** | The currency code for this transaction. | [optional] 
-**payment_method** | **object** |  | [optional] 
-**buyer** | **object** |  | [optional] 
+**payment_method** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
+**buyer** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 **created_at** | **datetime** | The date and time when this transaction was created in our system. | [optional] 
 **external_identifier** | **str, none_type** | An external identifier that can be used to match the transaction against your own records. | [optional] 
 **updated_at** | **datetime** | Defines when the transaction was last updated. | [optional] 
-**payment_service** | **object** |  | [optional] 
+**payment_service** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 **environment** | **str** | The environment this transaction has been created in. | [optional]  if omitted the server will use the default value of "production"
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
