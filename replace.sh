@@ -11,6 +11,18 @@ var1="'buyer': (object,),"
 rep1="'buyer': (Buyer, none_type),"
 sed -i '' "s/$var1/$rep1/g" ./gr4vy/gr4vy_api/openapi_client/model/payment_method.py
 
+var1="class BillingDetails(ModelNormal):"
+rep1="from gr4vy.gr4vy_api.openapi_client.model.tax_id import TaxId\nfrom gr4vy.gr4vy_api.openapi_client.model.address import Address\nclass BillingDetails(ModelNormal):"
+sed -i '' "s/$var1/$rep1/g" ./gr4vy/gr4vy_api/openapi_client/model/billing_details.py
+
+var1="'address': (object,),"
+rep1="'address': (Address, none_type),"
+sed -i '' "s/$var1/$rep1/g" ./gr4vy/gr4vy_api/openapi_client/model/billing_details.py
+
+var1="'tax_id': (object,),"
+rep1="'tax_id': (TaxId, none_type),"
+sed -i '' "s/$var1/$rep1/g" ./gr4vy/gr4vy_api/openapi_client/model/billing_details.py
+
 var1="'mode': (object,),"
 rep1="'mode': (str, none_type),"
 sed -i '' "s/$var1/$rep1/g" ./gr4vy/gr4vy_api/openapi_client/model/*.py

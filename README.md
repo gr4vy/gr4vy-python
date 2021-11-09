@@ -5,12 +5,11 @@ more details, visit [gr4vy.com](https://gr4vy.com).
 
 ## Installation
 
-To add Gr4vy to your project, clone the repo `github.com/gr4vy/gr4vy-python` and install it to you python environment with pip
+To add Gr4vy to your project simply install with pip:
 
 ```python
 pip install gr4vy
 ```
-
 
 Add import:
 
@@ -176,7 +175,7 @@ pytest -v
 
 ### Publishing
 
-Create a PR for your change to the master branch of github.com/gr4vy/gr4vy-go
+This project is published to PyPi.
 
 ## License
 
