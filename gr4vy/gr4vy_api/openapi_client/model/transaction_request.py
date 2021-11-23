@@ -63,11 +63,6 @@ class TransactionRequest(ModelNormal):
             'AUTHORIZE': "authorize",
             'CAPTURE': "capture",
         },
-        ('environment',): {
-            'DEVELOPMENT': "development",
-            'STAGING': "staging",
-            'PRODUCTION': "production",
-        },
     }
 
     validations = {
@@ -99,7 +94,6 @@ class TransactionRequest(ModelNormal):
             'store': (bool,),  # noqa: E501
             'intent': (str,),  # noqa: E501
             'external_identifier': (str, none_type,),  # noqa: E501
-            'environment': (str,),  # noqa: E501
             'three_d_secure_data': (ThreeDSecureDataV1V2,),  # noqa: E501
         }
 
@@ -115,7 +109,6 @@ class TransactionRequest(ModelNormal):
         'store': 'store',  # noqa: E501
         'intent': 'intent',  # noqa: E501
         'external_identifier': 'external_identifier',  # noqa: E501
-        'environment': 'environment',  # noqa: E501
         'three_d_secure_data': 'three_d_secure_data',  # noqa: E501
     }
 
@@ -173,7 +166,6 @@ class TransactionRequest(ModelNormal):
             store (bool): Whether or not to also try and store the payment method with us so that it can be used again for future use. This is only supported for payment methods that support this feature.. [optional] if omitted the server will use the default value of False  # noqa: E501
             intent (str): Defines the intent of this API call. This determines the desired initial state of the transaction.  * `authorize` - (Default) Optionally approves and then authorizes a transaction but does not capture the funds. * `capture` - Optionally approves and then authorizes and captures the funds of the transaction.. [optional] if omitted the server will use the default value of "authorize"  # noqa: E501
             external_identifier (str, none_type): An external identifier that can be used to match the transaction against your own records.. [optional]  # noqa: E501
-            environment (str): Defines the environment to create this transaction in. Setting this to anything other than `production` will force Gr4vy to use the payment a service configured for that environment.. [optional]  # noqa: E501
             three_d_secure_data (ThreeDSecureDataV1V2): [optional]  # noqa: E501
         """
 

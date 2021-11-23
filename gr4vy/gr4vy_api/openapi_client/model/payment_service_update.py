@@ -57,15 +57,6 @@ class PaymentServiceUpdate(ModelNormal):
     """
 
     allowed_values = {
-        ('credentials_mode',): {
-            'SANDBOX': "sandbox",
-            'LIVE': "live",
-        },
-        ('environments',): {
-            'DEVELOPMENT': "development",
-            'STAGING': "staging",
-            'PRODUCTION': "production",
-        },
     }
 
     validations = {
@@ -109,10 +100,6 @@ class PaymentServiceUpdate(ModelNormal):
         ('merchant_url',): {
             'max_length': 2048,
         },
-        ('environments',): {
-            'max_items': 3,
-            'min_items': 0,
-        },
     }
 
     additional_properties_type = None
@@ -145,9 +132,7 @@ class PaymentServiceUpdate(ModelNormal):
             'merchant_country_code': (str, none_type,),  # noqa: E501
             'merchant_category_code': (str, none_type,),  # noqa: E501
             'merchant_url': (str, none_type,),  # noqa: E501
-            'credentials_mode': (str,),  # noqa: E501
             'active': (bool,),  # noqa: E501
-            'environments': ([str],),  # noqa: E501
             'position': (float,),  # noqa: E501
         }
 
@@ -171,9 +156,7 @@ class PaymentServiceUpdate(ModelNormal):
         'merchant_country_code': 'merchant_country_code',  # noqa: E501
         'merchant_category_code': 'merchant_category_code',  # noqa: E501
         'merchant_url': 'merchant_url',  # noqa: E501
-        'credentials_mode': 'credentials_mode',  # noqa: E501
         'active': 'active',  # noqa: E501
-        'environments': 'environments',  # noqa: E501
         'position': 'position',  # noqa: E501
     }
 
@@ -237,9 +220,7 @@ class PaymentServiceUpdate(ModelNormal):
             merchant_country_code (str, none_type): ISO 3166-1 numeric three-digit country code.. [optional]  # noqa: E501
             merchant_category_code (str, none_type): Merchant category code that describes the business.. [optional]  # noqa: E501
             merchant_url (str, none_type): Fully qualified URL of 3-D Secure requestor website or customer care site.. [optional]  # noqa: E501
-            credentials_mode (str): Defines if the credentials are intended for the service's live API or sandbox/test API.. [optional] if omitted the server will use the default value of "live"  # noqa: E501
             active (bool): Defines if this service is currently active or not.. [optional] if omitted the server will use the default value of True  # noqa: E501
-            environments ([str]): Determines the Gr4vy environments in which this service should be available. This can be used in combination with the `environment` parameters in the payment method and transaction APIs to route transactions through this service.. [optional] if omitted the server will use the default value of ["production"]  # noqa: E501
             position (float): The numeric rank of a payment service. Payment services with a lower position value are processed first. When a payment services is inserted at a position, any payment services with the the same value or higher are shifted down a position accordingly. When left out, the payment service is inserted at the end of the list.. [optional]  # noqa: E501
         """
 

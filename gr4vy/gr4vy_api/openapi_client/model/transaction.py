@@ -82,11 +82,6 @@ class Transaction(ModelNormal):
             'BUYER_APPROVAL_FAILED': "buyer_approval_failed",
             'BUYER_APPROVAL_TIMEDOUT': "buyer_approval_timedout",
         },
-        ('environment',): {
-            'DEVELOPMENT': "development",
-            'STAGING': "staging",
-            'PRODUCTION': "production",
-        },
     }
 
     validations = {
@@ -132,7 +127,6 @@ class Transaction(ModelNormal):
             'external_identifier': (str, none_type,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'payment_service': (PaymentService, none_type),  # noqa: E501
-            'environment': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -154,7 +148,6 @@ class Transaction(ModelNormal):
         'external_identifier': 'external_identifier',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'payment_service': 'payment_service',  # noqa: E501
-        'environment': 'environment',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -216,7 +209,6 @@ class Transaction(ModelNormal):
             external_identifier (str, none_type): An external identifier that can be used to match the transaction against your own records.. [optional]  # noqa: E501
             updated_at (datetime): Defines when the transaction was last updated.. [optional]  # noqa: E501
             payment_service (object): [optional]  # noqa: E501
-            environment (str): The environment this transaction has been created in.. [optional] if omitted the server will use the default value of "production"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

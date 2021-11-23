@@ -425,7 +425,6 @@ class TransactionsApi(object):
                 after_created_at (str): Filters the results to only transactions created after this ISO date-time string.. [optional]
                 before_updated_at (str): Filters the results to only transactions last updated before this ISO date-time string.. [optional]
                 after_updated_at (str): Filters the results to only transactions last updated after this ISO date-time string.. [optional]
-                environment (str): Filters the results to only the items available in this environment.. [optional] if omitted the server will use the default value of "production"
                 limit (int): Defines the maximum number of items to return for this request.. [optional] if omitted the server will use the default value of 20
                 cursor (str): A cursor that identifies the page of results to return. This is used to paginate the results of this API.  For the first page of results, this parameter can be left out. For additional pages, use the value returned by the API in the `next_cursor` field. Similarly the `previous_cursor` can be used to reverse backwards in the list.. [optional]
                 _return_http_data_only (bool): response data without head status
@@ -495,7 +494,6 @@ class TransactionsApi(object):
                     'after_created_at',
                     'before_updated_at',
                     'after_updated_at',
-                    'environment',
                     'limit',
                     'cursor',
                 ],
@@ -504,7 +502,6 @@ class TransactionsApi(object):
                 ],
                 'enum': [
                     'transaction_status',
-                    'environment',
                 ],
                 'validation': [
                     'limit',
@@ -543,12 +540,6 @@ class TransactionsApi(object):
                         "BUYER_APPROVAL_FAILED": "buyer_approval_failed",
                         "BUYER_APPROVAL_TIMEDOUT": "buyer_approval_timedout"
                     },
-                    ('environment',): {
-
-                        "DEVELOPMENT": "development",
-                        "STAGING": "staging",
-                        "PRODUCTION": "production"
-                    },
                 },
                 'openapi_types': {
                     'search':
@@ -567,8 +558,6 @@ class TransactionsApi(object):
                         (str,),
                     'after_updated_at':
                         (str,),
-                    'environment':
-                        (str,),
                     'limit':
                         (int,),
                     'cursor':
@@ -583,7 +572,6 @@ class TransactionsApi(object):
                     'after_created_at': 'after_created_at',
                     'before_updated_at': 'before_updated_at',
                     'after_updated_at': 'after_updated_at',
-                    'environment': 'environment',
                     'limit': 'limit',
                     'cursor': 'cursor',
                 },
@@ -596,7 +584,6 @@ class TransactionsApi(object):
                     'after_created_at': 'query',
                     'before_updated_at': 'query',
                     'after_updated_at': 'query',
-                    'environment': 'query',
                     'limit': 'query',
                     'cursor': 'query',
                 },

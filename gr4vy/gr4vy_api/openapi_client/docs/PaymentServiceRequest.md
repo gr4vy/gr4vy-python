@@ -20,9 +20,7 @@ Name | Type | Description | Notes
 **merchant_country_code** | **str, none_type** | ISO 3166-1 numeric three-digit country code. | [optional] 
 **merchant_category_code** | **str, none_type** | Merchant category code that describes the business. | [optional] 
 **merchant_url** | **str, none_type** | Fully qualified URL of 3-D Secure requestor website or customer care site. | [optional] 
-**credentials_mode** | **str** | Defines if the credentials are intended for the service&#39;s live API or sandbox/test API. | [optional]  if omitted the server will use the default value of "live"
 **active** | **bool** | Defines if this service is currently active or not. | [optional]  if omitted the server will use the default value of True
-**environments** | **[str]** | Determines the Gr4vy environments in which this service should be available. This can be used in combination with the &#x60;environment&#x60; parameters in the payment method and transaction APIs to route transactions through this service. | [optional]  if omitted the server will use the default value of ["production"]
 **position** | **float** | The numeric rank of a payment service. Payment services with a lower position value are processed first. When a payment services is inserted at a position, any payment services with the the same value or higher are shifted down a position accordingly. When left out, the payment service is inserted at the end of the list. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

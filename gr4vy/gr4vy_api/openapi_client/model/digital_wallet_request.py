@@ -55,11 +55,7 @@ class DigitalWalletRequest(ModelNormal):
     allowed_values = {
         ('provider',): {
             'APPLE': "apple",
-        },
-        ('environments',): {
-            'DEVELOPMENT': "development",
-            'STAGING': "staging",
-            'PRODUCTION': "production",
+            'GOOGLE': "google",
         },
     }
 
@@ -67,10 +63,6 @@ class DigitalWalletRequest(ModelNormal):
         ('domain_names',): {
             'max_items': 99,
             'min_items': 1,
-        },
-        ('environments',): {
-            'max_items': 3,
-            'min_items': 0,
         },
     }
 
@@ -94,7 +86,6 @@ class DigitalWalletRequest(ModelNormal):
             'domain_names': ([str],),  # noqa: E501
             'accept_terms_and_conditions': (bool,),  # noqa: E501
             'merchant_url': (str, none_type,),  # noqa: E501
-            'environments': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -108,7 +99,6 @@ class DigitalWalletRequest(ModelNormal):
         'domain_names': 'domain_names',  # noqa: E501
         'accept_terms_and_conditions': 'accept_terms_and_conditions',  # noqa: E501
         'merchant_url': 'merchant_url',  # noqa: E501
-        'environments': 'environments',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -123,16 +113,16 @@ class DigitalWalletRequest(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, merchant_name, domain_names, accept_terms_and_conditions, *args, **kwargs):  # noqa: E501
+    def __init__(self, provider, merchant_name, domain_names, accept_terms_and_conditions, *args, **kwargs):  # noqa: E501
         """DigitalWalletRequest - a model defined in OpenAPI
 
         Args:
+            provider (str): The name of the digital wallet provider.
             merchant_name (str): The name of the merchant. This is used to register the merchant with a digital wallet provider and this name is not displayed to the buyer.
-            domain_names ([str]): The list of fully qualified domain names that a digital wallet provider should process payments for.
+            domain_names ([str]): The list of domain names that a digital wallet can be used on. To use a digital wallet on a website, the domain of the site is required to be in this list.
             accept_terms_and_conditions (bool): The explicit acceptance of the digital wallet provider's terms and conditions by the merchant. Needs to be `true` to register a new digital wallet.
 
         Keyword Args:
-            provider (str): The name of the digital wallet provider.. defaults to "apple", must be one of ["apple", ]  # noqa: E501
             _check_type (bool): if True, values for parameters in openapi_types
                                 will be type checked and a TypeError will be
                                 raised if the wrong type is input.
@@ -164,10 +154,8 @@ class DigitalWalletRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             merchant_url (str, none_type): The main URL of the merchant. This is used to register the merchant with a digital wallet provider and this URL is not displayed to the buyer.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
-            environments ([str]): Determines the Gr4vy environments in which this digital wallet should be available.. [optional] if omitted the server will use the default value of ["production"]  # noqa: E501
         """
 
-        provider = kwargs.get('provider', "apple")
         _check_type = kwargs.pop('_check_type', True)
         _spec_property_naming = kwargs.pop('_spec_property_naming', False)
         _path_to_item = kwargs.pop('_path_to_item', ())

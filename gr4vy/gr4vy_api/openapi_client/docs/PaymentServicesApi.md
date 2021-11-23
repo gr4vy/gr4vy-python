@@ -288,13 +288,12 @@ with openapi_client.ApiClient(configuration) as api_client:
     limit = 1 # int | Defines the maximum number of items to return for this request. (optional) if omitted the server will use the default value of 20
     cursor = "ZXhhbXBsZTE" # str | A cursor that identifies the page of results to return. This is used to paginate the results of this API.  For the first page of results, this parameter can be left out. For additional pages, use the value returned by the API in the `next_cursor` field. Similarly the `previous_cursor` can be used to reverse backwards in the list. (optional)
     method = "card" # str | Filters the results to only the items for which the `method` has been set to this value. (optional)
-    environment = "staging" # str | Filters the results to only the items available in this environment. (optional) if omitted the server will use the default value of "production"
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # List payment services
-        api_response = api_instance.list_payment_services(limit=limit, cursor=cursor, method=method, environment=environment)
+        api_response = api_instance.list_payment_services(limit=limit, cursor=cursor, method=method)
         pprint(api_response)
     except openapi_client.ApiException as e:
         print("Exception when calling PaymentServicesApi->list_payment_services: %s\n" % e)
@@ -308,7 +307,6 @@ Name | Type | Description  | Notes
  **limit** | **int**| Defines the maximum number of items to return for this request. | [optional] if omitted the server will use the default value of 20
  **cursor** | **str**| A cursor that identifies the page of results to return. This is used to paginate the results of this API.  For the first page of results, this parameter can be left out. For additional pages, use the value returned by the API in the &#x60;next_cursor&#x60; field. Similarly the &#x60;previous_cursor&#x60; can be used to reverse backwards in the list. | [optional]
  **method** | **str**| Filters the results to only the items for which the &#x60;method&#x60; has been set to this value. | [optional]
- **environment** | **str**| Filters the results to only the items available in this environment. | [optional] if omitted the server will use the default value of "production"
 
 ### Return type
 
@@ -393,9 +391,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         merchant_country_code="840",
         merchant_category_code="5045",
         merchant_url="merchant_url_example",
-        credentials_mode="live",
         active=True,
-        environments=["production"],
         position=1,
     ) # PaymentServiceUpdate |  (optional)
 

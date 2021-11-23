@@ -300,7 +300,6 @@ class PaymentMethodsApi(object):
                 buyer_external_identifier (str): Filters the results to only the items for which the `buyer` has an `external_identifier` that matches this value.. [optional]
                 country (str): Filters the results to only the items which support this country code. A country is formatted as 2-letter ISO country code.. [optional]
                 currency (str): Filters the results to only the items which support this currency code. A currency is formatted as 3-letter ISO currency code.. [optional]
-                environment (str): Filters the results to only the items available in this environment.. [optional] if omitted the server will use the default value of "production"
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -364,13 +363,11 @@ class PaymentMethodsApi(object):
                     'buyer_external_identifier',
                     'country',
                     'currency',
-                    'environment',
                 ],
                 'required': [],
                 'nullable': [
                 ],
                 'enum': [
-                    'environment',
                 ],
                 'validation': [
                 ]
@@ -379,12 +376,6 @@ class PaymentMethodsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
-                    ('environment',): {
-
-                        "DEVELOPMENT": "development",
-                        "STAGING": "staging",
-                        "PRODUCTION": "production"
-                    },
                 },
                 'openapi_types': {
                     'buyer_id':
@@ -395,22 +386,18 @@ class PaymentMethodsApi(object):
                         (str,),
                     'currency':
                         (str,),
-                    'environment':
-                        (str,),
                 },
                 'attribute_map': {
                     'buyer_id': 'buyer_id',
                     'buyer_external_identifier': 'buyer_external_identifier',
                     'country': 'country',
                     'currency': 'currency',
-                    'environment': 'environment',
                 },
                 'location_map': {
                     'buyer_id': 'query',
                     'buyer_external_identifier': 'query',
                     'country': 'query',
                     'currency': 'query',
-                    'environment': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -440,7 +427,6 @@ class PaymentMethodsApi(object):
 
 
             Keyword Args:
-                environment (str): Filters the results to only the items available in this environment.. [optional] if omitted the server will use the default value of "production"
                 buyer_id (str): Filters the results to only the items for which the `buyer` has an `id` that matches this value.. [optional]
                 buyer_external_identifier (str): Filters the results to only the items for which the `buyer` has an `external_identifier` that matches this value.. [optional]
                 limit (int): Defines the maximum number of items to return for this request.. [optional] if omitted the server will use the default value of 20
@@ -504,7 +490,6 @@ class PaymentMethodsApi(object):
             },
             params_map={
                 'all': [
-                    'environment',
                     'buyer_id',
                     'buyer_external_identifier',
                     'limit',
@@ -514,7 +499,6 @@ class PaymentMethodsApi(object):
                 'nullable': [
                 ],
                 'enum': [
-                    'environment',
                 ],
                 'validation': [
                     'limit',
@@ -529,16 +513,8 @@ class PaymentMethodsApi(object):
                     },
                 },
                 'allowed_values': {
-                    ('environment',): {
-
-                        "DEVELOPMENT": "development",
-                        "STAGING": "staging",
-                        "PRODUCTION": "production"
-                    },
                 },
                 'openapi_types': {
-                    'environment':
-                        (str,),
                     'buyer_id':
                         (str,),
                     'buyer_external_identifier':
@@ -549,14 +525,12 @@ class PaymentMethodsApi(object):
                         (str,),
                 },
                 'attribute_map': {
-                    'environment': 'environment',
                     'buyer_id': 'buyer_id',
                     'buyer_external_identifier': 'buyer_external_identifier',
                     'limit': 'limit',
                     'cursor': 'cursor',
                 },
                 'location_map': {
-                    'environment': 'query',
                     'buyer_id': 'query',
                     'buyer_external_identifier': 'query',
                     'limit': 'query',

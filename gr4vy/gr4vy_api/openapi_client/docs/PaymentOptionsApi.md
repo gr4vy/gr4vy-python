@@ -47,14 +47,13 @@ with openapi_client.ApiClient(configuration) as api_client:
     api_instance = payment_options_api.PaymentOptionsApi(api_client)
     country = "US" # str | Filters the results to only the items which support this country code. A country is formatted as 2-letter ISO country code. (optional)
     currency = "USD" # str | Filters the results to only the items which support this currency code. A currency is formatted as 3-letter ISO currency code. (optional)
-    environment = "staging" # str | Filters the results to only the items available in this environment. (optional) if omitted the server will use the default value of "production"
     locale = "en-US" # str | An ISO 639-1 Language Code and optional ISO 3166 Country Code. This locale determines the language for the labels returned for every payment option. (optional) if omitted the server will use the default value of "en-US"
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # List payment options
-        api_response = api_instance.list_payment_options(country=country, currency=currency, environment=environment, locale=locale)
+        api_response = api_instance.list_payment_options(country=country, currency=currency, locale=locale)
         pprint(api_response)
     except openapi_client.ApiException as e:
         print("Exception when calling PaymentOptionsApi->list_payment_options: %s\n" % e)
@@ -67,7 +66,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **country** | **str**| Filters the results to only the items which support this country code. A country is formatted as 2-letter ISO country code. | [optional]
  **currency** | **str**| Filters the results to only the items which support this currency code. A currency is formatted as 3-letter ISO currency code. | [optional]
- **environment** | **str**| Filters the results to only the items available in this environment. | [optional] if omitted the server will use the default value of "production"
  **locale** | **str**| An ISO 639-1 Language Code and optional ISO 3166 Country Code. This locale determines the language for the labels returned for every payment option. | [optional] if omitted the server will use the default value of "en-US"
 
 ### Return type

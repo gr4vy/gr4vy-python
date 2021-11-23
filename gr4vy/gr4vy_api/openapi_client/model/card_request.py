@@ -56,11 +56,6 @@ class CardRequest(ModelNormal):
         ('method',): {
             'CARD': "card",
         },
-        ('environment',): {
-            'DEVELOPMENT': "development",
-            'STAGING': "staging",
-            'PRODUCTION': "production",
-        },
     }
 
     validations = {
@@ -109,7 +104,6 @@ class CardRequest(ModelNormal):
             'external_identifier': (str, none_type,),  # noqa: E501
             'buyer_id': (str,),  # noqa: E501
             'buyer_external_identifier': (str,),  # noqa: E501
-            'environment': (str,),  # noqa: E501
             'redirect_url': (str,),  # noqa: E501
         }
 
@@ -126,7 +120,6 @@ class CardRequest(ModelNormal):
         'external_identifier': 'external_identifier',  # noqa: E501
         'buyer_id': 'buyer_id',  # noqa: E501
         'buyer_external_identifier': 'buyer_external_identifier',  # noqa: E501
-        'environment': 'environment',  # noqa: E501
         'redirect_url': 'redirect_url',  # noqa: E501
     }
 
@@ -185,7 +178,6 @@ class CardRequest(ModelNormal):
             external_identifier (str, none_type): An external identifier that can be used to match the card against your own records.. [optional]  # noqa: E501
             buyer_id (str): The ID of the buyer to associate this payment method to. If this field is provided then the `buyer_external_identifier` field needs to be unset.. [optional]  # noqa: E501
             buyer_external_identifier (str): The `external_identifier` of the buyer to associate this payment method to. If this field is provided then the `buyer_id` field needs to be unset.. [optional]  # noqa: E501
-            environment (str): Defines the environment to store this card for. Setting this to anything other than `production` will force Gr4vy to use the payment services configured for that environment.. [optional]  # noqa: E501
             redirect_url (str): The redirect URL to redirect a buyer after a 3D Secure flow has been completed. This will be appended with both a transaction ID and status (e.g. `https://example.com/callback? gr4vy_transaction_id=123&gr4vy_transaction_status=capture_succeeded`). This is required if the transaction request body does not include `three_d_secure_data`.. [optional]  # noqa: E501
         """
 
