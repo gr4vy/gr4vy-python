@@ -28,7 +28,7 @@ in a secure location but in this code sample we simply read the file from disk.
 
 ```python
 from gr4vy import Gr4vyClient
-client = Gr4vyClient("gr4vyInstance","location_of_key_file", "environment")
+client = Gr4vyClient("gr4vy_instance","location_of_key_file", "sandbox_or_production")
 client.ListBuyers()
 
 ```
