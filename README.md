@@ -88,7 +88,7 @@ Alternatively, instead of the `gr4vyId` it can be initialized with the `baseUrl`
 of the server to use directly and the environment attempting to acess .
 
 ```python
-  client = Gr4vyClientWithBaseUrl("https://*gr4vyId*.gr4vy.app","private_key.pem", "environment")
+  client = Gr4vyClientWithBaseUrl("https://*gr4vyId*.gr4vy.app","private_key.pem", "sandbox")
 ```
 
 Your API private key can be created in your admin panel on the **Integrations**
