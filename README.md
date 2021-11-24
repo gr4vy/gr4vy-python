@@ -59,7 +59,7 @@ needs to be created before it can be used in this way.
 ```python
   from gr4vy import Gr4vyClient
   from gr4vy import BuyerRequest
-  client = Gr4vyClient("spider","private_key.pem", "environment")
+  client = Gr4vyClient("gr4vy_instance","private_key.pem", "production")
 
   buyer_request = BuyerRequest(display_name = "Jane Smith")
 
