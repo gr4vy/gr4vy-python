@@ -81,7 +81,7 @@ needs to be created before it can be used in this way.
 The client can be initialized with the Gr4vy ID (`gr4vyId`), the location of the private key, and the environment attempting to access.
 
 ```python
-  client = Gr4vyClient("gr4vyId","private_key.pem", "environment")
+  client = Gr4vyClient("gr4vyId","private_key.pem", "sandbox")
 ```
 
 Alternatively, instead of the `gr4vyId` it can be initialized with the `baseUrl`
