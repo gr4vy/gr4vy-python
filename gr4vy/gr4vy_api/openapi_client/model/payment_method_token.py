@@ -57,6 +57,12 @@ class PaymentMethodToken(ModelNormal):
         ('type',): {
             'PAYMENT-METHOD-TOKEN': "payment-method-token",
         },
+        ('status',): {
+            'PROCESSING': "processing",
+            'BUYER_APPROVAL_REQUIRED': "buyer_approval_required",
+            'SUCCEEDED': "succeeded",
+            'FAILED': "failed",
+        },
     }
 
     validations = {
@@ -80,6 +86,7 @@ class PaymentMethodToken(ModelNormal):
             'type': (str,),  # noqa: E501
             'id': (str, none_type),  # noqa: E501
             'token': (str, none_type),  # noqa: E501
+            'status': (str,),  # noqa: E501
             'payment_service': (PaymentService, none_type),  # noqa: E501
         }
 
@@ -92,6 +99,7 @@ class PaymentMethodToken(ModelNormal):
         'type': 'type',  # noqa: E501
         'id': 'id',  # noqa: E501
         'token': 'token',  # noqa: E501
+        'status': 'status',  # noqa: E501
         'payment_service': 'payment_service',  # noqa: E501
     }
 
@@ -144,6 +152,7 @@ class PaymentMethodToken(ModelNormal):
             type (str): `payment-method-token`.. [optional] if omitted the server will use the default value of "payment-method-token"  # noqa: E501
             id (str): The external ID of this payment method as it has been registered with the payment service, which can be used directly in combination with the `token` without the need to go through Gr4vy for a transaction.  In some cases this is a different value to the `token` while in others this value is identical. Please see the documentation for the payment service for more details.. [optional]  # noqa: E501
             token (str): The token of this payment method as it has been registered with the payment service, which can be used directly in combination with the `id` without the need to go through Gr4vy for a transaction.  In some cases this is a different value to the `id` while in others this value is identical. Please see the documentation for the payment service for more details.. [optional]  # noqa: E501
+            status (str): The state of the payment method.  - `processing` - The payment method is still being stored. - `buyer_approval_required` - The buyer still needs to provide   approval before the payment method can be stored. - `succeeded` - The payment method is approved and stored with all   relevant payment services. - `failed` - Storing the payment method did not succeed.. [optional]  # noqa: E501
             payment_service (object): [optional]  # noqa: E501
         """
 
