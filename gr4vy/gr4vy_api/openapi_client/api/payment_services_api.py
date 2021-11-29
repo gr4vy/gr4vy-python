@@ -413,7 +413,6 @@ class PaymentServicesApi(object):
                 limit (int): Defines the maximum number of items to return for this request.. [optional] if omitted the server will use the default value of 20
                 cursor (str): A cursor that identifies the page of results to return. This is used to paginate the results of this API.  For the first page of results, this parameter can be left out. For additional pages, use the value returned by the API in the `next_cursor` field. Similarly the `previous_cursor` can be used to reverse backwards in the list.. [optional]
                 method (str): Filters the results to only the items for which the `method` has been set to this value.. [optional]
-                environment (str): Filters the results to only the items available in this environment.. [optional] if omitted the server will use the default value of "production"
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
                 _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -476,14 +475,12 @@ class PaymentServicesApi(object):
                     'limit',
                     'cursor',
                     'method',
-                    'environment',
                 ],
                 'required': [],
                 'nullable': [
                 ],
                 'enum': [
                     'method',
-                    'environment',
                 ],
                 'validation': [
                     'limit',
@@ -507,12 +504,6 @@ class PaymentServicesApi(object):
                         "STRIPEDD": "stripedd",
                         "APPLEPAY": "applepay"
                     },
-                    ('environment',): {
-
-                        "DEVELOPMENT": "development",
-                        "STAGING": "staging",
-                        "PRODUCTION": "production"
-                    },
                 },
                 'openapi_types': {
                     'limit':
@@ -521,20 +512,16 @@ class PaymentServicesApi(object):
                         (str,),
                     'method':
                         (str,),
-                    'environment':
-                        (str,),
                 },
                 'attribute_map': {
                     'limit': 'limit',
                     'cursor': 'cursor',
                     'method': 'method',
-                    'environment': 'environment',
                 },
                 'location_map': {
                     'limit': 'query',
                     'cursor': 'query',
                     'method': 'query',
-                    'environment': 'query',
                 },
                 'collection_format_map': {
                 }

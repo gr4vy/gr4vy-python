@@ -285,7 +285,6 @@ with openapi_client.ApiClient(configuration) as api_client:
         merchant_url="https://example.com",
         domain_names=["example.com"],
         accept_terms_and_conditions=True,
-        environments=["production"],
     ) # DigitalWalletRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -333,7 +332,7 @@ Name | Type | Description  | Notes
 
 Update digital wallet
 
-Updates the values a digital wallet was registered with, and the Gr4vy environments in which a registered digital wallet should be available.
+Updates the values a digital wallet was registered with.
 
 ### Example
 
@@ -372,7 +371,6 @@ with openapi_client.ApiClient(configuration) as api_client:
     digital_wallet_update = DigitalWalletUpdate(
         merchant_name="Gr4vy",
         domain_names=["example.com"],
-        environments=["production"],
     ) # DigitalWalletUpdate |  (optional)
 
     # example passing only required values which don't have defaults set

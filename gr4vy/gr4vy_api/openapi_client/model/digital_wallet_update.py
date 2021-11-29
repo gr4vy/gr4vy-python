@@ -53,21 +53,12 @@ class DigitalWalletUpdate(ModelNormal):
     """
 
     allowed_values = {
-        ('environments',): {
-            'DEVELOPMENT': "development",
-            'STAGING': "staging",
-            'PRODUCTION': "production",
-        },
     }
 
     validations = {
         ('domain_names',): {
             'max_items': 99,
             'min_items': 1,
-        },
-        ('environments',): {
-            'max_items': 3,
-            'min_items': 0,
         },
     }
 
@@ -88,7 +79,6 @@ class DigitalWalletUpdate(ModelNormal):
         return {
             'merchant_name': (str,),  # noqa: E501
             'domain_names': ([str],),  # noqa: E501
-            'environments': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -99,7 +89,6 @@ class DigitalWalletUpdate(ModelNormal):
     attribute_map = {
         'merchant_name': 'merchant_name',  # noqa: E501
         'domain_names': 'domain_names',  # noqa: E501
-        'environments': 'environments',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -149,8 +138,7 @@ class DigitalWalletUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             merchant_name (str): The name of the merchant. This is used to update the value initially used to register with a digital wallet provider and this name is not displayed to the buyer.. [optional]  # noqa: E501
-            domain_names ([str]): The list of fully qualified domain names that a digital wallet provider should process payments for.. [optional]  # noqa: E501
-            environments ([str]): Determines the Gr4vy environments in which this digital wallet should be available.. [optional]  # noqa: E501
+            domain_names ([str]): The list of domain names that a digital wallet can be used on. To use a digital wallet on a website, the domain of the site is required to be in this list.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

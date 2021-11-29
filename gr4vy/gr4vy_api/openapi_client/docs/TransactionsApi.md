@@ -67,7 +67,6 @@ with openapi_client.ApiClient(configuration) as api_client:
         store=True,
         intent="capture",
         external_identifier="user-789123",
-        environment="staging",
         three_d_secure_data=ThreeDSecureDataV1V2(),
     ) # TransactionRequest |  (optional)
 
@@ -329,7 +328,6 @@ with openapi_client.ApiClient(configuration) as api_client:
     after_created_at = "2012-12-12T10:53:43+00:00" # str | Filters the results to only transactions created after this ISO date-time string. (optional)
     before_updated_at = "2012-12-12T10:53:43+00:00" # str | Filters the results to only transactions last updated before this ISO date-time string. (optional)
     after_updated_at = "2012-12-12T10:53:43+00:00" # str | Filters the results to only transactions last updated after this ISO date-time string. (optional)
-    environment = "staging" # str | Filters the results to only the items available in this environment. (optional) if omitted the server will use the default value of "production"
     limit = 1 # int | Defines the maximum number of items to return for this request. (optional) if omitted the server will use the default value of 20
     cursor = "ZXhhbXBsZTE" # str | A cursor that identifies the page of results to return. This is used to paginate the results of this API.  For the first page of results, this parameter can be left out. For additional pages, use the value returned by the API in the `next_cursor` field. Similarly the `previous_cursor` can be used to reverse backwards in the list. (optional)
 
@@ -337,7 +335,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List transactions
-        api_response = api_instance.list_transactions(search=search, transaction_status=transaction_status, buyer_id=buyer_id, buyer_external_identifier=buyer_external_identifier, before_created_at=before_created_at, after_created_at=after_created_at, before_updated_at=before_updated_at, after_updated_at=after_updated_at, environment=environment, limit=limit, cursor=cursor)
+        api_response = api_instance.list_transactions(search=search, transaction_status=transaction_status, buyer_id=buyer_id, buyer_external_identifier=buyer_external_identifier, before_created_at=before_created_at, after_created_at=after_created_at, before_updated_at=before_updated_at, after_updated_at=after_updated_at, limit=limit, cursor=cursor)
         pprint(api_response)
     except openapi_client.ApiException as e:
         print("Exception when calling TransactionsApi->list_transactions: %s\n" % e)
@@ -356,7 +354,6 @@ Name | Type | Description  | Notes
  **after_created_at** | **str**| Filters the results to only transactions created after this ISO date-time string. | [optional]
  **before_updated_at** | **str**| Filters the results to only transactions last updated before this ISO date-time string. | [optional]
  **after_updated_at** | **str**| Filters the results to only transactions last updated after this ISO date-time string. | [optional]
- **environment** | **str**| Filters the results to only the items available in this environment. | [optional] if omitted the server will use the default value of "production"
  **limit** | **int**| Defines the maximum number of items to return for this request. | [optional] if omitted the server will use the default value of 20
  **cursor** | **str**| A cursor that identifies the page of results to return. This is used to paginate the results of this API.  For the first page of results, this parameter can be left out. For additional pages, use the value returned by the API in the &#x60;next_cursor&#x60; field. Similarly the &#x60;previous_cursor&#x60; can be used to reverse backwards in the list. | [optional]
 

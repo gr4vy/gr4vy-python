@@ -56,7 +56,6 @@ class PaymentOptionsApi(object):
             Keyword Args:
                 country (str): Filters the results to only the items which support this country code. A country is formatted as 2-letter ISO country code.. [optional]
                 currency (str): Filters the results to only the items which support this currency code. A currency is formatted as 3-letter ISO currency code.. [optional]
-                environment (str): Filters the results to only the items available in this environment.. [optional] if omitted the server will use the default value of "production"
                 locale (str): An ISO 639-1 Language Code and optional ISO 3166 Country Code. This locale determines the language for the labels returned for every payment option.. [optional] if omitted the server will use the default value of "en-US"
                 _return_http_data_only (bool): response data without head status
                     code and headers. Default is True.
@@ -119,14 +118,12 @@ class PaymentOptionsApi(object):
                 'all': [
                     'country',
                     'currency',
-                    'environment',
                     'locale',
                 ],
                 'required': [],
                 'nullable': [
                 ],
                 'enum': [
-                    'environment',
                 ],
                 'validation': [
                     'locale',
@@ -142,19 +139,11 @@ class PaymentOptionsApi(object):
                     },
                 },
                 'allowed_values': {
-                    ('environment',): {
-
-                        "DEVELOPMENT": "development",
-                        "STAGING": "staging",
-                        "PRODUCTION": "production"
-                    },
                 },
                 'openapi_types': {
                     'country':
                         (str,),
                     'currency':
-                        (str,),
-                    'environment':
                         (str,),
                     'locale':
                         (str,),
@@ -162,13 +151,11 @@ class PaymentOptionsApi(object):
                 'attribute_map': {
                     'country': 'country',
                     'currency': 'currency',
-                    'environment': 'environment',
                     'locale': 'locale',
                 },
                 'location_map': {
                     'country': 'query',
                     'currency': 'query',
-                    'environment': 'query',
                     'locale': 'query',
                 },
                 'collection_format_map': {

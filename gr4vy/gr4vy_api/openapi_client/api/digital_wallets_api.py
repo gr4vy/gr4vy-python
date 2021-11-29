@@ -509,7 +509,7 @@ class DigitalWalletsApi(object):
         ):
             """Update digital wallet  # noqa: E501
 
-            Updates the values a digital wallet was registered with, and the Gr4vy environments in which a registered digital wallet should be available.  # noqa: E501
+            Updates the values a digital wallet was registered with.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 

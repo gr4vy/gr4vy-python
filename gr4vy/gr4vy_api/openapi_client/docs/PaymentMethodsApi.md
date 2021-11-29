@@ -209,13 +209,12 @@ with openapi_client.ApiClient(configuration) as api_client:
     buyer_external_identifier = "user-12345" # str | Filters the results to only the items for which the `buyer` has an `external_identifier` that matches this value. (optional)
     country = "US" # str | Filters the results to only the items which support this country code. A country is formatted as 2-letter ISO country code. (optional)
     currency = "USD" # str | Filters the results to only the items which support this currency code. A currency is formatted as 3-letter ISO currency code. (optional)
-    environment = "staging" # str | Filters the results to only the items available in this environment. (optional) if omitted the server will use the default value of "production"
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # List stored payment methods for a buyer
-        api_response = api_instance.list_buyer_payment_methods(buyer_id=buyer_id, buyer_external_identifier=buyer_external_identifier, country=country, currency=currency, environment=environment)
+        api_response = api_instance.list_buyer_payment_methods(buyer_id=buyer_id, buyer_external_identifier=buyer_external_identifier, country=country, currency=currency)
         pprint(api_response)
     except openapi_client.ApiException as e:
         print("Exception when calling PaymentMethodsApi->list_buyer_payment_methods: %s\n" % e)
@@ -230,7 +229,6 @@ Name | Type | Description  | Notes
  **buyer_external_identifier** | **str**| Filters the results to only the items for which the &#x60;buyer&#x60; has an &#x60;external_identifier&#x60; that matches this value. | [optional]
  **country** | **str**| Filters the results to only the items which support this country code. A country is formatted as 2-letter ISO country code. | [optional]
  **currency** | **str**| Filters the results to only the items which support this currency code. A currency is formatted as 3-letter ISO currency code. | [optional]
- **environment** | **str**| Filters the results to only the items available in this environment. | [optional] if omitted the server will use the default value of "production"
 
 ### Return type
 
@@ -292,7 +290,6 @@ configuration = openapi_client.Configuration(
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = payment_methods_api.PaymentMethodsApi(api_client)
-    environment = "staging" # str | Filters the results to only the items available in this environment. (optional) if omitted the server will use the default value of "production"
     buyer_id = "8724fd24-5489-4a5d-90fd-0604df7d3b83" # str | Filters the results to only the items for which the `buyer` has an `id` that matches this value. (optional)
     buyer_external_identifier = "user-12345" # str | Filters the results to only the items for which the `buyer` has an `external_identifier` that matches this value. (optional)
     limit = 1 # int | Defines the maximum number of items to return for this request. (optional) if omitted the server will use the default value of 20
@@ -302,7 +299,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List payment methods
-        api_response = api_instance.list_payment_methods(environment=environment, buyer_id=buyer_id, buyer_external_identifier=buyer_external_identifier, limit=limit, cursor=cursor)
+        api_response = api_instance.list_payment_methods(buyer_id=buyer_id, buyer_external_identifier=buyer_external_identifier, limit=limit, cursor=cursor)
         pprint(api_response)
     except openapi_client.ApiException as e:
         print("Exception when calling PaymentMethodsApi->list_payment_methods: %s\n" % e)
@@ -313,7 +310,6 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **environment** | **str**| Filters the results to only the items available in this environment. | [optional] if omitted the server will use the default value of "production"
  **buyer_id** | **str**| Filters the results to only the items for which the &#x60;buyer&#x60; has an &#x60;id&#x60; that matches this value. | [optional]
  **buyer_external_identifier** | **str**| Filters the results to only the items for which the &#x60;buyer&#x60; has an &#x60;external_identifier&#x60; that matches this value. | [optional]
  **limit** | **int**| Defines the maximum number of items to return for this request. | [optional] if omitted the server will use the default value of 20
@@ -391,7 +387,6 @@ with openapi_client.ApiClient(configuration) as api_client:
         redirect_url="https://example.com/callback",
         currency="USD",
         country="USD",
-        environment="staging",
     ) # PaymentMethodRequest |  (optional)
 
     # example passing only required values which don't have defaults set

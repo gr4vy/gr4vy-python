@@ -9,6 +9,7 @@ from os import environ
 import cryptography.hazmat.primitives.asymmetric.ec as ec
 import cryptography.hazmat.primitives.hashes as hashes
 import cryptography.hazmat.primitives.serialization as serialization
+
 import jose.jwk
 from jwt import api_jwt
 from pem import parse_file
@@ -29,9 +30,10 @@ PYTHON_VERSION = "{}.{}.{}".format(
 
 
 class Gr4vyClient:
-    def __init__(self, gr4vyId, private_key_file):
+    def __init__(self, gr4vyId, private_key_file, environment):
         self.gr4vyId = gr4vyId
         self.private_key_file = private_key_file
+        self.environment = environment
         self.GenerateToken()
         self.CreateConfiguration()
         self.CreateClient()
@@ -74,7 +76,10 @@ class Gr4vyClient:
         if self.gr4vyId.endswith(".app"):
             host = self.gr4vyId
         else:
-            host = "https://api.{}.gr4vy.app".format(self.gr4vyId)
+            if self.environment != 'production':
+                host = "https://api.{}.{}.gr4vy.app".format(self.environment, self.gr4vyId)
+            else:
+                host = "https://api.{}.gr4vy.app".format(self.gr4vyId)
         self.configuration = Configuration(access_token=self.token, host=host)
 
     def CreateClient(self):
@@ -229,5 +234,5 @@ class Gr4vyClient:
 
 
 class Gr4vyClientWithBaseUrl(Gr4vyClient):
-    def __init__(self, base_url, private_key):
-        super().__init__(base_url, private_key)
+    def __init__(self, base_url, private_key, environment):
+        super().__init__(base_url, private_key, environment)

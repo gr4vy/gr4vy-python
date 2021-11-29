@@ -28,7 +28,7 @@ in a secure location but in this code sample we simply read the file from disk.
 
 ```python
 from gr4vy import Gr4vyClient
-client = Gr4vyClient("gr4vyInstance","location_of_key_file")
+client = Gr4vyClient("gr4vy_instance","location_of_key_file", "sandbox_or_production")
 client.ListBuyers()
 
 ```
@@ -59,7 +59,7 @@ needs to be created before it can be used in this way.
 ```python
   from gr4vy import Gr4vyClient
   from gr4vy import BuyerRequest
-  client = Gr4vyClient("spider","private_key.pem")
+  client = Gr4vyClient("gr4vy_instance","private_key.pem", "production")
 
   buyer_request = BuyerRequest(display_name = "Jane Smith")
 
@@ -78,17 +78,17 @@ needs to be created before it can be used in this way.
 
 ## Initialization
 
-The client can be initialized with the Gr4vy ID (`gr4vyId`) and the location of the private key
+The client can be initialized with the Gr4vy ID (`gr4vyId`), the location of the private key, and the environment attempting to access.
 
 ```python
-  client = Gr4vyClient("gr4vyId","private_key.pem")
+  client = Gr4vyClient("gr4vyId","private_key.pem", "sandbox")
 ```
 
 Alternatively, instead of the `gr4vyId` it can be initialized with the `baseUrl`
-of the server to use directly.
+of the server to use directly and the environment attempting to acess .
 
 ```python
-  client = Gr4vyClientWithBaseUrl("https://*gr4vyId*.gr4vy.app","private_key.pem")
+  client = Gr4vyClientWithBaseUrl("https://*gr4vyId*.gr4vy.app","private_key.pem", "sandbox")
 ```
 
 Your API private key can be created in your admin panel on the **Integrations**

@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **external_identifier** | **str, none_type** | An external identifier that can be used to match the transaction against your own records. | [optional] 
 **updated_at** | **datetime** | Defines when the transaction was last updated. | [optional] 
 **payment_service** | **object** |  | [optional] 
-**environment** | **str** | The environment this transaction has been created in. | [optional]  if omitted the server will use the default value of "production"
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

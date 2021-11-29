@@ -58,11 +58,7 @@ class DigitalWallet(ModelNormal):
         },
         ('provider',): {
             'APPLE': "apple",
-        },
-        ('environments',): {
-            'DEVELOPMENT': "development",
-            'STAGING': "staging",
-            'PRODUCTION': "production",
+            'GOOGLE': "google",
         },
     }
 
@@ -70,10 +66,6 @@ class DigitalWallet(ModelNormal):
         ('domain_names',): {
             'max_items': 99,
             'min_items': 1,
-        },
-        ('environments',): {
-            'max_items': 3,
-            'min_items': 0,
         },
     }
 
@@ -100,7 +92,6 @@ class DigitalWallet(ModelNormal):
             'domain_names': ([str],),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'environments': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -117,7 +108,6 @@ class DigitalWallet(ModelNormal):
         'domain_names': 'domain_names',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
-        'environments': 'environments',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -167,14 +157,13 @@ class DigitalWallet(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             type (str): `digital-wallet`.. [optional] if omitted the server will use the default value of "digital-wallet"  # noqa: E501
-            provider (str): The name of the digital wallet provider.. [optional] if omitted the server will use the default value of "apple"  # noqa: E501
+            provider (str): The name of the digital wallet provider.. [optional]  # noqa: E501
             id (str): The ID of the registered digital wallet.. [optional]  # noqa: E501
             merchant_name (str): The name of the merchant the digital wallet is registered to.. [optional]  # noqa: E501
             merchant_url (str, none_type): The main URL of the merchant.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
-            domain_names ([str]): The list of fully qualified domain names that a digital wallet provider processes payments for.. [optional]  # noqa: E501
+            domain_names ([str]): The list of domain names that a digital wallet can be used on. To use a digital wallet on a website, the domain of the site is required to be in this list.. [optional]  # noqa: E501
             created_at (datetime): The date and time when this digital wallet was registered.. [optional]  # noqa: E501
             updated_at (datetime): The date and time when this digital wallet was last updated.. [optional]  # noqa: E501
-            environments ([str]): The Gr4vy environments in which this digital wallet is available.. [optional] if omitted the server will use the default value of ["production"]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

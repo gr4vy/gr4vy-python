@@ -63,12 +63,6 @@ class PaymentMethod(ModelNormal):
             'SUCCEEDED': "succeeded",
             'FAILED': "failed",
         },
-        ('environment',): {
-            'None': None,
-            'DEVELOPMENT': "development",
-            'STAGING': "staging",
-            'PRODUCTION': "production",
-        },
     }
 
     validations = {
@@ -109,7 +103,6 @@ class PaymentMethod(ModelNormal):
             'scheme': (str, none_type,),  # noqa: E501
             'expiration_date': (str, none_type,),  # noqa: E501
             'approval_url': (str, none_type,),  # noqa: E501
-            'environment': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -131,7 +124,6 @@ class PaymentMethod(ModelNormal):
         'scheme': 'scheme',  # noqa: E501
         'expiration_date': 'expiration_date',  # noqa: E501
         'approval_url': 'approval_url',  # noqa: E501
-        'environment': 'environment',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -193,7 +185,6 @@ class PaymentMethod(ModelNormal):
             scheme (str, none_type): The scheme of the card. Only applies to card payments.. [optional]  # noqa: E501
             expiration_date (str, none_type): The expiration date for the payment method.. [optional]  # noqa: E501
             approval_url (str, none_type): The optional URL that the buyer needs to be redirected to to further authorize their payment.. [optional]  # noqa: E501
-            environment (str, none_type): The environment this payment method has been stored for. This will be null of the payment method was not stored.. [optional] if omitted the server will use the default value of "production"  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

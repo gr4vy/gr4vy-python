@@ -53,11 +53,6 @@ class PaymentMethodRequest(ModelNormal):
     """
 
     allowed_values = {
-        ('environment',): {
-            'DEVELOPMENT': "development",
-            'STAGING': "staging",
-            'PRODUCTION': "production",
-        },
     }
 
     validations = {
@@ -109,7 +104,6 @@ class PaymentMethodRequest(ModelNormal):
             'redirect_url': (str,),  # noqa: E501
             'currency': (str,),  # noqa: E501
             'country': (str,),  # noqa: E501
-            'environment': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -128,7 +122,6 @@ class PaymentMethodRequest(ModelNormal):
         'redirect_url': 'redirect_url',  # noqa: E501
         'currency': 'currency',  # noqa: E501
         'country': 'country',  # noqa: E501
-        'environment': 'environment',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -189,7 +182,6 @@ class PaymentMethodRequest(ModelNormal):
             redirect_url (str): The redirect URL to redirect a buyer to after they have authorized their transaction or payment method. This only applies to payment methods that require buyer approval.. [optional]  # noqa: E501
             currency (str): The ISO-4217 currency code to store this payment method for. This is used to select the payment service to use.  This only applies to `redirect` mode payment methods like `gocardless`.. [optional]  # noqa: E501
             country (str): The 2-letter ISO code of the country to store this payment method for. This is used to select the payment service to use.  This only applies to `redirect` mode payment methods like `gocardless`.. [optional]  # noqa: E501
-            environment (str): Defines the environment to store this payment method in. Setting this to anything other than `production` will force Gr4vy to use a payment a service configured for that environment.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
