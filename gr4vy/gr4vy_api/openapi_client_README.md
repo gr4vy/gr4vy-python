@@ -177,6 +177,7 @@ Class | Method | HTTP request | Description
  - [TransactionPaymentMethodRequest](openapi_client/docs/TransactionPaymentMethodRequest.md)
  - [TransactionRefundRequest](openapi_client/docs/TransactionRefundRequest.md)
  - [TransactionRequest](openapi_client/docs/TransactionRequest.md)
+ - [TransactionSummary](openapi_client/docs/TransactionSummary.md)
  - [Transactions](openapi_client/docs/Transactions.md)
  - [TransactionsBatchCaptureRequest](openapi_client/docs/TransactionsBatchCaptureRequest.md)
  - [UserRequest](openapi_client/docs/UserRequest.md)

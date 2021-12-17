@@ -1,13 +1,10 @@
-# Transaction
+# TransactionSummary
 
 A transaction record.
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**merchant_initiated** | **bool** | Indicates whether the transaction was initiated by the merchant (true) or customer (false). | [optional]  if omitted the server will use the default value of False
-**payment_source** | **str** | The source of the transaction. Defaults to &#39;ecommerce&#39;. | [optional] 
-**is_subsequent_payment** | **bool** | Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note this flag is only compatible with payment_source set to [recurring, installment, card_on_file] and will be ignored for other values or if payment_source is not present. | [optional]  if omitted the server will use the default value of False
 **type** | **str** | The type of this resource. Is always &#x60;transaction&#x60;. | [optional]  if omitted the server will use the default value of "transaction"
 **id** | **str** | The unique identifier for this transaction. | [optional] 
 **status** | **str** | The status of the transaction. The status may change over time as asynchronous  processing events occur. | [optional] 
@@ -21,7 +18,6 @@ Name | Type | Description | Notes
 **external_identifier** | **str, none_type** | An external identifier that can be used to match the transaction against your own records. | [optional] 
 **updated_at** | **datetime** | Defines when the transaction was last updated. | [optional] 
 **payment_service** | **object** |  | [optional] 
-**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -28,8 +28,8 @@ from gr4vy.gr4vy_api.openapi_client.model_utils import (  # noqa: F401
 )
 
 def lazy_import():
-    from gr4vy.gr4vy_api.openapi_client.model.transaction import Transaction
-    globals()['Transaction'] = Transaction
+    from gr4vy.gr4vy_api.openapi_client.model.transaction_summary import TransactionSummary
+    globals()['TransactionSummary'] = TransactionSummary
 
 
 class Transactions(ModelNormal):
@@ -90,7 +90,7 @@ class Transactions(ModelNormal):
         """
         lazy_import()
         return {
-            'items': ([Transaction],),  # noqa: E501
+            'items': ([TransactionSummary],),  # noqa: E501
             'limit': (int,),  # noqa: E501
             'next_cursor': (str, none_type,),  # noqa: E501
             'previous_cursor': (str, none_type,),  # noqa: E501
@@ -154,7 +154,7 @@ class Transactions(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            items ([Transaction]): A list of transactions.. [optional]  # noqa: E501
+            items ([TransactionSummary]): A list of transactions.. [optional]  # noqa: E501
             limit (int): The limit applied to request. This represents the number of items that are at maximum returned by this request.. [optional] if omitted the server will use the default value of 20  # noqa: E501
             next_cursor (str, none_type): The cursor that represents the next page of results. Use the `cursor` query parameter to fetch this page of items.. [optional]  # noqa: E501
             previous_cursor (str, none_type): The cursor that represents the next page of results. Use the `cursor` query parameter to fetch this page of items.. [optional]  # noqa: E501

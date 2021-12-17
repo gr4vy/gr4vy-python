@@ -14,12 +14,10 @@ import unittest
 
 import openapi_client
 from openapi_client.model.transaction_summary import TransactionSummary
-globals()['TransactionSummary'] = TransactionSummary
-from openapi_client.model.transaction import Transaction
 
 
-class TestTransaction(unittest.TestCase):
-    """Transaction unit test stubs"""
+class TestTransactionSummary(unittest.TestCase):
+    """TransactionSummary unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestTransaction(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testTransaction(self):
-        """Test Transaction"""
+    def testTransactionSummary(self):
+        """Test TransactionSummary"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = Transaction()  # noqa: E501
+        # model = TransactionSummary()  # noqa: E501
         pass
 
 
