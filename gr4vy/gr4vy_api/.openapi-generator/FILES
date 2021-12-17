@@ -82,6 +82,7 @@ openapi_client/docs/TransactionCaptureRequest.md
 openapi_client/docs/TransactionPaymentMethodRequest.md
 openapi_client/docs/TransactionRefundRequest.md
 openapi_client/docs/TransactionRequest.md
+openapi_client/docs/TransactionSummary.md
 openapi_client/docs/Transactions.md
 openapi_client/docs/TransactionsApi.md
 openapi_client/docs/TransactionsBatchCaptureRequest.md
@@ -151,6 +152,7 @@ openapi_client/model/transaction_capture_request.py
 openapi_client/model/transaction_payment_method_request.py
 openapi_client/model/transaction_refund_request.py
 openapi_client/model/transaction_request.py
+openapi_client/model/transaction_summary.py
 openapi_client/model/transactions.py
 openapi_client/model/transactions_batch_capture_request.py
 openapi_client/model/user_request.py
@@ -228,6 +230,7 @@ openapi_client/test/test_transaction_capture_request.py
 openapi_client/test/test_transaction_payment_method_request.py
 openapi_client/test/test_transaction_refund_request.py
 openapi_client/test/test_transaction_request.py
+openapi_client/test/test_transaction_summary.py
 openapi_client/test/test_transactions.py
 openapi_client/test/test_transactions_api.py
 openapi_client/test/test_transactions_batch_capture_request.py

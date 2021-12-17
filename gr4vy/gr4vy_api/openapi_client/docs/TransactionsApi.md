@@ -68,6 +68,12 @@ with openapi_client.ApiClient(configuration) as api_client:
         intent="capture",
         external_identifier="user-789123",
         three_d_secure_data=ThreeDSecureDataV1V2(),
+        merchant_initiated=True,
+        payment_source="ecommerce",
+        is_subsequent_payment=True,
+        metadata={
+            "key": "key_example",
+        },
     ) # TransactionRequest |  (optional)
 
     # example passing only required values which don't have defaults set

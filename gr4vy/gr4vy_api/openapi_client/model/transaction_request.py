@@ -63,12 +63,23 @@ class TransactionRequest(ModelNormal):
             'AUTHORIZE': "authorize",
             'CAPTURE': "capture",
         },
+        ('payment_source',): {
+            'ECOMMERCE': "ecommerce",
+            'MOTO': "moto",
+            'RECURRING': "recurring",
+            'INSTALLMENT': "installment",
+            'CARD_ON_FILE': "card_on_file",
+        },
     }
 
     validations = {
         ('amount',): {
             'inclusive_maximum': 99999999,
             'inclusive_minimum': 0,
+        },
+        ('metadata',): {
+            'max_items': 20,
+            'max_properties': 20,
         },
     }
 
@@ -95,6 +106,10 @@ class TransactionRequest(ModelNormal):
             'intent': (str,),  # noqa: E501
             'external_identifier': (str, none_type,),  # noqa: E501
             'three_d_secure_data': (ThreeDSecureDataV1V2,),  # noqa: E501
+            'merchant_initiated': (bool,),  # noqa: E501
+            'payment_source': (str,),  # noqa: E501
+            'is_subsequent_payment': (bool,),  # noqa: E501
+            'metadata': ({str: (str,)},),  # noqa: E501
         }
 
     @cached_property
@@ -110,6 +125,10 @@ class TransactionRequest(ModelNormal):
         'intent': 'intent',  # noqa: E501
         'external_identifier': 'external_identifier',  # noqa: E501
         'three_d_secure_data': 'three_d_secure_data',  # noqa: E501
+        'merchant_initiated': 'merchant_initiated',  # noqa: E501
+        'payment_source': 'payment_source',  # noqa: E501
+        'is_subsequent_payment': 'is_subsequent_payment',  # noqa: E501
+        'metadata': 'metadata',  # noqa: E501
     }
 
     _composed_schemas = {}
@@ -167,6 +186,10 @@ class TransactionRequest(ModelNormal):
             intent (str): Defines the intent of this API call. This determines the desired initial state of the transaction.  * `authorize` - (Default) Optionally approves and then authorizes a transaction but does not capture the funds. * `capture` - Optionally approves and then authorizes and captures the funds of the transaction.. [optional] if omitted the server will use the default value of "authorize"  # noqa: E501
             external_identifier (str, none_type): An external identifier that can be used to match the transaction against your own records.. [optional]  # noqa: E501
             three_d_secure_data (ThreeDSecureDataV1V2): [optional]  # noqa: E501
+            merchant_initiated (bool): Indicates whether the transaction was initiated by the merchant (true) or customer (false).. [optional] if omitted the server will use the default value of False  # noqa: E501
+            payment_source (str): The source of the transaction. Defaults to `ecommerce`.. [optional]  # noqa: E501
+            is_subsequent_payment (bool): Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note this flag is only compatible with `payment_source` set to `recurring`, `installment`, or `card_on_file` and will be ignored for other values or if `payment_source` is not present.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            metadata ({str: (str,)}): Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it. Please visit https://gr4vy.com/docs/ under `Connections` for more information on how specific providers support metadata.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

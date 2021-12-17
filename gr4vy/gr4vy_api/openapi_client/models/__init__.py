@@ -72,6 +72,7 @@ from openapi_client.model.transaction_capture_request import TransactionCaptureR
 from openapi_client.model.transaction_payment_method_request import TransactionPaymentMethodRequest
 from openapi_client.model.transaction_refund_request import TransactionRefundRequest
 from openapi_client.model.transaction_request import TransactionRequest
+from openapi_client.model.transaction_summary import TransactionSummary
 from openapi_client.model.transactions import Transactions
 from openapi_client.model.transactions_batch_capture_request import TransactionsBatchCaptureRequest
 from openapi_client.model.user_request import UserRequest

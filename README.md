@@ -161,11 +161,10 @@ on the API spec.
 ./openapi-generator-generate.sh
 ```
 
-Run the tests to ensure the changes do not break any existing tests. Using PyTest. In test.py update the following lines with your gr4vy id and the location of the private key file
-
+Run the tests to ensure the changes do not break any existing tests. Using PyTest. In `test_gr4vy.py` update the following lines with your Gr4vy ID and the location of the private key file.
 
 ```python
-gr4vy_id = "YOURGR4VYID"
+gr4vy_id = "YOUR_GR4VY_ID"
 private_key_location = "PRIVATE_KEY_LOCATION"
 ```
 
