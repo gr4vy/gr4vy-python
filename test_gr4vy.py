@@ -1,3 +1,4 @@
+import logging
 from gr4vy import Gr4vyClient, Gr4vyClientWithBaseUrl
 from gr4vy.gr4vy_api.openapi_client.model.buyer_request import BuyerRequest
 from gr4vy.gr4vy_api.openapi_client.model.buyer_update import BuyerUpdate

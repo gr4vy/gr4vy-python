@@ -13,8 +13,6 @@ import sys
 import unittest
 
 import openapi_client
-from openapi_client.model.transaction_summary import TransactionSummary
-globals()['TransactionSummary'] = TransactionSummary
 from openapi_client.model.transaction import Transaction
 
 

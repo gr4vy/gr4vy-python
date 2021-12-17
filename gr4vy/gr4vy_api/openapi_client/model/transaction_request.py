@@ -187,8 +187,8 @@ class TransactionRequest(ModelNormal):
             external_identifier (str, none_type): An external identifier that can be used to match the transaction against your own records.. [optional]  # noqa: E501
             three_d_secure_data (ThreeDSecureDataV1V2): [optional]  # noqa: E501
             merchant_initiated (bool): Indicates whether the transaction was initiated by the merchant (true) or customer (false).. [optional] if omitted the server will use the default value of False  # noqa: E501
-            payment_source (str): The source of the transaction. Defaults to 'ecommerce'.. [optional]  # noqa: E501
-            is_subsequent_payment (bool): Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note this flag is only compatible with payment_source set to [recurring, installment, card_on_file] and will be ignored for other values or if payment_source is not present.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            payment_source (str): The source of the transaction. Defaults to `ecommerce`.. [optional]  # noqa: E501
+            is_subsequent_payment (bool): Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note this flag is only compatible with `payment_source` set to `recurring`, `installment`, or `card_on_file` and will be ignored for other values or if `payment_source` is not present.. [optional] if omitted the server will use the default value of False  # noqa: E501
             metadata ({str: (str,)}): Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it. Please visit https://gr4vy.com/docs/ under `Connections` for more information on how specific providers support metadata.. [optional]  # noqa: E501
         """
 
