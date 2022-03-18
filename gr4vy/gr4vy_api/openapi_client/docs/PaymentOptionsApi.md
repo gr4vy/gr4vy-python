@@ -17,6 +17,7 @@ Returns a list of available payment method options for a currency and country.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -47,13 +48,15 @@ with openapi_client.ApiClient(configuration) as api_client:
     api_instance = payment_options_api.PaymentOptionsApi(api_client)
     country = "US" # str | Filters the results to only the items which support this country code. A country is formatted as 2-letter ISO country code. (optional)
     currency = "USD" # str | Filters the results to only the items which support this currency code. A currency is formatted as 3-letter ISO currency code. (optional)
+    amount = 500 # int | Used by the Flow engine to filter the results based on the transaction amount. (optional)
+    metadata = "{"restricted_items": "True"}" # str | Used by the Flow engine to filter available options based on various client-defined parameters. If present, this must be a string representing a valid JSON dictionary. (optional)
     locale = "en-US" # str | An ISO 639-1 Language Code and optional ISO 3166 Country Code. This locale determines the language for the labels returned for every payment option. (optional) if omitted the server will use the default value of "en-US"
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # List payment options
-        api_response = api_instance.list_payment_options(country=country, currency=currency, locale=locale)
+        api_response = api_instance.list_payment_options(country=country, currency=currency, amount=amount, metadata=metadata, locale=locale)
         pprint(api_response)
     except openapi_client.ApiException as e:
         print("Exception when calling PaymentOptionsApi->list_payment_options: %s\n" % e)
@@ -66,6 +69,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **country** | **str**| Filters the results to only the items which support this country code. A country is formatted as 2-letter ISO country code. | [optional]
  **currency** | **str**| Filters the results to only the items which support this currency code. A currency is formatted as 3-letter ISO currency code. | [optional]
+ **amount** | **int**| Used by the Flow engine to filter the results based on the transaction amount. | [optional]
+ **metadata** | **str**| Used by the Flow engine to filter available options based on various client-defined parameters. If present, this must be a string representing a valid JSON dictionary. | [optional]
  **locale** | **str**| An ISO 639-1 Language Code and optional ISO 3166 Country Code. This locale determines the language for the labels returned for every payment option. | [optional] if omitted the server will use the default value of "en-US"
 
 ### Return type
@@ -83,6 +88,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of available payment options for the given query parameters. |  -  |

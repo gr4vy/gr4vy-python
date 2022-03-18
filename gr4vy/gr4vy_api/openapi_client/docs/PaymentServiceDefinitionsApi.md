@@ -18,6 +18,7 @@ Gets the definition for a payment service.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -79,6 +80,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a payment service definition. |  -  |
@@ -97,6 +99,7 @@ Returns a list of all available payment service definitions.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -160,6 +163,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of payment service definitions. |  -  |

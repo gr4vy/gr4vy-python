@@ -38,72 +38,7 @@ class PaymentOptionsApi(object):
         if api_client is None:
             api_client = ApiClient()
         self.api_client = api_client
-
-        def __list_payment_options(
-            self,
-            **kwargs
-        ):
-            """List payment options  # noqa: E501
-
-            Returns a list of available payment method options for a currency and country.  # noqa: E501
-            This method makes a synchronous HTTP request by default. To make an
-            asynchronous HTTP request, please pass async_req=True
-
-            >>> thread = api.list_payment_options(async_req=True)
-            >>> result = thread.get()
-
-
-            Keyword Args:
-                country (str): Filters the results to only the items which support this country code. A country is formatted as 2-letter ISO country code.. [optional]
-                currency (str): Filters the results to only the items which support this currency code. A currency is formatted as 3-letter ISO currency code.. [optional]
-                locale (str): An ISO 639-1 Language Code and optional ISO 3166 Country Code. This locale determines the language for the labels returned for every payment option.. [optional] if omitted the server will use the default value of "en-US"
-                _return_http_data_only (bool): response data without head status
-                    code and headers. Default is True.
-                _preload_content (bool): if False, the urllib3.HTTPResponse object
-                    will be returned without reading/decoding response data.
-                    Default is True.
-                _request_timeout (float/tuple): timeout setting for this request. If one
-                    number provided, it will be total request timeout. It can also
-                    be a pair (tuple) of (connection, read) timeouts.
-                    Default is None.
-                _check_input_type (bool): specifies if type checking
-                    should be done one the data sent to the server.
-                    Default is True.
-                _check_return_type (bool): specifies if type checking
-                    should be done one the data received from the server.
-                    Default is True.
-                _host_index (int/None): specifies the index of the server
-                    that we want to use.
-                    Default is read from the configuration.
-                async_req (bool): execute request asynchronously
-
-            Returns:
-                PaymentOptions
-                    If the method is called asynchronously, returns the request
-                    thread.
-            """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
-            )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            return self.call_with_http_info(**kwargs)
-
-        self.list_payment_options = _Endpoint(
+        self.list_payment_options_endpoint = _Endpoint(
             settings={
                 'response_type': (PaymentOptions,),
                 'auth': [
@@ -118,6 +53,8 @@ class PaymentOptionsApi(object):
                 'all': [
                     'country',
                     'currency',
+                    'amount',
+                    'metadata',
                     'locale',
                 ],
                 'required': [],
@@ -145,17 +82,25 @@ class PaymentOptionsApi(object):
                         (str,),
                     'currency':
                         (str,),
+                    'amount':
+                        (int,),
+                    'metadata':
+                        (str,),
                     'locale':
                         (str,),
                 },
                 'attribute_map': {
                     'country': 'country',
                     'currency': 'currency',
+                    'amount': 'amount',
+                    'metadata': 'metadata',
                     'locale': 'locale',
                 },
                 'location_map': {
                     'country': 'query',
                     'currency': 'query',
+                    'amount': 'query',
+                    'metadata': 'query',
                     'locale': 'query',
                 },
                 'collection_format_map': {
@@ -167,6 +112,72 @@ class PaymentOptionsApi(object):
                 ],
                 'content_type': [],
             },
-            api_client=api_client,
-            callable=__list_payment_options
+            api_client=api_client
         )
+
+    def list_payment_options(
+        self,
+        **kwargs
+    ):
+        """List payment options  # noqa: E501
+
+        Returns a list of available payment method options for a currency and country.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.list_payment_options(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            country (str): Filters the results to only the items which support this country code. A country is formatted as 2-letter ISO country code.. [optional]
+            currency (str): Filters the results to only the items which support this currency code. A currency is formatted as 3-letter ISO currency code.. [optional]
+            amount (int): Used by the Flow engine to filter the results based on the transaction amount.. [optional]
+            metadata (str): Used by the Flow engine to filter available options based on various client-defined parameters. If present, this must be a string representing a valid JSON dictionary.. [optional]
+            locale (str): An ISO 639-1 Language Code and optional ISO 3166 Country Code. This locale determines the language for the labels returned for every payment option.. [optional] if omitted the server will use the default value of "en-US"
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            PaymentOptions
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.list_payment_options_endpoint.call_with_http_info(**kwargs)
+

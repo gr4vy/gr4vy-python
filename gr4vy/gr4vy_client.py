@@ -211,14 +211,18 @@ class Gr4vyClient:
             api_instance = gr4vyTransactions(api_client)
             return api_instance.listTransactions(**kwargs)
 
-    def RefundTransaction(self, transaction_id, transaction_refund_request):
+    def RefundTransaction(self, transaction_id, transaction_refund_request=None):
         with self.client as api_client:
             api_instance = gr4vyTransactions(api_client)
             return api_instance.refundTransaction(
                 transaction_id=transaction_id,
-                transaction_refund_request=transaction_refund_request,
-            )
-
+                transaction_refund_request=transaction_refund_request)
+    
+    def VoidTransaction(self, transaction_id):
+        with self.client as api_client:
+            api_instance = gr4vyTransactions(api_client)
+            return api_instance.voidTransaction(
+                transaction_id=transaction_id)
     def b64e(self, value: bytes) -> str:
         return base64.urlsafe_b64encode(value).decode("utf8").strip("=")
 

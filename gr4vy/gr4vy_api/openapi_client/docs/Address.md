@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **house_number_or_name** | **str, none_type** | The house number or name for the billing address. Not all payment services use this field but some do. | [optional] 
 **line2** | **str, none_type** | The second line of the billing address. | [optional] 
 **organization** | **str, none_type** | The optional name of the company or organisation to add to the billing address. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

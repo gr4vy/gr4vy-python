@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import openapi_client
+from openapi_client.model.cart_item import CartItem
+globals()['CartItem'] = CartItem
 from openapi_client.model.transaction import Transaction
 
 

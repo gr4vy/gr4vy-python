@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import openapi_client
+from openapi_client.model.undefined import Undefined
+globals()['Undefined'] = Undefined
 from openapi_client.model.payment_option_context import PaymentOptionContext
 
 

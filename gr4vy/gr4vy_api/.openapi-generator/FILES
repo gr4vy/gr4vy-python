@@ -25,6 +25,7 @@ openapi_client/docs/BuyerUpdate.md
 openapi_client/docs/Buyers.md
 openapi_client/docs/BuyersApi.md
 openapi_client/docs/CardRequest.md
+openapi_client/docs/CartItem.md
 openapi_client/docs/DigitalWallet.md
 openapi_client/docs/DigitalWalletRequest.md
 openapi_client/docs/DigitalWalletUpdate.md
@@ -39,6 +40,8 @@ openapi_client/docs/Error404PendingCreation.md
 openapi_client/docs/Error409DuplicateRecord.md
 openapi_client/docs/ErrorDetail.md
 openapi_client/docs/ErrorGeneric.md
+openapi_client/docs/GooglePayRequest.md
+openapi_client/docs/GooglePaySessionRequest.md
 openapi_client/docs/PaymentMethod.md
 openapi_client/docs/PaymentMethodRequest.md
 openapi_client/docs/PaymentMethodSnapshot.md
@@ -67,8 +70,11 @@ openapi_client/docs/PaymentServiceUpdateFields.md
 openapi_client/docs/PaymentServices.md
 openapi_client/docs/PaymentServicesApi.md
 openapi_client/docs/RedirectRequest.md
+openapi_client/docs/Refund.md
+openapi_client/docs/Refunds.md
 openapi_client/docs/ResetPasswordRequest.md
 openapi_client/docs/SetPasswordRequest.md
+openapi_client/docs/StatementDescriptor.md
 openapi_client/docs/TaxId.md
 openapi_client/docs/ThreeDSecureData.md
 openapi_client/docs/ThreeDSecureDataV1.md
@@ -81,6 +87,7 @@ openapi_client/docs/Transaction.md
 openapi_client/docs/TransactionCaptureRequest.md
 openapi_client/docs/TransactionPaymentMethodRequest.md
 openapi_client/docs/TransactionRefundRequest.md
+openapi_client/docs/TransactionRefundRequestDeprecated.md
 openapi_client/docs/TransactionRequest.md
 openapi_client/docs/TransactionSummary.md
 openapi_client/docs/Transactions.md
@@ -101,6 +108,7 @@ openapi_client/model/buyer_snapshot.py
 openapi_client/model/buyer_update.py
 openapi_client/model/buyers.py
 openapi_client/model/card_request.py
+openapi_client/model/cart_item.py
 openapi_client/model/digital_wallet.py
 openapi_client/model/digital_wallet_request.py
 openapi_client/model/digital_wallet_update.py
@@ -114,6 +122,8 @@ openapi_client/model/error404_pending_creation.py
 openapi_client/model/error409_duplicate_record.py
 openapi_client/model/error_detail.py
 openapi_client/model/error_generic.py
+openapi_client/model/google_pay_request.py
+openapi_client/model/google_pay_session_request.py
 openapi_client/model/payment_method.py
 openapi_client/model/payment_method_request.py
 openapi_client/model/payment_method_snapshot.py
@@ -137,8 +147,11 @@ openapi_client/model/payment_service_update.py
 openapi_client/model/payment_service_update_fields.py
 openapi_client/model/payment_services.py
 openapi_client/model/redirect_request.py
+openapi_client/model/refund.py
+openapi_client/model/refunds.py
 openapi_client/model/reset_password_request.py
 openapi_client/model/set_password_request.py
+openapi_client/model/statement_descriptor.py
 openapi_client/model/tax_id.py
 openapi_client/model/three_d_secure_data.py
 openapi_client/model/three_d_secure_data_v1.py
@@ -151,6 +164,7 @@ openapi_client/model/transaction.py
 openapi_client/model/transaction_capture_request.py
 openapi_client/model/transaction_payment_method_request.py
 openapi_client/model/transaction_refund_request.py
+openapi_client/model/transaction_refund_request_deprecated.py
 openapi_client/model/transaction_request.py
 openapi_client/model/transaction_summary.py
 openapi_client/model/transactions.py
@@ -173,6 +187,7 @@ openapi_client/test/test_buyer_update.py
 openapi_client/test/test_buyers.py
 openapi_client/test/test_buyers_api.py
 openapi_client/test/test_card_request.py
+openapi_client/test/test_cart_item.py
 openapi_client/test/test_digital_wallet.py
 openapi_client/test/test_digital_wallet_request.py
 openapi_client/test/test_digital_wallet_update.py
@@ -187,6 +202,8 @@ openapi_client/test/test_error404_pending_creation.py
 openapi_client/test/test_error409_duplicate_record.py
 openapi_client/test/test_error_detail.py
 openapi_client/test/test_error_generic.py
+openapi_client/test/test_google_pay_request.py
+openapi_client/test/test_google_pay_session_request.py
 openapi_client/test/test_payment_method.py
 openapi_client/test/test_payment_method_request.py
 openapi_client/test/test_payment_method_snapshot.py
@@ -215,8 +232,11 @@ openapi_client/test/test_payment_service_update_fields.py
 openapi_client/test/test_payment_services.py
 openapi_client/test/test_payment_services_api.py
 openapi_client/test/test_redirect_request.py
+openapi_client/test/test_refund.py
+openapi_client/test/test_refunds.py
 openapi_client/test/test_reset_password_request.py
 openapi_client/test/test_set_password_request.py
+openapi_client/test/test_statement_descriptor.py
 openapi_client/test/test_tax_id.py
 openapi_client/test/test_three_d_secure_data.py
 openapi_client/test/test_three_d_secure_data_v1.py
@@ -229,6 +249,7 @@ openapi_client/test/test_transaction.py
 openapi_client/test/test_transaction_capture_request.py
 openapi_client/test/test_transaction_payment_method_request.py
 openapi_client/test/test_transaction_refund_request.py
+openapi_client/test/test_transaction_refund_request_deprecated.py
 openapi_client/test/test_transaction_request.py
 openapi_client/test/test_transaction_summary.py
 openapi_client/test/test_transactions.py

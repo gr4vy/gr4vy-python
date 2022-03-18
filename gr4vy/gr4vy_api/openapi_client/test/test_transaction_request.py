@@ -13,8 +13,10 @@ import sys
 import unittest
 
 import openapi_client
+from openapi_client.model.cart_item import CartItem
 from openapi_client.model.three_d_secure_data_v1_v2 import ThreeDSecureDataV1V2
 from openapi_client.model.transaction_payment_method_request import TransactionPaymentMethodRequest
+globals()['CartItem'] = CartItem
 globals()['ThreeDSecureDataV1V2'] = ThreeDSecureDataV1V2
 globals()['TransactionPaymentMethodRequest'] = TransactionPaymentMethodRequest
 from openapi_client.model.transaction_request import TransactionRequest

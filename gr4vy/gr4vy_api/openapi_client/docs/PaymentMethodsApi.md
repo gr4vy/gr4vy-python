@@ -21,6 +21,7 @@ Removes a stored payment method.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -80,6 +81,7 @@ void (empty response body)
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | Returns an empty response. |  -  |
@@ -98,6 +100,7 @@ Gets the details for a stored payment method.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -159,6 +162,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a payment method. |  -  |
@@ -177,6 +181,7 @@ Returns a list of stored (tokenized) payment methods for a buyer in a short toke
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -245,6 +250,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of available payment methods for a buyer, filtered by the given currency and country code. |  -  |
@@ -263,6 +269,7 @@ Returns a list of stored (tokenized) payment methods.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -292,6 +299,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     api_instance = payment_methods_api.PaymentMethodsApi(api_client)
     buyer_id = "8724fd24-5489-4a5d-90fd-0604df7d3b83" # str | Filters the results to only the items for which the `buyer` has an `id` that matches this value. (optional)
     buyer_external_identifier = "user-12345" # str | Filters the results to only the items for which the `buyer` has an `external_identifier` that matches this value. (optional)
+    status = "succeeded" # str | Filters the results to only the payment methods for which the `status` matches this value. (optional)
     limit = 1 # int | Defines the maximum number of items to return for this request. (optional) if omitted the server will use the default value of 20
     cursor = "ZXhhbXBsZTE" # str | A cursor that identifies the page of results to return. This is used to paginate the results of this API.  For the first page of results, this parameter can be left out. For additional pages, use the value returned by the API in the `next_cursor` field. Similarly the `previous_cursor` can be used to reverse backwards in the list. (optional)
 
@@ -299,7 +307,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List payment methods
-        api_response = api_instance.list_payment_methods(buyer_id=buyer_id, buyer_external_identifier=buyer_external_identifier, limit=limit, cursor=cursor)
+        api_response = api_instance.list_payment_methods(buyer_id=buyer_id, buyer_external_identifier=buyer_external_identifier, status=status, limit=limit, cursor=cursor)
         pprint(api_response)
     except openapi_client.ApiException as e:
         print("Exception when calling PaymentMethodsApi->list_payment_methods: %s\n" % e)
@@ -312,6 +320,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **buyer_id** | **str**| Filters the results to only the items for which the &#x60;buyer&#x60; has an &#x60;id&#x60; that matches this value. | [optional]
  **buyer_external_identifier** | **str**| Filters the results to only the items for which the &#x60;buyer&#x60; has an &#x60;external_identifier&#x60; that matches this value. | [optional]
+ **status** | **str**| Filters the results to only the payment methods for which the &#x60;status&#x60; matches this value. | [optional]
  **limit** | **int**| Defines the maximum number of items to return for this request. | [optional] if omitted the server will use the default value of 20
  **cursor** | **str**| A cursor that identifies the page of results to return. This is used to paginate the results of this API.  For the first page of results, this parameter can be left out. For additional pages, use the value returned by the API in the &#x60;next_cursor&#x60; field. Similarly the &#x60;previous_cursor&#x60; can be used to reverse backwards in the list. | [optional]
 
@@ -330,6 +339,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns a list of payment methods. |  -  |
@@ -347,6 +357,7 @@ Stores and tokenizes a new payment method.
 ### Example
 
 * Bearer (JWT) Authentication (BearerAuth):
+
 ```python
 import time
 import openapi_client
@@ -377,7 +388,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = payment_methods_api.PaymentMethodsApi(api_client)
     payment_method_request = PaymentMethodRequest(
-        method=,
+        method=None,
         number="4111111111111111",
         expiration_date="11/15",
         security_code="123",
@@ -421,6 +432,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **201** | Returns the created payment method. |  -  |
