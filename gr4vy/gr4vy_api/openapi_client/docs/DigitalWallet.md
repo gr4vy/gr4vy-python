@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **domain_names** | **[str]** | The list of domain names that a digital wallet can be used on. To use a digital wallet on a website, the domain of the site is required to be in this list. | [optional] 
 **created_at** | **datetime** | The date and time when this digital wallet was registered. | [optional] 
 **updated_at** | **datetime** | The date and time when this digital wallet was last updated. | [optional] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

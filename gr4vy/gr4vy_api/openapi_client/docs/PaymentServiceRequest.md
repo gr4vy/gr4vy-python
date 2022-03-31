@@ -6,7 +6,7 @@ Request body for activating a payment service.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **display_name** | **str** | A custom name for the payment service. This will be shown in the Admin UI. | 
-**fields** | [**[PaymentServiceUpdateFields]**](PaymentServiceUpdateFields.md) | A list of fields, each containing a key-value pair for each field defined by the definition for this payment service e.g. for stripe-card &#x60;secret_key&#x60; is required and so must be sent with in this field. | 
+**fields** | [**[PaymentServiceUpdateFields]**](PaymentServiceUpdateFields.md) | A list of fields, each containing a key-value pair for each field defined by the definition for this payment service e.g. for stripe-card &#x60;secret_key&#x60; is required and so must be sent within this field. | 
 **accepted_countries** | **[str]** | A list of countries that this payment service needs to support in ISO two-letter code format. | 
 **accepted_currencies** | **[str]** | A list of currencies that this payment service needs to support in ISO 4217 three-letter code format. | 
 **payment_service_definition_id** | **str** | The ID of the payment service to use. | 

@@ -1,30 +1,6 @@
 import logging
 from gr4vy import Gr4vyClient, Gr4vyClientWithBaseUrl
-from gr4vy.gr4vy_api.openapi_client.model.buyer_request import BuyerRequest
-from gr4vy.gr4vy_api.openapi_client.model.buyer_update import BuyerUpdate
-from gr4vy.gr4vy_api.openapi_client.model.payment_method import PaymentMethod
-from gr4vy.gr4vy_api.openapi_client.model.payment_method_request import (
-    PaymentMethodRequest,
-)
-from gr4vy.gr4vy_api.openapi_client.model.payment_service_request import (
-    PaymentServiceRequest,
-)
-from gr4vy.gr4vy_api.openapi_client.model.payment_service_update import (
-    PaymentServiceUpdate,
-)
-from gr4vy.gr4vy_api.openapi_client.model.payment_service_update_fields import (
-    PaymentServiceUpdateFields,
-)
-from gr4vy.gr4vy_api.openapi_client.model.transaction_capture_request import (
-    TransactionCaptureRequest,
-)
-from gr4vy.gr4vy_api.openapi_client.model.transaction_payment_method_request import (
-    TransactionPaymentMethodRequest,
-)
-from gr4vy.gr4vy_api.openapi_client.model.transaction_refund_request import (
-    TransactionRefundRequest,
-)
-from gr4vy.gr4vy_api.openapi_client.model.transaction_request import TransactionRequest
+from gr4vy import BuyerRequest,BuyerUpdate,PaymentMethod, PaymentMethodRequest, TransactionPaymentMethodRequest, PaymentServiceRequest, PaymentServiceUpdate, PaymentServiceUpdateFields, TransactionCaptureRequest, TransactionPaymentMethodRequest, TransactionRefundRequest, TransactionRequest
 
 gr4vy_id = "spider"
 private_key_location = "./private_key.pem"
@@ -147,6 +123,7 @@ def testListPaymentOptions():
 
 def testGetPaymentServiceDefinition():
     payment_service_definitions = client.ListPaymentServiceDefintions(limit=1)
+    print(payment_service_definitions)
     assert client.GetPaymentServiceDefinition(
         payment_service_definitions["items"][0]["id"]
     )
@@ -183,6 +160,7 @@ def testAddPaymentService():
 
 def testGetPaymentService():
     for payment_service in client.ListPaymentServices()["items"]:
+        print(payment_service)
         if payment_service["display_name"] == "TestAddService":
             payment_service_id = payment_service["id"]
     assert client.GetPaymentService(payment_service_id)
@@ -242,8 +220,10 @@ def testAuthorizeNewTransaction():
             redirect_url="https://example.com/callback",
         ),
     )
-    transaction_id = client.AuthorizeNewTransaction(transaction_request)["id"]
-    assert transaction_id
+    transaction = client.AuthorizeNewTransaction(transaction_request)
+
+    
+    assert transaction['status'] == 'authorization_succeeded'
 
 
 def testCaptureTransaction():
@@ -258,11 +238,19 @@ def testCaptureTransaction():
             redirect_url="https://example.com/callback",
         ),
     )
-    transaction_id = client.AuthorizeNewTransaction(transaction_request)["id"]
 
-    transaction_capture_request = TransactionCaptureRequest(amount=1299)
-    assert client.CaptureTransaction(transaction_id, transaction_capture_request)
+    transaction = client.AuthorizeNewTransaction(transaction_request)
 
+    if transaction['status'] == 'authorization_succeeded':
+        transaction_id = transaction["id"]
+
+        transaction_capture_request = TransactionCaptureRequest(amount=1299)
+        capture = client.CaptureTransaction(transaction_id, transaction_capture_request)
+        print(capture)
+        assert capture['status'] == 'capture_succeeded'
+
+def testListTransaction():
+    assert client.ListTransactions()
 
 def testGetTransaction():
     transaction_id = client.ListTransactions()["items"][0]["id"]
@@ -286,7 +274,43 @@ def testRefundTransaction():
     print("===")
     print(transaction)
     print("===")
-    transaction_refund_request = TransactionRefundRequest(amount=10)
-    assert client.RefundTransaction(
-        transaction.id, transaction_refund_request=transaction_refund_request
+    if transaction['status'] == 'authorization_succeeded':
+
+        transaction_capture_request = TransactionCaptureRequest(amount=1299)
+        capture = client.CaptureTransaction(transaction.id, transaction_capture_request)
+
+        print(capture)
+        if capture['status'] == 'capture_succeeded':
+            transaction_refund_request = TransactionRefundRequest(amount=1299)
+            
+            refund = client.RefundTransaction(
+                transaction['id'], transaction_refund_request=transaction_refund_request
+            )
+
+            print(refund)
+            assert refund['status'] in ['succeeded', 'processing']
+
+
+def testVoidTransaction():
+    transaction_request = TransactionRequest(
+        amount=1299,
+        currency="USD",
+        payment_method=TransactionPaymentMethodRequest(
+            method="card",
+            number="4111111111111111",
+            expiration_date="11/25",
+            security_code="123",
+            redirect_url="https://example.com/callback",
+        ),
     )
+    transaction = client.AuthorizeNewTransaction(transaction_request)
+
+    print("===")
+    print(transaction)
+    print("===")
+    if transaction['status'] == 'authorization_succeeded':
+
+        void = client.VoidTransaction(transaction.id)
+
+        print(void)
+        assert void['status'] == 'authorization_voided'

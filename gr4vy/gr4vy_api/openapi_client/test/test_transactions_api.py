@@ -45,6 +45,20 @@ class TestTransactionsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_transaction_refund(self):
+        """Test case for get_transaction_refund
+
+        Get transaction refund  # noqa: E501
+        """
+        pass
+
+    def test_list_transaction_refunds(self):
+        """Test case for list_transaction_refunds
+
+        List transaction refunds  # noqa: E501
+        """
+        pass
+
     def test_list_transactions(self):
         """Test case for list_transactions
 
@@ -55,7 +69,21 @@ class TestTransactionsApi(unittest.TestCase):
     def test_refund_transaction(self):
         """Test case for refund_transaction
 
+        Refund transaction  # noqa: E501
+        """
+        pass
+
+    def test_refund_transaction_deprecated(self):
+        """Test case for refund_transaction_deprecated
+
         Refund or void transactions  # noqa: E501
+        """
+        pass
+
+    def test_void_transaction(self):
+        """Test case for void_transaction
+
+        Void transaction  # noqa: E501
         """
         pass
 

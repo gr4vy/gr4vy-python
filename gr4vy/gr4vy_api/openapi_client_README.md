@@ -64,7 +64,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     buyer_request = BuyerRequest(
         external_identifier="user-789123",
         display_name="John L.",
-        billing_details=,
+        billing_details=None,
     ) # BuyerRequest |  (optional)
 
     try:
@@ -108,8 +108,12 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**authorize_new_transaction**](openapi_client/docs/TransactionsApi.md#authorize_new_transaction) | **POST** /transactions | New transaction
 *TransactionsApi* | [**capture_transaction**](openapi_client/docs/TransactionsApi.md#capture_transaction) | **POST** /transactions/{transaction_id}/capture | Capture transaction
 *TransactionsApi* | [**get_transaction**](openapi_client/docs/TransactionsApi.md#get_transaction) | **GET** /transactions/{transaction_id} | Get transaction
+*TransactionsApi* | [**get_transaction_refund**](openapi_client/docs/TransactionsApi.md#get_transaction_refund) | **GET** /transactions/{transaction_id}/refunds/{refund_id} | Get transaction refund
+*TransactionsApi* | [**list_transaction_refunds**](openapi_client/docs/TransactionsApi.md#list_transaction_refunds) | **GET** /transactions/{transaction_id}/refunds | List transaction refunds
 *TransactionsApi* | [**list_transactions**](openapi_client/docs/TransactionsApi.md#list_transactions) | **GET** /transactions | List transactions
-*TransactionsApi* | [**refund_transaction**](openapi_client/docs/TransactionsApi.md#refund_transaction) | **POST** /transactions/{transaction_id}/refund | Refund or void transactions
+*TransactionsApi* | [**refund_transaction**](openapi_client/docs/TransactionsApi.md#refund_transaction) | **POST** /transactions/{transaction_id}/refunds | Refund transaction
+*TransactionsApi* | [**refund_transaction_deprecated**](openapi_client/docs/TransactionsApi.md#refund_transaction_deprecated) | **POST** /transactions/{transaction_id}/refund | Refund or void transactions
+*TransactionsApi* | [**void_transaction**](openapi_client/docs/TransactionsApi.md#void_transaction) | **POST** /transactions/{transaction_id}/void | Void transaction
 
 
 ## Documentation For Models
@@ -119,19 +123,23 @@ Class | Method | HTTP request | Description
  - [ApplePayRequest](openapi_client/docs/ApplePayRequest.md)
  - [ApplePaySessionRequest](openapi_client/docs/ApplePaySessionRequest.md)
  - [BillingDetails](openapi_client/docs/BillingDetails.md)
+ - [BillingDetailsRequest](openapi_client/docs/BillingDetailsRequest.md)
  - [BillingDetailsUpdateRequest](openapi_client/docs/BillingDetailsUpdateRequest.md)
  - [Buyer](openapi_client/docs/Buyer.md)
  - [BuyerRequest](openapi_client/docs/BuyerRequest.md)
  - [BuyerSnapshot](openapi_client/docs/BuyerSnapshot.md)
  - [BuyerUpdate](openapi_client/docs/BuyerUpdate.md)
  - [Buyers](openapi_client/docs/Buyers.md)
+ - [CardDetails](openapi_client/docs/CardDetails.md)
  - [CardRequest](openapi_client/docs/CardRequest.md)
+ - [CartItem](openapi_client/docs/CartItem.md)
  - [DigitalWallet](openapi_client/docs/DigitalWallet.md)
  - [DigitalWalletRequest](openapi_client/docs/DigitalWalletRequest.md)
  - [DigitalWalletUpdate](openapi_client/docs/DigitalWalletUpdate.md)
  - [DigitalWallets](openapi_client/docs/DigitalWallets.md)
  - [Error400BadRequest](openapi_client/docs/Error400BadRequest.md)
  - [Error400IncorrectJson](openapi_client/docs/Error400IncorrectJson.md)
+ - [Error400InvalidCredentials](openapi_client/docs/Error400InvalidCredentials.md)
  - [Error401Unauthorized](openapi_client/docs/Error401Unauthorized.md)
  - [Error403Forbidden](openapi_client/docs/Error403Forbidden.md)
  - [Error404NotFound](openapi_client/docs/Error404NotFound.md)
@@ -139,6 +147,8 @@ Class | Method | HTTP request | Description
  - [Error409DuplicateRecord](openapi_client/docs/Error409DuplicateRecord.md)
  - [ErrorDetail](openapi_client/docs/ErrorDetail.md)
  - [ErrorGeneric](openapi_client/docs/ErrorGeneric.md)
+ - [GooglePayRequest](openapi_client/docs/GooglePayRequest.md)
+ - [GooglePaySessionRequest](openapi_client/docs/GooglePaySessionRequest.md)
  - [PaymentMethod](openapi_client/docs/PaymentMethod.md)
  - [PaymentMethodRequest](openapi_client/docs/PaymentMethodRequest.md)
  - [PaymentMethodSnapshot](openapi_client/docs/PaymentMethodSnapshot.md)
@@ -162,8 +172,11 @@ Class | Method | HTTP request | Description
  - [PaymentServiceUpdateFields](openapi_client/docs/PaymentServiceUpdateFields.md)
  - [PaymentServices](openapi_client/docs/PaymentServices.md)
  - [RedirectRequest](openapi_client/docs/RedirectRequest.md)
+ - [Refund](openapi_client/docs/Refund.md)
+ - [Refunds](openapi_client/docs/Refunds.md)
  - [ResetPasswordRequest](openapi_client/docs/ResetPasswordRequest.md)
  - [SetPasswordRequest](openapi_client/docs/SetPasswordRequest.md)
+ - [StatementDescriptor](openapi_client/docs/StatementDescriptor.md)
  - [TaxId](openapi_client/docs/TaxId.md)
  - [ThreeDSecureData](openapi_client/docs/ThreeDSecureData.md)
  - [ThreeDSecureDataV1](openapi_client/docs/ThreeDSecureDataV1.md)
@@ -176,6 +189,7 @@ Class | Method | HTTP request | Description
  - [TransactionCaptureRequest](openapi_client/docs/TransactionCaptureRequest.md)
  - [TransactionPaymentMethodRequest](openapi_client/docs/TransactionPaymentMethodRequest.md)
  - [TransactionRefundRequest](openapi_client/docs/TransactionRefundRequest.md)
+ - [TransactionRefundRequestDeprecated](openapi_client/docs/TransactionRefundRequestDeprecated.md)
  - [TransactionRequest](openapi_client/docs/TransactionRequest.md)
  - [TransactionSummary](openapi_client/docs/TransactionSummary.md)
  - [Transactions](openapi_client/docs/Transactions.md)

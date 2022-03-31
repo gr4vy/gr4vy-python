@@ -26,6 +26,13 @@ from gr4vy.gr4vy_api.openapi_client.model_utils import (  # noqa: F401
     none_type,
     validate_get_composed_info,
 )
+from ..model_utils import OpenApiModel
+from gr4vy.gr4vy_api.openapi_client.exceptions import ApiAttributeError
+
+
+def lazy_import():
+    from gr4vy.gr4vy_api.openapi_client.model.cart_item import CartItem
+    globals()['CartItem'] = CartItem
 
 
 from gr4vy.gr4vy_api.openapi_client.model.payment_service import PaymentService
@@ -72,6 +79,9 @@ class Transaction(ModelNormal):
             'AUTHORIZATION_FAILED': "authorization_failed",
             'AUTHORIZATION_EXPIRED': "authorization_expired",
             'AUTHORIZATION_VOIDED': "authorization_voided",
+            'AUTHORIZATION_VOID_PENDING': "authorization_void_pending",
+            'AUTHORIZATION_VOID_DECLINED': "authorization_void_declined",
+            'AUTHORIZATION_VOID_FAILED': "authorization_void_failed",
             'REFUND_SUCCEEDED': "refund_succeeded",
             'REFUND_PENDING': "refund_pending",
             'REFUND_DECLINED': "refund_declined",
@@ -89,6 +99,21 @@ class Transaction(ModelNormal):
             'INSTALLMENT': "installment",
             'CARD_ON_FILE': "card_on_file",
         },
+        ('avs_response_code',): {
+            'None': None,
+            'NO_MATCH': "no_match",
+            'MATCH': "match",
+            'PARTIAL_MATCH_ADDRESS': "partial_match_address",
+            'PARTIAL_MATCH_POSTCODE': "partial_match_postcode",
+            'UNAVAILABLE': "unavailable",
+        },
+        ('cvv_response_code',): {
+            'None': None,
+            'NO_MATCH': "no_match",
+            'MATCH': "match",
+            'UNAVAILABLE': "unavailable",
+            'NOT_PROVIDED': "not_provided",
+        },
     }
 
     validations = {
@@ -104,9 +129,18 @@ class Transaction(ModelNormal):
             'inclusive_maximum': 99999999,
             'inclusive_minimum': 0,
         },
+        ('cart_items',): {
+        },
     }
 
-    additional_properties_type = None
+    @cached_property
+    def additional_properties_type():
+        """
+        This must be a method because a model may have properties that are
+        of type self, this must run after the class is loaded
+        """
+        lazy_import()
+        return (bool, date, datetime, dict, float, int, list, str, none_type,)  # noqa: E501
 
     _nullable = False
 
@@ -120,6 +154,7 @@ class Transaction(ModelNormal):
             openapi_types (dict): The key is attribute name
                 and the value is attribute type.
         """
+        lazy_import()
         return {
             'type': (str,),  # noqa: E501
             'id': (str, none_type),  # noqa: E501
@@ -128,15 +163,22 @@ class Transaction(ModelNormal):
             'captured_amount': (int,),  # noqa: E501
             'refunded_amount': (int,),  # noqa: E501
             'currency': (str,),  # noqa: E501
-            'payment_method': (PaymentMethod, none_type),  # noqa: E501
-            'buyer': (Buyer, none_type),  # noqa: E501
+            'payment_method': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'buyer': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'external_identifier': (str, none_type,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
-            'payment_service': (PaymentService, none_type),  # noqa: E501
+            'payment_service': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'merchant_initiated': (bool,),  # noqa: E501
             'payment_source': (str,),  # noqa: E501
             'is_subsequent_payment': (bool,),  # noqa: E501
+            'statement_descriptor': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'cart_items': ([CartItem],),  # noqa: E501
+            'scheme_transaction_id': (str, none_type,),  # noqa: E501
+            'raw_response_code': (str, none_type,),  # noqa: E501
+            'raw_response_description': (str, none_type,),  # noqa: E501
+            'avs_response_code': (str, none_type,),  # noqa: E501
+            'cvv_response_code': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -161,9 +203,115 @@ class Transaction(ModelNormal):
         'merchant_initiated': 'merchant_initiated',  # noqa: E501
         'payment_source': 'payment_source',  # noqa: E501
         'is_subsequent_payment': 'is_subsequent_payment',  # noqa: E501
+        'statement_descriptor': 'statement_descriptor',  # noqa: E501
+        'cart_items': 'cart_items',  # noqa: E501
+        'scheme_transaction_id': 'scheme_transaction_id',  # noqa: E501
+        'raw_response_code': 'raw_response_code',  # noqa: E501
+        'raw_response_description': 'raw_response_description',  # noqa: E501
+        'avs_response_code': 'avs_response_code',  # noqa: E501
+        'cvv_response_code': 'cvv_response_code',  # noqa: E501
+    }
+
+    read_only_vars = {
     }
 
     _composed_schemas = {}
+
+    @classmethod
+    @convert_js_args_to_python_args
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
+        """Transaction - a model defined in OpenAPI
+
+        Keyword Args:
+            _check_type (bool): if True, values for parameters in openapi_types
+                                will be type checked and a TypeError will be
+                                raised if the wrong type is input.
+                                Defaults to True
+            _path_to_item (tuple/list): This is a list of keys or values to
+                                drill down to the model in received_data
+                                when deserializing a response
+            _spec_property_naming (bool): True if the variable names in the input data
+                                are serialized names, as specified in the OpenAPI document.
+                                False if the variable names in the input data
+                                are pythonic names, e.g. snake case (default)
+            _configuration (Configuration): the instance to use when
+                                deserializing a file_type parameter.
+                                If passed, type conversion is attempted
+                                If omitted no type conversion is done.
+            _visited_composed_classes (tuple): This stores a tuple of
+                                classes that we have traveled through so that
+                                if we see that class again we will not use its
+                                discriminator again.
+                                When traveling through a discriminator, the
+                                composed schema that is
+                                is traveled through is added to this set.
+                                For example if Animal has a discriminator
+                                petType and we pass in "Dog", and the class Dog
+                                allOf includes Animal, we move through Animal
+                                once using the discriminator, and pick Dog.
+                                Then in Dog, we will make an instance of the
+                                Animal class but this time we won't travel
+                                through its discriminator because we passed in
+                                _visited_composed_classes = (Animal,)
+            type (str): The type of this resource. Is always `transaction`.. [optional] if omitted the server will use the default value of "transaction"  # noqa: E501
+            id (str): The unique identifier for this transaction.. [optional]  # noqa: E501
+            status (str): The status of the transaction. The status may change over time as asynchronous  processing events occur.. [optional]  # noqa: E501
+            amount (int): The authorized amount for this transaction. This can be different than the actual captured amount and part of this amount may be refunded.. [optional]  # noqa: E501
+            captured_amount (int): The captured amount for this transaction. This can be a part and in some cases even more than the authorized amount.. [optional]  # noqa: E501
+            refunded_amount (int): The refunded amount for this transaction. This can be a part or all of the captured amount.. [optional]  # noqa: E501
+            currency (str): The currency code for this transaction.. [optional]  # noqa: E501
+            payment_method (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            buyer (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            created_at (datetime): The date and time when this transaction was created in our system.. [optional]  # noqa: E501
+            external_identifier (str, none_type): An external identifier that can be used to match the transaction against your own records.. [optional]  # noqa: E501
+            updated_at (datetime): Defines when the transaction was last updated.. [optional]  # noqa: E501
+            payment_service (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            merchant_initiated (bool): Indicates whether the transaction was initiated by the merchant (true) or customer (false).. [optional] if omitted the server will use the default value of False  # noqa: E501
+            payment_source (str): The source of the transaction. Defaults to `ecommerce`.. [optional]  # noqa: E501
+            is_subsequent_payment (bool): Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note this flag is only compatible with `payment_source` set to `recurring`, `installment`, or `card_on_file` and will be ignored for other values or if `payment_source` is not present.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            statement_descriptor (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            cart_items ([CartItem]): An array of cart items that represents the line items of a transaction.. [optional]  # noqa: E501
+            scheme_transaction_id (str, none_type): An identifier for the transaction used by the scheme itself, when available.  e.g. the Visa Transaction Identifier, or Mastercard Trace ID.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
+            raw_response_code (str, none_type): This is the response code received from the payment service. This can be set to any value and is not standardized across different payment services.. [optional]  # noqa: E501
+            raw_response_description (str, none_type): This is the response description received from the payment service. This can be set to any value and is not standardized across different payment services.. [optional]  # noqa: E501
+            avs_response_code (str, none_type): The response code received from the payment service for the Address Verification Check (AVS). This code is mapped to a standardized Gr4vy AVS response code.  - `no_match` - neither address or postal code match - `match` - both address and postal code match - `partial_match_address` - address matches but postal code does not - `partial_match_postcode` - postal code matches but address does not - `unavailable ` - AVS is unavailable for card/country  The value of this field can be `null` if the payment service did not provide a response.. [optional]  # noqa: E501
+            cvv_response_code (str, none_type): The response code received from the payment service for the Card Verification Value (CVV). This code is mapped to a standardized Gr4vy CVV response code.  - `no_match` - the CVV does not match the expected value - `match` - the CVV matches the expected value - `unavailable ` - CVV check unavailable for card our country - `not_provided ` - CVV not provided  The value of this field can be `null` if the payment service did not provide a response.. [optional]  # noqa: E501
+        """
+
+        _check_type = kwargs.pop('_check_type', True)
+        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
+        _path_to_item = kwargs.pop('_path_to_item', ())
+        _configuration = kwargs.pop('_configuration', None)
+        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
+
+        self = super(OpenApiModel, cls).__new__(cls)
+
+        if args:
+            raise ApiTypeError(
+                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                    args,
+                    self.__class__.__name__,
+                ),
+                path_to_item=_path_to_item,
+                valid_classes=(self.__class__,),
+            )
+
+        self._data_store = {}
+        self._check_type = _check_type
+        self._spec_property_naming = _spec_property_naming
+        self._path_to_item = _path_to_item
+        self._configuration = _configuration
+        self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
+
+        for var_name, var_value in kwargs.items():
+            if var_name not in self.attribute_map and \
+                        self._configuration is not None and \
+                        self._configuration.discard_unknown_keys and \
+                        self.additional_properties_type is None:
+                # discard variable.
+                continue
+            setattr(self, var_name, var_value)
+        return self
 
     required_properties = set([
         '_data_store',
@@ -216,15 +364,22 @@ class Transaction(ModelNormal):
             captured_amount (int): The captured amount for this transaction. This can be a part and in some cases even more than the authorized amount.. [optional]  # noqa: E501
             refunded_amount (int): The refunded amount for this transaction. This can be a part or all of the captured amount.. [optional]  # noqa: E501
             currency (str): The currency code for this transaction.. [optional]  # noqa: E501
-            payment_method (object): [optional]  # noqa: E501
-            buyer (object): [optional]  # noqa: E501
+            payment_method (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            buyer (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             created_at (datetime): The date and time when this transaction was created in our system.. [optional]  # noqa: E501
             external_identifier (str, none_type): An external identifier that can be used to match the transaction against your own records.. [optional]  # noqa: E501
             updated_at (datetime): Defines when the transaction was last updated.. [optional]  # noqa: E501
-            payment_service (object): [optional]  # noqa: E501
+            payment_service (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             merchant_initiated (bool): Indicates whether the transaction was initiated by the merchant (true) or customer (false).. [optional] if omitted the server will use the default value of False  # noqa: E501
             payment_source (str): The source of the transaction. Defaults to `ecommerce`.. [optional]  # noqa: E501
             is_subsequent_payment (bool): Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note this flag is only compatible with `payment_source` set to `recurring`, `installment`, or `card_on_file` and will be ignored for other values or if `payment_source` is not present.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            statement_descriptor (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            cart_items ([CartItem]): An array of cart items that represents the line items of a transaction.. [optional]  # noqa: E501
+            scheme_transaction_id (str, none_type): An identifier for the transaction used by the scheme itself, when available.  e.g. the Visa Transaction Identifier, or Mastercard Trace ID.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
+            raw_response_code (str, none_type): This is the response code received from the payment service. This can be set to any value and is not standardized across different payment services.. [optional]  # noqa: E501
+            raw_response_description (str, none_type): This is the response description received from the payment service. This can be set to any value and is not standardized across different payment services.. [optional]  # noqa: E501
+            avs_response_code (str, none_type): The response code received from the payment service for the Address Verification Check (AVS). This code is mapped to a standardized Gr4vy AVS response code.  - `no_match` - neither address or postal code match - `match` - both address and postal code match - `partial_match_address` - address matches but postal code does not - `partial_match_postcode` - postal code matches but address does not - `unavailable ` - AVS is unavailable for card/country  The value of this field can be `null` if the payment service did not provide a response.. [optional]  # noqa: E501
+            cvv_response_code (str, none_type): The response code received from the payment service for the Card Verification Value (CVV). This code is mapped to a standardized Gr4vy CVV response code.  - `no_match` - the CVV does not match the expected value - `match` - the CVV matches the expected value - `unavailable ` - CVV check unavailable for card our country - `not_provided ` - CVV not provided  The value of this field can be `null` if the payment service did not provide a response.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -258,3 +413,6 @@ class Transaction(ModelNormal):
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)
+            if var_name in self.read_only_vars:
+                raise ApiAttributeError(f"`{var_name}` is a read-only attribute. Use `from_openapi_data` to instantiate "
+                                     f"class with read only attributes.")

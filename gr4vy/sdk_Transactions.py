@@ -58,3 +58,13 @@ class gr4vyTransactions(transactions_api.TransactionsApi):
             print(
                 "Exception when calling TransactionsApi->refund_transaction: %s\n" % e
             )
+    
+    def voidTransaction(self, transaction_id):
+        try:
+            # Refund or void transactions
+            api_response = self.void_transaction(transaction_id)
+            return api_response
+        except gr4vy.gr4vy_api.openapi_client.ApiException as e:
+            print(
+                "Exception when calling TransactionsApi->refund_transaction: %s\n" % e
+            )
