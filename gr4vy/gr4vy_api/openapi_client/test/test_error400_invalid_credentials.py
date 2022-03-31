@@ -13,13 +13,11 @@ import sys
 import unittest
 
 import openapi_client
-from openapi_client.model.billing_details_request import BillingDetailsRequest
-globals()['BillingDetailsRequest'] = BillingDetailsRequest
-from openapi_client.model.billing_details_update_request import BillingDetailsUpdateRequest
+from openapi_client.model.error400_invalid_credentials import Error400InvalidCredentials
 
 
-class TestBillingDetailsUpdateRequest(unittest.TestCase):
-    """BillingDetailsUpdateRequest unit test stubs"""
+class TestError400InvalidCredentials(unittest.TestCase):
+    """Error400InvalidCredentials unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestBillingDetailsUpdateRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testBillingDetailsUpdateRequest(self):
-        """Test BillingDetailsUpdateRequest"""
+    def testError400InvalidCredentials(self):
+        """Test Error400InvalidCredentials"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = BillingDetailsUpdateRequest()  # noqa: E501
+        # model = Error400InvalidCredentials()  # noqa: E501
         pass
 
 

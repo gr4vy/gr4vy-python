@@ -58,6 +58,9 @@ class BillingDetails(ModelNormal):
     """
 
     allowed_values = {
+        ('type',): {
+            'BILLING-DETAILS': "billing-details",
+        },
     }
 
     validations = {
@@ -103,6 +106,7 @@ class BillingDetails(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'type': (str,),  # noqa: E501
             'first_name': (str, none_type,),  # noqa: E501
             'last_name': (str, none_type,),  # noqa: E501
             'email_address': (str, none_type,),  # noqa: E501
@@ -117,6 +121,7 @@ class BillingDetails(ModelNormal):
 
 
     attribute_map = {
+        'type': 'type',  # noqa: E501
         'first_name': 'first_name',  # noqa: E501
         'last_name': 'last_name',  # noqa: E501
         'email_address': 'email_address',  # noqa: E501
@@ -166,10 +171,11 @@ class BillingDetails(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            first_name (str, none_type): The first name(s) or given name for the buyer.. [optional]  # noqa: E501
+            type (str): The type of this resource. Is always `billing-details`.. [optional] if omitted the server will use the default value of "billing-details"  # noqa: E501
+            first_name (str, none_type): The first name(s) or given name of the buyer.. [optional]  # noqa: E501
             last_name (str, none_type): The last name, or family name, of the buyer.. [optional]  # noqa: E501
-            email_address (str, none_type): The email address for the buyer.. [optional]  # noqa: E501
-            phone_number (str, none_type): The phone number to use for this request. This expect the number in the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
+            email_address (str, none_type): The email address of the buyer.. [optional]  # noqa: E501
+            phone_number (str, none_type): The phone number of the buyer. This expect the number in the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
             address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             tax_id (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
@@ -253,10 +259,11 @@ class BillingDetails(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            first_name (str, none_type): The first name(s) or given name for the buyer.. [optional]  # noqa: E501
+            type (str): The type of this resource. Is always `billing-details`.. [optional] if omitted the server will use the default value of "billing-details"  # noqa: E501
+            first_name (str, none_type): The first name(s) or given name of the buyer.. [optional]  # noqa: E501
             last_name (str, none_type): The last name, or family name, of the buyer.. [optional]  # noqa: E501
-            email_address (str, none_type): The email address for the buyer.. [optional]  # noqa: E501
-            phone_number (str, none_type): The phone number to use for this request. This expect the number in the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
+            email_address (str, none_type): The email address of the buyer.. [optional]  # noqa: E501
+            phone_number (str, none_type): The phone number of the buyer. This expect the number in the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
             address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             tax_id (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """

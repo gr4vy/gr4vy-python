@@ -70,6 +70,10 @@ class PaymentServiceSnapshot(ModelNormal):
             'max_length': 50,
             'min_length': 1,
         },
+        ('display_name',): {
+            'max_length': 50,
+            'min_length': 1,
+        },
     }
 
     @cached_property
@@ -97,6 +101,7 @@ class PaymentServiceSnapshot(ModelNormal):
             'type': (str,),  # noqa: E501
             'payment_service_definition_id': (str,),  # noqa: E501
             'method': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'display_name': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -109,6 +114,7 @@ class PaymentServiceSnapshot(ModelNormal):
         'type': 'type',  # noqa: E501
         'payment_service_definition_id': 'payment_service_definition_id',  # noqa: E501
         'method': 'method',  # noqa: E501
+        'display_name': 'display_name',  # noqa: E501
     }
 
     read_only_vars = {
@@ -156,6 +162,7 @@ class PaymentServiceSnapshot(ModelNormal):
             type (str): The type of this resource.. [optional] if omitted the server will use the default value of "payment-service"  # noqa: E501
             payment_service_definition_id (str): The ID of the payment service definition used to create this service. . [optional]  # noqa: E501
             method (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            display_name (str): The custom name set for this service.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -241,6 +248,7 @@ class PaymentServiceSnapshot(ModelNormal):
             type (str): The type of this resource.. [optional] if omitted the server will use the default value of "payment-service"  # noqa: E501
             payment_service_definition_id (str): The ID of the payment service definition used to create this service. . [optional]  # noqa: E501
             method (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            display_name (str): The custom name set for this service.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

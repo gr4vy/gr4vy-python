@@ -288,7 +288,7 @@ def testRefundTransaction():
             )
 
             print(refund)
-            assert refund['status'] in ['refund_succeeded', 'processing']
+            assert refund['status'] in ['succeeded', 'processing']
 
 
 def testVoidTransaction():
@@ -313,4 +313,4 @@ def testVoidTransaction():
         void = client.VoidTransaction(transaction.id)
 
         print(void)
-        assert void['status'] == 'authorization_void_succeeded'
+        assert void['status'] == 'authorization_voided'

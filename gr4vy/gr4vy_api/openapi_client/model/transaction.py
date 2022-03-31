@@ -99,6 +99,21 @@ class Transaction(ModelNormal):
             'INSTALLMENT': "installment",
             'CARD_ON_FILE': "card_on_file",
         },
+        ('avs_response_code',): {
+            'None': None,
+            'NO_MATCH': "no_match",
+            'MATCH': "match",
+            'PARTIAL_MATCH_ADDRESS': "partial_match_address",
+            'PARTIAL_MATCH_POSTCODE': "partial_match_postcode",
+            'UNAVAILABLE': "unavailable",
+        },
+        ('cvv_response_code',): {
+            'None': None,
+            'NO_MATCH': "no_match",
+            'MATCH': "match",
+            'UNAVAILABLE': "unavailable",
+            'NOT_PROVIDED': "not_provided",
+        },
     }
 
     validations = {
@@ -160,6 +175,10 @@ class Transaction(ModelNormal):
             'statement_descriptor': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'cart_items': ([CartItem],),  # noqa: E501
             'scheme_transaction_id': (str, none_type,),  # noqa: E501
+            'raw_response_code': (str, none_type,),  # noqa: E501
+            'raw_response_description': (str, none_type,),  # noqa: E501
+            'avs_response_code': (str, none_type,),  # noqa: E501
+            'cvv_response_code': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -187,6 +206,10 @@ class Transaction(ModelNormal):
         'statement_descriptor': 'statement_descriptor',  # noqa: E501
         'cart_items': 'cart_items',  # noqa: E501
         'scheme_transaction_id': 'scheme_transaction_id',  # noqa: E501
+        'raw_response_code': 'raw_response_code',  # noqa: E501
+        'raw_response_description': 'raw_response_description',  # noqa: E501
+        'avs_response_code': 'avs_response_code',  # noqa: E501
+        'cvv_response_code': 'cvv_response_code',  # noqa: E501
     }
 
     read_only_vars = {
@@ -249,6 +272,10 @@ class Transaction(ModelNormal):
             statement_descriptor (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             cart_items ([CartItem]): An array of cart items that represents the line items of a transaction.. [optional]  # noqa: E501
             scheme_transaction_id (str, none_type): An identifier for the transaction used by the scheme itself, when available.  e.g. the Visa Transaction Identifier, or Mastercard Trace ID.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
+            raw_response_code (str, none_type): This is the response code received from the payment service. This can be set to any value and is not standardized across different payment services.. [optional]  # noqa: E501
+            raw_response_description (str, none_type): This is the response description received from the payment service. This can be set to any value and is not standardized across different payment services.. [optional]  # noqa: E501
+            avs_response_code (str, none_type): The response code received from the payment service for the Address Verification Check (AVS). This code is mapped to a standardized Gr4vy AVS response code.  - `no_match` - neither address or postal code match - `match` - both address and postal code match - `partial_match_address` - address matches but postal code does not - `partial_match_postcode` - postal code matches but address does not - `unavailable ` - AVS is unavailable for card/country  The value of this field can be `null` if the payment service did not provide a response.. [optional]  # noqa: E501
+            cvv_response_code (str, none_type): The response code received from the payment service for the Card Verification Value (CVV). This code is mapped to a standardized Gr4vy CVV response code.  - `no_match` - the CVV does not match the expected value - `match` - the CVV matches the expected value - `unavailable ` - CVV check unavailable for card our country - `not_provided ` - CVV not provided  The value of this field can be `null` if the payment service did not provide a response.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -349,6 +376,10 @@ class Transaction(ModelNormal):
             statement_descriptor (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             cart_items ([CartItem]): An array of cart items that represents the line items of a transaction.. [optional]  # noqa: E501
             scheme_transaction_id (str, none_type): An identifier for the transaction used by the scheme itself, when available.  e.g. the Visa Transaction Identifier, or Mastercard Trace ID.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
+            raw_response_code (str, none_type): This is the response code received from the payment service. This can be set to any value and is not standardized across different payment services.. [optional]  # noqa: E501
+            raw_response_description (str, none_type): This is the response description received from the payment service. This can be set to any value and is not standardized across different payment services.. [optional]  # noqa: E501
+            avs_response_code (str, none_type): The response code received from the payment service for the Address Verification Check (AVS). This code is mapped to a standardized Gr4vy AVS response code.  - `no_match` - neither address or postal code match - `match` - both address and postal code match - `partial_match_address` - address matches but postal code does not - `partial_match_postcode` - postal code matches but address does not - `unavailable ` - AVS is unavailable for card/country  The value of this field can be `null` if the payment service did not provide a response.. [optional]  # noqa: E501
+            cvv_response_code (str, none_type): The response code received from the payment service for the Card Verification Value (CVV). This code is mapped to a standardized Gr4vy CVV response code.  - `no_match` - the CVV does not match the expected value - `match` - the CVV matches the expected value - `unavailable ` - CVV check unavailable for card our country - `not_provided ` - CVV not provided  The value of this field can be `null` if the payment service did not provide a response.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

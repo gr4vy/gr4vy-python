@@ -14,12 +14,14 @@ from openapi_client.model.address_update import AddressUpdate
 from openapi_client.model.apple_pay_request import ApplePayRequest
 from openapi_client.model.apple_pay_session_request import ApplePaySessionRequest
 from openapi_client.model.billing_details import BillingDetails
+from openapi_client.model.billing_details_request import BillingDetailsRequest
 from openapi_client.model.billing_details_update_request import BillingDetailsUpdateRequest
 from openapi_client.model.buyer import Buyer
 from openapi_client.model.buyer_request import BuyerRequest
 from openapi_client.model.buyer_snapshot import BuyerSnapshot
 from openapi_client.model.buyer_update import BuyerUpdate
 from openapi_client.model.buyers import Buyers
+from openapi_client.model.card_details import CardDetails
 from openapi_client.model.card_request import CardRequest
 from openapi_client.model.cart_item import CartItem
 from openapi_client.model.digital_wallet import DigitalWallet
@@ -28,6 +30,7 @@ from openapi_client.model.digital_wallet_update import DigitalWalletUpdate
 from openapi_client.model.digital_wallets import DigitalWallets
 from openapi_client.model.error400_bad_request import Error400BadRequest
 from openapi_client.model.error400_incorrect_json import Error400IncorrectJson
+from openapi_client.model.error400_invalid_credentials import Error400InvalidCredentials
 from openapi_client.model.error401_unauthorized import Error401Unauthorized
 from openapi_client.model.error403_forbidden import Error403Forbidden
 from openapi_client.model.error404_not_found import Error404NotFound

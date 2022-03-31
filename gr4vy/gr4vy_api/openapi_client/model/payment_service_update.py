@@ -212,7 +212,7 @@ class PaymentServiceUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             display_name (str): A custom name for the payment service. This will be shown in the Admin UI.. [optional]  # noqa: E501
-            fields ([PaymentServiceUpdateFields]): A list of fields, each containing a key-value pair for each field defined by the definition for this payment service e.g. for stripe-card `secret_key` is required and so must be sent with in this field.. [optional]  # noqa: E501
+            fields ([PaymentServiceUpdateFields]): A list of fields, each containing a key-value pair for each field defined by the definition for this payment service e.g. for stripe-card `secret_key` is required and so must be sent within this field.. [optional]  # noqa: E501
             accepted_countries ([str]): A list of countries that this payment service needs to support in ISO two-letter code format.. [optional]  # noqa: E501
             accepted_currencies ([str]): A list of currencies that this payment service needs to support in ISO 4217 three-letter code format.. [optional]  # noqa: E501
             three_d_secure_enabled (bool): Defines if 3-D Secure is enabled for the service (can only be enabled if the payment service definition supports the `three_d_secure_hosted` feature). This does not affect pass through 3-D Secure data.. [optional] if omitted the server will use the default value of False  # noqa: E501
@@ -309,7 +309,7 @@ class PaymentServiceUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             display_name (str): A custom name for the payment service. This will be shown in the Admin UI.. [optional]  # noqa: E501
-            fields ([PaymentServiceUpdateFields]): A list of fields, each containing a key-value pair for each field defined by the definition for this payment service e.g. for stripe-card `secret_key` is required and so must be sent with in this field.. [optional]  # noqa: E501
+            fields ([PaymentServiceUpdateFields]): A list of fields, each containing a key-value pair for each field defined by the definition for this payment service e.g. for stripe-card `secret_key` is required and so must be sent within this field.. [optional]  # noqa: E501
             accepted_countries ([str]): A list of countries that this payment service needs to support in ISO two-letter code format.. [optional]  # noqa: E501
             accepted_currencies ([str]): A list of currencies that this payment service needs to support in ISO 4217 three-letter code format.. [optional]  # noqa: E501
             three_d_secure_enabled (bool): Defines if 3-D Secure is enabled for the service (can only be enabled if the payment service definition supports the `three_d_secure_hosted` feature). This does not affect pass through 3-D Secure data.. [optional] if omitted the server will use the default value of False  # noqa: E501

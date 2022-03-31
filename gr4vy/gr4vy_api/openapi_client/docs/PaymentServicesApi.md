@@ -385,7 +385,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         fields=[
             PaymentServiceUpdateFields(
                 key="private_key",
-                value="sk_test_4eC39HqLyjWDarjtT1zdp7dc",
+                value="sk_test_26PHem9AhJZvU623DfE1x4sd",
             ),
         ],
         accepted_countries=["US","GB","DE"],

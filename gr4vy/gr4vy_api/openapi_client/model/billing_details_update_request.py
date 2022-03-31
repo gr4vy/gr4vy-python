@@ -31,8 +31,8 @@ from gr4vy.gr4vy_api.openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from gr4vy.gr4vy_api.openapi_client.model.billing_details import BillingDetails
-    globals()['BillingDetails'] = BillingDetails
+    from gr4vy.gr4vy_api.openapi_client.model.billing_details_request import BillingDetailsRequest
+    globals()['BillingDetailsRequest'] = BillingDetailsRequest
 
 
 class BillingDetailsUpdateRequest(ModelComposed):
@@ -344,7 +344,7 @@ class BillingDetailsUpdateRequest(ModelComposed):
           'anyOf': [
           ],
           'allOf': [
-              BillingDetails,
+              BillingDetailsRequest,
           ],
           'oneOf': [
           ],

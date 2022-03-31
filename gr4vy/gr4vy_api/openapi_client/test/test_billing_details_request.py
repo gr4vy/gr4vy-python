@@ -14,12 +14,10 @@ import unittest
 
 import openapi_client
 from openapi_client.model.billing_details_request import BillingDetailsRequest
-globals()['BillingDetailsRequest'] = BillingDetailsRequest
-from openapi_client.model.billing_details_update_request import BillingDetailsUpdateRequest
 
 
-class TestBillingDetailsUpdateRequest(unittest.TestCase):
-    """BillingDetailsUpdateRequest unit test stubs"""
+class TestBillingDetailsRequest(unittest.TestCase):
+    """BillingDetailsRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -27,10 +25,10 @@ class TestBillingDetailsUpdateRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testBillingDetailsUpdateRequest(self):
-        """Test BillingDetailsUpdateRequest"""
+    def testBillingDetailsRequest(self):
+        """Test BillingDetailsRequest"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = BillingDetailsUpdateRequest()  # noqa: E501
+        # model = BillingDetailsRequest()  # noqa: E501
         pass
 
 

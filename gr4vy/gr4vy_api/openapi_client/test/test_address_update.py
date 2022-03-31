@@ -13,8 +13,6 @@ import sys
 import unittest
 
 import openapi_client
-from openapi_client.model.address import Address
-globals()['Address'] = Address
 from openapi_client.model.address_update import AddressUpdate
 
 
