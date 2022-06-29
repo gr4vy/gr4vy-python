@@ -10,12 +10,16 @@
 # sys.setrecursionlimit(n)
 
 from openapi_client.model.address import Address
-from openapi_client.model.address_update import AddressUpdate
 from openapi_client.model.apple_pay_request import ApplePayRequest
 from openapi_client.model.apple_pay_session_request import ApplePaySessionRequest
+from openapi_client.model.audit_log import AuditLog
+from openapi_client.model.audit_log_resource import AuditLogResource
+from openapi_client.model.audit_log_user import AuditLogUser
+from openapi_client.model.audit_logs import AuditLogs
 from openapi_client.model.billing_details import BillingDetails
 from openapi_client.model.billing_details_request import BillingDetailsRequest
 from openapi_client.model.billing_details_update_request import BillingDetailsUpdateRequest
+from openapi_client.model.browser_info import BrowserInfo
 from openapi_client.model.buyer import Buyer
 from openapi_client.model.buyer_request import BuyerRequest
 from openapi_client.model.buyer_snapshot import BuyerSnapshot
@@ -23,6 +27,8 @@ from openapi_client.model.buyer_update import BuyerUpdate
 from openapi_client.model.buyers import Buyers
 from openapi_client.model.card_details import CardDetails
 from openapi_client.model.card_request import CardRequest
+from openapi_client.model.card_required_fields import CardRequiredFields
+from openapi_client.model.card_required_fields_address import CardRequiredFieldsAddress
 from openapi_client.model.cart_item import CartItem
 from openapi_client.model.digital_wallet import DigitalWallet
 from openapi_client.model.digital_wallet_request import DigitalWalletRequest
@@ -49,13 +55,16 @@ from openapi_client.model.payment_method_tokens import PaymentMethodTokens
 from openapi_client.model.payment_methods import PaymentMethods
 from openapi_client.model.payment_methods_tokenized import PaymentMethodsTokenized
 from openapi_client.model.payment_option import PaymentOption
+from openapi_client.model.payment_option_approval_ui import PaymentOptionApprovalUI
 from openapi_client.model.payment_option_context import PaymentOptionContext
 from openapi_client.model.payment_options import PaymentOptions
 from openapi_client.model.payment_service import PaymentService
 from openapi_client.model.payment_service_definition import PaymentServiceDefinition
+from openapi_client.model.payment_service_definition_configuration import PaymentServiceDefinitionConfiguration
 from openapi_client.model.payment_service_definition_fields import PaymentServiceDefinitionFields
 from openapi_client.model.payment_service_definition_supported_features import PaymentServiceDefinitionSupportedFeatures
 from openapi_client.model.payment_service_definitions import PaymentServiceDefinitions
+from openapi_client.model.payment_service_fields import PaymentServiceFields
 from openapi_client.model.payment_service_request import PaymentServiceRequest
 from openapi_client.model.payment_service_request_all_of import PaymentServiceRequestAllOf
 from openapi_client.model.payment_service_snapshot import PaymentServiceSnapshot
@@ -75,12 +84,12 @@ from openapi_client.model.three_d_secure_data_v1_all_of import ThreeDSecureDataV
 from openapi_client.model.three_d_secure_data_v1_v2 import ThreeDSecureDataV1V2
 from openapi_client.model.three_d_secure_data_v2 import ThreeDSecureDataV2
 from openapi_client.model.three_d_secure_data_v2_all_of import ThreeDSecureDataV2AllOf
+from openapi_client.model.three_d_secure_summary import ThreeDSecureSummary
 from openapi_client.model.tokenized_request import TokenizedRequest
 from openapi_client.model.transaction import Transaction
 from openapi_client.model.transaction_capture_request import TransactionCaptureRequest
 from openapi_client.model.transaction_payment_method_request import TransactionPaymentMethodRequest
 from openapi_client.model.transaction_refund_request import TransactionRefundRequest
-from openapi_client.model.transaction_refund_request_deprecated import TransactionRefundRequestDeprecated
 from openapi_client.model.transaction_request import TransactionRequest
 from openapi_client.model.transaction_summary import TransactionSummary
 from openapi_client.model.transactions import Transactions

@@ -74,6 +74,11 @@ class PaymentMethodTokenized(ModelNormal):
             'HIPER': "hiper",
             'HIPERCARD': "hipercard",
         },
+        ('approval_target',): {
+            'None': None,
+            'ANY': "any",
+            'NEW_WINDOW': "new_window",
+        },
     }
 
     validations = {
@@ -113,7 +118,10 @@ class PaymentMethodTokenized(ModelNormal):
             'label': (str,),  # noqa: E501
             'scheme': (str, none_type,),  # noqa: E501
             'expiration_date': (str, none_type,),  # noqa: E501
+            'approval_target': (str, none_type,),  # noqa: E501
             'approval_url': (str, none_type,),  # noqa: E501
+            'currency': (str, none_type,),  # noqa: E501
+            'country': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -128,7 +136,10 @@ class PaymentMethodTokenized(ModelNormal):
         'label': 'label',  # noqa: E501
         'scheme': 'scheme',  # noqa: E501
         'expiration_date': 'expiration_date',  # noqa: E501
+        'approval_target': 'approval_target',  # noqa: E501
         'approval_url': 'approval_url',  # noqa: E501
+        'currency': 'currency',  # noqa: E501
+        'country': 'country',  # noqa: E501
     }
 
     read_only_vars = {
@@ -178,7 +189,10 @@ class PaymentMethodTokenized(ModelNormal):
             label (str): A label for the payment method. For a `card` payment method this is the last 4 digits on the card. For others it would be the email address.. [optional]  # noqa: E501
             scheme (str, none_type): The type of the card, if the payment method is a card.. [optional]  # noqa: E501
             expiration_date (str, none_type): The expiration date for the payment method.. [optional]  # noqa: E501
+            approval_target (str, none_type): The browser target that an approval URL must be opened in. If `any` or `null`, then there is no specific requirement.. [optional]  # noqa: E501
             approval_url (str, none_type): The optional URL that the buyer needs to be redirected to to further authorize their payment.. [optional]  # noqa: E501
+            currency (str, none_type): The ISO-4217 currency code that this payment method can be used for. If this value is `null` the payment method may be used for multiple currencies.. [optional]  # noqa: E501
+            country (str, none_type): The 2-letter ISO code of the country this payment method can be used for. If this value is `null` the payment method may be used in multiple countries.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -266,7 +280,10 @@ class PaymentMethodTokenized(ModelNormal):
             label (str): A label for the payment method. For a `card` payment method this is the last 4 digits on the card. For others it would be the email address.. [optional]  # noqa: E501
             scheme (str, none_type): The type of the card, if the payment method is a card.. [optional]  # noqa: E501
             expiration_date (str, none_type): The expiration date for the payment method.. [optional]  # noqa: E501
+            approval_target (str, none_type): The browser target that an approval URL must be opened in. If `any` or `null`, then there is no specific requirement.. [optional]  # noqa: E501
             approval_url (str, none_type): The optional URL that the buyer needs to be redirected to to further authorize their payment.. [optional]  # noqa: E501
+            currency (str, none_type): The ISO-4217 currency code that this payment method can be used for. If this value is `null` the payment method may be used for multiple currencies.. [optional]  # noqa: E501
+            country (str, none_type): The 2-letter ISO code of the country this payment method can be used for. If this value is `null` the payment method may be used in multiple countries.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

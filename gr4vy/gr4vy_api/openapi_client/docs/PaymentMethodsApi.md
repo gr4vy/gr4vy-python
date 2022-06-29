@@ -397,7 +397,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         buyer_external_identifier="user-789123",
         redirect_url="https://example.com/callback",
         currency="USD",
-        country="USD",
+        country="US",
     ) # PaymentMethodRequest |  (optional)
 
     # example passing only required values which don't have defaults set

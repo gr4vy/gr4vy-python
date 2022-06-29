@@ -82,10 +82,16 @@ class PaymentServiceDefinitionSupportedFeatures(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'delayed_capture': (bool,),  # noqa: E501
+            'network_tokens': (bool,),  # noqa: E501
+            'partial_refunds': (bool,),  # noqa: E501
             'payment_method_tokenization': (bool,),  # noqa: E501
+            'payment_method_tokenization_toggle': (bool,),  # noqa: E501
+            'refunds': (bool,),  # noqa: E501
             'three_d_secure_hosted': (bool,),  # noqa: E501
             'three_d_secure_pass_through': (bool,),  # noqa: E501
-            'network_tokens': (bool,),  # noqa: E501
+            'verify_credentials': (bool,),  # noqa: E501
+            'void': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -94,10 +100,16 @@ class PaymentServiceDefinitionSupportedFeatures(ModelNormal):
 
 
     attribute_map = {
+        'delayed_capture': 'delayed_capture',  # noqa: E501
+        'network_tokens': 'network_tokens',  # noqa: E501
+        'partial_refunds': 'partial_refunds',  # noqa: E501
         'payment_method_tokenization': 'payment_method_tokenization',  # noqa: E501
+        'payment_method_tokenization_toggle': 'payment_method_tokenization_toggle',  # noqa: E501
+        'refunds': 'refunds',  # noqa: E501
         'three_d_secure_hosted': 'three_d_secure_hosted',  # noqa: E501
         'three_d_secure_pass_through': 'three_d_secure_pass_through',  # noqa: E501
-        'network_tokens': 'network_tokens',  # noqa: E501
+        'verify_credentials': 'verify_credentials',  # noqa: E501
+        'void': 'void',  # noqa: E501
     }
 
     read_only_vars = {
@@ -141,10 +153,16 @@ class PaymentServiceDefinitionSupportedFeatures(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            delayed_capture (bool): Supports [capturing](#operation/capture-transaction) authorized transactions.. [optional]  # noqa: E501
+            network_tokens (bool): Supports passing decrypted digital wallet (e.g. Apple Pay) tokens to the underlying processor.. [optional]  # noqa: E501
+            partial_refunds (bool): Supports [partially refunding](#operation/refund-transaction) captured transactions.. [optional]  # noqa: E501
             payment_method_tokenization (bool): Supports storing a payment method via tokenization.. [optional]  # noqa: E501
+            payment_method_tokenization_toggle (bool): Supports toggling tokenization for a payment method on or off from the dashboard.. [optional]  # noqa: E501
+            refunds (bool): Supports [refunding](#operation/refund-transaction) captured transactions.. [optional]  # noqa: E501
             three_d_secure_hosted (bool): Supports hosted 3-D Secure with a redirect.. [optional]  # noqa: E501
             three_d_secure_pass_through (bool): Supports passing 3-D Secure data to the underlying processor.. [optional]  # noqa: E501
-            network_tokens (bool): Supports passing decrypted digital wallet (e.g. Apple Pay) tokens to the underlying processor.. [optional]  # noqa: E501
+            verify_credentials (bool): Supports verifying the credentials entered while setting up the underlying processor. This is for internal use only.. [optional]  # noqa: E501
+            void (bool): Supports [voiding](#operation/void-transaction) authorized transactions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,10 +244,16 @@ class PaymentServiceDefinitionSupportedFeatures(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            delayed_capture (bool): Supports [capturing](#operation/capture-transaction) authorized transactions.. [optional]  # noqa: E501
+            network_tokens (bool): Supports passing decrypted digital wallet (e.g. Apple Pay) tokens to the underlying processor.. [optional]  # noqa: E501
+            partial_refunds (bool): Supports [partially refunding](#operation/refund-transaction) captured transactions.. [optional]  # noqa: E501
             payment_method_tokenization (bool): Supports storing a payment method via tokenization.. [optional]  # noqa: E501
+            payment_method_tokenization_toggle (bool): Supports toggling tokenization for a payment method on or off from the dashboard.. [optional]  # noqa: E501
+            refunds (bool): Supports [refunding](#operation/refund-transaction) captured transactions.. [optional]  # noqa: E501
             three_d_secure_hosted (bool): Supports hosted 3-D Secure with a redirect.. [optional]  # noqa: E501
             three_d_secure_pass_through (bool): Supports passing 3-D Secure data to the underlying processor.. [optional]  # noqa: E501
-            network_tokens (bool): Supports passing decrypted digital wallet (e.g. Apple Pay) tokens to the underlying processor.. [optional]  # noqa: E501
+            verify_credentials (bool): Supports verifying the credentials entered while setting up the underlying processor. This is for internal use only.. [optional]  # noqa: E501
+            void (bool): Supports [voiding](#operation/void-transaction) authorized transactions.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

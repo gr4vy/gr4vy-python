@@ -61,29 +61,44 @@ class TransactionSummary(ModelNormal):
         },
         ('status',): {
             'PROCESSING': "processing",
-            'PROCESSING_FAILED': "processing_failed",
-            'CAPTURE_SUCCEEDED': "capture_succeeded",
-            'CAPTURE_PENDING': "capture_pending",
-            'CAPTURE_DECLINED': "capture_declined",
-            'CAPTURE_FAILED': "capture_failed",
-            'AUTHORIZATION_SUCCEEDED': "authorization_succeeded",
-            'AUTHORIZATION_PENDING': "authorization_pending",
-            'AUTHORIZATION_DECLINED': "authorization_declined",
-            'AUTHORIZATION_FAILED': "authorization_failed",
-            'AUTHORIZATION_EXPIRED': "authorization_expired",
-            'AUTHORIZATION_VOIDED': "authorization_voided",
-            'AUTHORIZATION_VOID_PENDING': "authorization_void_pending",
-            'AUTHORIZATION_VOID_DECLINED': "authorization_void_declined",
-            'AUTHORIZATION_VOID_FAILED': "authorization_void_failed",
-            'REFUND_SUCCEEDED': "refund_succeeded",
-            'REFUND_PENDING': "refund_pending",
-            'REFUND_DECLINED': "refund_declined",
-            'REFUND_FAILED': "refund_failed",
-            'BUYER_APPROVAL_SUCCEEDED': "buyer_approval_succeeded",
             'BUYER_APPROVAL_PENDING': "buyer_approval_pending",
-            'BUYER_APPROVAL_DECLINED': "buyer_approval_declined",
-            'BUYER_APPROVAL_FAILED': "buyer_approval_failed",
-            'BUYER_APPROVAL_TIMEDOUT': "buyer_approval_timedout",
+            'AUTHORIZATION_SUCCEEDED': "authorization_succeeded",
+            'AUTHORIZATION_FAILED': "authorization_failed",
+            'AUTHORIZATION_DECLINED': "authorization_declined",
+            'CAPTURE_PENDING': "capture_pending",
+            'CAPTURE_SUCCEEDED': "capture_succeeded",
+            'AUTHORIZATION_VOID_PENDING': "authorization_void_pending",
+            'AUTHORIZATION_VOIDED': "authorization_voided",
+        },
+        ('intent',): {
+            'AUTHORIZE': "authorize",
+            'CAPTURE': "capture",
+        },
+        ('method',): {
+            'AFTERPAY': "afterpay",
+            'APPLEPAY': "applepay",
+            'BANKED': "banked",
+            'BOLETO': "boleto",
+            'CARD': "card",
+            'CLEARPAY': "clearpay",
+            'DANA': "dana",
+            'FORTUMO': "fortumo",
+            'GCASH': "gcash",
+            'GOCARDLESS': "gocardless",
+            'GOOGLEPAY': "googlepay",
+            'GOOGLEPAY_PAN_ONLY': "googlepay_pan_only",
+            'GRABPAY': "grabpay",
+            'KLARNA': "klarna",
+            'OVO': "ovo",
+            'PAYMAYA': "paymaya",
+            'PAYPAL': "paypal",
+            'PIX': "pix",
+            'RABBITLINEPAY': "rabbitlinepay",
+            'SHOPEEPAY': "shopeepay",
+            'STRIPEDD': "stripedd",
+            'TRUEMONEY': "truemoney",
+            'TRUSTLY': "trustly",
+            'ZIPPAY': "zippay",
         },
     }
 
@@ -126,16 +141,19 @@ class TransactionSummary(ModelNormal):
             'type': (str,),  # noqa: E501
             'id': (str, none_type),  # noqa: E501
             'status': (str,),  # noqa: E501
+            'intent': (str,),  # noqa: E501
             'amount': (int,),  # noqa: E501
             'captured_amount': (int,),  # noqa: E501
             'refunded_amount': (int,),  # noqa: E501
             'currency': (str,),  # noqa: E501
+            'country': (str, none_type,),  # noqa: E501
             'payment_method': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'buyer': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'created_at': (datetime,),  # noqa: E501
             'external_identifier': (str, none_type,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'payment_service': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'method': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -147,16 +165,19 @@ class TransactionSummary(ModelNormal):
         'type': 'type',  # noqa: E501
         'id': 'id',  # noqa: E501
         'status': 'status',  # noqa: E501
+        'intent': 'intent',  # noqa: E501
         'amount': 'amount',  # noqa: E501
         'captured_amount': 'captured_amount',  # noqa: E501
         'refunded_amount': 'refunded_amount',  # noqa: E501
         'currency': 'currency',  # noqa: E501
+        'country': 'country',  # noqa: E501
         'payment_method': 'payment_method',  # noqa: E501
         'buyer': 'buyer',  # noqa: E501
         'created_at': 'created_at',  # noqa: E501
         'external_identifier': 'external_identifier',  # noqa: E501
         'updated_at': 'updated_at',  # noqa: E501
         'payment_service': 'payment_service',  # noqa: E501
+        'method': 'method',  # noqa: E501
     }
 
     read_only_vars = {
@@ -202,17 +223,20 @@ class TransactionSummary(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             type (str): The type of this resource. Is always `transaction`.. [optional] if omitted the server will use the default value of "transaction"  # noqa: E501
             id (str): The unique identifier for this transaction.. [optional]  # noqa: E501
-            status (str): The status of the transaction. The status may change over time as asynchronous  processing events occur.. [optional]  # noqa: E501
-            amount (int): The authorized amount for this transaction. This can be different than the actual captured amount and part of this amount may be refunded.. [optional]  # noqa: E501
-            captured_amount (int): The captured amount for this transaction. This can be a part and in some cases even more than the authorized amount.. [optional]  # noqa: E501
-            refunded_amount (int): The refunded amount for this transaction. This can be a part or all of the captured amount.. [optional]  # noqa: E501
+            status (str): The status of the transaction. The status may change over time as asynchronous processing events occur.. [optional]  # noqa: E501
+            intent (str): The original `intent` used when the transaction was [created](#operation/authorize-new-transaction).. [optional]  # noqa: E501
+            amount (int): The authorized amount for this transaction. This can be more than the actual captured amount and part of this amount may be refunded.. [optional]  # noqa: E501
+            captured_amount (int): The captured amount for this transaction. This can be the total or a portion of the authorized amount.. [optional]  # noqa: E501
+            refunded_amount (int): The refunded amount for this transaction. This can be the total or a portion of the captured amount.. [optional]  # noqa: E501
             currency (str): The currency code for this transaction.. [optional]  # noqa: E501
+            country (str, none_type): The 2-letter ISO code of the country of the transaction. This is used to filter the payment services that is used to process the transaction. . [optional]  # noqa: E501
             payment_method (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             buyer (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             created_at (datetime): The date and time when this transaction was created in our system.. [optional]  # noqa: E501
             external_identifier (str, none_type): An external identifier that can be used to match the transaction against your own records.. [optional]  # noqa: E501
             updated_at (datetime): Defines when the transaction was last updated.. [optional]  # noqa: E501
             payment_service (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            method (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -296,17 +320,20 @@ class TransactionSummary(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             type (str): The type of this resource. Is always `transaction`.. [optional] if omitted the server will use the default value of "transaction"  # noqa: E501
             id (str): The unique identifier for this transaction.. [optional]  # noqa: E501
-            status (str): The status of the transaction. The status may change over time as asynchronous  processing events occur.. [optional]  # noqa: E501
-            amount (int): The authorized amount for this transaction. This can be different than the actual captured amount and part of this amount may be refunded.. [optional]  # noqa: E501
-            captured_amount (int): The captured amount for this transaction. This can be a part and in some cases even more than the authorized amount.. [optional]  # noqa: E501
-            refunded_amount (int): The refunded amount for this transaction. This can be a part or all of the captured amount.. [optional]  # noqa: E501
+            status (str): The status of the transaction. The status may change over time as asynchronous processing events occur.. [optional]  # noqa: E501
+            intent (str): The original `intent` used when the transaction was [created](#operation/authorize-new-transaction).. [optional]  # noqa: E501
+            amount (int): The authorized amount for this transaction. This can be more than the actual captured amount and part of this amount may be refunded.. [optional]  # noqa: E501
+            captured_amount (int): The captured amount for this transaction. This can be the total or a portion of the authorized amount.. [optional]  # noqa: E501
+            refunded_amount (int): The refunded amount for this transaction. This can be the total or a portion of the captured amount.. [optional]  # noqa: E501
             currency (str): The currency code for this transaction.. [optional]  # noqa: E501
+            country (str, none_type): The 2-letter ISO code of the country of the transaction. This is used to filter the payment services that is used to process the transaction. . [optional]  # noqa: E501
             payment_method (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             buyer (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             created_at (datetime): The date and time when this transaction was created in our system.. [optional]  # noqa: E501
             external_identifier (str, none_type): An external identifier that can be used to match the transaction against your own records.. [optional]  # noqa: E501
             updated_at (datetime): Defines when the transaction was last updated.. [optional]  # noqa: E501
             payment_service (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            method (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

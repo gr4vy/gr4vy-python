@@ -169,7 +169,7 @@ class StatementDescriptor(ModelNormal):
             name (str, none_type): Reflects your doing business as (DBA) name.  Other validations:  1. Contains only Latin characters. 2. Contain at least one letter 3. Does not contain any of the special characters `< > \\ ' \" *` 4. Supports:   1. Lower case: `a-z`   2. Upper case: `A-Z`   3. Numbers: `0-9`   4. Spaces: ` `   5. Special characters: `. , _ - ? + /`.. [optional]  # noqa: E501
             description (str, none_type): A short description about the purchase.  Other validations: 1. Contains only Latin characters. 2. Contain at least one letter 3. Does not contain any of the special characters `< > \\ ' \" *` 4. Supports:   1. Lower case: `a-z`   2. Upper case: `A-Z`   3. Numbers: `0-9`   4. Spaces: ` `   5. Special characters: `. , _ - ? + /`.. [optional]  # noqa: E501
             city (str, none_type): City from which the charge originated.. [optional]  # noqa: E501
-            phone_number (str, none_type): The value in the phone number field of a customer's statement. The phone number to use for this request. This expect the number in the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
+            phone_number (str, none_type): The value in the phone number field of a customer's statement which should be formatted according to the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
             url (str, none_type): The value in the URL/web address field of a customer's statement.. [optional]  # noqa: E501
         """
 
@@ -255,7 +255,7 @@ class StatementDescriptor(ModelNormal):
             name (str, none_type): Reflects your doing business as (DBA) name.  Other validations:  1. Contains only Latin characters. 2. Contain at least one letter 3. Does not contain any of the special characters `< > \\ ' \" *` 4. Supports:   1. Lower case: `a-z`   2. Upper case: `A-Z`   3. Numbers: `0-9`   4. Spaces: ` `   5. Special characters: `. , _ - ? + /`.. [optional]  # noqa: E501
             description (str, none_type): A short description about the purchase.  Other validations: 1. Contains only Latin characters. 2. Contain at least one letter 3. Does not contain any of the special characters `< > \\ ' \" *` 4. Supports:   1. Lower case: `a-z`   2. Upper case: `A-Z`   3. Numbers: `0-9`   4. Spaces: ` `   5. Special characters: `. , _ - ? + /`.. [optional]  # noqa: E501
             city (str, none_type): City from which the charge originated.. [optional]  # noqa: E501
-            phone_number (str, none_type): The value in the phone number field of a customer's statement. The phone number to use for this request. This expect the number in the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
+            phone_number (str, none_type): The value in the phone number field of a customer's statement which should be formatted according to the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
             url (str, none_type): The value in the URL/web address field of a customer's statement.. [optional]  # noqa: E501
         """
 

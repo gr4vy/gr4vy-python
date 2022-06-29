@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.buyers_api import BuyersApi
+#   from .api.audit_logs_api import AuditLogsApi
 #
 # or import this package, but before doing it, use:
 #
@@ -14,6 +14,7 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
+from openapi_client.api.audit_logs_api import AuditLogsApi
 from openapi_client.api.buyers_api import BuyersApi
 from openapi_client.api.digital_wallets_api import DigitalWalletsApi
 from openapi_client.api.payment_method_tokens_api import PaymentMethodTokensApi

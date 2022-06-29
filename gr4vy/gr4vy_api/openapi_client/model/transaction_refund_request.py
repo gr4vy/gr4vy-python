@@ -61,7 +61,7 @@ class TransactionRefundRequest(ModelNormal):
     validations = {
         ('amount',): {
             'inclusive_maximum': 99999999,
-            'inclusive_minimum': 0,
+            'inclusive_minimum': 1,
         },
     }
 
@@ -139,7 +139,7 @@ class TransactionRefundRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            amount (int): The amount requested to refund.  If omitted, a full refund will be requested. Otherwise, the amount must be lower than or equal to the remaining balance in the associated transaction. Negative refunds are not supported.. [optional]  # noqa: E501
+            amount (int): The amount requested to refund.  If omitted, a full refund will be requested.  Otherwise, the amount must be lower than or equal to the remaining balance in the associated transaction.  Negative and zero-amount refunds are not supported.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -221,7 +221,7 @@ class TransactionRefundRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            amount (int): The amount requested to refund.  If omitted, a full refund will be requested. Otherwise, the amount must be lower than or equal to the remaining balance in the associated transaction. Negative refunds are not supported.. [optional]  # noqa: E501
+            amount (int): The amount requested to refund.  If omitted, a full refund will be requested.  Otherwise, the amount must be lower than or equal to the remaining balance in the associated transaction.  Negative and zero-amount refunds are not supported.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

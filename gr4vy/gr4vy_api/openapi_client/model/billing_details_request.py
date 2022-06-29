@@ -167,8 +167,8 @@ class BillingDetailsRequest(ModelNormal):
             first_name (str, none_type): The first name(s) or given name for the buyer.. [optional]  # noqa: E501
             last_name (str, none_type): The last name, or family name, of the buyer.. [optional]  # noqa: E501
             email_address (str, none_type): The email address for the buyer.. [optional]  # noqa: E501
-            phone_number (str, none_type): The phone number to use for this request. This expect the number in the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
-            address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            phone_number (str, none_type): The phone number for the buyer which should be formatted according to the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
+            address (bool, date, datetime, dict, float, int, list, str, none_type): The billing address for the buyer.. [optional]  # noqa: E501
             tax_id (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
@@ -254,8 +254,8 @@ class BillingDetailsRequest(ModelNormal):
             first_name (str, none_type): The first name(s) or given name for the buyer.. [optional]  # noqa: E501
             last_name (str, none_type): The last name, or family name, of the buyer.. [optional]  # noqa: E501
             email_address (str, none_type): The email address for the buyer.. [optional]  # noqa: E501
-            phone_number (str, none_type): The phone number to use for this request. This expect the number in the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
-            address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            phone_number (str, none_type): The phone number for the buyer which should be formatted according to the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
+            address (bool, date, datetime, dict, float, int, list, str, none_type): The billing address for the buyer.. [optional]  # noqa: E501
             tax_id (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 

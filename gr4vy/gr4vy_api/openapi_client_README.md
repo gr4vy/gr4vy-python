@@ -31,15 +31,9 @@ you can run the following:
 import time
 import openapi_client
 from pprint import pprint
-from openapi_client.api import buyers_api
-from openapi_client.model.buyer import Buyer
-from openapi_client.model.buyer_request import BuyerRequest
-from openapi_client.model.buyer_update import BuyerUpdate
-from openapi_client.model.buyers import Buyers
+from openapi_client.api import audit_logs_api
+from openapi_client.model.audit_logs import AuditLogs
 from openapi_client.model.error401_unauthorized import Error401Unauthorized
-from openapi_client.model.error404_not_found import Error404NotFound
-from openapi_client.model.error409_duplicate_record import Error409DuplicateRecord
-from openapi_client.model.error_generic import ErrorGeneric
 # Defining the host is optional and defaults to https://api.plantly.gr4vy.app
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
@@ -60,19 +54,16 @@ configuration = openapi_client.Configuration(
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = buyers_api.BuyersApi(api_client)
-    buyer_request = BuyerRequest(
-        external_identifier="user-789123",
-        display_name="John L.",
-        billing_details=None,
-    ) # BuyerRequest |  (optional)
+    api_instance = audit_logs_api.AuditLogsApi(api_client)
+    limit = 1 # int | Defines the maximum number of items to return for this request. (optional) (default to 20)
+cursor = "ZXhhbXBsZTE" # str | A cursor that identifies the page of results to return. This is used to paginate the results of this API.  For the first page of results, this parameter can be left out. For additional pages, use the value returned by the API in the `next_cursor` field. Similarly the `previous_cursor` can be used to reverse backwards in the list. (optional)
 
     try:
-        # New buyer
-        api_response = api_instance.add_buyer(buyer_request=buyer_request)
+        # List Audit Logs
+        api_response = api_instance.list_audit_logs(limit=limit, cursor=cursor)
         pprint(api_response)
     except openapi_client.ApiException as e:
-        print("Exception when calling BuyersApi->add_buyer: %s\n" % e)
+        print("Exception when calling AuditLogsApi->list_audit_logs: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -81,6 +72,7 @@ All URIs are relative to *https://api.plantly.gr4vy.app*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*AuditLogsApi* | [**list_audit_logs**](openapi_client/docs/AuditLogsApi.md#list_audit_logs) | **GET** /audit-logs | List Audit Logs
 *BuyersApi* | [**add_buyer**](openapi_client/docs/BuyersApi.md#add_buyer) | **POST** /buyers | New buyer
 *BuyersApi* | [**delete_buyer**](openapi_client/docs/BuyersApi.md#delete_buyer) | **DELETE** /buyers/{buyer_id} | Delete buyer
 *BuyersApi* | [**get_buyer**](openapi_client/docs/BuyersApi.md#get_buyer) | **GET** /buyers/{buyer_id} | Get buyer
@@ -112,19 +104,22 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**list_transaction_refunds**](openapi_client/docs/TransactionsApi.md#list_transaction_refunds) | **GET** /transactions/{transaction_id}/refunds | List transaction refunds
 *TransactionsApi* | [**list_transactions**](openapi_client/docs/TransactionsApi.md#list_transactions) | **GET** /transactions | List transactions
 *TransactionsApi* | [**refund_transaction**](openapi_client/docs/TransactionsApi.md#refund_transaction) | **POST** /transactions/{transaction_id}/refunds | Refund transaction
-*TransactionsApi* | [**refund_transaction_deprecated**](openapi_client/docs/TransactionsApi.md#refund_transaction_deprecated) | **POST** /transactions/{transaction_id}/refund | Refund or void transactions
 *TransactionsApi* | [**void_transaction**](openapi_client/docs/TransactionsApi.md#void_transaction) | **POST** /transactions/{transaction_id}/void | Void transaction
 
 
 ## Documentation For Models
 
  - [Address](openapi_client/docs/Address.md)
- - [AddressUpdate](openapi_client/docs/AddressUpdate.md)
  - [ApplePayRequest](openapi_client/docs/ApplePayRequest.md)
  - [ApplePaySessionRequest](openapi_client/docs/ApplePaySessionRequest.md)
+ - [AuditLog](openapi_client/docs/AuditLog.md)
+ - [AuditLogResource](openapi_client/docs/AuditLogResource.md)
+ - [AuditLogUser](openapi_client/docs/AuditLogUser.md)
+ - [AuditLogs](openapi_client/docs/AuditLogs.md)
  - [BillingDetails](openapi_client/docs/BillingDetails.md)
  - [BillingDetailsRequest](openapi_client/docs/BillingDetailsRequest.md)
  - [BillingDetailsUpdateRequest](openapi_client/docs/BillingDetailsUpdateRequest.md)
+ - [BrowserInfo](openapi_client/docs/BrowserInfo.md)
  - [Buyer](openapi_client/docs/Buyer.md)
  - [BuyerRequest](openapi_client/docs/BuyerRequest.md)
  - [BuyerSnapshot](openapi_client/docs/BuyerSnapshot.md)
@@ -132,6 +127,8 @@ Class | Method | HTTP request | Description
  - [Buyers](openapi_client/docs/Buyers.md)
  - [CardDetails](openapi_client/docs/CardDetails.md)
  - [CardRequest](openapi_client/docs/CardRequest.md)
+ - [CardRequiredFields](openapi_client/docs/CardRequiredFields.md)
+ - [CardRequiredFieldsAddress](openapi_client/docs/CardRequiredFieldsAddress.md)
  - [CartItem](openapi_client/docs/CartItem.md)
  - [DigitalWallet](openapi_client/docs/DigitalWallet.md)
  - [DigitalWalletRequest](openapi_client/docs/DigitalWalletRequest.md)
@@ -158,13 +155,16 @@ Class | Method | HTTP request | Description
  - [PaymentMethods](openapi_client/docs/PaymentMethods.md)
  - [PaymentMethodsTokenized](openapi_client/docs/PaymentMethodsTokenized.md)
  - [PaymentOption](openapi_client/docs/PaymentOption.md)
+ - [PaymentOptionApprovalUI](openapi_client/docs/PaymentOptionApprovalUI.md)
  - [PaymentOptionContext](openapi_client/docs/PaymentOptionContext.md)
  - [PaymentOptions](openapi_client/docs/PaymentOptions.md)
  - [PaymentService](openapi_client/docs/PaymentService.md)
  - [PaymentServiceDefinition](openapi_client/docs/PaymentServiceDefinition.md)
+ - [PaymentServiceDefinitionConfiguration](openapi_client/docs/PaymentServiceDefinitionConfiguration.md)
  - [PaymentServiceDefinitionFields](openapi_client/docs/PaymentServiceDefinitionFields.md)
  - [PaymentServiceDefinitionSupportedFeatures](openapi_client/docs/PaymentServiceDefinitionSupportedFeatures.md)
  - [PaymentServiceDefinitions](openapi_client/docs/PaymentServiceDefinitions.md)
+ - [PaymentServiceFields](openapi_client/docs/PaymentServiceFields.md)
  - [PaymentServiceRequest](openapi_client/docs/PaymentServiceRequest.md)
  - [PaymentServiceRequestAllOf](openapi_client/docs/PaymentServiceRequestAllOf.md)
  - [PaymentServiceSnapshot](openapi_client/docs/PaymentServiceSnapshot.md)
@@ -184,12 +184,12 @@ Class | Method | HTTP request | Description
  - [ThreeDSecureDataV1V2](openapi_client/docs/ThreeDSecureDataV1V2.md)
  - [ThreeDSecureDataV2](openapi_client/docs/ThreeDSecureDataV2.md)
  - [ThreeDSecureDataV2AllOf](openapi_client/docs/ThreeDSecureDataV2AllOf.md)
+ - [ThreeDSecureSummary](openapi_client/docs/ThreeDSecureSummary.md)
  - [TokenizedRequest](openapi_client/docs/TokenizedRequest.md)
  - [Transaction](openapi_client/docs/Transaction.md)
  - [TransactionCaptureRequest](openapi_client/docs/TransactionCaptureRequest.md)
  - [TransactionPaymentMethodRequest](openapi_client/docs/TransactionPaymentMethodRequest.md)
  - [TransactionRefundRequest](openapi_client/docs/TransactionRefundRequest.md)
- - [TransactionRefundRequestDeprecated](openapi_client/docs/TransactionRefundRequestDeprecated.md)
  - [TransactionRequest](openapi_client/docs/TransactionRequest.md)
  - [TransactionSummary](openapi_client/docs/TransactionSummary.md)
  - [Transactions](openapi_client/docs/Transactions.md)

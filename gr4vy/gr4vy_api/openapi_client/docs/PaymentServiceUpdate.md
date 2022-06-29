@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **merchant_url** | **str, none_type** | Fully qualified URL of 3-D Secure requestor website or customer care site. | [optional] 
 **active** | **bool** | Defines if this service is currently active or not. | [optional]  if omitted the server will use the default value of True
 **position** | **float** | The numeric rank of a payment service. Payment services with a lower position value are processed first. When a payment services is inserted at a position, any payment services with the the same value or higher are shifted down a position accordingly. When left out, the payment service is inserted at the end of the list. | [optional] 
+**payment_method_tokenization_enabled** | **bool** | Defines if tokenization is enabled for the service (can only be enabled if the payment service definition supports it). | [optional]  if omitted the server will use the default value of False
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

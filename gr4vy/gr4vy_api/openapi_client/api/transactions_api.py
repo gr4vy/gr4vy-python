@@ -30,7 +30,6 @@ from gr4vy.gr4vy_api.openapi_client.model.refunds import Refunds
 from gr4vy.gr4vy_api.openapi_client.model.transaction import Transaction
 from gr4vy.gr4vy_api.openapi_client.model.transaction_capture_request import TransactionCaptureRequest
 from gr4vy.gr4vy_api.openapi_client.model.transaction_refund_request import TransactionRefundRequest
-from gr4vy.gr4vy_api.openapi_client.model.transaction_refund_request_deprecated import TransactionRefundRequestDeprecated
 from gr4vy.gr4vy_api.openapi_client.model.transaction_request import TransactionRequest
 from gr4vy.gr4vy_api.openapi_client.model.transactions import Transactions
 
@@ -374,29 +373,14 @@ class TransactionsApi(object):
                     ('transaction_status',): {
 
                         "PROCESSING": "processing",
-                        "PROCESSING_FAILED": "processing_failed",
-                        "CAPTURE_SUCCEEDED": "capture_succeeded",
-                        "CAPTURE_PENDING": "capture_pending",
-                        "CAPTURE_DECLINED": "capture_declined",
-                        "CAPTURE_FAILED": "capture_failed",
-                        "AUTHORIZATION_SUCCEEDED": "authorization_succeeded",
-                        "AUTHORIZATION_PENDING": "authorization_pending",
-                        "AUTHORIZATION_DECLINED": "authorization_declined",
-                        "AUTHORIZATION_FAILED": "authorization_failed",
-                        "AUTHORIZATION_EXPIRED": "authorization_expired",
-                        "AUTHORIZATION_VOIDED": "authorization_voided",
-                        "AUTHORIZATION_VOID_PENDING": "authorization_void_pending",
-                        "AUTHORIZATION_VOID_DECLINED": "authorization_void_declined",
-                        "AUTHORIZATION_VOID_FAILED": "authorization_void_failed",
-                        "REFUND_SUCCEEDED": "refund_succeeded",
-                        "REFUND_PENDING": "refund_pending",
-                        "REFUND_DECLINED": "refund_declined",
-                        "REFUND_FAILED": "refund_failed",
-                        "BUYER_APPROVAL_SUCCEEDED": "buyer_approval_succeeded",
                         "BUYER_APPROVAL_PENDING": "buyer_approval_pending",
-                        "BUYER_APPROVAL_DECLINED": "buyer_approval_declined",
-                        "BUYER_APPROVAL_FAILED": "buyer_approval_failed",
-                        "BUYER_APPROVAL_TIMEDOUT": "buyer_approval_timedout"
+                        "AUTHORIZATION_SUCCEEDED": "authorization_succeeded",
+                        "AUTHORIZATION_FAILED": "authorization_failed",
+                        "AUTHORIZATION_DECLINED": "authorization_declined",
+                        "CAPTURE_PENDING": "capture_pending",
+                        "CAPTURE_SUCCEEDED": "capture_succeeded",
+                        "AUTHORIZATION_VOID_PENDING": "authorization_void_pending",
+                        "AUTHORIZATION_VOIDED": "authorization_voided"
                     },
                 },
                 'openapi_types': {
@@ -499,63 +483,6 @@ class TransactionsApi(object):
                 'location_map': {
                     'transaction_id': 'path',
                     'transaction_refund_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-        self.refund_transaction_deprecated_endpoint = _Endpoint(
-            settings={
-                'response_type': (Transaction,),
-                'auth': [
-                    'BearerAuth'
-                ],
-                'endpoint_path': '/transactions/{transaction_id}/refund',
-                'operation_id': 'refund_transaction_deprecated',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'transaction_id',
-                    'transaction_refund_request_deprecated',
-                ],
-                'required': [
-                    'transaction_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'transaction_id':
-                        (str,),
-                    'transaction_refund_request_deprecated':
-                        (TransactionRefundRequestDeprecated,),
-                },
-                'attribute_map': {
-                    'transaction_id': 'transaction_id',
-                },
-                'location_map': {
-                    'transaction_id': 'path',
-                    'transaction_refund_request_deprecated': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -1093,73 +1020,6 @@ class TransactionsApi(object):
             transaction_id
         return self.refund_transaction_endpoint.call_with_http_info(**kwargs)
 
-    def refund_transaction_deprecated(
-        self,
-        transaction_id,
-        **kwargs
-    ):
-        """Refund or void transactions  # noqa: E501
-
-        Refunds or voids transaction. If this transaction was already captured, it will issue a refund. If the transaction was not yet captured the authorization will instead be voided.  **Warning**: this endpoint will be removed eventually, use [Refund transaction](#operation/refund-transaction) or [Void transaction](#operation/void-transaction) endpoints instead.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.refund_transaction_deprecated(transaction_id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            transaction_id (str): The ID for the transaction to get the information for.
-
-        Keyword Args:
-            transaction_refund_request_deprecated (TransactionRefundRequestDeprecated): [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Transaction
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['transaction_id'] = \
-            transaction_id
-        return self.refund_transaction_deprecated_endpoint.call_with_http_info(**kwargs)
-
     def void_transaction(
         self,
         transaction_id,
@@ -1167,7 +1027,7 @@ class TransactionsApi(object):
     ):
         """Void transaction  # noqa: E501
 
-        Voids a transaction.  If the transaction was not yet successfully authorized, or was already captured, the void will not be processed. Captured transactions can be [refunded](#operation/refund-transaction) instead.  # noqa: E501
+        Voids a transaction.  If the transaction was not yet successfully authorized, or was already captured, the void will not be processed. Captured transactions can be [refunded](#operation/refund-transaction) instead.  Voiding zero-amount authorized transactions is not supported.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

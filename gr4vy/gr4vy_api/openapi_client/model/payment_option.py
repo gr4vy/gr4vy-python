@@ -98,6 +98,7 @@ class PaymentOption(ModelNormal):
             'label': (str,),  # noqa: E501
             'can_store_payment_method': (bool,),  # noqa: E501
             'context': (PaymentOptionContext, none_type),  # noqa: E501
+            'payment_method_tokenization_enabled': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -113,6 +114,7 @@ class PaymentOption(ModelNormal):
         'label': 'label',  # noqa: E501
         'can_store_payment_method': 'can_store_payment_method',  # noqa: E501
         'context': 'context',  # noqa: E501
+        'payment_method_tokenization_enabled': 'payment_method_tokenization_enabled',  # noqa: E501
     }
 
     read_only_vars = {
@@ -163,6 +165,7 @@ class PaymentOption(ModelNormal):
             label (str): A label that describes this payment option. This label is returned in the language defined by the `locale` query parameter. The label can be used to display a list of payment options to the buyer in their language.. [optional]  # noqa: E501
             can_store_payment_method (bool): A flag to indicate if storing the payment method is supported.. [optional]  # noqa: E501
             context (PaymentOptionContext): [optional]  # noqa: E501
+            payment_method_tokenization_enabled (bool): A flag to indicate if storing the payment method is enabled.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -251,6 +254,7 @@ class PaymentOption(ModelNormal):
             label (str): A label that describes this payment option. This label is returned in the language defined by the `locale` query parameter. The label can be used to display a list of payment options to the buyer in their language.. [optional]  # noqa: E501
             can_store_payment_method (bool): A flag to indicate if storing the payment method is supported.. [optional]  # noqa: E501
             context (PaymentOptionContext): [optional]  # noqa: E501
+            payment_method_tokenization_enabled (bool): A flag to indicate if storing the payment method is enabled.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **first_name** | **str, none_type** | The first name(s) or given name of the buyer. | [optional] 
 **last_name** | **str, none_type** | The last name, or family name, of the buyer. | [optional] 
 **email_address** | **str, none_type** | The email address of the buyer. | [optional] 
-**phone_number** | **str, none_type** | The phone number of the buyer. This expect the number in the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164). | [optional] 
+**phone_number** | **str, none_type** | The phone number of the buyer. This number is formatted according to the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164). | [optional] 
 **address** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 **tax_id** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]

@@ -402,6 +402,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         merchant_url="merchant_url_example",
         active=True,
         position=1,
+        payment_method_tokenization_enabled=True,
     ) # PaymentServiceUpdate |  (optional)
 
     # example passing only required values which don't have defaults set

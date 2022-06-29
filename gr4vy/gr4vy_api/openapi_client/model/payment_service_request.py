@@ -153,6 +153,7 @@ class PaymentServiceRequest(ModelComposed):
             'merchant_url': (str, none_type,),  # noqa: E501
             'active': (bool,),  # noqa: E501
             'position': (float,),  # noqa: E501
+            'payment_method_tokenization_enabled': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -178,6 +179,7 @@ class PaymentServiceRequest(ModelComposed):
         'merchant_url': 'merchant_url',  # noqa: E501
         'active': 'active',  # noqa: E501
         'position': 'position',  # noqa: E501
+        'payment_method_tokenization_enabled': 'payment_method_tokenization_enabled',  # noqa: E501
     }
 
     read_only_vars = {
@@ -236,6 +238,7 @@ class PaymentServiceRequest(ModelComposed):
             merchant_url (str, none_type): Fully qualified URL of 3-D Secure requestor website or customer care site.. [optional]  # noqa: E501
             active (bool): Defines if this service is currently active or not.. [optional] if omitted the server will use the default value of True  # noqa: E501
             position (float): The numeric rank of a payment service. Payment services with a lower position value are processed first. When a payment services is inserted at a position, any payment services with the the same value or higher are shifted down a position accordingly. When left out, the payment service is inserted at the end of the list.. [optional]  # noqa: E501
+            payment_method_tokenization_enabled (bool): Defines if tokenization is enabled for the service (can only be enabled if the payment service definition supports it).. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -352,6 +355,7 @@ class PaymentServiceRequest(ModelComposed):
             merchant_url (str, none_type): Fully qualified URL of 3-D Secure requestor website or customer care site.. [optional]  # noqa: E501
             active (bool): Defines if this service is currently active or not.. [optional] if omitted the server will use the default value of True  # noqa: E501
             position (float): The numeric rank of a payment service. Payment services with a lower position value are processed first. When a payment services is inserted at a position, any payment services with the the same value or higher are shifted down a position accordingly. When left out, the payment service is inserted at the end of the list.. [optional]  # noqa: E501
+            payment_method_tokenization_enabled (bool): Defines if tokenization is enabled for the service (can only be enabled if the payment service definition supports it).. [optional] if omitted the server will use the default value of False  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

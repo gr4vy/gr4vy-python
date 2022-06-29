@@ -11,7 +11,6 @@ Method | HTTP request | Description
 [**list_transaction_refunds**](TransactionsApi.md#list_transaction_refunds) | **GET** /transactions/{transaction_id}/refunds | List transaction refunds
 [**list_transactions**](TransactionsApi.md#list_transactions) | **GET** /transactions | List transactions
 [**refund_transaction**](TransactionsApi.md#refund_transaction) | **POST** /transactions/{transaction_id}/refunds | Refund transaction
-[**refund_transaction_deprecated**](TransactionsApi.md#refund_transaction_deprecated) | **POST** /transactions/{transaction_id}/refund | Refund or void transactions
 [**void_transaction**](TransactionsApi.md#void_transaction) | **POST** /transactions/{transaction_id}/void | Void transaction
 
 
@@ -58,6 +57,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     transaction_request = TransactionRequest(
         amount=1299,
         currency="USD",
+        country="US",
         payment_method=TransactionPaymentMethodRequest(
             method=None,
             number="4111111111111111",
@@ -98,6 +98,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             ),
         ],
         previous_scheme_transaction_id="123456789012345",
+        browser_info=None,
     ) # TransactionRequest |  (optional)
 
     # example passing only required values which don't have defaults set
@@ -690,107 +691,12 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **refund_transaction_deprecated**
-> Transaction refund_transaction_deprecated(transaction_id)
-
-Refund or void transactions
-
-Refunds or voids transaction. If this transaction was already captured, it will issue a refund. If the transaction was not yet captured the authorization will instead be voided.  **Warning**: this endpoint will be removed eventually, use [Refund transaction](#operation/refund-transaction) or [Void transaction](#operation/void-transaction) endpoints instead.
-
-### Example
-
-* Bearer (JWT) Authentication (BearerAuth):
-
-```python
-import time
-import openapi_client
-from openapi_client.api import transactions_api
-from openapi_client.model.transaction_refund_request_deprecated import TransactionRefundRequestDeprecated
-from openapi_client.model.error_generic import ErrorGeneric
-from openapi_client.model.transaction import Transaction
-from openapi_client.model.error401_unauthorized import Error401Unauthorized
-from pprint import pprint
-# Defining the host is optional and defaults to https://api.plantly.gr4vy.app
-# See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://api.plantly.gr4vy.app"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (JWT): BearerAuth
-configuration = openapi_client.Configuration(
-    access_token = 'YOUR_BEARER_TOKEN'
-)
-
-# Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = transactions_api.TransactionsApi(api_client)
-    transaction_id = "fe26475d-ec3e-4884-9553-f7356683f7f9" # str | The ID for the transaction to get the information for.
-    transaction_refund_request_deprecated = TransactionRefundRequestDeprecated(
-        amount=1299,
-    ) # TransactionRefundRequestDeprecated |  (optional)
-
-    # example passing only required values which don't have defaults set
-    try:
-        # Refund or void transactions
-        api_response = api_instance.refund_transaction_deprecated(transaction_id)
-        pprint(api_response)
-    except openapi_client.ApiException as e:
-        print("Exception when calling TransactionsApi->refund_transaction_deprecated: %s\n" % e)
-
-    # example passing only required values which don't have defaults set
-    # and optional values
-    try:
-        # Refund or void transactions
-        api_response = api_instance.refund_transaction_deprecated(transaction_id, transaction_refund_request_deprecated=transaction_refund_request_deprecated)
-        pprint(api_response)
-    except openapi_client.ApiException as e:
-        print("Exception when calling TransactionsApi->refund_transaction_deprecated: %s\n" % e)
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **transaction_id** | **str**| The ID for the transaction to get the information for. |
- **transaction_refund_request_deprecated** | [**TransactionRefundRequestDeprecated**](TransactionRefundRequestDeprecated.md)|  | [optional]
-
-### Return type
-
-[**Transaction**](Transaction.md)
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Returns cancelled transaction. |  -  |
-**401** | Returns an error if no valid authentication was provided. |  -  |
-**404** | Returns an error if the resource can not be found or has not yet been created. |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **void_transaction**
 > Transaction void_transaction(transaction_id)
 
 Void transaction
 
-Voids a transaction.  If the transaction was not yet successfully authorized, or was already captured, the void will not be processed. Captured transactions can be [refunded](#operation/refund-transaction) instead.
+Voids a transaction.  If the transaction was not yet successfully authorized, or was already captured, the void will not be processed. Captured transactions can be [refunded](#operation/refund-transaction) instead.  Voiding zero-amount authorized transactions is not supported.
 
 ### Example
 

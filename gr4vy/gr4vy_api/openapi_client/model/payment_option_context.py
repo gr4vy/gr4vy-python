@@ -31,7 +31,9 @@ from gr4vy.gr4vy_api.openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from gr4vy.gr4vy_api.openapi_client.model.payment_option_approval_ui import PaymentOptionApprovalUI
     from gr4vy.gr4vy_api.openapi_client.model.undefined import Undefined
+    globals()['PaymentOptionApprovalUI'] = PaymentOptionApprovalUI
     globals()['Undefined'] = Undefined
 
 
@@ -90,6 +92,7 @@ class PaymentOptionContext(ModelNormal):
         return {
             'merchant_name': (str,),  # noqa: E501
             'supported_schemes': ([Undefined],),  # noqa: E501
+            'approval_ui': (PaymentOptionApprovalUI,),  # noqa: E501
         }
 
     @cached_property
@@ -100,6 +103,7 @@ class PaymentOptionContext(ModelNormal):
     attribute_map = {
         'merchant_name': 'merchant_name',  # noqa: E501
         'supported_schemes': 'supported_schemes',  # noqa: E501
+        'approval_ui': 'approval_ui',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,6 +149,7 @@ class PaymentOptionContext(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             merchant_name (str): Display name of the merchant as registered with the digital wallet provider.. [optional]  # noqa: E501
             supported_schemes ([Undefined]): Card schemes supported by the digital wallet provider.. [optional]  # noqa: E501
+            approval_ui (PaymentOptionApprovalUI): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,6 +233,7 @@ class PaymentOptionContext(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             merchant_name (str): Display name of the merchant as registered with the digital wallet provider.. [optional]  # noqa: E501
             supported_schemes ([Undefined]): Card schemes supported by the digital wallet provider.. [optional]  # noqa: E501
+            approval_ui (PaymentOptionApprovalUI): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

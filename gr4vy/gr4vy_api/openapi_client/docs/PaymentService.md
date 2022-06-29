@@ -25,9 +25,11 @@ Name | Type | Description | Notes
 **merchant_url** | **str, none_type** | Fully qualified URL of 3-D Secure requestor website or customer care site. | [optional] 
 **active** | **bool** | Defines if this service is currently active or not. | [optional]  if omitted the server will use the default value of True
 **position** | **float** | The numeric rank of a payment service. Payment services with a lower position value are processed first. | [optional] 
+**payment_method_tokenization_enabled** | **bool** | Defines if tokenization is enabled for the service (can only be enabled if the payment service definition supports it). | [optional]  if omitted the server will use the default value of False
 **created_at** | **datetime** | The date and time when this service was created. | [optional] 
 **updated_at** | **datetime** | The date and time when this service was last updated. | [optional] 
 **webhook_url** | **str, none_type** | The URL that needs to be configured with this payment service as the receiving endpoint for webhooks from the service to Gr4vy. Currently, Gr4vy does not yet automatically register webhooks on setup, and therefore webhooks need to be registered manually by the merchant. | [optional] 
+**fields** | [**[PaymentServiceFields]**](PaymentServiceFields.md) | A list of fields, each containing a key-value pair for each field configured for this payment service. Fields marked as &#x60;secret&#x60; (see Payment Service Definition) are not returned. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

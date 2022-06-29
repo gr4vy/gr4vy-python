@@ -73,13 +73,6 @@ class TestTransactionsApi(unittest.TestCase):
         """
         pass
 
-    def test_refund_transaction_deprecated(self):
-        """Test case for refund_transaction_deprecated
-
-        Refund or void transactions  # noqa: E501
-        """
-        pass
-
     def test_void_transaction(self):
         """Test case for void_transaction
 

@@ -13,11 +13,13 @@ import sys
 import unittest
 
 import openapi_client
-from openapi_client.model.address_update import AddressUpdate
+from openapi_client.model.three_d_secure_data_v1_v2 import ThreeDSecureDataV1V2
+globals()['ThreeDSecureDataV1V2'] = ThreeDSecureDataV1V2
+from openapi_client.model.three_d_secure_summary import ThreeDSecureSummary
 
 
-class TestAddressUpdate(unittest.TestCase):
-    """AddressUpdate unit test stubs"""
+class TestThreeDSecureSummary(unittest.TestCase):
+    """ThreeDSecureSummary unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +27,10 @@ class TestAddressUpdate(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testAddressUpdate(self):
-        """Test AddressUpdate"""
+    def testThreeDSecureSummary(self):
+        """Test ThreeDSecureSummary"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = AddressUpdate()  # noqa: E501
+        # model = ThreeDSecureSummary()  # noqa: E501
         pass
 
 

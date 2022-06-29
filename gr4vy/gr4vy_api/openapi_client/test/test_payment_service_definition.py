@@ -13,8 +13,10 @@ import sys
 import unittest
 
 import openapi_client
+from openapi_client.model.payment_service_definition_configuration import PaymentServiceDefinitionConfiguration
 from openapi_client.model.payment_service_definition_fields import PaymentServiceDefinitionFields
 from openapi_client.model.payment_service_definition_supported_features import PaymentServiceDefinitionSupportedFeatures
+globals()['PaymentServiceDefinitionConfiguration'] = PaymentServiceDefinitionConfiguration
 globals()['PaymentServiceDefinitionFields'] = PaymentServiceDefinitionFields
 globals()['PaymentServiceDefinitionSupportedFeatures'] = PaymentServiceDefinitionSupportedFeatures
 from openapi_client.model.payment_service_definition import PaymentServiceDefinition

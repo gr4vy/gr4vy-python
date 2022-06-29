@@ -57,7 +57,7 @@ class Gr4vyClient:
         data = {
             "iss": "Gr4vy SDK {} - {}".format(VERSION, PYTHON_VERSION),
             "nbf": datetime.now(tz=timezone.utc),
-            "exp": datetime.now(tz=timezone.utc) + timedelta(seconds=3000),
+            "exp": datetime.now(tz=timezone.utc) + timedelta(hours=480),
             "jti": str(uuid.uuid4()),
             "scopes": scopes,
         }

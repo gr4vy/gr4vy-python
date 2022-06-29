@@ -389,6 +389,8 @@ with openapi_client.ApiClient(configuration) as api_client:
     api_instance = buyers_api.BuyersApi(api_client)
     buyer_id = "8724fd24-5489-4a5d-90fd-0604df7d3b83" # str | The unique ID for a buyer.
     buyer_update = BuyerUpdate(
+        external_identifier="user-789123",
+        display_name="John L.",
         billing_details=None,
     ) # BuyerUpdate |  (optional)
 

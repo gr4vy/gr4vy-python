@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import openapi_client
-from openapi_client.model.transaction_refund_request_deprecated import TransactionRefundRequestDeprecated
+from openapi_client.model.payment_service_fields import PaymentServiceFields
 
 
-class TestTransactionRefundRequestDeprecated(unittest.TestCase):
-    """TransactionRefundRequestDeprecated unit test stubs"""
+class TestPaymentServiceFields(unittest.TestCase):
+    """PaymentServiceFields unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestTransactionRefundRequestDeprecated(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testTransactionRefundRequestDeprecated(self):
-        """Test TransactionRefundRequestDeprecated"""
+    def testPaymentServiceFields(self):
+        """Test PaymentServiceFields"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = TransactionRefundRequestDeprecated()  # noqa: E501
+        # model = PaymentServiceFields()  # noqa: E501
         pass
 
 
