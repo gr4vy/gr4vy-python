@@ -200,8 +200,8 @@ class Transaction(ModelNormal):
             'cvv_response_code': (str, none_type,),  # noqa: E501
             'method': (str,),  # noqa: E501
             'payment_service_transaction_id': (str,),  # noqa: E501
-            'metadata': ({str: (str,)},),  # noqa: E501
-            'three_d_secure': (ThreeDSecureSummary,),  # noqa: E501
+            'metadata': ({str: (str,)}, none_type),  # noqa: E501
+            'three_d_secure': (ThreeDSecureSummary, none_type),  # noqa: E501
         }
 
     @cached_property
