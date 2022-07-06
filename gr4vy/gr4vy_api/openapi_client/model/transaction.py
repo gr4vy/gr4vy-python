@@ -109,6 +109,7 @@ class Transaction(ModelNormal):
             'AFTERPAY': "afterpay",
             'APPLEPAY': "applepay",
             'BANKED': "banked",
+            'BITPAY': "bitpay",
             'BOLETO': "boleto",
             'CARD': "card",
             'CLEARPAY': "clearpay",
@@ -200,8 +201,11 @@ class Transaction(ModelNormal):
             'cvv_response_code': (str, none_type,),  # noqa: E501
             'method': (str,),  # noqa: E501
             'payment_service_transaction_id': (str,),  # noqa: E501
-            'metadata': ({str: (str,)}, none_type),  # noqa: E501
-            'three_d_secure': (ThreeDSecureSummary, none_type),  # noqa: E501
+            'metadata': ({str: (str,)},),  # noqa: E501
+            'three_d_secure': (ThreeDSecureSummary,),  # noqa: E501
+            'authorized_at': (datetime, none_type,),  # noqa: E501
+            'captured_at': (datetime, none_type,),  # noqa: E501
+            'voided_at': (datetime, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -239,6 +243,9 @@ class Transaction(ModelNormal):
         'payment_service_transaction_id': 'payment_service_transaction_id',  # noqa: E501
         'metadata': 'metadata',  # noqa: E501
         'three_d_secure': 'three_d_secure',  # noqa: E501
+        'authorized_at': 'authorized_at',  # noqa: E501
+        'captured_at': 'captured_at',  # noqa: E501
+        'voided_at': 'voided_at',  # noqa: E501
     }
 
     read_only_vars = {
@@ -311,6 +318,9 @@ class Transaction(ModelNormal):
             payment_service_transaction_id (str): The payment service's unique ID for the transaction.. [optional]  # noqa: E501
             metadata ({str: (str,)}): Additional information about the transaction stored as key-value pairs.. [optional]  # noqa: E501
             three_d_secure (ThreeDSecureSummary): [optional]  # noqa: E501
+            authorized_at (datetime, none_type): The date and time when this transaction was authorized in the payment service.  Don't use this field to determine whether the transaction was authorized. A `null` value doesn't necessarily imply that the transaction wasn't authorized, it can mean that the payment service doesn't provide this value, that it didn't provide it at the time the transaction was authorized or that the transaction was authorized before the introduction of this field.. [optional]  # noqa: E501
+            captured_at (datetime, none_type): The date and time when this transaction was captured in the payment service.  Don't use this field to determine whether the transaction was captured. A `null` value doesn't necessarily imply that the transaction wasn't captured, it can mean that the payment service doesn't provide this value, that it didn't provide it at the time the transaction was captured or that the transaction was captured before the introduction of this field.. [optional]  # noqa: E501
+            voided_at (datetime, none_type): The date and time when this transaction was voided in the payment service.  Don't use this field to determine whether the transaction was voided. A `null` value doesn't necessarily imply that the transaction wasn't voided, it can mean that the payment service doesn't provide this value, that it didn't provide it at the time the transaction was voided or that the transaction was voided before the introduction of this field.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -421,6 +431,9 @@ class Transaction(ModelNormal):
             payment_service_transaction_id (str): The payment service's unique ID for the transaction.. [optional]  # noqa: E501
             metadata ({str: (str,)}): Additional information about the transaction stored as key-value pairs.. [optional]  # noqa: E501
             three_d_secure (ThreeDSecureSummary): [optional]  # noqa: E501
+            authorized_at (datetime, none_type): The date and time when this transaction was authorized in the payment service.  Don't use this field to determine whether the transaction was authorized. A `null` value doesn't necessarily imply that the transaction wasn't authorized, it can mean that the payment service doesn't provide this value, that it didn't provide it at the time the transaction was authorized or that the transaction was authorized before the introduction of this field.. [optional]  # noqa: E501
+            captured_at (datetime, none_type): The date and time when this transaction was captured in the payment service.  Don't use this field to determine whether the transaction was captured. A `null` value doesn't necessarily imply that the transaction wasn't captured, it can mean that the payment service doesn't provide this value, that it didn't provide it at the time the transaction was captured or that the transaction was captured before the introduction of this field.. [optional]  # noqa: E501
+            voided_at (datetime, none_type): The date and time when this transaction was voided in the payment service.  Don't use this field to determine whether the transaction was voided. A `null` value doesn't necessarily imply that the transaction wasn't voided, it can mean that the payment service doesn't provide this value, that it didn't provide it at the time the transaction was voided or that the transaction was voided before the introduction of this field.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

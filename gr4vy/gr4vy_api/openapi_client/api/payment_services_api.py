@@ -235,6 +235,7 @@ class PaymentServicesApi(object):
                         "AFTERPAY": "afterpay",
                         "APPLEPAY": "applepay",
                         "BANKED": "banked",
+                        "BITPAY": "bitpay",
                         "BOLETO": "boleto",
                         "CARD": "card",
                         "CLEARPAY": "clearpay",

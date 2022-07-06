@@ -45,6 +45,13 @@ class TestTransactionsApi(unittest.TestCase):
         """
         pass
 
+    def test_get_transaction_actions(self):
+        """Test case for get_transaction_actions
+
+        Get transaction actions  # noqa: E501
+        """
+        pass
+
     def test_get_transaction_refund(self):
         """Test case for get_transaction_refund
 

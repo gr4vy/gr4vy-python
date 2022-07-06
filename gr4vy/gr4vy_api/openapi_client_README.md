@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**authorize_new_transaction**](openapi_client/docs/TransactionsApi.md#authorize_new_transaction) | **POST** /transactions | New transaction
 *TransactionsApi* | [**capture_transaction**](openapi_client/docs/TransactionsApi.md#capture_transaction) | **POST** /transactions/{transaction_id}/capture | Capture transaction
 *TransactionsApi* | [**get_transaction**](openapi_client/docs/TransactionsApi.md#get_transaction) | **GET** /transactions/{transaction_id} | Get transaction
+*TransactionsApi* | [**get_transaction_actions**](openapi_client/docs/TransactionsApi.md#get_transaction_actions) | **GET** /transactions/{transaction_id}/actions | Get transaction actions
 *TransactionsApi* | [**get_transaction_refund**](openapi_client/docs/TransactionsApi.md#get_transaction_refund) | **GET** /transactions/{transaction_id}/refunds/{refund_id} | Get transaction refund
 *TransactionsApi* | [**list_transaction_refunds**](openapi_client/docs/TransactionsApi.md#list_transaction_refunds) | **GET** /transactions/{transaction_id}/refunds | List transaction refunds
 *TransactionsApi* | [**list_transactions**](openapi_client/docs/TransactionsApi.md#list_transactions) | **GET** /transactions | List transactions
@@ -109,6 +110,8 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [Action](openapi_client/docs/Action.md)
+ - [Actions](openapi_client/docs/Actions.md)
  - [Address](openapi_client/docs/Address.md)
  - [ApplePayRequest](openapi_client/docs/ApplePayRequest.md)
  - [ApplePaySessionRequest](openapi_client/docs/ApplePaySessionRequest.md)
@@ -144,6 +147,10 @@ Class | Method | HTTP request | Description
  - [Error409DuplicateRecord](openapi_client/docs/Error409DuplicateRecord.md)
  - [ErrorDetail](openapi_client/docs/ErrorDetail.md)
  - [ErrorGeneric](openapi_client/docs/ErrorGeneric.md)
+ - [FlowPaymentOptionOutcome](openapi_client/docs/FlowPaymentOptionOutcome.md)
+ - [FlowRuleBooleanOutcome](openapi_client/docs/FlowRuleBooleanOutcome.md)
+ - [FlowRuleMethodOutcome](openapi_client/docs/FlowRuleMethodOutcome.md)
+ - [FlowRuleServiceOutcome](openapi_client/docs/FlowRuleServiceOutcome.md)
  - [GooglePayRequest](openapi_client/docs/GooglePayRequest.md)
  - [GooglePaySessionRequest](openapi_client/docs/GooglePaySessionRequest.md)
  - [PaymentMethod](openapi_client/docs/PaymentMethod.md)

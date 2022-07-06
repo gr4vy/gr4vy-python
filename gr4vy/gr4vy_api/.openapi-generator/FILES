@@ -13,6 +13,8 @@ openapi_client/api/transactions_api.py
 openapi_client/api_client.py
 openapi_client/apis/__init__.py
 openapi_client/configuration.py
+openapi_client/docs/Action.md
+openapi_client/docs/Actions.md
 openapi_client/docs/Address.md
 openapi_client/docs/ApplePayRequest.md
 openapi_client/docs/ApplePaySessionRequest.md
@@ -51,6 +53,10 @@ openapi_client/docs/Error404PendingCreation.md
 openapi_client/docs/Error409DuplicateRecord.md
 openapi_client/docs/ErrorDetail.md
 openapi_client/docs/ErrorGeneric.md
+openapi_client/docs/FlowPaymentOptionOutcome.md
+openapi_client/docs/FlowRuleBooleanOutcome.md
+openapi_client/docs/FlowRuleMethodOutcome.md
+openapi_client/docs/FlowRuleServiceOutcome.md
 openapi_client/docs/GooglePayRequest.md
 openapi_client/docs/GooglePaySessionRequest.md
 openapi_client/docs/PaymentMethod.md
@@ -110,6 +116,8 @@ openapi_client/docs/TransactionsBatchCaptureRequest.md
 openapi_client/docs/UserRequest.md
 openapi_client/exceptions.py
 openapi_client/model/__init__.py
+openapi_client/model/action.py
+openapi_client/model/actions.py
 openapi_client/model/address.py
 openapi_client/model/apple_pay_request.py
 openapi_client/model/apple_pay_session_request.py
@@ -145,6 +153,10 @@ openapi_client/model/error404_pending_creation.py
 openapi_client/model/error409_duplicate_record.py
 openapi_client/model/error_detail.py
 openapi_client/model/error_generic.py
+openapi_client/model/flow_payment_option_outcome.py
+openapi_client/model/flow_rule_boolean_outcome.py
+openapi_client/model/flow_rule_method_outcome.py
+openapi_client/model/flow_rule_service_outcome.py
 openapi_client/model/google_pay_request.py
 openapi_client/model/google_pay_session_request.py
 openapi_client/model/payment_method.py
@@ -200,6 +212,8 @@ openapi_client/model_utils.py
 openapi_client/models/__init__.py
 openapi_client/rest.py
 openapi_client/test/__init__.py
+openapi_client/test/test_action.py
+openapi_client/test/test_actions.py
 openapi_client/test/test_address.py
 openapi_client/test/test_apple_pay_request.py
 openapi_client/test/test_apple_pay_session_request.py
@@ -238,6 +252,10 @@ openapi_client/test/test_error404_pending_creation.py
 openapi_client/test/test_error409_duplicate_record.py
 openapi_client/test/test_error_detail.py
 openapi_client/test/test_error_generic.py
+openapi_client/test/test_flow_payment_option_outcome.py
+openapi_client/test/test_flow_rule_boolean_outcome.py
+openapi_client/test/test_flow_rule_method_outcome.py
+openapi_client/test/test_flow_rule_service_outcome.py
 openapi_client/test/test_google_pay_request.py
 openapi_client/test/test_google_pay_session_request.py
 openapi_client/test/test_payment_method.py
