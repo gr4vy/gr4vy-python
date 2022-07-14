@@ -83,6 +83,7 @@ Class | Method | HTTP request | Description
 *DigitalWalletsApi* | [**list_digital_wallets**](openapi_client/docs/DigitalWalletsApi.md#list_digital_wallets) | **GET** /digital-wallets | List digital wallets
 *DigitalWalletsApi* | [**register_digital_wallet**](openapi_client/docs/DigitalWalletsApi.md#register_digital_wallet) | **POST** /digital-wallets | Register digital wallet
 *DigitalWalletsApi* | [**update_digital_wallet**](openapi_client/docs/DigitalWalletsApi.md#update_digital_wallet) | **PUT** /digital-wallets/{digital_wallet_id} | Update digital wallet
+*PaymentMethodDefinitionsApi* | [**list_payment_method_definitions**](openapi_client/docs/PaymentMethodDefinitionsApi.md#list_payment_method_definitions) | **GET** /payment-method-definitions | List payment method definitions
 *PaymentMethodTokensApi* | [**list_payment_method_tokens**](openapi_client/docs/PaymentMethodTokensApi.md#list_payment_method_tokens) | **GET** /payment-methods/{payment_method_id}/tokens | List payment method tokens
 *PaymentMethodsApi* | [**delete_payment_method**](openapi_client/docs/PaymentMethodsApi.md#delete_payment_method) | **DELETE** /payment-methods/{payment_method_id} | Delete payment method
 *PaymentMethodsApi* | [**get_payment_method**](openapi_client/docs/PaymentMethodsApi.md#get_payment_method) | **GET** /payment-methods/{payment_method_id} | Get stored payment method
@@ -154,6 +155,8 @@ Class | Method | HTTP request | Description
  - [GooglePayRequest](openapi_client/docs/GooglePayRequest.md)
  - [GooglePaySessionRequest](openapi_client/docs/GooglePaySessionRequest.md)
  - [PaymentMethod](openapi_client/docs/PaymentMethod.md)
+ - [PaymentMethodDefinition](openapi_client/docs/PaymentMethodDefinition.md)
+ - [PaymentMethodDefinitions](openapi_client/docs/PaymentMethodDefinitions.md)
  - [PaymentMethodRequest](openapi_client/docs/PaymentMethodRequest.md)
  - [PaymentMethodSnapshot](openapi_client/docs/PaymentMethodSnapshot.md)
  - [PaymentMethodToken](openapi_client/docs/PaymentMethodToken.md)

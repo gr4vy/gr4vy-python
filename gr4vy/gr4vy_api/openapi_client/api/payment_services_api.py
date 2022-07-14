@@ -244,7 +244,6 @@ class PaymentServicesApi(object):
                         "GCASH": "gcash",
                         "GOCARDLESS": "gocardless",
                         "GOOGLEPAY": "googlepay",
-                        "GOOGLEPAY_PAN_ONLY": "googlepay_pan_only",
                         "GRABPAY": "grabpay",
                         "KLARNA": "klarna",
                         "OVO": "ovo",

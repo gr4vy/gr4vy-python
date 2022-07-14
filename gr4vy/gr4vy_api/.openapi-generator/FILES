@@ -4,6 +4,7 @@ openapi_client/api/__init__.py
 openapi_client/api/audit_logs_api.py
 openapi_client/api/buyers_api.py
 openapi_client/api/digital_wallets_api.py
+openapi_client/api/payment_method_definitions_api.py
 openapi_client/api/payment_method_tokens_api.py
 openapi_client/api/payment_methods_api.py
 openapi_client/api/payment_options_api.py
@@ -60,6 +61,9 @@ openapi_client/docs/FlowRuleServiceOutcome.md
 openapi_client/docs/GooglePayRequest.md
 openapi_client/docs/GooglePaySessionRequest.md
 openapi_client/docs/PaymentMethod.md
+openapi_client/docs/PaymentMethodDefinition.md
+openapi_client/docs/PaymentMethodDefinitions.md
+openapi_client/docs/PaymentMethodDefinitionsApi.md
 openapi_client/docs/PaymentMethodRequest.md
 openapi_client/docs/PaymentMethodSnapshot.md
 openapi_client/docs/PaymentMethodToken.md
@@ -160,6 +164,8 @@ openapi_client/model/flow_rule_service_outcome.py
 openapi_client/model/google_pay_request.py
 openapi_client/model/google_pay_session_request.py
 openapi_client/model/payment_method.py
+openapi_client/model/payment_method_definition.py
+openapi_client/model/payment_method_definitions.py
 openapi_client/model/payment_method_request.py
 openapi_client/model/payment_method_snapshot.py
 openapi_client/model/payment_method_token.py
@@ -259,6 +265,9 @@ openapi_client/test/test_flow_rule_service_outcome.py
 openapi_client/test/test_google_pay_request.py
 openapi_client/test/test_google_pay_session_request.py
 openapi_client/test/test_payment_method.py
+openapi_client/test/test_payment_method_definition.py
+openapi_client/test/test_payment_method_definitions.py
+openapi_client/test/test_payment_method_definitions_api.py
 openapi_client/test/test_payment_method_request.py
 openapi_client/test/test_payment_method_snapshot.py
 openapi_client/test/test_payment_method_token.py

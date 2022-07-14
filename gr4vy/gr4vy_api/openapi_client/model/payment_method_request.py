@@ -60,10 +60,10 @@ class PaymentMethodRequest(ModelNormal):
 
     validations = {
         ('number',): {
-            'max_length': 16,
-            'min_length': 14,
+            'max_length': 19,
+            'min_length': 13,
             'regex': {
-                'pattern': r'^[0-9]{14,16}$',  # noqa: E501
+                'pattern': r'^[0-9]{13,19}$',  # noqa: E501
             },
         },
         ('expiration_date',): {
@@ -177,7 +177,7 @@ class PaymentMethodRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            number (str): The 15-16 digit number for this credit card as it can be found on the front of the card.  If a card has been stored with us previously, this number will represent the unique tokenized card ID provided via our API.. [optional]  # noqa: E501
+            number (str): The 13-19 digit number for this credit card as it can be found on the front of the card.  If a card has been stored with us previously, this number will represent the unique tokenized card ID provided via our API.. [optional]  # noqa: E501
             expiration_date (str): The expiration date of the card, formatted `MM/YY`. If a card has been previously stored with us this value is optional.  If the `number` of this card represents a tokenized card, then this value is ignored.. [optional]  # noqa: E501
             security_code (str): The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD.  If the `number` of this card represents a tokenized card, then this value is ignored.. [optional]  # noqa: E501
             external_identifier (str, none_type): An external identifier that can be used to match the card against your own records.. [optional]  # noqa: E501
@@ -271,7 +271,7 @@ class PaymentMethodRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            number (str): The 15-16 digit number for this credit card as it can be found on the front of the card.  If a card has been stored with us previously, this number will represent the unique tokenized card ID provided via our API.. [optional]  # noqa: E501
+            number (str): The 13-19 digit number for this credit card as it can be found on the front of the card.  If a card has been stored with us previously, this number will represent the unique tokenized card ID provided via our API.. [optional]  # noqa: E501
             expiration_date (str): The expiration date of the card, formatted `MM/YY`. If a card has been previously stored with us this value is optional.  If the `number` of this card represents a tokenized card, then this value is ignored.. [optional]  # noqa: E501
             security_code (str): The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD.  If the `number` of this card represents a tokenized card, then this value is ignored.. [optional]  # noqa: E501
             external_identifier (str, none_type): An external identifier that can be used to match the card against your own records.. [optional]  # noqa: E501

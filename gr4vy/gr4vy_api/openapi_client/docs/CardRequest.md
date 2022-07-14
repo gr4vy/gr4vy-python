@@ -5,7 +5,7 @@ Card details to use in a transaction or to register a new payment method.
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**number** | **str** | The 15-16 digit number for this card as it can be found on the front of the card. | 
+**number** | **str** | The 13-19 digit number for this card as it can be found on the front of the card. | 
 **expiration_date** | **str** | The expiration date of the card, formatted &#x60;MM/YY&#x60;. | 
 **security_code** | **str** | The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD. | 
 **method** | **str** | &#x60;card&#x60;. | defaults to "card"

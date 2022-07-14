@@ -629,7 +629,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     external_identifier = "user-12345" # str | Filters the results to only the items for which the `external_identifier` matches this value. (optional)
     has_refunds = True # bool | When set to `true`, filter for transactions that have at least one refund in any state associated with it. When set to `false`, filter for transactions that have no refunds. (optional)
     id = "be828248-56de-481e-a580-44b6e1d4df81" # str | Filters for the transaction that has a matching `id` value. (optional)
-    metadata = ["key:value","first_key:first_value|second_key:second_value"] # [str] | Filters for transactions where their `metadata` values contain all of the provided `metadata` keys. When querying for more than one key-value pair, each pair must be separated by a `|` character. (optional)
+    metadata = ["key:value","first_key:first_value|second_key:second_value"] # [str] | Filters for transactions where their `metadata` values contain all of the provided `metadata` keys. When querying for more than one key-value pair, each pair must be separated by a `|` character.  Duplicate keys are not supported. If a key is duplicated, only the last appearing value will be used. (optional)
     method = [
         "card",
     ] # [str] | Filters the results to only the items for which the `method` has been set to this value. (optional)
@@ -673,7 +673,7 @@ Name | Type | Description  | Notes
  **external_identifier** | **str**| Filters the results to only the items for which the &#x60;external_identifier&#x60; matches this value. | [optional]
  **has_refunds** | **bool**| When set to &#x60;true&#x60;, filter for transactions that have at least one refund in any state associated with it. When set to &#x60;false&#x60;, filter for transactions that have no refunds. | [optional]
  **id** | **str**| Filters for the transaction that has a matching &#x60;id&#x60; value. | [optional]
- **metadata** | **[str]**| Filters for transactions where their &#x60;metadata&#x60; values contain all of the provided &#x60;metadata&#x60; keys. When querying for more than one key-value pair, each pair must be separated by a &#x60;|&#x60; character. | [optional]
+ **metadata** | **[str]**| Filters for transactions where their &#x60;metadata&#x60; values contain all of the provided &#x60;metadata&#x60; keys. When querying for more than one key-value pair, each pair must be separated by a &#x60;|&#x60; character.  Duplicate keys are not supported. If a key is duplicated, only the last appearing value will be used. | [optional]
  **method** | **[str]**| Filters the results to only the items for which the &#x60;method&#x60; has been set to this value. | [optional]
  **payment_service_id** | **[str]**| Filters for transactions that were processed by the provided &#x60;payment_service_id&#x60; values. | [optional]
  **payment_service_transaction_id** | **str**| Filters for transactions that have a matching &#x60;payment_service_transaction_id&#x60; value. The &#x60;payment_service_transaction_id&#x60; is the identifier of the transaction given by the payment service. | [optional]

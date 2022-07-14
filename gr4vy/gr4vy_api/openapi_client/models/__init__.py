@@ -53,6 +53,8 @@ from openapi_client.model.flow_rule_service_outcome import FlowRuleServiceOutcom
 from openapi_client.model.google_pay_request import GooglePayRequest
 from openapi_client.model.google_pay_session_request import GooglePaySessionRequest
 from openapi_client.model.payment_method import PaymentMethod
+from openapi_client.model.payment_method_definition import PaymentMethodDefinition
+from openapi_client.model.payment_method_definitions import PaymentMethodDefinitions
 from openapi_client.model.payment_method_request import PaymentMethodRequest
 from openapi_client.model.payment_method_snapshot import PaymentMethodSnapshot
 from openapi_client.model.payment_method_token import PaymentMethodToken

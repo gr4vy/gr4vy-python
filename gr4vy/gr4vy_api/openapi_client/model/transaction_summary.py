@@ -87,7 +87,6 @@ class TransactionSummary(ModelNormal):
             'GCASH': "gcash",
             'GOCARDLESS': "gocardless",
             'GOOGLEPAY': "googlepay",
-            'GOOGLEPAY_PAN_ONLY': "googlepay_pan_only",
             'GRABPAY': "grabpay",
             'KLARNA': "klarna",
             'OVO': "ovo",
@@ -100,6 +99,7 @@ class TransactionSummary(ModelNormal):
             'TRUEMONEY': "truemoney",
             'TRUSTLY': "trustly",
             'ZIPPAY': "zippay",
+            'BOOST': "boost",
         },
     }
 

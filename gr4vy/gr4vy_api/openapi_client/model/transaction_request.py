@@ -168,7 +168,7 @@ class TransactionRequest(ModelNormal):
 
         Args:
             amount (int): The monetary amount to create an authorization for, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`.  If the `intent` is set to `capture`, an amount greater than zero must be supplied.
-            currency (str): A supported ISO-4217 currency code.
+            currency (str): A supported ISO-4217 currency code.  For redirect requests, this value must match the one specified for `currency` in `payment_method`. 
             payment_method (TransactionPaymentMethodRequest):
 
         Keyword Args:
@@ -202,7 +202,7 @@ class TransactionRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            country (str, none_type): The 2-letter ISO code of the country of the transaction. This is used to filter the payment services that is used to process the transaction. . [optional]  # noqa: E501
+            country (str, none_type): The 2-letter ISO code of the country of the transaction. This is used to filter the payment services that is used to process the transaction.  If this value is provided for redirect requests and it's not `null`, it must match the one specified for `country` in `payment_method`. Otherwise, the value specified for `country` in `payment_method` will be assumed implicitly. . [optional]  # noqa: E501
             store (bool): Whether or not to also try and store the payment method with us so that it can be used again for future use. This is only supported for payment methods that support this feature. There are also a few restrictions on how the flag may be set:  * The flag has to be set to `true` when the `payment_source` is set to `recurring` or `installment`, and `merchant_initiated` is set to `false`.  * The flag has to be set to `false` (or not set) when using a previously tokenized payment method.. [optional] if omitted the server will use the default value of False  # noqa: E501
             intent (str): Defines the intent of this API call. This determines the desired initial state of the transaction.  * `authorize` - (Default) Optionally approves and then authorizes a transaction but does not capture the funds. * `capture` - Optionally approves and then authorizes and captures the funds of the transaction.. [optional] if omitted the server will use the default value of "authorize"  # noqa: E501
             external_identifier (str, none_type): An external identifier that can be used to match the transaction against your own records.. [optional]  # noqa: E501
@@ -270,7 +270,7 @@ class TransactionRequest(ModelNormal):
 
         Args:
             amount (int): The monetary amount to create an authorization for, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`.  If the `intent` is set to `capture`, an amount greater than zero must be supplied.
-            currency (str): A supported ISO-4217 currency code.
+            currency (str): A supported ISO-4217 currency code.  For redirect requests, this value must match the one specified for `currency` in `payment_method`. 
             payment_method (TransactionPaymentMethodRequest):
 
         Keyword Args:
@@ -304,7 +304,7 @@ class TransactionRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            country (str, none_type): The 2-letter ISO code of the country of the transaction. This is used to filter the payment services that is used to process the transaction. . [optional]  # noqa: E501
+            country (str, none_type): The 2-letter ISO code of the country of the transaction. This is used to filter the payment services that is used to process the transaction.  If this value is provided for redirect requests and it's not `null`, it must match the one specified for `country` in `payment_method`. Otherwise, the value specified for `country` in `payment_method` will be assumed implicitly. . [optional]  # noqa: E501
             store (bool): Whether or not to also try and store the payment method with us so that it can be used again for future use. This is only supported for payment methods that support this feature. There are also a few restrictions on how the flag may be set:  * The flag has to be set to `true` when the `payment_source` is set to `recurring` or `installment`, and `merchant_initiated` is set to `false`.  * The flag has to be set to `false` (or not set) when using a previously tokenized payment method.. [optional] if omitted the server will use the default value of False  # noqa: E501
             intent (str): Defines the intent of this API call. This determines the desired initial state of the transaction.  * `authorize` - (Default) Optionally approves and then authorizes a transaction but does not capture the funds. * `capture` - Optionally approves and then authorizes and captures the funds of the transaction.. [optional] if omitted the server will use the default value of "authorize"  # noqa: E501
             external_identifier (str, none_type): An external identifier that can be used to match the transaction against your own records.. [optional]  # noqa: E501

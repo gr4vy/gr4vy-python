@@ -17,6 +17,7 @@
 from openapi_client.api.audit_logs_api import AuditLogsApi
 from openapi_client.api.buyers_api import BuyersApi
 from openapi_client.api.digital_wallets_api import DigitalWalletsApi
+from openapi_client.api.payment_method_definitions_api import PaymentMethodDefinitionsApi
 from openapi_client.api.payment_method_tokens_api import PaymentMethodTokensApi
 from openapi_client.api.payment_methods_api import PaymentMethodsApi
 from openapi_client.api.payment_options_api import PaymentOptionsApi

@@ -454,7 +454,6 @@ class TransactionsApi(object):
                         "GCASH": "gcash",
                         "GOCARDLESS": "gocardless",
                         "GOOGLEPAY": "googlepay",
-                        "GOOGLEPAY_PAN_ONLY": "googlepay_pan_only",
                         "GRABPAY": "grabpay",
                         "KLARNA": "klarna",
                         "OVO": "ovo",
@@ -466,7 +465,8 @@ class TransactionsApi(object):
                         "STRIPEDD": "stripedd",
                         "TRUEMONEY": "truemoney",
                         "TRUSTLY": "trustly",
-                        "ZIPPAY": "zippay"
+                        "ZIPPAY": "zippay",
+                        "BOOST": "boost",
                     },
                     ('status',): {
 
@@ -1155,7 +1155,7 @@ class TransactionsApi(object):
             external_identifier (str): Filters the results to only the items for which the `external_identifier` matches this value.. [optional]
             has_refunds (bool): When set to `true`, filter for transactions that have at least one refund in any state associated with it. When set to `false`, filter for transactions that have no refunds.. [optional]
             id (str): Filters for the transaction that has a matching `id` value.. [optional]
-            metadata ([str]): Filters for transactions where their `metadata` values contain all of the provided `metadata` keys. When querying for more than one key-value pair, each pair must be separated by a `|` character.. [optional]
+            metadata ([str]): Filters for transactions where their `metadata` values contain all of the provided `metadata` keys. When querying for more than one key-value pair, each pair must be separated by a `|` character.  Duplicate keys are not supported. If a key is duplicated, only the last appearing value will be used.. [optional]
             method ([str]): Filters the results to only the items for which the `method` has been set to this value.. [optional]
             payment_service_id ([str]): Filters for transactions that were processed by the provided `payment_service_id` values.. [optional]
             payment_service_transaction_id (str): Filters for transactions that have a matching `payment_service_transaction_id` value. The `payment_service_transaction_id` is the identifier of the transaction given by the payment service.. [optional]

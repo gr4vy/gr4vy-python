@@ -89,6 +89,7 @@ class Transaction(ModelNormal):
             'RECURRING': "recurring",
             'INSTALLMENT': "installment",
             'CARD_ON_FILE': "card_on_file",
+            'None': None,
         },
         ('avs_response_code',): {
             'None': None,
@@ -118,7 +119,6 @@ class Transaction(ModelNormal):
             'GCASH': "gcash",
             'GOCARDLESS': "gocardless",
             'GOOGLEPAY': "googlepay",
-            'GOOGLEPAY_PAN_ONLY': "googlepay_pan_only",
             'GRABPAY': "grabpay",
             'KLARNA': "klarna",
             'OVO': "ovo",
@@ -131,6 +131,7 @@ class Transaction(ModelNormal):
             'TRUEMONEY': "truemoney",
             'TRUSTLY': "trustly",
             'ZIPPAY': "zippay",
+            'BOOST': "boost",
         },
     }
 
@@ -189,9 +190,9 @@ class Transaction(ModelNormal):
             'external_identifier': (str, none_type,),  # noqa: E501
             'updated_at': (datetime,),  # noqa: E501
             'payment_service': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
-            'merchant_initiated': (bool,),  # noqa: E501
-            'payment_source': (str,),  # noqa: E501
-            'is_subsequent_payment': (bool,),  # noqa: E501
+            'merchant_initiated': (bool, none_type),  # noqa: E501
+            'payment_source': (str, none_type),  # noqa: E501
+            'is_subsequent_payment': (bool, none_type),  # noqa: E501
             'statement_descriptor': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'cart_items': ([CartItem],),  # noqa: E501
             'scheme_transaction_id': (str, none_type,),  # noqa: E501
@@ -199,10 +200,10 @@ class Transaction(ModelNormal):
             'raw_response_description': (str, none_type,),  # noqa: E501
             'avs_response_code': (str, none_type,),  # noqa: E501
             'cvv_response_code': (str, none_type,),  # noqa: E501
-            'method': (str,),  # noqa: E501
-            'payment_service_transaction_id': (str,),  # noqa: E501
-            'metadata': ({str: (str,)},),  # noqa: E501
-            'three_d_secure': (ThreeDSecureSummary,),  # noqa: E501
+            'method': (str, none_type),  # noqa: E501
+            'payment_service_transaction_id': (str, none_type),  # noqa: E501
+            'metadata': ({str: (str,)}, none_type),  # noqa: E501
+            'three_d_secure': (ThreeDSecureSummary, none_type),  # noqa: E501
             'authorized_at': (datetime, none_type,),  # noqa: E501
             'captured_at': (datetime, none_type,),  # noqa: E501
             'voided_at': (datetime, none_type,),  # noqa: E501
