@@ -31,8 +31,8 @@ from gr4vy.gr4vy_api.openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from gr4vy.gr4vy_api.openapi_client.model.payment_service_update_fields import PaymentServiceUpdateFields
-    globals()['PaymentServiceUpdateFields'] = PaymentServiceUpdateFields
+    from gr4vy.gr4vy_api.openapi_client.model.payment_service_request_fields import PaymentServiceRequestFields
+    globals()['PaymentServiceRequestFields'] = PaymentServiceRequestFields
 
 
 class PaymentServiceUpdate(ModelNormal):
@@ -129,7 +129,7 @@ class PaymentServiceUpdate(ModelNormal):
         lazy_import()
         return {
             'display_name': (str,),  # noqa: E501
-            'fields': ([PaymentServiceUpdateFields],),  # noqa: E501
+            'fields': ([PaymentServiceRequestFields],),  # noqa: E501
             'accepted_countries': ([str],),  # noqa: E501
             'accepted_currencies': ([str],),  # noqa: E501
             'three_d_secure_enabled': (bool,),  # noqa: E501
@@ -144,6 +144,9 @@ class PaymentServiceUpdate(ModelNormal):
             'merchant_url': (str, none_type,),  # noqa: E501
             'active': (bool,),  # noqa: E501
             'position': (float,),  # noqa: E501
+            'open_loop': (bool, none_type,),  # noqa: E501
+            'payment_method_tokenization_enabled': (bool,),  # noqa: E501
+            'network_tokens_enabled': (bool, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -168,6 +171,9 @@ class PaymentServiceUpdate(ModelNormal):
         'merchant_url': 'merchant_url',  # noqa: E501
         'active': 'active',  # noqa: E501
         'position': 'position',  # noqa: E501
+        'open_loop': 'open_loop',  # noqa: E501
+        'payment_method_tokenization_enabled': 'payment_method_tokenization_enabled',  # noqa: E501
+        'network_tokens_enabled': 'network_tokens_enabled',  # noqa: E501
     }
 
     read_only_vars = {
@@ -212,7 +218,7 @@ class PaymentServiceUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             display_name (str): A custom name for the payment service. This will be shown in the Admin UI.. [optional]  # noqa: E501
-            fields ([PaymentServiceUpdateFields]): A list of fields, each containing a key-value pair for each field defined by the definition for this payment service e.g. for stripe-card `secret_key` is required and so must be sent within this field.. [optional]  # noqa: E501
+            fields ([PaymentServiceRequestFields]): A list of fields, each containing a key-value pair for each field defined by the definition for this payment service e.g. for stripe-card `secret_key` is required and so must be sent within this field.. [optional]  # noqa: E501
             accepted_countries ([str]): A list of countries that this payment service needs to support in ISO two-letter code format.. [optional]  # noqa: E501
             accepted_currencies ([str]): A list of currencies that this payment service needs to support in ISO 4217 three-letter code format.. [optional]  # noqa: E501
             three_d_secure_enabled (bool): Defines if 3-D Secure is enabled for the service (can only be enabled if the payment service definition supports the `three_d_secure_hosted` feature). This does not affect pass through 3-D Secure data.. [optional] if omitted the server will use the default value of False  # noqa: E501
@@ -227,6 +233,9 @@ class PaymentServiceUpdate(ModelNormal):
             merchant_url (str, none_type): Fully qualified URL of 3-D Secure requestor website or customer care site.. [optional]  # noqa: E501
             active (bool): Defines if this service is currently active or not.. [optional] if omitted the server will use the default value of True  # noqa: E501
             position (float): The numeric rank of a payment service. Payment services with a lower position value are processed first. When a payment services is inserted at a position, any payment services with the the same value or higher are shifted down a position accordingly. When left out, the payment service is inserted at the end of the list.. [optional]  # noqa: E501
+            open_loop (bool, none_type): Defines if the service works as an open-loop service. This feature can only be enabled if the PSP is set up to accept previous scheme transaction IDs.  If this value is set to `null`, it will be set to the value of `open_loop` in the payment service definition.  If `open_loop_toggle` is `false` in the payment service definition, `open_loop` should either not be provided or set to `null`, or it will fail with a validation error.. [optional]  # noqa: E501
+            payment_method_tokenization_enabled (bool): Defines if tokenization is enabled for the service. This feature can only be enabled if the payment service is NOT set as `open_loop` and the PSP is set up to tokenize.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            network_tokens_enabled (bool, none_type): Defines if network tokens are enabled for the service. This feature can only be enabled if the payment service is set as `open_loop` and the PSP is set up to accept network tokens.  If this value is set to `null`, it will be set to the value of `network_tokens_default` in the payment service definition.  If `network_tokens_toggle` is `false` in the payment service definition, `network_tokens_enabled` should either not be provided or set to `null`, or it will fail with a validation error.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -309,7 +318,7 @@ class PaymentServiceUpdate(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             display_name (str): A custom name for the payment service. This will be shown in the Admin UI.. [optional]  # noqa: E501
-            fields ([PaymentServiceUpdateFields]): A list of fields, each containing a key-value pair for each field defined by the definition for this payment service e.g. for stripe-card `secret_key` is required and so must be sent within this field.. [optional]  # noqa: E501
+            fields ([PaymentServiceRequestFields]): A list of fields, each containing a key-value pair for each field defined by the definition for this payment service e.g. for stripe-card `secret_key` is required and so must be sent within this field.. [optional]  # noqa: E501
             accepted_countries ([str]): A list of countries that this payment service needs to support in ISO two-letter code format.. [optional]  # noqa: E501
             accepted_currencies ([str]): A list of currencies that this payment service needs to support in ISO 4217 three-letter code format.. [optional]  # noqa: E501
             three_d_secure_enabled (bool): Defines if 3-D Secure is enabled for the service (can only be enabled if the payment service definition supports the `three_d_secure_hosted` feature). This does not affect pass through 3-D Secure data.. [optional] if omitted the server will use the default value of False  # noqa: E501
@@ -324,6 +333,9 @@ class PaymentServiceUpdate(ModelNormal):
             merchant_url (str, none_type): Fully qualified URL of 3-D Secure requestor website or customer care site.. [optional]  # noqa: E501
             active (bool): Defines if this service is currently active or not.. [optional] if omitted the server will use the default value of True  # noqa: E501
             position (float): The numeric rank of a payment service. Payment services with a lower position value are processed first. When a payment services is inserted at a position, any payment services with the the same value or higher are shifted down a position accordingly. When left out, the payment service is inserted at the end of the list.. [optional]  # noqa: E501
+            open_loop (bool, none_type): Defines if the service works as an open-loop service. This feature can only be enabled if the PSP is set up to accept previous scheme transaction IDs.  If this value is set to `null`, it will be set to the value of `open_loop` in the payment service definition.  If `open_loop_toggle` is `false` in the payment service definition, `open_loop` should either not be provided or set to `null`, or it will fail with a validation error.. [optional]  # noqa: E501
+            payment_method_tokenization_enabled (bool): Defines if tokenization is enabled for the service. This feature can only be enabled if the payment service is NOT set as `open_loop` and the PSP is set up to tokenize.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            network_tokens_enabled (bool, none_type): Defines if network tokens are enabled for the service. This feature can only be enabled if the payment service is set as `open_loop` and the PSP is set up to accept network tokens.  If this value is set to `null`, it will be set to the value of `network_tokens_default` in the payment service definition.  If `network_tokens_toggle` is `false` in the payment service definition, `network_tokens_enabled` should either not be provided or set to `null`, or it will fail with a validation error.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

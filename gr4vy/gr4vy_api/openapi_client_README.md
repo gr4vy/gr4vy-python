@@ -31,15 +31,9 @@ you can run the following:
 import time
 import openapi_client
 from pprint import pprint
-from openapi_client.api import buyers_api
-from openapi_client.model.buyer import Buyer
-from openapi_client.model.buyer_request import BuyerRequest
-from openapi_client.model.buyer_update import BuyerUpdate
-from openapi_client.model.buyers import Buyers
+from openapi_client.api import api_logs_api
+from openapi_client.model.api_logs import ApiLogs
 from openapi_client.model.error401_unauthorized import Error401Unauthorized
-from openapi_client.model.error404_not_found import Error404NotFound
-from openapi_client.model.error409_duplicate_record import Error409DuplicateRecord
-from openapi_client.model.error_generic import ErrorGeneric
 # Defining the host is optional and defaults to https://api.plantly.gr4vy.app
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
@@ -60,19 +54,14 @@ configuration = openapi_client.Configuration(
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = buyers_api.BuyersApi(api_client)
-    buyer_request = BuyerRequest(
-        external_identifier="user-789123",
-        display_name="John L.",
-        billing_details=None,
-    ) # BuyerRequest |  (optional)
-
+    api_instance = api_logs_api.APILogsApi(api_client)
+    
     try:
-        # New buyer
-        api_response = api_instance.add_buyer(buyer_request=buyer_request)
+        # List API error Logs
+        api_response = api_instance.list_api_logs()
         pprint(api_response)
     except openapi_client.ApiException as e:
-        print("Exception when calling BuyersApi->add_buyer: %s\n" % e)
+        print("Exception when calling APILogsApi->list_api_logs: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -81,16 +70,28 @@ All URIs are relative to *https://api.plantly.gr4vy.app*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*APILogsApi* | [**list_api_logs**](openapi_client/docs/APILogsApi.md#list_api_logs) | **GET** /api-logs | List API error Logs
+*AuditLogsApi* | [**list_audit_logs**](openapi_client/docs/AuditLogsApi.md#list_audit_logs) | **GET** /audit-logs | List Audit Logs
 *BuyersApi* | [**add_buyer**](openapi_client/docs/BuyersApi.md#add_buyer) | **POST** /buyers | New buyer
+*BuyersApi* | [**add_buyer_shipping_detail**](openapi_client/docs/BuyersApi.md#add_buyer_shipping_detail) | **POST** /buyers/{buyer_id}/shipping-details | New buyer shipping detail
 *BuyersApi* | [**delete_buyer**](openapi_client/docs/BuyersApi.md#delete_buyer) | **DELETE** /buyers/{buyer_id} | Delete buyer
+*BuyersApi* | [**delete_buyer_shipping_detail**](openapi_client/docs/BuyersApi.md#delete_buyer_shipping_detail) | **DELETE** /buyers/{buyer_id}/shipping-details/{shipping_detail_id} | Delete buyer shipping detail
 *BuyersApi* | [**get_buyer**](openapi_client/docs/BuyersApi.md#get_buyer) | **GET** /buyers/{buyer_id} | Get buyer
+*BuyersApi* | [**get_buyer_shipping_details**](openapi_client/docs/BuyersApi.md#get_buyer_shipping_details) | **GET** /buyers/{buyer_id}/shipping-details | Get buyer shipping details
 *BuyersApi* | [**list_buyers**](openapi_client/docs/BuyersApi.md#list_buyers) | **GET** /buyers | List buyers
 *BuyersApi* | [**update_buyer**](openapi_client/docs/BuyersApi.md#update_buyer) | **PUT** /buyers/{buyer_id} | Update buyer
+*BuyersApi* | [**update_buyer_shipping_detail**](openapi_client/docs/BuyersApi.md#update_buyer_shipping_detail) | **PUT** /buyers/{buyer_id}/shipping-details/{shipping_detail_id} | Update buyer shipping detail
+*CardSchemeDefinitionsApi* | [**list_card_scheme_definitions**](openapi_client/docs/CardSchemeDefinitionsApi.md#list_card_scheme_definitions) | **GET** /card-scheme-definitions | List card scheme definitions
+*CheckoutSessionsApi* | [**add_checkout_session**](openapi_client/docs/CheckoutSessionsApi.md#add_checkout_session) | **POST** /checkout/sessions | Create a new Checkout Session
+*CheckoutSessionsApi* | [**delete_checkout_session**](openapi_client/docs/CheckoutSessionsApi.md#delete_checkout_session) | **DELETE** /checkout/sessions/{checkout_session_id} | Delete a Checkout Session
+*CheckoutSessionsApi* | [**get_checkout_session**](openapi_client/docs/CheckoutSessionsApi.md#get_checkout_session) | **GET** /checkout/sessions/{checkout_session_id} | Get a Checkout Session
+*CheckoutSessionsApi* | [**update_checkout_session_fields**](openapi_client/docs/CheckoutSessionsApi.md#update_checkout_session_fields) | **PUT** /checkout/sessions/{checkout_session_id}/fields | Update a Checkout Session&#39;s Secure Fields
 *DigitalWalletsApi* | [**deregister_digital_wallet**](openapi_client/docs/DigitalWalletsApi.md#deregister_digital_wallet) | **DELETE** /digital-wallets/{digital_wallet_id} | De-register digital wallet
 *DigitalWalletsApi* | [**get_digital_wallet**](openapi_client/docs/DigitalWalletsApi.md#get_digital_wallet) | **GET** /digital-wallets/{digital_wallet_id} | Get digital wallet
 *DigitalWalletsApi* | [**list_digital_wallets**](openapi_client/docs/DigitalWalletsApi.md#list_digital_wallets) | **GET** /digital-wallets | List digital wallets
 *DigitalWalletsApi* | [**register_digital_wallet**](openapi_client/docs/DigitalWalletsApi.md#register_digital_wallet) | **POST** /digital-wallets | Register digital wallet
 *DigitalWalletsApi* | [**update_digital_wallet**](openapi_client/docs/DigitalWalletsApi.md#update_digital_wallet) | **PUT** /digital-wallets/{digital_wallet_id} | Update digital wallet
+*PaymentMethodDefinitionsApi* | [**list_payment_method_definitions**](openapi_client/docs/PaymentMethodDefinitionsApi.md#list_payment_method_definitions) | **GET** /payment-method-definitions | List payment method definitions
 *PaymentMethodTokensApi* | [**list_payment_method_tokens**](openapi_client/docs/PaymentMethodTokensApi.md#list_payment_method_tokens) | **GET** /payment-methods/{payment_method_id}/tokens | List payment method tokens
 *PaymentMethodsApi* | [**delete_payment_method**](openapi_client/docs/PaymentMethodsApi.md#delete_payment_method) | **DELETE** /payment-methods/{payment_method_id} | Delete payment method
 *PaymentMethodsApi* | [**get_payment_method**](openapi_client/docs/PaymentMethodsApi.md#get_payment_method) | **GET** /payment-methods/{payment_method_id} | Get stored payment method
@@ -98,6 +99,7 @@ Class | Method | HTTP request | Description
 *PaymentMethodsApi* | [**list_payment_methods**](openapi_client/docs/PaymentMethodsApi.md#list_payment_methods) | **GET** /payment-methods | List payment methods
 *PaymentMethodsApi* | [**store_payment_method**](openapi_client/docs/PaymentMethodsApi.md#store_payment_method) | **POST** /payment-methods | New payment method
 *PaymentOptionsApi* | [**list_payment_options**](openapi_client/docs/PaymentOptionsApi.md#list_payment_options) | **GET** /payment-options | List payment options
+*PaymentOptionsApi* | [**post_list_payment_options**](openapi_client/docs/PaymentOptionsApi.md#post_list_payment_options) | **POST** /payment-options | List payment options
 *PaymentServiceDefinitionsApi* | [**get_payment_service_definition**](openapi_client/docs/PaymentServiceDefinitionsApi.md#get_payment_service_definition) | **GET** /payment-service-definitions/{payment_service_definition_id} | Get payment service definition
 *PaymentServiceDefinitionsApi* | [**list_payment_service_definitions**](openapi_client/docs/PaymentServiceDefinitionsApi.md#list_payment_service_definitions) | **GET** /payment-service-definitions | List payment service definitions
 *PaymentServicesApi* | [**add_payment_service**](openapi_client/docs/PaymentServicesApi.md#add_payment_service) | **POST** /payment-services | New payment service
@@ -105,6 +107,18 @@ Class | Method | HTTP request | Description
 *PaymentServicesApi* | [**get_payment_service**](openapi_client/docs/PaymentServicesApi.md#get_payment_service) | **GET** /payment-services/{payment_service_id} | Get payment service
 *PaymentServicesApi* | [**list_payment_services**](openapi_client/docs/PaymentServicesApi.md#list_payment_services) | **GET** /payment-services | List payment services
 *PaymentServicesApi* | [**update_payment_service**](openapi_client/docs/PaymentServicesApi.md#update_payment_service) | **PUT** /payment-services/{payment_service_id} | Update payment service
+*ReportsApi* | [**add_report**](openapi_client/docs/ReportsApi.md#add_report) | **POST** /reports | New report
+*ReportsApi* | [**generate_download_url**](openapi_client/docs/ReportsApi.md#generate_download_url) | **POST** /reports/{report_id}/executions/{report_execution_id}/url | Generate the download URL of a report execution result
+*ReportsApi* | [**get_report**](openapi_client/docs/ReportsApi.md#get_report) | **GET** /reports/{report_id} | Get report
+*ReportsApi* | [**get_report_execution**](openapi_client/docs/ReportsApi.md#get_report_execution) | **GET** /report-executions/{report_execution_id} | Get report execution
+*ReportsApi* | [**list_all_report_executions**](openapi_client/docs/ReportsApi.md#list_all_report_executions) | **GET** /report-executions | List all report executions
+*ReportsApi* | [**list_report_executions**](openapi_client/docs/ReportsApi.md#list_report_executions) | **GET** /reports/{report_id}/executions | List executions for a report
+*ReportsApi* | [**list_reports**](openapi_client/docs/ReportsApi.md#list_reports) | **GET** /reports | List reports
+*ReportsApi* | [**update_report**](openapi_client/docs/ReportsApi.md#update_report) | **PUT** /reports/{report_id} | Update report
+*RolesApi* | [**add_role_assignment**](openapi_client/docs/RolesApi.md#add_role_assignment) | **POST** /roles/assignments | New role assignment
+*RolesApi* | [**delete_role_assignment**](openapi_client/docs/RolesApi.md#delete_role_assignment) | **DELETE** /roles/assignments/{role_assignment_id} | Delete role assignment
+*RolesApi* | [**list_role_assignments**](openapi_client/docs/RolesApi.md#list_role_assignments) | **GET** /roles/assignments | List role assignments
+*RolesApi* | [**list_roles**](openapi_client/docs/RolesApi.md#list_roles) | **GET** /roles | List roles
 *TransactionsApi* | [**authorize_new_transaction**](openapi_client/docs/TransactionsApi.md#authorize_new_transaction) | **POST** /transactions | New transaction
 *TransactionsApi* | [**capture_transaction**](openapi_client/docs/TransactionsApi.md#capture_transaction) | **POST** /transactions/{transaction_id}/capture | Capture transaction
 *TransactionsApi* | [**get_transaction**](openapi_client/docs/TransactionsApi.md#get_transaction) | **GET** /transactions/{transaction_id} | Get transaction
@@ -112,19 +126,30 @@ Class | Method | HTTP request | Description
 *TransactionsApi* | [**list_transaction_refunds**](openapi_client/docs/TransactionsApi.md#list_transaction_refunds) | **GET** /transactions/{transaction_id}/refunds | List transaction refunds
 *TransactionsApi* | [**list_transactions**](openapi_client/docs/TransactionsApi.md#list_transactions) | **GET** /transactions | List transactions
 *TransactionsApi* | [**refund_transaction**](openapi_client/docs/TransactionsApi.md#refund_transaction) | **POST** /transactions/{transaction_id}/refunds | Refund transaction
-*TransactionsApi* | [**refund_transaction_deprecated**](openapi_client/docs/TransactionsApi.md#refund_transaction_deprecated) | **POST** /transactions/{transaction_id}/refund | Refund or void transactions
 *TransactionsApi* | [**void_transaction**](openapi_client/docs/TransactionsApi.md#void_transaction) | **POST** /transactions/{transaction_id}/void | Void transaction
 
 
 ## Documentation For Models
 
+ - [APIKeyPairRequest](openapi_client/docs/APIKeyPairRequest.md)
  - [Address](openapi_client/docs/Address.md)
- - [AddressUpdate](openapi_client/docs/AddressUpdate.md)
+ - [AntiFraudServiceCreate](openapi_client/docs/AntiFraudServiceCreate.md)
+ - [AntiFraudServiceUpdate](openapi_client/docs/AntiFraudServiceUpdate.md)
+ - [AntiFraudServiceUpdateFields](openapi_client/docs/AntiFraudServiceUpdateFields.md)
+ - [ApiLog](openapi_client/docs/ApiLog.md)
+ - [ApiLogResponseBody](openapi_client/docs/ApiLogResponseBody.md)
+ - [ApiLogResponseBodyDetails](openapi_client/docs/ApiLogResponseBodyDetails.md)
+ - [ApiLogs](openapi_client/docs/ApiLogs.md)
  - [ApplePayRequest](openapi_client/docs/ApplePayRequest.md)
  - [ApplePaySessionRequest](openapi_client/docs/ApplePaySessionRequest.md)
+ - [AuditLog](openapi_client/docs/AuditLog.md)
+ - [AuditLogResource](openapi_client/docs/AuditLogResource.md)
+ - [AuditLogUser](openapi_client/docs/AuditLogUser.md)
+ - [AuditLogs](openapi_client/docs/AuditLogs.md)
  - [BillingDetails](openapi_client/docs/BillingDetails.md)
  - [BillingDetailsRequest](openapi_client/docs/BillingDetailsRequest.md)
  - [BillingDetailsUpdateRequest](openapi_client/docs/BillingDetailsUpdateRequest.md)
+ - [BrowserInfo](openapi_client/docs/BrowserInfo.md)
  - [Buyer](openapi_client/docs/Buyer.md)
  - [BuyerRequest](openapi_client/docs/BuyerRequest.md)
  - [BuyerSnapshot](openapi_client/docs/BuyerSnapshot.md)
@@ -132,7 +157,18 @@ Class | Method | HTTP request | Description
  - [Buyers](openapi_client/docs/Buyers.md)
  - [CardDetails](openapi_client/docs/CardDetails.md)
  - [CardRequest](openapi_client/docs/CardRequest.md)
+ - [CardSchemeDefinition](openapi_client/docs/CardSchemeDefinition.md)
+ - [CardSchemeDefinitions](openapi_client/docs/CardSchemeDefinitions.md)
  - [CartItem](openapi_client/docs/CartItem.md)
+ - [CheckoutSession](openapi_client/docs/CheckoutSession.md)
+ - [CheckoutSessionRequest](openapi_client/docs/CheckoutSessionRequest.md)
+ - [CheckoutSessionSecureFieldsUpdate](openapi_client/docs/CheckoutSessionSecureFieldsUpdate.md)
+ - [Connection](openapi_client/docs/Connection.md)
+ - [ConnectionDefinition](openapi_client/docs/ConnectionDefinition.md)
+ - [ConnectionDefinitions](openapi_client/docs/ConnectionDefinitions.md)
+ - [ConnectionOptions](openapi_client/docs/ConnectionOptions.md)
+ - [ConnectionOptionsCybersourceAntiFraud](openapi_client/docs/ConnectionOptionsCybersourceAntiFraud.md)
+ - [Connections](openapi_client/docs/Connections.md)
  - [DigitalWallet](openapi_client/docs/DigitalWallet.md)
  - [DigitalWalletRequest](openapi_client/docs/DigitalWalletRequest.md)
  - [DigitalWalletUpdate](openapi_client/docs/DigitalWalletUpdate.md)
@@ -148,8 +184,14 @@ Class | Method | HTTP request | Description
  - [ErrorDetail](openapi_client/docs/ErrorDetail.md)
  - [ErrorGeneric](openapi_client/docs/ErrorGeneric.md)
  - [GooglePayRequest](openapi_client/docs/GooglePayRequest.md)
+ - [GooglePayRequestAssuranceDetails](openapi_client/docs/GooglePayRequestAssuranceDetails.md)
  - [GooglePaySessionRequest](openapi_client/docs/GooglePaySessionRequest.md)
+ - [MerchantProfile](openapi_client/docs/MerchantProfile.md)
+ - [MerchantProfileScheme](openapi_client/docs/MerchantProfileScheme.md)
  - [PaymentMethod](openapi_client/docs/PaymentMethod.md)
+ - [PaymentMethodDefinition](openapi_client/docs/PaymentMethodDefinition.md)
+ - [PaymentMethodDefinitions](openapi_client/docs/PaymentMethodDefinitions.md)
+ - [PaymentMethodDetailsCard](openapi_client/docs/PaymentMethodDetailsCard.md)
  - [PaymentMethodRequest](openapi_client/docs/PaymentMethodRequest.md)
  - [PaymentMethodSnapshot](openapi_client/docs/PaymentMethodSnapshot.md)
  - [PaymentMethodToken](openapi_client/docs/PaymentMethodToken.md)
@@ -158,24 +200,53 @@ Class | Method | HTTP request | Description
  - [PaymentMethods](openapi_client/docs/PaymentMethods.md)
  - [PaymentMethodsTokenized](openapi_client/docs/PaymentMethodsTokenized.md)
  - [PaymentOption](openapi_client/docs/PaymentOption.md)
+ - [PaymentOptionApprovalUI](openapi_client/docs/PaymentOptionApprovalUI.md)
  - [PaymentOptionContext](openapi_client/docs/PaymentOptionContext.md)
  - [PaymentOptions](openapi_client/docs/PaymentOptions.md)
+ - [PaymentOptionsRequest](openapi_client/docs/PaymentOptionsRequest.md)
  - [PaymentService](openapi_client/docs/PaymentService.md)
  - [PaymentServiceDefinition](openapi_client/docs/PaymentServiceDefinition.md)
+ - [PaymentServiceDefinitionConfiguration](openapi_client/docs/PaymentServiceDefinitionConfiguration.md)
  - [PaymentServiceDefinitionFields](openapi_client/docs/PaymentServiceDefinitionFields.md)
  - [PaymentServiceDefinitionSupportedFeatures](openapi_client/docs/PaymentServiceDefinitionSupportedFeatures.md)
  - [PaymentServiceDefinitions](openapi_client/docs/PaymentServiceDefinitions.md)
+ - [PaymentServiceFields](openapi_client/docs/PaymentServiceFields.md)
  - [PaymentServiceRequest](openapi_client/docs/PaymentServiceRequest.md)
- - [PaymentServiceRequestAllOf](openapi_client/docs/PaymentServiceRequestAllOf.md)
+ - [PaymentServiceRequestFields](openapi_client/docs/PaymentServiceRequestFields.md)
  - [PaymentServiceSnapshot](openapi_client/docs/PaymentServiceSnapshot.md)
  - [PaymentServiceUpdate](openapi_client/docs/PaymentServiceUpdate.md)
- - [PaymentServiceUpdateFields](openapi_client/docs/PaymentServiceUpdateFields.md)
  - [PaymentServices](openapi_client/docs/PaymentServices.md)
  - [RedirectRequest](openapi_client/docs/RedirectRequest.md)
  - [Refund](openapi_client/docs/Refund.md)
  - [Refunds](openapi_client/docs/Refunds.md)
+ - [Report](openapi_client/docs/Report.md)
+ - [ReportCreate](openapi_client/docs/ReportCreate.md)
+ - [ReportExecution](openapi_client/docs/ReportExecution.md)
+ - [ReportExecutionSummary](openapi_client/docs/ReportExecutionSummary.md)
+ - [ReportExecutionSummaryContext](openapi_client/docs/ReportExecutionSummaryContext.md)
+ - [ReportExecutionUrl](openapi_client/docs/ReportExecutionUrl.md)
+ - [ReportExecutions](openapi_client/docs/ReportExecutions.md)
+ - [ReportSpec](openapi_client/docs/ReportSpec.md)
+ - [ReportSummary](openapi_client/docs/ReportSummary.md)
+ - [ReportUpdate](openapi_client/docs/ReportUpdate.md)
+ - [Reports](openapi_client/docs/Reports.md)
+ - [RequiredFields](openapi_client/docs/RequiredFields.md)
+ - [RequiredFieldsAddress](openapi_client/docs/RequiredFieldsAddress.md)
  - [ResetPasswordRequest](openapi_client/docs/ResetPasswordRequest.md)
+ - [Role](openapi_client/docs/Role.md)
+ - [RoleAssignment](openapi_client/docs/RoleAssignment.md)
+ - [RoleAssignmentAssignee](openapi_client/docs/RoleAssignmentAssignee.md)
+ - [RoleAssignmentRequest](openapi_client/docs/RoleAssignmentRequest.md)
+ - [RoleAssignmentRequestAssignee](openapi_client/docs/RoleAssignmentRequestAssignee.md)
+ - [RoleAssignmentRequestRole](openapi_client/docs/RoleAssignmentRequestRole.md)
+ - [RoleAssignments](openapi_client/docs/RoleAssignments.md)
+ - [RolePermissions](openapi_client/docs/RolePermissions.md)
+ - [Roles](openapi_client/docs/Roles.md)
  - [SetPasswordRequest](openapi_client/docs/SetPasswordRequest.md)
+ - [ShippingDetail](openapi_client/docs/ShippingDetail.md)
+ - [ShippingDetailRequest](openapi_client/docs/ShippingDetailRequest.md)
+ - [ShippingDetailUpdateRequest](openapi_client/docs/ShippingDetailUpdateRequest.md)
+ - [ShippingDetails](openapi_client/docs/ShippingDetails.md)
  - [StatementDescriptor](openapi_client/docs/StatementDescriptor.md)
  - [TaxId](openapi_client/docs/TaxId.md)
  - [ThreeDSecureData](openapi_client/docs/ThreeDSecureData.md)
@@ -184,17 +255,21 @@ Class | Method | HTTP request | Description
  - [ThreeDSecureDataV1V2](openapi_client/docs/ThreeDSecureDataV1V2.md)
  - [ThreeDSecureDataV2](openapi_client/docs/ThreeDSecureDataV2.md)
  - [ThreeDSecureDataV2AllOf](openapi_client/docs/ThreeDSecureDataV2AllOf.md)
+ - [ThreeDSecureError](openapi_client/docs/ThreeDSecureError.md)
+ - [ThreeDSecureSummary](openapi_client/docs/ThreeDSecureSummary.md)
  - [TokenizedRequest](openapi_client/docs/TokenizedRequest.md)
  - [Transaction](openapi_client/docs/Transaction.md)
  - [TransactionCaptureRequest](openapi_client/docs/TransactionCaptureRequest.md)
  - [TransactionPaymentMethodRequest](openapi_client/docs/TransactionPaymentMethodRequest.md)
  - [TransactionRefundRequest](openapi_client/docs/TransactionRefundRequest.md)
- - [TransactionRefundRequestDeprecated](openapi_client/docs/TransactionRefundRequestDeprecated.md)
  - [TransactionRequest](openapi_client/docs/TransactionRequest.md)
+ - [TransactionStatusSummary](openapi_client/docs/TransactionStatusSummary.md)
  - [TransactionSummary](openapi_client/docs/TransactionSummary.md)
  - [Transactions](openapi_client/docs/Transactions.md)
  - [TransactionsBatchCaptureRequest](openapi_client/docs/TransactionsBatchCaptureRequest.md)
  - [UserRequest](openapi_client/docs/UserRequest.md)
+ - [UserRole](openapi_client/docs/UserRole.md)
+ - [UserUpdate](openapi_client/docs/UserUpdate.md)
 
 
 ## Documentation For Authorization

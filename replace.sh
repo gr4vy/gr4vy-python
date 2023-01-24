@@ -83,3 +83,15 @@ sed -i '' "s/$var1/$rep1/g" ./gr4vy/gr4vy_api/openapi_client/model/*.py
 var1='from openapi_client.'
 rep1='from gr4vy.gr4vy_api.openapi_client.'
 sed -i '' "s/$var1/$rep1/g" ./gr4vy/gr4vy_api/openapi_client/api/*.py
+
+var1="'three_d_secure': (ThreeDSecureSummary,),"
+rep1="'three_d_secure': (ThreeDSecureSummary, none_type),"
+sed -i '' "s/$var1/$rep1/g" ./gr4vy/gr4vy_api/openapi_client/model/*.py
+
+var1="'payment_service_transaction_id': (str,),"
+rep1="'payment_service_transaction_id': (str, none_type),"
+sed -i '' "s/$var1/$rep1/g" ./gr4vy/gr4vy_api/openapi_client/model/*.py
+
+var1="'metadata': ({str: (str,)},),"
+rep1="'metadata': ({str: (str,)}, none_type),"
+sed -i '' "s/$var1/$rep1/g" ./gr4vy/gr4vy_api/openapi_client/model/*.py

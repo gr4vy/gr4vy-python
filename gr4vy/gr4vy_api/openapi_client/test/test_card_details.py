@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import openapi_client
+from openapi_client.model.required_fields import RequiredFields
+globals()['RequiredFields'] = RequiredFields
 from openapi_client.model.card_details import CardDetails
 
 

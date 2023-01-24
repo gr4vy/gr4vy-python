@@ -65,7 +65,7 @@ class Address(ModelNormal):
         },
         ('country',): {
             'max_length': 2,
-            'min_length': 1,
+            'min_length': 2,
         },
         ('postal_code',): {
             'max_length': 50,
@@ -75,15 +75,15 @@ class Address(ModelNormal):
             'max_length': 255,
             'min_length': 1,
         },
-        ('line1',): {
-            'max_length': 255,
-            'min_length': 1,
-        },
         ('state_code',): {
             'max_length': 6,
             'min_length': 4,
         },
         ('house_number_or_name',): {
+            'max_length': 255,
+            'min_length': 1,
+        },
+        ('line1',): {
             'max_length': 255,
             'min_length': 1,
         },
@@ -118,13 +118,13 @@ class Address(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'city': (str,),  # noqa: E501
-            'country': (str,),  # noqa: E501
-            'postal_code': (str,),  # noqa: E501
-            'state': (str,),  # noqa: E501
-            'line1': (str,),  # noqa: E501
+            'city': (str, none_type,),  # noqa: E501
+            'country': (str, none_type,),  # noqa: E501
+            'postal_code': (str, none_type,),  # noqa: E501
+            'state': (str, none_type,),  # noqa: E501
             'state_code': (str, none_type,),  # noqa: E501
             'house_number_or_name': (str, none_type,),  # noqa: E501
+            'line1': (str, none_type,),  # noqa: E501
             'line2': (str, none_type,),  # noqa: E501
             'organization': (str, none_type,),  # noqa: E501
         }
@@ -139,9 +139,9 @@ class Address(ModelNormal):
         'country': 'country',  # noqa: E501
         'postal_code': 'postal_code',  # noqa: E501
         'state': 'state',  # noqa: E501
-        'line1': 'line1',  # noqa: E501
         'state_code': 'state_code',  # noqa: E501
         'house_number_or_name': 'house_number_or_name',  # noqa: E501
+        'line1': 'line1',  # noqa: E501
         'line2': 'line2',  # noqa: E501
         'organization': 'organization',  # noqa: E501
     }
@@ -153,15 +153,8 @@ class Address(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, city, country, postal_code, state, line1, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, *args, **kwargs):  # noqa: E501
         """Address - a model defined in OpenAPI
-
-        Args:
-            city (str): The city for the billing address.
-            country (str): The country for the billing address.
-            postal_code (str): The postal code or zip code for the billing address.
-            state (str): The state, county, or province for the billing address.
-            line1 (str): The first line of the billing address.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -194,10 +187,15 @@ class Address(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            state_code (str, none_type): The code of state, county, or province for the billing address in ISO 3166-2 format.. [optional]  # noqa: E501
-            house_number_or_name (str, none_type): The house number or name for the billing address. Not all payment services use this field but some do.. [optional]  # noqa: E501
-            line2 (str, none_type): The second line of the billing address.. [optional]  # noqa: E501
-            organization (str, none_type): The optional name of the company or organisation to add to the billing address.. [optional]  # noqa: E501
+            city (str, none_type): The city for the address.. [optional]  # noqa: E501
+            country (str, none_type): The country for the address in ISO 3166 format.. [optional]  # noqa: E501
+            postal_code (str, none_type): The postal code or zip code for the address.. [optional]  # noqa: E501
+            state (str, none_type): The state, county, or province for the address.. [optional]  # noqa: E501
+            state_code (str, none_type): The code of state, county, or province for the address in ISO 3166-2 format.. [optional]  # noqa: E501
+            house_number_or_name (str, none_type): The house number or name for the address. Not all payment services use this field but some do.. [optional]  # noqa: E501
+            line1 (str, none_type): The first line of the address.. [optional]  # noqa: E501
+            line2 (str, none_type): The second line of the address.. [optional]  # noqa: E501
+            organization (str, none_type): The optional name of the company or organisation to add to the address.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -225,11 +223,6 @@ class Address(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.city = city
-        self.country = country
-        self.postal_code = postal_code
-        self.state = state
-        self.line1 = line1
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -250,15 +243,8 @@ class Address(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, city, country, postal_code, state, line1, *args, **kwargs):  # noqa: E501
+    def __init__(self, *args, **kwargs):  # noqa: E501
         """Address - a model defined in OpenAPI
-
-        Args:
-            city (str): The city for the billing address.
-            country (str): The country for the billing address.
-            postal_code (str): The postal code or zip code for the billing address.
-            state (str): The state, county, or province for the billing address.
-            line1 (str): The first line of the billing address.
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -291,10 +277,15 @@ class Address(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            state_code (str, none_type): The code of state, county, or province for the billing address in ISO 3166-2 format.. [optional]  # noqa: E501
-            house_number_or_name (str, none_type): The house number or name for the billing address. Not all payment services use this field but some do.. [optional]  # noqa: E501
-            line2 (str, none_type): The second line of the billing address.. [optional]  # noqa: E501
-            organization (str, none_type): The optional name of the company or organisation to add to the billing address.. [optional]  # noqa: E501
+            city (str, none_type): The city for the address.. [optional]  # noqa: E501
+            country (str, none_type): The country for the address in ISO 3166 format.. [optional]  # noqa: E501
+            postal_code (str, none_type): The postal code or zip code for the address.. [optional]  # noqa: E501
+            state (str, none_type): The state, county, or province for the address.. [optional]  # noqa: E501
+            state_code (str, none_type): The code of state, county, or province for the address in ISO 3166-2 format.. [optional]  # noqa: E501
+            house_number_or_name (str, none_type): The house number or name for the address. Not all payment services use this field but some do.. [optional]  # noqa: E501
+            line1 (str, none_type): The first line of the address.. [optional]  # noqa: E501
+            line2 (str, none_type): The second line of the address.. [optional]  # noqa: E501
+            organization (str, none_type): The optional name of the company or organisation to add to the address.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -320,11 +311,6 @@ class Address(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
-        self.city = city
-        self.country = country
-        self.postal_code = postal_code
-        self.state = state
-        self.line1 = line1
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

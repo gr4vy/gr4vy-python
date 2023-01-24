@@ -5,10 +5,14 @@ All URIs are relative to *https://api.plantly.gr4vy.app*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**add_buyer**](BuyersApi.md#add_buyer) | **POST** /buyers | New buyer
+[**add_buyer_shipping_detail**](BuyersApi.md#add_buyer_shipping_detail) | **POST** /buyers/{buyer_id}/shipping-details | New buyer shipping detail
 [**delete_buyer**](BuyersApi.md#delete_buyer) | **DELETE** /buyers/{buyer_id} | Delete buyer
+[**delete_buyer_shipping_detail**](BuyersApi.md#delete_buyer_shipping_detail) | **DELETE** /buyers/{buyer_id}/shipping-details/{shipping_detail_id} | Delete buyer shipping detail
 [**get_buyer**](BuyersApi.md#get_buyer) | **GET** /buyers/{buyer_id} | Get buyer
+[**get_buyer_shipping_details**](BuyersApi.md#get_buyer_shipping_details) | **GET** /buyers/{buyer_id}/shipping-details | Get buyer shipping details
 [**list_buyers**](BuyersApi.md#list_buyers) | **GET** /buyers | List buyers
 [**update_buyer**](BuyersApi.md#update_buyer) | **PUT** /buyers/{buyer_id} | Update buyer
+[**update_buyer_shipping_detail**](BuyersApi.md#update_buyer_shipping_detail) | **PUT** /buyers/{buyer_id}/shipping-details/{shipping_detail_id} | Update buyer shipping detail
 
 
 # **add_buyer**
@@ -100,6 +104,105 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **add_buyer_shipping_detail**
+> ShippingDetail add_buyer_shipping_detail(buyer_id)
+
+New buyer shipping detail
+
+Adds a buyer shipping detail.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+
+```python
+import time
+import openapi_client
+from openapi_client.api import buyers_api
+from openapi_client.model.error_generic import ErrorGeneric
+from openapi_client.model.shipping_detail_request import ShippingDetailRequest
+from openapi_client.model.error401_unauthorized import Error401Unauthorized
+from openapi_client.model.shipping_detail import ShippingDetail
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.plantly.gr4vy.app
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.plantly.gr4vy.app"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = openapi_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = buyers_api.BuyersApi(api_client)
+    buyer_id = "8724fd24-5489-4a5d-90fd-0604df7d3b83" # str | The unique ID for a buyer.
+    shipping_detail_request = ShippingDetailRequest(
+        first_name="John",
+        last_name="Lunn",
+        email_address="john@example.com",
+        phone_number="+1234567890",
+        address=None,
+    ) # ShippingDetailRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # New buyer shipping detail
+        api_response = api_instance.add_buyer_shipping_detail(buyer_id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling BuyersApi->add_buyer_shipping_detail: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # New buyer shipping detail
+        api_response = api_instance.add_buyer_shipping_detail(buyer_id, shipping_detail_request=shipping_detail_request)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling BuyersApi->add_buyer_shipping_detail: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **buyer_id** | **str**| The unique ID for a buyer. |
+ **shipping_detail_request** | [**ShippingDetailRequest**](ShippingDetailRequest.md)|  | [optional]
+
+### Return type
+
+[**ShippingDetail**](ShippingDetail.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Returns the shipping detail that was added. |  -  |
+**400** | Returns an error if the request was badly formatted or missing required fields. |  -  |
+**401** | Returns an error if no valid authentication was provided. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **delete_buyer**
 > delete_buyer(buyer_id)
 
@@ -154,6 +257,87 @@ with openapi_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **buyer_id** | **str**| The unique ID for a buyer. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Returns an empty response. |  -  |
+**401** | Returns an error if no valid authentication was provided. |  -  |
+**404** | Returns an error if the resource can not be found. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_buyer_shipping_detail**
+> delete_buyer_shipping_detail(buyer_id, shipping_detail_id)
+
+Delete buyer shipping detail
+
+Deletes a buyer shipping detail.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+
+```python
+import time
+import openapi_client
+from openapi_client.api import buyers_api
+from openapi_client.model.error404_not_found import Error404NotFound
+from openapi_client.model.error401_unauthorized import Error401Unauthorized
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.plantly.gr4vy.app
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.plantly.gr4vy.app"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = openapi_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = buyers_api.BuyersApi(api_client)
+    buyer_id = "8724fd24-5489-4a5d-90fd-0604df7d3b83" # str | The unique ID for a buyer.
+    shipping_detail_id = "8724fd24-5489-4a5d-90fd-0604df7d3b83" # str | The unique ID for a buyer's shipping detail.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete buyer shipping detail
+        api_instance.delete_buyer_shipping_detail(buyer_id, shipping_detail_id)
+    except openapi_client.ApiException as e:
+        print("Exception when calling BuyersApi->delete_buyer_shipping_detail: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **buyer_id** | **str**| The unique ID for a buyer. |
+ **shipping_detail_id** | **str**| The unique ID for a buyer&#39;s shipping detail. |
 
 ### Return type
 
@@ -258,6 +442,87 @@ Name | Type | Description  | Notes
 **200** | Returns the information about a buyer. |  -  |
 **401** | Returns an error if no valid authentication was provided. |  -  |
 **404** | Returns an error if the resource can not be found. |  -  |
+**0** | Returns a generic error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_buyer_shipping_details**
+> ShippingDetails get_buyer_shipping_details(buyer_id)
+
+Get buyer shipping details
+
+Retrieve all shipping details for a buyer.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+
+```python
+import time
+import openapi_client
+from openapi_client.api import buyers_api
+from openapi_client.model.error_generic import ErrorGeneric
+from openapi_client.model.shipping_details import ShippingDetails
+from openapi_client.model.error401_unauthorized import Error401Unauthorized
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.plantly.gr4vy.app
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.plantly.gr4vy.app"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = openapi_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = buyers_api.BuyersApi(api_client)
+    buyer_id = "8724fd24-5489-4a5d-90fd-0604df7d3b83" # str | The unique ID for a buyer.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get buyer shipping details
+        api_response = api_instance.get_buyer_shipping_details(buyer_id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling BuyersApi->get_buyer_shipping_details: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **buyer_id** | **str**| The unique ID for a buyer. |
+
+### Return type
+
+[**ShippingDetails**](ShippingDetails.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns all associated shipping details. |  -  |
+**401** | Returns an error if no valid authentication was provided. |  -  |
 **0** | Returns a generic error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -389,6 +654,8 @@ with openapi_client.ApiClient(configuration) as api_client:
     api_instance = buyers_api.BuyersApi(api_client)
     buyer_id = "8724fd24-5489-4a5d-90fd-0604df7d3b83" # str | The unique ID for a buyer.
     buyer_update = BuyerUpdate(
+        external_identifier="user-789123",
+        display_name="John L.",
         billing_details=None,
     ) # BuyerUpdate |  (optional)
 
@@ -437,6 +704,109 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Returns the updated buyer record. |  -  |
+**400** | Returns an error if the request was badly formatted or missing required fields. |  -  |
+**401** | Returns an error if no valid authentication was provided. |  -  |
+**404** | Returns an error if the resource can not be found. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_buyer_shipping_detail**
+> ShippingDetail update_buyer_shipping_detail(buyer_id, shipping_detail_id)
+
+Update buyer shipping detail
+
+Updates a shipping detail for a buyer.
+
+### Example
+
+* Bearer (JWT) Authentication (BearerAuth):
+
+```python
+import time
+import openapi_client
+from openapi_client.api import buyers_api
+from openapi_client.model.error404_not_found import Error404NotFound
+from openapi_client.model.shipping_detail_update_request import ShippingDetailUpdateRequest
+from openapi_client.model.error_generic import ErrorGeneric
+from openapi_client.model.error401_unauthorized import Error401Unauthorized
+from openapi_client.model.shipping_detail import ShippingDetail
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.plantly.gr4vy.app
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://api.plantly.gr4vy.app"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (JWT): BearerAuth
+configuration = openapi_client.Configuration(
+    access_token = 'YOUR_BEARER_TOKEN'
+)
+
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = buyers_api.BuyersApi(api_client)
+    buyer_id = "8724fd24-5489-4a5d-90fd-0604df7d3b83" # str | The unique ID for a buyer.
+    shipping_detail_id = "8724fd24-5489-4a5d-90fd-0604df7d3b83" # str | The unique ID for a buyer's shipping detail.
+    shipping_detail_update_request = ShippingDetailUpdateRequest(
+        first_name="John",
+        last_name="Lunn",
+        email_address="john@example.com",
+        phone_number="+1234567890",
+        address=None,
+    ) # ShippingDetailUpdateRequest |  (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update buyer shipping detail
+        api_response = api_instance.update_buyer_shipping_detail(buyer_id, shipping_detail_id)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling BuyersApi->update_buyer_shipping_detail: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Update buyer shipping detail
+        api_response = api_instance.update_buyer_shipping_detail(buyer_id, shipping_detail_id, shipping_detail_update_request=shipping_detail_update_request)
+        pprint(api_response)
+    except openapi_client.ApiException as e:
+        print("Exception when calling BuyersApi->update_buyer_shipping_detail: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **buyer_id** | **str**| The unique ID for a buyer. |
+ **shipping_detail_id** | **str**| The unique ID for a buyer&#39;s shipping detail. |
+ **shipping_detail_update_request** | [**ShippingDetailUpdateRequest**](ShippingDetailUpdateRequest.md)|  | [optional]
+
+### Return type
+
+[**ShippingDetail**](ShippingDetail.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Returns the updated shipping detail. |  -  |
 **400** | Returns an error if the request was badly formatted or missing required fields. |  -  |
 **401** | Returns an error if no valid authentication was provided. |  -  |
 **404** | Returns an error if the resource can not be found. |  -  |

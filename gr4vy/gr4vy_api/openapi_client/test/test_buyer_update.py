@@ -13,8 +13,6 @@ import sys
 import unittest
 
 import openapi_client
-from openapi_client.model.buyer_request import BuyerRequest
-globals()['BuyerRequest'] = BuyerRequest
 from openapi_client.model.buyer_update import BuyerUpdate
 
 

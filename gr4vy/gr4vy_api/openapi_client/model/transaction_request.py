@@ -117,6 +117,7 @@ class TransactionRequest(ModelNormal):
             'amount': (int,),  # noqa: E501
             'currency': (str,),  # noqa: E501
             'payment_method': (TransactionPaymentMethodRequest,),  # noqa: E501
+            'country': (str, none_type,),  # noqa: E501
             'store': (bool,),  # noqa: E501
             'intent': (str,),  # noqa: E501
             'external_identifier': (str, none_type,),  # noqa: E501
@@ -128,6 +129,9 @@ class TransactionRequest(ModelNormal):
             'statement_descriptor': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'cart_items': ([CartItem],),  # noqa: E501
             'previous_scheme_transaction_id': (str, none_type,),  # noqa: E501
+            'browser_info': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
+            'shipping_details_id': (str, none_type,),  # noqa: E501
+            'connection_options': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -139,6 +143,7 @@ class TransactionRequest(ModelNormal):
         'amount': 'amount',  # noqa: E501
         'currency': 'currency',  # noqa: E501
         'payment_method': 'payment_method',  # noqa: E501
+        'country': 'country',  # noqa: E501
         'store': 'store',  # noqa: E501
         'intent': 'intent',  # noqa: E501
         'external_identifier': 'external_identifier',  # noqa: E501
@@ -150,6 +155,9 @@ class TransactionRequest(ModelNormal):
         'statement_descriptor': 'statement_descriptor',  # noqa: E501
         'cart_items': 'cart_items',  # noqa: E501
         'previous_scheme_transaction_id': 'previous_scheme_transaction_id',  # noqa: E501
+        'browser_info': 'browser_info',  # noqa: E501
+        'shipping_details_id': 'shipping_details_id',  # noqa: E501
+        'connection_options': 'connection_options',  # noqa: E501
     }
 
     read_only_vars = {
@@ -163,8 +171,8 @@ class TransactionRequest(ModelNormal):
         """TransactionRequest - a model defined in OpenAPI
 
         Args:
-            amount (int): The monetary amount to create an authorization for, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`.
-            currency (str): A supported ISO-4217 currency code.
+            amount (int): The monetary amount to create an authorization for, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`.  If the `intent` is set to `capture`, an amount greater than zero must be supplied.
+            currency (str): A supported ISO-4217 currency code.  For redirect requests, this value must match the one specified for `currency` in `payment_method`. 
             payment_method (TransactionPaymentMethodRequest):
 
         Keyword Args:
@@ -198,17 +206,21 @@ class TransactionRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            store (bool): Whether or not to also try and store the payment method with us so that it can be used again for future use. This is only supported for payment methods that support this feature.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            country (str, none_type): The 2-letter ISO code of the country of the transaction. This is used to filter the payment services that is used to process the transaction.  If this value is provided for redirect requests and it's not `null`, it must match the one specified for `country` in `payment_method`. Otherwise, the value specified for `country` in `payment_method` will be assumed implicitly. . [optional]  # noqa: E501
+            store (bool): Whether or not to also try and store the payment method with us so that it can be used again for future use. This is only supported for payment methods that support this feature. There are also a few restrictions on how the flag may be set:  * The flag has to be set to `true` when the `payment_source` is set to `recurring` or `installment`, and `merchant_initiated` is set to `false`.  * The flag has to be set to `false` (or not set) when using a previously tokenized payment method.. [optional] if omitted the server will use the default value of False  # noqa: E501
             intent (str): Defines the intent of this API call. This determines the desired initial state of the transaction.  * `authorize` - (Default) Optionally approves and then authorizes a transaction but does not capture the funds. * `capture` - Optionally approves and then authorizes and captures the funds of the transaction.. [optional] if omitted the server will use the default value of "authorize"  # noqa: E501
             external_identifier (str, none_type): An external identifier that can be used to match the transaction against your own records.. [optional]  # noqa: E501
             three_d_secure_data (ThreeDSecureDataV1V2): [optional]  # noqa: E501
             merchant_initiated (bool): Indicates whether the transaction was initiated by the merchant (true) or customer (false).. [optional] if omitted the server will use the default value of False  # noqa: E501
             payment_source (str): The source of the transaction. Defaults to `ecommerce`.. [optional]  # noqa: E501
-            is_subsequent_payment (bool): Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note this flag is only compatible with `payment_source` set to `recurring`, `installment`, or `card_on_file` and will be ignored for other values or if `payment_source` is not present.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            is_subsequent_payment (bool): Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note there are some restrictions on how this flag may be used.  The flag can only be `false` (or not set) when the transaction meets one of the following criteria:  * It is not `merchant_initiated`. * `payment_source` is set to `card_on_file`.  The flag can only be set to `true` when the transaction meets one of the following criteria:  * It is not `merchant_initiated`. * `payment_source` is set to `recurring` or `installment` and `merchant_initiated` is set to `true`. * `payment_source` is set to `card_on_file`.. [optional] if omitted the server will use the default value of False  # noqa: E501
             metadata ({str: (str,)}): Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it. Please visit https://gr4vy.com/docs/ under `Connections` for more information on how specific providers support metadata.. [optional]  # noqa: E501
             statement_descriptor (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             cart_items ([CartItem]): An array of cart items that represents the line items of a transaction.. [optional]  # noqa: E501
             previous_scheme_transaction_id (str, none_type): A scheme's transaction identifier to use in connecting a merchant initiated transaction to a previous customer initiated transaction.  If not provided, and a qualifying customer initiated transaction has been previously made, then Gr4vy will populate this value with the identifier returned for that transaction.  e.g. the Visa Transaction Identifier, or Mastercard Trace ID.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
+            browser_info (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            shipping_details_id (str, none_type): The unique identifier of a set of shipping details stored for the buyer.  If provided, the created transaction will include a copy of the details at the point of transaction creation; i.e. it will not be affected by later changes to the detail in the database.. [optional]  # noqa: E501
+            connection_options (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -263,8 +275,8 @@ class TransactionRequest(ModelNormal):
         """TransactionRequest - a model defined in OpenAPI
 
         Args:
-            amount (int): The monetary amount to create an authorization for, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`.
-            currency (str): A supported ISO-4217 currency code.
+            amount (int): The monetary amount to create an authorization for, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`.  If the `intent` is set to `capture`, an amount greater than zero must be supplied.
+            currency (str): A supported ISO-4217 currency code.  For redirect requests, this value must match the one specified for `currency` in `payment_method`. 
             payment_method (TransactionPaymentMethodRequest):
 
         Keyword Args:
@@ -298,17 +310,21 @@ class TransactionRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            store (bool): Whether or not to also try and store the payment method with us so that it can be used again for future use. This is only supported for payment methods that support this feature.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            country (str, none_type): The 2-letter ISO code of the country of the transaction. This is used to filter the payment services that is used to process the transaction.  If this value is provided for redirect requests and it's not `null`, it must match the one specified for `country` in `payment_method`. Otherwise, the value specified for `country` in `payment_method` will be assumed implicitly. . [optional]  # noqa: E501
+            store (bool): Whether or not to also try and store the payment method with us so that it can be used again for future use. This is only supported for payment methods that support this feature. There are also a few restrictions on how the flag may be set:  * The flag has to be set to `true` when the `payment_source` is set to `recurring` or `installment`, and `merchant_initiated` is set to `false`.  * The flag has to be set to `false` (or not set) when using a previously tokenized payment method.. [optional] if omitted the server will use the default value of False  # noqa: E501
             intent (str): Defines the intent of this API call. This determines the desired initial state of the transaction.  * `authorize` - (Default) Optionally approves and then authorizes a transaction but does not capture the funds. * `capture` - Optionally approves and then authorizes and captures the funds of the transaction.. [optional] if omitted the server will use the default value of "authorize"  # noqa: E501
             external_identifier (str, none_type): An external identifier that can be used to match the transaction against your own records.. [optional]  # noqa: E501
             three_d_secure_data (ThreeDSecureDataV1V2): [optional]  # noqa: E501
             merchant_initiated (bool): Indicates whether the transaction was initiated by the merchant (true) or customer (false).. [optional] if omitted the server will use the default value of False  # noqa: E501
             payment_source (str): The source of the transaction. Defaults to `ecommerce`.. [optional]  # noqa: E501
-            is_subsequent_payment (bool): Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note this flag is only compatible with `payment_source` set to `recurring`, `installment`, or `card_on_file` and will be ignored for other values or if `payment_source` is not present.. [optional] if omitted the server will use the default value of False  # noqa: E501
+            is_subsequent_payment (bool): Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note there are some restrictions on how this flag may be used.  The flag can only be `false` (or not set) when the transaction meets one of the following criteria:  * It is not `merchant_initiated`. * `payment_source` is set to `card_on_file`.  The flag can only be set to `true` when the transaction meets one of the following criteria:  * It is not `merchant_initiated`. * `payment_source` is set to `recurring` or `installment` and `merchant_initiated` is set to `true`. * `payment_source` is set to `card_on_file`.. [optional] if omitted the server will use the default value of False  # noqa: E501
             metadata ({str: (str,)}): Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it. Please visit https://gr4vy.com/docs/ under `Connections` for more information on how specific providers support metadata.. [optional]  # noqa: E501
             statement_descriptor (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             cart_items ([CartItem]): An array of cart items that represents the line items of a transaction.. [optional]  # noqa: E501
             previous_scheme_transaction_id (str, none_type): A scheme's transaction identifier to use in connecting a merchant initiated transaction to a previous customer initiated transaction.  If not provided, and a qualifying customer initiated transaction has been previously made, then Gr4vy will populate this value with the identifier returned for that transaction.  e.g. the Visa Transaction Identifier, or Mastercard Trace ID.. [optional] if omitted the server will use the default value of "null"  # noqa: E501
+            browser_info (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
+            shipping_details_id (str, none_type): The unique identifier of a set of shipping details stored for the buyer.  If provided, the created transaction will include a copy of the details at the point of transaction creation; i.e. it will not be affected by later changes to the detail in the database.. [optional]  # noqa: E501
+            connection_options (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

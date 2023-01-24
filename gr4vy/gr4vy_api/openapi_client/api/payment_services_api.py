@@ -210,6 +210,7 @@ class PaymentServicesApi(object):
                     'limit',
                     'cursor',
                     'method',
+                    'deleted',
                 ],
                 'required': [],
                 'nullable': [
@@ -232,15 +233,30 @@ class PaymentServicesApi(object):
                 'allowed_values': {
                     ('method',): {
 
-                        "CARD": "card",
-                        "PAYPAL": "paypal",
-                        "BANKED": "banked",
-                        "GOCARDLESS": "gocardless",
-                        "STRIPEDD": "stripedd",
-                        "APPLEPAY": "applepay",
-                        "GOOGLEPAY": "googlepay",
                         "AFTERPAY": "afterpay",
+                        "APPLEPAY": "applepay",
+                        "BANKED": "banked",
+                        "BITPAY": "bitpay",
+                        "BOLETO": "boleto",
+                        "CARD": "card",
                         "CLEARPAY": "clearpay",
+                        "DANA": "dana",
+                        "FORTUMO": "fortumo",
+                        "GCASH": "gcash",
+                        "GOCARDLESS": "gocardless",
+                        "GOOGLEPAY": "googlepay",
+                        "GRABPAY": "grabpay",
+                        "KLARNA": "klarna",
+                        "OVO": "ovo",
+                        "PAYMAYA": "paymaya",
+                        "PAYPAL": "paypal",
+                        "PIX": "pix",
+                        "RABBITLINEPAY": "rabbitlinepay",
+                        "SCALAPAY": "scalapay",
+                        "SHOPEEPAY": "shopeepay",
+                        "STRIPEDD": "stripedd",
+                        "TRUEMONEY": "truemoney",
+                        "TRUSTLY": "trustly",
                         "ZIPPAY": "zippay"
                     },
                 },
@@ -251,16 +267,20 @@ class PaymentServicesApi(object):
                         (str,),
                     'method':
                         (str,),
+                    'deleted':
+                        (bool,),
                 },
                 'attribute_map': {
                     'limit': 'limit',
                     'cursor': 'cursor',
                     'method': 'method',
+                    'deleted': 'deleted',
                 },
                 'location_map': {
                     'limit': 'query',
                     'cursor': 'query',
                     'method': 'query',
+                    'deleted': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -543,6 +563,7 @@ class PaymentServicesApi(object):
             limit (int): Defines the maximum number of items to return for this request.. [optional] if omitted the server will use the default value of 20
             cursor (str): A cursor that identifies the page of results to return. This is used to paginate the results of this API.  For the first page of results, this parameter can be left out. For additional pages, use the value returned by the API in the `next_cursor` field. Similarly the `previous_cursor` can be used to reverse backwards in the list.. [optional]
             method (str): Filters the results to only the items for which the `method` has been set to this value.. [optional]
+            deleted (bool): Filters the results to only show items which have been deleted. By default, deleted items will not be returned.. [optional] if omitted the server will use the default value of False
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

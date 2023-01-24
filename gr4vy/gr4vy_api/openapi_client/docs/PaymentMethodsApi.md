@@ -388,7 +388,8 @@ with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = payment_methods_api.PaymentMethodsApi(api_client)
     payment_method_request = PaymentMethodRequest(
-        method=None,
+        method="card",
+        id="8d3fe99b-1422-42e6-bbb3-932d95ae5f79",
         number="4111111111111111",
         expiration_date="11/15",
         security_code="123",
@@ -397,7 +398,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         buyer_external_identifier="user-789123",
         redirect_url="https://example.com/callback",
         currency="USD",
-        country="USD",
+        country="US",
     ) # PaymentMethodRequest |  (optional)
 
     # example passing only required values which don't have defaults set

@@ -31,6 +31,13 @@ class TestBuyersApi(unittest.TestCase):
         """
         pass
 
+    def test_add_buyer_shipping_detail(self):
+        """Test case for add_buyer_shipping_detail
+
+        New buyer shipping detail  # noqa: E501
+        """
+        pass
+
     def test_delete_buyer(self):
         """Test case for delete_buyer
 
@@ -38,10 +45,24 @@ class TestBuyersApi(unittest.TestCase):
         """
         pass
 
+    def test_delete_buyer_shipping_detail(self):
+        """Test case for delete_buyer_shipping_detail
+
+        Delete buyer shipping detail  # noqa: E501
+        """
+        pass
+
     def test_get_buyer(self):
         """Test case for get_buyer
 
         Get buyer  # noqa: E501
+        """
+        pass
+
+    def test_get_buyer_shipping_details(self):
+        """Test case for get_buyer_shipping_details
+
+        Get buyer shipping details  # noqa: E501
         """
         pass
 
@@ -56,6 +77,13 @@ class TestBuyersApi(unittest.TestCase):
         """Test case for update_buyer
 
         Update buyer  # noqa: E501
+        """
+        pass
+
+    def test_update_buyer_shipping_detail(self):
+        """Test case for update_buyer_shipping_detail
+
+        Update buyer shipping detail  # noqa: E501
         """
         pass
 

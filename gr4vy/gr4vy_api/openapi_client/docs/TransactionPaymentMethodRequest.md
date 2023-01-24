@@ -6,7 +6,7 @@ Payment method details to use in a transaction or to register a new payment meth
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **method** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | 
-**number** | **str** | The 15-16 digit number for this credit card as it can be found on the front of the card.  If a card has been stored with us previously, this number will represent the unique tokenized card ID provided via our API. | [optional] 
+**number** | **str** | The 13-19 digit number for this credit card as it can be found on the front of the card.  If a card has been stored with us previously, this number will represent the unique tokenized card ID provided via our API. | [optional] 
 **expiration_date** | **str** | The expiration date of the card, formatted &#x60;MM/YY&#x60;. If a card has been previously stored with us this value is optional.  If the &#x60;number&#x60; of this card represents a tokenized card, then this value is ignored. | [optional] 
 **security_code** | **str** | The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD.  If the &#x60;number&#x60; of this card represents a tokenized card, then this value is ignored. | [optional] 
 **external_identifier** | **str, none_type** | An external identifier that can be used to match the card against your own records. | [optional] 

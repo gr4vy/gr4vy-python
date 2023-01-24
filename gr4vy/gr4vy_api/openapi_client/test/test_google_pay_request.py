@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import openapi_client
+from openapi_client.model.google_pay_request_assurance_details import GooglePayRequestAssuranceDetails
+globals()['GooglePayRequestAssuranceDetails'] = GooglePayRequestAssuranceDetails
 from openapi_client.model.google_pay_request import GooglePayRequest
 
 

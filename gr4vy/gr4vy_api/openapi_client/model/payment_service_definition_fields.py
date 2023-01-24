@@ -91,6 +91,7 @@ class PaymentServiceDefinitionFields(ModelNormal):
             'display_name': (str,),  # noqa: E501
             'required': (bool,),  # noqa: E501
             'format': (str,),  # noqa: E501
+            'secret': (bool,),  # noqa: E501
         }
 
     @cached_property
@@ -103,6 +104,7 @@ class PaymentServiceDefinitionFields(ModelNormal):
         'display_name': 'display_name',  # noqa: E501
         'required': 'required',  # noqa: E501
         'format': 'format',  # noqa: E501
+        'secret': 'secret',  # noqa: E501
     }
 
     read_only_vars = {
@@ -150,6 +152,7 @@ class PaymentServiceDefinitionFields(ModelNormal):
             display_name (str): The name to display for a field in the dashboard.. [optional]  # noqa: E501
             required (bool): Defines if this field is required when the service is created.. [optional]  # noqa: E501
             format (str): Defines the type of input that needs to be rendered for this field.. [optional]  # noqa: E501
+            secret (bool): Defines if this field is secret. When `true` the field is not returned when querying the payment service.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -235,6 +238,7 @@ class PaymentServiceDefinitionFields(ModelNormal):
             display_name (str): The name to display for a field in the dashboard.. [optional]  # noqa: E501
             required (bool): Defines if this field is required when the service is created.. [optional]  # noqa: E501
             format (str): Defines the type of input that needs to be rendered for this field.. [optional]  # noqa: E501
+            secret (bool): Defines if this field is secret. When `true` the field is not returned when querying the payment service.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

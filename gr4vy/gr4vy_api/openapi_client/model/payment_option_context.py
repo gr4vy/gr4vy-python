@@ -31,8 +31,10 @@ from gr4vy.gr4vy_api.openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
-    from gr4vy.gr4vy_api.openapi_client.model.undefined import Undefined
-    globals()['Undefined'] = Undefined
+    from gr4vy.gr4vy_api.openapi_client.model.payment_option_approval_ui import PaymentOptionApprovalUI
+    from gr4vy.gr4vy_api.openapi_client.model.required_fields import RequiredFields
+    globals()['PaymentOptionApprovalUI'] = PaymentOptionApprovalUI
+    globals()['RequiredFields'] = RequiredFields
 
 
 class PaymentOptionContext(ModelNormal):
@@ -88,8 +90,12 @@ class PaymentOptionContext(ModelNormal):
         """
         lazy_import()
         return {
+            'gateway': (str,),  # noqa: E501
+            'gateway_merchant_id': (str,),  # noqa: E501
             'merchant_name': (str,),  # noqa: E501
-            'supported_schemes': ([Undefined],),  # noqa: E501
+            'supported_schemes': ([str],),  # noqa: E501
+            'approval_ui': (PaymentOptionApprovalUI,),  # noqa: E501
+            'required_fields': (RequiredFields,),  # noqa: E501
         }
 
     @cached_property
@@ -98,8 +104,12 @@ class PaymentOptionContext(ModelNormal):
 
 
     attribute_map = {
+        'gateway': 'gateway',  # noqa: E501
+        'gateway_merchant_id': 'gateway_merchant_id',  # noqa: E501
         'merchant_name': 'merchant_name',  # noqa: E501
         'supported_schemes': 'supported_schemes',  # noqa: E501
+        'approval_ui': 'approval_ui',  # noqa: E501
+        'required_fields': 'required_fields',  # noqa: E501
     }
 
     read_only_vars = {
@@ -143,8 +153,12 @@ class PaymentOptionContext(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            gateway (str): Gateway used for Google Pay payments.. [optional]  # noqa: E501
+            gateway_merchant_id (str): Gateway merchant identifier used for Google Pay payments.. [optional]  # noqa: E501
             merchant_name (str): Display name of the merchant as registered with the digital wallet provider.. [optional]  # noqa: E501
-            supported_schemes ([Undefined]): Card schemes supported by the digital wallet provider.. [optional]  # noqa: E501
+            supported_schemes ([str]): Card schemes supported by the digital wallet provider.. [optional]  # noqa: E501
+            approval_ui (PaymentOptionApprovalUI): [optional]  # noqa: E501
+            required_fields (RequiredFields): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -226,8 +240,12 @@ class PaymentOptionContext(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            gateway (str): Gateway used for Google Pay payments.. [optional]  # noqa: E501
+            gateway_merchant_id (str): Gateway merchant identifier used for Google Pay payments.. [optional]  # noqa: E501
             merchant_name (str): Display name of the merchant as registered with the digital wallet provider.. [optional]  # noqa: E501
-            supported_schemes ([Undefined]): Card schemes supported by the digital wallet provider.. [optional]  # noqa: E501
+            supported_schemes ([str]): Card schemes supported by the digital wallet provider.. [optional]  # noqa: E501
+            approval_ui (PaymentOptionApprovalUI): [optional]  # noqa: E501
+            required_fields (RequiredFields): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

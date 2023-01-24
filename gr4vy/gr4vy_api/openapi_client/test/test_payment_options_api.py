@@ -31,6 +31,13 @@ class TestPaymentOptionsApi(unittest.TestCase):
         """
         pass
 
+    def test_post_list_payment_options(self):
+        """Test case for post_list_payment_options
+
+        List payment options  # noqa: E501
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

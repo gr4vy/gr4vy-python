@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import openapi_client
+from openapi_client.model.payment_method_details_card import PaymentMethodDetailsCard
+globals()['PaymentMethodDetailsCard'] = PaymentMethodDetailsCard
 from openapi_client.model.payment_method_snapshot import PaymentMethodSnapshot
 
 

@@ -61,7 +61,7 @@ class TransactionCaptureRequest(ModelNormal):
     validations = {
         ('amount',): {
             'inclusive_maximum': 99999999,
-            'inclusive_minimum': 0,
+            'inclusive_minimum': 1,
         },
     }
 
@@ -139,7 +139,7 @@ class TransactionCaptureRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            amount (int): The monetary amount to capture an authorization for, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`.  When omitted blank, this will capture the entire amount.. [optional]  # noqa: E501
+            amount (int): The monetary amount to capture an authorization for, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`.  When omitted blank, this will capture the entire amount.  Capturing an amount that is greater than the authorized amount is not supported.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -221,7 +221,7 @@ class TransactionCaptureRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            amount (int): The monetary amount to capture an authorization for, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`.  When omitted blank, this will capture the entire amount.. [optional]  # noqa: E501
+            amount (int): The monetary amount to capture an authorization for, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`.  When omitted blank, this will capture the entire amount.  Capturing an amount that is greater than the authorized amount is not supported.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

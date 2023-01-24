@@ -13,8 +13,6 @@ import sys
 import unittest
 
 import openapi_client
-from openapi_client.model.billing_details_request import BillingDetailsRequest
-globals()['BillingDetailsRequest'] = BillingDetailsRequest
 from openapi_client.model.billing_details_update_request import BillingDetailsUpdateRequest
 
 

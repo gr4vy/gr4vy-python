@@ -97,6 +97,7 @@ class PaymentOption(ModelNormal):
             'mode': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'label': (str,),  # noqa: E501
             'can_store_payment_method': (bool,),  # noqa: E501
+            'can_delay_capture': (bool,),  # noqa: E501
             'context': (PaymentOptionContext, none_type),  # noqa: E501
         }
 
@@ -112,6 +113,7 @@ class PaymentOption(ModelNormal):
         'mode': 'mode',  # noqa: E501
         'label': 'label',  # noqa: E501
         'can_store_payment_method': 'can_store_payment_method',  # noqa: E501
+        'can_delay_capture': 'can_delay_capture',  # noqa: E501
         'context': 'context',  # noqa: E501
     }
 
@@ -162,6 +164,7 @@ class PaymentOption(ModelNormal):
             mode (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             label (str): A label that describes this payment option. This label is returned in the language defined by the `locale` query parameter. The label can be used to display a list of payment options to the buyer in their language.. [optional]  # noqa: E501
             can_store_payment_method (bool): A flag to indicate if storing the payment method is supported.. [optional]  # noqa: E501
+            can_delay_capture (bool): A flag to indicate if delayed capture is supported.. [optional]  # noqa: E501
             context (PaymentOptionContext): [optional]  # noqa: E501
         """
 
@@ -250,6 +253,7 @@ class PaymentOption(ModelNormal):
             mode (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             label (str): A label that describes this payment option. This label is returned in the language defined by the `locale` query parameter. The label can be used to display a list of payment options to the buyer in their language.. [optional]  # noqa: E501
             can_store_payment_method (bool): A flag to indicate if storing the payment method is supported.. [optional]  # noqa: E501
+            can_delay_capture (bool): A flag to indicate if delayed capture is supported.. [optional]  # noqa: E501
             context (PaymentOptionContext): [optional]  # noqa: E501
         """
 
