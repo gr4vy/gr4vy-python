@@ -6,7 +6,6 @@ import uuid
 from datetime import datetime, timedelta, timezone
 from os import environ
 
-import cryptography.hazmat.primitives.asymmetric.ec as ec
 import cryptography.hazmat.primitives.hashes as hashes
 import cryptography.hazmat.primitives.serialization as serialization
 
@@ -14,16 +13,10 @@ import jose.jwk
 from jwt import api_jwt
 from pem import parse_file
 
-from gr4vy.gr4vy_api.openapi_client import ApiClient, Configuration
-from gr4vy.sdk_Buyers import gr4vyBuyers
-from gr4vy.sdk_PaymentMethods import gr4vyPaymentMethods
-from gr4vy.sdk_PaymentMethodTokens import gr4vyPaymentMethodTokens
-from gr4vy.sdk_PaymentOptions import gr4vyPaymentOptions
-from gr4vy.sdk_PaymentServiceDefinitions import gr4vyPaymentServiceDefinitions
-from gr4vy.sdk_PaymentServices import gr4vyPaymentServices
-from gr4vy.sdk_Transactions import gr4vyTransactions
+from gr4vy.gr4vy_api.openapi_client import ApiClient, Configuration, ApiException
+from gr4vy.gr4vy_api.openapi_client.api import buyers_api, payment_methods_api, payment_method_tokens_api, payment_options_api, payment_service_definitions_api, payment_services_api, transactions_api
 
-VERSION = 0.1
+VERSION = 0.5
 PYTHON_VERSION = "{}.{}.{}".format(
     sys.version_info[0], sys.version_info[1], sys.version_info[2]
 )
@@ -57,12 +50,13 @@ class Gr4vyClient:
         data = {
             "iss": "Gr4vy SDK {} - {}".format(VERSION, PYTHON_VERSION),
             "nbf": datetime.now(tz=timezone.utc),
-            "exp": datetime.now(tz=timezone.utc) + timedelta(seconds=3000),
+            "exp": datetime.now(tz=timezone.utc) + timedelta(hours=4800),
             "jti": str(uuid.uuid4()),
             "scopes": scopes,
         }
         if embed_data:
             data["embed"] = embed_data
+            data["scopes"] = ["embed.read", "embed.write"]
         self.token = api_jwt.encode(
             data, private_key, algorithm="ES512", headers={"kid": kid}
         )
@@ -84,156 +78,260 @@ class Gr4vyClient:
 
     def CreateClient(self):
         self.client = ApiClient(self.configuration)
-
+    
     def GetBuyer(self, buyer_id):
         with self.client as api_client:
-            api_instance = gr4vyBuyers(api_client)
-            return api_instance.getBuyer(buyer_id)
+            try:
+                # Get buyer
+                client = buyers_api.BuyersApi(api_client)
+                api_response = client.get_buyer(buyer_id)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling BuyersApi->get_buyer: %s\n" % e)
 
     def ListBuyers(self, **kwargs):
         with self.client as api_client:
-            api_instance = gr4vyBuyers(api_client)
-            return api_instance.listBuyers(**kwargs)
+            try:
+                # Get buyer
+                client = buyers_api.BuyersApi(api_client)
+                api_response = client.list_buyers(**kwargs)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling BuyersApi->list_buyer: %s\n" % e)
 
     def AddBuyer(self, buyer_request):
         with self.client as api_client:
-            api_instance = gr4vyBuyers(api_client)
-            return api_instance.addBuyer(buyer_request)
+            try:
+                # Get buyer
+                client = buyers_api.BuyersApi(api_client)
+                api_response = client.add_buyer(buyer_request=buyer_request)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling BuyersApi->add_buyer: %s\n" % e)
 
     def UpdateBuyer(self, buyer_id, buyer_update):
         with self.client as api_client:
-            api_instance = gr4vyBuyers(api_client)
-            return api_instance.updateBuyer(buyer_id, buyer_update)
+            try:
+                # Get buyer
+                client = buyers_api.BuyersApi(api_client)
+                api_response = client.update_buyer(buyer_id=buyer_id, buyer_update=buyer_update)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling BuyersApi->update_buyer: %s\n" % e)
 
     def DeleteBuyer(self, buyer_id):
         with self.client as api_client:
-            api_instance = gr4vyBuyers(api_client)
-            return api_instance.delete_buyer(buyer_id)
+            try:
+                # Get buyer
+                client = buyers_api.BuyersApi(api_client)
+                api_response = client.delete_buyer(buyer_id=buyer_id)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling BuyersApi->delete_buyer: %s\n" % e)
+
 
     def GetPaymentMethod(self, payment_method_id):
         with self.client as api_client:
-            api_instance = gr4vyPaymentMethods(api_client)
-            return api_instance.getPaymentMethod(payment_method_id)
+            try:
+                # Get buyer
+                client = payment_methods_api.PaymentMethodsApi(api_client)
+                api_response = client.get_payment_method(payment_method_id=payment_method_id)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling PaymentMethodsApi->get_payment_method: %s\n" % e)
+
 
     def ListBuyerPaymentMethods(self, buyer_id, **kwargs):
         with self.client as api_client:
-            api_instance = gr4vyPaymentMethods(api_client)
-            return api_instance.listBuyerPaymentMethods(buyer_id=buyer_id, **kwargs)
+            try:
+                # Get buyer
+                client = payment_methods_api.PaymentMethodsApi(api_client)
+                api_response = client.list_buyer_payment_methods(buyer_id=buyer_id, **kwargs)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling PaymentMethodsApi->get_payment_method: %s\n" % e)
 
     def ListPaymentMethods(self, **kwargs):
         with self.client as api_client:
-            api_instance = gr4vyPaymentMethods(api_client)
-            return api_instance.listPaymentMethods()
+            try:
+                client = payment_methods_api.PaymentMethodsApi(api_client)
+                api_response = client.list_payment_methods(**kwargs)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling PaymentMethodsApi->list_payment_methods: %s\n" % e)
 
     def StorePaymentMethod(self, payment_method_request):
         with self.client as api_client:
-            api_instance = gr4vyPaymentMethods(api_client)
-            return api_instance.storePaymentMethod(
-                payment_method_request=payment_method_request
-            )
+            try:
+                client = payment_methods_api.PaymentMethodsApi(api_client)
+                api_response = client.store_payment_method(payment_method_request=payment_method_request)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling PaymentMethodsApi->store_payment_method: %s\n" % e)
 
     def DeletePaymentMethod(self, payment_method_id):
         with self.client as api_client:
-            api_instance = gr4vyPaymentMethods(api_client)
-            return api_instance.deletePaymentMethod(payment_method_id)
+            try:
+                client = payment_methods_api.PaymentMethodsApi(api_client)
+                api_response = client.delete_payment_method(payment_method_id=payment_method_id)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling PaymentMethodsApi->delete_payment_method: %s\n" % e)
+
 
     def ListPaymentMethodTokens(self, payment_method_id):
         with self.client as api_client:
-            api_instance = gr4vyPaymentMethodTokens(api_client)
-            return api_instance.listPaymentMethodTokens(payment_method_id)
+            try:
+                client = payment_method_tokens_api.PaymentMethodTokensApi(api_client)
+                api_response = client.list_payment_method_tokens(payment_method_id=payment_method_id)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling PaymentMethodTokensApi->list_payment_method_tokens: %s\n" % e)
+
 
     def ListPaymentOptions(self, **kwargs):
         with self.client as api_client:
-            api_instance = gr4vyPaymentOptions(api_client)
-            return api_instance.listPaymentOptions(**kwargs)
+            try:
+                client = payment_options_api.PaymentOptionsApi(api_client)
+                api_response = client.list_payment_options(**kwargs)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling PaymentOptionsApi->list_payment_options: %s\n" % e)
+
 
     def GetPaymentServiceDefinition(self, payment_service_definition_id):
         with self.client as api_client:
-            api_instance = gr4vyPaymentServiceDefinitions(api_client)
-            return api_instance.getPaymentServiceDefinition(
-                payment_service_definition_id
-            )
+            try:
+                client = payment_service_definitions_api.PaymentServiceDefinitionsApi(api_client)
+                api_response = client.get_payment_service_definition(payment_service_definition_id=payment_service_definition_id)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling PaymentServiceDefinitionsApi->get_payment_service_definition: %s\n" % e)
+
 
     def ListPaymentServiceDefintions(self, **kwargs):
         with self.client as api_client:
-            api_instance = gr4vyPaymentServiceDefinitions(api_client)
-            return api_instance.listPaymentServiceDefintions(**kwargs)
+            try:
+                client = payment_service_definitions_api.PaymentServiceDefinitionsApi(api_client)
+                api_response = client.list_payment_service_definitions(**kwargs)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling PaymentServiceDefinitionsApi->get_payment_service_definition: %s\n" % e)
+
 
     def ListPaymentServices(self, **kwargs):
-        print(**kwargs)
         with self.client as api_client:
-            api_instance = gr4vyPaymentServices(api_client)
-            return api_instance.listPaymentServices(**kwargs)
+            try:
+                client = payment_services_api.PaymentServicesApi(api_client)
+                api_response = client.list_payment_services(**kwargs)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling PaymentServicesApi->list_payment_services: %s\n" % e)
+
 
     def AddPaymentService(self, payment_service_request):
         with self.client as api_client:
-            api_instance = gr4vyPaymentServices(api_client)
-            return api_instance.addPaymentService(payment_service_request)
+            try:
+                client = payment_services_api.PaymentServicesApi(api_client)
+                api_response = client.add_payment_service(payment_service_request=payment_service_request)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling PaymentServicesApi->add_payment_service: %s\n" % e)
+
 
     def DeletePaymentService(self, payment_service_id):
         with self.client as api_client:
-            api_instance = gr4vyPaymentServices(api_client)
-            return api_instance.deletePaymentService(payment_service_id)
+            try:
+                client = payment_services_api.PaymentServicesApi(api_client)
+                api_response = client.delete_payment_service(payment_service_id=payment_service_id)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling PaymentServicesApi->delete_payment_service: %s\n" % e)
+
 
     def GetPaymentService(self, payment_service_id):
         with self.client as api_client:
-            api_instance = gr4vyPaymentServices(api_client)
-            return api_instance.getPaymentService(payment_service_id)
+            try:
+                client = payment_services_api.PaymentServicesApi(api_client)
+                api_response = client.get_payment_service(payment_service_id=payment_service_id)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling PaymentServicesApi->get_payment_service: %s\n" % e)
+
 
     def UpdatePaymentService(self, payment_service_id, payment_service_update):
         with self.client as api_client:
-            api_instance = gr4vyPaymentServices(api_client)
-            return api_instance.updatePaymentService(
-                payment_service_id, payment_service_update=payment_service_update
-            )
+            try:
+                client = payment_services_api.PaymentServicesApi(api_client)
+                api_response = client.update_payment_service(payment_service_id=payment_service_id, payment_service_update=payment_service_update)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling PaymentServicesApi->update_payment_service: %s\n" % e)
+
 
     def AuthorizeNewTransaction(self, transaction_request):
         with self.client as api_client:
-            api_instance = gr4vyTransactions(api_client)
-            return api_instance.authorizeNewTransaction(
-                transaction_request=transaction_request
-            )
+            try:
+                client = transactions_api.TransactionsApi(api_client)
+                api_response = client.authorize_new_transaction(transaction_request=transaction_request)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling TransactionsApi->authorize_new_transaction: %s\n" % e)
 
     def CaptureTransaction(self, transaction_id, transaction_capture_request):
         with self.client as api_client:
-            api_instance = gr4vyTransactions(api_client)
-            return api_instance.captureTransaction(
-                transaction_id, transaction_capture_request
-            )
+            try:
+                client = transactions_api.TransactionsApi(api_client)
+                api_response = client.capture_transaction(transaction_id=transaction_id, transaction_capture_request=transaction_capture_request)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling TransactionsApi->capture_transaction: %s\n" % e)
 
     def GetTransaction(self, transaction_id):
         with self.client as api_client:
-            api_instance = gr4vyTransactions(api_client)
-            return api_instance.getTransaction(transaction_id)
+            try:
+                client = transactions_api.TransactionsApi(api_client)
+                api_response = client.get_transaction(transaction_id=transaction_id)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling TransactionsApi->capture_transaction: %s\n" % e)
 
     def ListTransactions(self, **kwargs):
         with self.client as api_client:
-            api_instance = gr4vyTransactions(api_client)
-            return api_instance.listTransactions(**kwargs)
+            try:
+                client = transactions_api.TransactionsApi(api_client)
+                api_response = client.list_transactions(**kwargs)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling TransactionsApi->capture_transaction: %s\n" % e)
+
 
     def RefundTransaction(self, transaction_id, transaction_refund_request=None):
         with self.client as api_client:
-            api_instance = gr4vyTransactions(api_client)
-            return api_instance.refundTransaction(
-                transaction_id=transaction_id,
-                transaction_refund_request=transaction_refund_request)
-    
+            try:
+                client = transactions_api.TransactionsApi(api_client)
+                api_response = client.refund_transaction(transaction_id=transaction_id, transaction_refund_request=transaction_refund_request)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling TransactionsApi->capture_transaction: %s\n" % e)
+
     def VoidTransaction(self, transaction_id):
         with self.client as api_client:
-            api_instance = gr4vyTransactions(api_client)
-            return api_instance.voidTransaction(
-                transaction_id=transaction_id)
+            try:
+                client = transactions_api.TransactionsApi(api_client)
+                api_response = client.void_transaction(transaction_id=transaction_id)
+                return api_response
+            except ApiException as e:
+                print("Exception when calling TransactionsApi->capture_transaction: %s\n" % e)
+    
     def b64e(self, value: bytes) -> str:
         return base64.urlsafe_b64encode(value).decode("utf8").strip("=")
 
     def thumbprint(self, jwk: dict) -> str:
         claims = {k: v for k, v in jwk.items() if k in {"kty", "crv", "x", "y"}}
-
         json_claims = json.dumps(claims, separators=(",", ":"), sort_keys=True)
-
         digest = hashes.Hash(hashes.SHA256())
         digest.update(json_claims.encode("utf8"))
-
         return self.b64e(digest.finalize())
 
 

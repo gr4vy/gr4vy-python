@@ -59,13 +59,16 @@ class UserRequest(ModelNormal):
     }
 
     validations = {
-        ('display_name',): {
+        ('name',): {
             'max_length': 1000,
             'min_length': 1,
         },
         ('email_address',): {
             'max_length': 200,
             'min_length': 1,
+        },
+        ('role_ids',): {
+            'min_items': 1,
         },
     }
 
@@ -90,8 +93,9 @@ class UserRequest(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'display_name': (str,),  # noqa: E501
+            'name': (str,),  # noqa: E501
             'email_address': (str,),  # noqa: E501
+            'role_ids': ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -100,8 +104,9 @@ class UserRequest(ModelNormal):
 
 
     attribute_map = {
-        'display_name': 'display_name',  # noqa: E501
+        'name': 'name',  # noqa: E501
         'email_address': 'email_address',  # noqa: E501
+        'role_ids': 'role_ids',  # noqa: E501
     }
 
     read_only_vars = {
@@ -145,8 +150,9 @@ class UserRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            display_name (str): An external identifier that can be used to match the buyer against your own records. This value needs to be unique for all buyers.. [optional]  # noqa: E501
-            email_address (str): A unique name for this buyer which is used in the Gr4vy admin panel to give a buyer a human readable name.. [optional]  # noqa: E501
+            name (str): The full name of the user which is used in the Gr4vy admin panel to give an user a human readable name.. [optional]  # noqa: E501
+            email_address (str): The email address for this user.. [optional]  # noqa: E501
+            role_ids ([str]): A list of role ids that will be assigned to the user being created. The creator must have `roles.write` or the role that is being assigned.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -228,8 +234,9 @@ class UserRequest(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            display_name (str): An external identifier that can be used to match the buyer against your own records. This value needs to be unique for all buyers.. [optional]  # noqa: E501
-            email_address (str): A unique name for this buyer which is used in the Gr4vy admin panel to give a buyer a human readable name.. [optional]  # noqa: E501
+            name (str): The full name of the user which is used in the Gr4vy admin panel to give an user a human readable name.. [optional]  # noqa: E501
+            email_address (str): The email address for this user.. [optional]  # noqa: E501
+            role_ids ([str]): A list of role ids that will be assigned to the user being created. The creator must have `roles.write` or the role that is being assigned.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

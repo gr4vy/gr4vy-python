@@ -62,6 +62,13 @@ class TokenizedRequest(ModelNormal):
     }
 
     validations = {
+        ('security_code',): {
+            'max_length': 4,
+            'min_length': 3,
+            'regex': {
+                'pattern': r'^\d{3,4}$',  # noqa: E501
+            },
+        },
     }
 
     @cached_property
@@ -88,6 +95,7 @@ class TokenizedRequest(ModelNormal):
             'method': (str,),  # noqa: E501
             'id': (str, none_type),  # noqa: E501
             'redirect_url': (str,),  # noqa: E501
+            'security_code': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -99,6 +107,7 @@ class TokenizedRequest(ModelNormal):
         'method': 'method',  # noqa: E501
         'id': 'id',  # noqa: E501
         'redirect_url': 'redirect_url',  # noqa: E501
+        'security_code': 'security_code',  # noqa: E501
     }
 
     read_only_vars = {
@@ -147,6 +156,7 @@ class TokenizedRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             redirect_url (str): We strongly recommended providing a `redirect_url` for stored cards when 3-D Secure is enabled and `three_d_secure_data` is not provided. This will be appended with both a transaction ID and status (e.g. `https://example.com/callback? gr4vy_transaction_id=123&gr4vy_transaction_status=capture_succeeded`) after 3-D Secure has completed.. [optional]  # noqa: E501
+            security_code (str): The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD.  The security code can only be set if the stored payment method represents a card.. [optional]  # noqa: E501
         """
 
         method = kwargs.get('method', "id")
@@ -236,6 +246,7 @@ class TokenizedRequest(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             redirect_url (str): We strongly recommended providing a `redirect_url` for stored cards when 3-D Secure is enabled and `three_d_secure_data` is not provided. This will be appended with both a transaction ID and status (e.g. `https://example.com/callback? gr4vy_transaction_id=123&gr4vy_transaction_status=capture_succeeded`) after 3-D Secure has completed.. [optional]  # noqa: E501
+            security_code (str): The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD.  The security code can only be set if the stored payment method represents a card.. [optional]  # noqa: E501
         """
 
         method = kwargs.get('method', "id")

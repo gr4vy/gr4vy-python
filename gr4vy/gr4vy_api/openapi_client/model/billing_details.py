@@ -175,7 +175,7 @@ class BillingDetails(ModelNormal):
             first_name (str, none_type): The first name(s) or given name of the buyer.. [optional]  # noqa: E501
             last_name (str, none_type): The last name, or family name, of the buyer.. [optional]  # noqa: E501
             email_address (str, none_type): The email address of the buyer.. [optional]  # noqa: E501
-            phone_number (str, none_type): The phone number of the buyer. This expect the number in the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
+            phone_number (str, none_type): The phone number of the buyer. This number is formatted according to the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
             address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             tax_id (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """
@@ -263,7 +263,7 @@ class BillingDetails(ModelNormal):
             first_name (str, none_type): The first name(s) or given name of the buyer.. [optional]  # noqa: E501
             last_name (str, none_type): The last name, or family name, of the buyer.. [optional]  # noqa: E501
             email_address (str, none_type): The email address of the buyer.. [optional]  # noqa: E501
-            phone_number (str, none_type): The phone number of the buyer. This expect the number in the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
+            phone_number (str, none_type): The phone number of the buyer. This number is formatted according to the [E164 number standard](https://www.twilio.com/docs/glossary/what-e164).. [optional]  # noqa: E501
             address (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             tax_id (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
         """

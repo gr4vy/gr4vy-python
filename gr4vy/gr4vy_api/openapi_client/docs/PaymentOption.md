@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **mode** | **bool, date, datetime, dict, float, int, list, str, none_type** |  | [optional] 
 **label** | **str** | A label that describes this payment option. This label is returned in the language defined by the &#x60;locale&#x60; query parameter. The label can be used to display a list of payment options to the buyer in their language. | [optional] 
 **can_store_payment_method** | **bool** | A flag to indicate if storing the payment method is supported. | [optional] 
+**can_delay_capture** | **bool** | A flag to indicate if delayed capture is supported. | [optional] 
 **context** | [**PaymentOptionContext**](PaymentOptionContext.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 

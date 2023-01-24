@@ -14,7 +14,9 @@ import unittest
 
 import openapi_client
 from openapi_client.model.cart_item import CartItem
+from openapi_client.model.three_d_secure_summary import ThreeDSecureSummary
 globals()['CartItem'] = CartItem
+globals()['ThreeDSecureSummary'] = ThreeDSecureSummary
 from openapi_client.model.transaction import Transaction
 
 

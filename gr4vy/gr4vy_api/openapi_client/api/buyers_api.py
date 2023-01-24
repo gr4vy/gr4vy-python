@@ -30,6 +30,10 @@ from gr4vy.gr4vy_api.openapi_client.model.error401_unauthorized import Error401U
 from gr4vy.gr4vy_api.openapi_client.model.error404_not_found import Error404NotFound
 from gr4vy.gr4vy_api.openapi_client.model.error409_duplicate_record import Error409DuplicateRecord
 from gr4vy.gr4vy_api.openapi_client.model.error_generic import ErrorGeneric
+from gr4vy.gr4vy_api.openapi_client.model.shipping_detail import ShippingDetail
+from gr4vy.gr4vy_api.openapi_client.model.shipping_detail_request import ShippingDetailRequest
+from gr4vy.gr4vy_api.openapi_client.model.shipping_detail_update_request import ShippingDetailUpdateRequest
+from gr4vy.gr4vy_api.openapi_client.model.shipping_details import ShippingDetails
 
 
 class BuyersApi(object):
@@ -79,6 +83,63 @@ class BuyersApi(object):
                 },
                 'location_map': {
                     'buyer_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.add_buyer_shipping_detail_endpoint = _Endpoint(
+            settings={
+                'response_type': (ShippingDetail,),
+                'auth': [
+                    'BearerAuth'
+                ],
+                'endpoint_path': '/buyers/{buyer_id}/shipping-details',
+                'operation_id': 'add_buyer_shipping_detail',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'buyer_id',
+                    'shipping_detail_request',
+                ],
+                'required': [
+                    'buyer_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'buyer_id':
+                        (str,),
+                    'shipping_detail_request':
+                        (ShippingDetailRequest,),
+                },
+                'attribute_map': {
+                    'buyer_id': 'buyer_id',
+                },
+                'location_map': {
+                    'buyer_id': 'path',
+                    'shipping_detail_request': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -144,6 +205,63 @@ class BuyersApi(object):
             },
             api_client=api_client
         )
+        self.delete_buyer_shipping_detail_endpoint = _Endpoint(
+            settings={
+                'response_type': None,
+                'auth': [
+                    'BearerAuth'
+                ],
+                'endpoint_path': '/buyers/{buyer_id}/shipping-details/{shipping_detail_id}',
+                'operation_id': 'delete_buyer_shipping_detail',
+                'http_method': 'DELETE',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'buyer_id',
+                    'shipping_detail_id',
+                ],
+                'required': [
+                    'buyer_id',
+                    'shipping_detail_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'buyer_id':
+                        (str,),
+                    'shipping_detail_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'buyer_id': 'buyer_id',
+                    'shipping_detail_id': 'shipping_detail_id',
+                },
+                'location_map': {
+                    'buyer_id': 'path',
+                    'shipping_detail_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
         self.get_buyer_endpoint = _Endpoint(
             settings={
                 'response_type': (Buyer,),
@@ -152,6 +270,57 @@ class BuyersApi(object):
                 ],
                 'endpoint_path': '/buyers/{buyer_id}',
                 'operation_id': 'get_buyer',
+                'http_method': 'GET',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'buyer_id',
+                ],
+                'required': [
+                    'buyer_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'buyer_id':
+                        (str,),
+                },
+                'attribute_map': {
+                    'buyer_id': 'buyer_id',
+                },
+                'location_map': {
+                    'buyer_id': 'path',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [],
+            },
+            api_client=api_client
+        )
+        self.get_buyer_shipping_details_endpoint = _Endpoint(
+            settings={
+                'response_type': (ShippingDetails,),
+                'auth': [
+                    'BearerAuth'
+                ],
+                'endpoint_path': '/buyers/{buyer_id}/shipping-details',
+                'operation_id': 'get_buyer_shipping_details',
                 'http_method': 'GET',
                 'servers': None,
             },
@@ -317,6 +486,69 @@ class BuyersApi(object):
             },
             api_client=api_client
         )
+        self.update_buyer_shipping_detail_endpoint = _Endpoint(
+            settings={
+                'response_type': (ShippingDetail,),
+                'auth': [
+                    'BearerAuth'
+                ],
+                'endpoint_path': '/buyers/{buyer_id}/shipping-details/{shipping_detail_id}',
+                'operation_id': 'update_buyer_shipping_detail',
+                'http_method': 'PUT',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'buyer_id',
+                    'shipping_detail_id',
+                    'shipping_detail_update_request',
+                ],
+                'required': [
+                    'buyer_id',
+                    'shipping_detail_id',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'buyer_id':
+                        (str,),
+                    'shipping_detail_id':
+                        (str,),
+                    'shipping_detail_update_request':
+                        (ShippingDetailUpdateRequest,),
+                },
+                'attribute_map': {
+                    'buyer_id': 'buyer_id',
+                    'shipping_detail_id': 'shipping_detail_id',
+                },
+                'location_map': {
+                    'buyer_id': 'path',
+                    'shipping_detail_id': 'path',
+                    'shipping_detail_update_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
 
     def add_buyer(
         self,
@@ -379,6 +611,73 @@ class BuyersApi(object):
         )
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.add_buyer_endpoint.call_with_http_info(**kwargs)
+
+    def add_buyer_shipping_detail(
+        self,
+        buyer_id,
+        **kwargs
+    ):
+        """New buyer shipping detail  # noqa: E501
+
+        Adds a buyer shipping detail.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.add_buyer_shipping_detail(buyer_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            buyer_id (str): The unique ID for a buyer.
+
+        Keyword Args:
+            shipping_detail_request (ShippingDetailRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ShippingDetail
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['buyer_id'] = \
+            buyer_id
+        return self.add_buyer_shipping_detail_endpoint.call_with_http_info(**kwargs)
 
     def delete_buyer(
         self,
@@ -446,6 +745,76 @@ class BuyersApi(object):
             buyer_id
         return self.delete_buyer_endpoint.call_with_http_info(**kwargs)
 
+    def delete_buyer_shipping_detail(
+        self,
+        buyer_id,
+        shipping_detail_id,
+        **kwargs
+    ):
+        """Delete buyer shipping detail  # noqa: E501
+
+        Deletes a buyer shipping detail.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.delete_buyer_shipping_detail(buyer_id, shipping_detail_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            buyer_id (str): The unique ID for a buyer.
+            shipping_detail_id (str): The unique ID for a buyer's shipping detail.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            None
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['buyer_id'] = \
+            buyer_id
+        kwargs['shipping_detail_id'] = \
+            shipping_detail_id
+        return self.delete_buyer_shipping_detail_endpoint.call_with_http_info(**kwargs)
+
     def get_buyer(
         self,
         buyer_id,
@@ -511,6 +880,72 @@ class BuyersApi(object):
         kwargs['buyer_id'] = \
             buyer_id
         return self.get_buyer_endpoint.call_with_http_info(**kwargs)
+
+    def get_buyer_shipping_details(
+        self,
+        buyer_id,
+        **kwargs
+    ):
+        """Get buyer shipping details  # noqa: E501
+
+        Retrieve all shipping details for a buyer.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.get_buyer_shipping_details(buyer_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            buyer_id (str): The unique ID for a buyer.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ShippingDetails
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['buyer_id'] = \
+            buyer_id
+        return self.get_buyer_shipping_details_endpoint.call_with_http_info(**kwargs)
 
     def list_buyers(
         self,
@@ -642,4 +1077,75 @@ class BuyersApi(object):
         kwargs['buyer_id'] = \
             buyer_id
         return self.update_buyer_endpoint.call_with_http_info(**kwargs)
+
+    def update_buyer_shipping_detail(
+        self,
+        buyer_id,
+        shipping_detail_id,
+        **kwargs
+    ):
+        """Update buyer shipping detail  # noqa: E501
+
+        Updates a shipping detail for a buyer.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.update_buyer_shipping_detail(buyer_id, shipping_detail_id, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            buyer_id (str): The unique ID for a buyer.
+            shipping_detail_id (str): The unique ID for a buyer's shipping detail.
+
+        Keyword Args:
+            shipping_detail_update_request (ShippingDetailUpdateRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            ShippingDetail
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['buyer_id'] = \
+            buyer_id
+        kwargs['shipping_detail_id'] = \
+            shipping_detail_id
+        return self.update_buyer_shipping_detail_endpoint.call_with_http_info(**kwargs)
 

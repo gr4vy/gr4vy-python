@@ -63,10 +63,10 @@ class CardRequest(ModelNormal):
 
     validations = {
         ('number',): {
-            'max_length': 16,
-            'min_length': 14,
+            'max_length': 19,
+            'min_length': 13,
             'regex': {
-                'pattern': r'^[0-9]{14,16}$',  # noqa: E501
+                'pattern': r'^[0-9]{13,19}$',  # noqa: E501
             },
         },
         ('expiration_date',): {
@@ -113,6 +113,7 @@ class CardRequest(ModelNormal):
             'external_identifier': (str, none_type,),  # noqa: E501
             'buyer_id': (str,),  # noqa: E501
             'buyer_external_identifier': (str,),  # noqa: E501
+            'redirect_url': (str, none_type,),  # noqa: E501
         }
 
     @cached_property
@@ -128,6 +129,7 @@ class CardRequest(ModelNormal):
         'external_identifier': 'external_identifier',  # noqa: E501
         'buyer_id': 'buyer_id',  # noqa: E501
         'buyer_external_identifier': 'buyer_external_identifier',  # noqa: E501
+        'redirect_url': 'redirect_url',  # noqa: E501
     }
 
     read_only_vars = {
@@ -141,7 +143,7 @@ class CardRequest(ModelNormal):
         """CardRequest - a model defined in OpenAPI
 
         Args:
-            number (str): The 15-16 digit number for this card as it can be found on the front of the card.
+            number (str): The 13-19 digit number for this card as it can be found on the front of the card.
             expiration_date (str): The expiration date of the card, formatted `MM/YY`.
             security_code (str): The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD.
 
@@ -180,6 +182,7 @@ class CardRequest(ModelNormal):
             external_identifier (str, none_type): An external identifier that can be used to match the card against your own records.. [optional]  # noqa: E501
             buyer_id (str): The ID of the buyer to associate this payment method to. If this field is provided then the `buyer_external_identifier` field needs to be unset.. [optional]  # noqa: E501
             buyer_external_identifier (str): The `external_identifier` of the buyer to associate this payment method to. If this field is provided then the `buyer_id` field needs to be unset.. [optional]  # noqa: E501
+            redirect_url (str, none_type): The redirect URL to redirect a buyer to after they have authorized their transaction or payment method. This only applies to payment methods that require buyer approval.. [optional]  # noqa: E501
         """
 
         method = kwargs.get('method', "card")
@@ -236,7 +239,7 @@ class CardRequest(ModelNormal):
         """CardRequest - a model defined in OpenAPI
 
         Args:
-            number (str): The 15-16 digit number for this card as it can be found on the front of the card.
+            number (str): The 13-19 digit number for this card as it can be found on the front of the card.
             expiration_date (str): The expiration date of the card, formatted `MM/YY`.
             security_code (str): The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD.
 
@@ -275,6 +278,7 @@ class CardRequest(ModelNormal):
             external_identifier (str, none_type): An external identifier that can be used to match the card against your own records.. [optional]  # noqa: E501
             buyer_id (str): The ID of the buyer to associate this payment method to. If this field is provided then the `buyer_external_identifier` field needs to be unset.. [optional]  # noqa: E501
             buyer_external_identifier (str): The `external_identifier` of the buyer to associate this payment method to. If this field is provided then the `buyer_id` field needs to be unset.. [optional]  # noqa: E501
+            redirect_url (str, none_type): The redirect URL to redirect a buyer to after they have authorized their transaction or payment method. This only applies to payment methods that require buyer approval.. [optional]  # noqa: E501
         """
 
         method = kwargs.get('method', "card")

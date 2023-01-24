@@ -13,8 +13,10 @@ import sys
 import unittest
 
 import openapi_client
-from openapi_client.model.undefined import Undefined
-globals()['Undefined'] = Undefined
+from openapi_client.model.payment_option_approval_ui import PaymentOptionApprovalUI
+from openapi_client.model.required_fields import RequiredFields
+globals()['PaymentOptionApprovalUI'] = PaymentOptionApprovalUI
+globals()['RequiredFields'] = RequiredFields
 from openapi_client.model.payment_option_context import PaymentOptionContext
 
 

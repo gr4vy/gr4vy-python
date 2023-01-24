@@ -13,6 +13,8 @@ import sys
 import unittest
 
 import openapi_client
+from openapi_client.model.payment_service_fields import PaymentServiceFields
+globals()['PaymentServiceFields'] = PaymentServiceFields
 from openapi_client.model.payment_service import PaymentService
 
 

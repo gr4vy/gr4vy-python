@@ -25,6 +25,7 @@ from gr4vy.gr4vy_api.openapi_client.model_utils import (  # noqa: F401
 from gr4vy.gr4vy_api.openapi_client.model.error400_bad_request import Error400BadRequest
 from gr4vy.gr4vy_api.openapi_client.model.error401_unauthorized import Error401Unauthorized
 from gr4vy.gr4vy_api.openapi_client.model.payment_options import PaymentOptions
+from gr4vy.gr4vy_api.openapi_client.model.payment_options_request import PaymentOptionsRequest
 
 
 class PaymentOptionsApi(object):
@@ -114,6 +115,56 @@ class PaymentOptionsApi(object):
             },
             api_client=api_client
         )
+        self.post_list_payment_options_endpoint = _Endpoint(
+            settings={
+                'response_type': (PaymentOptions,),
+                'auth': [
+                    'BearerAuth'
+                ],
+                'endpoint_path': '/payment-options',
+                'operation_id': 'post_list_payment_options',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'payment_options_request',
+                ],
+                'required': [],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'payment_options_request':
+                        (PaymentOptionsRequest,),
+                },
+                'attribute_map': {
+                },
+                'location_map': {
+                    'payment_options_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
 
     def list_payment_options(
         self,
@@ -121,7 +172,7 @@ class PaymentOptionsApi(object):
     ):
         """List payment options  # noqa: E501
 
-        Returns a list of available payment method options for a currency and country.  # noqa: E501
+        Returns a list of available payment method options for the combination of amount, currency, country and metadata.  If the amount is zero, payment options which do not support zero amounts, will be omitted in the response.  If you want to use Flow rules, please use the [post endpoint](#operation/post-list-payment-options).  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -134,7 +185,7 @@ class PaymentOptionsApi(object):
             currency (str): Filters the results to only the items which support this currency code. A currency is formatted as 3-letter ISO currency code.. [optional]
             amount (int): Used by the Flow engine to filter the results based on the transaction amount.. [optional]
             metadata (str): Used by the Flow engine to filter available options based on various client-defined parameters. If present, this must be a string representing a valid JSON dictionary.. [optional]
-            locale (str): An ISO 639-1 Language Code and optional ISO 3166 Country Code. This locale determines the language for the labels returned for every payment option.. [optional] if omitted the server will use the default value of "en-US"
+            locale (str): An ISO 639-1 Language Code and optional ISO 3166 Country Code. This locale determines the language for the labels returned for every payment option.. [optional] if omitted the server will use the default value of "en"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -180,4 +231,66 @@ class PaymentOptionsApi(object):
         )
         kwargs['_host_index'] = kwargs.get('_host_index')
         return self.list_payment_options_endpoint.call_with_http_info(**kwargs)
+
+    def post_list_payment_options(
+        self,
+        **kwargs
+    ):
+        """List payment options  # noqa: E501
+
+        Returns a list of available payment method options for the combination of amount, currency, country, metadata and list of cart items.  If the amount is zero, payment options which do not support zero amounts, will be omitted in the response.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.post_list_payment_options(async_req=True)
+        >>> result = thread.get()
+
+
+        Keyword Args:
+            payment_options_request (PaymentOptionsRequest): [optional]
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            PaymentOptions
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        return self.post_list_payment_options_endpoint.call_with_http_info(**kwargs)
 

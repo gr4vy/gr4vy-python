@@ -17,7 +17,11 @@ Name | Type | Description | Notes
 **label** | **str, none_type** | A label for the card or the account. For a &#x60;paypal&#x60; payment method this is the user&#39;s email address. For a card it is the last 4 digits of the card. | [optional] 
 **scheme** | **str, none_type** | The scheme of the card. Only applies to card payments. | [optional] 
 **expiration_date** | **str, none_type** | The expiration date for the payment method. | [optional] 
+**approval_target** | **str, none_type** | The browser target that an approval URL must be opened in. If &#x60;any&#x60; or &#x60;null&#x60;, then there is no specific requirement. | [optional] 
 **approval_url** | **str, none_type** | The optional URL that the buyer needs to be redirected to to further authorize their payment. | [optional] 
+**currency** | **str, none_type** | The ISO-4217 currency code that this payment method can be used for. If this value is &#x60;null&#x60; the payment method may be used for multiple currencies. | [optional] 
+**country** | **str, none_type** | The 2-letter ISO code of the country this payment method can be used for. If this value is &#x60;null&#x60; the payment method may be used in multiple countries. | [optional] 
+**details** | [**PaymentMethodDetailsCard**](PaymentMethodDetailsCard.md) |  | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

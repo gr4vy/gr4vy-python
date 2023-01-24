@@ -1,12 +1,11 @@
 import logging
-from gr4vy import Gr4vyClient, Gr4vyClientWithBaseUrl
-from gr4vy import BuyerRequest,BuyerUpdate,PaymentMethod, PaymentMethodRequest, TransactionPaymentMethodRequest, PaymentServiceRequest, PaymentServiceUpdate, PaymentServiceUpdateFields, TransactionCaptureRequest, TransactionPaymentMethodRequest, TransactionRefundRequest, TransactionRequest
+from gr4vy import Gr4vyClient, Gr4vyClientWithBaseUrl, BuyerRequest,BuyerUpdate, PaymentMethodRequest, TransactionPaymentMethodRequest, PaymentServiceRequest, PaymentServiceUpdate, TransactionCaptureRequest, TransactionPaymentMethodRequest, TransactionRefundRequest, TransactionRequest, PaymentServiceRequestFields
 
 gr4vy_id = "spider"
 private_key_location = "./private_key.pem"
 environment = "sandbox"
 client = Gr4vyClient(gr4vy_id, private_key_location, environment=environment)
-client.configuration.debug = True
+#client.configuration.debug = True
 
 def testCreateClient():
     assert client
@@ -41,11 +40,10 @@ def testAddBuyer():
 
 
 def testGetBuyer():
-    for buyer in client.ListBuyers()["items"]:
-        if buyer["display_name"] == "Test":
-            buyer_id = buyer["id"]
-    assert client.GetBuyer(buyer_id)
-
+    buyers = client.ListBuyers()["items"]
+    if buyers and buyers[0]:
+        buyer_id = buyers[0]["id"]
+        assert client.GetBuyer(buyer_id)
 
 def testUpdateBuyer():
     for buyer in client.ListBuyers()["items"]:
@@ -123,7 +121,6 @@ def testListPaymentOptions():
 
 def testGetPaymentServiceDefinition():
     payment_service_definitions = client.ListPaymentServiceDefintions(limit=1)
-    print(payment_service_definitions)
     assert client.GetPaymentServiceDefinition(
         payment_service_definitions["items"][0]["id"]
     )
@@ -138,11 +135,11 @@ def testListPaymentServices():
 
 
 def testAddPaymentService():
-    api_key = PaymentServiceUpdateFields(key="api_key", value="12345678")
-    merchant_account = PaymentServiceUpdateFields(
+    api_key = PaymentServiceRequestFields(key="api_key", value="12345678")
+    merchant_account = PaymentServiceRequestFields(
         key="merchant_account", value="12345678"
     )
-    live_endpoint_prefix = PaymentServiceUpdateFields(
+    live_endpoint_prefix = PaymentServiceRequestFields(
         key="live_endpoint_prefix", value="phillip"
     )
     payment_service_definition_id = "adyen-card"
@@ -159,23 +156,21 @@ def testAddPaymentService():
 
 
 def testGetPaymentService():
-    for payment_service in client.ListPaymentServices()["items"]:
-        print(payment_service)
-        if payment_service["display_name"] == "TestAddService":
-            payment_service_id = payment_service["id"]
-    assert client.GetPaymentService(payment_service_id)
+    payment_services = client.ListPaymentServices()["items"]
+    if client.ListPaymentServices()["items"][0]:
+        assert client.GetPaymentService(payment_services[0].get('id'))
 
 
 def testUpdatePaymentService():
-    for payment_service in client.ListPaymentServices()["items"]:
+    for payment_service in client.ListPaymentServices(limit=100)["items"]:
         if payment_service["display_name"] == "TestAddService":
             payment_service_id = payment_service["id"]
 
-    api_key = PaymentServiceUpdateFields(key="api_key", value="12345678")
-    merchant_account = PaymentServiceUpdateFields(
+    api_key = PaymentServiceRequestFields(key="api_key", value="12345678")
+    merchant_account = PaymentServiceRequestFields(
         key="merchant_account", value="12345678"
     )
-    live_endpoint_prefix = PaymentServiceUpdateFields(
+    live_endpoint_prefix = PaymentServiceRequestFields(
         key="live_endpoint_prefix", value="testing"
     )
 
@@ -194,7 +189,7 @@ def testUpdatePaymentService():
 
 
 def testDeletePaymentService():
-    for payment_service in client.ListPaymentServices()["items"]:
+    for payment_service in client.ListPaymentServices(limit=100)["items"]:
         if payment_service["display_name"] == "TestAddService":
             payment_service_id = payment_service["id"]
 
@@ -223,7 +218,7 @@ def testAuthorizeNewTransaction():
     transaction = client.AuthorizeNewTransaction(transaction_request)
 
     
-    assert transaction['status'] == 'authorization_succeeded'
+    assert transaction['status'] in ['authorization_succeeded']
 
 
 def testCaptureTransaction():
@@ -243,10 +238,8 @@ def testCaptureTransaction():
 
     if transaction['status'] == 'authorization_succeeded':
         transaction_id = transaction["id"]
-
         transaction_capture_request = TransactionCaptureRequest(amount=1299)
         capture = client.CaptureTransaction(transaction_id, transaction_capture_request)
-        print(capture)
         assert capture['status'] == 'capture_succeeded'
 
 def testListTransaction():

@@ -59,6 +59,9 @@ class TaxId(ModelNormal):
         ('kind',): {
             'AE.TRN': "ae.trn",
             'AU.ABN': "au.abn",
+            'AR.DNI': "ar.dni",
+            'AR.CUIL': "ar.cuil",
+            'AR.CUIT': "ar.cuit",
             'BR.CNPJ': "br.cnpj",
             'BR.CPF': "br.cpf",
             'CA.BN': "ca.bn",
@@ -80,13 +83,14 @@ class TaxId(ModelNormal):
             'JP.RN': "jp.rn",
             'KR.BRN': "kr.brn",
             'LI.UID': "li.uid",
-            'MX.RFC': "mx.rfc",
+            'MX.CURP': "mx.curp",
             'MY.FRP': "my.frp",
             'MY.ITN': "my.itn",
             'MY.NRIC': "my.nric",
             'MY.SST': "my.sst",
             'NO.VAT': "no.vat",
             'NZ.GST': "nz.gst",
+            'PH.TIN': "ph.tin",
             'RU.INN': "ru.inn",
             'RU.KPP': "ru.kpp",
             'SA.VAT': "sa.vat",
@@ -101,7 +105,7 @@ class TaxId(ModelNormal):
     }
 
     validations = {
-        ('id',): {
+        ('value',): {
             'max_length': 50,
             'min_length': 1,
         },
@@ -128,8 +132,8 @@ class TaxId(ModelNormal):
                 and the value is attribute type.
         """
         return {
+            'value': (str,),  # noqa: E501
             'kind': (str,),  # noqa: E501
-            'id': (str, none_type),  # noqa: E501
         }
 
     @cached_property
@@ -138,8 +142,8 @@ class TaxId(ModelNormal):
 
 
     attribute_map = {
+        'value': 'value',  # noqa: E501
         'kind': 'kind',  # noqa: E501
-        'id': 'id',  # noqa: E501
     }
 
     read_only_vars = {
@@ -149,10 +153,11 @@ class TaxId(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, kind, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, value, kind, *args, **kwargs):  # noqa: E501
         """TaxId - a model defined in OpenAPI
 
         Args:
+            value (str): The tax ID for the buyer.
             kind (str): The kind of tax ID.
 
         Keyword Args:
@@ -186,7 +191,6 @@ class TaxId(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): The tax ID for the buyer.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -214,6 +218,7 @@ class TaxId(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.value = value
         self.kind = kind
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
@@ -235,10 +240,11 @@ class TaxId(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, kind, *args, **kwargs):  # noqa: E501
+    def __init__(self, value, kind, *args, **kwargs):  # noqa: E501
         """TaxId - a model defined in OpenAPI
 
         Args:
+            value (str): The tax ID for the buyer.
             kind (str): The kind of tax ID.
 
         Keyword Args:
@@ -272,7 +278,6 @@ class TaxId(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-            id (str): The tax ID for the buyer.. [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -298,6 +303,7 @@ class TaxId(ModelNormal):
         self._configuration = _configuration
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
+        self.value = value
         self.kind = kind
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \

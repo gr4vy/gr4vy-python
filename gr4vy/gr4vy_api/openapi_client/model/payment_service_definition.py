@@ -31,8 +31,10 @@ from gr4vy.gr4vy_api.openapi_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from gr4vy.gr4vy_api.openapi_client.model.payment_service_definition_configuration import PaymentServiceDefinitionConfiguration
     from gr4vy.gr4vy_api.openapi_client.model.payment_service_definition_fields import PaymentServiceDefinitionFields
     from gr4vy.gr4vy_api.openapi_client.model.payment_service_definition_supported_features import PaymentServiceDefinitionSupportedFeatures
+    globals()['PaymentServiceDefinitionConfiguration'] = PaymentServiceDefinitionConfiguration
     globals()['PaymentServiceDefinitionFields'] = PaymentServiceDefinitionFields
     globals()['PaymentServiceDefinitionSupportedFeatures'] = PaymentServiceDefinitionSupportedFeatures
 
@@ -109,6 +111,7 @@ class PaymentServiceDefinition(ModelNormal):
             'mode': (bool, date, datetime, dict, float, int, list, str, none_type,),  # noqa: E501
             'supported_features': (PaymentServiceDefinitionSupportedFeatures,),  # noqa: E501
             'icon_url': (str, none_type,),  # noqa: E501
+            'configuration': (PaymentServiceDefinitionConfiguration,),  # noqa: E501
         }
 
     @cached_property
@@ -127,6 +130,7 @@ class PaymentServiceDefinition(ModelNormal):
         'mode': 'mode',  # noqa: E501
         'supported_features': 'supported_features',  # noqa: E501
         'icon_url': 'icon_url',  # noqa: E501
+        'configuration': 'configuration',  # noqa: E501
     }
 
     read_only_vars = {
@@ -180,6 +184,7 @@ class PaymentServiceDefinition(ModelNormal):
             mode (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             supported_features (PaymentServiceDefinitionSupportedFeatures): [optional]  # noqa: E501
             icon_url (str, none_type): An icon to display for the payment service.. [optional]  # noqa: E501
+            configuration (PaymentServiceDefinitionConfiguration): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -271,6 +276,7 @@ class PaymentServiceDefinition(ModelNormal):
             mode (bool, date, datetime, dict, float, int, list, str, none_type): [optional]  # noqa: E501
             supported_features (PaymentServiceDefinitionSupportedFeatures): [optional]  # noqa: E501
             icon_url (str, none_type): An icon to display for the payment service.. [optional]  # noqa: E501
+            configuration (PaymentServiceDefinitionConfiguration): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)

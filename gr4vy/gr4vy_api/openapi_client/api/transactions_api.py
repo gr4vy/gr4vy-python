@@ -30,7 +30,6 @@ from gr4vy.gr4vy_api.openapi_client.model.refunds import Refunds
 from gr4vy.gr4vy_api.openapi_client.model.transaction import Transaction
 from gr4vy.gr4vy_api.openapi_client.model.transaction_capture_request import TransactionCaptureRequest
 from gr4vy.gr4vy_api.openapi_client.model.transaction_refund_request import TransactionRefundRequest
-from gr4vy.gr4vy_api.openapi_client.model.transaction_refund_request_deprecated import TransactionRefundRequestDeprecated
 from gr4vy.gr4vy_api.openapi_client.model.transaction_request import TransactionRequest
 from gr4vy.gr4vy_api.openapi_client.model.transactions import Transactions
 
@@ -341,21 +340,41 @@ class TransactionsApi(object):
             },
             params_map={
                 'all': [
-                    'search',
-                    'transaction_status',
-                    'buyer_id',
                     'buyer_external_identifier',
+                    'buyer_id',
+                    'cursor',
+                    'limit',
+                    'amount_eq',
+                    'amount_gte',
+                    'amount_lte',
+                    'created_at_gte',
+                    'created_at_lte',
+                    'currency',
+                    'external_identifier',
+                    'has_refunds',
+                    'id',
+                    'metadata',
+                    'method',
+                    'payment_method_id',
+                    'payment_method_label',
+                    'payment_service_id',
+                    'payment_service_transaction_id',
+                    'search',
+                    'status',
+                    'updated_at_gte',
+                    'updated_at_lte',
                     'before_created_at',
                     'after_created_at',
                     'before_updated_at',
                     'after_updated_at',
-                    'limit',
-                    'cursor',
+                    'transaction_status',
                 ],
                 'required': [],
                 'nullable': [
                 ],
                 'enum': [
+                    'method',
+                    'status',
                     'transaction_status',
                 ],
                 'validation': [
@@ -371,81 +390,183 @@ class TransactionsApi(object):
                     },
                 },
                 'allowed_values': {
+                    ('method',): {
+
+                        "AFTERPAY": "afterpay",
+                        "APPLEPAY": "applepay",
+                        "BANKED": "banked",
+                        "BITPAY": "bitpay",
+                        "BOLETO": "boleto",
+                        "CARD": "card",
+                        "CLEARPAY": "clearpay",
+                        "DANA": "dana",
+                        "FORTUMO": "fortumo",
+                        "GCASH": "gcash",
+                        "GOCARDLESS": "gocardless",
+                        "GOOGLEPAY": "googlepay",
+                        "GRABPAY": "grabpay",
+                        "KLARNA": "klarna",
+                        "OVO": "ovo",
+                        "PAYMAYA": "paymaya",
+                        "PAYPAL": "paypal",
+                        "PIX": "pix",
+                        "RABBITLINEPAY": "rabbitlinepay",
+                        "SCALAPAY": "scalapay",
+                        "SHOPEEPAY": "shopeepay",
+                        "STRIPEDD": "stripedd",
+                        "TRUEMONEY": "truemoney",
+                        "TRUSTLY": "trustly",
+                        "ZIPPAY": "zippay"
+                    },
+                    ('status',): {
+
+                        "PROCESSING": "processing",
+                        "BUYER_APPROVAL_PENDING": "buyer_approval_pending",
+                        "AUTHORIZATION_SUCCEEDED": "authorization_succeeded",
+                        "AUTHORIZATION_FAILED": "authorization_failed",
+                        "AUTHORIZATION_DECLINED": "authorization_declined",
+                        "CAPTURE_PENDING": "capture_pending",
+                        "CAPTURE_SUCCEEDED": "capture_succeeded",
+                        "AUTHORIZATION_VOID_PENDING": "authorization_void_pending",
+                        "AUTHORIZATION_VOIDED": "authorization_voided"
+                    },
                     ('transaction_status',): {
 
                         "PROCESSING": "processing",
-                        "PROCESSING_FAILED": "processing_failed",
-                        "CAPTURE_SUCCEEDED": "capture_succeeded",
-                        "CAPTURE_PENDING": "capture_pending",
-                        "CAPTURE_DECLINED": "capture_declined",
-                        "CAPTURE_FAILED": "capture_failed",
-                        "AUTHORIZATION_SUCCEEDED": "authorization_succeeded",
-                        "AUTHORIZATION_PENDING": "authorization_pending",
-                        "AUTHORIZATION_DECLINED": "authorization_declined",
-                        "AUTHORIZATION_FAILED": "authorization_failed",
-                        "AUTHORIZATION_EXPIRED": "authorization_expired",
-                        "AUTHORIZATION_VOIDED": "authorization_voided",
-                        "AUTHORIZATION_VOID_PENDING": "authorization_void_pending",
-                        "AUTHORIZATION_VOID_DECLINED": "authorization_void_declined",
-                        "AUTHORIZATION_VOID_FAILED": "authorization_void_failed",
-                        "REFUND_SUCCEEDED": "refund_succeeded",
-                        "REFUND_PENDING": "refund_pending",
-                        "REFUND_DECLINED": "refund_declined",
-                        "REFUND_FAILED": "refund_failed",
-                        "BUYER_APPROVAL_SUCCEEDED": "buyer_approval_succeeded",
                         "BUYER_APPROVAL_PENDING": "buyer_approval_pending",
-                        "BUYER_APPROVAL_DECLINED": "buyer_approval_declined",
-                        "BUYER_APPROVAL_FAILED": "buyer_approval_failed",
-                        "BUYER_APPROVAL_TIMEDOUT": "buyer_approval_timedout"
+                        "AUTHORIZATION_SUCCEEDED": "authorization_succeeded",
+                        "AUTHORIZATION_FAILED": "authorization_failed",
+                        "AUTHORIZATION_DECLINED": "authorization_declined",
+                        "CAPTURE_PENDING": "capture_pending",
+                        "CAPTURE_SUCCEEDED": "capture_succeeded",
+                        "AUTHORIZATION_VOID_PENDING": "authorization_void_pending",
+                        "AUTHORIZATION_VOIDED": "authorization_voided"
                     },
                 },
                 'openapi_types': {
-                    'search':
-                        (str,),
-                    'transaction_status':
+                    'buyer_external_identifier':
                         (str,),
                     'buyer_id':
                         (str,),
-                    'buyer_external_identifier':
-                        (str,),
-                    'before_created_at':
-                        (str,),
-                    'after_created_at':
-                        (str,),
-                    'before_updated_at':
-                        (str,),
-                    'after_updated_at':
+                    'cursor':
                         (str,),
                     'limit':
                         (int,),
-                    'cursor':
+                    'amount_eq':
+                        (int,),
+                    'amount_gte':
+                        (int,),
+                    'amount_lte':
+                        (int,),
+                    'created_at_gte':
+                        (datetime,),
+                    'created_at_lte':
+                        (datetime,),
+                    'currency':
+                        ([str],),
+                    'external_identifier':
+                        (str,),
+                    'has_refunds':
+                        (bool,),
+                    'id':
+                        (str,),
+                    'metadata':
+                        ([str],),
+                    'method':
+                        ([str],),
+                    'payment_method_id':
+                        (str,),
+                    'payment_method_label':
+                        (str,),
+                    'payment_service_id':
+                        ([str],),
+                    'payment_service_transaction_id':
+                        (str,),
+                    'search':
+                        (str,),
+                    'status':
+                        ([str],),
+                    'updated_at_gte':
+                        (datetime,),
+                    'updated_at_lte':
+                        (datetime,),
+                    'before_created_at':
+                        (datetime,),
+                    'after_created_at':
+                        (datetime,),
+                    'before_updated_at':
+                        (datetime,),
+                    'after_updated_at':
+                        (datetime,),
+                    'transaction_status':
                         (str,),
                 },
                 'attribute_map': {
-                    'search': 'search',
-                    'transaction_status': 'transaction_status',
-                    'buyer_id': 'buyer_id',
                     'buyer_external_identifier': 'buyer_external_identifier',
+                    'buyer_id': 'buyer_id',
+                    'cursor': 'cursor',
+                    'limit': 'limit',
+                    'amount_eq': 'amount_eq',
+                    'amount_gte': 'amount_gte',
+                    'amount_lte': 'amount_lte',
+                    'created_at_gte': 'created_at_gte',
+                    'created_at_lte': 'created_at_lte',
+                    'currency': 'currency',
+                    'external_identifier': 'external_identifier',
+                    'has_refunds': 'has_refunds',
+                    'id': 'id',
+                    'metadata': 'metadata',
+                    'method': 'method',
+                    'payment_method_id': 'payment_method_id',
+                    'payment_method_label': 'payment_method_label',
+                    'payment_service_id': 'payment_service_id',
+                    'payment_service_transaction_id': 'payment_service_transaction_id',
+                    'search': 'search',
+                    'status': 'status',
+                    'updated_at_gte': 'updated_at_gte',
+                    'updated_at_lte': 'updated_at_lte',
                     'before_created_at': 'before_created_at',
                     'after_created_at': 'after_created_at',
                     'before_updated_at': 'before_updated_at',
                     'after_updated_at': 'after_updated_at',
-                    'limit': 'limit',
-                    'cursor': 'cursor',
+                    'transaction_status': 'transaction_status',
                 },
                 'location_map': {
-                    'search': 'query',
-                    'transaction_status': 'query',
-                    'buyer_id': 'query',
                     'buyer_external_identifier': 'query',
+                    'buyer_id': 'query',
+                    'cursor': 'query',
+                    'limit': 'query',
+                    'amount_eq': 'query',
+                    'amount_gte': 'query',
+                    'amount_lte': 'query',
+                    'created_at_gte': 'query',
+                    'created_at_lte': 'query',
+                    'currency': 'query',
+                    'external_identifier': 'query',
+                    'has_refunds': 'query',
+                    'id': 'query',
+                    'metadata': 'query',
+                    'method': 'query',
+                    'payment_method_id': 'query',
+                    'payment_method_label': 'query',
+                    'payment_service_id': 'query',
+                    'payment_service_transaction_id': 'query',
+                    'search': 'query',
+                    'status': 'query',
+                    'updated_at_gte': 'query',
+                    'updated_at_lte': 'query',
                     'before_created_at': 'query',
                     'after_created_at': 'query',
                     'before_updated_at': 'query',
                     'after_updated_at': 'query',
-                    'limit': 'query',
-                    'cursor': 'query',
+                    'transaction_status': 'query',
                 },
                 'collection_format_map': {
+                    'currency': 'multi',
+                    'metadata': 'multi',
+                    'method': 'multi',
+                    'payment_service_id': 'multi',
+                    'status': 'multi',
                 }
             },
             headers_map={
@@ -499,63 +620,6 @@ class TransactionsApi(object):
                 'location_map': {
                     'transaction_id': 'path',
                     'transaction_refund_request': 'body',
-                },
-                'collection_format_map': {
-                }
-            },
-            headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
-            },
-            api_client=api_client
-        )
-        self.refund_transaction_deprecated_endpoint = _Endpoint(
-            settings={
-                'response_type': (Transaction,),
-                'auth': [
-                    'BearerAuth'
-                ],
-                'endpoint_path': '/transactions/{transaction_id}/refund',
-                'operation_id': 'refund_transaction_deprecated',
-                'http_method': 'POST',
-                'servers': None,
-            },
-            params_map={
-                'all': [
-                    'transaction_id',
-                    'transaction_refund_request_deprecated',
-                ],
-                'required': [
-                    'transaction_id',
-                ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
-            },
-            root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                },
-                'openapi_types': {
-                    'transaction_id':
-                        (str,),
-                    'transaction_refund_request_deprecated':
-                        (TransactionRefundRequestDeprecated,),
-                },
-                'attribute_map': {
-                    'transaction_id': 'transaction_id',
-                },
-                'location_map': {
-                    'transaction_id': 'path',
-                    'transaction_refund_request_deprecated': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -970,16 +1034,34 @@ class TransactionsApi(object):
 
 
         Keyword Args:
-            search (str): Filters the transactions to only the items for which the `id` or `external_identifier` matches this value. This field allows for a partial match, matching any transaction for which either of the fields partially or completely matches.. [optional]
-            transaction_status (str): Filters the results to only the transactions for which the `status` matches this value.. [optional]
-            buyer_id (str): Filters the results to only the items for which the `buyer` has an `id` that matches this value.. [optional]
             buyer_external_identifier (str): Filters the results to only the items for which the `buyer` has an `external_identifier` that matches this value.. [optional]
-            before_created_at (str): Filters the results to only transactions created before this ISO date-time string.. [optional]
-            after_created_at (str): Filters the results to only transactions created after this ISO date-time string.. [optional]
-            before_updated_at (str): Filters the results to only transactions last updated before this ISO date-time string.. [optional]
-            after_updated_at (str): Filters the results to only transactions last updated after this ISO date-time string.. [optional]
-            limit (int): Defines the maximum number of items to return for this request.. [optional] if omitted the server will use the default value of 20
+            buyer_id (str): Filters the results to only the items for which the `buyer` has an `id` that matches this value.. [optional]
             cursor (str): A cursor that identifies the page of results to return. This is used to paginate the results of this API.  For the first page of results, this parameter can be left out. For additional pages, use the value returned by the API in the `next_cursor` field. Similarly the `previous_cursor` can be used to reverse backwards in the list.. [optional]
+            limit (int): Defines the maximum number of items to return for this request.. [optional] if omitted the server will use the default value of 20
+            amount_eq (int): Filters for transactions that have an `amount` that is equal to the provided `amount_eq` value.. [optional]
+            amount_gte (int): Filters for transactions that have an `amount` that is greater than or equal to the `amount_gte` value.. [optional]
+            amount_lte (int): Filters for transactions that have an `amount` that is less than or equal to the `amount_lte` value.. [optional]
+            created_at_gte (datetime): Filters the results to only transactions created after this ISO date-time string. The time zone must be included.  Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`.. [optional]
+            created_at_lte (datetime): Filters the results to only transactions created before this ISO date-time string. The time zone must be included.  Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`.. [optional]
+            currency ([str]): Filters for transactions that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency code.. [optional]
+            external_identifier (str): Filters the results to only the items for which the `external_identifier` matches this value.. [optional]
+            has_refunds (bool): When set to `true`, filter for transactions that have at least one completed refund associated with it. When set to `false`, filter for transactions that have no completed refunds.. [optional]
+            id (str): Filters for the transaction that has a matching `id` value.. [optional]
+            metadata ([str]): Filters for transactions where their `metadata` values contain all of the provided `metadata` keys. The value sent for `metadata` must be formatted as a JSON string, and all keys and values must be strings. This value should also be URL encoded.  Duplicate keys are not supported. If a key is duplicated, only the last appearing value will be used.. [optional]
+            method ([str]): Filters the results to only the items for which the `method` has been set to this value.. [optional]
+            payment_method_id (str): The ID of the payment method.. [optional]
+            payment_method_label (str): Filters for transactions that have a payment method with a label that matches exactly with the provided value.. [optional]
+            payment_service_id ([str]): Filters for transactions that were processed by the provided `payment_service_id` values.. [optional]
+            payment_service_transaction_id (str): Filters for transactions that have a matching `payment_service_transaction_id` value. The `payment_service_transaction_id` is the identifier of the transaction given by the payment service.. [optional]
+            search (str): Filters for transactions that have one of the following fields match exactly with the provided `search` value: * `buyer_external_identifier` * `buyer_id` * `external_identifier` * `id` * `payment_service_transaction_id`. [optional]
+            status ([str]): Filters the results to only the transactions that have a `status` that matches with any of the provided status values.. [optional]
+            updated_at_gte (datetime): Filters the results to only transactions last updated after this ISO date-time string. The time zone must be included.  Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`.. [optional]
+            updated_at_lte (datetime): Filters the results to only transactions last updated before this ISO date-time string. The time zone must be included.  Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`.. [optional]
+            before_created_at (datetime): Filters the results to only transactions created before this ISO date-time string. The time zone must be included.  Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`.  **WARNING** This filter is deprecated and may be removed eventually, use `created_at_lte` instead.. [optional]
+            after_created_at (datetime): Filters the results to only transactions created after this ISO date-time string. The time zone must be included.  Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`.  **WARNING** This filter is deprecated and may be removed eventually, use `created_at_gte` instead.. [optional]
+            before_updated_at (datetime): Filters the results to only transactions last updated before this ISO date-time string. The time zone must be included.  Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`.  **WARNING** This filter is deprecated and may be removed eventually, use `updated_at_lte` instead.. [optional]
+            after_updated_at (datetime): Filters the results to only transactions last updated after this ISO date-time string. The time zone must be included.  Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`.  **WARNING** This filter is deprecated and may be removed eventually, use `updated_at_gte` instead.. [optional]
+            transaction_status (str): Filters the results to only the transactions for which the `status` matches this value.  **WARNING** This filter is deprecated and may be removed eventually, use `status` instead.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1093,73 +1175,6 @@ class TransactionsApi(object):
             transaction_id
         return self.refund_transaction_endpoint.call_with_http_info(**kwargs)
 
-    def refund_transaction_deprecated(
-        self,
-        transaction_id,
-        **kwargs
-    ):
-        """Refund or void transactions  # noqa: E501
-
-        Refunds or voids transaction. If this transaction was already captured, it will issue a refund. If the transaction was not yet captured the authorization will instead be voided.  **Warning**: this endpoint will be removed eventually, use [Refund transaction](#operation/refund-transaction) or [Void transaction](#operation/void-transaction) endpoints instead.  # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-
-        >>> thread = api.refund_transaction_deprecated(transaction_id, async_req=True)
-        >>> result = thread.get()
-
-        Args:
-            transaction_id (str): The ID for the transaction to get the information for.
-
-        Keyword Args:
-            transaction_refund_request_deprecated (TransactionRefundRequestDeprecated): [optional]
-            _return_http_data_only (bool): response data without head status
-                code and headers. Default is True.
-            _preload_content (bool): if False, the urllib3.HTTPResponse object
-                will be returned without reading/decoding response data.
-                Default is True.
-            _request_timeout (int/float/tuple): timeout setting for this request. If
-                one number provided, it will be total request timeout. It can also
-                be a pair (tuple) of (connection, read) timeouts.
-                Default is None.
-            _check_input_type (bool): specifies if type checking
-                should be done one the data sent to the server.
-                Default is True.
-            _check_return_type (bool): specifies if type checking
-                should be done one the data received from the server.
-                Default is True.
-            _host_index (int/None): specifies the index of the server
-                that we want to use.
-                Default is read from the configuration.
-            async_req (bool): execute request asynchronously
-
-        Returns:
-            Transaction
-                If the method is called asynchronously, returns the request
-                thread.
-        """
-        kwargs['async_req'] = kwargs.get(
-            'async_req', False
-        )
-        kwargs['_return_http_data_only'] = kwargs.get(
-            '_return_http_data_only', True
-        )
-        kwargs['_preload_content'] = kwargs.get(
-            '_preload_content', True
-        )
-        kwargs['_request_timeout'] = kwargs.get(
-            '_request_timeout', None
-        )
-        kwargs['_check_input_type'] = kwargs.get(
-            '_check_input_type', True
-        )
-        kwargs['_check_return_type'] = kwargs.get(
-            '_check_return_type', True
-        )
-        kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['transaction_id'] = \
-            transaction_id
-        return self.refund_transaction_deprecated_endpoint.call_with_http_info(**kwargs)
-
     def void_transaction(
         self,
         transaction_id,
@@ -1167,7 +1182,7 @@ class TransactionsApi(object):
     ):
         """Void transaction  # noqa: E501
 
-        Voids a transaction.  If the transaction was not yet successfully authorized, or was already captured, the void will not be processed. Captured transactions can be [refunded](#operation/refund-transaction) instead.  # noqa: E501
+        Voids a transaction.  If the transaction was not yet successfully authorized, or was already captured, the void will not be processed. Captured transactions can be [refunded](#operation/refund-transaction) instead.  Voiding zero-amount authorized transactions is not supported.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
