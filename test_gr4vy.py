@@ -1,26 +1,36 @@
 import logging
-from gr4vy import Gr4vyClient, Gr4vyClientWithBaseUrl, BuyerRequest,BuyerUpdate, PaymentMethodRequest, TransactionPaymentMethodRequest, PaymentServiceRequest, PaymentServiceUpdate, TransactionCaptureRequest, TransactionPaymentMethodRequest, TransactionRefundRequest, TransactionRequest, PaymentServiceRequestFields
+
+from gr4vy import *
 
 gr4vy_id = "spider"
 private_key_location = "./private_key.pem"
 environment = "sandbox"
 client = Gr4vyClient(gr4vy_id, private_key_location, environment=environment)
-#client.configuration.debug = True
+# client.configuration.debug = True
+
 
 def testCreateClient():
     assert client
 
+
 def testGr4vyClientWithBaseUrl():
-    assert Gr4vyClientWithBaseUrl("https://{}.gr4vy.app".format(gr4vy_id), "private_key.pem", environment=environment)
+    assert Gr4vyClientWithBaseUrl(
+        "https://{}.gr4vy.app".format(gr4vy_id),
+        "private_key.pem",
+        environment=environment,
+    )
+
 
 def testprivate_key_file_to_string():
     assert client.private_key_file_to_string()
 
+
 def testGenerateToken():
     assert client.GenerateToken()
 
+
 def testGenerateEmbedToken():
-    buyer_id = client.ListBuyers()["items"][0]["id"]
+    buyer_id = client.ListBuyers(limit=100)["items"][0].get("id", None)
     embed = {
         "amount": 1299,
         "currency": "USD",
@@ -44,6 +54,7 @@ def testGetBuyer():
     if buyers and buyers[0]:
         buyer_id = buyers[0]["id"]
         assert client.GetBuyer(buyer_id)
+
 
 def testUpdateBuyer():
     for buyer in client.ListBuyers()["items"]:
@@ -70,7 +81,7 @@ def testDeleteBuyer():
     try:
         client.DeleteBuyer(buyer_id)
     except KeyError:
-        print("No buyer's to delete")
+        logging.debug("No buyer's to delete")
         assert False
 
 
@@ -103,9 +114,7 @@ def testListPaymentMethodTokens():
     )
     payment_method = client.StorePaymentMethod(payment_method_request)
     assert payment_method.id
-    # print(payment_method.id)
     res = client.ListPaymentMethodTokens(payment_method.id)
-    # print(res)
     assert res
 
 
@@ -158,7 +167,7 @@ def testAddPaymentService():
 def testGetPaymentService():
     payment_services = client.ListPaymentServices()["items"]
     if client.ListPaymentServices()["items"][0]:
-        assert client.GetPaymentService(payment_services[0].get('id'))
+        assert client.GetPaymentService(payment_services[0].get("id"))
 
 
 def testUpdatePaymentService():
@@ -217,8 +226,7 @@ def testAuthorizeNewTransaction():
     )
     transaction = client.AuthorizeNewTransaction(transaction_request)
 
-    
-    assert transaction['status'] in ['authorization_succeeded']
+    assert transaction["status"] in ["authorization_succeeded"]
 
 
 def testCaptureTransaction():
@@ -236,14 +244,16 @@ def testCaptureTransaction():
 
     transaction = client.AuthorizeNewTransaction(transaction_request)
 
-    if transaction['status'] == 'authorization_succeeded':
+    if transaction["status"] == "authorization_succeeded":
         transaction_id = transaction["id"]
         transaction_capture_request = TransactionCaptureRequest(amount=1299)
         capture = client.CaptureTransaction(transaction_id, transaction_capture_request)
-        assert capture['status'] == 'capture_succeeded'
+        assert capture["status"] == "capture_succeeded"
+
 
 def testListTransaction():
     assert client.ListTransactions()
+
 
 def testGetTransaction():
     transaction_id = client.ListTransactions()["items"][0]["id"]
@@ -264,24 +274,24 @@ def testRefundTransaction():
     )
     transaction = client.AuthorizeNewTransaction(transaction_request)
 
-    print("===")
-    print(transaction)
-    print("===")
-    if transaction['status'] == 'authorization_succeeded':
+    logging.debug("===")
+    logging.debug(transaction)
+    logging.debug("===")
+    if transaction["status"] == "authorization_succeeded":
 
         transaction_capture_request = TransactionCaptureRequest(amount=1299)
         capture = client.CaptureTransaction(transaction.id, transaction_capture_request)
 
-        print(capture)
-        if capture['status'] == 'capture_succeeded':
+        logging.debug(capture)
+        if capture["status"] == "capture_succeeded":
             transaction_refund_request = TransactionRefundRequest(amount=1299)
-            
+
             refund = client.RefundTransaction(
-                transaction['id'], transaction_refund_request=transaction_refund_request
+                transaction["id"], transaction_refund_request=transaction_refund_request
             )
 
-            print(refund)
-            assert refund['status'] in ['succeeded', 'processing']
+            logging.debug(refund)
+            assert refund["status"] in ["succeeded", "processing"]
 
 
 def testVoidTransaction():
@@ -298,12 +308,12 @@ def testVoidTransaction():
     )
     transaction = client.AuthorizeNewTransaction(transaction_request)
 
-    print("===")
-    print(transaction)
-    print("===")
-    if transaction['status'] == 'authorization_succeeded':
+    logging.debug("===")
+    logging.debug(transaction)
+    logging.debug("===")
+    if transaction["status"] == "authorization_succeeded":
 
         void = client.VoidTransaction(transaction.id)
 
-        print(void)
-        assert void['status'] == 'authorization_voided'
+        logging.debug(void)
+        assert void["status"] == "authorization_voided"
