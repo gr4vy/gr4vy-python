@@ -126,7 +126,7 @@ class PaymentMethod(ModelNormal):
             'approval_url': (str, none_type,),  # noqa: E501
             'currency': (str, none_type,),  # noqa: E501
             'country': (str, none_type,),  # noqa: E501
-            'details': (PaymentMethodDetailsCard,),  # noqa: E501
+            'details': (PaymentMethodDetailsCard, none_type),  # noqa: E501
         }
 
     @cached_property
