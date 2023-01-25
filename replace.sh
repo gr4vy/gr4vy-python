@@ -95,3 +95,7 @@ sed -i '' "s/$var1/$rep1/g" ./gr4vy/gr4vy_api/openapi_client/model/*.py
 var1="'metadata': ({str: (str,)},),"
 rep1="'metadata': ({str: (str,)}, none_type),"
 sed -i '' "s/$var1/$rep1/g" ./gr4vy/gr4vy_api/openapi_client/model/*.py
+
+var1="'details': (PaymentMethodDetailsCard,),"
+rep1="'details': (PaymentMethodDetailsCard, none_type),"
+sed -i '' "s/$var1/$rep1/g" ./gr4vy/gr4vy_api/openapi_client/model/*.py
