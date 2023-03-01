@@ -39,6 +39,10 @@ def testGenerateEmbedToken():
     assert client.GenerateEmbedToken(embed)
 
 
+def testListAuditLogs():
+    assert client.ListAuditLogs()
+
+
 def testListBuyers():
     assert client.ListBuyers()
 
@@ -73,6 +77,60 @@ def testListBuyerPaymentMethods():
     assert client.ListBuyerPaymentMethods(buyer_id=buyer_id)
 
 
+def testAddBuyerShippingDetails():
+    for buyer in client.ListBuyers()["items"]:
+        if buyer["display_name"] == "Test":
+            buyer_id = buyer["id"]
+
+    shipping_detail_request = ShippingDetailRequest(
+        first_name="John",
+        last_name="Lunn",
+        email_address="john@example.com",
+        phone_number="+1234567890",
+        address=None,
+    )
+
+    assert client.AddBuyerShippingDetails(
+        buyer_id, shipping_detail_request=shipping_detail_request
+    )
+
+
+def testGetShippingDetails():
+    for buyer in client.ListBuyers()["items"]:
+        if buyer["display_name"] == "Test":
+            buyer_id = buyer["id"]
+            assert client.GetBuyerShippingDetails(buyer_id=buyer_id)
+
+
+def testUpdateBuyerShippingDetails():
+    for buyer in client.ListBuyers()["items"]:
+        if buyer["display_name"] == "Test":
+            buyer_id = buyer["id"]
+            shipping_detail_id = client.GetBuyerShippingDetails(buyer_id=buyer_id)[
+                "items"
+            ][0]["id"]
+            shipping_detail_update_request = ShippingDetailUpdateRequest(
+                phone_number="+15555555"
+            )
+            assert client.UpdateBuyerShippingDetails(
+                buyer_id=buyer_id,
+                shipping_detail_id=shipping_detail_id,
+                shipping_detail_update_request=shipping_detail_update_request,
+            )
+
+
+def testDeleteBuyerShippingDetails():
+    for buyer in client.ListBuyers()["items"]:
+        if buyer["display_name"] == "Test":
+            buyer_id = buyer["id"]
+            shipping_detail_id = client.GetBuyerShippingDetails(buyer_id=buyer_id)[
+                "items"
+            ][0]["id"]
+            assert client.DeleteBuyerShippingDetails(
+                buyer_id=buyer_id, shipping_detail_id=shipping_detail_id
+            )
+
+
 def testDeleteBuyer():
     for buyer in client.ListBuyers()["items"]:
         if buyer["display_name"] == "Test":
@@ -83,6 +141,77 @@ def testDeleteBuyer():
     except KeyError:
         logging.debug("No buyer's to delete")
         assert False
+
+
+def testListCardSchemeDefintions():
+    assert client.ListCardSchemeDefintions()
+
+
+def testAddCheckoutSession():
+    assert client.AddCheckoutSession()
+
+
+def testGetCheckoutSession():
+    checkout_session_id = client.AddCheckoutSession()["id"]
+    assert client.GetCheckoutSession(checkout_session_id=checkout_session_id)
+
+
+def testUpdateCheckoutSession():
+    checkout_session_id = client.AddCheckoutSession()["id"]
+    checkout_session_secure_fields_update = CheckoutSessionSecureFieldsUpdate(
+        payment_method=CardRequest(
+            method="card",
+            number="4111111111111111",
+            expiration_date="11/25",
+            security_code="123",
+            redirect_url="https://example.com/callback",
+        )
+    )
+    assert client.UpdateCheckoutSessionFields(
+        checkout_session_id=checkout_session_id,
+        checkout_session_secure_fields_update=checkout_session_secure_fields_update,
+    )
+
+
+def testDeleteCheckOutSession():
+    checkout_session_id = client.AddCheckoutSession()["id"]
+    assert client.DeleteCheckoutSession(checkout_session_id=checkout_session_id)
+
+
+def testRegisterDigitalWallets():
+    digital_wallet_request = DigitalWalletRequest(
+        provider="apple",
+        merchant_name="Gr4vy",
+        merchant_url="https://example.com",
+        domain_names=["example.com"],
+        accept_terms_and_conditions=True,
+    )
+    assert client.RegisterDigitalWallets(digital_wallet_request=digital_wallet_request)
+
+
+def testListDigitalWallets():
+    assert client.ListDigitalWallets()
+
+
+def testUpdateDigitalWallet():
+    digital_wallet_id = client.ListDigitalWallets()["items"][0].get("id")
+    digital_wallet_update = DigitalWalletUpdate(
+        merchant_name="Gr4vy",
+        domain_names=["example.com"],
+    )
+    assert client.UpdateDigitalWallet(
+        digital_wallet_id=digital_wallet_id, digital_wallet_update=digital_wallet_update
+    )
+
+
+def testGetDigitalWaller():
+    digital_wallet_id = client.ListDigitalWallets()["items"][0].get("id")
+    assert client.GetDigitalWallet(digital_wallet_id=digital_wallet_id)
+
+
+def testDeregisterDigitalWallets():
+    digital_wallet_id = client.ListDigitalWallets()["items"][0].get("id")
+    assert client.DeregisterDigitalWallet(digital_wallet_id=digital_wallet_id)
 
 
 def testListPaymentMethods():
@@ -208,8 +337,58 @@ def testDeletePaymentService():
         assert False
 
 
+def testListAllReportExecutions():
+    assert client.ListAllReportExecutions()
+
+
+def testGetReportExections():
+    report_execution_id = client.ListAllReportExecutions()["items"][0].get("id", None)
+    assert client.GetReportExecutions(report_execution_id=report_execution_id)
+
+
+def testAddReport():
+    report_create = ReportCreate(
+        name="Failed Authorizations 042022",
+        description="Transactions that failed to authorize in April 2022",
+        schedule="monthly",
+        schedule_enabled=True,
+        schedule_timezone="Europe/London",
+        spec=None,
+    )
+    assert client.AddReport(report_create=report_create)
+
+
+def testListReport():
+    assert client.ListReports()
+
+
+def testGetReport():
+    report_id = client.ListReports()["items"][0].get("id", None)
+    assert client.GetReport(report_id=report_id)
+
+
+def testUpdateReport():
+    for report in client.ListReports()["items"]:
+        if report.get("name") == "Failed Authorizations 042022":
+            report_id = report.get("id")
+            report_update = ReportUpdate(
+                name="Failed Authorizations 0420221",
+                description="Transactions that failed to authorize in April 2022",
+                schedule_enabled=True,
+            )
+            assert client.UpdateReport(report_id=report_id, report_update=report_update)
+
+
 def testListTransactions():
     assert client.ListTransactions()
+
+
+def testListRolesAssignments():
+    assert client.ListRolesAssignments()
+
+
+def testListRoles():
+    assert client.ListRoles()
 
 
 def testAuthorizeNewTransaction():
