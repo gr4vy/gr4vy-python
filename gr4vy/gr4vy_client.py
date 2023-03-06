@@ -49,10 +49,10 @@ class Gr4vyClient:
         self.private_key_file = private_key_file
         self.environment = environment
         self.session = requests.Session()
-        self.base_url = self.__generate_base_url()
-        self.token = self.__generate_token()
+        self.base_url = self._generate_base_url()
+        self.token = self._generate_token()
 
-    def __private_key_file_to_string(self):
+    def _private_key_file_to_string(self):
         if environ.get("PRIVATE_KEY") is not None:
             private_key_string = environ.get("PRIVATE_KEY")
         else:
@@ -63,10 +63,10 @@ class Gr4vyClient:
 
         jwk = jose.jwk.construct(private_pem, algorithm="ES512").to_dict()
 
-        kid = str(self.__thumbprint(jwk))
+        kid = str(self._thumbprint(jwk))
         return private_key_string, kid
 
-    def __generate_base_url(self):
+    def _generate_base_url(self):
         if self.gr4vyId.endswith(".app"):
             base_url = self.gr4vyId
         else:
@@ -78,8 +78,8 @@ class Gr4vyClient:
                 base_url = "https://api.{}.gr4vy.app".format(self.gr4vyId)
         return base_url
 
-    def __generate_token(self, scopes=["*.read", "*.write"], embed_data=None):
-        private_key, kid = self.__private_key_file_to_string()
+    def _generate_token(self, scopes=["*.read", "*.write"], embed_data=None):
+        private_key, kid = self._private_key_file_to_string()
         data = {
             "iss": "Gr4vy SDK {} - {}".format(VERSION, PYTHON_VERSION),
             "nbf": datetime.now(tz=timezone.utc),
@@ -95,7 +95,7 @@ class Gr4vyClient:
         )
         return token
 
-    def __prepare_params(self, value: dict[str, typing.Any]) -> dict[str, typing.Any]:
+    def _prepare_params(self, value: dict[str, typing.Any]) -> dict[str, typing.Any]:
         def _filter_none(value: typing.Any) -> typing.Any:
             if isinstance(value, list):
                 return [_filter_none(item) for item in value if item is not None]
@@ -107,7 +107,7 @@ class Gr4vyClient:
 
         return _filter_none(value)
 
-    def __request(
+    def _request(
         self,
         method: str,
         path: str,
@@ -117,7 +117,7 @@ class Gr4vyClient:
 
         url = urllib.parse.urljoin(self.base_url, path)
 
-        params = self.__prepare_params(params) if params else params
+        params = self._prepare_params(params) if params else params
 
         response = self.session.request(
             method, url, params=query, json=params, auth=BearerAuth(self.token)
@@ -135,199 +135,202 @@ class Gr4vyClient:
                 details=data.get("details"),
                 http_status_code=response.status_code,
             )
+        return json_data
 
-    def __b64e(self, value: bytes) -> str:
+    def _b64e(self, value: bytes) -> str:
         return base64.urlsafe_b64encode(value).decode("utf8").strip("=")
 
-    def __thumbprint(self, jwk: dict) -> str:
+    def _thumbprint(self, jwk: dict) -> str:
         claims = {k: v for k, v in jwk.items() if k in {"kty", "crv", "x", "y"}}
         json_claims = json.dumps(claims, separators=(",", ":"), sort_keys=True)
         digest = hashes.Hash(hashes.SHA256())
         digest.update(json_claims.encode("utf8"))
-        return self.__b64e(digest.finalize())
+        return self._b64e(digest.finalize())
 
     def generate_embed_token(self, embed_data):
-        token = self.__generate_token(embed_data=embed_data)
+        token = self._generate_token(embed_data=embed_data)
         return token
 
     def list_audit_logs(self, **kwargs):
-        response = self.__request("get", "/audit-logs", query=kwargs)
+        response = self._request("get", "/audit-logs", query=kwargs)
+        print(response)
         return response
 
     def list_buyers(self, **kwargs):
-        response = self.__request("get", "/buyers", query=kwargs)
+        response = self._request("get", "/buyers", query=kwargs)
         return response
 
     def get_buyer(self, buyer_id):
-        response = self.__request("get", f"/buyer/{buyer_id}")
+        response = self._request("get", f"/buyers/{buyer_id}")
         return response
 
-    def add_buyer(self, **kwargs):
-        response = self.__request("post", f"/buyer", json=kwargs)
+    def create_new_buyer(self, **kwargs):
+        print(kwargs)
+        response = self._request("post", f"/buyers", params=kwargs)
         return response
 
     def update_buyer(self, buyer_id, **kwargs):
-        response = self.__request("put", f"/buyer/{buyer_id}", params=kwargs)
+        response = self._request("put", f"/buyers/{buyer_id}", params=kwargs)
         return response
 
     def delete_buyer(self, buyer_id):
-        response = self.__request("delete", f"/buyer/{buyer_id}")
+        response = self._request("delete", f"/buyers/{buyer_id}")
         return response
 
     def get_buyer_shipping_details(self, buyer_id):
-        response = self.__request("get", f"/buyers/{buyer_id}/shipping-details")
+        response = self._request("get", f"/buyers/{buyer_id}/shipping-details")
         return response
 
     def add_buyer_shipping_details(self, buyer_id, **kwargs):
-        response = self.__request(
+        response = self._request(
             "post", f"/buyers/{buyer_id}/shipping-details", params=kwargs
         )
         return response
 
     def update_buyer_shipping_details(self, buyer_id, shipping_detail_id, **kwargs):
-        response = self.__request(
+        response = self._request(
             "put",
             f"/buyers/{buyer_id}/shipping-details/{shipping_detail_id}",
             params=kwargs,
         )
         return response
 
-    def DeleteBuyerShippingDetails(self, buyer_id, shipping_detail_id):
-        response = self.__request(
+    def delete_buyer_shipping_details(self, buyer_id, shipping_detail_id):
+        response = self._request(
             "delete", f"/buyers/{buyer_id}/shipping-details/{shipping_detail_id}"
         )
         return response
 
     def list_card_scheme_definitions(self):
-        response = self.__request("get", f"/card-scheme-definitions")
+        response = self._request("get", f"/card-scheme-definitions")
         return response
 
     def get_checkout_session(self, checkout_session_id):
-        response = self.__request("get", f"/check-sessions/{checkout_session_id}")
+        response = self._request("get", f"/checkout/sessions/{checkout_session_id}")
         return response
 
     def create_new_checkout_session(self):
-        response = self.__request("post", f"/check-sessions")
+        response = self._request("post", f"/checkout/sessions")
         return response
 
     def update_checkout_session_fields(self, checkout_session_id, **kwargs):
-        response = self.__request(
-            "put", f"/check-sessions/{checkout_session_id}", params=kwargs
+        response = self._request(
+            "put", f"/checkout/sessions/{checkout_session_id}/fields", params=kwargs
         )
         return response
 
     def delete_checkout_session(self, checkout_session_id):
-        response = self.__request("delete", f"/check-sessions/{checkout_session_id}")
+        response = self._request("delete", f"/checkout/sessions/{checkout_session_id}")
         return response
 
-    def RegisterDigitalWallets(self, **kwargs):
-        response = self.__request("post", f"/digital-wallets")
+    def register_digital_wallets(self, **kwargs):
+        response = self._request("post", f"/digital-wallets", params=kwargs)
         return response
 
-    def ListDigitalWallets(self):
-        response = self.__request("get", f"/digital-wallets")
+    def list_digital_wallets(self):
+        response = self._request("get", f"/digital-wallets")
         return response
 
     def get_digital_wallet(self, digital_wallet_id):
-        response = self.__request("get", f"/digital-wallets/{digital_wallet_id}")
+        response = self._request("get", f"/digital-wallets/{digital_wallet_id}")
         return response
 
     def update_digital_wallet(self, digital_wallet_id, **kwargs):
-        response = self.__request(
+        response = self._request(
             "put", f"/digital-wallets/{digital_wallet_id}", params=kwargs
         )
         return response
 
     def deregister_digital_wallet(self, digital_wallet_id):
-        response = self.__request("delete", f"/digital-wallets/{digital_wallet_id}")
+        response = self._request("delete", f"/digital-wallets/{digital_wallet_id}")
         return response
 
     def get_stored_payment_method(self, payment_method_id):
-        response = self.__request("get", f"/payment-methods/{payment_method_id}")
+        response = self._request("get", f"/payment-methods/{payment_method_id}")
         return response
 
     def list_buyer_payment_methods(self, **kwargs):
-        response = self.__request("get", f"/buyers/payment-methods", query=kwargs)
+        response = self._request("get", f"/buyers/payment-methods", query=kwargs)
         return response
 
     def list_payment_methods(self, **kwargs):
-        response = self.__request("get", "/payment-methods", query=kwargs)
+        response = self._request("get", "/payment-methods", query=kwargs)
         return response
 
     def store_payment_method(self, **kwargs):
-        response = self.__request("put", f"/payment-methods", params=kwargs)
+        response = self._request("post", f"/payment-methods", params=kwargs)
         return response
 
     def delete_payment_method(self, payment_method_id):
-        response = self.__request("delete", f"/payment-methods/{payment_method_id}")
+        response = self._request("delete", f"/payment-methods/{payment_method_id}")
         return response
 
     def list_payment_method_tokens(self, payment_method_id):
-        response = self.__request("get", f"/payment-methods/{payment_method_id}/tokens")
+        response = self._request("get", f"/payment-methods/{payment_method_id}/tokens")
         return response
 
     def list_payment_options(self, **kwargs):
-        response = self.__request("get", "/payment-options", query=kwargs)
+        response = self._request("get", "/payment-options", query=kwargs)
         return response
 
-    def get_payment_service_definiton(self, payment_service_definition_id):
-        response = self.__request(
+    def get_payment_service_definition(self, payment_service_definition_id):
+        response = self._request(
             "get", f"/payment-service-definitions/{payment_service_definition_id}"
         )
         return response
 
-    def list_payment_service_definitons(self, **kwargs):
-        response = self.__request("get", "/payment-service-defitions", query=kwargs)
+    def list_payment_service_definitions(self, **kwargs):
+        response = self._request("get", "/payment-service-definitions", query=kwargs)
         return response
 
     def list_payment_services(self, **kwargs):
-        response = self.__request("get", "/payment-services", query=kwargs)
+        response = self._request("get", "/payment-services", query=kwargs)
         return response
 
     def create_new_payment_service(self, **kwargs):
-        response = self.__request("post", f"/payment-serices", params=kwargs)
+        response = self._request("post", f"/payment-services", params=kwargs)
         return response
 
     def delete_payment_service(self, payment_service_id):
-        response = self.__request("delete", f"/payment-services/{payment_service_id}")
+        response = self._request("delete", f"/payment-services/{payment_service_id}")
         return response
 
-    def get_paymentt_service(self, payment_service_id):
-        response = self.__request("get", f"/payment-services/{payment_service_id}")
+    def get_payment_service(self, payment_service_id):
+        response = self._request("get", f"/payment-services/{payment_service_id}")
         return response
 
     def update_payment_service(self, payment_service_id, **kwargs):
-        response = self.__request(
+        response = self._request(
             "put", f"/payment-services/{payment_service_id}", params=kwargs
         )
         return response
 
     def list_all_report_executions(self, **kwargs):
-        response = self.__request("get", f"/report-executions", query=kwargs)
+        response = self._request("get", f"/report-executions", query=kwargs)
         return response
 
     def get_report_executions(self, report_execution_id):
-        response = self.__request("get", f"/report-executions/{report_execution_id}")
+        response = self._request("get", f"/report-executions/{report_execution_id}")
         return response
 
     def create_new_report(self, **kwargs):
-        response = self.__request("post", f"/reports", query=kwargs)
+        response = self._request("post", f"/reports", query=kwargs)
         return response
 
     def list_reports(self, **kwargs):
-        response = self.__request("get", f"/reports", query=kwargs)
+        response = self._request("get", f"/reports", query=kwargs)
         return response
 
     def get_report(self, report_id):
-        response = self.__request("get", f"/reports/{report_id}")
+        response = self._request("get", f"/reports/{report_id}")
         return response
 
     def update_report(self, report_id, **kwargs):
-        response = self.__request("put", f"/reports/{report_id}", params=kwargs)
+        response = self._request("put", f"/reports/{report_id}", params=kwargs)
         return response
 
     def list_executions_for_report(self, report_id, **kwargs):
-        response = self.__request(
+        response = self._request(
             "get", f"/reports/{report_id}/executions", query=kwargs
         )
         return response
@@ -335,61 +338,61 @@ class Gr4vyClient:
     def generate_download_url_for_report_execution(
         self, report_id, report_execution_id
     ):
-        response = self.__request(
+        response = self._request(
             "post", f"/reports/{report_id}/executions/{report_execution_id}/url"
         )
         return response
 
     def create_new_transaction(self, **kwargs):
-        response = self.__request("post", f"/transactions", params=kwargs)
+        response = self._request("post", f"/transactions", params=kwargs)
         return response
 
-    def capture_transacition(self, transaction_id, **kwargs):
-        response = self.__request(
+    def capture_transaction(self, transaction_id, **kwargs):
+        response = self._request(
             "post", f"/transactions/{transaction_id}/capture", params=kwargs
         )
         return response
 
     def get_transaction(self, transaction_id):
-        response = self.__request("get", f"/transactions/{transaction_id}")
+        response = self._request("get", f"/transactions/{transaction_id}")
         return response
 
     def list_transactions(self, **kwargs):
-        response = self.__request("get", "/transactions", query=kwargs)
+        response = self._request("get", "/transactions", query=kwargs)
         return response
 
     def refund_transaction(self, transaction_id, **kwargs):
-        response = self.__request(
+        response = self._request(
             "post", f"/transactions/{transaction_id}/refunds", params=kwargs
         )
         return response
 
-    def VoidTransaction(self, transaction_id):
-        response = self.__request("post", f"/transactions/{transaction_id}")
+    def void_transaction(self, transaction_id):
+        response = self._request("post", f"/transactions/{transaction_id}/void")
         return response
 
     def create_new_report(self, **kwargs):
-        response = self.__request("post", f"/reports", params=kwargs)
+        response = self._request("post", f"/reports", params=kwargs)
         return response
 
     def list_roles(self, **kwargs):
-        response = self.__request("get", "/roles", query=kwargs)
+        response = self._request("get", "/roles", query=kwargs)
         return response
 
     def list_role_assignments(self, **kwargs):
-        response = self.__request("get", "/roles/assignments", query=kwargs)
+        response = self._request("get", "/roles/assignments", query=kwargs)
         return response
 
     def create_new_role_assignment(self, **kwargs):
-        response = self.__request("get", "/roles/assignments", query=kwargs)
+        response = self._request("get", "/roles/assignments", query=kwargs)
         return response
 
     def delete_role_assignment(self, role_assignment_id):
-        response = self.__request("get", f"/roles/assignments/{role_assignment_id}")
+        response = self._request("get", f"/roles/assignments/{role_assignment_id}")
         return response
 
     def list_api_error_logs(self, **kwargs):
-        response = self.__request("get", "/api-logs", query=kwargs)
+        response = self._request("get", "/api-logs", query=kwargs)
         return response
 
 
@@ -397,6 +400,5 @@ class Gr4vyClientWithBaseUrl(Gr4vyClient):
     def __init__(self, base_url, private_key, environment):
         super().__init__(base_url, private_key, environment)
 
-
-client = Gr4vyClient("spider", "private_key.pem", "sandbox")
-print(client.create_new_transaction())
+#client = Gr4vyClient("spider", "private_key.pem", "sandbox")
+#print(client.list_audit_logs())
