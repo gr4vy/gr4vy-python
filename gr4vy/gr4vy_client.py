@@ -33,7 +33,7 @@ class BearerAuth(requests.auth.AuthBase):
 
 class Gr4vyError(Exception):
     def __init__(
-        self, message: str | None, details: str | None, http_status_code: int | None
+        self, message, details, http_status_code
     ) -> None:
 
         super().__init__(
