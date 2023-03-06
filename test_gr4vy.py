@@ -1,6 +1,6 @@
 import logging
 
-from gr4vy import *
+from gr4vy import Gr4vyClientWithBaseUrl, Gr4vyClient
 
 gr4vy_id = "spider"
 private_key_location = "./private_key.pem"
