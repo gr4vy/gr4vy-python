@@ -58,17 +58,16 @@ needs to be created before it can be used in this way.
 
 ```python
   from gr4vy import Gr4vyClient
-  from gr4vy import BuyerRequest
+
   client = Gr4vyClient("gr4vy_instance","private_key.pem", "production")
 
-  buyer_request = BuyerRequest(display_name = "Jane Smith")
+  buyer_request = {"display_name": "Jane Smith"}
 
-  new_buyer = client.AddBuyer(buyer_request)
-
+  new_buyer = client.create_new_buyer(**buyer_request).get('id')
   embed = {
     "amount": 1299,
     "currency": "USD",
-    "buyerId": new_buyer.id,
+    "buyerId": new_buyer,
   }
 
   embed_token = client.GenerateEmbedToken(embed)
@@ -101,30 +100,27 @@ This library conveniently maps every API path to a seperate function. For
 example, `GET /buyers?limit=100` would be:
 
 ```python
-  client.ListBuyers(2)
+  client.list_buyers({"limit=100"})
 ```
 
-To create, the API requires a request object for that resource that is conventiently
-named `Gr4vy<Resource>Request`.  To update, the API requires a request object
-for that resource that is named `Gr4vy<Resource>Update`.
+To create, the API requires a request object for that resource. This is created by creating a dict object for the request.
 
-For example, to create a buyer you will need to pass a `Gr4vyBuyerRequest` object to
-the `AddBuyer` method.
+For example, to create a buyer:
 
 ```python
   from gr4vy import BuyerRequest
 
-  buyer_request = BuyerRequest(display_name = "Jane Smith")
-  new_buyer = client.AddBuyer(buyer_request)
+  buyer_request = {"display_name": "Jane Smith"}
+  new_buyer = client.AddBuyer(**buyer_request)
 
 ```
 
-So to update a buyer you will need to pass in the `Gr4vyBuyerUpdate` to the
-`UpdateBuyer` method.
+To update a buyer:
 
 ```python
-  buyer_request = BuyerUpdate(display_name = "Jane Changed")
-  buyer_update = client.UpdateBuyer(buyer_id, buyer_request)
+  buyer_id: "buyer_uuid_from_gr4vy"
+  buyer_request = {"display_name": "Jane Changed")
+  buyer_update = client.UpdateBuyer(buyer_id, **buyer_request)
 ```
 
 ## Response
@@ -133,7 +129,7 @@ Every resolved API call returns the requested resource, errors are printed to th
 
 
 ```python
-  print(client.ListBuyers())
+  print(client.list_buyers())
 ```
 
 ## Logging & Debugging
@@ -141,35 +137,13 @@ Every resolved API call returns the requested resource, errors are printed to th
 The SDK makes it easy possible to log responses to the console.
 
 ```python
-  print(client.ListBuyers())
+  print(client.list_buyers())
 ```
 
 This will output the request parameters and response to the console as follows.
 
 ```sh
 {"items":[{"id":"b8433347-a16f-46b5-958f-d681876546a6","type":"buyer","display_name":"Jane Smith","external_identifier":None,"created_at":"2021-04-22T06:51:16.910297+00:00","updated_at":"2021-04-22T07:18:49.816242+00:00"}],"limit":1,"next_cursor":"fAA0YjY5NmU2My00NzY5LTQ2OGMtOTEyNC0xODVjMDdjZTY5MzEAMjAyMS0wNC0yMlQwNjozNTowNy4yNTMxMDY","previous_cursor":None}
-```
-
-## Development
-
-### Adding new APIs
-
-To add new APIs, run the following command to update the models and APIs based
-on the API spec.
-
-```sh
-./openapi-generator-generate.sh
-```
-
-Run the tests to ensure the changes do not break any existing tests. Using PyTest. In `test_gr4vy.py` update the following lines with your Gr4vy ID and the location of the private key file.
-
-```python
-gr4vy_id = "YOUR_GR4VY_ID"
-private_key_location = "PRIVATE_KEY_LOCATION"
-```
-
-```sh
-pytest -v
 ```
 
 ### Publishing
