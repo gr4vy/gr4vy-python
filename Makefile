@@ -3,7 +3,7 @@ lint:
 	poetry run isort --check-only --skip="gr4vy/gr4vy_api" --skip=".venv" .
 	poetry run black --check --exclude="gr4vy/gr4vy_api|.venv" . 
 
-lint-apply:
+format:
 	poetry run isort --skip="gr4vy/gr4vy_api" --skip=".venv" .
 	poetry run black --exclude="gr4vy/gr4vy_api|.venv" . 
 
