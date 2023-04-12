@@ -24,13 +24,13 @@ Gr4vy instance to be set up. Please contact our sales team for a demo.
 
 Once you have been set up with a Gr4vy account you will need to head over to the
 **Integrations** panel and generate a private key. We recommend storing this key
-in a secure location but in this code sample we simply read the file from disk.
+in a secure location but in this code sample, we simply read the file from disk.
+For multi-merchant environments, an optional merchant ID can be provided as well.
 
 ```python
 from gr4vy import Gr4vyClient
-client = Gr4vyClient("gr4vy_instance","location_of_key_file", "sandbox_or_production")
+client = Gr4vyClient("gr4vy_instance","location_of_key_file", "sandbox_or_production", "my-merchant-id)
 client.ListBuyers()
-
 ```
 
 ## Gr4vy Embed
@@ -84,7 +84,7 @@ The client can be initialized with the Gr4vy ID (`gr4vyId`), the location of the
 ```
 
 Alternatively, instead of the `gr4vyId` it can be initialized with the `baseUrl`
-of the server to use directly and the environment attempting to acess .
+of the server to use directly and the environment attempting to access.
 
 ```python
   client = Gr4vyClientWithBaseUrl("https://*gr4vyId*.gr4vy.app","private_key.pem", "sandbox")
@@ -96,14 +96,14 @@ tab.
 
 ## Making API calls
 
-This library conveniently maps every API path to a seperate function. For
+This library conveniently maps every API path to a separate function. For
 example, `GET /buyers?limit=100` would be:
 
 ```python
   client.list_buyers({"limit=100"})
 ```
 
-To create, the API requires a request object for that resource. This is created by creating a dict object for the request.
+To create, the API requires a request object for that resource. This is created by creating a dictionary object for the request.
 
 For example, to create a buyer:
 
@@ -134,7 +134,7 @@ Every resolved API call returns the requested resource, errors are printed to th
 
 ## Logging & Debugging
 
-The SDK makes it easy possible to log responses to the console.
+The SDK makes it possible to log responses to the console.
 
 ```python
   print(client.list_buyers())
@@ -148,7 +148,7 @@ This will output the request parameters and response to the console as follows.
 
 ### Publishing
 
-This project is published to PyPi.
+This project is published on PyPi.
 
 ## License
 
