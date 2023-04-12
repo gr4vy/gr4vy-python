@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.9"
-cryptography = "^3.4.6"
+cryptography = ">=3.4.6,<40.0.0"
 python-jose = {extras = ["cryptography"], version = "^3.2.0"}
 certifi = "^2021.10.8"
 pycryptodome = "^3.11.0"
