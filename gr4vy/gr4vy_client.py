@@ -44,10 +44,11 @@ class Gr4vyError(Exception):
 
 
 class Gr4vyClient:
-    def __init__(self, gr4vyId, private_key_file, environment):
+    def __init__(self, gr4vyId, private_key_file, environment, merchant_account_id=None):
         self.gr4vyId = gr4vyId
         self.private_key_file = private_key_file
         self.environment = environment
+        self.merchant_account_id = merchant_account_id if merchant_account_id else "default"
         self.session = requests.Session()
         self.base_url = self._generate_base_url()
         self.token = self._generate_token()
@@ -119,8 +120,12 @@ class Gr4vyClient:
 
         params = self._prepare_params(params) if params else params
 
+        headers = {
+            "X-GR4VY-MERCHANT-ACCOUNT-ID": self.merchant_account_id
+        }
+
         response = self.session.request(
-            method, url, params=query, json=params, auth=BearerAuth(self.token)
+            method, url, params=query, json=params, auth=BearerAuth(self.token), headers=headers
         )
 
         try:
