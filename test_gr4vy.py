@@ -244,6 +244,18 @@ def test_delete_payment_method():
 def test_list_payment_options():
     assert client.list_payment_options()
 
+def test_post_list_payment_options():
+    payment_options_request = {
+        "currency":"USD",
+        "country":"US",
+        "amount":1000,
+        "metadata":{
+            "TypeOfPayment":"purchase",
+            "Carbon_FootPrint":"10"
+        }
+    }
+    assert client.post_list_payment_options(**payment_options_request)
+
 
 def test_get_payment_service_definitions():
     payment_service_definitions = client.list_payment_service_definitions(limit=1)
