@@ -1,6 +1,6 @@
 import logging
 
-from gr4vy import Gr4vyClientWithBaseUrl, Gr4vyClient
+from gr4vy import Gr4vyClient, Gr4vyClientWithBaseUrl
 from gr4vy.gr4vy_client import Gr4vyError
 
 gr4vy_id = "spider"
