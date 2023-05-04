@@ -1,6 +1,6 @@
 import logging
 
-from gr4vy import Gr4vyClientWithBaseUrl, Gr4vyClient
+from gr4vy import Gr4vyClient, Gr4vyClientWithBaseUrl
 from gr4vy.gr4vy_client import Gr4vyError
 
 gr4vy_id = "spider"
@@ -243,6 +243,18 @@ def test_delete_payment_method():
 
 def test_list_payment_options():
     assert client.list_payment_options()
+
+def test_post_list_payment_options():
+    payment_options_request = {
+        "currency":"USD",
+        "country":"US",
+        "amount":1000,
+        "metadata":{
+            "TypeOfPayment":"purchase",
+            "Carbon_FootPrint":"10"
+        }
+    }
+    assert client.post_list_payment_options(**payment_options_request)
 
 
 def test_get_payment_service_definitions():

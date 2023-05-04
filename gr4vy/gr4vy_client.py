@@ -278,6 +278,10 @@ class Gr4vyClient:
         response = self._request("get", "/payment-options", query=kwargs)
         return response
 
+    def post_list_payment_options(self, **kwargs):
+        response = self._request("post", f"/payment-options", params=kwargs)
+        return response
+
     def get_payment_service_definition(self, payment_service_definition_id):
         response = self._request(
             "get", f"/payment-service-definitions/{payment_service_definition_id}"
