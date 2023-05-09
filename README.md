@@ -46,7 +46,7 @@ embed = {
   "buyerExternalIdentifier": "user-12345",
 }
 
-token = client.GenerateEmbedToken(embed)
+token = client.generate_embed_token(embed)
 ```
 
 You can now pass this token to your frontend where it can be used to

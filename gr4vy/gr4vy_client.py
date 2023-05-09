@@ -51,7 +51,7 @@ class Gr4vyClient:
         self.merchant_account_id = merchant_account_id if merchant_account_id else "default"
         self.session = requests.Session()
         self.base_url = self._generate_base_url()
-        self.token = self._generate_token()
+        self.token = self.generate_token()
 
     def _private_key_file_to_string(self):
         if environ.get("PRIVATE_KEY") is not None:
@@ -79,7 +79,7 @@ class Gr4vyClient:
                 base_url = "https://api.{}.gr4vy.app".format(self.gr4vyId)
         return base_url
 
-    def _generate_token(self, scopes=["*.read", "*.write"], embed_data=None):
+    def generate_token(self, scopes=["*.read", "*.write"], embed_data=None):
         private_key, kid = self._private_key_file_to_string()
         data = {
             "iss": "Gr4vy SDK {} - {}".format(VERSION, PYTHON_VERSION),
@@ -153,7 +153,7 @@ class Gr4vyClient:
         return self._b64e(digest.finalize())
 
     def generate_embed_token(self, embed_data):
-        token = self._generate_token(embed_data=embed_data)
+        token = self.generate_token(embed_data=embed_data)
         return token
 
     def list_audit_logs(self, **kwargs):
