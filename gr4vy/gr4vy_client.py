@@ -405,15 +405,15 @@ class Gr4vyClient:
         return response
 
     def create_merchant_account(self, **kwargs):
-        response = self._request("post", f"/merchant_accounts", params=kwargs)
+        response = self._request("post", f"/merchant-accounts", params=kwargs)
         return response
 
     def list_merchant_accounts(self, **kwargs):
-        response = self._request("get", "/merchant_accounts", query=kwargs)
+        response = self._request("get", "/merchant-accounts", query=kwargs)
         return response
 
     def update_merchant_account(self, merchant_account_id, **kwargs):
-        response = self._request("put", f"/merchant_accounts/{merchant_account_id}", params=kwargs)
+        response = self._request("put", f"/merchant-accounts/{merchant_account_id}", params=kwargs)
         return response
 
 
