@@ -404,6 +404,10 @@ class Gr4vyClient:
         response = self._request("get", "/api-logs", query=kwargs)
         return response
 
+    def create_user(self, **kwargs):
+        response = self._request("post", f"/users", params=kwargs)
+        return response
+
     def create_merchant_account(self, **kwargs):
         response = self._request("post", f"/merchant-accounts", params=kwargs)
         return response
