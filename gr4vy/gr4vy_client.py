@@ -170,7 +170,7 @@ class Gr4vyClient:
         headers = {"X-GR4VY-MERCHANT-ACCOUNT-ID": self.merchant_account_id}
 
         response = self.session.request(
-            method, url, params=query, json=params, headers=headers
+            "POST", url, params=query, json=params, headers=headers
         )
 
         try:
