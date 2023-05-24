@@ -32,9 +32,7 @@ class BearerAuth(requests.auth.AuthBase):
 
 
 class Gr4vyError(Exception):
-    def __init__(
-        self, message, details, http_status_code
-    ) -> None:
+    def __init__(self, message, details, http_status_code) -> None:
 
         super().__init__(
             f"Error Reason: {message} \n Error Details: {details} \n HTTP Status Code: {http_status_code}"
@@ -44,11 +42,15 @@ class Gr4vyError(Exception):
 
 
 class Gr4vyClient:
-    def __init__(self, gr4vyId, private_key_file, environment, merchant_account_id=None):
+    def __init__(
+        self, gr4vyId, private_key_file, environment, merchant_account_id=None
+    ):
         self.gr4vyId = gr4vyId
         self.private_key_file = private_key_file
         self.environment = environment
-        self.merchant_account_id = merchant_account_id if merchant_account_id else "default"
+        self.merchant_account_id = (
+            merchant_account_id if merchant_account_id else "default"
+        )
         self.session = requests.Session()
         self.base_url = self._generate_base_url()
         self.token = self.generate_token()
@@ -114,18 +116,22 @@ class Gr4vyClient:
         path: str,
         params: typing.Optional[dict[str, object]] = None,
         query: typing.Optional[dict[str, typing.Any]] = None,
+        user_token: str = None,
     ):
 
         url = urllib.parse.urljoin(self.base_url, path)
 
         params = self._prepare_params(params) if params else params
 
-        headers = {
-            "X-GR4VY-MERCHANT-ACCOUNT-ID": self.merchant_account_id
-        }
+        headers = {"X-GR4VY-MERCHANT-ACCOUNT-ID": self.merchant_account_id}
 
         response = self.session.request(
-            method, url, params=query, json=params, auth=BearerAuth(self.token), headers=headers
+            method,
+            url,
+            params=query,
+            json=params,
+            auth=BearerAuth(user_token if user_token else self.token),
+            headers=headers,
         )
 
         try:
@@ -155,6 +161,31 @@ class Gr4vyClient:
     def generate_embed_token(self, embed_data):
         token = self.generate_token(embed_data=embed_data)
         return token
+
+    def create_user_token(self, email_address, password):
+        url = urllib.parse.urljoin(self.base_url, "/auth/sessions")
+
+        params = {"email_address": email_address, "password": password}
+
+        headers = {"X-GR4VY-MERCHANT-ACCOUNT-ID": self.merchant_account_id}
+
+        response = self.session.request(
+            method, url, params=query, json=params, headers=headers
+        )
+
+        try:
+            json_data = response.json()
+        except requests.JSONDecodeError:
+            json_data = None
+
+        data = json_data if isinstance(json_data, dict) else {"data": json_data}
+        if not response.ok:
+            raise Gr4vyError(
+                message=data.get("message"),
+                details=data.get("details"),
+                http_status_code=response.status_code,
+            )
+        return json_data
 
     def list_audit_logs(self, **kwargs):
         response = self._request("get", "/audit-logs", query=kwargs)
@@ -404,20 +435,31 @@ class Gr4vyClient:
         response = self._request("get", "/api-logs", query=kwargs)
         return response
 
-    def create_user(self, **kwargs):
-        response = self._request("post", f"/users", params=kwargs)
+    def create_user(self, user_token, **kwargs):
+        response = self._request(
+            "post", f"/users", params=kwargs, user_token=user_token
+        )
         return response
 
-    def create_merchant_account(self, **kwargs):
-        response = self._request("post", f"/merchant-accounts", params=kwargs)
+    def create_merchant_account(self, user_token, **kwargs):
+        response = self._request(
+            "post", f"/merchant-accounts", params=kwargs, user_token=user_token
+        )
         return response
 
-    def list_merchant_accounts(self, **kwargs):
-        response = self._request("get", "/merchant-accounts", query=kwargs)
+    def list_merchant_accounts(self, user_token, **kwargs):
+        response = self._request(
+            "get", "/merchant-accounts", query=kwargs, user_token=user_token
+        )
         return response
 
-    def update_merchant_account(self, merchant_account_id, **kwargs):
-        response = self._request("put", f"/merchant-accounts/{merchant_account_id}", params=kwargs)
+    def update_merchant_account(self, user_token, merchant_account_id, **kwargs):
+        response = self._request(
+            "put",
+            f"/merchant-accounts/{merchant_account_id}",
+            params=kwargs,
+            user_token=user_token,
+        )
         return response
 
 
@@ -425,5 +467,6 @@ class Gr4vyClientWithBaseUrl(Gr4vyClient):
     def __init__(self, base_url, private_key, environment):
         super().__init__(base_url, private_key, environment)
 
-#client = Gr4vyClient("spider", "private_key.pem", "sandbox")
-#print(client.list_audit_logs())
+
+# client = Gr4vyClient("spider", "private_key.pem", "sandbox")
+# print(client.list_audit_logs())
