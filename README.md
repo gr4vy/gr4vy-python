@@ -70,7 +70,7 @@ needs to be created before it can be used in this way.
     "buyerId": new_buyer,
   }
 
-  embed_token = client.GenerateEmbedToken(embed)
+  embed_token = client.generate_embed_token(embed)
 
   print("Embed token: {}".format(embed_token))
 ```
@@ -111,7 +111,7 @@ For example, to create a buyer:
   from gr4vy import BuyerRequest
 
   buyer_request = {"display_name": "Jane Smith"}
-  new_buyer = client.AddBuyer(**buyer_request)
+  new_buyer = client.add_buyer(**buyer_request)
 
 ```
 
@@ -120,7 +120,7 @@ To update a buyer:
 ```python
   buyer_id: "buyer_uuid_from_gr4vy"
   buyer_request = {"display_name": "Jane Changed")
-  buyer_update = client.UpdateBuyer(buyer_id, **buyer_request)
+  buyer_update = client.update_buyer(buyer_id, **buyer_request)
 ```
 
 ## Response
