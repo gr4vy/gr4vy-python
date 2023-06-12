@@ -93,6 +93,12 @@ of the server to use directly and the environment attempting to access.
 Your API private key can be created in your admin panel on the **Integrations**
 tab.
 
+## Multi Merchant
+Setting the Merchant ID for requests can be set on the client:
+
+```python
+  client = Gr4vyClient("gr4vyId","private_key.pem", "sandbox", merchant_account_id="merchant-id")
+```
 
 ## Making API calls
 
