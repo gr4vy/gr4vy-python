@@ -70,7 +70,7 @@ needs to be created before it can be used in this way.
     "buyerId": new_buyer,
   }
 
-  embed_token = client.GenerateEmbedToken(embed)
+  embed_token = client.generate_embed_token(embed)
 
   print("Embed token: {}".format(embed_token))
 ```
@@ -93,6 +93,12 @@ of the server to use directly and the environment attempting to access.
 Your API private key can be created in your admin panel on the **Integrations**
 tab.
 
+## Multi Merchant
+Setting the Merchant ID for requests can be set on the client:
+
+```python
+  client = Gr4vyClient("gr4vyId","private_key.pem", "sandbox", merchant_account_id="merchant-id")
+```
 
 ## Making API calls
 
@@ -111,7 +117,7 @@ For example, to create a buyer:
   from gr4vy import BuyerRequest
 
   buyer_request = {"display_name": "Jane Smith"}
-  new_buyer = client.AddBuyer(**buyer_request)
+  new_buyer = client.add_buyer(**buyer_request)
 
 ```
 
@@ -120,7 +126,7 @@ To update a buyer:
 ```python
   buyer_id: "buyer_uuid_from_gr4vy"
   buyer_request = {"display_name": "Jane Changed")
-  buyer_update = client.UpdateBuyer(buyer_id, **buyer_request)
+  buyer_update = client.update_buyer(buyer_id, **buyer_request)
 ```
 
 ## Response
