@@ -64,16 +64,38 @@ needs to be created before it can be used in this way.
   buyer_request = {"display_name": "Jane Smith"}
 
   new_buyer = client.create_new_buyer(**buyer_request).get('id')
-  embed = {
+  embed_data = {
     "amount": 1299,
     "currency": "USD",
     "buyerId": new_buyer,
   }
 
-  embed_token = client.generate_embed_token(embed)
+  embed_token = client.generate_embed_token(embed_data=embed_data)
 
   print("Embed token: {}".format(embed_token))
 ```
+Checkout sessions can also be passed within an Embed token:
+
+```python
+  from gr4vy import Gr4vyClient
+
+  client = Gr4vyClient("gr4vy_instance","private_key.pem", "production")
+
+  checkout_session_id = client.create_new_checkout_session().get("id")
+  
+  embed_data = {
+    "amount": 1299,
+    "currency": "USD",
+  }
+
+  emebed_token = client.generate_embed_token(
+        embed_data=embed_data, checkout_session_id=checkout_session_id
+    )
+
+  print("Embed token: {}".format(embed_token))
+```
+
+
 
 ## Initialization
 
