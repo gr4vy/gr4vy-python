@@ -32,9 +32,7 @@ class BearerAuth(requests.auth.AuthBase):
 
 
 class Gr4vyError(Exception):
-    def __init__(
-        self, message, details, http_status_code
-    ) -> None:
+    def __init__(self, message, details, http_status_code) -> None:
 
         super().__init__(
             f"Error Reason: {message} \n Error Details: {details} \n HTTP Status Code: {http_status_code}"
@@ -44,11 +42,15 @@ class Gr4vyError(Exception):
 
 
 class Gr4vyClient:
-    def __init__(self, gr4vyId, private_key_file, environment, merchant_account_id=None):
+    def __init__(
+        self, gr4vyId, private_key_file, environment, merchant_account_id=None
+    ):
         self.gr4vyId = gr4vyId
         self.private_key_file = private_key_file
         self.environment = environment
-        self.merchant_account_id = merchant_account_id if merchant_account_id else "default"
+        self.merchant_account_id = (
+            merchant_account_id if merchant_account_id else "default"
+        )
         self.session = requests.Session()
         self.base_url = self._generate_base_url()
         self.token = self.generate_token()
@@ -79,7 +81,9 @@ class Gr4vyClient:
                 base_url = "https://api.{}.gr4vy.app".format(self.gr4vyId)
         return base_url
 
-    def generate_token(self, scopes=["*.read", "*.write"], embed_data=None):
+    def generate_token(
+        self, scopes=["*.read", "*.write"], embed_data=None, checkout_session_id=None
+    ):
         private_key, kid = self._private_key_file_to_string()
         data = {
             "iss": "Gr4vy SDK {} - {}".format(VERSION, PYTHON_VERSION),
@@ -91,6 +95,8 @@ class Gr4vyClient:
         if embed_data:
             data["embed"] = embed_data
             data["scopes"] = ["embed"]
+        if checkout_session_id:
+            data["checkout_session"] = checkout_session_id
         token = api_jwt.encode(
             data, private_key, algorithm="ES512", headers={"kid": kid}
         )
@@ -120,12 +126,15 @@ class Gr4vyClient:
 
         params = self._prepare_params(params) if params else params
 
-        headers = {
-            "X-GR4VY-MERCHANT-ACCOUNT-ID": self.merchant_account_id
-        }
+        headers = {"X-GR4VY-MERCHANT-ACCOUNT-ID": self.merchant_account_id}
 
         response = self.session.request(
-            method, url, params=query, json=params, auth=BearerAuth(self.token), headers=headers
+            method,
+            url,
+            params=query,
+            json=params,
+            auth=BearerAuth(self.token),
+            headers=headers,
         )
 
         try:
@@ -152,8 +161,8 @@ class Gr4vyClient:
         digest.update(json_claims.encode("utf8"))
         return self._b64e(digest.finalize())
 
-    def generate_embed_token(self, embed_data):
-        token = self.generate_token(embed_data=embed_data)
+    def generate_embed_token(self, embed_data, checkout_session_id=None):
+        token = self.generate_token(embed_data=embed_data, checkout_session_id=None)
         return token
 
     def list_audit_logs(self, **kwargs):
@@ -393,7 +402,7 @@ class Gr4vyClient:
         return response
 
     def create_new_role_assignment(self, **kwargs):
-        response = self._request("get", "/roles/assignments", query=kwargs)
+        response = self._request("post", "/roles/assignments", params=kwargs)
         return response
 
     def delete_role_assignment(self, role_assignment_id):
@@ -408,6 +417,3 @@ class Gr4vyClient:
 class Gr4vyClientWithBaseUrl(Gr4vyClient):
     def __init__(self, base_url, private_key, environment):
         super().__init__(base_url, private_key, environment)
-
-#client = Gr4vyClient("spider", "private_key.pem", "sandbox")
-#print(client.list_audit_logs())
