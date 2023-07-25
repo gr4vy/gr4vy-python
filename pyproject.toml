@@ -9,7 +9,7 @@ readme = "README.md"
 python = "^3.9"
 cryptography = "^3.4.6"
 python-jose = {extras = ["cryptography"], version = "^3.2.0"}
-certifi = "^2021.10.8"
+certifi = ">=2021.10.8,<2024.0.0"
 pycryptodome = "^3.11.0"
 PyJWT = "^2.3.0"
 pyOpenSSL = "^21.0.0"
