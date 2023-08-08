@@ -223,8 +223,13 @@ class Gr4vyClient:
         response = self._request("get", f"/checkout/sessions/{checkout_session_id}")
         return response
 
-    def create_new_checkout_session(self):
-        response = self._request("post", f"/checkout/sessions")
+    def create_new_checkout_session(self, **kwargs):
+        response = self._request("post", f"/checkout/sessions", params=kwargs)
+        return response
+    
+    def update_checkout_session(self, checkout_session_id, **kwargs):
+        response = self._request(
+            "put", f"/checkout/sessions/{checkout_session_id}", params=kwargs)
         return response
 
     def update_checkout_session_fields(self, checkout_session_id, **kwargs):
