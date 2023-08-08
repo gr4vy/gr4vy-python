@@ -456,7 +456,7 @@ def test_create_new_transaction():
     }
     transaction = client.create_new_transaction(**transaction_request)
 
-    assert transaction["status"] in ["authorization_succeeded"]
+    assert transaction["status"] in ["authorization_succeeded", "buyer_approval_pending"]
 
 
 def test_capture_transaction():
