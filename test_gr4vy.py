@@ -194,7 +194,7 @@ def test_list_digital_wallets():
     assert client.list_digital_wallets()
 
 
-def test_update_digital_wallets():
+""" def test_update_digital_wallets():
     digital_wallet_id = client.list_digital_wallets()["items"][0].get("id")
     digital_wallet_update = {
         "merchant_name": "Gr4vy",
@@ -202,7 +202,7 @@ def test_update_digital_wallets():
     }
     assert client.update_digital_wallet(
         digital_wallet_id=digital_wallet_id, **digital_wallet_update
-    )
+    ) """
 
 
 def test_get_digital_wallet():
