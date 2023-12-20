@@ -88,7 +88,7 @@ Checkout sessions can also be passed within an Embed token:
     "currency": "USD",
   }
 
-  emebed_token = client.generate_embed_token(
+  embed_token = client.generate_embed_token(
         embed_data=embed_data, checkout_session_id=checkout_session_id
     )
 
