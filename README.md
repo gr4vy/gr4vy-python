@@ -88,7 +88,7 @@ Checkout sessions can also be passed within an Embed token:
     "currency": "USD",
   }
 
-  emebed_token = client.generate_embed_token(
+  embed_token = client.generate_embed_token(
         embed_data=embed_data, checkout_session_id=checkout_session_id
     )
 
@@ -176,7 +176,9 @@ This will output the request parameters and response to the console as follows.
 
 ### Publishing
 
-This project is published on PyPi.
+This project is published on PyPi. 
+
+To roll a new release, update the version in `pyproject.toml` and tag a new release. GitHub actions will handle the release to PyPI.
 
 ## License
 
