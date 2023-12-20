@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gr4vy"
-version = "0.15.0"
+version = "0.15.1"
 description = "Python SDK for Gr4vy"
 authors = ["Gr4vy <code@gr4vy.com>"]
 readme = "README.md"
