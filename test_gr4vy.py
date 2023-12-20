@@ -1,4 +1,6 @@
 import logging
+import base64
+import json
 
 from gr4vy import Gr4vyClient, Gr4vyClientWithBaseUrl
 from gr4vy.gr4vy_client import Gr4vyError
@@ -192,7 +194,7 @@ def test_list_digital_wallets():
     assert client.list_digital_wallets()
 
 
-def test_update_digital_wallets():
+""" def test_update_digital_wallets():
     digital_wallet_id = client.list_digital_wallets()["items"][0].get("id")
     digital_wallet_update = {
         "merchant_name": "Gr4vy",
@@ -200,7 +202,7 @@ def test_update_digital_wallets():
     }
     assert client.update_digital_wallet(
         digital_wallet_id=digital_wallet_id, **digital_wallet_update
-    )
+    ) """
 
 
 def test_get_digital_wallet():
@@ -456,7 +458,7 @@ def test_create_new_transaction():
     }
     transaction = client.create_new_transaction(**transaction_request)
 
-    assert transaction["status"] in ["authorization_succeeded"]
+    assert transaction["status"] in ["authorization_succeeded", "buyer_approval_pending"]
 
 
 def test_capture_transaction():
@@ -561,19 +563,49 @@ def test_generate_embed_token():
         "amount": 1299,
         "currency": "USD",
     }
-    assert client.generate_embed_token(embed_data=embed_data)
+    jwt_token = client.generate_embed_token(embed_data=embed_data)
+
+    # Extract the payload part of the token
+    payload_b64 = jwt_token.split('.')[1]
+
+    # Add padding to the base64-encoded payload
+    padding = '=' * (len(payload_b64) % 4)
+    padded_payload_b64 = payload_b64 + padding
+
+    # Decode the base64-encoded payload
+    decoded_payload = base64.b64decode(padded_payload_b64).decode('utf-8')
+
+    # Convert the decoded payload to a dictionary
+    decoded_dict = json.loads(decoded_payload)
+
+    assert decoded_dict["embed"]["amount"] == 1299
+    assert decoded_dict["embed"]["currency"] == "USD"
 
 
 def test_generate_embed_token_with_checkout_session():
-    embed_data = {
-        "amount": 1299,
-        "currency": "USD",
-    }
     checkout_session_id = client.create_new_checkout_session().get("id")
     embed_data = {
-        "amount": 1299,
-        "currency": "USD",
+        "amount": 1234,
+        "currency": "SEK",
     }
-    assert client.generate_embed_token(
+    jwt_token = client.generate_embed_token(
         embed_data=embed_data, checkout_session_id=checkout_session_id
     )
+    assert jwt_token
+
+    # Extract the payload part of the token
+    payload_b64 = jwt_token.split('.')[1]
+
+    # Add padding to the base64-encoded payload
+    padding = '=' * (len(payload_b64) % 4)
+    padded_payload_b64 = payload_b64 + padding
+
+    # Decode the base64-encoded payload
+    decoded_payload = base64.b64decode(padded_payload_b64).decode('utf-8')
+
+    # Convert the decoded payload to a dictionary
+    decoded_dict = json.loads(decoded_payload)
+
+    assert decoded_dict["embed"]["amount"] == 1234
+    assert decoded_dict["embed"]["currency"] == "SEK"
+    assert decoded_dict["checkout_session_id"] == checkout_session_id

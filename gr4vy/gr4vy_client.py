@@ -96,7 +96,7 @@ class Gr4vyClient:
             data["embed"] = embed_data
             data["scopes"] = ["embed"]
         if checkout_session_id:
-            data["checkout_session"] = checkout_session_id
+            data["checkout_session_id"] = checkout_session_id
         token = api_jwt.encode(
             data, private_key, algorithm="ES512", headers={"kid": kid}
         )
@@ -162,7 +162,7 @@ class Gr4vyClient:
         return self._b64e(digest.finalize())
 
     def generate_embed_token(self, embed_data, checkout_session_id=None):
-        token = self.generate_token(embed_data=embed_data, checkout_session_id=None)
+        token = self.generate_token(embed_data=embed_data, checkout_session_id=checkout_session_id)
         return token
 
     def list_audit_logs(self, **kwargs):
@@ -223,8 +223,13 @@ class Gr4vyClient:
         response = self._request("get", f"/checkout/sessions/{checkout_session_id}")
         return response
 
-    def create_new_checkout_session(self):
-        response = self._request("post", f"/checkout/sessions")
+    def create_new_checkout_session(self, **kwargs):
+        response = self._request("post", f"/checkout/sessions", params=kwargs)
+        return response
+    
+    def update_checkout_session(self, checkout_session_id, **kwargs):
+        response = self._request(
+            "put", f"/checkout/sessions/{checkout_session_id}", params=kwargs)
         return response
 
     def update_checkout_session_fields(self, checkout_session_id, **kwargs):
