@@ -176,7 +176,9 @@ This will output the request parameters and response to the console as follows.
 
 ### Publishing
 
-This project is published on PyPi.
+This project is published on PyPi. 
+
+To roll a new release, update the version in `pyproject.toml` and tag a new release. GitHub actions will handle the release to PyPI.
 
 ## License
 
