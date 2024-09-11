@@ -380,6 +380,11 @@ class Gr4vyClient:
         response = self._request("get", f"/transactions/{transaction_id}")
         return response
 
+    def sync_transaction(self, transaction_id):
+        response = self._request("post", f"/transactions/{transaction_id}/sync")
+        return response
+
+
     def list_transactions(self, **kwargs):
         response = self._request("get", "/transactions", query=kwargs)
         return response
