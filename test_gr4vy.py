@@ -2,8 +2,10 @@ import base64
 import json
 import logging
 
+import pytest
+
 from gr4vy import Gr4vyClient, Gr4vyClientWithBaseUrl
-from gr4vy.gr4vy_client import Gr4vyError
+from gr4vy.gr4vy_client import Gr4vySignatureVerificationError
 
 gr4vy_id = "spider"
 private_key_location = "./private_key.pem"
@@ -612,3 +614,91 @@ def test_generate_embed_token_with_checkout_session():
     assert decoded_dict["embed"]["amount"] == 1234
     assert decoded_dict["embed"]["currency"] == "SEK"
     assert decoded_dict["checkout_session_id"] == checkout_session_id
+
+
+def test_verify_webhook__happy_case():
+    secret = "Ik4L-8FH0ihWczctcIPXZRR_8F0fPNgmhEfVBbZ3zNwqQVa1Or4tBz4Pgw2eNaVDod7H56Y268h_wohEUaWbUg"
+    signature_header = (
+        "78aca0c78005107a654a957b8566fa6e0e5e06aea92d7da72a6da9e5a690d013,other"
+    )
+    timestamp_header = "1744018920"
+    payload = "payload"
+
+    client.verify_webhook(
+        secret=secret,
+        payload=payload,
+        signature_header=signature_header,
+        timestamp_header=timestamp_header,
+        timestamp_tolerance=0,  # no check
+    )
+
+
+def test_verify_webhook__old_timestamp():
+    secret = "Ik4L-8FH0ihWczctcIPXZRR_8F0fPNgmhEfVBbZ3zNwqQVa1Or4tBz4Pgw2eNaVDod7H56Y268h_wohEUaWbUg"
+    signature_header = (
+        "78aca0c78005107a654a957b8566fa6e0e5e06aea92d7da72a6da9e5a690d013,other"
+    )
+    timestamp_header = "1744018920"
+    payload = "payload"
+
+    with pytest.raises(Gr4vySignatureVerificationError) as exc_info:
+        client.verify_webhook(
+            secret=secret,
+            payload=payload,
+            signature_header=signature_header,
+            timestamp_header=timestamp_header,
+            timestamp_tolerance=60,
+        )
+    assert str(exc_info.value) == "Timestamp too old"
+
+
+def test_verify_webhook__wrong_signature():
+    secret = "Ik4L-8FH0ihWczctcIPXZRR_8F0fPNgmhEfVBbZ3zNwqQVa1Or4tBz4Pgw2eNaVDod7H56Y268h_wohEUaWbUg"
+    signature_header = "other"
+    timestamp_header = "1744018920"
+    payload = "payload"
+
+    with pytest.raises(Gr4vySignatureVerificationError) as exc_info:
+        client.verify_webhook(
+            secret=secret,
+            payload=payload,
+            signature_header=signature_header,
+            timestamp_header=timestamp_header,
+            timestamp_tolerance=0,  # no check
+        )
+    assert str(exc_info.value) == "No matching signature found"
+
+
+def test_verify_webhook__invalid_timestamp():
+    secret = "Ik4L-8FH0ihWczctcIPXZRR_8F0fPNgmhEfVBbZ3zNwqQVa1Or4tBz4Pgw2eNaVDod7H56Y268h_wohEUaWbUg"
+    signature_header = (
+        "78aca0c78005107a654a957b8566fa6e0e5e06aea92d7da72a6da9e5a690d013,other"
+    )
+    timestamp_header = "wrong"
+    payload = "payload"
+
+    with pytest.raises(Gr4vySignatureVerificationError) as exc_info:
+        client.verify_webhook(
+            secret=secret,
+            payload=payload,
+            signature_header=signature_header,
+            timestamp_header=timestamp_header,
+            timestamp_tolerance=0,  # no check
+        )
+    assert str(exc_info.value) == "Invalid header timestamp"
+
+
+def test_verify_webhook__missing_header():
+    secret = "Ik4L-8FH0ihWczctcIPXZRR_8F0fPNgmhEfVBbZ3zNwqQVa1Or4tBz4Pgw2eNaVDod7H56Y268h_wohEUaWbUg"
+    timestamp_header = "1744018920"
+    payload = "payload"
+
+    with pytest.raises(Gr4vySignatureVerificationError) as exc_info:
+        client.verify_webhook(
+            secret=secret,
+            payload=payload,
+            signature_header=None,
+            timestamp_header=timestamp_header,
+            timestamp_tolerance=0,  # no check
+        )
+    assert str(exc_info.value) == "Missing header values"

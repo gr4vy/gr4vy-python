@@ -1,7 +1,10 @@
 import base64
+import hashlib
+import hmac
 import json
 import sys
 import textwrap
+import time
 import typing
 import urllib
 import uuid
@@ -38,6 +41,10 @@ class Gr4vyError(Exception):
         )
 
         self.details = details
+
+
+class Gr4vySignatureVerificationError(Exception):
+    pass
 
 
 class Gr4vyClient:
@@ -165,6 +172,35 @@ class Gr4vyClient:
             embed_data=embed_data, checkout_session_id=checkout_session_id
         )
         return token
+
+    def verify_webhook(
+        self,
+        secret: str,
+        payload: str,
+        signature_header: typing.Optional[str],
+        timestamp_header: typing.Optional[str],
+        timestamp_tolerance: int = 0,
+    ) -> None:
+        if not signature_header or not timestamp_header:
+            raise Gr4vySignatureVerificationError("Missing header values")
+
+        try:
+            timestamp = int(timestamp_header)
+        except ValueError:
+            raise Gr4vySignatureVerificationError("Invalid header timestamp")
+
+        signatures = signature_header.split(",")
+        expected_signature = hmac.new(
+            key=secret.encode("utf-8"),
+            msg=f"{timestamp}.{payload}".encode(),
+            digestmod=hashlib.sha256,
+        ).hexdigest()
+
+        if expected_signature not in signatures:
+            raise Gr4vySignatureVerificationError("No matching signature found")
+
+        if timestamp_tolerance and timestamp < time.time() - timestamp_tolerance:
+            raise Gr4vySignatureVerificationError("Timestamp too old")
 
     def list_audit_logs(self, **kwargs):
         response = self._request("get", "/audit-logs", query=kwargs)
