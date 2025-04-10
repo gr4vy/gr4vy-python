@@ -1,6 +1,6 @@
-import logging
 import base64
 import json
+import logging
 
 from gr4vy import Gr4vyClient, Gr4vyClientWithBaseUrl
 from gr4vy.gr4vy_client import Gr4vyError
@@ -458,7 +458,10 @@ def test_create_new_transaction():
     }
     transaction = client.create_new_transaction(**transaction_request)
 
-    assert transaction["status"] in ["authorization_succeeded", "buyer_approval_pending"]
+    assert transaction["status"] in [
+        "authorization_succeeded",
+        "buyer_approval_pending",
+    ]
 
 
 def test_capture_transaction():
@@ -566,14 +569,14 @@ def test_generate_embed_token():
     jwt_token = client.generate_embed_token(embed_data=embed_data)
 
     # Extract the payload part of the token
-    payload_b64 = jwt_token.split('.')[1]
+    payload_b64 = jwt_token.split(".")[1]
 
     # Add padding to the base64-encoded payload
-    padding = '=' * (len(payload_b64) % 4)
+    padding = "=" * (len(payload_b64) % 4)
     padded_payload_b64 = payload_b64 + padding
 
     # Decode the base64-encoded payload
-    decoded_payload = base64.b64decode(padded_payload_b64).decode('utf-8')
+    decoded_payload = base64.b64decode(padded_payload_b64).decode("utf-8")
 
     # Convert the decoded payload to a dictionary
     decoded_dict = json.loads(decoded_payload)
@@ -594,14 +597,14 @@ def test_generate_embed_token_with_checkout_session():
     assert jwt_token
 
     # Extract the payload part of the token
-    payload_b64 = jwt_token.split('.')[1]
+    payload_b64 = jwt_token.split(".")[1]
 
     # Add padding to the base64-encoded payload
-    padding = '=' * (len(payload_b64) % 4)
+    padding = "=" * (len(payload_b64) % 4)
     padded_payload_b64 = payload_b64 + padding
 
     # Decode the base64-encoded payload
-    decoded_payload = base64.b64decode(padded_payload_b64).decode('utf-8')
+    decoded_payload = base64.b64decode(padded_payload_b64).decode("utf-8")
 
     # Convert the decoded payload to a dictionary
     decoded_dict = json.loads(decoded_payload)

@@ -1,5 +1,4 @@
 import base64
-import collections
 import json
 import sys
 import textwrap
@@ -162,7 +161,9 @@ class Gr4vyClient:
         return self._b64e(digest.finalize())
 
     def generate_embed_token(self, embed_data, checkout_session_id=None):
-        token = self.generate_token(embed_data=embed_data, checkout_session_id=checkout_session_id)
+        token = self.generate_token(
+            embed_data=embed_data, checkout_session_id=checkout_session_id
+        )
         return token
 
     def list_audit_logs(self, **kwargs):
@@ -226,10 +227,11 @@ class Gr4vyClient:
     def create_new_checkout_session(self, **kwargs):
         response = self._request("post", f"/checkout/sessions", params=kwargs)
         return response
-    
+
     def update_checkout_session(self, checkout_session_id, **kwargs):
         response = self._request(
-            "put", f"/checkout/sessions/{checkout_session_id}", params=kwargs)
+            "put", f"/checkout/sessions/{checkout_session_id}", params=kwargs
+        )
         return response
 
     def update_checkout_session_fields(self, checkout_session_id, **kwargs):
@@ -383,7 +385,6 @@ class Gr4vyClient:
     def sync_transaction(self, transaction_id):
         response = self._request("post", f"/transactions/{transaction_id}/sync")
         return response
-
 
     def list_transactions(self, **kwargs):
         response = self._request("get", "/transactions", query=kwargs)
