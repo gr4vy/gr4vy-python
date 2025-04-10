@@ -450,6 +450,7 @@ def test_create_new_transaction():
         "amount": 1299,
         "currency": "USD",
         "intent": "authorize",
+        "payment_service_id": "30dd07ba-2b26-4d56-82cb-6b34c827b3d4",
         "payment_method": {
             "method": "card",
             "number": "4111111111111111",
