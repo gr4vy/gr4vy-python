@@ -29,7 +29,7 @@ For multi-merchant environments, an optional merchant ID can be provided as well
 
 ```python
 from gr4vy import Gr4vyClient
-client = Gr4vyClient("gr4vy_instance","location_of_key_file", "sandbox_or_production", "my-merchant-id)
+client = Gr4vyClient("gr4vy_instance","location_of_key_file", "sandbox_or_production", "my-merchant-id")
 client.ListBuyers()
 ```
 
@@ -160,6 +160,32 @@ Every resolved API call returns the requested resource, errors are printed to th
   print(client.list_buyers())
 ```
 
+## Webhooks verification
+
+The SDK makes it easy to verify that incoming webhooks were actually sent by Gr4vy.
+Once you have configured the webhook subscription with its corresponding secret, that
+can be verified the following way:
+
+```python
+payload = request.data.decode("utf-8")
+signature_header = request.headers.get("X-Gr4vy-Webhook-Signatures", None)
+timestamp_header = request.headers.get("X-Gr4vy-Webhook-Timestamp", None)
+
+try:
+    client.verify_webhook(
+        secret=WEBHOOK_SUBSCRIPTION_SECRET,
+        payload=payload,
+        signature_header=signature_header,
+        timestamp_header=timestamp_header,
+        timestamp_tolerance=0,  # optional
+    )
+except Gr4vySignatureVerificationError as exc:
+    logger.error("Invalid signature!")
+```
+
+Bear in mind that extracting the payload and headers of the request depends on the used
+framework. And that optionally you can validate the timestamp age with some tolerance.
+
 ## Logging & Debugging
 
 The SDK makes it possible to log responses to the console.
@@ -174,7 +200,7 @@ This will output the request parameters and response to the console as follows.
 {"items":[{"id":"b8433347-a16f-46b5-958f-d681876546a6","type":"buyer","display_name":"Jane Smith","external_identifier":None,"created_at":"2021-04-22T06:51:16.910297+00:00","updated_at":"2021-04-22T07:18:49.816242+00:00"}],"limit":1,"next_cursor":"fAA0YjY5NmU2My00NzY5LTQ2OGMtOTEyNC0xODVjMDdjZTY5MzEAMjAyMS0wNC0yMlQwNjozNTowNy4yNTMxMDY","previous_cursor":None}
 ```
 
-### Publishing
+## Publishing
 
 This project is published on PyPi. 
 
