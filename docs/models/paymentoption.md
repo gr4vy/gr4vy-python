@@ -1,0 +1,15 @@
+# PaymentOption
+
+
+## Fields
+
+| Field                                                    | Type                                                     | Required                                                 | Description                                              | Example                                                  |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `type`                                                   | *Optional[Literal["payment-option"]]*                    | :heavy_minus_sign:                                       | N/A                                                      |                                                          |
+| `method`                                                 | *str*                                                    | :heavy_check_mark:                                       | N/A                                                      |                                                          |
+| `icon_url`                                               | *OptionalNullable[str]*                                  | :heavy_minus_sign:                                       | N/A                                                      |                                                          |
+| `mode`                                                   | [models.Mode](../models/mode.md)                         | :heavy_check_mark:                                       | N/A                                                      | card                                                     |
+| `label`                                                  | *OptionalNullable[str]*                                  | :heavy_minus_sign:                                       | N/A                                                      |                                                          |
+| `can_store_payment_method`                               | *bool*                                                   | :heavy_check_mark:                                       | N/A                                                      |                                                          |
+| `can_delay_capture`                                      | *bool*                                                   | :heavy_check_mark:                                       | N/A                                                      |                                                          |
+| `context`                                                | [OptionalNullable[models.Context]](../models/context.md) | :heavy_minus_sign:                                       | N/A                                                      |                                                          |

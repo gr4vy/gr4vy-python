@@ -1,0 +1,11 @@
+# UnregisterDigitalWalletDomainRequest
+
+
+## Fields
+
+| Field                                                          | Type                                                           | Required                                                       | Description                                                    | Example                                                        |
+| -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- | -------------------------------------------------------------- |
+| `digital_wallet_id`                                            | *str*                                                          | :heavy_check_mark:                                             | N/A                                                            |                                                                |
+| `timeout_in_seconds`                                           | *Optional[float]*                                              | :heavy_minus_sign:                                             | N/A                                                            |                                                                |
+| `merchant_account_id`                                          | *OptionalNullable[str]*                                        | :heavy_minus_sign:                                             | The ID of the merchant account to use for this request.        |                                                                |
+| `digital_wallet_domain`                                        | [models.DigitalWalletDomain](../models/digitalwalletdomain.md) | :heavy_check_mark:                                             | N/A                                                            |                                                                |

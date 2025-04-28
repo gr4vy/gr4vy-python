@@ -1,0 +1,16 @@
+# DigitalWalletCreate
+
+Request body for registering a new digital wallet
+
+
+## Fields
+
+| Field                                                              | Type                                                               | Required                                                           | Description                                                        | Example                                                            |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| `provider`                                                         | [models.DigitalWalletProvider](../models/digitalwalletprovider.md) | :heavy_check_mark:                                                 | N/A                                                                |                                                                    |
+| `merchant_name`                                                    | *str*                                                              | :heavy_check_mark:                                                 | N/A                                                                |                                                                    |
+| `merchant_display_name`                                            | *OptionalNullable[str]*                                            | :heavy_minus_sign:                                                 | N/A                                                                |                                                                    |
+| `merchant_url`                                                     | *OptionalNullable[str]*                                            | :heavy_minus_sign:                                                 | N/A                                                                |                                                                    |
+| `merchant_country_code`                                            | *OptionalNullable[str]*                                            | :heavy_minus_sign:                                                 | N/A                                                                | DE                                                                 |
+| `domain_names`                                                     | List[*str*]                                                        | :heavy_minus_sign:                                                 | N/A                                                                |                                                                    |
+| `accept_terms_and_conditions`                                      | *bool*                                                             | :heavy_check_mark:                                                 | N/A                                                                |                                                                    |

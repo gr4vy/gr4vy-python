@@ -1,0 +1,33 @@
+speakeasyVersion: 1.540.0
+sources:
+    -OAS:
+        sourceNamespace: openapi
+        sourceRevisionDigest: sha256:8546813d866e4537be4cb9ef975adb58ca253bc7bed82723b32d29886575dfaa
+        sourceBlobDigest: sha256:738837f673740d6b7fd3e609df560984c9ec546f8e732d0d82a94b2afb17bb08
+        tags:
+            - latest
+targets:
+    gr-4-vy:
+        source: -OAS
+        sourceNamespace: openapi
+        sourceRevisionDigest: sha256:8546813d866e4537be4cb9ef975adb58ca253bc7bed82723b32d29886575dfaa
+        sourceBlobDigest: sha256:738837f673740d6b7fd3e609df560984c9ec546f8e732d0d82a94b2afb17bb08
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        -OAS:
+            inputs:
+                - location: registry.speakeasyapi.dev/gr4vy/gr4vy/openapi:main
+            registry:
+                location: registry.speakeasyapi.dev/gr4vy/gr4vy/-oas
+    targets:
+        gr-4-vy:
+            target: python
+            source: -OAS
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/gr4vy/gr4vy/-oas-python-code-samples
+                labelOverride:
+                    fixedValue: Python (SDK)
+                blocking: false

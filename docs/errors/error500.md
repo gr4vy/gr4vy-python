@@ -1,0 +1,12 @@
+# Error500
+
+
+## Fields
+
+| Field                                                             | Type                                                              | Required                                                          | Description                                                       | Example                                                           |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `type`                                                            | *Optional[Literal["error"]]*                                      | :heavy_minus_sign:                                                | Always `error`.                                                   | error                                                             |
+| `code`                                                            | *Optional[str]*                                                   | :heavy_minus_sign:                                                | Always `server_error`                                             | server_error                                                      |
+| `status`                                                          | *Optional[int]*                                                   | :heavy_minus_sign:                                                | Always `500`.                                                     | 500                                                               |
+| `message`                                                         | *Optional[str]*                                                   | :heavy_minus_sign:                                                | A human readable message that provides more context to the error. | Request could not be processed                                    |
+| `details`                                                         | List[[models.ErrorDetail](../models/errordetail.md)]              | :heavy_minus_sign:                                                | A list of details that further ellaborate on the error.           |                                                                   |
