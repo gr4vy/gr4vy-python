@@ -35,6 +35,10 @@ jobs:
         with:
           poetry-version: 2.1.3
 
+      - name: Install dependencies
+        run: |
+          poetry install
+
       - name: Run tests
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
