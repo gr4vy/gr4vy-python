@@ -13,10 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     
     timeout-minutes: 3
-    strategy:
-      matrix:
-        node:
-          - 22.x
 
     permissions:
       contents: write
