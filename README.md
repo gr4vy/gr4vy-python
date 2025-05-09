@@ -201,6 +201,28 @@ with Gr4vy(
 ```
 <!-- End Authentication [security] -->
 
+## Merchant account ID selection
+
+Depending on the key used, you might need to explicitly define a merchant account ID to use. In our API, 
+this uses the `X-GR4VY-MERCHANT-ACCOUNT-ID` header. When using the SDK, you can set the `merchant_account_id`
+on every request.
+
+``py
+res = g_client.transactions.list(merchant_account_id: 'merchant-12345')
+```
+
+Alternatively, the merchant account ID can also be set when initializing the SDK.
+
+```py
+with Gr4vy(
+    id="spider",
+    server="sandbox",
+    merchant_account_id="merchant-12345",
+    bearer_auth=auth.get_token(private_key)
+) as g_client:
+    response = g_client.transactions.list()
+```
+
 ## Webhooks verification
 
 The SDK makes it easy to verify that incoming webhooks were actually sent by Gr4vy. Once you have configured the webhook subscription with its corresponding secret, that can be verified the following way:
