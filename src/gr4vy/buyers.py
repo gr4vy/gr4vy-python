@@ -4,9 +4,9 @@ from .basesdk import BaseSDK
 from .sdkconfiguration import SDKConfiguration
 from gr4vy import errors, models, utils
 from gr4vy._hooks import HookContext
+from gr4vy.buyers_gift_cards import BuyersGiftCards
+from gr4vy.buyers_payment_methods import BuyersPaymentMethods
 from gr4vy.buyers_shipping_details import BuyersShippingDetails
-from gr4vy.gift_cards import GiftCards
-from gr4vy.payment_methods import PaymentMethods
 from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from jsonpath import JSONPath
@@ -14,8 +14,8 @@ from typing import Any, Dict, List, Mapping, Optional, Union
 
 
 class Buyers(BaseSDK):
-    payment_methods: PaymentMethods
-    gift_cards: GiftCards
+    payment_methods: BuyersPaymentMethods
+    gift_cards: BuyersGiftCards
     shipping_details: BuyersShippingDetails
 
     def __init__(self, sdk_config: SDKConfiguration) -> None:
@@ -24,8 +24,8 @@ class Buyers(BaseSDK):
         self._init_sdks()
 
     def _init_sdks(self):
-        self.payment_methods = PaymentMethods(self.sdk_configuration)
-        self.gift_cards = GiftCards(self.sdk_configuration)
+        self.payment_methods = BuyersPaymentMethods(self.sdk_configuration)
+        self.gift_cards = BuyersGiftCards(self.sdk_configuration)
         self.shipping_details = BuyersShippingDetails(self.sdk_configuration)
 
     def list(

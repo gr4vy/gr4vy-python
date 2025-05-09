@@ -87,11 +87,11 @@ with Gr4vy(
 ) as g_client:
 
     res = g_client.payment_methods.create(request_body={
-        "method": models.RedirectPaymentMethodCreateMethod.ZIPPAY,
+        "method": models.RedirectPaymentMethodCreateMethod.PAYPAL,
         "buyer_id": "fe26475d-ec3e-4884-9553-f7356683f7f9",
         "buyer_external_identifier": "buyer-12345",
         "country": "GB",
-        "currency": "EUR",
+        "currency": "GBP",
         "redirect_url": "https://standard-utilization.com/",
         "external_identifier": "payment-method-12345",
     })

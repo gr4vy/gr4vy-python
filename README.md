@@ -12,7 +12,7 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *gr4v
 
 <br /><br />
 > [!IMPORTANT]
-> This SDK is not yet ready for production use. To complete setup please follow the steps outlined in your [workspace](https://app.speakeasy.com/org/gr4vy/gr4vy). Delete this section before > publishing to a package manager.
+> This SDK is not yet ready for production use. Please refer to the [legacy Python SDK](https://github.com/gr4vy/gr4vy-python/tree/legacy) for the latest stable build.
 
 <!-- Start Summary [summary] -->
 ## Summary
@@ -228,13 +228,13 @@ with Gr4vy(
 * [update](docs/sdks/buyers/README.md#update) - Update a buyer
 * [delete](docs/sdks/buyers/README.md#delete) - Delete a buyer
 
-#### [buyers.gift_cards](docs/sdks/giftcards/README.md)
+#### [buyers.gift_cards](docs/sdks/buyersgiftcards/README.md)
 
-* [list](docs/sdks/giftcards/README.md#list) - List gift cards for a buyer
+* [list](docs/sdks/buyersgiftcards/README.md#list) - List gift cards for a buyer
 
-#### [buyers.payment_methods](docs/sdks/paymentmethods/README.md)
+#### [buyers.payment_methods](docs/sdks/buyerspaymentmethods/README.md)
 
-* [list](docs/sdks/paymentmethods/README.md#list) - List payment methods for a buyer
+* [list](docs/sdks/buyerspaymentmethods/README.md#list) - List payment methods for a buyer
 
 #### [buyers.shipping_details](docs/sdks/buyersshippingdetails/README.md)
 
@@ -286,6 +286,13 @@ with Gr4vy(
 * [list](docs/sdks/balances/README.md#list) - List gift card balances
 
 
+### [merchant_accounts](docs/sdks/merchantaccounts/README.md)
+
+* [list](docs/sdks/merchantaccounts/README.md#list) - List all merchant accounts
+* [create](docs/sdks/merchantaccounts/README.md#create) - Create a merchant account
+* [get](docs/sdks/merchantaccounts/README.md#get) - Get a merchant account
+* [update](docs/sdks/merchantaccounts/README.md#update) - Update a merchant account
+
 ### [payment_methods](docs/sdks/paymentmethods/README.md)
 
 * [list](docs/sdks/paymentmethods/README.md#list) - List all payment methods
@@ -315,6 +322,22 @@ with Gr4vy(
 
 * [list](docs/sdks/paymentoptions/README.md#list) - List payment options
 
+### [payment_service_definitions](docs/sdks/paymentservicedefinitions/README.md)
+
+* [list](docs/sdks/paymentservicedefinitions/README.md#list) - List payment service definitions
+* [get](docs/sdks/paymentservicedefinitions/README.md#get) - Get a payment service definition
+* [session](docs/sdks/paymentservicedefinitions/README.md#session) - Create a session for apayment service definition
+
+### [payment_services](docs/sdks/paymentservices/README.md)
+
+* [list](docs/sdks/paymentservices/README.md#list) - List payment services
+* [create](docs/sdks/paymentservices/README.md#create) - Update a configured payment service
+* [get](docs/sdks/paymentservices/README.md#get) - Get payment service
+* [update](docs/sdks/paymentservices/README.md#update) - Configure a payment service
+* [delete](docs/sdks/paymentservices/README.md#delete) - Delete a configured payment service
+* [verify](docs/sdks/paymentservices/README.md#verify) - Verify payment service credentials
+* [session](docs/sdks/paymentservices/README.md#session) - Create a session for apayment service definition
+
 ### [payouts](docs/sdks/payouts/README.md)
 
 * [list](docs/sdks/payouts/README.md#list) - List payouts created.
@@ -324,17 +347,6 @@ with Gr4vy(
 ### [refunds](docs/sdks/refunds/README.md)
 
 * [get](docs/sdks/refunds/README.md#get) - Get refund
-
-### [transaction](docs/sdks/transaction/README.md)
-
-
-#### [transaction.refunds](docs/sdks/refunds/README.md)
-
-* [create](docs/sdks/refunds/README.md#create) - Create transaction refund
-
-#### [transaction.refunds.all](docs/sdks/all/README.md)
-
-* [create](docs/sdks/all/README.md#create) - Create batch transaction refund
 
 ### [transactions](docs/sdks/transactions/README.md)
 
@@ -349,7 +361,12 @@ with Gr4vy(
 #### [transactions.refunds](docs/sdks/transactionsrefunds/README.md)
 
 * [list](docs/sdks/transactionsrefunds/README.md#list) - List transaction refunds
+* [create](docs/sdks/transactionsrefunds/README.md#create) - Create transaction refund
 * [get](docs/sdks/transactionsrefunds/README.md#get) - Get transaction refund
+
+#### [transactions.refunds.all](docs/sdks/all/README.md)
+
+* [create](docs/sdks/all/README.md#create) - Create batch transaction refund
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -551,7 +568,7 @@ You can override the default server globally by passing a server name to the `se
 
 | Name         | Server                               | Variables | Description |
 | ------------ | ------------------------------------ | --------- | ----------- |
-| `production` | `https://api.{id}.gr4vy.app`         | `id`      |             |
+| `production` | `https://api.example.gr4vy.app`      | `id`      |             |
 | `sandbox`    | `https://api.sandbox.{id}.gr4vy.app` | `id`      |             |
 
 If the selected server has variables, you may override its default values through the additional parameters made available in the SDK constructor:

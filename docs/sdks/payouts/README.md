@@ -128,7 +128,7 @@ with Gr4vy(
     ), buyer_external_identifier="buyer-12345", merchant={
         "name": "Acme Inc",
         "identification_number": "12345",
-        "phone_number": "+14155552671",
+        "phone_number": "+442071838750",
         "url": "https://example.com",
         "statement_descriptor": "Winnings",
         "merchant_category_code": "123456",

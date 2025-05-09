@@ -1,17 +1,17 @@
-speakeasyVersion: 1.540.0
+speakeasyVersion: 1.543.1
 sources:
     -OAS:
         sourceNamespace: openapi
-        sourceRevisionDigest: sha256:8546813d866e4537be4cb9ef975adb58ca253bc7bed82723b32d29886575dfaa
-        sourceBlobDigest: sha256:738837f673740d6b7fd3e609df560984c9ec546f8e732d0d82a94b2afb17bb08
+        sourceRevisionDigest: sha256:25c152cd94dcdaef154adc05ebc8f1e734a6495cfae0c5fcf632954353601494
+        sourceBlobDigest: sha256:02f5777e4647b8bf434f4954374c486fcf339d2814c4ad13d479829e7b1802d3
         tags:
             - latest
 targets:
     gr-4-vy:
         source: -OAS
         sourceNamespace: openapi
-        sourceRevisionDigest: sha256:8546813d866e4537be4cb9ef975adb58ca253bc7bed82723b32d29886575dfaa
-        sourceBlobDigest: sha256:738837f673740d6b7fd3e609df560984c9ec546f8e732d0d82a94b2afb17bb08
+        sourceRevisionDigest: sha256:25c152cd94dcdaef154adc05ebc8f1e734a6495cfae0c5fcf632954353601494
+        sourceBlobDigest: sha256:02f5777e4647b8bf434f4954374c486fcf339d2814c4ad13d479829e7b1802d3
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

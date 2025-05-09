@@ -77,7 +77,7 @@ with Gr4vy(
                 "gear",
             ],
             "product_type": models.ProductType.PHYSICAL,
-            "seller_country": "US",
+            "seller_country": "GB",
         },
     ])
 

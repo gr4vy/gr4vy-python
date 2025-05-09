@@ -14,12 +14,14 @@ from gr4vy.card_scheme_definitions import CardSchemeDefinitions
 from gr4vy.checkout_sessions import CheckoutSessions
 from gr4vy.digital_wallets import DigitalWallets
 from gr4vy.gift_cards import GiftCards
+from gr4vy.merchant_accounts import MerchantAccounts
 from gr4vy.models import internal
 from gr4vy.payment_methods import PaymentMethods
 from gr4vy.payment_options import PaymentOptions
+from gr4vy.payment_service_definitions import PaymentServiceDefinitions
+from gr4vy.payment_services import PaymentServices
 from gr4vy.payouts import Payouts
 from gr4vy.refunds import Refunds
-from gr4vy.transaction import Transaction
 from gr4vy.transactions import Transactions
 from gr4vy.types import OptionalNullable, UNSET
 import httpx
@@ -37,11 +39,13 @@ class Gr4vy(BaseSDK):
     card_scheme_definitions: CardSchemeDefinitions
     digital_wallets: DigitalWallets
     transactions: Transactions
-    transaction: Transaction
     refunds: Refunds
     payment_options: PaymentOptions
+    payment_service_definitions: PaymentServiceDefinitions
+    payment_services: PaymentServices
     audit_logs: AuditLogs
     checkout_sessions: CheckoutSessions
+    merchant_accounts: MerchantAccounts
     payouts: Payouts
 
     def __init__(
@@ -168,11 +172,15 @@ class Gr4vy(BaseSDK):
         self.card_scheme_definitions = CardSchemeDefinitions(self.sdk_configuration)
         self.digital_wallets = DigitalWallets(self.sdk_configuration)
         self.transactions = Transactions(self.sdk_configuration)
-        self.transaction = Transaction(self.sdk_configuration)
         self.refunds = Refunds(self.sdk_configuration)
         self.payment_options = PaymentOptions(self.sdk_configuration)
+        self.payment_service_definitions = PaymentServiceDefinitions(
+            self.sdk_configuration
+        )
+        self.payment_services = PaymentServices(self.sdk_configuration)
         self.audit_logs = AuditLogs(self.sdk_configuration)
         self.checkout_sessions = CheckoutSessions(self.sdk_configuration)
+        self.merchant_accounts = MerchantAccounts(self.sdk_configuration)
         self.payouts = Payouts(self.sdk_configuration)
 
     def __enter__(self):

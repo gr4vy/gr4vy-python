@@ -20,7 +20,7 @@ from typing import Callable, Dict, Optional, Tuple, Union
 SERVER_PRODUCTION = "production"
 SERVER_SANDBOX = "sandbox"
 SERVERS = {
-    SERVER_PRODUCTION: "https://api.{id}.gr4vy.app",
+    SERVER_PRODUCTION: "https://api.example.gr4vy.app",
     SERVER_SANDBOX: "https://api.sandbox.{id}.gr4vy.app",
 }
 """Contains the list of servers available to the SDK"""

@@ -106,9 +106,21 @@ from .collection_auditlogentry_ import (
 )
 from .collection_buyer_ import CollectionBuyer, CollectionBuyerTypedDict
 from .collection_giftcard_ import CollectionGiftCard, CollectionGiftCardTypedDict
+from .collection_merchantaccount_ import (
+    CollectionMerchantAccount,
+    CollectionMerchantAccountTypedDict,
+)
 from .collection_paymentmethod_ import (
     CollectionPaymentMethod,
     CollectionPaymentMethodTypedDict,
+)
+from .collection_paymentservice_ import (
+    CollectionPaymentService,
+    CollectionPaymentServiceTypedDict,
+)
+from .collection_paymentservicedefinition_ import (
+    CollectionPaymentServiceDefinition,
+    CollectionPaymentServiceDefinitionTypedDict,
 )
 from .collection_payoutsummary_ import (
     CollectionPayoutSummary,
@@ -200,6 +212,10 @@ from .create_google_pay_digital_wallet_sessionop import (
     CreateGooglePayDigitalWalletSessionRequest,
     CreateGooglePayDigitalWalletSessionRequestTypedDict,
 )
+from .create_merchant_accountop import (
+    CreateMerchantAccountRequest,
+    CreateMerchantAccountRequestTypedDict,
+)
 from .create_payment_method_network_token_cryptogramop import (
     CreatePaymentMethodNetworkTokenCryptogramGlobals,
     CreatePaymentMethodNetworkTokenCryptogramGlobalsTypedDict,
@@ -226,6 +242,22 @@ from .create_payment_methodop import (
     CreatePaymentMethodRequest,
     CreatePaymentMethodRequestTypedDict,
 )
+from .create_payment_service_definition_sessionop import (
+    CreatePaymentServiceDefinitionSessionRequest,
+    CreatePaymentServiceDefinitionSessionRequestTypedDict,
+)
+from .create_payment_service_sessionop import (
+    CreatePaymentServiceSessionGlobals,
+    CreatePaymentServiceSessionGlobalsTypedDict,
+    CreatePaymentServiceSessionRequest,
+    CreatePaymentServiceSessionRequestTypedDict,
+)
+from .create_payment_serviceop import (
+    CreatePaymentServiceGlobals,
+    CreatePaymentServiceGlobalsTypedDict,
+    CreatePaymentServiceRequest,
+    CreatePaymentServiceRequestTypedDict,
+)
 from .create_payoutop import (
     CreatePayoutGlobals,
     CreatePayoutGlobalsTypedDict,
@@ -246,10 +278,14 @@ from .create_transactionop import (
     CreateTransactionResponse,
     CreateTransactionResponseTypedDict,
 )
+from .createsession import CreateSession, CreateSessionTypedDict
+from .createsessionstatus import CreateSessionStatus
 from .creator import Creator, CreatorTypedDict
 from .cryptogram import Cryptogram, CryptogramTypedDict
 from .cryptogramcreate import CryptogramCreate, CryptogramCreateTypedDict
 from .cvvresponsecode import CVVResponseCode
+from .definitionfield import DefinitionField, DefinitionFieldTypedDict
+from .definitionfieldformat import DefinitionFieldFormat
 from .delete_buyer_shipping_detailsop import (
     DeleteBuyerShippingDetailsGlobals,
     DeleteBuyerShippingDetailsGlobalsTypedDict,
@@ -298,6 +334,12 @@ from .delete_payment_methodop import (
     DeletePaymentMethodRequest,
     DeletePaymentMethodRequestTypedDict,
 )
+from .delete_payment_serviceop import (
+    DeletePaymentServiceGlobals,
+    DeletePaymentServiceGlobalsTypedDict,
+    DeletePaymentServiceRequest,
+    DeletePaymentServiceRequestTypedDict,
+)
 from .digitalwallet import DigitalWallet, DigitalWalletTypedDict
 from .digitalwalletcreate import DigitalWalletCreate, DigitalWalletCreateTypedDict
 from .digitalwalletdomain import DigitalWalletDomain, DigitalWalletDomainTypedDict
@@ -305,6 +347,7 @@ from .digitalwalletprovider import DigitalWalletProvider
 from .digitalwalletupdate import DigitalWalletUpdate, DigitalWalletUpdateTypedDict
 from .errordetail import ErrorDetail, ErrorDetailTypedDict
 from .errorlocation import ErrorLocation
+from .field import FieldT, FieldTTypedDict
 from .get_buyer_shipping_detailsop import (
     GetBuyerShippingDetailsGlobals,
     GetBuyerShippingDetailsGlobalsTypedDict,
@@ -335,11 +378,25 @@ from .get_gift_cardop import (
     GetGiftCardRequest,
     GetGiftCardRequestTypedDict,
 )
+from .get_merchant_accountop import (
+    GetMerchantAccountRequest,
+    GetMerchantAccountRequestTypedDict,
+)
 from .get_payment_methodop import (
     GetPaymentMethodGlobals,
     GetPaymentMethodGlobalsTypedDict,
     GetPaymentMethodRequest,
     GetPaymentMethodRequestTypedDict,
+)
+from .get_payment_service_definitionop import (
+    GetPaymentServiceDefinitionRequest,
+    GetPaymentServiceDefinitionRequestTypedDict,
+)
+from .get_payment_serviceop import (
+    GetPaymentServiceGlobals,
+    GetPaymentServiceGlobalsTypedDict,
+    GetPaymentServiceRequest,
+    GetPaymentServiceRequestTypedDict,
 )
 from .get_payoutop import (
     GetPayoutGlobals,
@@ -353,6 +410,12 @@ from .get_refundop import (
     GetRefundRequest,
     GetRefundRequestTypedDict,
 )
+from .get_transaction_refundop import (
+    GetTransactionRefundGlobals,
+    GetTransactionRefundGlobalsTypedDict,
+    GetTransactionRefundRequest,
+    GetTransactionRefundRequestTypedDict,
+)
 from .get_transaction_summaryop import (
     GetTransactionSummaryGlobals,
     GetTransactionSummaryGlobalsTypedDict,
@@ -364,12 +427,6 @@ from .get_transactionop import (
     GetTransactionGlobalsTypedDict,
     GetTransactionRequest,
     GetTransactionRequestTypedDict,
-)
-from .get_treansaction_refundop import (
-    GetTreansactionRefundGlobals,
-    GetTreansactionRefundGlobalsTypedDict,
-    GetTreansactionRefundRequest,
-    GetTreansactionRefundRequestTypedDict,
 )
 from .giftcard import GiftCard, GiftCardTypedDict
 from .giftcardbalancerequest import (
@@ -482,6 +539,12 @@ from .list_gift_cardsop import (
     ListGiftCardsResponse,
     ListGiftCardsResponseTypedDict,
 )
+from .list_merchant_accountsop import (
+    ListMerchantAccountsRequest,
+    ListMerchantAccountsRequestTypedDict,
+    ListMerchantAccountsResponse,
+    ListMerchantAccountsResponseTypedDict,
+)
 from .list_payment_method_network_tokensop import (
     ListPaymentMethodNetworkTokensGlobals,
     ListPaymentMethodNetworkTokensGlobalsTypedDict,
@@ -508,6 +571,20 @@ from .list_payment_optionsop import (
     ListPaymentOptionsRequest,
     ListPaymentOptionsRequestTypedDict,
 )
+from .list_payment_service_definitionsop import (
+    ListPaymentServiceDefinitionsRequest,
+    ListPaymentServiceDefinitionsRequestTypedDict,
+    ListPaymentServiceDefinitionsResponse,
+    ListPaymentServiceDefinitionsResponseTypedDict,
+)
+from .list_payment_servicesop import (
+    ListPaymentServicesGlobals,
+    ListPaymentServicesGlobalsTypedDict,
+    ListPaymentServicesRequest,
+    ListPaymentServicesRequestTypedDict,
+    ListPaymentServicesResponse,
+    ListPaymentServicesResponseTypedDict,
+)
 from .list_payoutsop import (
     ListPayoutsGlobals,
     ListPayoutsGlobalsTypedDict,
@@ -529,6 +606,14 @@ from .list_transactionsop import (
     ListTransactionsRequestTypedDict,
     ListTransactionsResponse,
     ListTransactionsResponseTypedDict,
+)
+from .merchantaccount import MerchantAccount, MerchantAccountTypedDict
+from .merchantaccountcreate import MerchantAccountCreate, MerchantAccountCreateTypedDict
+from .merchantaccountupdate import MerchantAccountUpdate, MerchantAccountUpdateTypedDict
+from .merchantprofilescheme import MerchantProfileScheme, MerchantProfileSchemeTypedDict
+from .merchantprofileschemesummary import (
+    MerchantProfileSchemeSummary,
+    MerchantProfileSchemeSummaryTypedDict,
 )
 from .method import Method
 from .mode import Mode
@@ -571,11 +656,23 @@ from .paymentoptioncontextapprovalui import (
     PaymentOptionContextApprovalUITypedDict,
 )
 from .paymentoptionrequest import PaymentOptionRequest, PaymentOptionRequestTypedDict
+from .paymentservice import PaymentService, PaymentServiceTypedDict
+from .paymentserviceconfiguration import (
+    PaymentServiceConfiguration,
+    PaymentServiceConfigurationTypedDict,
+)
+from .paymentservicecreate import PaymentServiceCreate, PaymentServiceCreateTypedDict
+from .paymentservicedefinition import (
+    PaymentServiceDefinition,
+    PaymentServiceDefinitionTypedDict,
+)
+from .paymentservicestatus import PaymentServiceStatus
 from .paymentservicetoken import PaymentServiceToken, PaymentServiceTokenTypedDict
 from .paymentservicetokencreate import (
     PaymentServiceTokenCreate,
     PaymentServiceTokenCreateTypedDict,
 )
+from .paymentserviceupdate import PaymentServiceUpdate, PaymentServiceUpdateTypedDict
 from .payoutcategory import PayoutCategory
 from .payoutcreate import (
     PayoutCreate,
@@ -603,6 +700,10 @@ from .register_digital_wallet_domainop import (
     RegisterDigitalWalletDomainGlobalsTypedDict,
     RegisterDigitalWalletDomainRequest,
     RegisterDigitalWalletDomainRequestTypedDict,
+)
+from .requiredcheckoutfields import (
+    RequiredCheckoutFields,
+    RequiredCheckoutFieldsTypedDict,
 )
 from .resume_payment_method_network_tokenop import (
     ResumePaymentMethodNetworkTokenGlobals,
@@ -714,6 +815,16 @@ from .update_digital_walletop import (
     UpdateDigitalWalletRequest,
     UpdateDigitalWalletRequestTypedDict,
 )
+from .update_merchant_accountop import (
+    UpdateMerchantAccountRequest,
+    UpdateMerchantAccountRequestTypedDict,
+)
+from .update_payment_serviceop import (
+    UpdatePaymentServiceGlobals,
+    UpdatePaymentServiceGlobalsTypedDict,
+    UpdatePaymentServiceRequest,
+    UpdatePaymentServiceRequestTypedDict,
+)
 from .userstatus import UserStatus
 from .validationerror import (
     Loc,
@@ -721,12 +832,20 @@ from .validationerror import (
     ValidationError,
     ValidationErrorTypedDict,
 )
+from .verify_payment_service_credentialsop import (
+    VerifyPaymentServiceCredentialsGlobals,
+    VerifyPaymentServiceCredentialsGlobalsTypedDict,
+    VerifyPaymentServiceCredentialsRequest,
+    VerifyPaymentServiceCredentialsRequestTypedDict,
+)
+from .verifycredentials import VerifyCredentials, VerifyCredentialsTypedDict
 from .void_transactionop import (
     VoidTransactionGlobals,
     VoidTransactionGlobalsTypedDict,
     VoidTransactionRequest,
     VoidTransactionRequestTypedDict,
 )
+from .voidablefield import VoidableField, VoidableFieldTypedDict
 from .walletpaymentoptioncontext import (
     WalletPaymentOptionContext,
     WalletPaymentOptionContextTypedDict,
@@ -829,6 +948,8 @@ __all__ = [
     "CollectionBuyerTypedDict",
     "CollectionGiftCard",
     "CollectionGiftCardTypedDict",
+    "CollectionMerchantAccount",
+    "CollectionMerchantAccountTypedDict",
     "CollectionNoCursorCardSchemeDefinition",
     "CollectionNoCursorCardSchemeDefinitionTypedDict",
     "CollectionNoCursorDigitalWallet",
@@ -849,6 +970,10 @@ __all__ = [
     "CollectionNoCursorShippingDetailsTypedDict",
     "CollectionPaymentMethod",
     "CollectionPaymentMethodTypedDict",
+    "CollectionPaymentService",
+    "CollectionPaymentServiceDefinition",
+    "CollectionPaymentServiceDefinitionTypedDict",
+    "CollectionPaymentServiceTypedDict",
     "CollectionPayoutSummary",
     "CollectionPayoutSummaryTypedDict",
     "CollectionRefund",
@@ -889,6 +1014,8 @@ __all__ = [
     "CreateGooglePayDigitalWalletSessionGlobalsTypedDict",
     "CreateGooglePayDigitalWalletSessionRequest",
     "CreateGooglePayDigitalWalletSessionRequestTypedDict",
+    "CreateMerchantAccountRequest",
+    "CreateMerchantAccountRequestTypedDict",
     "CreatePaymentMethodBody",
     "CreatePaymentMethodBodyTypedDict",
     "CreatePaymentMethodGlobals",
@@ -907,10 +1034,23 @@ __all__ = [
     "CreatePaymentMethodPaymentServiceTokenRequestTypedDict",
     "CreatePaymentMethodRequest",
     "CreatePaymentMethodRequestTypedDict",
+    "CreatePaymentServiceDefinitionSessionRequest",
+    "CreatePaymentServiceDefinitionSessionRequestTypedDict",
+    "CreatePaymentServiceGlobals",
+    "CreatePaymentServiceGlobalsTypedDict",
+    "CreatePaymentServiceRequest",
+    "CreatePaymentServiceRequestTypedDict",
+    "CreatePaymentServiceSessionGlobals",
+    "CreatePaymentServiceSessionGlobalsTypedDict",
+    "CreatePaymentServiceSessionRequest",
+    "CreatePaymentServiceSessionRequestTypedDict",
     "CreatePayoutGlobals",
     "CreatePayoutGlobalsTypedDict",
     "CreatePayoutRequest",
     "CreatePayoutRequestTypedDict",
+    "CreateSession",
+    "CreateSessionStatus",
+    "CreateSessionTypedDict",
     "CreateTransactionGlobals",
     "CreateTransactionGlobalsTypedDict",
     "CreateTransactionRefundGlobals",
@@ -927,6 +1067,9 @@ __all__ = [
     "CryptogramCreate",
     "CryptogramCreateTypedDict",
     "CryptogramTypedDict",
+    "DefinitionField",
+    "DefinitionFieldFormat",
+    "DefinitionFieldTypedDict",
     "DeleteBuyerGlobals",
     "DeleteBuyerGlobalsTypedDict",
     "DeleteBuyerRequest",
@@ -959,6 +1102,10 @@ __all__ = [
     "DeletePaymentMethodPaymentServiceTokenRequestTypedDict",
     "DeletePaymentMethodRequest",
     "DeletePaymentMethodRequestTypedDict",
+    "DeletePaymentServiceGlobals",
+    "DeletePaymentServiceGlobalsTypedDict",
+    "DeletePaymentServiceRequest",
+    "DeletePaymentServiceRequestTypedDict",
     "DigitalWallet",
     "DigitalWalletCreate",
     "DigitalWalletCreateTypedDict",
@@ -971,6 +1118,8 @@ __all__ = [
     "ErrorDetail",
     "ErrorDetailTypedDict",
     "ErrorLocation",
+    "FieldT",
+    "FieldTTypedDict",
     "GetBuyerGlobals",
     "GetBuyerGlobalsTypedDict",
     "GetBuyerRequest",
@@ -991,10 +1140,18 @@ __all__ = [
     "GetGiftCardGlobalsTypedDict",
     "GetGiftCardRequest",
     "GetGiftCardRequestTypedDict",
+    "GetMerchantAccountRequest",
+    "GetMerchantAccountRequestTypedDict",
     "GetPaymentMethodGlobals",
     "GetPaymentMethodGlobalsTypedDict",
     "GetPaymentMethodRequest",
     "GetPaymentMethodRequestTypedDict",
+    "GetPaymentServiceDefinitionRequest",
+    "GetPaymentServiceDefinitionRequestTypedDict",
+    "GetPaymentServiceGlobals",
+    "GetPaymentServiceGlobalsTypedDict",
+    "GetPaymentServiceRequest",
+    "GetPaymentServiceRequestTypedDict",
     "GetPayoutGlobals",
     "GetPayoutGlobalsTypedDict",
     "GetPayoutRequest",
@@ -1005,16 +1162,16 @@ __all__ = [
     "GetRefundRequestTypedDict",
     "GetTransactionGlobals",
     "GetTransactionGlobalsTypedDict",
+    "GetTransactionRefundGlobals",
+    "GetTransactionRefundGlobalsTypedDict",
+    "GetTransactionRefundRequest",
+    "GetTransactionRefundRequestTypedDict",
     "GetTransactionRequest",
     "GetTransactionRequestTypedDict",
     "GetTransactionSummaryGlobals",
     "GetTransactionSummaryGlobalsTypedDict",
     "GetTransactionSummaryRequest",
     "GetTransactionSummaryRequestTypedDict",
-    "GetTreansactionRefundGlobals",
-    "GetTreansactionRefundGlobalsTypedDict",
-    "GetTreansactionRefundRequest",
-    "GetTreansactionRefundRequestTypedDict",
     "GiftCard",
     "GiftCardBalanceRequest",
     "GiftCardBalanceRequestTypedDict",
@@ -1101,6 +1258,10 @@ __all__ = [
     "ListGiftCardsRequestTypedDict",
     "ListGiftCardsResponse",
     "ListGiftCardsResponseTypedDict",
+    "ListMerchantAccountsRequest",
+    "ListMerchantAccountsRequestTypedDict",
+    "ListMerchantAccountsResponse",
+    "ListMerchantAccountsResponseTypedDict",
     "ListPaymentMethodNetworkTokensGlobals",
     "ListPaymentMethodNetworkTokensGlobalsTypedDict",
     "ListPaymentMethodNetworkTokensRequest",
@@ -1119,6 +1280,16 @@ __all__ = [
     "ListPaymentOptionsGlobalsTypedDict",
     "ListPaymentOptionsRequest",
     "ListPaymentOptionsRequestTypedDict",
+    "ListPaymentServiceDefinitionsRequest",
+    "ListPaymentServiceDefinitionsRequestTypedDict",
+    "ListPaymentServiceDefinitionsResponse",
+    "ListPaymentServiceDefinitionsResponseTypedDict",
+    "ListPaymentServicesGlobals",
+    "ListPaymentServicesGlobalsTypedDict",
+    "ListPaymentServicesRequest",
+    "ListPaymentServicesRequestTypedDict",
+    "ListPaymentServicesResponse",
+    "ListPaymentServicesResponseTypedDict",
     "ListPayoutsGlobals",
     "ListPayoutsGlobalsTypedDict",
     "ListPayoutsRequest",
@@ -1137,6 +1308,16 @@ __all__ = [
     "ListTransactionsResponseTypedDict",
     "Loc",
     "LocTypedDict",
+    "MerchantAccount",
+    "MerchantAccountCreate",
+    "MerchantAccountCreateTypedDict",
+    "MerchantAccountTypedDict",
+    "MerchantAccountUpdate",
+    "MerchantAccountUpdateTypedDict",
+    "MerchantProfileScheme",
+    "MerchantProfileSchemeSummary",
+    "MerchantProfileSchemeSummaryTypedDict",
+    "MerchantProfileSchemeTypedDict",
     "Method",
     "Mode",
     "NetworkToken",
@@ -1166,10 +1347,21 @@ __all__ = [
     "PaymentOptionRequest",
     "PaymentOptionRequestTypedDict",
     "PaymentOptionTypedDict",
+    "PaymentService",
+    "PaymentServiceConfiguration",
+    "PaymentServiceConfigurationTypedDict",
+    "PaymentServiceCreate",
+    "PaymentServiceCreateTypedDict",
+    "PaymentServiceDefinition",
+    "PaymentServiceDefinitionTypedDict",
+    "PaymentServiceStatus",
     "PaymentServiceToken",
     "PaymentServiceTokenCreate",
     "PaymentServiceTokenCreateTypedDict",
     "PaymentServiceTokenTypedDict",
+    "PaymentServiceTypedDict",
+    "PaymentServiceUpdate",
+    "PaymentServiceUpdateTypedDict",
     "PayoutCategory",
     "PayoutCreate",
     "PayoutCreatePaymentMethod",
@@ -1198,6 +1390,8 @@ __all__ = [
     "RegisterDigitalWalletDomainGlobalsTypedDict",
     "RegisterDigitalWalletDomainRequest",
     "RegisterDigitalWalletDomainRequestTypedDict",
+    "RequiredCheckoutFields",
+    "RequiredCheckoutFieldsTypedDict",
     "RequiredFields1",
     "RequiredFields1TypedDict",
     "RequiredFields2",
@@ -1297,14 +1491,28 @@ __all__ = [
     "UpdateDigitalWalletGlobalsTypedDict",
     "UpdateDigitalWalletRequest",
     "UpdateDigitalWalletRequestTypedDict",
+    "UpdateMerchantAccountRequest",
+    "UpdateMerchantAccountRequestTypedDict",
+    "UpdatePaymentServiceGlobals",
+    "UpdatePaymentServiceGlobalsTypedDict",
+    "UpdatePaymentServiceRequest",
+    "UpdatePaymentServiceRequestTypedDict",
     "UserDevice",
     "UserStatus",
     "ValidationError",
     "ValidationErrorTypedDict",
+    "VerifyCredentials",
+    "VerifyCredentialsTypedDict",
+    "VerifyPaymentServiceCredentialsGlobals",
+    "VerifyPaymentServiceCredentialsGlobalsTypedDict",
+    "VerifyPaymentServiceCredentialsRequest",
+    "VerifyPaymentServiceCredentialsRequestTypedDict",
     "VoidTransactionGlobals",
     "VoidTransactionGlobalsTypedDict",
     "VoidTransactionRequest",
     "VoidTransactionRequestTypedDict",
+    "VoidableField",
+    "VoidableFieldTypedDict",
     "WalletPaymentOptionContext",
     "WalletPaymentOptionContextTypedDict",
 ]
