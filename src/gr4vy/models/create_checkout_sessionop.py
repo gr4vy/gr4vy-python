@@ -66,8 +66,8 @@ class CreateCheckoutSessionRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["timeout_in_seconds", "merchantAccountId", "RequestBody"]
-        nullable_fields = ["merchantAccountId", "RequestBody"]
+        optional_fields = ["timeout_in_seconds", "merchant_account_id", "RequestBody"]
+        nullable_fields = ["merchant_account_id", "RequestBody"]
         null_default_fields = []
 
         serialized = handler(self)

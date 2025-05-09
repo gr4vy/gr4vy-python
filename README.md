@@ -28,7 +28,9 @@ Gr4vy: The Gr4vy API.
   * [IDE Support](#ide-support)
   * [SDK Example Usage](#sdk-example-usage)
   * [Authentication](#authentication)
+  * [Webhooks verification](#webhooks-verification)
   * [Available Resources and Operations](#available-resources-and-operations)
+  * [Global Parameters](#global-parameters)
   * [Pagination](#pagination)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
@@ -404,6 +406,42 @@ except ValueError as error:
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
+
+<!-- Start Global Parameters [global-parameters] -->
+## Global Parameters
+
+A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
+
+For example, you can set `merchant_account_id` to `"<id>"` at SDK initialization and then you do not have to pass the same value on calls to operations like `get`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+
+
+### Available Globals
+
+The following global parameter is available.
+Global parameters can also be set via environment variable.
+
+| Name                | Type | Description                        | Environment               |
+| ------------------- | ---- | ---------------------------------- | ------------------------- |
+| merchant_account_id | str  | The merchant_account_id parameter. | GR4VY_MERCHANT_ACCOUNT_ID |
+
+### Example
+
+```python
+from gr4vy import Gr4vy
+import os
+
+
+with Gr4vy(
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+) as g_client:
+
+    res = g_client.merchant_accounts.get(merchant_account_id="merchant-12345")
+
+    # Handle response
+    print(res)
+
+```
+<!-- End Global Parameters [global-parameters] -->
 
 <!-- Start Pagination [pagination] -->
 ## Pagination

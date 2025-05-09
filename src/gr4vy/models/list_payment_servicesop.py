@@ -79,8 +79,14 @@ class ListPaymentServicesRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["method", "cursor", "limit", "deleted", "merchantAccountId"]
-        nullable_fields = ["method", "cursor", "deleted", "merchantAccountId"]
+        optional_fields = [
+            "method",
+            "cursor",
+            "limit",
+            "deleted",
+            "merchant_account_id",
+        ]
+        nullable_fields = ["method", "cursor", "deleted", "merchant_account_id"]
         null_default_fields = []
 
         serialized = handler(self)

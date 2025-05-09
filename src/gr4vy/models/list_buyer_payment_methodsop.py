@@ -113,7 +113,7 @@ class ListBuyerPaymentMethodsRequest(BaseModel):
             "order_by",
             "country",
             "currency",
-            "merchantAccountId",
+            "merchant_account_id",
         ]
         nullable_fields = [
             "buyer_id",
@@ -121,7 +121,7 @@ class ListBuyerPaymentMethodsRequest(BaseModel):
             "sort_by",
             "country",
             "currency",
-            "merchantAccountId",
+            "merchant_account_id",
         ]
         null_default_fields = []
 

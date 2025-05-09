@@ -64,8 +64,12 @@ class CreateTransactionRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["timeout_in_seconds", "merchantAccountId", "idempotency-key"]
-        nullable_fields = ["merchantAccountId", "idempotency-key"]
+        optional_fields = [
+            "timeout_in_seconds",
+            "merchant_account_id",
+            "idempotency-key",
+        ]
+        nullable_fields = ["merchant_account_id", "idempotency-key"]
         null_default_fields = []
 
         serialized = handler(self)

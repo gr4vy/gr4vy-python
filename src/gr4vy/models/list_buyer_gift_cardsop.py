@@ -58,9 +58,13 @@ class ListBuyerGiftCardsRequest(BaseModel):
             "buyer_external_identifier",
             "buyer_id",
             "timeout_in_seconds",
-            "merchantAccountId",
+            "merchant_account_id",
         ]
-        nullable_fields = ["buyer_external_identifier", "buyer_id", "merchantAccountId"]
+        nullable_fields = [
+            "buyer_external_identifier",
+            "buyer_id",
+            "merchant_account_id",
+        ]
         null_default_fields = []
 
         serialized = handler(self)

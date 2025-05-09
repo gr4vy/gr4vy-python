@@ -43,8 +43,8 @@ class GetGiftCardRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["merchantAccountId"]
-        nullable_fields = ["merchantAccountId"]
+        optional_fields = ["merchant_account_id"]
+        nullable_fields = ["merchant_account_id"]
         null_default_fields = []
 
         serialized = handler(self)

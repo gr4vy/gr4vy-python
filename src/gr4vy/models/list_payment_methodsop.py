@@ -106,7 +106,7 @@ class ListPaymentMethodsRequest(BaseModel):
             "buyer_external_identifier",
             "status",
             "external_identifier",
-            "merchantAccountId",
+            "merchant_account_id",
         ]
         nullable_fields = [
             "cursor",
@@ -114,7 +114,7 @@ class ListPaymentMethodsRequest(BaseModel):
             "buyer_external_identifier",
             "status",
             "external_identifier",
-            "merchantAccountId",
+            "merchant_account_id",
         ]
         null_default_fields = []
 

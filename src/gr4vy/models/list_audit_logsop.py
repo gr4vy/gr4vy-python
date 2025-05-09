@@ -95,14 +95,14 @@ class ListAuditLogsRequest(BaseModel):
             "action",
             "user_id",
             "resource_type",
-            "merchantAccountId",
+            "merchant_account_id",
         ]
         nullable_fields = [
             "cursor",
             "action",
             "user_id",
             "resource_type",
-            "merchantAccountId",
+            "merchant_account_id",
         ]
         null_default_fields = []
 

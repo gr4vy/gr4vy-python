@@ -67,10 +67,10 @@ class CreateFullTransactionRefundRequest(BaseModel):
     def serialize_model(self, handler):
         optional_fields = [
             "timeout_in_seconds",
-            "merchantAccountId",
+            "merchant_account_id",
             "TransactionRefundAllCreate",
         ]
-        nullable_fields = ["merchantAccountId", "TransactionRefundAllCreate"]
+        nullable_fields = ["merchant_account_id", "TransactionRefundAllCreate"]
         null_default_fields = []
 
         serialized = handler(self)

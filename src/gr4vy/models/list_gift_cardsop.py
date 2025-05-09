@@ -66,13 +66,13 @@ class ListGiftCardsRequest(BaseModel):
             "buyer_id",
             "cursor",
             "limit",
-            "merchantAccountId",
+            "merchant_account_id",
         ]
         nullable_fields = [
             "buyer_external_identifier",
             "buyer_id",
             "cursor",
-            "merchantAccountId",
+            "merchant_account_id",
         ]
         null_default_fields = []
 

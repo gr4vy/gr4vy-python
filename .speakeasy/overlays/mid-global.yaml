@@ -9,10 +9,10 @@ actions:
         x-speakeasy-globals:
             parameters:
                 - name: x-gr4vy-merchant-account-id
-                  x-speakeasy-name-override: merchantAccountId
+                  x-speakeasy-name-override: merchant_account_id
                   in: header
                   schema:
                     type: string
     - target: $.paths.*.*.parameters[?(@.name=="x-gr4vy-merchant-account-id")]
       update:
-        x-speakeasy-name-override: merchantAccountId
+        x-speakeasy-name-override: merchant_account_id

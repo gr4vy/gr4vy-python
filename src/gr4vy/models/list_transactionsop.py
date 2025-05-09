@@ -376,7 +376,7 @@ class ListTransactionsRequest(BaseModel):
             "payment_source",
             "is_subsequent_payment",
             "merchant_initiated",
-            "merchantAccountId",
+            "merchant_account_id",
         ]
         nullable_fields = [
             "cursor",
@@ -415,7 +415,7 @@ class ListTransactionsRequest(BaseModel):
             "payment_source",
             "is_subsequent_payment",
             "merchant_initiated",
-            "merchantAccountId",
+            "merchant_account_id",
         ]
         null_default_fields = []
 

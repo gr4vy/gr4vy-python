@@ -56,8 +56,8 @@ class ListPayoutsRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["cursor", "limit", "merchantAccountId"]
-        nullable_fields = ["cursor", "merchantAccountId"]
+        optional_fields = ["cursor", "limit", "merchant_account_id"]
+        nullable_fields = ["cursor", "merchant_account_id"]
         null_default_fields = []
 
         serialized = handler(self)
