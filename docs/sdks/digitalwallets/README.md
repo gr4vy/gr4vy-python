@@ -18,7 +18,7 @@ Register a digital wallet like Apple Pay, Google Pay, or Click to Pay.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, models
+from gr4vy import Gr4vy
 import os
 
 
@@ -26,7 +26,7 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.digital_wallets.create(provider=models.DigitalWalletProvider.GOOGLE, merchant_name="<value>", accept_terms_and_conditions=True, merchant_country_code="GB")
+    res = g_client.digital_wallets.create(provider="google", merchant_name="<value>", accept_terms_and_conditions=True, merchant_country_code="GB")
 
     # Handle response
     print(res)

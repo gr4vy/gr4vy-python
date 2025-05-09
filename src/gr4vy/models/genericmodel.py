@@ -5,9 +5,9 @@ from gr4vy.types import BaseModel
 from typing_extensions import TypedDict
 
 
-class BaseModelTypedDict(TypedDict):
+class GenericModelTypedDict(TypedDict):
     pass
 
 
-class BaseModel(BaseModel):
+class GenericModel(BaseModel):
     pass

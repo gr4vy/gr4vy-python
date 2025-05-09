@@ -2,20 +2,23 @@
 
 from __future__ import annotations
 from .cardscheme import CardScheme
-from enum import Enum
-from gr4vy import utils
-from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
+from gr4vy.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+    UnrecognizedStr,
+)
 from gr4vy.utils import validate_const, validate_open_enum
 import pydantic
 from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator, PlainValidator
-from typing import Literal
+from typing import Literal, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class CardSource(str, Enum, metaclass=utils.OpenEnumMeta):
-    APPLE_PAY = "apple-pay"
-    GOOGLE_PAY = "google-pay"
+CardSource = Union[Literal["apple-pay", "google-pay"], UnrecognizedStr]
 
 
 class NetworkTokenPaymentMethodCreateTypedDict(TypedDict):

@@ -4,19 +4,22 @@ from __future__ import annotations
 from .airlineleg import AirlineLeg, AirlineLegTypedDict
 from .airlinepassenger import AirlinePassenger, AirlinePassengerTypedDict
 from datetime import datetime
-from enum import Enum
-from gr4vy import utils
-from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
+from gr4vy.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+    UnrecognizedStr,
+)
 from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
 from pydantic.functional_validators import PlainValidator
-from typing import List
+from typing import List, Literal, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class TicketDeliveryMethod(str, Enum, metaclass=utils.OpenEnumMeta):
-    ELECTRONIC = "electronic"
-    OTHER = "other"
+TicketDeliveryMethod = Union[Literal["electronic", "other"], UnrecognizedStr]
 
 
 class AirlineTypedDict(TypedDict):

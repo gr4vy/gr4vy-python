@@ -77,7 +77,7 @@ Create a new buyer record.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, models
+from gr4vy import Gr4vy
 import os
 
 
@@ -103,7 +103,7 @@ with Gr4vy(
         },
         "tax_id": {
             "value": "12345678931",
-            "kind": models.TaxIDKind.JP_CN,
+            "kind": "jp.cn",
         },
     })
 
@@ -209,7 +209,7 @@ Updates a buyer record.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, models
+from gr4vy import Gr4vy
 import os
 
 
@@ -235,7 +235,7 @@ with Gr4vy(
         },
         "tax_id": {
             "value": "12345678931",
-            "kind": models.TaxIDKind.TH_ID,
+            "kind": "th.id",
         },
     })
 

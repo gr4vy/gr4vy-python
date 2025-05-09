@@ -84,7 +84,7 @@ with Gr4vy(
     res = g_client.payouts.create(amount=1299, currency="GBP", payment_service_id="ed8bd87d-85ad-40cf-8e8f-007e21e55aad", payment_method={
         "method": "id",
         "id": "852b951c-d7ea-4c98-b09e-4a1c9e97c077",
-    }, category=models.PayoutCategory.ONLINE_GAMBLING, external_identifier="payout-12345", buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", buyer=models.GuestBuyerInput(
+    }, category="online_gambling", external_identifier="payout-12345", buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", buyer=models.GuestBuyerInput(
         display_name="John Doe",
         external_identifier="buyer-12345",
         billing_details=models.BillingDetailsInput(
@@ -105,7 +105,7 @@ with Gr4vy(
             ),
             tax_id=models.TaxID(
                 value="12345678931",
-                kind=models.TaxIDKind.ID_NIK,
+                kind="id.nik",
             ),
         ),
         shipping_details=models.ShippingDetailsCreate(

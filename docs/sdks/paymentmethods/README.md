@@ -78,7 +78,7 @@ Store a new payment method.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, models
+from gr4vy import Gr4vy
 import os
 
 
@@ -87,7 +87,7 @@ with Gr4vy(
 ) as g_client:
 
     res = g_client.payment_methods.create(request_body={
-        "method": models.RedirectPaymentMethodCreateMethod.PAYPAL,
+        "method": "paypal",
         "buyer_id": "fe26475d-ec3e-4884-9553-f7356683f7f9",
         "buyer_external_identifier": "buyer-12345",
         "country": "GB",

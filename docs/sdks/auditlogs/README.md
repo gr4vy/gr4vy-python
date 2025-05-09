@@ -14,7 +14,7 @@ Returns a list of activity by dashboard users.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, models
+from gr4vy import Gr4vy
 import os
 
 
@@ -22,7 +22,7 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.audit_logs.list(cursor="ZXhhbXBsZTE", action=models.AuditLogAction.CREATED, user_id="14b7b8c5-a6ba-4fb6-bbab-52d43c7f37ef", resource_type="user")
+    res = g_client.audit_logs.list(cursor="ZXhhbXBsZTE", action="created", user_id="14b7b8c5-a6ba-4fb6-bbab-52d43c7f37ef", resource_type="user")
 
     while res is not None:
         # Handle items

@@ -40,7 +40,6 @@ from .auditlogentry import AuditLogEntry, AuditLogEntryTypedDict
 from .auditlogentryresource import AuditLogEntryResource, AuditLogEntryResourceTypedDict
 from .auditlogentryuser import AuditLogEntryUser, AuditLogEntryUserTypedDict
 from .avsresponsecode import AVSResponseCode
-from .basemodel import BaseModel, BaseModelTypedDict
 from .billingdetails_input import BillingDetailsInput, BillingDetailsInputTypedDict
 from .billingdetails_output import BillingDetailsOutput, BillingDetailsOutputTypedDict
 from .browserinfo import BrowserInfo, BrowserInfoTypedDict, UserDevice
@@ -348,6 +347,7 @@ from .digitalwalletupdate import DigitalWalletUpdate, DigitalWalletUpdateTypedDi
 from .errordetail import ErrorDetail, ErrorDetailTypedDict
 from .errorlocation import ErrorLocation
 from .field import FieldT, FieldTTypedDict
+from .genericmodel import GenericModel, GenericModelTypedDict
 from .get_buyer_shipping_detailsop import (
     GetBuyerShippingDetailsGlobals,
     GetBuyerShippingDetailsGlobalsTypedDict,
@@ -890,8 +890,6 @@ __all__ = [
     "AuditLogEntryTypedDict",
     "AuditLogEntryUser",
     "AuditLogEntryUserTypedDict",
-    "BaseModel",
-    "BaseModelTypedDict",
     "BillingDetailsInput",
     "BillingDetailsInputTypedDict",
     "BillingDetailsOutput",
@@ -1120,6 +1118,8 @@ __all__ = [
     "ErrorLocation",
     "FieldT",
     "FieldTTypedDict",
+    "GenericModel",
+    "GenericModelTypedDict",
     "GetBuyerGlobals",
     "GetBuyerGlobalsTypedDict",
     "GetBuyerRequest",

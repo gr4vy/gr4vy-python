@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: af9d847b8282c0f043645d975fd5e903
+  docChecksum: 843a3c98104ea6365e9fe09d67aa3d1b
   docVersion: 1.0.0
-  speakeasyVersion: 1.543.2
-  generationVersion: 2.598.21
+  speakeasyVersion: 1.543.3
+  generationVersion: 2.598.22
   releaseVersion: 1.0.0-alpha.1
-  configChecksum: 00b3e33294dfb29b722e36627273c58f
+  configChecksum: 80bc36255ecf30fe813a453d08798c3a
   published: true
 features:
   python:
@@ -14,7 +14,6 @@ features:
     constsAndDefaults: 1.0.5
     core: 5.17.1
     defaultEnabledRetries: 0.2.0
-    devContainers: 3.0.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
     errorUnions: 1.0.2
@@ -23,7 +22,7 @@ features:
     globalSecurity: 3.0.3
     globalSecurityCallbacks: 1.0.0
     globalSecurityFlattening: 1.0.0
-    globalServerURLs: 3.1.0
+    globalServerURLs: 3.1.1
     globals: 3.0.0
     groups: 3.0.0
     methodArguments: 1.0.2
@@ -37,9 +36,6 @@ features:
     serverIDs: 3.0.0
     unions: 3.0.4
 generatedFiles:
-  - .devcontainer/README.md
-  - .devcontainer/devcontainer.json
-  - .devcontainer/setup.sh
   - .gitattributes
   - .python-version
   - .vscode/settings.json
@@ -156,7 +152,6 @@ generatedFiles:
   - docs/models/auditlogentryresource.md
   - docs/models/auditlogentryuser.md
   - docs/models/avsresponsecode.md
-  - docs/models/basemodel.md
   - docs/models/billingdetailsinput.md
   - docs/models/billingdetailsoutput.md
   - docs/models/browserinfo.md
@@ -275,6 +270,7 @@ generatedFiles:
   - docs/models/errordetail.md
   - docs/models/errorlocation.md
   - docs/models/fieldt.md
+  - docs/models/genericmodel.md
   - docs/models/getbuyerglobals.md
   - docs/models/getbuyerrequest.md
   - docs/models/getbuyershippingdetailsglobals.md
@@ -656,7 +652,6 @@ generatedFiles:
   - src/gr4vy/models/auditlogentryresource.py
   - src/gr4vy/models/auditlogentryuser.py
   - src/gr4vy/models/avsresponsecode.py
-  - src/gr4vy/models/basemodel.py
   - src/gr4vy/models/billingdetails_input.py
   - src/gr4vy/models/billingdetails_output.py
   - src/gr4vy/models/browserinfo.py
@@ -744,6 +739,7 @@ generatedFiles:
   - src/gr4vy/models/errordetail.py
   - src/gr4vy/models/errorlocation.py
   - src/gr4vy/models/field.py
+  - src/gr4vy/models/genericmodel.py
   - src/gr4vy/models/get_buyer_shipping_detailsop.py
   - src/gr4vy/models/get_buyerop.py
   - src/gr4vy/models/get_checkout_sessionop.py

@@ -20,7 +20,7 @@ List all transactions for a specific merchant account sorted by most recently cr
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, models
+from gr4vy import Gr4vy
 from gr4vy.utils import parse_datetime
 import os
 
@@ -30,7 +30,7 @@ with Gr4vy(
 ) as g_client:
 
     res = g_client.transactions.list(cursor="ZXhhbXBsZTE", created_at_lte=parse_datetime("2022-01-01T12:00:00+08:00"), created_at_gte=parse_datetime("2022-01-01T12:00:00+08:00"), updated_at_lte=parse_datetime("2022-01-01T12:00:00+08:00"), updated_at_gte=parse_datetime("2022-01-01T12:00:00+08:00"), search="transaction-12345", buyer_external_identifier="buyer-12345", buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", buyer_email_address="john@example.com", status=[
-        models.TransactionStatus.AUTHORIZATION_SUCCEEDED,
+        "authorization_succeeded",
     ], id="7099948d-7286-47e4-aad8-b68f7eb44591", payment_service_transaction_id="tx-12345", external_identifier="transaction-12345", metadata=[
         "{\"first_key\":\"first_value\",\"second_key\":\"second_value\"}",
     ], amount_eq=1299, amount_lte=1299, amount_gte=1299, currency=[
@@ -40,11 +40,11 @@ with Gr4vy(
     ], payment_service_id=[
         "fffd152a-9532-4087-9a4f-de58754210f0",
     ], payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", payment_method_label="1234", payment_method_fingerprint="a50b85c200ee0795d6fd33a5c66f37a4564f554355c5b46a756aac485dd168a4", method=[
-        models.Method.CARD,
+        "card",
     ], error_code=[
         "insufficient_funds",
     ], has_refunds=True, pending_review=True, checkout_session_id="4137b1cf-39ac-42a8-bad6-1c680d5dab6b", reconciliation_id="7jZXl4gBUNl0CnaLEnfXbt", has_gift_card_redemptions=True, gift_card_id="356d56e5-fe16-42ae-97ee-8d55d846ae2e", gift_card_last4="7890", has_settlements=True, payment_method_bin="411111", payment_source=[
-        models.TransactionPaymentSource.RECURRING,
+        "recurring",
     ], is_subsequent_payment=True, merchant_initiated=True)
 
     while res is not None:
@@ -168,7 +168,7 @@ with Gr4vy(
             ),
             tax_id=models.TaxID(
                 value="12345678931",
-                kind=models.TaxIDKind.ID_NIK,
+                kind="id.nik",
             ),
         ),
         shipping_details=models.ShippingDetailsCreate(
@@ -199,7 +199,7 @@ with Gr4vy(
         "eci": "05",
         "version": "2.1.0",
         "directory_response": "C",
-        "scheme": models.CardScheme.VISA,
+        "scheme": "visa",
         "authentication_response": "Y",
         "directory_transaction_id": "c4e59ceb-a382-4d6a-bc87-385d591fa09d",
     }, metadata={
@@ -228,7 +228,7 @@ with Gr4vy(
                 "fee_amount": 1200,
                 "flight_class": "E",
                 "flight_number": "101",
-                "route_type": models.RouteType.ROUND_TRIP,
+                "route_type": "round_trip",
                 "stop_over": False,
                 "tax_amount": 1200,
             },
@@ -249,7 +249,7 @@ with Gr4vy(
                 "fee_amount": 1200,
                 "flight_class": "E",
                 "flight_number": "101",
-                "route_type": models.RouteType.ROUND_TRIP,
+                "route_type": "round_trip",
                 "stop_over": False,
                 "tax_amount": 1200,
             },
@@ -270,7 +270,7 @@ with Gr4vy(
                 "fee_amount": 1200,
                 "flight_class": "E",
                 "flight_number": "101",
-                "route_type": models.RouteType.ROUND_TRIP,
+                "route_type": "round_trip",
                 "stop_over": False,
                 "tax_amount": 1200,
             },
@@ -278,7 +278,7 @@ with Gr4vy(
         "passenger_name_record": "JOHN L",
         "passengers": [
             {
-                "age_group": models.AgeGroup.ADULT,
+                "age_group": "adult",
                 "date_of_birth": date.fromisoformat("2013-07-16"),
                 "email_address": "john@example.com",
                 "first_name": "John",
@@ -293,7 +293,7 @@ with Gr4vy(
         ],
         "reservation_system": "Amadeus",
         "restricted_ticket": False,
-        "ticket_delivery_method": models.TicketDeliveryMethod.ELECTRONIC,
+        "ticket_delivery_method": "electronic",
         "ticket_number": "123-1234-151555",
         "travel_agency_code": "12345",
         "travel_agency_invoice_number": "EG15555155",
@@ -315,7 +315,7 @@ with Gr4vy(
                 "travel",
                 "gear",
             ],
-            "product_type": models.ProductType.PHYSICAL,
+            "product_type": "physical",
             "seller_country": "US",
         },
     ], statement_descriptor={
@@ -334,7 +334,7 @@ with Gr4vy(
         "screen_width": 957409,
         "time_zone_offset": 357021,
         "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "user_device": models.UserDevice.DESKTOP,
+        "user_device": "desktop",
         "accept_header": "*/*",
     }, shipping_details_id="bf8c36ad-02d9-4904-b0f9-a230b149e341", anti_fraud_fingerprint="yGeBAFYgFmM=", payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0", recipient={
         "first_name": "",
@@ -483,7 +483,7 @@ Capture a previously authorized transaction.
 
 ```python
 from datetime import date
-from gr4vy import Gr4vy, models
+from gr4vy import Gr4vy
 from gr4vy.utils import parse_datetime
 import os
 
@@ -515,7 +515,7 @@ with Gr4vy(
                 "fee_amount": 1200,
                 "flight_class": "E",
                 "flight_number": "101",
-                "route_type": models.RouteType.ROUND_TRIP,
+                "route_type": "round_trip",
                 "stop_over": False,
                 "tax_amount": 1200,
             },
@@ -523,7 +523,7 @@ with Gr4vy(
         "passenger_name_record": "JOHN L",
         "passengers": [
             {
-                "age_group": models.AgeGroup.ADULT,
+                "age_group": "adult",
                 "date_of_birth": date.fromisoformat("2013-07-16"),
                 "email_address": "john@example.com",
                 "first_name": "John",
@@ -536,7 +536,7 @@ with Gr4vy(
                 "country_code": "US",
             },
             {
-                "age_group": models.AgeGroup.ADULT,
+                "age_group": "adult",
                 "date_of_birth": date.fromisoformat("2013-07-16"),
                 "email_address": "john@example.com",
                 "first_name": "John",
@@ -551,7 +551,7 @@ with Gr4vy(
         ],
         "reservation_system": "Amadeus",
         "restricted_ticket": False,
-        "ticket_delivery_method": models.TicketDeliveryMethod.ELECTRONIC,
+        "ticket_delivery_method": "electronic",
         "ticket_number": "123-1234-151555",
         "travel_agency_code": "12345",
         "travel_agency_invoice_number": "EG15555155",

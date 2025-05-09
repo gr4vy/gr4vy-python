@@ -2,18 +2,22 @@
 
 from __future__ import annotations
 from datetime import datetime
-from enum import Enum
-from gr4vy import utils
-from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
+from gr4vy.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+    UnrecognizedStr,
+)
 from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
 from pydantic.functional_validators import PlainValidator
+from typing import Literal, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class RouteType(str, Enum, metaclass=utils.OpenEnumMeta):
-    ROUND_TRIP = "round_trip"
-    ONE_WAY = "one_way"
+RouteType = Union[Literal["round_trip", "one_way"], UnrecognizedStr]
 
 
 class AirlineLegTypedDict(TypedDict):

@@ -1,4 +1,4 @@
-# BaseModel
+# GenericModel
 
 
 ## Fields

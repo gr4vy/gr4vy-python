@@ -9,9 +9,9 @@
 value: models.CheckoutSessionUpdate = /* values here */
 ```
 
-### `List[models.BaseModel]`
+### `List[models.GenericModel]`
 
 ```python
-value: List[models.BaseModel] = /* values here */
+value: List[models.GenericModel] = /* values here */
 ```
 

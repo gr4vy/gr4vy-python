@@ -14,7 +14,7 @@ List the payment options available at checkout. filtering by country, currency, 
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, models
+from gr4vy import Gr4vy
 import os
 
 
@@ -40,7 +40,7 @@ with Gr4vy(
                 "travel",
                 "gear",
             ],
-            "product_type": models.ProductType.PHYSICAL,
+            "product_type": "physical",
             "seller_country": "GB",
         },
         {
@@ -58,7 +58,7 @@ with Gr4vy(
                 "travel",
                 "gear",
             ],
-            "product_type": models.ProductType.PHYSICAL,
+            "product_type": "physical",
             "seller_country": "GB",
         },
         {
@@ -76,7 +76,7 @@ with Gr4vy(
                 "travel",
                 "gear",
             ],
-            "product_type": models.ProductType.PHYSICAL,
+            "product_type": "physical",
             "seller_country": "GB",
         },
     ])

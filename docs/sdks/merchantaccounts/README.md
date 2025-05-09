@@ -74,7 +74,7 @@ Create a new merchant account in an instance.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, models
+from gr4vy import Gr4vy
 import os
 
 
@@ -83,7 +83,7 @@ with Gr4vy(
 ) as g_client:
 
     res = g_client.merchant_accounts.create(id="merchant-12345", display_name="Example", account_updater_request_encryption_key="key-1234", account_updater_request_encryption_key_id="key-id-1234", account_updater_response_decryption_key="key-1234", account_updater_response_decryption_key_id="key-id-1234", over_capture_amount=1299, over_capture_percentage=25, loon_client_key="client-key-1234", loon_secret_key="key-12345", loon_accepted_schemes=[
-        models.CardScheme.VISA,
+        "visa",
     ], visa_network_tokens_requestor_id="id-12345", visa_network_tokens_app_id="id-12345", amex_network_tokens_requestor_id="id-12345", amex_network_tokens_app_id="id-12345", mastercard_network_tokens_requestor_id="id-12345", mastercard_network_tokens_app_id="id-12345", outbound_webhook_url="https://example.com/callback", outbound_webhook_username="user-12345", outbound_webhook_password="password-12345")
 
     # Handle response
@@ -203,7 +203,7 @@ Update info for a merchant account in an instance.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, models
+from gr4vy import Gr4vy
 import os
 
 
@@ -212,7 +212,7 @@ with Gr4vy(
 ) as g_client:
 
     res = g_client.merchant_accounts.update(merchant_account_id="merchant-12345", account_updater_request_encryption_key="key-1234", account_updater_request_encryption_key_id="key-id-1234", account_updater_response_decryption_key="key-1234", account_updater_response_decryption_key_id="key-id-1234", over_capture_amount=1299, over_capture_percentage=25, loon_client_key="client-key-1234", loon_secret_key="key-12345", loon_accepted_schemes=[
-        models.CardScheme.VISA,
+        "visa",
     ], visa_network_tokens_requestor_id="id-12345", visa_network_tokens_app_id="id-12345", amex_network_tokens_requestor_id="id-12345", amex_network_tokens_app_id="id-12345", mastercard_network_tokens_requestor_id="id-12345", mastercard_network_tokens_app_id="id-12345", display_name="Example", outbound_webhook_url="https://example.com/callback", outbound_webhook_username="user-12345", outbound_webhook_password="password-12345")
 
     # Handle response

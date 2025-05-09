@@ -44,7 +44,7 @@ with Gr4vy(
                     "travel",
                     "gear",
                 ],
-                product_type=models.ProductType.PHYSICAL,
+                product_type="physical",
                 seller_country="GB",
             ),
         ],
@@ -73,7 +73,7 @@ with Gr4vy(
                 ),
                 tax_id=models.TaxID(
                     value="12345678931",
-                    kind=models.TaxIDKind.ID_NIK,
+                    kind="id.nik",
                 ),
             ),
             shipping_details=models.ShippingDetailsCreate(
@@ -117,7 +117,7 @@ with Gr4vy(
                     fee_amount=1200,
                     flight_class="E",
                     flight_number="101",
-                    route_type=models.RouteType.ROUND_TRIP,
+                    route_type="round_trip",
                     stop_over=False,
                     tax_amount=1200,
                 ),
@@ -125,7 +125,7 @@ with Gr4vy(
             passenger_name_record="JOHN L",
             passengers=[
                 models.AirlinePassenger(
-                    age_group=models.AgeGroup.ADULT,
+                    age_group="adult",
                     date_of_birth=date.fromisoformat("2013-07-16"),
                     email_address="john@example.com",
                     first_name="John",
@@ -140,7 +140,7 @@ with Gr4vy(
             ],
             reservation_system="Amadeus",
             restricted_ticket=False,
-            ticket_delivery_method=models.TicketDeliveryMethod.ELECTRONIC,
+            ticket_delivery_method="electronic",
             ticket_number="123-1234-151555",
             travel_agency_code="12345",
             travel_agency_invoice_number="EG15555155",
@@ -221,7 +221,7 @@ with Gr4vy(
                 "travel",
                 "gear",
             ],
-            "product_type": models.ProductType.PHYSICAL,
+            "product_type": "physical",
             "seller_country": "GB",
         },
         {
@@ -239,7 +239,7 @@ with Gr4vy(
                 "travel",
                 "gear",
             ],
-            "product_type": models.ProductType.PHYSICAL,
+            "product_type": "physical",
             "seller_country": "GB",
         },
         {
@@ -257,7 +257,7 @@ with Gr4vy(
                 "travel",
                 "gear",
             ],
-            "product_type": models.ProductType.PHYSICAL,
+            "product_type": "physical",
             "seller_country": "US",
         },
     ], metadata={
@@ -284,7 +284,7 @@ with Gr4vy(
             ),
             tax_id=models.TaxID(
                 value="12345678931",
-                kind=models.TaxIDKind.MY_NRIC,
+                kind="my.nric",
             ),
         ),
         shipping_details=models.ShippingDetailsCreate(
@@ -327,7 +327,7 @@ with Gr4vy(
                 "fee_amount": 1200,
                 "flight_class": "E",
                 "flight_number": "101",
-                "route_type": models.RouteType.ROUND_TRIP,
+                "route_type": "round_trip",
                 "stop_over": False,
                 "tax_amount": 1200,
             },
@@ -348,7 +348,7 @@ with Gr4vy(
                 "fee_amount": 1200,
                 "flight_class": "E",
                 "flight_number": "101",
-                "route_type": models.RouteType.ROUND_TRIP,
+                "route_type": "round_trip",
                 "stop_over": False,
                 "tax_amount": 1200,
             },
@@ -356,7 +356,7 @@ with Gr4vy(
         "passenger_name_record": "JOHN L",
         "passengers": [
             {
-                "age_group": models.AgeGroup.ADULT,
+                "age_group": "adult",
                 "date_of_birth": date.fromisoformat("2013-07-16"),
                 "email_address": "john@example.com",
                 "first_name": "John",
@@ -369,7 +369,7 @@ with Gr4vy(
                 "country_code": "US",
             },
             {
-                "age_group": models.AgeGroup.ADULT,
+                "age_group": "adult",
                 "date_of_birth": date.fromisoformat("2013-07-16"),
                 "email_address": "john@example.com",
                 "first_name": "John",
@@ -382,7 +382,7 @@ with Gr4vy(
                 "country_code": "US",
             },
             {
-                "age_group": models.AgeGroup.ADULT,
+                "age_group": "adult",
                 "date_of_birth": date.fromisoformat("2013-07-16"),
                 "email_address": "john@example.com",
                 "first_name": "John",
@@ -397,7 +397,7 @@ with Gr4vy(
         ],
         "reservation_system": "Amadeus",
         "restricted_ticket": False,
-        "ticket_delivery_method": models.TicketDeliveryMethod.ELECTRONIC,
+        "ticket_delivery_method": "electronic",
         "ticket_number": "123-1234-151555",
         "travel_agency_code": "12345",
         "travel_agency_invoice_number": "EG15555155",
