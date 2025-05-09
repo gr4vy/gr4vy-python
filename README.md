@@ -199,6 +199,44 @@ with Gr4vy(
 ```
 <!-- End Authentication [security] -->
 
+## Webhooks verification
+
+The SDK makes it easy to verify that incoming webhooks were actually sent by Gr4vy. Once you have configured the webhook subscription with its corresponding secret, that can be verified the following way:
+
+```py
+from gr4vy.webhooks import verify_webhook
+
+# Webhook payload and headers
+payload = 'your-webhook-payload'
+secret = 'your-webhook-secret'
+signature_header = 'signatures-from-header'
+timestamp_header = 'timestamp-from-header'
+timestamp_tolerance = 300  # optional, in seconds (default: 0)
+
+try:
+    # Verify the webhook
+    verify_webhook(
+        payload=payload,
+        secret=secret,
+        signature_header=signature_header,
+        timestamp_header=timestamp_header,
+        timestamp_tolerance=timestamp_tolerance
+    )
+    print('Webhook verified successfully!')
+except ValueError as error:
+    print(f'Webhook verification failed: {error}')
+```
+
+### Parameters
+
+- **`payload`**: The raw payload string received in the webhook request.
+- **`secret`**: The secret used to sign the webhook. This is provided in your Gr4vy dashboard.
+- **`signatureHeader`**: The `X-Gr4vy-Signature` header from the webhook request.
+- **`timestampHeader`**: The `X-Gr4vy-Timestamp` header from the webhook request.
+- **`timestampTolerance`**: _(Optional)_ The maximum allowed difference (in seconds) between the current time and the timestamp in the webhook. Defaults to `0` (no tolerance).
+
+
+
 <!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
 
