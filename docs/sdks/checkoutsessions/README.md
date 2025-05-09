@@ -6,8 +6,8 @@
 ### Available Operations
 
 * [create](#create) - Create checkout session
-* [get](#get) - Get checkout session
 * [update](#update) - Update checkout session
+* [get](#get) - Get checkout session
 * [delete](#delete) - Delete checkout session
 
 ## create
@@ -187,60 +187,6 @@ with Gr4vy(
 | errors.Error502            | 502                        | application/json           |
 | errors.Error504            | 504                        | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
-
-## get
-
-Retrieve the information stored on a checkout session.
-
-### Example Usage
-
-```python
-from gr4vy import Gr4vy
-import os
-
-
-with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-) as g_client:
-
-    res = g_client.checkout_sessions.get(session_id="4137b1cf-39ac-42a8-bad6-1c680d5dab6b")
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `session_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the checkout session.                                     | 4137b1cf-39ac-42a8-bad6-1c680d5dab6b                                |
-| `timeout_in_seconds`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
-
-### Response
-
-**[models.CheckoutSession](../../models/checkoutsession.md)**
-
-### Errors
-
-| Error Type               | Status Code              | Content Type             |
-| ------------------------ | ------------------------ | ------------------------ |
-| errors.Error400          | 400                      | application/json         |
-| errors.Error401          | 401                      | application/json         |
-| errors.Error403          | 403                      | application/json         |
-| errors.Error403Forbidden | 403                      | application/json         |
-| errors.Error403Active    | 403                      | application/json         |
-| errors.Error404          | 404                      | application/json         |
-| errors.Error405          | 405                      | application/json         |
-| errors.Error409          | 409                      | application/json         |
-| errors.Error425          | 425                      | application/json         |
-| errors.Error429          | 429                      | application/json         |
-| errors.Error500          | 500                      | application/json         |
-| errors.Error502          | 502                      | application/json         |
-| errors.Error504          | 504                      | application/json         |
-| errors.APIError          | 4XX, 5XX                 | \*/\*                    |
 
 ## update
 
@@ -501,6 +447,60 @@ with Gr4vy(
 | errors.Error502            | 502                        | application/json           |
 | errors.Error504            | 504                        | application/json           |
 | errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## get
+
+Retrieve the information stored on a checkout session.
+
+### Example Usage
+
+```python
+from gr4vy import Gr4vy
+import os
+
+
+with Gr4vy(
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+) as g_client:
+
+    res = g_client.checkout_sessions.get(session_id="4137b1cf-39ac-42a8-bad6-1c680d5dab6b")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `session_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the checkout session.                                     | 4137b1cf-39ac-42a8-bad6-1c680d5dab6b                                |
+| `timeout_in_seconds`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
+| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.CheckoutSession](../../models/checkoutsession.md)**
+
+### Errors
+
+| Error Type               | Status Code              | Content Type             |
+| ------------------------ | ------------------------ | ------------------------ |
+| errors.Error400          | 400                      | application/json         |
+| errors.Error401          | 401                      | application/json         |
+| errors.Error403          | 403                      | application/json         |
+| errors.Error403Forbidden | 403                      | application/json         |
+| errors.Error403Active    | 403                      | application/json         |
+| errors.Error404          | 404                      | application/json         |
+| errors.Error405          | 405                      | application/json         |
+| errors.Error409          | 409                      | application/json         |
+| errors.Error425          | 425                      | application/json         |
+| errors.Error429          | 429                      | application/json         |
+| errors.Error500          | 500                      | application/json         |
+| errors.Error502          | 502                      | application/json         |
+| errors.Error504          | 504                      | application/json         |
+| errors.APIError          | 4XX, 5XX                 | \*/\*                    |
 
 ## delete
 

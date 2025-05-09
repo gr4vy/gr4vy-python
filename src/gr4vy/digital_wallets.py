@@ -24,322 +24,6 @@ class DigitalWallets(BaseSDK):
         self.sessions = Sessions(self.sdk_configuration)
         self.domains = Domains(self.sdk_configuration)
 
-    def list(
-        self,
-        *,
-        merchant_account_id: OptionalNullable[str] = UNSET,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CollectionNoCursorDigitalWallet:
-        r"""List digital wallets
-
-        List configured digital wallets.
-
-        :param merchant_account_id: The ID of the merchant account to use for this request.
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.ListDigitalWalletsRequest(
-            merchant_account_id=merchant_account_id,
-        )
-
-        req = self._build_request(
-            method="GET",
-            path="/digital-wallets",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=False,
-            request_has_path_params=False,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            _globals=models.ListDigitalWalletsGlobals(
-                merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
-            ),
-            security=self.sdk_configuration.security,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-            else:
-                retries = utils.RetryConfig(
-                    "backoff", utils.BackoffStrategy(200, 200, 1, 1000), True
-                )
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["5XX"])
-
-        http_res = self.do_request(
-            hook_ctx=HookContext(
-                base_url=base_url or "",
-                operation_id="list_digital_wallets",
-                oauth2_scopes=[],
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
-            ),
-            request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "403",
-                "404",
-                "405",
-                "409",
-                "422",
-                "425",
-                "429",
-                "4XX",
-                "500",
-                "502",
-                "504",
-                "5XX",
-            ],
-            retry_config=retry_config,
-        )
-
-        response_data: Any = None
-        if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.CollectionNoCursorDigitalWallet
-            )
-        if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
-            raise errors.Error400(data=response_data)
-        if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
-            raise errors.Error401(data=response_data)
-        if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403ListDigitalWalletsUnion
-            )
-            raise errors.Response403ListDigitalWallets(data=response_data)
-        if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
-            raise errors.Error404(data=response_data)
-        if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error405Data)
-            raise errors.Error405(data=response_data)
-        if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error409Data)
-            raise errors.Error409(data=response_data)
-        if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.HTTPValidationErrorData
-            )
-            raise errors.HTTPValidationError(data=response_data)
-        if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error425Data)
-            raise errors.Error425(data=response_data)
-        if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error429Data)
-            raise errors.Error429(data=response_data)
-        if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error500Data)
-            raise errors.Error500(data=response_data)
-        if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error502Data)
-            raise errors.Error502(data=response_data)
-        if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error504Data)
-            raise errors.Error504(data=response_data)
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.APIError(
-                "API error occurred", http_res.status_code, http_res_text, http_res
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.APIError(
-                "API error occurred", http_res.status_code, http_res_text, http_res
-            )
-
-        content_type = http_res.headers.get("Content-Type")
-        http_res_text = utils.stream_to_text(http_res)
-        raise errors.APIError(
-            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
-            http_res.status_code,
-            http_res_text,
-            http_res,
-        )
-
-    async def list_async(
-        self,
-        *,
-        merchant_account_id: OptionalNullable[str] = UNSET,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CollectionNoCursorDigitalWallet:
-        r"""List digital wallets
-
-        List configured digital wallets.
-
-        :param merchant_account_id: The ID of the merchant account to use for this request.
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.ListDigitalWalletsRequest(
-            merchant_account_id=merchant_account_id,
-        )
-
-        req = self._build_request_async(
-            method="GET",
-            path="/digital-wallets",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=False,
-            request_has_path_params=False,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            _globals=models.ListDigitalWalletsGlobals(
-                merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
-            ),
-            security=self.sdk_configuration.security,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-            else:
-                retries = utils.RetryConfig(
-                    "backoff", utils.BackoffStrategy(200, 200, 1, 1000), True
-                )
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["5XX"])
-
-        http_res = await self.do_request_async(
-            hook_ctx=HookContext(
-                base_url=base_url or "",
-                operation_id="list_digital_wallets",
-                oauth2_scopes=[],
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
-            ),
-            request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "403",
-                "404",
-                "405",
-                "409",
-                "422",
-                "425",
-                "429",
-                "4XX",
-                "500",
-                "502",
-                "504",
-                "5XX",
-            ],
-            retry_config=retry_config,
-        )
-
-        response_data: Any = None
-        if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.CollectionNoCursorDigitalWallet
-            )
-        if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
-            raise errors.Error400(data=response_data)
-        if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
-            raise errors.Error401(data=response_data)
-        if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403ListDigitalWalletsUnion
-            )
-            raise errors.Response403ListDigitalWallets(data=response_data)
-        if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
-            raise errors.Error404(data=response_data)
-        if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error405Data)
-            raise errors.Error405(data=response_data)
-        if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error409Data)
-            raise errors.Error409(data=response_data)
-        if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.HTTPValidationErrorData
-            )
-            raise errors.HTTPValidationError(data=response_data)
-        if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error425Data)
-            raise errors.Error425(data=response_data)
-        if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error429Data)
-            raise errors.Error429(data=response_data)
-        if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error500Data)
-            raise errors.Error500(data=response_data)
-        if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error502Data)
-            raise errors.Error502(data=response_data)
-        if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error504Data)
-            raise errors.Error504(data=response_data)
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.APIError(
-                "API error occurred", http_res.status_code, http_res_text, http_res
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.APIError(
-                "API error occurred", http_res.status_code, http_res_text, http_res
-            )
-
-        content_type = http_res.headers.get("Content-Type")
-        http_res_text = await utils.stream_to_text_async(http_res)
-        raise errors.APIError(
-            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
-            http_res.status_code,
-            http_res_text,
-            http_res,
-        )
-
     def create(
         self,
         *,
@@ -710,6 +394,322 @@ class DigitalWallets(BaseSDK):
             http_res,
         )
 
+    def list(
+        self,
+        *,
+        merchant_account_id: OptionalNullable[str] = UNSET,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.CollectionNoCursorDigitalWallet:
+        r"""List digital wallets
+
+        List configured digital wallets.
+
+        :param merchant_account_id: The ID of the merchant account to use for this request.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ListDigitalWalletsRequest(
+            merchant_account_id=merchant_account_id,
+        )
+
+        req = self._build_request(
+            method="GET",
+            path="/digital-wallets",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            _globals=models.ListDigitalWalletsGlobals(
+                merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
+            ),
+            security=self.sdk_configuration.security,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(200, 200, 1, 1000), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["5XX"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                base_url=base_url or "",
+                operation_id="list_digital_wallets",
+                oauth2_scopes=[],
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            error_status_codes=[
+                "400",
+                "401",
+                "403",
+                "404",
+                "405",
+                "409",
+                "422",
+                "425",
+                "429",
+                "4XX",
+                "500",
+                "502",
+                "504",
+                "5XX",
+            ],
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return utils.unmarshal_json(
+                http_res.text, models.CollectionNoCursorDigitalWallet
+            )
+        if utils.match_response(http_res, "400", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
+            raise errors.Error400(data=response_data)
+        if utils.match_response(http_res, "401", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
+            raise errors.Error401(data=response_data)
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.Response403ListDigitalWalletsUnion
+            )
+            raise errors.Response403ListDigitalWallets(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
+            raise errors.Error404(data=response_data)
+        if utils.match_response(http_res, "405", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error405Data)
+            raise errors.Error405(data=response_data)
+        if utils.match_response(http_res, "409", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error409Data)
+            raise errors.Error409(data=response_data)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
+        if utils.match_response(http_res, "425", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error425Data)
+            raise errors.Error425(data=response_data)
+        if utils.match_response(http_res, "429", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error429Data)
+            raise errors.Error429(data=response_data)
+        if utils.match_response(http_res, "500", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error500Data)
+            raise errors.Error500(data=response_data)
+        if utils.match_response(http_res, "502", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error502Data)
+            raise errors.Error502(data=response_data)
+        if utils.match_response(http_res, "504", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error504Data)
+            raise errors.Error504(data=response_data)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
+
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise errors.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
+
+    async def list_async(
+        self,
+        *,
+        merchant_account_id: OptionalNullable[str] = UNSET,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.CollectionNoCursorDigitalWallet:
+        r"""List digital wallets
+
+        List configured digital wallets.
+
+        :param merchant_account_id: The ID of the merchant account to use for this request.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.ListDigitalWalletsRequest(
+            merchant_account_id=merchant_account_id,
+        )
+
+        req = self._build_request_async(
+            method="GET",
+            path="/digital-wallets",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            _globals=models.ListDigitalWalletsGlobals(
+                merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
+            ),
+            security=self.sdk_configuration.security,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+            else:
+                retries = utils.RetryConfig(
+                    "backoff", utils.BackoffStrategy(200, 200, 1, 1000), True
+                )
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["5XX"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                base_url=base_url or "",
+                operation_id="list_digital_wallets",
+                oauth2_scopes=[],
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            error_status_codes=[
+                "400",
+                "401",
+                "403",
+                "404",
+                "405",
+                "409",
+                "422",
+                "425",
+                "429",
+                "4XX",
+                "500",
+                "502",
+                "504",
+                "5XX",
+            ],
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return utils.unmarshal_json(
+                http_res.text, models.CollectionNoCursorDigitalWallet
+            )
+        if utils.match_response(http_res, "400", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
+            raise errors.Error400(data=response_data)
+        if utils.match_response(http_res, "401", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
+            raise errors.Error401(data=response_data)
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.Response403ListDigitalWalletsUnion
+            )
+            raise errors.Response403ListDigitalWallets(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
+            raise errors.Error404(data=response_data)
+        if utils.match_response(http_res, "405", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error405Data)
+            raise errors.Error405(data=response_data)
+        if utils.match_response(http_res, "409", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error409Data)
+            raise errors.Error409(data=response_data)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
+        if utils.match_response(http_res, "425", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error425Data)
+            raise errors.Error425(data=response_data)
+        if utils.match_response(http_res, "429", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error429Data)
+            raise errors.Error429(data=response_data)
+        if utils.match_response(http_res, "500", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error500Data)
+            raise errors.Error500(data=response_data)
+        if utils.match_response(http_res, "502", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error502Data)
+            raise errors.Error502(data=response_data)
+        if utils.match_response(http_res, "504", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error504Data)
+            raise errors.Error504(data=response_data)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
+
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise errors.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
+
     def get(
         self,
         *,
@@ -979,6 +979,322 @@ class DigitalWallets(BaseSDK):
                 http_res.text, errors.Response403GetDigitalWalletUnion
             )
             raise errors.Response403GetDigitalWallet(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
+            raise errors.Error404(data=response_data)
+        if utils.match_response(http_res, "405", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error405Data)
+            raise errors.Error405(data=response_data)
+        if utils.match_response(http_res, "409", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error409Data)
+            raise errors.Error409(data=response_data)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
+        if utils.match_response(http_res, "425", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error425Data)
+            raise errors.Error425(data=response_data)
+        if utils.match_response(http_res, "429", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error429Data)
+            raise errors.Error429(data=response_data)
+        if utils.match_response(http_res, "500", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error500Data)
+            raise errors.Error500(data=response_data)
+        if utils.match_response(http_res, "502", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error502Data)
+            raise errors.Error502(data=response_data)
+        if utils.match_response(http_res, "504", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error504Data)
+            raise errors.Error504(data=response_data)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
+
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = await utils.stream_to_text_async(http_res)
+        raise errors.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
+
+    def delete(
+        self,
+        *,
+        digital_wallet_id: str,
+        timeout_in_seconds: Optional[float] = 1,
+        merchant_account_id: OptionalNullable[str] = UNSET,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> Any:
+        r"""Delete digital wallet
+
+        Delete a configured digital wallet.
+
+        :param digital_wallet_id: The ID of the digital wallet to delete.
+        :param timeout_in_seconds:
+        :param merchant_account_id: The ID of the merchant account to use for this request.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.DeleteDigitalWalletRequest(
+            digital_wallet_id=digital_wallet_id,
+            timeout_in_seconds=timeout_in_seconds,
+            merchant_account_id=merchant_account_id,
+        )
+
+        req = self._build_request(
+            method="DELETE",
+            path="/digital-wallets/{digital_wallet_id}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            _globals=models.DeleteDigitalWalletGlobals(
+                merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
+            ),
+            security=self.sdk_configuration.security,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                base_url=base_url or "",
+                operation_id="delete_digital_wallet",
+                oauth2_scopes=[],
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            error_status_codes=[
+                "400",
+                "401",
+                "403",
+                "404",
+                "405",
+                "409",
+                "422",
+                "425",
+                "429",
+                "4XX",
+                "500",
+                "502",
+                "504",
+                "5XX",
+            ],
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return utils.unmarshal_json(http_res.text, Any)
+        if utils.match_response(http_res, "400", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
+            raise errors.Error400(data=response_data)
+        if utils.match_response(http_res, "401", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
+            raise errors.Error401(data=response_data)
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.Response403DeleteDigitalWalletUnion
+            )
+            raise errors.Response403DeleteDigitalWallet(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
+            raise errors.Error404(data=response_data)
+        if utils.match_response(http_res, "405", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error405Data)
+            raise errors.Error405(data=response_data)
+        if utils.match_response(http_res, "409", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error409Data)
+            raise errors.Error409(data=response_data)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.HTTPValidationErrorData
+            )
+            raise errors.HTTPValidationError(data=response_data)
+        if utils.match_response(http_res, "425", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error425Data)
+            raise errors.Error425(data=response_data)
+        if utils.match_response(http_res, "429", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error429Data)
+            raise errors.Error429(data=response_data)
+        if utils.match_response(http_res, "500", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error500Data)
+            raise errors.Error500(data=response_data)
+        if utils.match_response(http_res, "502", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error502Data)
+            raise errors.Error502(data=response_data)
+        if utils.match_response(http_res, "504", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error504Data)
+            raise errors.Error504(data=response_data)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError(
+                "API error occurred", http_res.status_code, http_res_text, http_res
+            )
+
+        content_type = http_res.headers.get("Content-Type")
+        http_res_text = utils.stream_to_text(http_res)
+        raise errors.APIError(
+            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
+            http_res.status_code,
+            http_res_text,
+            http_res,
+        )
+
+    async def delete_async(
+        self,
+        *,
+        digital_wallet_id: str,
+        timeout_in_seconds: Optional[float] = 1,
+        merchant_account_id: OptionalNullable[str] = UNSET,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> Any:
+        r"""Delete digital wallet
+
+        Delete a configured digital wallet.
+
+        :param digital_wallet_id: The ID of the digital wallet to delete.
+        :param timeout_in_seconds:
+        :param merchant_account_id: The ID of the merchant account to use for this request.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.DeleteDigitalWalletRequest(
+            digital_wallet_id=digital_wallet_id,
+            timeout_in_seconds=timeout_in_seconds,
+            merchant_account_id=merchant_account_id,
+        )
+
+        req = self._build_request_async(
+            method="DELETE",
+            path="/digital-wallets/{digital_wallet_id}",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=False,
+            request_has_path_params=True,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            _globals=models.DeleteDigitalWalletGlobals(
+                merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
+            ),
+            security=self.sdk_configuration.security,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                base_url=base_url or "",
+                operation_id="delete_digital_wallet",
+                oauth2_scopes=[],
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            error_status_codes=[
+                "400",
+                "401",
+                "403",
+                "404",
+                "405",
+                "409",
+                "422",
+                "425",
+                "429",
+                "4XX",
+                "500",
+                "502",
+                "504",
+                "5XX",
+            ],
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return utils.unmarshal_json(http_res.text, Any)
+        if utils.match_response(http_res, "400", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
+            raise errors.Error400(data=response_data)
+        if utils.match_response(http_res, "401", "application/json"):
+            response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
+            raise errors.Error401(data=response_data)
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, errors.Response403DeleteDigitalWalletUnion
+            )
+            raise errors.Response403DeleteDigitalWallet(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -1343,322 +1659,6 @@ class DigitalWallets(BaseSDK):
                 http_res.text, errors.Response403UpdateDigitalWalletUnion
             )
             raise errors.Response403UpdateDigitalWallet(data=response_data)
-        if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
-            raise errors.Error404(data=response_data)
-        if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error405Data)
-            raise errors.Error405(data=response_data)
-        if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error409Data)
-            raise errors.Error409(data=response_data)
-        if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.HTTPValidationErrorData
-            )
-            raise errors.HTTPValidationError(data=response_data)
-        if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error425Data)
-            raise errors.Error425(data=response_data)
-        if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error429Data)
-            raise errors.Error429(data=response_data)
-        if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error500Data)
-            raise errors.Error500(data=response_data)
-        if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error502Data)
-            raise errors.Error502(data=response_data)
-        if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error504Data)
-            raise errors.Error504(data=response_data)
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.APIError(
-                "API error occurred", http_res.status_code, http_res_text, http_res
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.APIError(
-                "API error occurred", http_res.status_code, http_res_text, http_res
-            )
-
-        content_type = http_res.headers.get("Content-Type")
-        http_res_text = await utils.stream_to_text_async(http_res)
-        raise errors.APIError(
-            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
-            http_res.status_code,
-            http_res_text,
-            http_res,
-        )
-
-    def delete(
-        self,
-        *,
-        digital_wallet_id: str,
-        timeout_in_seconds: Optional[float] = 1,
-        merchant_account_id: OptionalNullable[str] = UNSET,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Any:
-        r"""Delete digital wallet
-
-        Delete a configured digital wallet.
-
-        :param digital_wallet_id: The ID of the digital wallet to delete.
-        :param timeout_in_seconds:
-        :param merchant_account_id: The ID of the merchant account to use for this request.
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.DeleteDigitalWalletRequest(
-            digital_wallet_id=digital_wallet_id,
-            timeout_in_seconds=timeout_in_seconds,
-            merchant_account_id=merchant_account_id,
-        )
-
-        req = self._build_request(
-            method="DELETE",
-            path="/digital-wallets/{digital_wallet_id}",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=False,
-            request_has_path_params=True,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            _globals=models.DeleteDigitalWalletGlobals(
-                merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
-            ),
-            security=self.sdk_configuration.security,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = self.do_request(
-            hook_ctx=HookContext(
-                base_url=base_url or "",
-                operation_id="delete_digital_wallet",
-                oauth2_scopes=[],
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
-            ),
-            request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "403",
-                "404",
-                "405",
-                "409",
-                "422",
-                "425",
-                "429",
-                "4XX",
-                "500",
-                "502",
-                "504",
-                "5XX",
-            ],
-            retry_config=retry_config,
-        )
-
-        response_data: Any = None
-        if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Any)
-        if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
-            raise errors.Error400(data=response_data)
-        if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
-            raise errors.Error401(data=response_data)
-        if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403DeleteDigitalWalletUnion
-            )
-            raise errors.Response403DeleteDigitalWallet(data=response_data)
-        if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
-            raise errors.Error404(data=response_data)
-        if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error405Data)
-            raise errors.Error405(data=response_data)
-        if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error409Data)
-            raise errors.Error409(data=response_data)
-        if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.HTTPValidationErrorData
-            )
-            raise errors.HTTPValidationError(data=response_data)
-        if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error425Data)
-            raise errors.Error425(data=response_data)
-        if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error429Data)
-            raise errors.Error429(data=response_data)
-        if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error500Data)
-            raise errors.Error500(data=response_data)
-        if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error502Data)
-            raise errors.Error502(data=response_data)
-        if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error504Data)
-            raise errors.Error504(data=response_data)
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.APIError(
-                "API error occurred", http_res.status_code, http_res_text, http_res
-            )
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.APIError(
-                "API error occurred", http_res.status_code, http_res_text, http_res
-            )
-
-        content_type = http_res.headers.get("Content-Type")
-        http_res_text = utils.stream_to_text(http_res)
-        raise errors.APIError(
-            f"Unexpected response received (code: {http_res.status_code}, type: {content_type})",
-            http_res.status_code,
-            http_res_text,
-            http_res,
-        )
-
-    async def delete_async(
-        self,
-        *,
-        digital_wallet_id: str,
-        timeout_in_seconds: Optional[float] = 1,
-        merchant_account_id: OptionalNullable[str] = UNSET,
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Any:
-        r"""Delete digital wallet
-
-        Delete a configured digital wallet.
-
-        :param digital_wallet_id: The ID of the digital wallet to delete.
-        :param timeout_in_seconds:
-        :param merchant_account_id: The ID of the merchant account to use for this request.
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.DeleteDigitalWalletRequest(
-            digital_wallet_id=digital_wallet_id,
-            timeout_in_seconds=timeout_in_seconds,
-            merchant_account_id=merchant_account_id,
-        )
-
-        req = self._build_request_async(
-            method="DELETE",
-            path="/digital-wallets/{digital_wallet_id}",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=False,
-            request_has_path_params=True,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            _globals=models.DeleteDigitalWalletGlobals(
-                merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
-            ),
-            security=self.sdk_configuration.security,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = await self.do_request_async(
-            hook_ctx=HookContext(
-                base_url=base_url or "",
-                operation_id="delete_digital_wallet",
-                oauth2_scopes=[],
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
-            ),
-            request=req,
-            error_status_codes=[
-                "400",
-                "401",
-                "403",
-                "404",
-                "405",
-                "409",
-                "422",
-                "425",
-                "429",
-                "4XX",
-                "500",
-                "502",
-                "504",
-                "5XX",
-            ],
-            retry_config=retry_config,
-        )
-
-        response_data: Any = None
-        if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Any)
-        if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
-            raise errors.Error400(data=response_data)
-        if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
-            raise errors.Error401(data=response_data)
-        if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403DeleteDigitalWalletUnion
-            )
-            raise errors.Response403DeleteDigitalWallet(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)

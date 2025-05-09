@@ -5,65 +5,11 @@
 
 ### Available Operations
 
-* [list](#list) - List a buyer's shipping details
 * [create](#create) - Add buyer shipping details
+* [list](#list) - List a buyer's shipping details
 * [get](#get) - Get buyer shipping details
 * [update](#update) - Update a buyer's shipping details
 * [delete](#delete) - Delete a buyer's shipping details
-
-## list
-
-List all the shipping details associated to a specific buyer.
-
-### Example Usage
-
-```python
-from gr4vy import Gr4vy
-import os
-
-
-with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-) as g_client:
-
-    res = g_client.buyers.shipping_details.list(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9")
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `buyer_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | The ID of the buyer to retrieve shipping details for.               | fe26475d-ec3e-4884-9553-f7356683f7f9                                |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
-
-### Response
-
-**[models.CollectionNoCursorShippingDetails](../../models/collectionnocursorshippingdetails.md)**
-
-### Errors
-
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| errors.Error400            | 400                        | application/json           |
-| errors.Error401            | 401                        | application/json           |
-| errors.Error403            | 403                        | application/json           |
-| errors.Error403Forbidden   | 403                        | application/json           |
-| errors.Error403Active      | 403                        | application/json           |
-| errors.Error404            | 404                        | application/json           |
-| errors.Error405            | 405                        | application/json           |
-| errors.Error409            | 409                        | application/json           |
-| errors.HTTPValidationError | 422                        | application/json           |
-| errors.Error425            | 425                        | application/json           |
-| errors.Error429            | 429                        | application/json           |
-| errors.Error500            | 500                        | application/json           |
-| errors.Error502            | 502                        | application/json           |
-| errors.Error504            | 504                        | application/json           |
-| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
 
 ## create
 
@@ -114,6 +60,60 @@ with Gr4vy(
 ### Response
 
 **[models.ShippingDetails](../../models/shippingdetails.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.Error400            | 400                        | application/json           |
+| errors.Error401            | 401                        | application/json           |
+| errors.Error403            | 403                        | application/json           |
+| errors.Error403Forbidden   | 403                        | application/json           |
+| errors.Error403Active      | 403                        | application/json           |
+| errors.Error404            | 404                        | application/json           |
+| errors.Error405            | 405                        | application/json           |
+| errors.Error409            | 409                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.Error425            | 425                        | application/json           |
+| errors.Error429            | 429                        | application/json           |
+| errors.Error500            | 500                        | application/json           |
+| errors.Error502            | 502                        | application/json           |
+| errors.Error504            | 504                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## list
+
+List all the shipping details associated to a specific buyer.
+
+### Example Usage
+
+```python
+from gr4vy import Gr4vy
+import os
+
+
+with Gr4vy(
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+) as g_client:
+
+    res = g_client.buyers.shipping_details.list(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `buyer_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | The ID of the buyer to retrieve shipping details for.               | fe26475d-ec3e-4884-9553-f7356683f7f9                                |
+| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.CollectionNoCursorShippingDetails](../../models/collectionnocursorshippingdetails.md)**
 
 ### Errors
 

@@ -1,15 +1,21 @@
 workflowVersion: 1.0.0
 speakeasyVersion: latest
 sources:
-    -OAS:
+    openapi:
         inputs:
-            - location: registry.speakeasyapi.dev/gr4vy/gr4vy/openapi:main
+            - location: https://gr4vy.github.io/gr4vy-openapi/core/openapi.json
+        overlays:
+            - location: ./.speakeasy/overlays/servers.yaml
+            - location: ./.speakeasy/overlays/security.yaml
+            - location: ./.speakeasy/overlays/enums.yaml
+            - location: ./.speakeasy/overlays/retries.yaml
+            - location: ./.speakeasy/overlays/mid-global.yaml
         registry:
-            location: registry.speakeasyapi.dev/gr4vy/gr4vy/-oas
+            location: registry.speakeasyapi.dev/gr4vy/gr4vy/openapi
 targets:
-    gr-4-vy:
+    python:
         target: python
-        source: -OAS
+        source: openapi
         publish:
             pypi:
                 token: $pypi_token

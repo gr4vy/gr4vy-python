@@ -234,8 +234,8 @@ with Gr4vy(
 
 #### [buyers.shipping_details](docs/sdks/buyersshippingdetails/README.md)
 
-* [list](docs/sdks/buyersshippingdetails/README.md#list) - List a buyer's shipping details
 * [create](docs/sdks/buyersshippingdetails/README.md#create) - Add buyer shipping details
+* [list](docs/sdks/buyersshippingdetails/README.md#list) - List a buyer's shipping details
 * [get](docs/sdks/buyersshippingdetails/README.md#get) - Get buyer shipping details
 * [update](docs/sdks/buyersshippingdetails/README.md#update) - Update a buyer's shipping details
 * [delete](docs/sdks/buyersshippingdetails/README.md#delete) - Delete a buyer's shipping details
@@ -247,17 +247,17 @@ with Gr4vy(
 ### [checkout_sessions](docs/sdks/checkoutsessions/README.md)
 
 * [create](docs/sdks/checkoutsessions/README.md#create) - Create checkout session
-* [get](docs/sdks/checkoutsessions/README.md#get) - Get checkout session
 * [update](docs/sdks/checkoutsessions/README.md#update) - Update checkout session
+* [get](docs/sdks/checkoutsessions/README.md#get) - Get checkout session
 * [delete](docs/sdks/checkoutsessions/README.md#delete) - Delete checkout session
 
 ### [digital_wallets](docs/sdks/digitalwallets/README.md)
 
-* [list](docs/sdks/digitalwallets/README.md#list) - List digital wallets
 * [create](docs/sdks/digitalwallets/README.md#create) - Register digital wallet
+* [list](docs/sdks/digitalwallets/README.md#list) - List digital wallets
 * [get](docs/sdks/digitalwallets/README.md#get) - Get digital wallet
-* [update](docs/sdks/digitalwallets/README.md#update) - Update digital wallet
 * [delete](docs/sdks/digitalwallets/README.md#delete) - Delete digital wallet
+* [update](docs/sdks/digitalwallets/README.md#update) - Update digital wallet
 
 #### [digital_wallets.domains](docs/sdks/domains/README.md)
 
@@ -274,8 +274,8 @@ with Gr4vy(
 
 * [get](docs/sdks/giftcards/README.md#get) - Get gift card
 * [delete](docs/sdks/giftcards/README.md#delete) - Delete a gift card
-* [list](docs/sdks/giftcards/README.md#list) - List gift cards
 * [create](docs/sdks/giftcards/README.md#create) - Create gift card
+* [list](docs/sdks/giftcards/README.md#list) - List gift cards
 
 #### [gift_cards.balances](docs/sdks/balances/README.md)
 
