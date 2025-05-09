@@ -22,10 +22,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.gift_cards.get(gift_card_id="356d56e5-fe16-42ae-97ee-8d55d846ae2e")
+    res = g_client.gift_cards.get(gift_card_id="356d56e5-fe16-42ae-97ee-8d55d846ae2e", merchant_account_id="default")
 
     # Handle response
     print(res)
@@ -37,7 +40,7 @@ with Gr4vy(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `gift_card_id`                                                      | *str*                                                               | :heavy_check_mark:                                                  | The ID of the gift card.                                            | 356d56e5-fe16-42ae-97ee-8d55d846ae2e                                |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
@@ -76,10 +79,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.gift_cards.delete(gift_card_id="356d56e5-fe16-42ae-97ee-8d55d846ae2e")
+    res = g_client.gift_cards.delete(gift_card_id="356d56e5-fe16-42ae-97ee-8d55d846ae2e", merchant_account_id="default")
 
     # Handle response
     print(res)
@@ -92,7 +98,7 @@ with Gr4vy(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `gift_card_id`                                                      | *str*                                                               | :heavy_check_mark:                                                  | The ID of the gift card.                                            | 356d56e5-fe16-42ae-97ee-8d55d846ae2e                                |
 | `timeout_in_seconds`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
@@ -131,10 +137,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.gift_cards.create(number="4123455541234561234", pin="1234", buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", buyer_external_identifier="buyer-12345")
+    res = g_client.gift_cards.create(number="4123455541234561234", pin="1234", merchant_account_id="default", buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", buyer_external_identifier="buyer-12345")
 
     # Handle response
     print(res)
@@ -148,7 +157,7 @@ with Gr4vy(
 | `number`                                                                                                                                      | *str*                                                                                                                                         | :heavy_check_mark:                                                                                                                            | The 16-19 digit number for the gift card.                                                                                                     | 4123455541234561234                                                                                                                           |
 | `pin`                                                                                                                                         | *str*                                                                                                                                         | :heavy_check_mark:                                                                                                                            | The PIN for this gift card.                                                                                                                   | 1234                                                                                                                                          |
 | `timeout_in_seconds`                                                                                                                          | *Optional[float]*                                                                                                                             | :heavy_minus_sign:                                                                                                                            | N/A                                                                                                                                           |                                                                                                                                               |
-| `merchant_account_id`                                                                                                                         | *OptionalNullable[str]*                                                                                                                       | :heavy_minus_sign:                                                                                                                            | The ID of the merchant account to use for this request.                                                                                       |                                                                                                                                               |
+| `merchant_account_id`                                                                                                                         | *Optional[str]*                                                                                                                               | :heavy_minus_sign:                                                                                                                            | The ID of the merchant account to use for this request.                                                                                       | default                                                                                                                                       |
 | `buyer_id`                                                                                                                                    | *OptionalNullable[str]*                                                                                                                       | :heavy_minus_sign:                                                                                                                            |  The ID of the buyer to associate this gift card to. If this field is provided then the `buyer_external_identifier` field needs to be unset.  | fe26475d-ec3e-4884-9553-f7356683f7f9                                                                                                          |
 | `buyer_external_identifier`                                                                                                                   | *OptionalNullable[str]*                                                                                                                       | :heavy_minus_sign:                                                                                                                            | The `external_identifier` of the buyer to associate this gift card to. If this field is provided then the `buyer_id` field needs to be unset. | buyer-12345                                                                                                                                   |
 | `retries`                                                                                                                                     | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                              | :heavy_minus_sign:                                                                                                                            | Configuration to override the default retry behavior of the client.                                                                           |                                                                                                                                               |
@@ -189,10 +198,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.gift_cards.list()
+    res = g_client.gift_cards.list(merchant_account_id="default")
 
     while res is not None:
         # Handle items
@@ -203,14 +215,14 @@ with Gr4vy(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `buyer_external_identifier`                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `buyer_id`                                                          | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `cursor`                                                            | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `buyer_external_identifier`                                         | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
+| `buyer_id`                                                          | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
+| `cursor`                                                            | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
+| `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
 

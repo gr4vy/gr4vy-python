@@ -16,6 +16,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class ListPaymentMethodPaymentServiceTokensGlobalsTypedDict(TypedDict):
     merchant_account_id: NotRequired[str]
+    r"""The ID of the merchant account to use for this request."""
 
 
 class ListPaymentMethodPaymentServiceTokensGlobals(BaseModel):
@@ -24,6 +25,7 @@ class ListPaymentMethodPaymentServiceTokensGlobals(BaseModel):
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
+    r"""The ID of the merchant account to use for this request."""
 
 
 class ListPaymentMethodPaymentServiceTokensRequestTypedDict(TypedDict):
@@ -31,7 +33,7 @@ class ListPaymentMethodPaymentServiceTokensRequestTypedDict(TypedDict):
     r"""The ID of the payment method"""
     payment_service_id: NotRequired[Nullable[str]]
     r"""The ID of the payment service"""
-    merchant_account_id: NotRequired[Nullable[str]]
+    merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
 
@@ -48,16 +50,16 @@ class ListPaymentMethodPaymentServiceTokensRequest(BaseModel):
     r"""The ID of the payment service"""
 
     merchant_account_id: Annotated[
-        OptionalNullable[str],
+        Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
-    ] = UNSET
+    ] = None
     r"""The ID of the merchant account to use for this request."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = ["payment_service_id", "merchant_account_id"]
-        nullable_fields = ["payment_service_id", "merchant_account_id"]
+        nullable_fields = ["payment_service_id"]
         null_default_fields = []
 
         serialized = handler(self)

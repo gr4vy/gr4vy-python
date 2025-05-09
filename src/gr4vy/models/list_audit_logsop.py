@@ -22,6 +22,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class ListAuditLogsGlobalsTypedDict(TypedDict):
     merchant_account_id: NotRequired[str]
+    r"""The ID of the merchant account to use for this request."""
 
 
 class ListAuditLogsGlobals(BaseModel):
@@ -30,6 +31,7 @@ class ListAuditLogsGlobals(BaseModel):
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
+    r"""The ID of the merchant account to use for this request."""
 
 
 class ListAuditLogsRequestTypedDict(TypedDict):
@@ -43,7 +45,7 @@ class ListAuditLogsRequestTypedDict(TypedDict):
     r"""Filters the results to only the items for which the `user` has an `id` that matches this value."""
     resource_type: NotRequired[Nullable[str]]
     r"""Filters the results to only the items for which the `audit-log` has a `resource` that matches this type value."""
-    merchant_account_id: NotRequired[Nullable[str]]
+    merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
 
@@ -81,10 +83,10 @@ class ListAuditLogsRequest(BaseModel):
     r"""Filters the results to only the items for which the `audit-log` has a `resource` that matches this type value."""
 
     merchant_account_id: Annotated[
-        OptionalNullable[str],
+        Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
-    ] = UNSET
+    ] = None
     r"""The ID of the merchant account to use for this request."""
 
     @model_serializer(mode="wrap")
@@ -97,13 +99,7 @@ class ListAuditLogsRequest(BaseModel):
             "resource_type",
             "merchant_account_id",
         ]
-        nullable_fields = [
-            "cursor",
-            "action",
-            "user_id",
-            "resource_type",
-            "merchant_account_id",
-        ]
+        nullable_fields = ["cursor", "action", "user_id", "resource_type"]
         null_default_fields = []
 
         serialized = handler(self)

@@ -19,13 +19,16 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.account_updater.jobs.create(payment_method_ids=[
         "ef9496d8-53a5-4aad-8ca2-00eb68334389",
         "f29e886e-93cc-4714-b4a3-12b7a718e595",
-    ])
+    ], merchant_account_id="default")
 
     assert res is not None
 
@@ -40,7 +43,7 @@ with Gr4vy(
 | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | `payment_method_ids`                                                               | List[*str*]                                                                        | :heavy_check_mark:                                                                 | A list of payment method IDs to request an update for.                             | [<br/>"ef9496d8-53a5-4aad-8ca2-00eb68334389",<br/>"f29e886e-93cc-4714-b4a3-12b7a718e595"<br/>] |
 | `timeout_in_seconds`                                                               | *Optional[float]*                                                                  | :heavy_minus_sign:                                                                 | N/A                                                                                |                                                                                    |
-| `merchant_account_id`                                                              | *OptionalNullable[str]*                                                            | :heavy_minus_sign:                                                                 | The ID of the merchant account to use for this request.                            |                                                                                    |
+| `merchant_account_id`                                                              | *Optional[str]*                                                                    | :heavy_minus_sign:                                                                 | The ID of the merchant account to use for this request.                            | default                                                                            |
 | `retries`                                                                          | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                   | :heavy_minus_sign:                                                                 | Configuration to override the default retry behavior of the client.                |                                                                                    |
 
 ### Response

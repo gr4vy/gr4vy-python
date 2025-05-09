@@ -12,6 +12,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class ListBuyersGlobalsTypedDict(TypedDict):
     merchant_account_id: NotRequired[str]
+    r"""The ID of the merchant account to use for this request."""
 
 
 class ListBuyersGlobals(BaseModel):
@@ -20,6 +21,7 @@ class ListBuyersGlobals(BaseModel):
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
+    r"""The ID of the merchant account to use for this request."""
 
 
 class ListBuyersRequestTypedDict(TypedDict):
@@ -31,7 +33,7 @@ class ListBuyersRequestTypedDict(TypedDict):
     r"""Filters the results to only the buyers for which the `display_name` or `external_identifier` matches this value."""
     external_identifier: NotRequired[Nullable[str]]
     r"""Filters the results to only the buyers for which the `external_identifier` matches this value."""
-    merchant_account_id: NotRequired[Nullable[str]]
+    merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
 
@@ -61,10 +63,10 @@ class ListBuyersRequest(BaseModel):
     r"""Filters the results to only the buyers for which the `external_identifier` matches this value."""
 
     merchant_account_id: Annotated[
-        OptionalNullable[str],
+        Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
-    ] = UNSET
+    ] = None
     r"""The ID of the merchant account to use for this request."""
 
     @model_serializer(mode="wrap")
@@ -76,12 +78,7 @@ class ListBuyersRequest(BaseModel):
             "external_identifier",
             "merchant_account_id",
         ]
-        nullable_fields = [
-            "cursor",
-            "search",
-            "external_identifier",
-            "merchant_account_id",
-        ]
+        nullable_fields = ["cursor", "search", "external_identifier"]
         null_default_fields = []
 
         serialized = handler(self)

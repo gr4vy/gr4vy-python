@@ -12,7 +12,7 @@ class CardSchemeDefinitions(BaseSDK):
     def list(
         self,
         *,
-        merchant_account_id: OptionalNullable[str] = UNSET,
+        merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -170,7 +170,7 @@ class CardSchemeDefinitions(BaseSDK):
     async def list_async(
         self,
         *,
-        merchant_account_id: OptionalNullable[str] = UNSET,
+        merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,

@@ -23,10 +23,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.buyers.list(cursor="ZXhhbXBsZTE", search="John", external_identifier="buyer-12345")
+    res = g_client.buyers.list(cursor="ZXhhbXBsZTE", search="John", external_identifier="buyer-12345", merchant_account_id="default")
 
     while res is not None:
         # Handle items
@@ -43,7 +46,7 @@ with Gr4vy(
 | `limit`                                                                                                          | *Optional[int]*                                                                                                  | :heavy_minus_sign:                                                                                               | The maximum number of items that are at returned.                                                                | 20                                                                                                               |
 | `search`                                                                                                         | *OptionalNullable[str]*                                                                                          | :heavy_minus_sign:                                                                                               | Filters the results to only the buyers for which the `display_name` or `external_identifier` matches this value. | John                                                                                                             |
 | `external_identifier`                                                                                            | *OptionalNullable[str]*                                                                                          | :heavy_minus_sign:                                                                                               | Filters the results to only the buyers for which the `external_identifier` matches this value.                   | buyer-12345                                                                                                      |
-| `merchant_account_id`                                                                                            | *OptionalNullable[str]*                                                                                          | :heavy_minus_sign:                                                                                               | The ID of the merchant account to use for this request.                                                          |                                                                                                                  |
+| `merchant_account_id`                                                                                            | *Optional[str]*                                                                                                  | :heavy_minus_sign:                                                                                               | The ID of the merchant account to use for this request.                                                          | default                                                                                                          |
 | `retries`                                                                                                        | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                 | :heavy_minus_sign:                                                                                               | Configuration to override the default retry behavior of the client.                                              |                                                                                                                  |
 
 ### Response
@@ -82,10 +85,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.buyers.create(display_name="John Doe", external_identifier="buyer-12345", billing_details={
+    res = g_client.buyers.create(merchant_account_id="default", display_name="John Doe", external_identifier="buyer-12345", billing_details={
         "first_name": "John",
         "last_name": "Doe",
         "email_address": "john@example.com",
@@ -117,7 +123,7 @@ with Gr4vy(
 | Parameter                                                                           | Type                                                                                | Required                                                                            | Description                                                                         | Example                                                                             |
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | `timeout_in_seconds`                                                                | *Optional[float]*                                                                   | :heavy_minus_sign:                                                                  | N/A                                                                                 |                                                                                     |
-| `merchant_account_id`                                                               | *OptionalNullable[str]*                                                             | :heavy_minus_sign:                                                                  | The ID of the merchant account to use for this request.                             |                                                                                     |
+| `merchant_account_id`                                                               | *Optional[str]*                                                                     | :heavy_minus_sign:                                                                  | The ID of the merchant account to use for this request.                             | default                                                                             |
 | `display_name`                                                                      | *OptionalNullable[str]*                                                             | :heavy_minus_sign:                                                                  | The display name for the buyer.                                                     | John Doe                                                                            |
 | `external_identifier`                                                               | *OptionalNullable[str]*                                                             | :heavy_minus_sign:                                                                  | The merchant identifier for this buyer.                                             | buyer-12345                                                                         |
 | `billing_details`                                                                   | [OptionalNullable[models.BillingDetailsInput]](../../models/billingdetailsinput.md) | :heavy_minus_sign:                                                                  | The billing name, address, email, and other fields for this buyer.                  |                                                                                     |
@@ -160,10 +166,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.buyers.get(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9")
+    res = g_client.buyers.get(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", merchant_account_id="default")
 
     # Handle response
     print(res)
@@ -175,7 +184,7 @@ with Gr4vy(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `buyer_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | The ID of the buyer to retrieve.                                    | fe26475d-ec3e-4884-9553-f7356683f7f9                                |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
@@ -214,10 +223,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.buyers.update(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", display_name="John Doe", external_identifier="buyer-12345", billing_details={
+    res = g_client.buyers.update(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", merchant_account_id="default", display_name="John Doe", external_identifier="buyer-12345", billing_details={
         "first_name": "John",
         "last_name": "Doe",
         "email_address": "john@example.com",
@@ -250,7 +262,7 @@ with Gr4vy(
 | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | `buyer_id`                                                                          | *str*                                                                               | :heavy_check_mark:                                                                  | The ID of the buyer to edit.                                                        | fe26475d-ec3e-4884-9553-f7356683f7f9                                                |
 | `timeout_in_seconds`                                                                | *Optional[float]*                                                                   | :heavy_minus_sign:                                                                  | N/A                                                                                 |                                                                                     |
-| `merchant_account_id`                                                               | *OptionalNullable[str]*                                                             | :heavy_minus_sign:                                                                  | The ID of the merchant account to use for this request.                             |                                                                                     |
+| `merchant_account_id`                                                               | *Optional[str]*                                                                     | :heavy_minus_sign:                                                                  | The ID of the merchant account to use for this request.                             | default                                                                             |
 | `display_name`                                                                      | *OptionalNullable[str]*                                                             | :heavy_minus_sign:                                                                  | The display name for the buyer.                                                     | John Doe                                                                            |
 | `external_identifier`                                                               | *OptionalNullable[str]*                                                             | :heavy_minus_sign:                                                                  | The merchant identifier for this buyer.                                             | buyer-12345                                                                         |
 | `account_number`                                                                    | *OptionalNullable[str]*                                                             | :heavy_minus_sign:                                                                  | The buyer account number                                                            |                                                                                     |
@@ -293,10 +305,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    g_client.buyers.delete(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9")
+    g_client.buyers.delete(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", merchant_account_id="default")
 
     # Use the SDK ...
 
@@ -308,7 +323,7 @@ with Gr4vy(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `buyer_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | The ID of the buyer to delete.                                      | fe26475d-ec3e-4884-9553-f7356683f7f9                                |
 | `timeout_in_seconds`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Errors

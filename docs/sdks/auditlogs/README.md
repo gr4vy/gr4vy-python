@@ -19,10 +19,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.audit_logs.list(cursor="ZXhhbXBsZTE", action="created", user_id="14b7b8c5-a6ba-4fb6-bbab-52d43c7f37ef", resource_type="user")
+    res = g_client.audit_logs.list(cursor="ZXhhbXBsZTE", action="created", user_id="14b7b8c5-a6ba-4fb6-bbab-52d43c7f37ef", resource_type="user", merchant_account_id="default")
 
     while res is not None:
         # Handle items
@@ -40,7 +43,7 @@ with Gr4vy(
 | `action`                                                                                                       | [OptionalNullable[models.AuditLogAction]](../../models/auditlogaction.md)                                      | :heavy_minus_sign:                                                                                             | Filters the results to only the items for which the `audit-log` has an `action` that matches this value.       | created                                                                                                        |
 | `user_id`                                                                                                      | *OptionalNullable[str]*                                                                                        | :heavy_minus_sign:                                                                                             | Filters the results to only the items for which the `user` has an `id` that matches this value.                | 14b7b8c5-a6ba-4fb6-bbab-52d43c7f37ef                                                                           |
 | `resource_type`                                                                                                | *OptionalNullable[str]*                                                                                        | :heavy_minus_sign:                                                                                             | Filters the results to only the items for which the `audit-log` has a `resource` that matches this type value. | user                                                                                                           |
-| `merchant_account_id`                                                                                          | *OptionalNullable[str]*                                                                                        | :heavy_minus_sign:                                                                                             | The ID of the merchant account to use for this request.                                                        |                                                                                                                |
+| `merchant_account_id`                                                                                          | *Optional[str]*                                                                                                | :heavy_minus_sign:                                                                                             | The ID of the merchant account to use for this request.                                                        | default                                                                                                        |
 | `retries`                                                                                                      | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                               | :heavy_minus_sign:                                                                                             | Configuration to override the default retry behavior of the client.                                            |                                                                                                                |
 
 ### Response

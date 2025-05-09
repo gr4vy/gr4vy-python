@@ -1,9 +1,9 @@
-speakeasyVersion: 1.543.3
+speakeasyVersion: 1.543.4
 sources:
     openapi:
         sourceNamespace: openapi
-        sourceRevisionDigest: sha256:f0a02ad777e124b099f7d63e8ab5a9d71beb812578ea4ed02bc250cb36cc5d75
-        sourceBlobDigest: sha256:e599879ddb68d9a5d643e9967a961ee55e5ac113b7c821058f7c9156279101ca
+        sourceRevisionDigest: sha256:4f52baeed03a74fec1e6bee41b621a9740455dbf8b2da6a6ec6437cda5fb67a1
+        sourceBlobDigest: sha256:80e7e88ee7a9fbd0a3e0ceb93f8ed8393777d0cc13d0f83897fc29e78fc443f2
         tags:
             - latest
             - 1.0.0
@@ -11,8 +11,8 @@ targets:
     python:
         source: openapi
         sourceNamespace: openapi
-        sourceRevisionDigest: sha256:f0a02ad777e124b099f7d63e8ab5a9d71beb812578ea4ed02bc250cb36cc5d75
-        sourceBlobDigest: sha256:e599879ddb68d9a5d643e9967a961ee55e5ac113b7c821058f7c9156279101ca
+        sourceRevisionDigest: sha256:4f52baeed03a74fec1e6bee41b621a9740455dbf8b2da6a6ec6437cda5fb67a1
+        sourceBlobDigest: sha256:80e7e88ee7a9fbd0a3e0ceb93f8ed8393777d0cc13d0f83897fc29e78fc443f2
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

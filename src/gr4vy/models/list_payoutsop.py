@@ -15,6 +15,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class ListPayoutsGlobalsTypedDict(TypedDict):
     merchant_account_id: NotRequired[str]
+    r"""The ID of the merchant account to use for this request."""
 
 
 class ListPayoutsGlobals(BaseModel):
@@ -23,6 +24,7 @@ class ListPayoutsGlobals(BaseModel):
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
+    r"""The ID of the merchant account to use for this request."""
 
 
 class ListPayoutsRequestTypedDict(TypedDict):
@@ -30,7 +32,7 @@ class ListPayoutsRequestTypedDict(TypedDict):
     r"""A pointer to the page of results to return."""
     limit: NotRequired[int]
     r"""The maximum number of items that are at returned."""
-    merchant_account_id: NotRequired[Nullable[str]]
+    merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
 
@@ -48,16 +50,16 @@ class ListPayoutsRequest(BaseModel):
     r"""The maximum number of items that are at returned."""
 
     merchant_account_id: Annotated[
-        OptionalNullable[str],
+        Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
-    ] = UNSET
+    ] = None
     r"""The ID of the merchant account to use for this request."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = ["cursor", "limit", "merchant_account_id"]
-        nullable_fields = ["cursor", "merchant_account_id"]
+        nullable_fields = ["cursor"]
         null_default_fields = []
 
         serialized = handler(self)

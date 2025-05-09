@@ -22,7 +22,10 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.merchant_accounts.list(cursor="ZXhhbXBsZTE", search="merchant-12345")
@@ -79,7 +82,10 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.merchant_accounts.create(id="merchant-12345", display_name="Example", account_updater_request_encryption_key="key-1234", account_updater_request_encryption_key_id="key-id-1234", account_updater_response_decryption_key="key-1234", account_updater_response_decryption_key_id="key-id-1234", over_capture_amount=1299, over_capture_percentage=25, loon_client_key="client-key-1234", loon_secret_key="key-12345", loon_accepted_schemes=[
@@ -155,7 +161,10 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.merchant_accounts.get(merchant_account_id="merchant-12345")
@@ -208,7 +217,10 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.merchant_accounts.update(merchant_account_id="merchant-12345", account_updater_request_encryption_key="key-1234", account_updater_request_encryption_key_id="key-id-1234", account_updater_response_decryption_key="key-1234", account_updater_response_decryption_key_id="key-id-1234", over_capture_amount=1299, over_capture_percentage=25, loon_client_key="client-key-1234", loon_secret_key="key-12345", loon_accepted_schemes=[

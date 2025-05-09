@@ -25,10 +25,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.payment_services.list(cursor="ZXhhbXBsZTE", deleted=True)
+    res = g_client.payment_services.list(cursor="ZXhhbXBsZTE", deleted=True, merchant_account_id="default")
 
     while res is not None:
         # Handle items
@@ -45,7 +48,7 @@ with Gr4vy(
 | `cursor`                                                            | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | A pointer to the page of results to return.                         | ZXhhbXBsZTE                                                         |
 | `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | The maximum number of items that are at returned.                   | 20                                                                  |
 | `deleted`                                                           | *OptionalNullable[bool]*                                            | :heavy_minus_sign:                                                  | Return any deleted payment service.                                 | true                                                                |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
@@ -84,7 +87,10 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.payment_services.create(display_name="Stripe", payment_service_definition_id="stripe-card", fields=[
@@ -100,7 +106,7 @@ with Gr4vy(
         "DE",
         "GB",
         "US",
-    ], reporting_fields=[
+    ], merchant_account_id="default", reporting_fields=[
         {
             "key": "api_key",
             "value": "key-12345",
@@ -134,7 +140,7 @@ with Gr4vy(
 | `fields`                                                                                                                                      | List[[models.FieldT](../../models/fieldt.md)]                                                                                                 | :heavy_check_mark:                                                                                                                            | The non-secret credential fields that have been configured for this payment service. Any secret fields are omitted.                           |                                                                                                                                               |
 | `accepted_currencies`                                                                                                                         | List[*str*]                                                                                                                                   | :heavy_check_mark:                                                                                                                            | A list of currencies for which this service is enabled, in ISO 4217 three-letter code format.                                                 | [<br/>"USD",<br/>"EUR",<br/>"GBP"<br/>]                                                                                                       |
 | `accepted_countries`                                                                                                                          | List[*str*]                                                                                                                                   | :heavy_check_mark:                                                                                                                            | A list of countries for which this service is enabled, in ISO two-letter code format.                                                         | [<br/>"US",<br/>"DE",<br/>"GB"<br/>]                                                                                                          |
-| `merchant_account_id`                                                                                                                         | *OptionalNullable[str]*                                                                                                                       | :heavy_minus_sign:                                                                                                                            | The ID of the merchant account to use for this request.                                                                                       |                                                                                                                                               |
+| `merchant_account_id`                                                                                                                         | *Optional[str]*                                                                                                                               | :heavy_minus_sign:                                                                                                                            | The ID of the merchant account to use for this request.                                                                                       | default                                                                                                                                       |
 | `reporting_fields`                                                                                                                            | List[[models.FieldT](../../models/fieldt.md)]                                                                                                 | :heavy_minus_sign:                                                                                                                            | The non-secret reporting fields that have been configured for this payment service. Any secret fields are omitted.                            |                                                                                                                                               |
 | `position`                                                                                                                                    | *OptionalNullable[int]*                                                                                                                       | :heavy_minus_sign:                                                                                                                            | Deprecated field used to define the order in which to process payment services                                                                | 1                                                                                                                                             |
 | `active`                                                                                                                                      | *OptionalNullable[bool]*                                                                                                                      | :heavy_minus_sign:                                                                                                                            | Defines if this payment service is currently active.                                                                                          | true                                                                                                                                          |
@@ -182,10 +188,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.payment_services.get(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0")
+    res = g_client.payment_services.get(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0", merchant_account_id="default")
 
     # Handle response
     print(res)
@@ -197,7 +206,7 @@ with Gr4vy(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `payment_service_id`                                                | *str*                                                               | :heavy_check_mark:                                                  | the ID of the payment service                                       | fffd152a-9532-4087-9a4f-de58754210f0                                |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
@@ -236,10 +245,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.payment_services.update(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0", display_name="Stripe", position=1, accepted_currencies=[
+    res = g_client.payment_services.update(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0", merchant_account_id="default", display_name="Stripe", position=1, accepted_currencies=[
         "EUR",
         "GBP",
         "USD",
@@ -276,7 +288,7 @@ with Gr4vy(
 | Parameter                                                                                                                                     | Type                                                                                                                                          | Required                                                                                                                                      | Description                                                                                                                                   | Example                                                                                                                                       |
 | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | `payment_service_id`                                                                                                                          | *str*                                                                                                                                         | :heavy_check_mark:                                                                                                                            | the ID of the payment service                                                                                                                 | fffd152a-9532-4087-9a4f-de58754210f0                                                                                                          |
-| `merchant_account_id`                                                                                                                         | *OptionalNullable[str]*                                                                                                                       | :heavy_minus_sign:                                                                                                                            | The ID of the merchant account to use for this request.                                                                                       |                                                                                                                                               |
+| `merchant_account_id`                                                                                                                         | *Optional[str]*                                                                                                                               | :heavy_minus_sign:                                                                                                                            | The ID of the merchant account to use for this request.                                                                                       | default                                                                                                                                       |
 | `display_name`                                                                                                                                | *OptionalNullable[str]*                                                                                                                       | :heavy_minus_sign:                                                                                                                            | The display name for the payment service.                                                                                                     | Stripe                                                                                                                                        |
 | `fields`                                                                                                                                      | List[[models.VoidableField](../../models/voidablefield.md)]                                                                                   | :heavy_minus_sign:                                                                                                                            | The non-secret credential fields that have been configured for this payment service. Any secret fields are omitted.                           |                                                                                                                                               |
 | `reporting_fields`                                                                                                                            | List[[models.VoidableField](../../models/voidablefield.md)]                                                                                   | :heavy_minus_sign:                                                                                                                            | The non-secret reporting fields that have been configured for this payment service. Any secret fields are omitted.                            |                                                                                                                                               |
@@ -328,10 +340,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.payment_services.delete(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0")
+    res = g_client.payment_services.delete(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0", merchant_account_id="default")
 
     # Handle response
     print(res)
@@ -344,7 +359,7 @@ with Gr4vy(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `payment_service_id`                                                | *str*                                                               | :heavy_check_mark:                                                  | the ID of the payment service                                       | fffd152a-9532-4087-9a4f-de58754210f0                                |
 | `timeout_in_seconds`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
@@ -383,7 +398,10 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.payment_services.verify(payment_service_definition_id="stripe-card", fields=[
@@ -399,7 +417,7 @@ with Gr4vy(
             "key": "api_key",
             "value": "key-12345",
         },
-    ], payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0")
+    ], merchant_account_id="default", payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0")
 
     # Handle response
     print(res)
@@ -413,7 +431,7 @@ with Gr4vy(
 | `payment_service_definition_id`                                                                                                                | *str*                                                                                                                                          | :heavy_check_mark:                                                                                                                             | The ID of the payment service definition to verify the fields against                                                                          | stripe-card                                                                                                                                    |
 | `fields`                                                                                                                                       | List[[models.FieldT](../../models/fieldt.md)]                                                                                                  | :heavy_check_mark:                                                                                                                             | The fields and their values, or a set of updated fields to merge with existing values.                                                         |                                                                                                                                                |
 | `timeout_in_seconds`                                                                                                                           | *Optional[float]*                                                                                                                              | :heavy_minus_sign:                                                                                                                             | N/A                                                                                                                                            |                                                                                                                                                |
-| `merchant_account_id`                                                                                                                          | *OptionalNullable[str]*                                                                                                                        | :heavy_minus_sign:                                                                                                                             | The ID of the merchant account to use for this request.                                                                                        |                                                                                                                                                |
+| `merchant_account_id`                                                                                                                          | *Optional[str]*                                                                                                                                | :heavy_minus_sign:                                                                                                                             | The ID of the merchant account to use for this request.                                                                                        | default                                                                                                                                        |
 | `payment_service_id`                                                                                                                           | *OptionalNullable[str]*                                                                                                                        | :heavy_minus_sign:                                                                                                                             | The optional ID of the configured payment service. New fields will be merged with any existing fields already stored before they are verified. | fffd152a-9532-4087-9a4f-de58754210f0                                                                                                           |
 | `retries`                                                                                                                                      | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                               | :heavy_minus_sign:                                                                                                                             | Configuration to override the default retry behavior of the client.                                                                            |                                                                                                                                                |
 
@@ -453,14 +471,17 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.payment_services.session(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0", request_body={
         "key": "<value>",
         "key1": "<value>",
         "key2": "<value>",
-    })
+    }, merchant_account_id="default")
 
     # Handle response
     print(res)
@@ -473,7 +494,7 @@ with Gr4vy(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `payment_service_id`                                                | *str*                                                               | :heavy_check_mark:                                                  | the ID of the payment service                                       | fffd152a-9532-4087-9a4f-de58754210f0                                |
 | `request_body`                                                      | Dict[str, *Any*]                                                    | :heavy_check_mark:                                                  | N/A                                                                 |                                                                     |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response

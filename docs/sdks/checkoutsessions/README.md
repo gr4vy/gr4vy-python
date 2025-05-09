@@ -24,10 +24,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.checkout_sessions.create(request_body=models.CheckoutSessionUpdate(
+    res = g_client.checkout_sessions.create(merchant_account_id="default", request_body=models.CheckoutSessionUpdate(
         cart_items=[
             models.CartItem(
                 name="GoPro HD",
@@ -157,12 +160,12 @@ with Gr4vy(
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `timeout_in_seconds`                                                                            | *Optional[float]*                                                                               | :heavy_minus_sign:                                                                              | N/A                                                                                             |
-| `merchant_account_id`                                                                           | *OptionalNullable[str]*                                                                         | :heavy_minus_sign:                                                                              | The ID of the merchant account to use for this request.                                         |
-| `request_body`                                                                                  | [OptionalNullable[models.CreateCheckoutSessionBody]](../../models/createcheckoutsessionbody.md) | :heavy_minus_sign:                                                                              | N/A                                                                                             |
-| `retries`                                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                | :heavy_minus_sign:                                                                              | Configuration to override the default retry behavior of the client.                             |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     | Example                                                                                         |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `timeout_in_seconds`                                                                            | *Optional[float]*                                                                               | :heavy_minus_sign:                                                                              | N/A                                                                                             |                                                                                                 |
+| `merchant_account_id`                                                                           | *Optional[str]*                                                                                 | :heavy_minus_sign:                                                                              | The ID of the merchant account to use for this request.                                         | default                                                                                         |
+| `request_body`                                                                                  | [OptionalNullable[models.CreateCheckoutSessionBody]](../../models/createcheckoutsessionbody.md) | :heavy_minus_sign:                                                                              | N/A                                                                                             |                                                                                                 |
+| `retries`                                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                | :heavy_minus_sign:                                                                              | Configuration to override the default retry behavior of the client.                             |                                                                                                 |
 
 ### Response
 
@@ -202,10 +205,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.checkout_sessions.update(session_id="4137b1cf-39ac-42a8-bad6-1c680d5dab6b", cart_items=[
+    res = g_client.checkout_sessions.update(session_id="4137b1cf-39ac-42a8-bad6-1c680d5dab6b", merchant_account_id="default", cart_items=[
         {
             "name": "GoPro HD",
             "quantity": 2,
@@ -416,7 +422,7 @@ with Gr4vy(
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `session_id`                                                                                                                                                        | *str*                                                                                                                                                               | :heavy_check_mark:                                                                                                                                                  | The ID of the checkout session.                                                                                                                                     | 4137b1cf-39ac-42a8-bad6-1c680d5dab6b                                                                                                                                |
 | `timeout_in_seconds`                                                                                                                                                | *Optional[float]*                                                                                                                                                   | :heavy_minus_sign:                                                                                                                                                  | N/A                                                                                                                                                                 |                                                                                                                                                                     |
-| `merchant_account_id`                                                                                                                                               | *OptionalNullable[str]*                                                                                                                                             | :heavy_minus_sign:                                                                                                                                                  | The ID of the merchant account to use for this request.                                                                                                             |                                                                                                                                                                     |
+| `merchant_account_id`                                                                                                                                               | *Optional[str]*                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                  | The ID of the merchant account to use for this request.                                                                                                             | default                                                                                                                                                             |
 | `cart_items`                                                                                                                                                        | List[[models.CartItem](../../models/cartitem.md)]                                                                                                                   | :heavy_minus_sign:                                                                                                                                                  | An array of cart items that represents the line items of a transaction.                                                                                             |                                                                                                                                                                     |
 | `metadata`                                                                                                                                                          | Dict[str, *str*]                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                  | Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it. | {<br/>"cohort": "cohort-a",<br/>"order_id": "order-12345"<br/>}                                                                                                     |
 | `buyer`                                                                                                                                                             | [OptionalNullable[models.GuestBuyerInput]](../../models/guestbuyerinput.md)                                                                                         | :heavy_minus_sign:                                                                                                                                                  | Provide buyer details for the transaction. No buyer resource will be created on Gr4vy when used.                                                                    |                                                                                                                                                                     |
@@ -460,10 +466,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.checkout_sessions.get(session_id="4137b1cf-39ac-42a8-bad6-1c680d5dab6b")
+    res = g_client.checkout_sessions.get(session_id="4137b1cf-39ac-42a8-bad6-1c680d5dab6b", merchant_account_id="default")
 
     # Handle response
     print(res)
@@ -476,7 +485,7 @@ with Gr4vy(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `session_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the checkout session.                                     | 4137b1cf-39ac-42a8-bad6-1c680d5dab6b                                |
 | `timeout_in_seconds`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
@@ -514,10 +523,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    g_client.checkout_sessions.delete(session_id="4137b1cf-39ac-42a8-bad6-1c680d5dab6b")
+    g_client.checkout_sessions.delete(session_id="4137b1cf-39ac-42a8-bad6-1c680d5dab6b", merchant_account_id="default")
 
     # Use the SDK ...
 
@@ -529,7 +541,7 @@ with Gr4vy(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `session_id`                                                        | *str*                                                               | :heavy_check_mark:                                                  | The ID of the checkout session.                                     | 4137b1cf-39ac-42a8-bad6-1c680d5dab6b                                |
 | `timeout_in_seconds`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Errors

@@ -12,6 +12,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class ListGiftCardsGlobalsTypedDict(TypedDict):
     merchant_account_id: NotRequired[str]
+    r"""The ID of the merchant account to use for this request."""
 
 
 class ListGiftCardsGlobals(BaseModel):
@@ -20,6 +21,7 @@ class ListGiftCardsGlobals(BaseModel):
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
+    r"""The ID of the merchant account to use for this request."""
 
 
 class ListGiftCardsRequestTypedDict(TypedDict):
@@ -27,7 +29,7 @@ class ListGiftCardsRequestTypedDict(TypedDict):
     buyer_id: NotRequired[Nullable[str]]
     cursor: NotRequired[Nullable[str]]
     limit: NotRequired[int]
-    merchant_account_id: NotRequired[Nullable[str]]
+    merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
 
@@ -53,10 +55,10 @@ class ListGiftCardsRequest(BaseModel):
     ] = 20
 
     merchant_account_id: Annotated[
-        OptionalNullable[str],
+        Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
-    ] = UNSET
+    ] = None
     r"""The ID of the merchant account to use for this request."""
 
     @model_serializer(mode="wrap")
@@ -68,12 +70,7 @@ class ListGiftCardsRequest(BaseModel):
             "limit",
             "merchant_account_id",
         ]
-        nullable_fields = [
-            "buyer_external_identifier",
-            "buyer_id",
-            "cursor",
-            "merchant_account_id",
-        ]
+        nullable_fields = ["buyer_external_identifier", "buyer_id", "cursor"]
         null_default_fields = []
 
         serialized = handler(self)

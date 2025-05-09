@@ -12,7 +12,7 @@ class PaymentOptions(BaseSDK):
     def list(
         self,
         *,
-        merchant_account_id: OptionalNullable[str] = UNSET,
+        merchant_account_id: Optional[str] = None,
         metadata: OptionalNullable[Dict[str, str]] = UNSET,
         country: OptionalNullable[str] = UNSET,
         currency: OptionalNullable[str] = UNSET,
@@ -197,7 +197,7 @@ class PaymentOptions(BaseSDK):
     async def list_async(
         self,
         *,
-        merchant_account_id: OptionalNullable[str] = UNSET,
+        merchant_account_id: Optional[str] = None,
         metadata: OptionalNullable[Dict[str, str]] = UNSET,
         country: OptionalNullable[str] = UNSET,
         currency: OptionalNullable[str] = UNSET,

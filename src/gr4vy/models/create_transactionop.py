@@ -18,6 +18,7 @@ from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 class CreateTransactionGlobalsTypedDict(TypedDict):
     merchant_account_id: NotRequired[str]
+    r"""The ID of the merchant account to use for this request."""
 
 
 class CreateTransactionGlobals(BaseModel):
@@ -26,12 +27,13 @@ class CreateTransactionGlobals(BaseModel):
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
+    r"""The ID of the merchant account to use for this request."""
 
 
 class CreateTransactionRequestTypedDict(TypedDict):
     transaction_create: TransactionCreateTypedDict
     timeout_in_seconds: NotRequired[float]
-    merchant_account_id: NotRequired[Nullable[str]]
+    merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
     idempotency_key: NotRequired[Nullable[str]]
     r"""A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions."""
@@ -49,10 +51,10 @@ class CreateTransactionRequest(BaseModel):
     ] = 1
 
     merchant_account_id: Annotated[
-        OptionalNullable[str],
+        Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
-    ] = UNSET
+    ] = None
     r"""The ID of the merchant account to use for this request."""
 
     idempotency_key: Annotated[
@@ -69,7 +71,7 @@ class CreateTransactionRequest(BaseModel):
             "merchant_account_id",
             "idempotency-key",
         ]
-        nullable_fields = ["merchant_account_id", "idempotency-key"]
+        nullable_fields = ["idempotency-key"]
         null_default_fields = []
 
         serialized = handler(self)

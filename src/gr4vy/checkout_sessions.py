@@ -13,7 +13,7 @@ class CheckoutSessions(BaseSDK):
         self,
         *,
         timeout_in_seconds: Optional[float] = 1,
-        merchant_account_id: OptionalNullable[str] = UNSET,
+        merchant_account_id: Optional[str] = None,
         request_body: OptionalNullable[
             Union[
                 models.CreateCheckoutSessionBody,
@@ -185,7 +185,7 @@ class CheckoutSessions(BaseSDK):
         self,
         *,
         timeout_in_seconds: Optional[float] = 1,
-        merchant_account_id: OptionalNullable[str] = UNSET,
+        merchant_account_id: Optional[str] = None,
         request_body: OptionalNullable[
             Union[
                 models.CreateCheckoutSessionBody,
@@ -358,7 +358,7 @@ class CheckoutSessions(BaseSDK):
         *,
         session_id: str,
         timeout_in_seconds: Optional[float] = 1,
-        merchant_account_id: OptionalNullable[str] = UNSET,
+        merchant_account_id: Optional[str] = None,
         cart_items: OptionalNullable[
             Union[List[models.CartItem], List[models.CartItemTypedDict]]
         ] = UNSET,
@@ -552,7 +552,7 @@ class CheckoutSessions(BaseSDK):
         *,
         session_id: str,
         timeout_in_seconds: Optional[float] = 1,
-        merchant_account_id: OptionalNullable[str] = UNSET,
+        merchant_account_id: Optional[str] = None,
         cart_items: OptionalNullable[
             Union[List[models.CartItem], List[models.CartItemTypedDict]]
         ] = UNSET,
@@ -746,7 +746,7 @@ class CheckoutSessions(BaseSDK):
         *,
         session_id: str,
         timeout_in_seconds: Optional[float] = 1,
-        merchant_account_id: OptionalNullable[str] = UNSET,
+        merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -903,7 +903,7 @@ class CheckoutSessions(BaseSDK):
         *,
         session_id: str,
         timeout_in_seconds: Optional[float] = 1,
-        merchant_account_id: OptionalNullable[str] = UNSET,
+        merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1060,7 +1060,7 @@ class CheckoutSessions(BaseSDK):
         *,
         session_id: str,
         timeout_in_seconds: Optional[float] = 1,
-        merchant_account_id: OptionalNullable[str] = UNSET,
+        merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1218,7 +1218,7 @@ class CheckoutSessions(BaseSDK):
         *,
         session_id: str,
         timeout_in_seconds: Optional[float] = 1,
-        merchant_account_id: OptionalNullable[str] = UNSET,
+        merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,

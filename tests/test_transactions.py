@@ -6,14 +6,14 @@
 # with Gr4vy(
 #     id="spider",
 #     server="sandbox",
-#     merchant_account_id="hasier",
-#     bearer_auth=auth.get_token(private_key, expires_in=1)
+#     # merchant_account_id="hasier",
+#     bearer_auth=auth.with_token(private_key, expires_in=1)
 # ) as client:
-#     response = client.transactions.list(limit=1, merchant_account_id="hasier")
+#     response = client.transactions.list(limit=1)
 #     print(response.result.items[0].merchant_account_id)
 
-#     # time.sleep(3)
+#     time.sleep(10)
 
-#     # result = client.transactions.list()
+#     response.next()
 
 #     # print(result)

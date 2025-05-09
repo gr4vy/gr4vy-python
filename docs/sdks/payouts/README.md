@@ -21,10 +21,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.payouts.list(cursor="ZXhhbXBsZTE")
+    res = g_client.payouts.list(cursor="ZXhhbXBsZTE", merchant_account_id="default")
 
     while res is not None:
         # Handle items
@@ -39,7 +42,7 @@ with Gr4vy(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `cursor`                                                            | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | A pointer to the page of results to return.                         | ZXhhbXBsZTE                                                         |
 | `limit`                                                             | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | The maximum number of items that are at returned.                   | 20                                                                  |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
@@ -78,13 +81,16 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.payouts.create(amount=1299, currency="GBP", payment_service_id="ed8bd87d-85ad-40cf-8e8f-007e21e55aad", payment_method={
         "method": "id",
         "id": "852b951c-d7ea-4c98-b09e-4a1c9e97c077",
-    }, category="online_gambling", external_identifier="payout-12345", buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", buyer=models.GuestBuyerInput(
+    }, merchant_account_id="default", category="online_gambling", external_identifier="payout-12345", buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", buyer=models.GuestBuyerInput(
         display_name="John Doe",
         external_identifier="buyer-12345",
         billing_details=models.BillingDetailsInput(
@@ -164,7 +170,7 @@ with Gr4vy(
 | `payment_service_id`                                                                                                                                       | *str*                                                                                                                                                      | :heavy_check_mark:                                                                                                                                         | The ID of the payment service to use for the payout.                                                                                                       | ed8bd87d-85ad-40cf-8e8f-007e21e55aad                                                                                                                       |
 | `payment_method`                                                                                                                                           | [models.PayoutCreatePaymentMethod](../../models/payoutcreatepaymentmethod.md)                                                                              | :heavy_check_mark:                                                                                                                                         | The type of payment method to send funds too.                                                                                                              |                                                                                                                                                            |
 | `timeout_in_seconds`                                                                                                                                       | *Optional[float]*                                                                                                                                          | :heavy_minus_sign:                                                                                                                                         | N/A                                                                                                                                                        |                                                                                                                                                            |
-| `merchant_account_id`                                                                                                                                      | *OptionalNullable[str]*                                                                                                                                    | :heavy_minus_sign:                                                                                                                                         | The ID of the merchant account to use for this request.                                                                                                    |                                                                                                                                                            |
+| `merchant_account_id`                                                                                                                                      | *Optional[str]*                                                                                                                                            | :heavy_minus_sign:                                                                                                                                         | The ID of the merchant account to use for this request.                                                                                                    | default                                                                                                                                                    |
 | `category`                                                                                                                                                 | [OptionalNullable[models.PayoutCategory]](../../models/payoutcategory.md)                                                                                  | :heavy_minus_sign:                                                                                                                                         | The type of payout to process.                                                                                                                             | online_gambling                                                                                                                                            |
 | `external_identifier`                                                                                                                                      | *OptionalNullable[str]*                                                                                                                                    | :heavy_minus_sign:                                                                                                                                         | A value that can be used to match the payout against your own records.                                                                                     | payout-12345                                                                                                                                               |
 | `buyer_id`                                                                                                                                                 | *OptionalNullable[str]*                                                                                                                                    | :heavy_minus_sign:                                                                                                                                         | The `id` of a stored buyer to use for this payout Use this instead of the `buyer` or `buyer_external_identifier`.                                          | fe26475d-ec3e-4884-9553-f7356683f7f9                                                                                                                       |
@@ -210,10 +216,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.payouts.get(payout_id="b888f774-3e7c-4135-a18c-6b985523c4bc")
+    res = g_client.payouts.get(payout_id="b888f774-3e7c-4135-a18c-6b985523c4bc", merchant_account_id="default")
 
     # Handle response
     print(res)
@@ -222,11 +231,11 @@ with Gr4vy(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `payout_id`                                                         | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `payout_id`                                                         | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
 

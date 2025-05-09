@@ -28,16 +28,9 @@ Gr4vy: The Gr4vy API.
   * [IDE Support](#ide-support)
   * [SDK Example Usage](#sdk-example-usage)
   * [Authentication](#authentication)
-  * [Webhooks verification](#webhooks-verification)
-  * [Available Resources and Operations](#available-resources-and-operations)
-  * [Global Parameters](#global-parameters)
-  * [Pagination](#pagination)
-  * [Retries](#retries)
-  * [Error Handling](#error-handling)
-  * [Server Selection](#server-selection)
-  * [Custom HTTP Client](#custom-http-client)
-  * [Resource Management](#resource-management)
-  * [Debugging](#debugging)
+  * [Merchant account ID selection](#merchant-account-id-selection)
+* [Webhook payload and headers](#webhook-payload-and-headers)
+* [Or when using async:](#or-when-using-async)
 * [Development](#development)
   * [Maturity](#maturity)
   * [Contributions](#contributions)
@@ -124,13 +117,16 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.account_updater.jobs.create(payment_method_ids=[
         "ef9496d8-53a5-4aad-8ca2-00eb68334389",
         "f29e886e-93cc-4714-b4a3-12b7a718e595",
-    ])
+    ], merchant_account_id="default")
 
     assert res is not None
 
@@ -150,13 +146,16 @@ import os
 async def main():
 
     async with Gr4vy(
-        bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+        server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+        merchant_account_id="default",
     ) as g_client:
 
         res = await g_client.account_updater.jobs.create_async(payment_method_ids=[
             "ef9496d8-53a5-4aad-8ca2-00eb68334389",
             "f29e886e-93cc-4714-b4a3-12b7a718e595",
-        ])
+        ], merchant_account_id="default")
 
         assert res is not None
 
@@ -185,13 +184,16 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.account_updater.jobs.create(payment_method_ids=[
         "ef9496d8-53a5-4aad-8ca2-00eb68334389",
         "f29e886e-93cc-4714-b4a3-12b7a718e595",
-    ])
+    ], merchant_account_id="default")
 
     assert res is not None
 
@@ -434,7 +436,7 @@ except ValueError as error:
 
 A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
 
-For example, you can set `merchant_account_id` to `"<id>"` at SDK initialization and then you do not have to pass the same value on calls to operations like `get`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+For example, you can set `merchant_account_id` to `"default"` at SDK initialization and then you do not have to pass the same value on calls to operations like `get`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
 
 
 ### Available Globals
@@ -442,9 +444,9 @@ For example, you can set `merchant_account_id` to `"<id>"` at SDK initialization
 The following global parameter is available.
 Global parameters can also be set via environment variable.
 
-| Name                | Type | Description                        | Environment               |
-| ------------------- | ---- | ---------------------------------- | ------------------------- |
-| merchant_account_id | str  | The merchant_account_id parameter. | GR4VY_MERCHANT_ACCOUNT_ID |
+| Name                | Type | Description                                             | Environment               |
+| ------------------- | ---- | ------------------------------------------------------- | ------------------------- |
+| merchant_account_id | str  | The ID of the merchant account to use for this request. | GR4VY_MERCHANT_ACCOUNT_ID |
 
 ### Example
 
@@ -454,7 +456,10 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.merchant_accounts.get(merchant_account_id="merchant-12345")
@@ -479,10 +484,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.buyers.list(cursor="ZXhhbXBsZTE", search="John", external_identifier="buyer-12345")
+    res = g_client.buyers.list(cursor="ZXhhbXBsZTE", search="John", external_identifier="buyer-12345", merchant_account_id="default")
 
     while res is not None:
         # Handle items
@@ -505,13 +513,16 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.account_updater.jobs.create(payment_method_ids=[
         "ef9496d8-53a5-4aad-8ca2-00eb68334389",
         "f29e886e-93cc-4714-b4a3-12b7a718e595",
-    ],
+    ], merchant_account_id="default",
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
     assert res is not None
@@ -530,13 +541,16 @@ import os
 
 with Gr4vy(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.account_updater.jobs.create(payment_method_ids=[
         "ef9496d8-53a5-4aad-8ca2-00eb68334389",
         "f29e886e-93cc-4714-b4a3-12b7a718e595",
-    ])
+    ], merchant_account_id="default")
 
     assert res is not None
 
@@ -591,7 +605,10 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
     res = None
     try:
@@ -599,7 +616,7 @@ with Gr4vy(
         res = g_client.account_updater.jobs.create(payment_method_ids=[
             "ef9496d8-53a5-4aad-8ca2-00eb68334389",
             "f29e886e-93cc-4714-b4a3-12b7a718e595",
-        ])
+        ], merchant_account_id="default")
 
         assert res is not None
 
@@ -681,13 +698,16 @@ import os
 with Gr4vy(
     server="sandbox",
     id="<id>"
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.account_updater.jobs.create(payment_method_ids=[
         "ef9496d8-53a5-4aad-8ca2-00eb68334389",
         "f29e886e-93cc-4714-b4a3-12b7a718e595",
-    ])
+    ], merchant_account_id="default")
 
     assert res is not None
 
@@ -706,13 +726,16 @@ import os
 
 with Gr4vy(
     server_url="https://api.example.gr4vy.app",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.account_updater.jobs.create(payment_method_ids=[
         "ef9496d8-53a5-4aad-8ca2-00eb68334389",
         "f29e886e-93cc-4714-b4a3-12b7a718e595",
-    ])
+    ], merchant_account_id="default")
 
     assert res is not None
 
@@ -816,7 +839,10 @@ import os
 def main():
 
     with Gr4vy(
-        bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+        server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+        merchant_account_id="default",
     ) as g_client:
         # Rest of application here...
 
@@ -825,7 +851,10 @@ def main():
 async def amain():
 
     async with Gr4vy(
-        bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+        server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+        merchant_account_id="default",
     ) as g_client:
         # Rest of application here...
 ```

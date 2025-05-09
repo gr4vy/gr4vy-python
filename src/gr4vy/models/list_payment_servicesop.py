@@ -22,6 +22,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class ListPaymentServicesGlobalsTypedDict(TypedDict):
     merchant_account_id: NotRequired[str]
+    r"""The ID of the merchant account to use for this request."""
 
 
 class ListPaymentServicesGlobals(BaseModel):
@@ -30,6 +31,7 @@ class ListPaymentServicesGlobals(BaseModel):
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
+    r"""The ID of the merchant account to use for this request."""
 
 
 class ListPaymentServicesRequestTypedDict(TypedDict):
@@ -41,7 +43,7 @@ class ListPaymentServicesRequestTypedDict(TypedDict):
     r"""The maximum number of items that are at returned."""
     deleted: NotRequired[Nullable[bool]]
     r"""Return any deleted payment service."""
-    merchant_account_id: NotRequired[Nullable[str]]
+    merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
 
@@ -71,10 +73,10 @@ class ListPaymentServicesRequest(BaseModel):
     r"""Return any deleted payment service."""
 
     merchant_account_id: Annotated[
-        OptionalNullable[str],
+        Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
-    ] = UNSET
+    ] = None
     r"""The ID of the merchant account to use for this request."""
 
     @model_serializer(mode="wrap")
@@ -86,7 +88,7 @@ class ListPaymentServicesRequest(BaseModel):
             "deleted",
             "merchant_account_id",
         ]
-        nullable_fields = ["method", "cursor", "deleted", "merchant_account_id"]
+        nullable_fields = ["method", "cursor", "deleted"]
         null_default_fields = []
 
         serialized = handler(self)

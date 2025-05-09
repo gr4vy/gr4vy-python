@@ -54,18 +54,10 @@ class JWTScope(enum.StrEnum):
 
 type JWTScopes = list[JWTScope] | list[str]
 
-
 def with_token(private_key: str, scopes: Optional[JWTScopes] = None, expires_in: int = 3600):
-    if not private_key:
-        raise ValueError("Private key is null, undefined or empty")
-
-    if not scopes:
-        scopes = [JWTScope.READ_ALL, JWTScope.WRITE_ALL]
-
-    def generate_token():
+    def callback() -> str:
         return get_token(private_key, scopes, expires_in)
-
-    return generate_token
+    return callback
 
 def __b64e(value: bytes) -> str:
     return base64.urlsafe_b64encode(value).decode("utf8").strip("=")
@@ -96,7 +88,7 @@ def get_token(
         "iss": "Gr4vy Python SDK",
         "iat": datetime.now(tz=timezone.utc),
         "nbf": datetime.now(tz=timezone.utc),
-        "exp": datetime.now(tz=timezone.utc) + timedelta(expires_in),
+        "exp": datetime.now(tz=timezone.utc) + timedelta(seconds=expires_in),
         "jti": str(uuid.uuid4()),
     }
 
@@ -106,7 +98,9 @@ def get_token(
     if JWTScope.EMBED in scopes and embed_params:
         claims["embed"] = embed_params
 
-    return jwt.encode(claims, private_key, algorithm="ES512", headers={"kid": __thumbprint(private_key)})
+    token = jwt.encode(claims, private_key, algorithm="ES512", headers={"kid": __thumbprint(private_key)})
+    print(token)
+    return token
 
 def update_token(
     token: str,

@@ -23,10 +23,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.digital_wallets.create(provider="google", merchant_name="<value>", accept_terms_and_conditions=True, merchant_country_code="GB")
+    res = g_client.digital_wallets.create(provider="google", merchant_name="<value>", accept_terms_and_conditions=True, merchant_account_id="default", merchant_country_code="GB")
 
     # Handle response
     print(res)
@@ -41,7 +44,7 @@ with Gr4vy(
 | `merchant_name`                                                       | *str*                                                                 | :heavy_check_mark:                                                    | N/A                                                                   |                                                                       |
 | `accept_terms_and_conditions`                                         | *bool*                                                                | :heavy_check_mark:                                                    | N/A                                                                   |                                                                       |
 | `timeout_in_seconds`                                                  | *Optional[float]*                                                     | :heavy_minus_sign:                                                    | N/A                                                                   |                                                                       |
-| `merchant_account_id`                                                 | *OptionalNullable[str]*                                               | :heavy_minus_sign:                                                    | The ID of the merchant account to use for this request.               |                                                                       |
+| `merchant_account_id`                                                 | *Optional[str]*                                                       | :heavy_minus_sign:                                                    | The ID of the merchant account to use for this request.               | default                                                               |
 | `merchant_display_name`                                               | *OptionalNullable[str]*                                               | :heavy_minus_sign:                                                    | N/A                                                                   |                                                                       |
 | `merchant_url`                                                        | *OptionalNullable[str]*                                               | :heavy_minus_sign:                                                    | N/A                                                                   |                                                                       |
 | `merchant_country_code`                                               | *OptionalNullable[str]*                                               | :heavy_minus_sign:                                                    | N/A                                                                   | DE                                                                    |
@@ -84,10 +87,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.digital_wallets.list()
+    res = g_client.digital_wallets.list(merchant_account_id="default")
 
     # Handle response
     print(res)
@@ -96,10 +102,10 @@ with Gr4vy(
 
 ### Parameters
 
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
 
@@ -137,10 +143,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.digital_wallets.get(digital_wallet_id="1808f5e6-b49c-4db9-94fa-22371ea352f5")
+    res = g_client.digital_wallets.get(digital_wallet_id="1808f5e6-b49c-4db9-94fa-22371ea352f5", merchant_account_id="default")
 
     # Handle response
     print(res)
@@ -152,7 +161,7 @@ with Gr4vy(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `digital_wallet_id`                                                 | *str*                                                               | :heavy_check_mark:                                                  | The ID of the digital wallet to read.                               | 1808f5e6-b49c-4db9-94fa-22371ea352f5                                |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
@@ -191,10 +200,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.digital_wallets.delete(digital_wallet_id="1808f5e6-b49c-4db9-94fa-22371ea352f5")
+    res = g_client.digital_wallets.delete(digital_wallet_id="1808f5e6-b49c-4db9-94fa-22371ea352f5", merchant_account_id="default")
 
     # Handle response
     print(res)
@@ -207,7 +219,7 @@ with Gr4vy(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `digital_wallet_id`                                                 | *str*                                                               | :heavy_check_mark:                                                  | The ID of the digital wallet to delete.                             | 1808f5e6-b49c-4db9-94fa-22371ea352f5                                |
 | `timeout_in_seconds`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
@@ -246,10 +258,13 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    server="sandbox",
+    id="example",
+    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.digital_wallets.update(digital_wallet_id="1808f5e6-b49c-4db9-94fa-22371ea352f5", merchant_country_code="US")
+    res = g_client.digital_wallets.update(digital_wallet_id="1808f5e6-b49c-4db9-94fa-22371ea352f5", merchant_account_id="default", merchant_country_code="US")
 
     # Handle response
     print(res)
@@ -262,7 +277,7 @@ with Gr4vy(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `digital_wallet_id`                                                 | *str*                                                               | :heavy_check_mark:                                                  | The ID of the digital wallet to edit.                               | 1808f5e6-b49c-4db9-94fa-22371ea352f5                                |
 | `timeout_in_seconds`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
-| `merchant_account_id`                                               | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `merchant_name`                                                     | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `domain_names`                                                      | List[*str*]                                                         | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `merchant_display_name`                                             | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |

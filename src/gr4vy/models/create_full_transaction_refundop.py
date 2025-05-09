@@ -21,6 +21,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class CreateFullTransactionRefundGlobalsTypedDict(TypedDict):
     merchant_account_id: NotRequired[str]
+    r"""The ID of the merchant account to use for this request."""
 
 
 class CreateFullTransactionRefundGlobals(BaseModel):
@@ -29,12 +30,13 @@ class CreateFullTransactionRefundGlobals(BaseModel):
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
+    r"""The ID of the merchant account to use for this request."""
 
 
 class CreateFullTransactionRefundRequestTypedDict(TypedDict):
     transaction_id: str
     timeout_in_seconds: NotRequired[float]
-    merchant_account_id: NotRequired[Nullable[str]]
+    merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
     transaction_refund_all_create: NotRequired[
         Nullable[TransactionRefundAllCreateTypedDict]
@@ -52,10 +54,10 @@ class CreateFullTransactionRefundRequest(BaseModel):
     ] = 1
 
     merchant_account_id: Annotated[
-        OptionalNullable[str],
+        Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
-    ] = UNSET
+    ] = None
     r"""The ID of the merchant account to use for this request."""
 
     transaction_refund_all_create: Annotated[
@@ -70,7 +72,7 @@ class CreateFullTransactionRefundRequest(BaseModel):
             "merchant_account_id",
             "TransactionRefundAllCreate",
         ]
-        nullable_fields = ["merchant_account_id", "TransactionRefundAllCreate"]
+        nullable_fields = ["TransactionRefundAllCreate"]
         null_default_fields = []
 
         serialized = handler(self)
