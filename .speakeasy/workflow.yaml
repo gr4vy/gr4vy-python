@@ -10,6 +10,9 @@ targets:
     gr-4-vy:
         target: python
         source: -OAS
+        publish:
+            pypi:
+                token: $pypi_token
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/gr4vy/gr4vy/-oas-python-code-samples
