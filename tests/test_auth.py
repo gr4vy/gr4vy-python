@@ -49,7 +49,7 @@ rw==
 async def test_get_token_creates_valid_signed_jwt():
     token = await get_token(
         private_key=private_key,
-        scopes=[JWTScope.ReadAll, JWTScope.WriteAll],
+        scopes=[JWTScope.READ_ALL, JWTScope.WRITE_ALL],
         expires_in=3600,
     )
 
