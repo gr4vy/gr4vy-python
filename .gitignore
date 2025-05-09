@@ -12,3 +12,5 @@ pyrightconfig.json
 README-PYPI.md
 .speakeasy/temp/
 .speakeasy/reports
+*.pem
+poetry.lock

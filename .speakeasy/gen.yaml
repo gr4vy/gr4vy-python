@@ -19,9 +19,10 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 python:
-  version: 1.0.0a1
+  version: 1.0.0-alpha.2
   additionalDependencies:
-    dev: {}
+    dev:
+      pytest: ^8.3.5
     main: {}
   authors:
     - Speakeasy

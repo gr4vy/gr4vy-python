@@ -16,7 +16,7 @@ jobs:
   publish:
     uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v15
     with:
-      target: gr-4-vy
+      target: gr4vy
     secrets:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
       pypi_token: ${{ secrets.PYPI_TOKEN }}
