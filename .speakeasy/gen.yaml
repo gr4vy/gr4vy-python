@@ -16,11 +16,12 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
 python:
-  version: 1.0.0-alpha.9
+  version: 1.0.0-alpha.14
   additionalDependencies:
     dev:
       freezegun: ^1.5.1
       pytest: ^8.3.5
+      requests: ^2.23.2
       types-Pygments: ^2.19.0.20250305
       types-python-jose: ^3.4.0.20250224
     main:

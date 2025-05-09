@@ -82,7 +82,7 @@ It's also possible to write a standalone Python script without needing to set up
 # ]
 # ///
 
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 
 sdk = Gr4vy(
   # SDK arguments
@@ -112,14 +112,12 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 
 ```python
 # Synchronous Example
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -140,15 +138,13 @@ The same SDK client can also be used to make asychronous requests by importing a
 ```python
 # Asynchronous Example
 import asyncio
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 async def main():
 
     async with Gr4vy(
-        server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+        bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
         merchant_account_id="default",
     ) as g_client:
 
@@ -179,14 +175,12 @@ This SDK supports the following security scheme globally:
 
 To authenticate with the API the `bearer_auth` parameter must be set when initializing the SDK client instance. For example:
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -451,14 +445,12 @@ Global parameters can also be set via environment variable.
 ### Example
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -479,14 +471,12 @@ return value of `Next` is `None`, then there are no more pages to be fetched.
 
 Here's an example of one such pagination call:
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -507,15 +497,13 @@ Some of the endpoints in this SDK support retries. If you use the SDK without an
 
 To change the default retry strategy for a single API call, simply provide a `RetryConfig` object to the call:
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 from gr4vy.utils import BackoffStrategy, RetryConfig
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -534,16 +522,14 @@ with Gr4vy(
 
 If you'd like to override the default retry strategy for all operations that support retries, you can use the `retry_config` optional parameter when initializing the SDK:
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 from gr4vy.utils import BackoffStrategy, RetryConfig
 import os
 
 
 with Gr4vy(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -600,14 +586,12 @@ When custom error responses are specified for an operation, the SDK may also rai
 from .error403 import Error403Data
 from .error403active import Error403ActiveData
 from .error403forbidden import Error403ForbiddenData
-from gr4vy import Gr4vy, errors
+from gr4vy import Gr4vy, auth, errors
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
     res = None
@@ -691,16 +675,14 @@ If the selected server has variables, you may override its default values throug
 #### Example
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
     server="sandbox",
     id="<id>"
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -720,15 +702,13 @@ with Gr4vy(
 
 The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
     server_url="https://api.example.gr4vy.app",
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -754,7 +734,7 @@ This allows you to wrap the client with your own custom logic, such as adding cu
 
 For example, you could specify a header for every request that this sdk makes as follows:
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import httpx
 
 http_client = httpx.Client(headers={"x-custom-header": "someValue"})
@@ -763,7 +743,7 @@ s = Gr4vy(client=http_client)
 
 or you could wrap the client with your own custom logic:
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 from gr4vy.httpclient import AsyncHttpClient
 import httpx
 
@@ -834,14 +814,12 @@ The `Gr4vy` class implements the context manager protocol and registers a finali
 [context-manager]: https://docs.python.org/3/reference/datamodel.html#context-managers
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 def main():
 
     with Gr4vy(
-        server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+        bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
         merchant_account_id="default",
     ) as g_client:
         # Rest of application here...
@@ -851,9 +829,7 @@ def main():
 async def amain():
 
     async with Gr4vy(
-        server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+        bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
         merchant_account_id="default",
     ) as g_client:
         # Rest of application here...
@@ -867,7 +843,7 @@ You can setup your SDK to emit debug logs for SDK requests and responses.
 
 You can pass your own logger class directly into your SDK.
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import logging
 
 logging.basicConfig(level=logging.DEBUG)

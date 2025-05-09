@@ -1,14 +1,12 @@
 <!-- Start SDK Example Usage [usage] -->
 ```python
 # Synchronous Example
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -29,15 +27,13 @@ The same SDK client can also be used to make asychronous requests by importing a
 ```python
 # Asynchronous Example
 import asyncio
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 async def main():
 
     async with Gr4vy(
-        server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+        bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
         merchant_account_id="default",
     ) as g_client:
 

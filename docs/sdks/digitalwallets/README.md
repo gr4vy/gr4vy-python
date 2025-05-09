@@ -18,14 +18,12 @@ Register a digital wallet like Apple Pay, Google Pay, or Click to Pay.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -82,14 +80,12 @@ List configured digital wallets.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -138,14 +134,12 @@ Fetch the details a digital wallet.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -195,14 +189,12 @@ Delete a configured digital wallet.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -253,14 +245,12 @@ Update a digital wallet.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 

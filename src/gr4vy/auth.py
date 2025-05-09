@@ -54,11 +54,6 @@ class JWTScope(enum.StrEnum):
 
 type JWTScopes = list[JWTScope] | list[str]
 
-def with_token(private_key: str, scopes: Optional[JWTScopes] = None, expires_in: int = 3600):
-    def callback() -> str:
-        return get_token(private_key, scopes, expires_in)
-    return callback
-
 def __b64e(value: bytes) -> str:
     return base64.urlsafe_b64encode(value).decode("utf8").strip("=")
 
@@ -72,6 +67,17 @@ def __thumbprint(private_key: str) -> str:
     digest.update(json_claims.encode("utf8"))
     return str(__b64e(digest.finalize()))
 
+def with_token(private_key: str, scopes: Optional[JWTScopes] = None, expires_in: int = 3600):
+    """Generates a new token for every API request.
+
+    Args:
+        private_key (str): The RSA private key in string-PEM format.
+        scopes (Optional[JWTScopes], optional): List of scopes. If not set, all access will be set as default
+        expires_in (int, optional): The expiration time in seconds. Defaults to 3600.
+    """
+    def callback() -> str:
+        return get_token(private_key, scopes, expires_in)
+    return callback
 
 def get_token(
     private_key: str,
@@ -80,6 +86,18 @@ def get_token(
     embed_params: Optional[Dict[str, Any]] = None,
     checkout_session_id: Optional[str] = None,
 ) -> str:
+    """Generates a token for an API request.
+
+    Args:
+        private_key (str): The RSA private key in string-PEM format.
+        scopes (Optional[JWTScopes], optional): List of scopes. If not set, all access will be set as default
+        expires_in (int, optional): The expiration time in seconds. Defaults to 3600.
+        embed_params (Optional[Dict[str, Any]], optional): An optional list of Embed params to pin. Defaults to None.
+        checkout_session_id (Optional[str], optional): An optional checkout session ID to link the transaction to. Defaults to None.
+
+    Returns:
+        str: A bearer auth token
+    """
     if not scopes:
         scopes = [JWTScope.READ_ALL, JWTScope.WRITE_ALL]
 
@@ -99,7 +117,6 @@ def get_token(
         claims["embed"] = embed_params
 
     token = jwt.encode(claims, private_key, algorithm="ES512", headers={"kid": __thumbprint(private_key)})
-    print(token)
     return token
 
 def update_token(
@@ -110,6 +127,19 @@ def update_token(
     embed_params: Optional[Dict[str, Any]] = None,
     checkout_session_id: Optional[str] = None,
 ) -> str:
+    """Updates an existing token with a new signature, and optionally new data.
+
+    Args:
+        token (str): The previously generated token.
+        private_key (str): The RSA private key in string-PEM format.
+        scopes (Optional[JWTScopes], optional): List of scopes. If not set, all access will be set as default
+        expires_in (int, optional): The expiration time in seconds. Defaults to 3600.
+        embed_params (Optional[Dict[str, Any]], optional): An optional list of Embed params to pin. Defaults to None.
+        checkout_session_id (Optional[str], optional): An optional checkout session ID to link the transaction to. Defaults to None.
+
+    Returns:
+        str: A bearer auth token
+    """
     claims: Dict[str, Any] = jwt.decode(token, private_key, algorithms=["ES512"], options={"verify_signature": False})
     previous_scopes: JWTScopes = claims.get("scopes") or []
 
@@ -127,6 +157,16 @@ def get_embed_token(
     embed_params: Optional[Dict[str, Any]] = None,
     checkout_session_id: Optional[str] = None,
 ) -> str:
+    """Generates a token for use with Embed.
+
+    Args:
+        private_key (str): The RSA private key in string-PEM format.
+        embed_params (Optional[Dict[str, Any]], optional): An optional list of Embed params to pin. Defaults to None.
+        checkout_session_id (Optional[str], optional): An optional checkout session ID to link the transaction to. Defaults to None.
+
+    Returns:
+        str: A bearer auth token
+    """
     return get_token(
         private_key,
         scopes=[JWTScope.EMBED],

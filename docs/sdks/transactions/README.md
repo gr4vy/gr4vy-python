@@ -20,15 +20,13 @@ List all transactions for a specific merchant account sorted by most recently cr
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 from gr4vy.utils import parse_datetime
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -133,15 +131,13 @@ Create a transaction.
 
 ```python
 from datetime import date
-from gr4vy import Gr4vy, models
+from gr4vy import Gr4vy, auth, models
 from gr4vy.utils import parse_datetime
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -434,14 +430,12 @@ Fetch a single transaction by its ID.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -492,15 +486,13 @@ Capture a previously authorized transaction.
 
 ```python
 from datetime import date
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 from gr4vy.utils import parse_datetime
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -618,14 +610,12 @@ Void a previously authorized transaction.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -676,14 +666,12 @@ Fetch a summary for a transaction.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -733,14 +721,12 @@ Fetch the latest status for a transaction.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 

@@ -20,14 +20,12 @@ List the configured payment services.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -82,14 +80,12 @@ Updates the configuration of a payment service.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -183,14 +179,12 @@ Get the details of a configured payment service.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -240,14 +234,12 @@ Configures a new payment service for use by merchants.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -335,14 +327,12 @@ Deletes all the configuration of a payment service.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -393,14 +383,12 @@ Verify the credentials of a configured payment service
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
@@ -466,14 +454,12 @@ Creates a session for a payment service that supports sessions.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    server="sandbox",
-    id="example",
-    bearer_auth=auth.with_token(open("./private_key.pem").read(), expires_in=1),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     merchant_account_id="default",
 ) as g_client:
 
