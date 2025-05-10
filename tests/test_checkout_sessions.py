@@ -1,5 +1,6 @@
 import pytest
 import requests
+from gr4vy import models
 from utils.setup import setup_environment, cleanup_environment
 
 @pytest.fixture(scope="module", name='client')
@@ -11,7 +12,8 @@ def prepare_client():
     cleanup_environment()
 
 def test_process_payment_with_checkout_session(client):
-    checkout_session = client.checkout_sessions.create()
+    # TODO: Need to discuss with Speakeasy why this requires a `request_body=None``
+    checkout_session = client.checkout_sessions.create(request_body=None)
     assert checkout_session.id is not None
 
     # Direct API call to update checkout session fields
@@ -31,15 +33,16 @@ def test_process_payment_with_checkout_session(client):
     assert response.status_code == 204
 
     # Create a transaction using the checkout session
-    transaction = client.transactions.create({
-        "amount": 1299,
-        "currency": "USD",
-        "paymentMethod": {
+    transaction: models.Transaction = client.transactions.create(
+        amount=1299,
+        currency="USD",
+        payment_method={
             "method": "checkout-session",
             "id": checkout_session.id,
-        },
-    })
+        }
+    )
 
+    # TODO: This requires an OpenAPI change to ensure we document this API returning a 201, not a 200
     assert transaction.id is not None
     assert transaction.status == "authorization_succeeded"
     assert transaction.amount == 1299
