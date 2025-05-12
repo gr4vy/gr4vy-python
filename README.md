@@ -28,7 +28,6 @@ Gr4vy: The Gr4vy API.
   * [SDK Installation](#sdk-installation)
   * [IDE Support](#ide-support)
   * [SDK Example Usage](#sdk-example-usage)
-  * [SDK Example Usage](#sdk-example-usage-1)
   * [Authentication](#authentication)
   * [Merchant account ID selection](#merchant-account-id-selection)
 * [Webhook payload and headers](#webhook-payload-and-headers)
@@ -159,62 +158,11 @@ async def main():
 asyncio.run(main())
 ```
 
-<!-- Start SDK Example Usage [usage] -->
-## SDK Example Usage
+<br /><br />
+> [!IMPORTANT]
+> Please use the `auth.with_token` where the documentation mentions `os.getenv("GR4VY_BEARER_AUTH", ""),`.
 
-### Example
-
-```python
-# Synchronous Example
-from gr4vy import Gr4vy
-import os
-
-
-with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
-) as g_client:
-
-    res = g_client.account_updater.jobs.create(payment_method_ids=[
-        "ef9496d8-53a5-4aad-8ca2-00eb68334389",
-        "f29e886e-93cc-4714-b4a3-12b7a718e595",
-    ], merchant_account_id="default")
-
-    assert res is not None
-
-    # Handle response
-    print(res)
-```
-
-</br>
-
-The same SDK client can also be used to make asychronous requests by importing asyncio.
-```python
-# Asynchronous Example
-import asyncio
-from gr4vy import Gr4vy
-import os
-
-async def main():
-
-    async with Gr4vy(
-        bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-        merchant_account_id="default",
-    ) as g_client:
-
-        res = await g_client.account_updater.jobs.create_async(payment_method_ids=[
-            "ef9496d8-53a5-4aad-8ca2-00eb68334389",
-            "f29e886e-93cc-4714-b4a3-12b7a718e595",
-        ], merchant_account_id="default")
-
-        assert res is not None
-
-        # Handle response
-        print(res)
-
-asyncio.run(main())
-```
-<!-- End SDK Example Usage [usage] -->
+<!-- No SDK Example Usage [usage] -->
 
 <!-- Start Authentication [security] -->
 ## Authentication
