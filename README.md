@@ -1,4 +1,5 @@
-# gr4vy
+# Gr4vy Python SDK (Beta)
+
 
 Developer-friendly & type-safe Python SDK specifically catered to leverage *gr4vy* API.
 
@@ -12,7 +13,7 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *gr4v
 
 <br /><br />
 > [!IMPORTANT]
-> This SDK is not yet ready for production use. Please refer to the [legacy Python SDK](https://github.com/gr4vy/gr4vy-python/tree/legacy) for the latest stable build.
+> This is a Beta release of our latest SDK. Please refer to the [legacy Python SDK](https://github.com/gr4vy/gr4vy-python/tree/legacy) for the latest stable build.
 
 <!-- Start Summary [summary] -->
 ## Summary
@@ -105,26 +106,24 @@ Generally, the SDK will work well with most IDEs out of the box. However, when u
 - [PyCharm Pydantic Plugin](https://docs.pydantic.dev/latest/integrations/pycharm/)
 <!-- End IDE Support [idesupport] -->
 
-<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
 
 ### Example
 
 ```python
 # Synchronous Example
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    id="example",
+    server="production",
     merchant_account_id="default",
+    bearer_auth=auth.with_token(open("./private_key.pem").read())
 ) as g_client:
 
-    res = g_client.account_updater.jobs.create(payment_method_ids=[
-        "ef9496d8-53a5-4aad-8ca2-00eb68334389",
-        "f29e886e-93cc-4714-b4a3-12b7a718e595",
-    ], merchant_account_id="default")
+    res = g_client.transactions.list()
 
     assert res is not None
 
@@ -144,14 +143,12 @@ import os
 async def main():
 
     async with Gr4vy(
-        bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+        id="example",
+        server="production",
         merchant_account_id="default",
+        bearer_auth=auth.with_token(open("./private_key.pem").read())
     ) as g_client:
-
-        res = await g_client.account_updater.jobs.create_async(payment_method_ids=[
-            "ef9496d8-53a5-4aad-8ca2-00eb68334389",
-            "f29e886e-93cc-4714-b4a3-12b7a718e595",
-        ], merchant_account_id="default")
+        res = await g_client.transactions.list()
 
         assert res is not None
 
@@ -160,7 +157,6 @@ async def main():
 
 asyncio.run(main())
 ```
-<!-- End SDK Example Usage [usage] -->
 
 <!-- Start Authentication [security] -->
 ## Authentication
@@ -212,7 +208,6 @@ Alternatively, the merchant account ID can also be set when initializing the SDK
 ```py
 with Gr4vy(
     id="spider",
-    server="sandbox",
     merchant_account_id="merchant-12345",
     bearer_auth=auth.get_token(private_key)
 ) as g_client:
