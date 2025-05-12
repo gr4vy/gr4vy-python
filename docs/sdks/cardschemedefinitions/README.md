@@ -14,7 +14,7 @@ Fetch a list of the definitions of each card scheme.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 

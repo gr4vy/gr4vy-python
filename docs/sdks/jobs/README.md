@@ -14,7 +14,7 @@ Schedule one or more stored cards for an account update.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 

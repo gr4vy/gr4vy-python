@@ -39,8 +39,8 @@ class CreatePaymentMethodGlobals(BaseModel):
     r"""The ID of the merchant account to use for this request."""
 
 
-CreatePaymentMethodBodyTypedDict = TypeAliasType(
-    "CreatePaymentMethodBodyTypedDict",
+BodyTypedDict = TypeAliasType(
+    "BodyTypedDict",
     Union[
         CheckoutSessionPaymentMethodCreateTypedDict,
         RedirectPaymentMethodCreateTypedDict,
@@ -49,8 +49,8 @@ CreatePaymentMethodBodyTypedDict = TypeAliasType(
 )
 
 
-CreatePaymentMethodBody = TypeAliasType(
-    "CreatePaymentMethodBody",
+Body = TypeAliasType(
+    "Body",
     Union[
         CheckoutSessionPaymentMethodCreate,
         RedirectPaymentMethodCreate,
@@ -60,7 +60,7 @@ CreatePaymentMethodBody = TypeAliasType(
 
 
 class CreatePaymentMethodRequestTypedDict(TypedDict):
-    request_body: CreatePaymentMethodBodyTypedDict
+    request_body: BodyTypedDict
     timeout_in_seconds: NotRequired[float]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
@@ -68,8 +68,7 @@ class CreatePaymentMethodRequestTypedDict(TypedDict):
 
 class CreatePaymentMethodRequest(BaseModel):
     request_body: Annotated[
-        CreatePaymentMethodBody,
-        FieldMetadata(request=RequestMetadata(media_type="application/json")),
+        Body, FieldMetadata(request=RequestMetadata(media_type="application/json"))
     ]
 
     timeout_in_seconds: Annotated[

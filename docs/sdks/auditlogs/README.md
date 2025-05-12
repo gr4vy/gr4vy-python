@@ -14,7 +14,7 @@ Returns a list of activity by dashboard users.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 

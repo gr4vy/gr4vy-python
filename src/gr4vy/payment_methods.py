@@ -430,9 +430,7 @@ class PaymentMethods(BaseSDK):
     def create(
         self,
         *,
-        request_body: Union[
-            models.CreatePaymentMethodBody, models.CreatePaymentMethodBodyTypedDict
-        ],
+        request_body: Union[models.Body, models.BodyTypedDict],
         timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -465,9 +463,7 @@ class PaymentMethods(BaseSDK):
         request = models.CreatePaymentMethodRequest(
             timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
-            request_body=utils.get_pydantic_model(
-                request_body, models.CreatePaymentMethodBody
-            ),
+            request_body=utils.get_pydantic_model(request_body, models.Body),
         )
 
         req = self._build_request(
@@ -487,11 +483,7 @@ class PaymentMethods(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.request_body,
-                False,
-                False,
-                "json",
-                models.CreatePaymentMethodBody,
+                request.request_body, False, False, "json", models.Body
             ),
             timeout_ms=timeout_ms,
         )
@@ -599,9 +591,7 @@ class PaymentMethods(BaseSDK):
     async def create_async(
         self,
         *,
-        request_body: Union[
-            models.CreatePaymentMethodBody, models.CreatePaymentMethodBodyTypedDict
-        ],
+        request_body: Union[models.Body, models.BodyTypedDict],
         timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -634,9 +624,7 @@ class PaymentMethods(BaseSDK):
         request = models.CreatePaymentMethodRequest(
             timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
-            request_body=utils.get_pydantic_model(
-                request_body, models.CreatePaymentMethodBody
-            ),
+            request_body=utils.get_pydantic_model(request_body, models.Body),
         )
 
         req = self._build_request_async(
@@ -656,11 +644,7 @@ class PaymentMethods(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.request_body,
-                False,
-                False,
-                "json",
-                models.CreatePaymentMethodBody,
+                request.request_body, False, False, "json", models.Body
             ),
             timeout_ms=timeout_ms,
         )

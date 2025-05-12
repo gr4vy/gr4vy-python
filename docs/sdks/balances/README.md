@@ -14,7 +14,7 @@ Fetch the balances for one or more gift cards.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 

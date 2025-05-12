@@ -16,7 +16,7 @@ List the definitions of each payment service that can be configured.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -73,7 +73,7 @@ Get the definition of a payment service that can be configured.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -127,7 +127,7 @@ Creates a session for a payment service that supports sessions.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 

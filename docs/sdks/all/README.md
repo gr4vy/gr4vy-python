@@ -14,7 +14,7 @@ Create a refund for all instruments on a transaction.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 

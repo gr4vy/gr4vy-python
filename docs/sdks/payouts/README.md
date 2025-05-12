@@ -16,7 +16,7 @@ Returns a list of payouts made.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -74,7 +74,7 @@ Creates a new payout.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth, models
+from gr4vy import Gr4vy, models
 import os
 
 
@@ -207,7 +207,7 @@ Retreives a payout.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 

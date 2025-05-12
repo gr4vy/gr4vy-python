@@ -10,7 +10,7 @@ from typing import Dict, List, Optional
 from typing_extensions import NotRequired, TypedDict
 
 
-class CheckoutSessionUpdateTypedDict(TypedDict):
+class CheckoutSessionCreateTypedDict(TypedDict):
     cart_items: NotRequired[Nullable[List[CartItemTypedDict]]]
     r"""An array of cart items that represents the line items of a transaction."""
     metadata: NotRequired[Nullable[Dict[str, str]]]
@@ -22,7 +22,7 @@ class CheckoutSessionUpdateTypedDict(TypedDict):
     expires_in: NotRequired[float]
 
 
-class CheckoutSessionUpdate(BaseModel):
+class CheckoutSessionCreate(BaseModel):
     cart_items: OptionalNullable[List[CartItem]] = UNSET
     r"""An array of cart items that represents the line items of a transaction."""
 

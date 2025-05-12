@@ -17,7 +17,7 @@ Fetch details about a gift card.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -72,7 +72,7 @@ Removes a gift card from our system.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -128,7 +128,7 @@ Store a new gift card in the vault.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -187,7 +187,7 @@ Browser all gift cards.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 

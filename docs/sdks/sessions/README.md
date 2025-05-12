@@ -16,7 +16,7 @@ Create a session for use with Google Pay.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -71,7 +71,7 @@ Create a session for use with Apple Pay.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -127,7 +127,7 @@ Create a session for use with Click to Pay.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 

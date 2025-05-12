@@ -14,7 +14,7 @@ List all the stored payment methods for a specific buyer.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 

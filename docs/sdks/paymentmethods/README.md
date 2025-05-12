@@ -17,7 +17,7 @@ List all stored payment method.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -79,7 +79,7 @@ Store a new payment method.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -105,12 +105,12 @@ with Gr4vy(
 
 ### Parameters
 
-| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               | Example                                                                   |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `request_body`                                                            | [models.CreatePaymentMethodBody](../../models/createpaymentmethodbody.md) | :heavy_check_mark:                                                        | N/A                                                                       |                                                                           |
-| `timeout_in_seconds`                                                      | *Optional[float]*                                                         | :heavy_minus_sign:                                                        | N/A                                                                       |                                                                           |
-| `merchant_account_id`                                                     | *Optional[str]*                                                           | :heavy_minus_sign:                                                        | The ID of the merchant account to use for this request.                   | default                                                                   |
-| `retries`                                                                 | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)          | :heavy_minus_sign:                                                        | Configuration to override the default retry behavior of the client.       |                                                                           |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `request_body`                                                      | [models.Body](../../models/body.md)                                 | :heavy_check_mark:                                                  | N/A                                                                 |                                                                     |
+| `timeout_in_seconds`                                                | *Optional[float]*                                                   | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
+| `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
 
@@ -143,7 +143,7 @@ Retrieve a payment method.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -198,7 +198,7 @@ Delete a payment method.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 

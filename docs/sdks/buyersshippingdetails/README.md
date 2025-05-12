@@ -18,7 +18,7 @@ Associate shipping details to a buyer.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -89,7 +89,7 @@ List all the shipping details associated to a specific buyer.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -144,7 +144,7 @@ Get a buyer's shipping details.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -200,7 +200,7 @@ Update the shipping details associated to a specific buyer.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -272,7 +272,7 @@ Delete the shipping details associated to a specific buyer.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 

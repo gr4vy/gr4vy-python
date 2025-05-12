@@ -1,4 +1,4 @@
-# CreatePaymentMethodBody
+# Body
 
 
 ## Supported Types

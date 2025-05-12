@@ -18,7 +18,7 @@ Create a new checkout session.
 
 ```python
 from datetime import date
-from gr4vy import Gr4vy, auth, models
+from gr4vy import Gr4vy, models
 from gr4vy.utils import parse_datetime
 import os
 
@@ -28,8 +28,26 @@ with Gr4vy(
     merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.checkout_sessions.create(merchant_account_id="default", request_body=models.CheckoutSessionUpdate(
+    res = g_client.checkout_sessions.create(merchant_account_id="default", checkout_session_create=models.CheckoutSessionCreate(
         cart_items=[
+            models.CartItem(
+                name="GoPro HD",
+                quantity=2,
+                unit_amount=1299,
+                discount_amount=0,
+                tax_amount=0,
+                external_identifier="goprohd",
+                sku="GPHD1078",
+                product_url="https://example.com/catalog/go-pro-hd",
+                image_url="https://example.com/images/go-pro-hd.jpg",
+                categories=[
+                    "camera",
+                    "travel",
+                    "gear",
+                ],
+                product_type="physical",
+                seller_country="US",
+            ),
             models.CartItem(
                 name="GoPro HD",
                 quantity=2,
@@ -74,7 +92,7 @@ with Gr4vy(
                 ),
                 tax_id=models.TaxID(
                     value="12345678931",
-                    kind="id.nik",
+                    kind="ar.cuil",
                 ),
             ),
             shipping_details=models.ShippingDetailsCreate(
@@ -122,9 +140,77 @@ with Gr4vy(
                     stop_over=False,
                     tax_amount=1200,
                 ),
+                models.AirlineLeg(
+                    arrival_airport="LAX",
+                    arrival_at=parse_datetime("2013-07-16T19:23:00.000+00:00"),
+                    arrival_city="Los Angeles",
+                    arrival_country="US",
+                    carrier_code="BA",
+                    coupon_number="15885566",
+                    departure_airport="LHR",
+                    departure_at=parse_datetime("2013-07-16T19:23:00.000+00:00"),
+                    departure_city="London",
+                    departure_country="GB",
+                    departure_tax_amount=1200,
+                    fare_amount=129900,
+                    fare_basis_code="FY",
+                    fee_amount=1200,
+                    flight_class="E",
+                    flight_number="101",
+                    route_type="round_trip",
+                    stop_over=False,
+                    tax_amount=1200,
+                ),
+                models.AirlineLeg(
+                    arrival_airport="LAX",
+                    arrival_at=parse_datetime("2013-07-16T19:23:00.000+00:00"),
+                    arrival_city="Los Angeles",
+                    arrival_country="US",
+                    carrier_code="BA",
+                    coupon_number="15885566",
+                    departure_airport="LHR",
+                    departure_at=parse_datetime("2013-07-16T19:23:00.000+00:00"),
+                    departure_city="London",
+                    departure_country="GB",
+                    departure_tax_amount=1200,
+                    fare_amount=129900,
+                    fare_basis_code="FY",
+                    fee_amount=1200,
+                    flight_class="E",
+                    flight_number="101",
+                    route_type="round_trip",
+                    stop_over=False,
+                    tax_amount=1200,
+                ),
             ],
             passenger_name_record="JOHN L",
             passengers=[
+                models.AirlinePassenger(
+                    age_group="adult",
+                    date_of_birth=date.fromisoformat("2013-07-16"),
+                    email_address="john@example.com",
+                    first_name="John",
+                    frequent_flyer_number="15885566",
+                    last_name="Luhn",
+                    passport_number="11117700225",
+                    phone_number="+1234567890",
+                    ticket_number="BA1236699999",
+                    title="Mr.",
+                    country_code="US",
+                ),
+                models.AirlinePassenger(
+                    age_group="adult",
+                    date_of_birth=date.fromisoformat("2013-07-16"),
+                    email_address="john@example.com",
+                    first_name="John",
+                    frequent_flyer_number="15885566",
+                    last_name="Luhn",
+                    passport_number="11117700225",
+                    phone_number="+1234567890",
+                    ticket_number="BA1236699999",
+                    title="Mr.",
+                    country_code="US",
+                ),
                 models.AirlinePassenger(
                     age_group="adult",
                     date_of_birth=date.fromisoformat("2013-07-16"),
@@ -148,7 +234,6 @@ with Gr4vy(
             travel_agency_name="ACME Agency",
             travel_agency_plan_name="B733",
         ),
-        expires_in=3600,
     ))
 
     # Handle response
@@ -158,12 +243,12 @@ with Gr4vy(
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     | Example                                                                                         |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `timeout_in_seconds`                                                                            | *Optional[float]*                                                                               | :heavy_minus_sign:                                                                              | N/A                                                                                             |                                                                                                 |
-| `merchant_account_id`                                                                           | *Optional[str]*                                                                                 | :heavy_minus_sign:                                                                              | The ID of the merchant account to use for this request.                                         | default                                                                                         |
-| `request_body`                                                                                  | [OptionalNullable[models.CreateCheckoutSessionBody]](../../models/createcheckoutsessionbody.md) | :heavy_minus_sign:                                                                              | N/A                                                                                             |                                                                                                 |
-| `retries`                                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                | :heavy_minus_sign:                                                                              | Configuration to override the default retry behavior of the client.                             |                                                                                                 |
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     | Example                                                                         |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `timeout_in_seconds`                                                            | *Optional[float]*                                                               | :heavy_minus_sign:                                                              | N/A                                                                             |                                                                                 |
+| `merchant_account_id`                                                           | *Optional[str]*                                                                 | :heavy_minus_sign:                                                              | The ID of the merchant account to use for this request.                         | default                                                                         |
+| `checkout_session_create`                                                       | [Optional[models.CheckoutSessionCreate]](../../models/checkoutsessioncreate.md) | :heavy_minus_sign:                                                              | N/A                                                                             |                                                                                 |
+| `retries`                                                                       | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                | :heavy_minus_sign:                                                              | Configuration to override the default retry behavior of the client.             |                                                                                 |
 
 ### Response
 
@@ -197,7 +282,7 @@ Update the information stored on a checkout session.
 
 ```python
 from datetime import date
-from gr4vy import Gr4vy, auth, models
+from gr4vy import Gr4vy, models
 from gr4vy.utils import parse_datetime
 import os
 
@@ -457,7 +542,7 @@ Retrieve the information stored on a checkout session.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -512,7 +597,7 @@ Deleta a checkout session and all of its (PCI) data.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 

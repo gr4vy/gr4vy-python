@@ -1,7 +1,7 @@
 <!-- Start SDK Example Usage [usage] -->
 ```python
 # Synchronous Example
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -27,7 +27,7 @@ The same SDK client can also be used to make asychronous requests by importing a
 ```python
 # Asynchronous Example
 import asyncio
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 async def main():

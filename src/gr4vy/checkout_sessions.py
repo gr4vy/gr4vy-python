@@ -14,12 +14,9 @@ class CheckoutSessions(BaseSDK):
         *,
         timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
-        request_body: OptionalNullable[
-            Union[
-                models.CreateCheckoutSessionBody,
-                models.CreateCheckoutSessionBodyTypedDict,
-            ]
-        ] = UNSET,
+        checkout_session_create: Optional[
+            Union[models.CheckoutSessionCreate, models.CheckoutSessionCreateTypedDict]
+        ] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -31,7 +28,7 @@ class CheckoutSessions(BaseSDK):
 
         :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
-        :param request_body:
+        :param checkout_session_create:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -50,8 +47,8 @@ class CheckoutSessions(BaseSDK):
         request = models.CreateCheckoutSessionRequest(
             timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
-            request_body=utils.get_pydantic_model(
-                request_body, OptionalNullable[models.CreateCheckoutSessionBody]
+            checkout_session_create=utils.get_pydantic_model(
+                checkout_session_create, Optional[models.CheckoutSessionCreate]
             ),
         )
 
@@ -72,11 +69,11 @@ class CheckoutSessions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.request_body,
-                True,
+                request.checkout_session_create,
+                False,
                 True,
                 "json",
-                OptionalNullable[models.CreateCheckoutSessionBody],
+                Optional[models.CheckoutSessionCreate],
             ),
             timeout_ms=timeout_ms,
         )
@@ -186,12 +183,9 @@ class CheckoutSessions(BaseSDK):
         *,
         timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
-        request_body: OptionalNullable[
-            Union[
-                models.CreateCheckoutSessionBody,
-                models.CreateCheckoutSessionBodyTypedDict,
-            ]
-        ] = UNSET,
+        checkout_session_create: Optional[
+            Union[models.CheckoutSessionCreate, models.CheckoutSessionCreateTypedDict]
+        ] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -203,7 +197,7 @@ class CheckoutSessions(BaseSDK):
 
         :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
-        :param request_body:
+        :param checkout_session_create:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -222,8 +216,8 @@ class CheckoutSessions(BaseSDK):
         request = models.CreateCheckoutSessionRequest(
             timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
-            request_body=utils.get_pydantic_model(
-                request_body, OptionalNullable[models.CreateCheckoutSessionBody]
+            checkout_session_create=utils.get_pydantic_model(
+                checkout_session_create, Optional[models.CheckoutSessionCreate]
             ),
         )
 
@@ -244,11 +238,11 @@ class CheckoutSessions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.request_body,
-                True,
+                request.checkout_session_create,
+                False,
                 True,
                 "json",
-                OptionalNullable[models.CreateCheckoutSessionBody],
+                Optional[models.CheckoutSessionCreate],
             ),
             timeout_ms=timeout_ms,
         )
@@ -406,7 +400,7 @@ class CheckoutSessions(BaseSDK):
             session_id=session_id,
             timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
-            checkout_session_update=models.CheckoutSessionUpdate(
+            checkout_session_create=models.CheckoutSessionCreate(
                 cart_items=utils.get_pydantic_model(
                     cart_items, OptionalNullable[List[models.CartItem]]
                 ),
@@ -438,11 +432,11 @@ class CheckoutSessions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.checkout_session_update,
+                request.checkout_session_create,
                 False,
                 False,
                 "json",
-                models.CheckoutSessionUpdate,
+                models.CheckoutSessionCreate,
             ),
             timeout_ms=timeout_ms,
         )
@@ -600,7 +594,7 @@ class CheckoutSessions(BaseSDK):
             session_id=session_id,
             timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
-            checkout_session_update=models.CheckoutSessionUpdate(
+            checkout_session_create=models.CheckoutSessionCreate(
                 cart_items=utils.get_pydantic_model(
                     cart_items, OptionalNullable[List[models.CartItem]]
                 ),
@@ -632,11 +626,11 @@ class CheckoutSessions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.checkout_session_update,
+                request.checkout_session_create,
                 False,
                 False,
                 "json",
-                models.CheckoutSessionUpdate,
+                models.CheckoutSessionCreate,
             ),
             timeout_ms=timeout_ms,
         )

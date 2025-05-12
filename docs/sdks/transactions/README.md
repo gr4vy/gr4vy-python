@@ -20,7 +20,7 @@ List all transactions for a specific merchant account sorted by most recently cr
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 from gr4vy.utils import parse_datetime
 import os
 
@@ -131,7 +131,7 @@ Create a transaction.
 
 ```python
 from datetime import date
-from gr4vy import Gr4vy, auth, models
+from gr4vy import Gr4vy, models
 from gr4vy.utils import parse_datetime
 import os
 
@@ -401,7 +401,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.CreateTransactionResponse](../../models/createtransactionresponse.md)**
+**[models.Transaction](../../models/transaction.md)**
 
 ### Errors
 
@@ -430,7 +430,7 @@ Fetch a single transaction by its ID.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -486,7 +486,7 @@ Capture a previously authorized transaction.
 
 ```python
 from datetime import date
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 from gr4vy.utils import parse_datetime
 import os
 
@@ -610,7 +610,7 @@ Void a previously authorized transaction.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -666,7 +666,7 @@ Fetch a summary for a transaction.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -721,7 +721,7 @@ Fetch the latest status for a transaction.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 

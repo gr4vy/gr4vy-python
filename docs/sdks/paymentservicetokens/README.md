@@ -16,7 +16,7 @@ List all gateway tokens stored for a payment method.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -72,7 +72,7 @@ Create a gateway tokens for a payment method.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -131,7 +131,7 @@ Delete a gateway tokens for a payment method.
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 

@@ -1,8 +1,11 @@
 import os
 import secrets
+import logging
 from typing import Optional
 from pathlib import Path
 from gr4vy import Gr4vy, auth
+
+logging.basicConfig(level=logging.DEBUG)
 
 def load_private_key() -> str:
     """
@@ -27,6 +30,7 @@ def create_gr4vy_client(private_key: str, merchant_account_id: Optional[str] = N
         id="e2e",
         merchant_account_id=merchant_account_id,
         bearer_auth=auth.with_token(private_key=private_key),
+        debug_logger=logging.getLogger("gr4vy")
     )
 
 

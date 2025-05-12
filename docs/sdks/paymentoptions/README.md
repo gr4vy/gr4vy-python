@@ -14,7 +14,7 @@ List the payment options available at checkout. filtering by country, currency, 
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 

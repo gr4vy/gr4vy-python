@@ -2,8 +2,8 @@ speakeasyVersion: 1.543.4
 sources:
     openapi:
         sourceNamespace: openapi
-        sourceRevisionDigest: sha256:dc4839eb100121b8d7f4cf821bd89729b32af3d4f3931654d67e731373dc7fea
-        sourceBlobDigest: sha256:80e7e88ee7a9fbd0a3e0ceb93f8ed8393777d0cc13d0f83897fc29e78fc443f2
+        sourceRevisionDigest: sha256:bed9acedc674e26767beef8eb903e61c490546f992a5aaac9540f3d2268a0e16
+        sourceBlobDigest: sha256:6f3a847fea1534d8df4f50a9be8a89d611f762ede85f59a84560b6e9f05eb82b
         tags:
             - latest
             - 1.0.0
@@ -11,8 +11,8 @@ targets:
     python:
         source: openapi
         sourceNamespace: openapi
-        sourceRevisionDigest: sha256:dc4839eb100121b8d7f4cf821bd89729b32af3d4f3931654d67e731373dc7fea
-        sourceBlobDigest: sha256:80e7e88ee7a9fbd0a3e0ceb93f8ed8393777d0cc13d0f83897fc29e78fc443f2
+        sourceRevisionDigest: sha256:bed9acedc674e26767beef8eb903e61c490546f992a5aaac9540f3d2268a0e16
+        sourceBlobDigest: sha256:6f3a847fea1534d8df4f50a9be8a89d611f762ede85f59a84560b6e9f05eb82b
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -27,6 +27,7 @@ workflow:
                 - location: ./.speakeasy/overlays/retries.yaml
                 - location: ./.speakeasy/overlays/mid-global.yaml
                 - location: ./.speakeasy/overlays/fix-base-model.yaml
+                - location: ./.speakeasy/overlays/fix-checkout-session-body.yaml
             registry:
                 location: registry.speakeasyapi.dev/gr4vy/gr4vy/openapi
     targets:

@@ -11,6 +11,7 @@ sources:
             - location: ./.speakeasy/overlays/retries.yaml
             - location: ./.speakeasy/overlays/mid-global.yaml
             - location: ./.speakeasy/overlays/fix-base-model.yaml
+            - location: ./.speakeasy/overlays/fix-checkout-session-body.yaml
         registry:
             location: registry.speakeasyapi.dev/gr4vy/gr4vy/openapi
 targets:

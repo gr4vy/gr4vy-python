@@ -69,6 +69,7 @@ from .checkoutcardconnectionoptions import (
     CheckoutCardConnectionOptionsTypedDict,
 )
 from .checkoutsession import CheckoutSession, CheckoutSessionTypedDict
+from .checkoutsessioncreate import CheckoutSessionCreate, CheckoutSessionCreateTypedDict
 from .checkoutsessionpaymentmethod import (
     CheckoutSessionPaymentMethod,
     CheckoutSessionPaymentMethodTypedDict,
@@ -81,7 +82,6 @@ from .checkoutsessionpaymentmethoddetails import (
     CheckoutSessionPaymentMethodDetails,
     CheckoutSessionPaymentMethodDetailsTypedDict,
 )
-from .checkoutsessionupdate import CheckoutSessionUpdate, CheckoutSessionUpdateTypedDict
 from .checkoutsessionwithurlpaymentmethodcreate import (
     CheckoutSessionWithURLPaymentMethodCreate,
     CheckoutSessionWithURLPaymentMethodCreateTypedDict,
@@ -186,8 +186,6 @@ from .create_apple_pay_digital_wallet_sessionop import (
     CreateApplePayDigitalWalletSessionRequestTypedDict,
 )
 from .create_checkout_sessionop import (
-    CreateCheckoutSessionBody,
-    CreateCheckoutSessionBodyTypedDict,
     CreateCheckoutSessionGlobals,
     CreateCheckoutSessionGlobalsTypedDict,
     CreateCheckoutSessionRequest,
@@ -234,8 +232,8 @@ from .create_payment_method_payment_service_tokenop import (
     CreatePaymentMethodPaymentServiceTokenRequestTypedDict,
 )
 from .create_payment_methodop import (
-    CreatePaymentMethodBody,
-    CreatePaymentMethodBodyTypedDict,
+    Body,
+    BodyTypedDict,
     CreatePaymentMethodGlobals,
     CreatePaymentMethodGlobalsTypedDict,
     CreatePaymentMethodRequest,
@@ -274,8 +272,6 @@ from .create_transactionop import (
     CreateTransactionGlobalsTypedDict,
     CreateTransactionRequest,
     CreateTransactionRequestTypedDict,
-    CreateTransactionResponse,
-    CreateTransactionResponseTypedDict,
 )
 from .createsession import CreateSession, CreateSessionTypedDict
 from .createsessionstatus import CreateSessionStatus
@@ -347,7 +343,6 @@ from .digitalwalletupdate import DigitalWalletUpdate, DigitalWalletUpdateTypedDi
 from .errordetail import ErrorDetail, ErrorDetailTypedDict
 from .errorlocation import ErrorLocation
 from .field import FieldT, FieldTTypedDict
-from .genericmodel import GenericModel, GenericModelTypedDict
 from .get_buyer_shipping_detailsop import (
     GetBuyerShippingDetailsGlobals,
     GetBuyerShippingDetailsGlobalsTypedDict,
@@ -894,6 +889,8 @@ __all__ = [
     "BillingDetailsInputTypedDict",
     "BillingDetailsOutput",
     "BillingDetailsOutputTypedDict",
+    "Body",
+    "BodyTypedDict",
     "BrowserInfo",
     "BrowserInfoTypedDict",
     "Buyer",
@@ -921,6 +918,8 @@ __all__ = [
     "CheckoutCardConnectionOptions",
     "CheckoutCardConnectionOptionsTypedDict",
     "CheckoutSession",
+    "CheckoutSessionCreate",
+    "CheckoutSessionCreateTypedDict",
     "CheckoutSessionPaymentMethod",
     "CheckoutSessionPaymentMethodCreate",
     "CheckoutSessionPaymentMethodCreateTypedDict",
@@ -928,8 +927,6 @@ __all__ = [
     "CheckoutSessionPaymentMethodDetailsTypedDict",
     "CheckoutSessionPaymentMethodTypedDict",
     "CheckoutSessionTypedDict",
-    "CheckoutSessionUpdate",
-    "CheckoutSessionUpdateTypedDict",
     "CheckoutSessionWithURLPaymentMethodCreate",
     "CheckoutSessionWithURLPaymentMethodCreateTypedDict",
     "ClickToPayFPANPaymentMethodCreate",
@@ -994,8 +991,6 @@ __all__ = [
     "CreateApplePayDigitalWalletSessionGlobalsTypedDict",
     "CreateApplePayDigitalWalletSessionRequest",
     "CreateApplePayDigitalWalletSessionRequestTypedDict",
-    "CreateCheckoutSessionBody",
-    "CreateCheckoutSessionBodyTypedDict",
     "CreateCheckoutSessionGlobals",
     "CreateCheckoutSessionGlobalsTypedDict",
     "CreateCheckoutSessionRequest",
@@ -1014,8 +1009,6 @@ __all__ = [
     "CreateGooglePayDigitalWalletSessionRequestTypedDict",
     "CreateMerchantAccountRequest",
     "CreateMerchantAccountRequestTypedDict",
-    "CreatePaymentMethodBody",
-    "CreatePaymentMethodBodyTypedDict",
     "CreatePaymentMethodGlobals",
     "CreatePaymentMethodGlobalsTypedDict",
     "CreatePaymentMethodNetworkTokenCryptogramGlobals",
@@ -1057,8 +1050,6 @@ __all__ = [
     "CreateTransactionRefundRequestTypedDict",
     "CreateTransactionRequest",
     "CreateTransactionRequestTypedDict",
-    "CreateTransactionResponse",
-    "CreateTransactionResponseTypedDict",
     "Creator",
     "CreatorTypedDict",
     "Cryptogram",
@@ -1118,8 +1109,6 @@ __all__ = [
     "ErrorLocation",
     "FieldT",
     "FieldTTypedDict",
-    "GenericModel",
-    "GenericModelTypedDict",
     "GetBuyerGlobals",
     "GetBuyerGlobalsTypedDict",
     "GetBuyerRequest",

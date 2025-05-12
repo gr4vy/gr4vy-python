@@ -15,7 +15,7 @@ Register a digital wallet domain (Apple Pay only).
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
@@ -72,7 +72,7 @@ Remove a digital wallet domain (Apple Pay only).
 ### Example Usage
 
 ```python
-from gr4vy import Gr4vy, auth
+from gr4vy import Gr4vy
 import os
 
 
