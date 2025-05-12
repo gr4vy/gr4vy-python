@@ -79,6 +79,7 @@ def test_handle_stored_payment_method(client):
     response = requests.put(
         f"https://api.sandbox.e2e.gr4vy.app/checkout/sessions/{checkout_session.id}/fields",
         headers={"content-type": "application/json"},
+        timeout=5000,
         json={
             "payment_method": {
                 "method": "id",
