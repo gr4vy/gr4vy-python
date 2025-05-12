@@ -3,10 +3,12 @@ id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
   docChecksum: 3cded815517a02bbfb53ad1e2ba7778e
   docVersion: 1.0.0
-  speakeasyVersion: 1.543.4
+  speakeasyVersion: 1.543.6
   generationVersion: 2.598.22
-  releaseVersion: 1.0.0-beta.1
+  releaseVersion: 1.0.0-beta.2
   configChecksum: 74ab72ae41223cc171643919e88179b5
+  repoURL: https://github.com/gr4vy/gr4vy-python.git
+  installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 features:
   python:
