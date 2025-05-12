@@ -219,7 +219,7 @@ Depending on the key used, you might need to explicitly define a merchant accoun
 this uses the `X-GR4VY-MERCHANT-ACCOUNT-ID` header. When using the SDK, you can set the `merchant_account_id`
 on every request.
 
-``py
+```py
 res = g_client.transactions.list(merchant_account_id: 'merchant-12345')
 ```
 
