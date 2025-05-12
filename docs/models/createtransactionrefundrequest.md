@@ -1,0 +1,11 @@
+# CreateTransactionRefundRequest
+
+
+## Fields
+
+| Field                                                                  | Type                                                                   | Required                                                               | Description                                                            | Example                                                                |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `transaction_id`                                                       | *str*                                                                  | :heavy_check_mark:                                                     | N/A                                                                    | 7099948d-7286-47e4-aad8-b68f7eb44591                                   |
+| `timeout_in_seconds`                                                   | *Optional[float]*                                                      | :heavy_minus_sign:                                                     | N/A                                                                    |                                                                        |
+| `merchant_account_id`                                                  | *Optional[str]*                                                        | :heavy_minus_sign:                                                     | The ID of the merchant account to use for this request.                | default                                                                |
+| `transaction_refund_create`                                            | [models.TransactionRefundCreate](../models/transactionrefundcreate.md) | :heavy_check_mark:                                                     | N/A                                                                    |                                                                        |

@@ -1,11 +1,12 @@
+test:
+	poetry run pytest tests
 
 lint:
-	poetry run isort --check-only --skip="gr4vy/gr4vy_api" --skip=".venv" .
-	poetry run black --check --exclude="gr4vy/gr4vy_api|.venv" . 
+	poetry run pylint -j=0 tests src  
 
-format:
-	poetry run isort --skip="gr4vy/gr4vy_api" --skip=".venv" .
-	poetry run black --exclude="gr4vy/gr4vy_api|.venv" . 
+setup: deps
 
-test:
-	poetry run pytest -vv test_gr4vy.py
+deps:
+	poetry install
+
+.PHONY: setup lint test deps

@@ -1,0 +1,45 @@
+speakeasyVersion: 1.543.4
+sources:
+    openapi:
+        sourceNamespace: openapi
+        sourceRevisionDigest: sha256:6bc5d64b5dd7526f2810a82f32c8444fdf73a26a94da5ea1e201afa17d818aba
+        sourceBlobDigest: sha256:6f3a847fea1534d8df4f50a9be8a89d611f762ede85f59a84560b6e9f05eb82b
+        tags:
+            - latest
+            - 1.0.0
+targets:
+    python:
+        source: openapi
+        sourceNamespace: openapi
+        sourceRevisionDigest: sha256:6bc5d64b5dd7526f2810a82f32c8444fdf73a26a94da5ea1e201afa17d818aba
+        sourceBlobDigest: sha256:6f3a847fea1534d8df4f50a9be8a89d611f762ede85f59a84560b6e9f05eb82b
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        openapi:
+            inputs:
+                - location: https://gr4vy.github.io/gr4vy-openapi/core/openapi.json
+            overlays:
+                - location: ./.speakeasy/overlays/servers.yaml
+                - location: ./.speakeasy/overlays/security.yaml
+                - location: ./.speakeasy/overlays/enums.yaml
+                - location: ./.speakeasy/overlays/retries.yaml
+                - location: ./.speakeasy/overlays/mid-global.yaml
+                - location: ./.speakeasy/overlays/fix-base-model.yaml
+                - location: ./.speakeasy/overlays/fix-checkout-session-body.yaml
+            registry:
+                location: registry.speakeasyapi.dev/gr4vy/gr4vy/openapi
+    targets:
+        python:
+            target: python
+            source: openapi
+            publish:
+                pypi:
+                    token: $pypi_token
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/gr4vy/gr4vy/-oas-python-code-samples
+                labelOverride:
+                    fixedValue: Python (SDK)
+                blocking: false

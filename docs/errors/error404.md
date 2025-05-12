@@ -1,0 +1,12 @@
+# Error404
+
+
+## Fields
+
+| Field                                                             | Type                                                              | Required                                                          | Description                                                       | Example                                                           |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `type`                                                            | *Optional[Literal["error"]]*                                      | :heavy_minus_sign:                                                | Always `error`.                                                   | error                                                             |
+| `code`                                                            | *Optional[str]*                                                   | :heavy_minus_sign:                                                | Always `not_found`                                                | not_found                                                         |
+| `status`                                                          | *Optional[int]*                                                   | :heavy_minus_sign:                                                | Always `404`.                                                     | 404                                                               |
+| `message`                                                         | *Optional[str]*                                                   | :heavy_minus_sign:                                                | A human readable message that provides more context to the error. | The resource could not be found                                   |
+| `details`                                                         | List[[models.ErrorDetail](../models/errordetail.md)]              | :heavy_minus_sign:                                                | A list of details that further ellaborate on the error.           |                                                                   |
