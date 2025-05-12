@@ -137,7 +137,7 @@ The same SDK client can also be used to make asychronous requests by importing a
 ```python
 # Asynchronous Example
 import asyncio
-from gr4vy import Gr4vy
+from gr4vy import Gr4vy, auth
 import os
 
 async def main():
@@ -164,40 +164,53 @@ asyncio.run(main())
 
 <!-- No SDK Example Usage [usage] -->
 
-<!-- Start Authentication [security] -->
-## Authentication
+<!-- No Authentication [security] -->
 
-### Per-Client Security Schemes
+## Bearer token generation
 
-This SDK supports the following security scheme globally:
+Alternatively, you can create a token for use with the SDK or with your own client library.
 
-| Name          | Type | Scheme      | Environment Variable |
-| ------------- | ---- | ----------- | -------------------- |
-| `bearer_auth` | http | HTTP Bearer | `GR4VY_BEARER_AUTH`  |
-
-To authenticate with the API the `bearer_auth` parameter must be set when initializing the SDK client instance. For example:
 ```python
-from gr4vy import Gr4vy
-import os
+from gr4vy import Gr4vy, auth
 
-
-with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
-) as g_client:
-
-    res = g_client.account_updater.jobs.create(payment_method_ids=[
-        "ef9496d8-53a5-4aad-8ca2-00eb68334389",
-        "f29e886e-93cc-4714-b4a3-12b7a718e595",
-    ], merchant_account_id="default")
-
-    assert res is not None
-
-    # Handle response
-    print(res)
-
+auth.get_token(open("./private_key.pem").read()
 ```
-<!-- End Authentication [security] -->
+
+> **Note:** This will only create a token once. Use `auth.with_token` to dynamically generate a token
+> for every request.
+
+
+## Embed token generation
+
+Alternatively, you can create a token for use with Embed as follows.
+
+```python
+from gr4vy import Gr4vy, auth
+
+private_key = open("./private_key.pem").read()
+
+g_client = Gr4vy(
+    id="example",
+    server="production",
+    merchant_account_id="default",
+    bearer_auth=auth.with_token(private_key)
+)
+
+checkout_session = g_client.checkout_sessions.create()
+
+auth.get_embed_token(
+    privatekey,
+    embed_params={
+        "amount": 1299,
+        "currency": 'USD',
+        "buyer_external_identifier": 'user-1234',
+    },
+    checkout_session_id=checkout_session.id
+)
+```
+
+> **Note:** This will only create a token once. Use `with_token` to dynamically generate a token
+> for every request.
 
 ## Merchant account ID selection
 
