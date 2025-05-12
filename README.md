@@ -4,7 +4,7 @@
 Developer-friendly & type-safe Python SDK specifically catered to leverage *gr4vy* API.
 
 <div align="left">
-    <img alt="PyPI - Version" src="https://img.shields.io/pypi/v/gr4vy?style=for-the-badge">
+    <a href="https://pypi.org/project/gr4vy/"></a><img alt="PyPI - Version" src="https://img.shields.io/pypi/v/gr4vy?style=for-the-badge"></a>
     <a href="https://www.speakeasy.com/?utm_source=gr4vy&utm_campaign=python">
         <img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" />
     </a>
