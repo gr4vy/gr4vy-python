@@ -1,19 +1,19 @@
-speakeasyVersion: 1.543.6
+speakeasyVersion: 1.543.8
 sources:
     openapi:
         sourceNamespace: openapi
-        sourceRevisionDigest: sha256:9c6b9dc9550be9c98b57b2ddec42da6e52d345e69db73150b5c875880d46989f
-        sourceBlobDigest: sha256:6f3a847fea1534d8df4f50a9be8a89d611f762ede85f59a84560b6e9f05eb82b
+        sourceRevisionDigest: sha256:206133d2f6977de15aa01415aba38f4292ad41dda48f4e142bd9bf7d57b9a781
+        sourceBlobDigest: sha256:401058100c062781b727963b34eca9058a912382df5931b40d824efb3a76e4f8
         tags:
             - latest
-            - speakeasy-sdk-regen-1747053074
+            - speakeasy-sdk-regen-1747096152
             - 1.0.0
 targets:
     python:
         source: openapi
         sourceNamespace: openapi
-        sourceRevisionDigest: sha256:9c6b9dc9550be9c98b57b2ddec42da6e52d345e69db73150b5c875880d46989f
-        sourceBlobDigest: sha256:6f3a847fea1534d8df4f50a9be8a89d611f762ede85f59a84560b6e9f05eb82b
+        sourceRevisionDigest: sha256:206133d2f6977de15aa01415aba38f4292ad41dda48f4e142bd9bf7d57b9a781
+        sourceBlobDigest: sha256:401058100c062781b727963b34eca9058a912382df5931b40d824efb3a76e4f8
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
