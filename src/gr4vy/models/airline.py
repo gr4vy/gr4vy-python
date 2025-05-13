@@ -32,7 +32,7 @@ class AirlineTypedDict(TypedDict):
     issued_at: NotRequired[Nullable[datetime]]
     r"""The date that the ticket was last issued in the airline reservation system."""
     issuing_carrier_code: NotRequired[Nullable[str]]
-    r"""For airline aggregators, two-character IATA code of the airline issuing the ticket."""
+    r"""For airline aggregators, three-character IATA code of the airline issuing the ticket."""
     legs: NotRequired[Nullable[List[AirlineLegTypedDict]]]
     r"""An array of separate trip segments. Each leg contains detailed itinerary information."""
     passenger_name_record: NotRequired[Nullable[str]]
@@ -70,7 +70,7 @@ class Airline(BaseModel):
     r"""The date that the ticket was last issued in the airline reservation system."""
 
     issuing_carrier_code: OptionalNullable[str] = UNSET
-    r"""For airline aggregators, two-character IATA code of the airline issuing the ticket."""
+    r"""For airline aggregators, three-character IATA code of the airline issuing the ticket."""
 
     legs: OptionalNullable[List[AirlineLeg]] = UNSET
     r"""An array of separate trip segments. Each leg contains detailed itinerary information."""

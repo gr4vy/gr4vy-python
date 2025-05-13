@@ -30,7 +30,7 @@ class AirlineLegTypedDict(TypedDict):
     arrival_country: NotRequired[Nullable[str]]
     r"""Arrival country code in ISO 3166 format."""
     carrier_code: NotRequired[Nullable[str]]
-    r"""2 character airline code as set by IATA."""
+    r"""3 character airline code as set by IATA."""
     coupon_number: NotRequired[Nullable[str]]
     r"""Coupon number associated with the leg."""
     departure_airport: NotRequired[Nullable[str]]
@@ -75,7 +75,7 @@ class AirlineLeg(BaseModel):
     r"""Arrival country code in ISO 3166 format."""
 
     carrier_code: OptionalNullable[str] = UNSET
-    r"""2 character airline code as set by IATA."""
+    r"""3 character airline code as set by IATA."""
 
     coupon_number: OptionalNullable[str] = UNSET
     r"""Coupon number associated with the leg."""
