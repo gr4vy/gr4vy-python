@@ -33,6 +33,12 @@ class AirlineTypedDict(TypedDict):
     r"""The date that the ticket was last issued in the airline reservation system."""
     issuing_carrier_code: NotRequired[Nullable[str]]
     r"""For airline aggregators, three-character IATA code of the airline issuing the ticket."""
+    issuing_carrier_name: NotRequired[Nullable[str]]
+    r"""For airline aggregators, name of the airline issuing the ticket."""
+    issuing_iata_designator: NotRequired[Nullable[str]]
+    r"""For airline aggregators, two-character IATA code of the airline issuing the ticket."""
+    issuing_icao_code: NotRequired[Nullable[str]]
+    r"""For airline aggregators, three-character ICAO code of the airline issuing the ticket."""
     legs: NotRequired[Nullable[List[AirlineLegTypedDict]]]
     r"""An array of separate trip segments. Each leg contains detailed itinerary information."""
     passenger_name_record: NotRequired[Nullable[str]]
@@ -71,6 +77,15 @@ class Airline(BaseModel):
 
     issuing_carrier_code: OptionalNullable[str] = UNSET
     r"""For airline aggregators, three-character IATA code of the airline issuing the ticket."""
+
+    issuing_carrier_name: OptionalNullable[str] = UNSET
+    r"""For airline aggregators, name of the airline issuing the ticket."""
+
+    issuing_iata_designator: OptionalNullable[str] = UNSET
+    r"""For airline aggregators, two-character IATA code of the airline issuing the ticket."""
+
+    issuing_icao_code: OptionalNullable[str] = UNSET
+    r"""For airline aggregators, three-character ICAO code of the airline issuing the ticket."""
 
     legs: OptionalNullable[List[AirlineLeg]] = UNSET
     r"""An array of separate trip segments. Each leg contains detailed itinerary information."""
@@ -115,6 +130,9 @@ class Airline(BaseModel):
             "issued_address",
             "issued_at",
             "issuing_carrier_code",
+            "issuing_carrier_name",
+            "issuing_iata_designator",
+            "issuing_icao_code",
             "legs",
             "passenger_name_record",
             "passengers",
@@ -132,6 +150,9 @@ class Airline(BaseModel):
             "issued_address",
             "issued_at",
             "issuing_carrier_code",
+            "issuing_carrier_name",
+            "issuing_iata_designator",
+            "issuing_icao_code",
             "legs",
             "passenger_name_record",
             "passengers",
