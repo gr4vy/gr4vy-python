@@ -61,6 +61,8 @@ class AirlineLegTypedDict(TypedDict):
     r"""Unique identifier of the flight number."""
     route_type: NotRequired[Nullable[RouteType]]
     r"""The route type of the flight."""
+    seat_class: NotRequired[Nullable[str]]
+    r"""Indicates seat class (first class, business class, etc.)."""
     stop_over: NotRequired[Nullable[bool]]
     r"""Indicates whether a stopover is allowed on this ticket."""
     tax_amount: NotRequired[Nullable[int]]
@@ -130,6 +132,9 @@ class AirlineLeg(BaseModel):
     ] = UNSET
     r"""The route type of the flight."""
 
+    seat_class: OptionalNullable[str] = UNSET
+    r"""Indicates seat class (first class, business class, etc.)."""
+
     stop_over: OptionalNullable[bool] = UNSET
     r"""Indicates whether a stopover is allowed on this ticket."""
 
@@ -159,6 +164,7 @@ class AirlineLeg(BaseModel):
             "flight_class",
             "flight_number",
             "route_type",
+            "seat_class",
             "stop_over",
             "tax_amount",
         ]
@@ -183,6 +189,7 @@ class AirlineLeg(BaseModel):
             "flight_class",
             "flight_number",
             "route_type",
+            "seat_class",
             "stop_over",
             "tax_amount",
         ]
