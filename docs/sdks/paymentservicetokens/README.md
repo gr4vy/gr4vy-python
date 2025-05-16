@@ -81,7 +81,7 @@ with Gr4vy(
     merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.payment_methods.payment_service_tokens.create(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0", redirect_url="https://probable-heating.com/", merchant_account_id="default", security_code="123")
+    res = g_client.payment_methods.payment_service_tokens.create(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0", redirect_url="https://dual-futon.biz", merchant_account_id="default", security_code="123")
 
     # Handle response
     print(res)

@@ -94,6 +94,10 @@ with Gr4vy(
             "key": "api_key",
             "value": "key-12345",
         },
+        {
+            "key": "api_key",
+            "value": "key-12345",
+        },
     ], accepted_currencies=[
         "EUR",
         "GBP",
@@ -111,8 +115,20 @@ with Gr4vy(
             "key": "api_key",
             "value": "key-12345",
         },
-    ], position=1, active=True, merchant_profile={
+        {
+            "key": "api_key",
+            "value": "key-12345",
+        },
+    ], position=1, active=False, merchant_profile={
         "key": {
+            "merchant_acquirer_bin": "516327",
+            "merchant_url": "https://example.com",
+            "merchant_acquirer_id": "123456789012345",
+            "merchant_name": "Acme Inc.",
+            "merchant_country_code": "USD",
+            "merchant_category_code": "1234",
+        },
+        "key1": {
             "merchant_acquirer_bin": "516327",
             "merchant_url": "https://example.com",
             "merchant_acquirer_id": "123456789012345",
@@ -260,14 +276,6 @@ with Gr4vy(
             "merchant_country_code": "USD",
             "merchant_category_code": "1234",
         },
-        "key1": {
-            "merchant_acquirer_bin": "516327",
-            "merchant_url": "https://example.com",
-            "merchant_acquirer_id": "123456789012345",
-            "merchant_name": "Acme Inc.",
-            "merchant_country_code": "USD",
-            "merchant_category_code": "1234",
-        },
     }, payment_method_tokenization_enabled=True, network_tokens_enabled=True, open_loop=True)
 
     # Handle response
@@ -392,20 +400,7 @@ with Gr4vy(
     merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.payment_services.verify(payment_service_definition_id="stripe-card", fields=[
-        {
-            "key": "api_key",
-            "value": "key-12345",
-        },
-        {
-            "key": "api_key",
-            "value": "key-12345",
-        },
-        {
-            "key": "api_key",
-            "value": "key-12345",
-        },
-    ], merchant_account_id="default", payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0")
+    res = g_client.payment_services.verify(payment_service_definition_id="stripe-card", fields=[], merchant_account_id="default", payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0")
 
     # Handle response
     print(res)
@@ -464,9 +459,7 @@ with Gr4vy(
 ) as g_client:
 
     res = g_client.payment_services.session(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0", request_body={
-        "key": "<value>",
-        "key1": "<value>",
-        "key2": "<value>",
+
     }, merchant_account_id="default")
 
     # Handle response

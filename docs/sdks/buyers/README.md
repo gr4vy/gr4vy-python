@@ -105,7 +105,7 @@ with Gr4vy(
         },
         "tax_id": {
             "value": "12345678931",
-            "kind": "jp.cn",
+            "kind": "ca.pst_mb",
         },
     })
 
@@ -239,7 +239,7 @@ with Gr4vy(
         },
         "tax_id": {
             "value": "12345678931",
-            "kind": "th.id",
+            "kind": "au.abn",
         },
     })
 

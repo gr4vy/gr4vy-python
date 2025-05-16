@@ -89,13 +89,11 @@ with Gr4vy(
 ) as g_client:
 
     res = g_client.payment_methods.create(request_body={
-        "method": "paypal",
+        "method": "checkout-session",
+        "id": "4137b1cf-39ac-42a8-bad6-1c680d5dab6b",
+        "external_identifier": "card-12345",
         "buyer_id": "fe26475d-ec3e-4884-9553-f7356683f7f9",
         "buyer_external_identifier": "buyer-12345",
-        "country": "GB",
-        "currency": "GBP",
-        "redirect_url": "https://standard-utilization.com/",
-        "external_identifier": "payment-method-12345",
     }, merchant_account_id="default")
 
     # Handle response

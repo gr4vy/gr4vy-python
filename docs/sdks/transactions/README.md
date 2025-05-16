@@ -141,14 +141,15 @@ with Gr4vy(
     merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.create(amount=1299, currency="GBP", merchant_account_id="default", idempotency_key="request-12345", country="US", payment_method={
-        "method": "click-to-pay",
-        "token": "4111123456789012",
-        "cryptogram": "A3F9C2D47E1B56A9",
+    res = g_client.transactions.create(amount=1299, currency="EUR", merchant_account_id="default", idempotency_key="request-12345", country="US", payment_method={
         "expiration_date": "12/30",
-        "buyer_id": "fe26475d-ec3e-4884-9553-f7356683f7f9",
+        "number": "4111111111111111",
         "buyer_external_identifier": "buyer-12345",
+        "buyer_id": "fe26475d-ec3e-4884-9553-f7356683f7f9",
         "external_identifier": "payment-method-12345",
+        "card_type": "credit",
+        "method": "card",
+        "security_code": "123",
     }, buyer=models.GuestBuyerInput(
         display_name="John Doe",
         external_identifier="buyer-12345",
@@ -170,7 +171,7 @@ with Gr4vy(
             ),
             tax_id=models.TaxID(
                 value="12345678931",
-                kind="id.nik",
+                kind="br.cnpj",
             ),
         ),
         shipping_details=models.ShippingDetailsCreate(
@@ -192,6 +193,14 @@ with Gr4vy(
         ),
     ), buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", buyer_external_identifier="buyer-12345", gift_cards=[
         {
+            "id": "356d56e5-fe16-42ae-97ee-8d55d846ae2e",
+            "amount": 1299,
+        },
+        {
+            "id": "356d56e5-fe16-42ae-97ee-8d55d846ae2e",
+            "amount": 1299,
+        },
+        {
             "number": "4123455541234561234",
             "pin": "1234",
             "amount": 1299,
@@ -203,7 +212,8 @@ with Gr4vy(
         "directory_response": "C",
         "scheme": "visa",
         "authentication_response": "Y",
-        "directory_transaction_id": "c4e59ceb-a382-4d6a-bc87-385d591fa09d",
+        "cavv_algorithm": "A",
+        "xid": "12345",
     }, metadata={
         "cohort": "cohort-12345",
         "order": "order-12345",
@@ -307,6 +317,32 @@ with Gr4vy(
                 "title": "Mr.",
                 "country_code": "US",
             },
+            {
+                "age_group": "adult",
+                "date_of_birth": date.fromisoformat("2013-07-16"),
+                "email_address": "john@example.com",
+                "first_name": "John",
+                "frequent_flyer_number": "15885566",
+                "last_name": "Luhn",
+                "passport_number": "11117700225",
+                "phone_number": "+1234567890",
+                "ticket_number": "BA1236699999",
+                "title": "Mr.",
+                "country_code": "US",
+            },
+            {
+                "age_group": "adult",
+                "date_of_birth": date.fromisoformat("2013-07-16"),
+                "email_address": "john@example.com",
+                "first_name": "John",
+                "frequent_flyer_number": "15885566",
+                "last_name": "Luhn",
+                "passport_number": "11117700225",
+                "phone_number": "+1234567890",
+                "ticket_number": "BA1236699999",
+                "title": "Mr.",
+                "country_code": "US",
+            },
         ],
         "reservation_system": "Amadeus",
         "restricted_ticket": False,
@@ -317,6 +353,42 @@ with Gr4vy(
         "travel_agency_name": "ACME Agency",
         "travel_agency_plan_name": "B733",
     }, cart_items=[
+        {
+            "name": "GoPro HD",
+            "quantity": 2,
+            "unit_amount": 1299,
+            "discount_amount": 0,
+            "tax_amount": 0,
+            "external_identifier": "goprohd",
+            "sku": "GPHD1078",
+            "product_url": "https://example.com/catalog/go-pro-hd",
+            "image_url": "https://example.com/images/go-pro-hd.jpg",
+            "categories": [
+                "camera",
+                "travel",
+                "gear",
+            ],
+            "product_type": "physical",
+            "seller_country": "US",
+        },
+        {
+            "name": "GoPro HD",
+            "quantity": 2,
+            "unit_amount": 1299,
+            "discount_amount": 0,
+            "tax_amount": 0,
+            "external_identifier": "goprohd",
+            "sku": "GPHD1078",
+            "product_url": "https://example.com/catalog/go-pro-hd",
+            "image_url": "https://example.com/images/go-pro-hd.jpg",
+            "categories": [
+                "camera",
+                "travel",
+                "gear",
+            ],
+            "product_type": "physical",
+            "seller_country": "US",
+        },
         {
             "name": "GoPro HD",
             "quantity": 2,
@@ -346,10 +418,10 @@ with Gr4vy(
         "javascript_enabled": False,
         "java_enabled": False,
         "language": "<value>",
-        "color_depth": 586220,
-        "screen_height": 752438,
-        "screen_width": 957409,
-        "time_zone_offset": 357021,
+        "color_depth": 242405,
+        "screen_height": 557747,
+        "screen_width": 288219,
+        "time_zone_offset": 538274,
         "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "user_device": "desktop",
         "accept_header": "*/*",
@@ -454,7 +526,7 @@ with Gr4vy(
     merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.get(transaction_id="b888f774-3e7c-4135-a18c-6b985523c4bc", merchant_account_id="default")
+    res = g_client.transactions.get(transaction_id="bde12786-dce8-4654-b031-196961d1ddcc", merchant_account_id="default")
 
     # Handle response
     print(res)
@@ -511,7 +583,7 @@ with Gr4vy(
     merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.capture(transaction_id="cac402e8-3f44-4782-bac4-283b15a3b3e2", merchant_account_id="default", amount=1299, airline={
+    res = g_client.transactions.capture(transaction_id="9a049029-b958-45dd-86d7-d7f9fc92c411", merchant_account_id="default", amount=1299, airline={
         "booking_code": "X36Q9C",
         "issued_address": "123 Broadway, New York",
         "issued_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
@@ -520,6 +592,56 @@ with Gr4vy(
         "issuing_iata_designator": "TS",
         "issuing_icao_code": "TSC",
         "legs": [
+            {
+                "arrival_airport": "LAX",
+                "arrival_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
+                "arrival_city": "Los Angeles",
+                "arrival_country": "US",
+                "carrier_code": "649",
+                "carrier_name": "Air Transat A.T. Inc",
+                "iata_designator": "TS",
+                "icao_code": "TSC",
+                "coupon_number": "15885566",
+                "departure_airport": "LHR",
+                "departure_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
+                "departure_city": "London",
+                "departure_country": "GB",
+                "departure_tax_amount": 1200,
+                "fare_amount": 129900,
+                "fare_basis_code": "FY",
+                "fee_amount": 1200,
+                "flight_class": "E",
+                "flight_number": "101",
+                "route_type": "round_trip",
+                "seat_class": "F",
+                "stop_over": False,
+                "tax_amount": 1200,
+            },
+            {
+                "arrival_airport": "LAX",
+                "arrival_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
+                "arrival_city": "Los Angeles",
+                "arrival_country": "US",
+                "carrier_code": "649",
+                "carrier_name": "Air Transat A.T. Inc",
+                "iata_designator": "TS",
+                "icao_code": "TSC",
+                "coupon_number": "15885566",
+                "departure_airport": "LHR",
+                "departure_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
+                "departure_city": "London",
+                "departure_country": "GB",
+                "departure_tax_amount": 1200,
+                "fare_amount": 129900,
+                "fare_basis_code": "FY",
+                "fee_amount": 1200,
+                "flight_class": "E",
+                "flight_number": "101",
+                "route_type": "round_trip",
+                "seat_class": "F",
+                "stop_over": False,
+                "tax_amount": 1200,
+            },
             {
                 "arrival_airport": "LAX",
                 "arrival_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
@@ -641,7 +763,7 @@ with Gr4vy(
     merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.void(transaction_id="26740073-c9e5-4864-9ecf-5856a8e566d6", merchant_account_id="default")
+    res = g_client.transactions.void(transaction_id="7dbc44c9-1ea3-4853-87be-9923dd281b0d", merchant_account_id="default")
 
     # Handle response
     print(res)
@@ -752,7 +874,7 @@ with Gr4vy(
     merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.sync(transaction_id="f0897be3-0808-45c9-a63b-509c0142ddd3", merchant_account_id="default")
+    res = g_client.transactions.sync(transaction_id="2ee546e0-3b11-478e-afec-fdb362611e22", merchant_account_id="default")
 
     # Handle response
     print(res)
