@@ -83,7 +83,7 @@ with Gr4vy(
     merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.payouts.create(amount=1299, currency="GBP", payment_service_id="ed8bd87d-85ad-40cf-8e8f-007e21e55aad", payment_method={
+    res = g_client.payouts.create(amount=1299, currency="USD", payment_service_id="ed8bd87d-85ad-40cf-8e8f-007e21e55aad", payment_method={
         "method": "id",
         "id": "852b951c-d7ea-4c98-b09e-4a1c9e97c077",
     }, merchant_account_id="default", category="online_gambling", external_identifier="payout-12345", buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", buyer=models.GuestBuyerInput(
@@ -107,7 +107,7 @@ with Gr4vy(
             ),
             tax_id=models.TaxID(
                 value="12345678931",
-                kind="id.nik",
+                kind="no.vat",
             ),
         ),
         shipping_details=models.ShippingDetailsCreate(
@@ -216,7 +216,7 @@ with Gr4vy(
     merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.payouts.get(payout_id="b888f774-3e7c-4135-a18c-6b985523c4bc", merchant_account_id="default")
+    res = g_client.payouts.get(payout_id="4344fef2-bc2f-49a6-924f-343e62f67224", merchant_account_id="default")
 
     # Handle response
     print(res)

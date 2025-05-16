@@ -137,9 +137,7 @@ with Gr4vy(
 ) as g_client:
 
     res = g_client.payment_service_definitions.session(payment_service_definition_id="adyen-ideal", request_body={
-        "key": "<value>",
-        "key1": "<value>",
-        "key2": "<value>",
+
     })
 
     # Handle response
