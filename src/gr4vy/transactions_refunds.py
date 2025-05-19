@@ -127,10 +127,8 @@ class TransactionsRefunds(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403ListTransactionRefundsUnion
-            )
-            raise errors.Response403ListTransactionRefunds(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -286,10 +284,8 @@ class TransactionsRefunds(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403ListTransactionRefundsUnion
-            )
-            raise errors.Response403ListTransactionRefunds(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -468,10 +464,8 @@ class TransactionsRefunds(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403CreateTransactionRefundUnion
-            )
-            raise errors.Response403CreateTransactionRefund(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -650,10 +644,8 @@ class TransactionsRefunds(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403CreateTransactionRefundUnion
-            )
-            raise errors.Response403CreateTransactionRefund(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -812,10 +804,8 @@ class TransactionsRefunds(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403GetTransactionRefundUnion
-            )
-            raise errors.Response403GetTransactionRefund(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -974,10 +964,8 @@ class TransactionsRefunds(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403GetTransactionRefundUnion
-            )
-            raise errors.Response403GetTransactionRefund(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)

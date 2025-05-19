@@ -590,8 +590,6 @@ When custom error responses are specified for an operation, the SDK may also rai
 | errors.Error400            | 400         | application/json |
 | errors.Error401            | 401         | application/json |
 | errors.Error403            | 403         | application/json |
-| errors.Error403Forbidden   | 403         | application/json |
-| errors.Error403Active      | 403         | application/json |
 | errors.Error404            | 404         | application/json |
 | errors.Error405            | 405         | application/json |
 | errors.Error409            | 409         | application/json |
@@ -606,9 +604,6 @@ When custom error responses are specified for an operation, the SDK may also rai
 ### Example
 
 ```python
-from .error403 import Error403Data
-from .error403active import Error403ActiveData
-from .error403forbidden import Error403ForbiddenData
 from gr4vy import Gr4vy, errors
 import os
 
@@ -636,13 +631,8 @@ with Gr4vy(
     except errors.Error401 as e:
         # handle e.data: errors.Error401Data
         raise(e)
-    except errors.Response403CreateAccountUpdaterJob as e:
-        if isinstance(e.data, Error403Data):
-            # handle custom error data
-        elif isinstance(e.data, Error403ForbiddenData):
-            # handle custom error data
-        elif isinstance(e.data, Error403ActiveData):
-            # handle custom error data
+    except errors.Error403 as e:
+        # handle e.data: errors.Error403Data
         raise(e)
     except errors.Error404 as e:
         # handle e.data: errors.Error404Data

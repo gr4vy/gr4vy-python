@@ -125,13 +125,8 @@ class NetworkTokensCryptogram(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text,
-                errors.Response403CreatePaymentMethodNetworkTokenCryptogramUnion,
-            )
-            raise errors.Response403CreatePaymentMethodNetworkTokenCryptogram(
-                data=response_data
-            )
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -297,13 +292,8 @@ class NetworkTokensCryptogram(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text,
-                errors.Response403CreatePaymentMethodNetworkTokenCryptogramUnion,
-            )
-            raise errors.Response403CreatePaymentMethodNetworkTokenCryptogram(
-                data=response_data
-            )
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)

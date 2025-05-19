@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 6ec465fc22e46f291699b4eb8d70f8e9
+  docChecksum: 2b16a722ff8556fa2cdc8063ec242ce1
   docVersion: 1.0.0
-  speakeasyVersion: 1.546.0
-  generationVersion: 2.603.1
-  releaseVersion: 1.0.0-beta.7
-  configChecksum: 5ee97db70638ca45e1fbc29f5a6ab032
+  speakeasyVersion: 1.547.1
+  generationVersion: 2.605.0
+  releaseVersion: 1.0.0-beta.8
+  configChecksum: be35150ad69c1400c0320a54e28926cf
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -18,7 +18,6 @@ features:
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
-    errorUnions: 1.0.2
     flatRequests: 1.0.1
     flattening: 3.1.1
     globalSecurity: 3.0.3
@@ -45,8 +44,6 @@ generatedFiles:
   - docs/errors/error400.md
   - docs/errors/error401.md
   - docs/errors/error403.md
-  - docs/errors/error403active.md
-  - docs/errors/error403forbidden.md
   - docs/errors/error404.md
   - docs/errors/error405.md
   - docs/errors/error409.md
@@ -56,83 +53,6 @@ generatedFiles:
   - docs/errors/error502.md
   - docs/errors/error504.md
   - docs/errors/httpvalidationerror.md
-  - docs/errors/response403addbuyer.md
-  - docs/errors/response403addbuyershippingdetails.md
-  - docs/errors/response403capturetransaction.md
-  - docs/errors/response403configuredigitalwallet.md
-  - docs/errors/response403createaccountupdaterjob.md
-  - docs/errors/response403createapplepaydigitalwalletsession.md
-  - docs/errors/response403createcheckoutsession.md
-  - docs/errors/response403createclicktopaydigitalwalletsession.md
-  - docs/errors/response403createfulltransactionrefund.md
-  - docs/errors/response403creategiftcard.md
-  - docs/errors/response403creategooglepaydigitalwalletsession.md
-  - docs/errors/response403createmerchantaccount.md
-  - docs/errors/response403createpaymentmethod.md
-  - docs/errors/response403createpaymentmethodnetworktoken.md
-  - docs/errors/response403createpaymentmethodnetworktokencryptogram.md
-  - docs/errors/response403createpaymentmethodpaymentservicetoken.md
-  - docs/errors/response403createpaymentservice.md
-  - docs/errors/response403createpaymentservicedefinitionsession.md
-  - docs/errors/response403createpaymentservicesession.md
-  - docs/errors/response403createpayout.md
-  - docs/errors/response403createtransaction.md
-  - docs/errors/response403createtransactionrefund.md
-  - docs/errors/response403deletebuyer.md
-  - docs/errors/response403deletebuyershippingdetails.md
-  - docs/errors/response403deletecheckoutsession.md
-  - docs/errors/response403deletedigitalwallet.md
-  - docs/errors/response403deletegiftcard.md
-  - docs/errors/response403deletepaymentmethod.md
-  - docs/errors/response403deletepaymentmethodnetworktoken.md
-  - docs/errors/response403deletepaymentmethodpaymentservicetoken.md
-  - docs/errors/response403deletepaymentservice.md
-  - docs/errors/response403getbuyer.md
-  - docs/errors/response403getbuyershippingdetails.md
-  - docs/errors/response403getcheckoutsession.md
-  - docs/errors/response403getdigitalwallet.md
-  - docs/errors/response403getgiftcard.md
-  - docs/errors/response403getmerchantaccount.md
-  - docs/errors/response403getpaymentmethod.md
-  - docs/errors/response403getpaymentservice.md
-  - docs/errors/response403getpaymentservicedefinition.md
-  - docs/errors/response403getpayout.md
-  - docs/errors/response403getrefund.md
-  - docs/errors/response403gettransaction.md
-  - docs/errors/response403gettransactionrefund.md
-  - docs/errors/response403gettransactionsummary.md
-  - docs/errors/response403listauditlogs.md
-  - docs/errors/response403listbuyergiftcards.md
-  - docs/errors/response403listbuyerpaymentmethods.md
-  - docs/errors/response403listbuyers.md
-  - docs/errors/response403listbuyershippingdetails.md
-  - docs/errors/response403listcardschemedefinitions.md
-  - docs/errors/response403listdigitalwallets.md
-  - docs/errors/response403listgiftcardbalances.md
-  - docs/errors/response403listgiftcards.md
-  - docs/errors/response403listmerchantaccounts.md
-  - docs/errors/response403listpaymentmethodnetworktokens.md
-  - docs/errors/response403listpaymentmethodpaymentservicetokens.md
-  - docs/errors/response403listpaymentmethods.md
-  - docs/errors/response403listpaymentoptions.md
-  - docs/errors/response403listpaymentservicedefinitions.md
-  - docs/errors/response403listpaymentservices.md
-  - docs/errors/response403listpayouts.md
-  - docs/errors/response403listtransactionrefunds.md
-  - docs/errors/response403listtransactions.md
-  - docs/errors/response403registerdigitalwalletdomain.md
-  - docs/errors/response403resumepaymentmethodnetworktoken.md
-  - docs/errors/response403suspendpaymentmethodnetworktoken.md
-  - docs/errors/response403synctransaction.md
-  - docs/errors/response403unregisterdigitalwalletdomain.md
-  - docs/errors/response403updatebuyer.md
-  - docs/errors/response403updatebuyershippingdetails.md
-  - docs/errors/response403updatecheckoutsession.md
-  - docs/errors/response403updatedigitalwallet.md
-  - docs/errors/response403updatemerchantaccount.md
-  - docs/errors/response403updatepaymentservice.md
-  - docs/errors/response403verifypaymentservicecredentials.md
-  - docs/errors/response403voidtransaction.md
   - docs/models/accountupdaterinquirysummary.md
   - docs/models/accountupdaterjob.md
   - docs/models/accountupdaterjobcreate.md
@@ -536,43 +456,10 @@ generatedFiles:
   - src/gr4vy/digital_wallets.py
   - src/gr4vy/domains.py
   - src/gr4vy/errors/__init__.py
-  - src/gr4vy/errors/add_buyer_shipping_detailsop.py
-  - src/gr4vy/errors/add_buyerop.py
   - src/gr4vy/errors/apierror.py
-  - src/gr4vy/errors/capture_transactionop.py
-  - src/gr4vy/errors/configure_digital_walletop.py
-  - src/gr4vy/errors/create_account_updater_jobop.py
-  - src/gr4vy/errors/create_apple_pay_digital_wallet_sessionop.py
-  - src/gr4vy/errors/create_checkout_sessionop.py
-  - src/gr4vy/errors/create_click_to_pay_digital_wallet_sessionop.py
-  - src/gr4vy/errors/create_full_transaction_refundop.py
-  - src/gr4vy/errors/create_gift_cardop.py
-  - src/gr4vy/errors/create_google_pay_digital_wallet_sessionop.py
-  - src/gr4vy/errors/create_merchant_accountop.py
-  - src/gr4vy/errors/create_payment_method_network_token_cryptogramop.py
-  - src/gr4vy/errors/create_payment_method_network_tokenop.py
-  - src/gr4vy/errors/create_payment_method_payment_service_tokenop.py
-  - src/gr4vy/errors/create_payment_methodop.py
-  - src/gr4vy/errors/create_payment_service_definition_sessionop.py
-  - src/gr4vy/errors/create_payment_service_sessionop.py
-  - src/gr4vy/errors/create_payment_serviceop.py
-  - src/gr4vy/errors/create_payoutop.py
-  - src/gr4vy/errors/create_transaction_refundop.py
-  - src/gr4vy/errors/create_transactionop.py
-  - src/gr4vy/errors/delete_buyer_shipping_detailsop.py
-  - src/gr4vy/errors/delete_buyerop.py
-  - src/gr4vy/errors/delete_checkout_sessionop.py
-  - src/gr4vy/errors/delete_digital_walletop.py
-  - src/gr4vy/errors/delete_gift_cardop.py
-  - src/gr4vy/errors/delete_payment_method_network_tokenop.py
-  - src/gr4vy/errors/delete_payment_method_payment_service_tokenop.py
-  - src/gr4vy/errors/delete_payment_methodop.py
-  - src/gr4vy/errors/delete_payment_serviceop.py
   - src/gr4vy/errors/error400.py
   - src/gr4vy/errors/error401.py
   - src/gr4vy/errors/error403.py
-  - src/gr4vy/errors/error403active.py
-  - src/gr4vy/errors/error403forbidden.py
   - src/gr4vy/errors/error404.py
   - src/gr4vy/errors/error405.py
   - src/gr4vy/errors/error409.py
@@ -581,53 +468,7 @@ generatedFiles:
   - src/gr4vy/errors/error500.py
   - src/gr4vy/errors/error502.py
   - src/gr4vy/errors/error504.py
-  - src/gr4vy/errors/get_buyer_shipping_detailsop.py
-  - src/gr4vy/errors/get_buyerop.py
-  - src/gr4vy/errors/get_checkout_sessionop.py
-  - src/gr4vy/errors/get_digital_walletop.py
-  - src/gr4vy/errors/get_gift_cardop.py
-  - src/gr4vy/errors/get_merchant_accountop.py
-  - src/gr4vy/errors/get_payment_methodop.py
-  - src/gr4vy/errors/get_payment_service_definitionop.py
-  - src/gr4vy/errors/get_payment_serviceop.py
-  - src/gr4vy/errors/get_payoutop.py
-  - src/gr4vy/errors/get_refundop.py
-  - src/gr4vy/errors/get_transaction_refundop.py
-  - src/gr4vy/errors/get_transaction_summaryop.py
-  - src/gr4vy/errors/get_transactionop.py
   - src/gr4vy/errors/httpvalidationerror.py
-  - src/gr4vy/errors/list_audit_logsop.py
-  - src/gr4vy/errors/list_buyer_gift_cardsop.py
-  - src/gr4vy/errors/list_buyer_payment_methodsop.py
-  - src/gr4vy/errors/list_buyer_shipping_detailsop.py
-  - src/gr4vy/errors/list_buyersop.py
-  - src/gr4vy/errors/list_card_scheme_definitionsop.py
-  - src/gr4vy/errors/list_digital_walletsop.py
-  - src/gr4vy/errors/list_gift_card_balancesop.py
-  - src/gr4vy/errors/list_gift_cardsop.py
-  - src/gr4vy/errors/list_merchant_accountsop.py
-  - src/gr4vy/errors/list_payment_method_network_tokensop.py
-  - src/gr4vy/errors/list_payment_method_payment_service_tokensop.py
-  - src/gr4vy/errors/list_payment_methodsop.py
-  - src/gr4vy/errors/list_payment_optionsop.py
-  - src/gr4vy/errors/list_payment_service_definitionsop.py
-  - src/gr4vy/errors/list_payment_servicesop.py
-  - src/gr4vy/errors/list_payoutsop.py
-  - src/gr4vy/errors/list_transaction_refundsop.py
-  - src/gr4vy/errors/list_transactionsop.py
-  - src/gr4vy/errors/register_digital_wallet_domainop.py
-  - src/gr4vy/errors/resume_payment_method_network_tokenop.py
-  - src/gr4vy/errors/suspend_payment_method_network_tokenop.py
-  - src/gr4vy/errors/sync_transactionop.py
-  - src/gr4vy/errors/unregister_digital_wallet_domainop.py
-  - src/gr4vy/errors/update_buyer_shipping_detailsop.py
-  - src/gr4vy/errors/update_buyerop.py
-  - src/gr4vy/errors/update_checkout_sessionop.py
-  - src/gr4vy/errors/update_digital_walletop.py
-  - src/gr4vy/errors/update_merchant_accountop.py
-  - src/gr4vy/errors/update_payment_serviceop.py
-  - src/gr4vy/errors/verify_payment_service_credentialsop.py
-  - src/gr4vy/errors/void_transactionop.py
   - src/gr4vy/gift_cards.py
   - src/gr4vy/httpclient.py
   - src/gr4vy/jobs.py
