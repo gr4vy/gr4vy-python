@@ -25,5 +25,5 @@ targets:
             registry:
                 location: registry.speakeasyapi.dev/gr4vy/gr4vy/openapi-python-code-samples
             labelOverride:
-                fixedValue: Python (SDK)
+                fixedValue: Python
             blocking: false
