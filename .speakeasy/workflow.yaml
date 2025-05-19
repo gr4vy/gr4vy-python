@@ -23,7 +23,7 @@ targets:
                 token: $pypi_token
         codeSamples:
             registry:
-                location: registry.speakeasyapi.dev/gr4vy/gr4vy/oas-python-code-samples
+                location: registry.speakeasyapi.dev/gr4vy/gr4vy/openapi-python-code-samples
             labelOverride:
                 fixedValue: Python (SDK)
             blocking: false
