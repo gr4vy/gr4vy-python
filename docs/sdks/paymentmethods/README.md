@@ -59,8 +59,6 @@ with Gr4vy(
 | errors.Error400            | 400                        | application/json           |
 | errors.Error401            | 401                        | application/json           |
 | errors.Error403            | 403                        | application/json           |
-| errors.Error403Forbidden   | 403                        | application/json           |
-| errors.Error403Active      | 403                        | application/json           |
 | errors.Error404            | 404                        | application/json           |
 | errors.Error405            | 405                        | application/json           |
 | errors.Error409            | 409                        | application/json           |
@@ -121,8 +119,6 @@ with Gr4vy(
 | errors.Error400            | 400                        | application/json           |
 | errors.Error401            | 401                        | application/json           |
 | errors.Error403            | 403                        | application/json           |
-| errors.Error403Forbidden   | 403                        | application/json           |
-| errors.Error403Active      | 403                        | application/json           |
 | errors.Error404            | 404                        | application/json           |
 | errors.Error405            | 405                        | application/json           |
 | errors.Error409            | 409                        | application/json           |
@@ -176,8 +172,6 @@ with Gr4vy(
 | errors.Error400            | 400                        | application/json           |
 | errors.Error401            | 401                        | application/json           |
 | errors.Error403            | 403                        | application/json           |
-| errors.Error403Forbidden   | 403                        | application/json           |
-| errors.Error403Active      | 403                        | application/json           |
 | errors.Error404            | 404                        | application/json           |
 | errors.Error405            | 405                        | application/json           |
 | errors.Error409            | 409                        | application/json           |
@@ -226,8 +220,6 @@ with Gr4vy(
 | errors.Error400            | 400                        | application/json           |
 | errors.Error401            | 401                        | application/json           |
 | errors.Error403            | 403                        | application/json           |
-| errors.Error403Forbidden   | 403                        | application/json           |
-| errors.Error403Active      | 403                        | application/json           |
 | errors.Error404            | 404                        | application/json           |
 | errors.Error405            | 405                        | application/json           |
 | errors.Error409            | 409                        | application/json           |

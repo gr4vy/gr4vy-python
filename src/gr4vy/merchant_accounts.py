@@ -139,10 +139,8 @@ class MerchantAccounts(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403ListMerchantAccountsUnion
-            )
-            raise errors.Response403ListMerchantAccounts(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -321,10 +319,8 @@ class MerchantAccounts(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403ListMerchantAccountsUnion
-            )
-            raise errors.Response403ListMerchantAccounts(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -542,10 +538,8 @@ class MerchantAccounts(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403CreateMerchantAccountUnion
-            )
-            raise errors.Response403CreateMerchantAccount(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -763,10 +757,8 @@ class MerchantAccounts(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403CreateMerchantAccountUnion
-            )
-            raise errors.Response403CreateMerchantAccount(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -916,10 +908,8 @@ class MerchantAccounts(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403GetMerchantAccountUnion
-            )
-            raise errors.Response403GetMerchantAccount(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -1069,10 +1059,8 @@ class MerchantAccounts(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403GetMerchantAccountUnion
-            )
-            raise errors.Response403GetMerchantAccount(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -1290,10 +1278,8 @@ class MerchantAccounts(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403UpdateMerchantAccountUnion
-            )
-            raise errors.Response403UpdateMerchantAccount(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -1511,10 +1497,8 @@ class MerchantAccounts(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403UpdateMerchantAccountUnion
-            )
-            raise errors.Response403UpdateMerchantAccount(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)

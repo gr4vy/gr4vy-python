@@ -142,10 +142,8 @@ class BuyersShippingDetails(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403AddBuyerShippingDetailsUnion
-            )
-            raise errors.Response403AddBuyerShippingDetails(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -328,10 +326,8 @@ class BuyersShippingDetails(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403AddBuyerShippingDetailsUnion
-            )
-            raise errors.Response403AddBuyerShippingDetails(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -489,10 +485,8 @@ class BuyersShippingDetails(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403ListBuyerShippingDetailsUnion
-            )
-            raise errors.Response403ListBuyerShippingDetails(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -650,10 +644,8 @@ class BuyersShippingDetails(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403ListBuyerShippingDetailsUnion
-            )
-            raise errors.Response403ListBuyerShippingDetails(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -812,10 +804,8 @@ class BuyersShippingDetails(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403GetBuyerShippingDetailsUnion
-            )
-            raise errors.Response403GetBuyerShippingDetails(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -974,10 +964,8 @@ class BuyersShippingDetails(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403GetBuyerShippingDetailsUnion
-            )
-            raise errors.Response403GetBuyerShippingDetails(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -1163,10 +1151,8 @@ class BuyersShippingDetails(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403UpdateBuyerShippingDetailsUnion
-            )
-            raise errors.Response403UpdateBuyerShippingDetails(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -1352,10 +1338,8 @@ class BuyersShippingDetails(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403UpdateBuyerShippingDetailsUnion
-            )
-            raise errors.Response403UpdateBuyerShippingDetails(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -1513,10 +1497,8 @@ class BuyersShippingDetails(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403DeleteBuyerShippingDetailsUnion
-            )
-            raise errors.Response403DeleteBuyerShippingDetails(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -1674,10 +1656,8 @@ class BuyersShippingDetails(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403DeleteBuyerShippingDetailsUnion
-            )
-            raise errors.Response403DeleteBuyerShippingDetails(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)

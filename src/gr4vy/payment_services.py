@@ -150,10 +150,8 @@ class PaymentServices(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403ListPaymentServicesUnion
-            )
-            raise errors.Response403ListPaymentServices(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -343,10 +341,8 @@ class PaymentServices(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403ListPaymentServicesUnion
-            )
-            raise errors.Response403ListPaymentServices(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -558,10 +554,8 @@ class PaymentServices(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403UpdatePaymentServiceUnion
-            )
-            raise errors.Response403UpdatePaymentService(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -773,10 +767,8 @@ class PaymentServices(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403UpdatePaymentServiceUnion
-            )
-            raise errors.Response403UpdatePaymentService(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -932,10 +924,8 @@ class PaymentServices(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403GetPaymentServiceUnion
-            )
-            raise errors.Response403GetPaymentService(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -1091,10 +1081,8 @@ class PaymentServices(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403GetPaymentServiceUnion
-            )
-            raise errors.Response403GetPaymentService(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -1310,10 +1298,8 @@ class PaymentServices(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403CreatePaymentServiceUnion
-            )
-            raise errors.Response403CreatePaymentService(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -1529,10 +1515,8 @@ class PaymentServices(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403CreatePaymentServiceUnion
-            )
-            raise errors.Response403CreatePaymentService(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -1687,10 +1671,8 @@ class PaymentServices(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403DeletePaymentServiceUnion
-            )
-            raise errors.Response403DeletePaymentService(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -1845,10 +1827,8 @@ class PaymentServices(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403DeletePaymentServiceUnion
-            )
-            raise errors.Response403DeletePaymentService(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -2018,10 +1998,8 @@ class PaymentServices(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403VerifyPaymentServiceCredentialsUnion
-            )
-            raise errors.Response403VerifyPaymentServiceCredentials(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -2191,10 +2169,8 @@ class PaymentServices(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403VerifyPaymentServiceCredentialsUnion
-            )
-            raise errors.Response403VerifyPaymentServiceCredentials(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -2352,10 +2328,8 @@ class PaymentServices(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403CreatePaymentServiceSessionUnion
-            )
-            raise errors.Response403CreatePaymentServiceSession(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
@@ -2513,10 +2487,8 @@ class PaymentServices(BaseSDK):
             response_data = utils.unmarshal_json(http_res.text, errors.Error401Data)
             raise errors.Error401(data=response_data)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json(
-                http_res.text, errors.Response403CreatePaymentServiceSessionUnion
-            )
-            raise errors.Response403CreatePaymentServiceSession(data=response_data)
+            response_data = utils.unmarshal_json(http_res.text, errors.Error403Data)
+            raise errors.Error403(data=response_data)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error404Data)
             raise errors.Error404(data=response_data)
