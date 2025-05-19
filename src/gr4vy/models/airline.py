@@ -27,6 +27,8 @@ class AirlineTypedDict(TypedDict):
 
     booking_code: NotRequired[Nullable[str]]
     r"""The unique identifier of the reservation in the global distribution system."""
+    is_cardholder_traveling: NotRequired[Nullable[bool]]
+    r"""Indicates whether the cardholder is traveling."""
     issued_address: NotRequired[Nullable[str]]
     r"""The address of the place/agency that issued the ticket."""
     issued_at: NotRequired[Nullable[datetime]]
@@ -68,6 +70,9 @@ class Airline(BaseModel):
 
     booking_code: OptionalNullable[str] = UNSET
     r"""The unique identifier of the reservation in the global distribution system."""
+
+    is_cardholder_traveling: OptionalNullable[bool] = UNSET
+    r"""Indicates whether the cardholder is traveling."""
 
     issued_address: OptionalNullable[str] = UNSET
     r"""The address of the place/agency that issued the ticket."""
@@ -127,6 +132,7 @@ class Airline(BaseModel):
     def serialize_model(self, handler):
         optional_fields = [
             "booking_code",
+            "is_cardholder_traveling",
             "issued_address",
             "issued_at",
             "issuing_carrier_code",
@@ -147,6 +153,7 @@ class Airline(BaseModel):
         ]
         nullable_fields = [
             "booking_code",
+            "is_cardholder_traveling",
             "issued_address",
             "issued_at",
             "issuing_carrier_code",
