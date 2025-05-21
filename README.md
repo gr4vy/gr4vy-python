@@ -51,6 +51,7 @@ This SDK is designed to simplify development, reduce boilerplate code, and help 
   * [Resource Management](#resource-management)
   * [Debugging](#debugging)
 * [Development](#development)
+  * [Testing](#testing)
   * [Maturity](#maturity)
   * [Contributions](#contributions)
 
@@ -878,6 +879,15 @@ You can also enable a default debug logger by setting an environment variable `G
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
 # Development
+
+## Testing
+
+To run the tests, install Python and Poetry, ensure to download the `private_key.pem` for the test environment, and run the following.
+
+```sh
+poetry install
+poetry run pytest
+```
 
 ## Maturity
 
