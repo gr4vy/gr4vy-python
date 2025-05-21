@@ -10,7 +10,6 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *gr4v
     </a>
 </div>
 
-
 <br /><br />
 > [!IMPORTANT]
 > This is a Beta release of our latest SDK. Please refer to the [legacy Python SDK](https://github.com/gr4vy/gr4vy-python/tree/legacy) for the latest stable build.
