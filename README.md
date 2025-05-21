@@ -15,11 +15,21 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *gr4v
 > [!IMPORTANT]
 > This is a Beta release of our latest SDK. Please refer to the [legacy Python SDK](https://github.com/gr4vy/gr4vy-python/tree/legacy) for the latest stable build.
 
-<!-- Start Summary [summary] -->
 ## Summary
 
-Gr4vy: The Gr4vy API.
-<!-- End Summary [summary] -->
+Gr4vy Python SDK
+
+The official Gr4vy SDK for Python provides a convenient way to interact with the Gr4vy API from your server-side application. This SDK allows you to seamlessly integrate Gr4vy's powerful payment orchestration capabilities, including:
+
+* Creating Transactions: Initiate and process payments with various payment methods and services.
+* Managing Buyers: Store and manage buyer information securely.
+* Storing Payment Methods: Securely store and tokenize payment methods for future use.
+* Handling Webhooks: Easily process and respond to webhook events from Gr4vy.
+* And much more: Access the full suite of Gr4vy API payment features.
+
+This SDK is designed to simplify development, reduce boilerplate code, and help you get up and running with Gr4vy quickly and efficiently. It handles authentication, request signing, and provides easy-to-use methods for most API endpoints.
+
+<!-- No Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
