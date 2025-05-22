@@ -8,7 +8,7 @@ from cryptography.hazmat.primitives import hashes, serialization
 import jwt
 from typing import Optional, Dict, Any
 from datetime import datetime, timedelta, timezone
-
+from ._version import __user_agent__
 
 class JWTScope(enum.StrEnum):
     READ_ALL = "*.read"
@@ -103,7 +103,7 @@ def get_token(
 
     claims: Dict[str, Any] = {
         "scopes": scopes,
-        "iss": "Gr4vy Python SDK",
+        "iss": __user_agent__,
         "iat": datetime.now(tz=timezone.utc),
         "nbf": datetime.now(tz=timezone.utc),
         "exp": datetime.now(tz=timezone.utc) + timedelta(seconds=expires_in),

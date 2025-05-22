@@ -2,6 +2,7 @@ from freezegun import freeze_time
 from datetime import datetime, timedelta, UTC
 import jwt
 from gr4vy.auth import get_token, get_embed_token, update_token, with_token, JWTScope
+from gr4vy._version import __user_agent__
 
 PRIVATE_KEY = """-----BEGIN PRIVATE KEY-----
 MIHuAgEAMBAGByqGSM49AgEGBSuBBAAjBIHWMIHTAgEBBEIBABM9jQu+HT87oIik
@@ -56,7 +57,7 @@ def test_get_token_creates_valid_signed_jwt():
     assert "nbf" in claims
     assert "exp" in claims
     assert "iss" in claims
-    assert claims["iss"].startswith("Gr4vy Python SDK")
+    assert claims["iss"] == __user_agent__
 
 
 def test_get_token_accepts_optional_embed_data():
