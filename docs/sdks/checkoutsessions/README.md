@@ -133,6 +133,7 @@ with Gr4vy(
         ),
         airline=models.Airline(
             booking_code="X36Q9C",
+            is_cardholder_traveling=True,
             issued_address="123 Broadway, New York",
             issued_at=parse_datetime("2013-07-16T19:23:00.000+00:00"),
             issuing_carrier_code="649",
@@ -393,6 +394,7 @@ with Gr4vy(
         ),
     ), airline={
         "booking_code": "X36Q9C",
+        "is_cardholder_traveling": True,
         "issued_address": "123 Broadway, New York",
         "issued_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
         "issuing_carrier_code": "649",

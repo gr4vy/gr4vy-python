@@ -97,13 +97,13 @@ with Gr4vy(
             "value": "key-12345",
         },
     ], accepted_currencies=[
+        "USD",
         "EUR",
         "GBP",
-        "USD",
     ], accepted_countries=[
+        "US",
         "DE",
         "GB",
-        "US",
     ], merchant_account_id="default", reporting_fields=[
         {
             "key": "api_key",
@@ -117,7 +117,7 @@ with Gr4vy(
             "key": "api_key",
             "value": "key-12345",
         },
-    ], position=1, active=False, merchant_profile={
+    ], position=1, active=True, merchant_profile={
         "key": {
             "merchant_acquirer_bin": "516327",
             "merchant_url": "https://example.com",
@@ -254,14 +254,14 @@ with Gr4vy(
 ) as g_client:
 
     res = g_client.payment_services.update(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0", merchant_account_id="default", display_name="Stripe", position=1, accepted_currencies=[
+        "USD",
         "EUR",
         "GBP",
-        "USD",
     ], accepted_countries=[
+        "US",
         "DE",
         "GB",
-        "US",
-    ], active=False, three_d_secure_enabled=True, merchant_profile={
+    ], active=True, three_d_secure_enabled=True, merchant_profile={
         "key": {
             "merchant_acquirer_bin": "516327",
             "merchant_url": "https://example.com",

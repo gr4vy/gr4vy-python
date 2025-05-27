@@ -7,46 +7,72 @@ from .utils.logger import Logger, get_default_logger
 from .utils.retries import RetryConfig
 from gr4vy import models, utils
 from gr4vy._hooks import SDKHooks
-from gr4vy.account_updater import AccountUpdater
-from gr4vy.audit_logs import AuditLogs
-from gr4vy.buyers import Buyers
-from gr4vy.card_scheme_definitions import CardSchemeDefinitions
-from gr4vy.checkout_sessions import CheckoutSessions
-from gr4vy.digital_wallets import DigitalWallets
-from gr4vy.gift_cards import GiftCards
-from gr4vy.merchant_accounts import MerchantAccounts
 from gr4vy.models import internal
-from gr4vy.payment_methods import PaymentMethods
-from gr4vy.payment_options import PaymentOptions
-from gr4vy.payment_service_definitions import PaymentServiceDefinitions
-from gr4vy.payment_services import PaymentServices
-from gr4vy.payouts import Payouts
-from gr4vy.refunds import Refunds
-from gr4vy.transactions import Transactions
 from gr4vy.types import OptionalNullable, UNSET
 import httpx
-from typing import Any, Callable, Dict, Optional, Union, cast
+import importlib
+from typing import Any, Callable, Dict, Optional, TYPE_CHECKING, Union, cast
 import weakref
+
+if TYPE_CHECKING:
+    from gr4vy.account_updater import AccountUpdater
+    from gr4vy.audit_logs import AuditLogs
+    from gr4vy.buyers import Buyers
+    from gr4vy.card_scheme_definitions import CardSchemeDefinitions
+    from gr4vy.checkout_sessions import CheckoutSessions
+    from gr4vy.digital_wallets import DigitalWallets
+    from gr4vy.gift_cards import GiftCards
+    from gr4vy.merchant_accounts import MerchantAccounts
+    from gr4vy.payment_methods import PaymentMethods
+    from gr4vy.payment_options import PaymentOptions
+    from gr4vy.payment_service_definitions import PaymentServiceDefinitions
+    from gr4vy.payment_services import PaymentServices
+    from gr4vy.payouts import Payouts
+    from gr4vy.refunds import Refunds
+    from gr4vy.transactions import Transactions
 
 
 class Gr4vy(BaseSDK):
     r"""Gr4vy: The Gr4vy API."""
 
-    account_updater: AccountUpdater
-    buyers: Buyers
-    payment_methods: PaymentMethods
-    gift_cards: GiftCards
-    card_scheme_definitions: CardSchemeDefinitions
-    digital_wallets: DigitalWallets
-    transactions: Transactions
-    refunds: Refunds
-    payment_options: PaymentOptions
-    payment_service_definitions: PaymentServiceDefinitions
-    payment_services: PaymentServices
-    audit_logs: AuditLogs
-    checkout_sessions: CheckoutSessions
-    merchant_accounts: MerchantAccounts
-    payouts: Payouts
+    account_updater: "AccountUpdater"
+    buyers: "Buyers"
+    payment_methods: "PaymentMethods"
+    gift_cards: "GiftCards"
+    card_scheme_definitions: "CardSchemeDefinitions"
+    digital_wallets: "DigitalWallets"
+    transactions: "Transactions"
+    refunds: "Refunds"
+    payment_options: "PaymentOptions"
+    payment_service_definitions: "PaymentServiceDefinitions"
+    payment_services: "PaymentServices"
+    audit_logs: "AuditLogs"
+    checkout_sessions: "CheckoutSessions"
+    merchant_accounts: "MerchantAccounts"
+    payouts: "Payouts"
+    _sub_sdk_map = {
+        "account_updater": ("gr4vy.account_updater", "AccountUpdater"),
+        "buyers": ("gr4vy.buyers", "Buyers"),
+        "payment_methods": ("gr4vy.payment_methods", "PaymentMethods"),
+        "gift_cards": ("gr4vy.gift_cards", "GiftCards"),
+        "card_scheme_definitions": (
+            "gr4vy.card_scheme_definitions",
+            "CardSchemeDefinitions",
+        ),
+        "digital_wallets": ("gr4vy.digital_wallets", "DigitalWallets"),
+        "transactions": ("gr4vy.transactions", "Transactions"),
+        "refunds": ("gr4vy.refunds", "Refunds"),
+        "payment_options": ("gr4vy.payment_options", "PaymentOptions"),
+        "payment_service_definitions": (
+            "gr4vy.payment_service_definitions",
+            "PaymentServiceDefinitions",
+        ),
+        "payment_services": ("gr4vy.payment_services", "PaymentServices"),
+        "audit_logs": ("gr4vy.audit_logs", "AuditLogs"),
+        "checkout_sessions": ("gr4vy.checkout_sessions", "CheckoutSessions"),
+        "merchant_accounts": ("gr4vy.merchant_accounts", "MerchantAccounts"),
+        "payouts": ("gr4vy.payouts", "Payouts"),
+    }
 
     def __init__(
         self,
@@ -162,26 +188,32 @@ class Gr4vy(BaseSDK):
             self.sdk_configuration.async_client_supplied,
         )
 
-        self._init_sdks()
+    def __getattr__(self, name: str):
+        if name in self._sub_sdk_map:
+            module_path, class_name = self._sub_sdk_map[name]
+            try:
+                module = importlib.import_module(module_path)
+                klass = getattr(module, class_name)
+                instance = klass(self.sdk_configuration)
+                setattr(self, name, instance)
+                return instance
+            except ImportError as e:
+                raise AttributeError(
+                    f"Failed to import module {module_path} for attribute {name}: {e}"
+                ) from e
+            except AttributeError as e:
+                raise AttributeError(
+                    f"Failed to find class {class_name} in module {module_path} for attribute {name}: {e}"
+                ) from e
 
-    def _init_sdks(self):
-        self.account_updater = AccountUpdater(self.sdk_configuration)
-        self.buyers = Buyers(self.sdk_configuration)
-        self.payment_methods = PaymentMethods(self.sdk_configuration)
-        self.gift_cards = GiftCards(self.sdk_configuration)
-        self.card_scheme_definitions = CardSchemeDefinitions(self.sdk_configuration)
-        self.digital_wallets = DigitalWallets(self.sdk_configuration)
-        self.transactions = Transactions(self.sdk_configuration)
-        self.refunds = Refunds(self.sdk_configuration)
-        self.payment_options = PaymentOptions(self.sdk_configuration)
-        self.payment_service_definitions = PaymentServiceDefinitions(
-            self.sdk_configuration
+        raise AttributeError(
+            f"'{type(self).__name__}' object has no attribute '{name}'"
         )
-        self.payment_services = PaymentServices(self.sdk_configuration)
-        self.audit_logs = AuditLogs(self.sdk_configuration)
-        self.checkout_sessions = CheckoutSessions(self.sdk_configuration)
-        self.merchant_accounts = MerchantAccounts(self.sdk_configuration)
-        self.payouts = Payouts(self.sdk_configuration)
+
+    def __dir__(self):
+        default_attrs = list(super().__dir__())
+        lazy_attrs = list(self._sub_sdk_map.keys())
+        return sorted(list(set(default_attrs + lazy_attrs)))
 
     def __enter__(self):
         return self
