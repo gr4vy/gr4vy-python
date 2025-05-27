@@ -36,6 +36,8 @@ class Transactions(BaseSDK):
         buyer_external_identifier: OptionalNullable[str] = UNSET,
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_email_address: OptionalNullable[str] = UNSET,
+        buyer_search: OptionalNullable[str] = UNSET,
+        ip_address: OptionalNullable[str] = UNSET,
         status: OptionalNullable[List[models.TransactionStatus]] = UNSET,
         id: OptionalNullable[str] = UNSET,
         payment_service_transaction_id: OptionalNullable[str] = UNSET,
@@ -45,9 +47,12 @@ class Transactions(BaseSDK):
         amount_lte: OptionalNullable[int] = UNSET,
         amount_gte: OptionalNullable[int] = UNSET,
         currency: OptionalNullable[List[str]] = UNSET,
+        country: OptionalNullable[List[str]] = UNSET,
         payment_service_id: OptionalNullable[List[str]] = UNSET,
         payment_method_id: OptionalNullable[str] = UNSET,
         payment_method_label: OptionalNullable[str] = UNSET,
+        payment_method_scheme: OptionalNullable[str] = UNSET,
+        payment_method_country: OptionalNullable[str] = UNSET,
         payment_method_fingerprint: OptionalNullable[str] = UNSET,
         method: OptionalNullable[List[models.Method]] = UNSET,
         error_code: OptionalNullable[List[str]] = UNSET,
@@ -63,6 +68,7 @@ class Transactions(BaseSDK):
         payment_source: OptionalNullable[List[models.TransactionPaymentSource]] = UNSET,
         is_subsequent_payment: OptionalNullable[bool] = UNSET,
         merchant_initiated: OptionalNullable[bool] = UNSET,
+        used_3ds: OptionalNullable[bool] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -83,6 +89,8 @@ class Transactions(BaseSDK):
         :param buyer_external_identifier:
         :param buyer_id:
         :param buyer_email_address:
+        :param buyer_search:
+        :param ip_address:
         :param status: Filters the results to only the transactions that have a `status` that matches with any of the provided status values.
         :param id:
         :param payment_service_transaction_id:
@@ -92,9 +100,12 @@ class Transactions(BaseSDK):
         :param amount_lte: Filters for transactions that have an `amount` that is less than or equal to the `amount_lte` value.
         :param amount_gte: Filters for transactions that have an `amount` that is greater than or equal to the `amount_gte` value.
         :param currency: Filters for transactions that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency code.
+        :param country: Filters for transactions that have matching `country` values.
         :param payment_service_id: Filters for transactions that were processed by the provided `payment_service_id` values.
         :param payment_method_id:
         :param payment_method_label:
+        :param payment_method_scheme: Filters for transactions that have a payment method with a scheme that matches with the provided value.
+        :param payment_method_country: Filters for transactions that have a payment method with a country that matches with the provided value.
         :param payment_method_fingerprint:
         :param method: Filters for transactions that have matching `method` values.
         :param error_code: Filters for transactions where the `error_code` matches one for the provided values.
@@ -110,6 +121,7 @@ class Transactions(BaseSDK):
         :param payment_source: Filters the results to only the transactions that have a payment source that matches with any of the provided values.
         :param is_subsequent_payment: Filters for transactions where the `is_subsequent_payment` matches the provided value.
         :param merchant_initiated: Filters for transactions where the `merchant_initiated` matches the provided value.
+        :param used_3ds: Filters for transactions that attempted 3DS authentication or not.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -137,6 +149,8 @@ class Transactions(BaseSDK):
             buyer_external_identifier=buyer_external_identifier,
             buyer_id=buyer_id,
             buyer_email_address=buyer_email_address,
+            buyer_search=buyer_search,
+            ip_address=ip_address,
             status=status,
             id=id,
             payment_service_transaction_id=payment_service_transaction_id,
@@ -146,9 +160,12 @@ class Transactions(BaseSDK):
             amount_lte=amount_lte,
             amount_gte=amount_gte,
             currency=currency,
+            country=country,
             payment_service_id=payment_service_id,
             payment_method_id=payment_method_id,
             payment_method_label=payment_method_label,
+            payment_method_scheme=payment_method_scheme,
+            payment_method_country=payment_method_country,
             payment_method_fingerprint=payment_method_fingerprint,
             method=method,
             error_code=error_code,
@@ -164,6 +181,7 @@ class Transactions(BaseSDK):
             payment_source=payment_source,
             is_subsequent_payment=is_subsequent_payment,
             merchant_initiated=merchant_initiated,
+            used_3ds=used_3ds,
             merchant_account_id=merchant_account_id,
         )
 
@@ -249,6 +267,8 @@ class Transactions(BaseSDK):
                 buyer_external_identifier=buyer_external_identifier,
                 buyer_id=buyer_id,
                 buyer_email_address=buyer_email_address,
+                buyer_search=buyer_search,
+                ip_address=ip_address,
                 status=status,
                 id=id,
                 payment_service_transaction_id=payment_service_transaction_id,
@@ -258,9 +278,12 @@ class Transactions(BaseSDK):
                 amount_lte=amount_lte,
                 amount_gte=amount_gte,
                 currency=currency,
+                country=country,
                 payment_service_id=payment_service_id,
                 payment_method_id=payment_method_id,
                 payment_method_label=payment_method_label,
+                payment_method_scheme=payment_method_scheme,
+                payment_method_country=payment_method_country,
                 payment_method_fingerprint=payment_method_fingerprint,
                 method=method,
                 error_code=error_code,
@@ -276,6 +299,7 @@ class Transactions(BaseSDK):
                 payment_source=payment_source,
                 is_subsequent_payment=is_subsequent_payment,
                 merchant_initiated=merchant_initiated,
+                used_3ds=used_3ds,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
             )
@@ -359,6 +383,8 @@ class Transactions(BaseSDK):
         buyer_external_identifier: OptionalNullable[str] = UNSET,
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_email_address: OptionalNullable[str] = UNSET,
+        buyer_search: OptionalNullable[str] = UNSET,
+        ip_address: OptionalNullable[str] = UNSET,
         status: OptionalNullable[List[models.TransactionStatus]] = UNSET,
         id: OptionalNullable[str] = UNSET,
         payment_service_transaction_id: OptionalNullable[str] = UNSET,
@@ -368,9 +394,12 @@ class Transactions(BaseSDK):
         amount_lte: OptionalNullable[int] = UNSET,
         amount_gte: OptionalNullable[int] = UNSET,
         currency: OptionalNullable[List[str]] = UNSET,
+        country: OptionalNullable[List[str]] = UNSET,
         payment_service_id: OptionalNullable[List[str]] = UNSET,
         payment_method_id: OptionalNullable[str] = UNSET,
         payment_method_label: OptionalNullable[str] = UNSET,
+        payment_method_scheme: OptionalNullable[str] = UNSET,
+        payment_method_country: OptionalNullable[str] = UNSET,
         payment_method_fingerprint: OptionalNullable[str] = UNSET,
         method: OptionalNullable[List[models.Method]] = UNSET,
         error_code: OptionalNullable[List[str]] = UNSET,
@@ -386,6 +415,7 @@ class Transactions(BaseSDK):
         payment_source: OptionalNullable[List[models.TransactionPaymentSource]] = UNSET,
         is_subsequent_payment: OptionalNullable[bool] = UNSET,
         merchant_initiated: OptionalNullable[bool] = UNSET,
+        used_3ds: OptionalNullable[bool] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -406,6 +436,8 @@ class Transactions(BaseSDK):
         :param buyer_external_identifier:
         :param buyer_id:
         :param buyer_email_address:
+        :param buyer_search:
+        :param ip_address:
         :param status: Filters the results to only the transactions that have a `status` that matches with any of the provided status values.
         :param id:
         :param payment_service_transaction_id:
@@ -415,9 +447,12 @@ class Transactions(BaseSDK):
         :param amount_lte: Filters for transactions that have an `amount` that is less than or equal to the `amount_lte` value.
         :param amount_gte: Filters for transactions that have an `amount` that is greater than or equal to the `amount_gte` value.
         :param currency: Filters for transactions that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency code.
+        :param country: Filters for transactions that have matching `country` values.
         :param payment_service_id: Filters for transactions that were processed by the provided `payment_service_id` values.
         :param payment_method_id:
         :param payment_method_label:
+        :param payment_method_scheme: Filters for transactions that have a payment method with a scheme that matches with the provided value.
+        :param payment_method_country: Filters for transactions that have a payment method with a country that matches with the provided value.
         :param payment_method_fingerprint:
         :param method: Filters for transactions that have matching `method` values.
         :param error_code: Filters for transactions where the `error_code` matches one for the provided values.
@@ -433,6 +468,7 @@ class Transactions(BaseSDK):
         :param payment_source: Filters the results to only the transactions that have a payment source that matches with any of the provided values.
         :param is_subsequent_payment: Filters for transactions where the `is_subsequent_payment` matches the provided value.
         :param merchant_initiated: Filters for transactions where the `merchant_initiated` matches the provided value.
+        :param used_3ds: Filters for transactions that attempted 3DS authentication or not.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -460,6 +496,8 @@ class Transactions(BaseSDK):
             buyer_external_identifier=buyer_external_identifier,
             buyer_id=buyer_id,
             buyer_email_address=buyer_email_address,
+            buyer_search=buyer_search,
+            ip_address=ip_address,
             status=status,
             id=id,
             payment_service_transaction_id=payment_service_transaction_id,
@@ -469,9 +507,12 @@ class Transactions(BaseSDK):
             amount_lte=amount_lte,
             amount_gte=amount_gte,
             currency=currency,
+            country=country,
             payment_service_id=payment_service_id,
             payment_method_id=payment_method_id,
             payment_method_label=payment_method_label,
+            payment_method_scheme=payment_method_scheme,
+            payment_method_country=payment_method_country,
             payment_method_fingerprint=payment_method_fingerprint,
             method=method,
             error_code=error_code,
@@ -487,6 +528,7 @@ class Transactions(BaseSDK):
             payment_source=payment_source,
             is_subsequent_payment=is_subsequent_payment,
             merchant_initiated=merchant_initiated,
+            used_3ds=used_3ds,
             merchant_account_id=merchant_account_id,
         )
 
@@ -572,6 +614,8 @@ class Transactions(BaseSDK):
                 buyer_external_identifier=buyer_external_identifier,
                 buyer_id=buyer_id,
                 buyer_email_address=buyer_email_address,
+                buyer_search=buyer_search,
+                ip_address=ip_address,
                 status=status,
                 id=id,
                 payment_service_transaction_id=payment_service_transaction_id,
@@ -581,9 +625,12 @@ class Transactions(BaseSDK):
                 amount_lte=amount_lte,
                 amount_gte=amount_gte,
                 currency=currency,
+                country=country,
                 payment_service_id=payment_service_id,
                 payment_method_id=payment_method_id,
                 payment_method_label=payment_method_label,
+                payment_method_scheme=payment_method_scheme,
+                payment_method_country=payment_method_country,
                 payment_method_fingerprint=payment_method_fingerprint,
                 method=method,
                 error_code=error_code,
@@ -599,6 +646,7 @@ class Transactions(BaseSDK):
                 payment_source=payment_source,
                 is_subsequent_payment=is_subsequent_payment,
                 merchant_initiated=merchant_initiated,
+                used_3ds=used_3ds,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
             )

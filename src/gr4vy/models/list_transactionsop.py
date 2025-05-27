@@ -54,6 +54,8 @@ class ListTransactionsRequestTypedDict(TypedDict):
     buyer_external_identifier: NotRequired[Nullable[str]]
     buyer_id: NotRequired[Nullable[str]]
     buyer_email_address: NotRequired[Nullable[str]]
+    buyer_search: NotRequired[Nullable[str]]
+    ip_address: NotRequired[Nullable[str]]
     status: NotRequired[Nullable[List[TransactionStatus]]]
     r"""Filters the results to only the transactions that have a `status` that matches with any of the provided status values."""
     id: NotRequired[Nullable[str]]
@@ -69,10 +71,16 @@ class ListTransactionsRequestTypedDict(TypedDict):
     r"""Filters for transactions that have an `amount` that is greater than or equal to the `amount_gte` value."""
     currency: NotRequired[Nullable[List[str]]]
     r"""Filters for transactions that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency code."""
+    country: NotRequired[Nullable[List[str]]]
+    r"""Filters for transactions that have matching `country` values."""
     payment_service_id: NotRequired[Nullable[List[str]]]
     r"""Filters for transactions that were processed by the provided `payment_service_id` values."""
     payment_method_id: NotRequired[Nullable[str]]
     payment_method_label: NotRequired[Nullable[str]]
+    payment_method_scheme: NotRequired[Nullable[str]]
+    r"""Filters for transactions that have a payment method with a scheme that matches with the provided value."""
+    payment_method_country: NotRequired[Nullable[str]]
+    r"""Filters for transactions that have a payment method with a country that matches with the provided value."""
     payment_method_fingerprint: NotRequired[Nullable[str]]
     method: NotRequired[Nullable[List[Method]]]
     r"""Filters for transactions that have matching `method` values."""
@@ -102,6 +110,8 @@ class ListTransactionsRequestTypedDict(TypedDict):
     r"""Filters for transactions where the `is_subsequent_payment` matches the provided value."""
     merchant_initiated: NotRequired[Nullable[bool]]
     r"""Filters for transactions where the `merchant_initiated` matches the provided value."""
+    used_3ds: NotRequired[Nullable[bool]]
+    r"""Filters for transactions that attempted 3DS authentication or not."""
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -163,6 +173,16 @@ class ListTransactionsRequest(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
 
+    buyer_search: Annotated[
+        OptionalNullable[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+
+    ip_address: Annotated[
+        OptionalNullable[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+
     status: Annotated[
         OptionalNullable[
             List[
@@ -218,6 +238,12 @@ class ListTransactionsRequest(BaseModel):
     ] = UNSET
     r"""Filters for transactions that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency code."""
 
+    country: Annotated[
+        OptionalNullable[List[str]],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters for transactions that have matching `country` values."""
+
     payment_service_id: Annotated[
         OptionalNullable[List[str]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
@@ -233,6 +259,18 @@ class ListTransactionsRequest(BaseModel):
         OptionalNullable[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
+
+    payment_method_scheme: Annotated[
+        OptionalNullable[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters for transactions that have a payment method with a scheme that matches with the provided value."""
+
+    payment_method_country: Annotated[
+        OptionalNullable[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters for transactions that have a payment method with a country that matches with the provided value."""
 
     payment_method_fingerprint: Annotated[
         OptionalNullable[str],
@@ -331,6 +369,12 @@ class ListTransactionsRequest(BaseModel):
     ] = UNSET
     r"""Filters for transactions where the `merchant_initiated` matches the provided value."""
 
+    used_3ds: Annotated[
+        OptionalNullable[bool],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters for transactions that attempted 3DS authentication or not."""
+
     merchant_account_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
@@ -351,6 +395,8 @@ class ListTransactionsRequest(BaseModel):
             "buyer_external_identifier",
             "buyer_id",
             "buyer_email_address",
+            "buyer_search",
+            "ip_address",
             "status",
             "id",
             "payment_service_transaction_id",
@@ -360,9 +406,12 @@ class ListTransactionsRequest(BaseModel):
             "amount_lte",
             "amount_gte",
             "currency",
+            "country",
             "payment_service_id",
             "payment_method_id",
             "payment_method_label",
+            "payment_method_scheme",
+            "payment_method_country",
             "payment_method_fingerprint",
             "method",
             "error_code",
@@ -378,6 +427,7 @@ class ListTransactionsRequest(BaseModel):
             "payment_source",
             "is_subsequent_payment",
             "merchant_initiated",
+            "used_3ds",
             "merchant_account_id",
         ]
         nullable_fields = [
@@ -390,6 +440,8 @@ class ListTransactionsRequest(BaseModel):
             "buyer_external_identifier",
             "buyer_id",
             "buyer_email_address",
+            "buyer_search",
+            "ip_address",
             "status",
             "id",
             "payment_service_transaction_id",
@@ -399,9 +451,12 @@ class ListTransactionsRequest(BaseModel):
             "amount_lte",
             "amount_gte",
             "currency",
+            "country",
             "payment_service_id",
             "payment_method_id",
             "payment_method_label",
+            "payment_method_scheme",
+            "payment_method_country",
             "payment_method_fingerprint",
             "method",
             "error_code",
@@ -417,6 +472,7 @@ class ListTransactionsRequest(BaseModel):
             "payment_source",
             "is_subsequent_payment",
             "merchant_initiated",
+            "used_3ds",
         ]
         null_default_fields = []
 

@@ -27,7 +27,7 @@ with Gr4vy(
     merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.digital_wallets.create(provider="click-to-pay", merchant_name="<value>", accept_terms_and_conditions=False, merchant_account_id="default", merchant_country_code="US")
+    res = g_client.digital_wallets.create(provider="click-to-pay", merchant_name="<value>", accept_terms_and_conditions=False, merchant_account_id="default", merchant_country_code="DE")
 
     # Handle response
     print(res)

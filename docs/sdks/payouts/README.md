@@ -81,7 +81,7 @@ with Gr4vy(
     merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.payouts.create(amount=1299, currency="USD", payment_service_id="ed8bd87d-85ad-40cf-8e8f-007e21e55aad", payment_method={
+    res = g_client.payouts.create(amount=1299, currency="EUR", payment_service_id="ed8bd87d-85ad-40cf-8e8f-007e21e55aad", payment_method={
         "method": "id",
         "id": "852b951c-d7ea-4c98-b09e-4a1c9e97c077",
     }, merchant_account_id="default", category="online_gambling", external_identifier="payout-12345", buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", buyer=models.GuestBuyerInput(
@@ -128,7 +128,7 @@ with Gr4vy(
     ), buyer_external_identifier="buyer-12345", merchant={
         "name": "Acme Inc",
         "identification_number": "12345",
-        "phone_number": "+442071838750",
+        "phone_number": "+14155552671",
         "url": "https://example.com",
         "statement_descriptor": "Winnings",
         "merchant_category_code": "123456",
