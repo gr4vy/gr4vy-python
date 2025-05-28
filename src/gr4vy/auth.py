@@ -118,7 +118,6 @@ def get_token(
         claims["embed"] = embed_params
 
     token = jwt.encode(claims, private_key, algorithm="ES512", headers={"kid": __thumbprint(private_key)})
-    print("token: " + token)
     return token
 
 def update_token(
