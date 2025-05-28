@@ -3,7 +3,7 @@
 from __future__ import annotations
 from gr4vy import utils
 from gr4vy.models import errordetail as models_errordetail
-from gr4vy.types import BaseModel, Nullable
+from gr4vy.types import BaseModel
 from gr4vy.utils import validate_const
 import pydantic
 from pydantic.functional_validators import AfterValidator
@@ -12,9 +12,6 @@ from typing_extensions import Annotated
 
 
 class Error425Data(BaseModel):
-    message: Nullable[str]
-    r"""A human readable message that provides more context to the error."""
-
     TYPE: Annotated[
         Annotated[Optional[Literal["error"]], AfterValidator(validate_const("error"))],
         pydantic.Field(alias="type"),
@@ -26,6 +23,9 @@ class Error425Data(BaseModel):
 
     status: Optional[int] = 425
     r"""Always `425`."""
+
+    message: Optional[str] = "Generic error"
+    r"""A human readable message that provides more context to the error."""
 
     details: Optional[List[models_errordetail.ErrorDetail]] = None
     r"""A list of details that further ellaborate on the error."""
