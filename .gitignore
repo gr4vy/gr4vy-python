@@ -3,6 +3,7 @@
 **/.speakeasy/logs/
 .venv/
 venv/
+env/
 src/*.egg-info/
 __pycache__/
 .pytest_cache/
