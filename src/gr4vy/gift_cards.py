@@ -91,6 +91,7 @@ class GiftCards(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_gift_card",
                 oauth2_scopes=[],
@@ -248,6 +249,7 @@ class GiftCards(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_gift_card",
                 oauth2_scopes=[],
@@ -401,6 +403,7 @@ class GiftCards(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="delete_gift_card",
                 oauth2_scopes=[],
@@ -554,6 +557,7 @@ class GiftCards(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="delete_gift_card",
                 oauth2_scopes=[],
@@ -721,6 +725,7 @@ class GiftCards(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_gift_card",
                 oauth2_scopes=[],
@@ -888,6 +893,7 @@ class GiftCards(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_gift_card",
                 oauth2_scopes=[],
@@ -1054,6 +1060,7 @@ class GiftCards(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_gift_cards",
                 oauth2_scopes=[],
@@ -1243,6 +1250,7 @@ class GiftCards(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_gift_cards",
                 oauth2_scopes=[],

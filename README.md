@@ -445,6 +445,10 @@ except ValueError as error:
 * [summary](docs/sdks/transactions/README.md#summary) - Get transaction summary
 * [sync](docs/sdks/transactions/README.md#sync) - Sync transaction
 
+#### [transactions.events](docs/sdks/events/README.md)
+
+* [list](docs/sdks/events/README.md#list) - List transaction events
+
 #### [transactions.refunds](docs/sdks/transactionsrefunds/README.md)
 
 * [list](docs/sdks/transactionsrefunds/README.md#list) - List transaction refunds

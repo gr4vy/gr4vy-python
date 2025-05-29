@@ -102,6 +102,7 @@ class BuyersShippingDetails(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="add_buyer_shipping_details",
                 oauth2_scopes=[],
@@ -283,6 +284,7 @@ class BuyersShippingDetails(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="add_buyer_shipping_details",
                 oauth2_scopes=[],
@@ -440,6 +442,7 @@ class BuyersShippingDetails(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_buyer_shipping_details",
                 oauth2_scopes=[],
@@ -599,6 +602,7 @@ class BuyersShippingDetails(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_buyer_shipping_details",
                 oauth2_scopes=[],
@@ -761,6 +765,7 @@ class BuyersShippingDetails(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_buyer_shipping_details",
                 oauth2_scopes=[],
@@ -921,6 +926,7 @@ class BuyersShippingDetails(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_buyer_shipping_details",
                 oauth2_scopes=[],
@@ -1105,6 +1111,7 @@ class BuyersShippingDetails(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="update_buyer_shipping_details",
                 oauth2_scopes=[],
@@ -1289,6 +1296,7 @@ class BuyersShippingDetails(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="update_buyer_shipping_details",
                 oauth2_scopes=[],
@@ -1445,6 +1453,7 @@ class BuyersShippingDetails(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="delete_buyer_shipping_details",
                 oauth2_scopes=[],
@@ -1601,6 +1610,7 @@ class BuyersShippingDetails(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="delete_buyer_shipping_details",
                 oauth2_scopes=[],

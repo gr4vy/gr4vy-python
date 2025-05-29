@@ -142,6 +142,10 @@ if TYPE_CHECKING:
         CollectionPayoutSummaryTypedDict,
     )
     from .collection_refund_ import CollectionRefund, CollectionRefundTypedDict
+    from .collection_transactionevent_ import (
+        CollectionTransactionEvent,
+        CollectionTransactionEventTypedDict,
+    )
     from .collection_transactionsummary_ import (
         CollectionTransactionSummary,
         CollectionTransactionSummaryTypedDict,
@@ -603,6 +607,12 @@ if TYPE_CHECKING:
         ListPayoutsResponse,
         ListPayoutsResponseTypedDict,
     )
+    from .list_transaction_eventsop import (
+        ListTransactionEventsGlobals,
+        ListTransactionEventsGlobalsTypedDict,
+        ListTransactionEventsRequest,
+        ListTransactionEventsRequestTypedDict,
+    )
     from .list_transaction_refundsop import (
         ListTransactionRefundsGlobals,
         ListTransactionRefundsGlobalsTypedDict,
@@ -796,6 +806,7 @@ if TYPE_CHECKING:
         TransactionCreatePaymentMethodTypedDict,
         TransactionCreateTypedDict,
     )
+    from .transactionevent import Name, TransactionEvent, TransactionEventTypedDict
     from .transactiongiftcard import TransactionGiftCard, TransactionGiftCardTypedDict
     from .transactionintent import TransactionIntent
     from .transactionintentoutcome import TransactionIntentOutcome
@@ -1020,6 +1031,8 @@ __all__ = [
     "CollectionPayoutSummaryTypedDict",
     "CollectionRefund",
     "CollectionRefundTypedDict",
+    "CollectionTransactionEvent",
+    "CollectionTransactionEventTypedDict",
     "CollectionTransactionSummary",
     "CollectionTransactionSummaryTypedDict",
     "ConfigureDigitalWalletGlobals",
@@ -1330,6 +1343,10 @@ __all__ = [
     "ListPayoutsRequestTypedDict",
     "ListPayoutsResponse",
     "ListPayoutsResponseTypedDict",
+    "ListTransactionEventsGlobals",
+    "ListTransactionEventsGlobalsTypedDict",
+    "ListTransactionEventsRequest",
+    "ListTransactionEventsRequestTypedDict",
     "ListTransactionRefundsGlobals",
     "ListTransactionRefundsGlobalsTypedDict",
     "ListTransactionRefundsRequest",
@@ -1354,6 +1371,7 @@ __all__ = [
     "MerchantProfileSchemeTypedDict",
     "Method",
     "Mode",
+    "Name",
     "NetworkToken",
     "NetworkTokenCreate",
     "NetworkTokenCreateTypedDict",
@@ -1484,6 +1502,8 @@ __all__ = [
     "TransactionCreatePaymentMethod",
     "TransactionCreatePaymentMethodTypedDict",
     "TransactionCreateTypedDict",
+    "TransactionEvent",
+    "TransactionEventTypedDict",
     "TransactionGiftCard",
     "TransactionGiftCardTypedDict",
     "TransactionIntent",
@@ -1658,6 +1678,8 @@ _dynamic_imports: dict[str, str] = {
     "CollectionPayoutSummaryTypedDict": ".collection_payoutsummary_",
     "CollectionRefund": ".collection_refund_",
     "CollectionRefundTypedDict": ".collection_refund_",
+    "CollectionTransactionEvent": ".collection_transactionevent_",
+    "CollectionTransactionEventTypedDict": ".collection_transactionevent_",
     "CollectionTransactionSummary": ".collection_transactionsummary_",
     "CollectionTransactionSummaryTypedDict": ".collection_transactionsummary_",
     "CollectionNoCursorCardSchemeDefinition": ".collectionnocursor_cardschemedefinition_",
@@ -1988,6 +2010,10 @@ _dynamic_imports: dict[str, str] = {
     "ListPayoutsRequestTypedDict": ".list_payoutsop",
     "ListPayoutsResponse": ".list_payoutsop",
     "ListPayoutsResponseTypedDict": ".list_payoutsop",
+    "ListTransactionEventsGlobals": ".list_transaction_eventsop",
+    "ListTransactionEventsGlobalsTypedDict": ".list_transaction_eventsop",
+    "ListTransactionEventsRequest": ".list_transaction_eventsop",
+    "ListTransactionEventsRequestTypedDict": ".list_transaction_eventsop",
     "ListTransactionRefundsGlobals": ".list_transaction_refundsop",
     "ListTransactionRefundsGlobalsTypedDict": ".list_transaction_refundsop",
     "ListTransactionRefundsRequest": ".list_transaction_refundsop",
@@ -2139,6 +2165,9 @@ _dynamic_imports: dict[str, str] = {
     "TransactionCreatePaymentMethod": ".transactioncreate",
     "TransactionCreatePaymentMethodTypedDict": ".transactioncreate",
     "TransactionCreateTypedDict": ".transactioncreate",
+    "Name": ".transactionevent",
+    "TransactionEvent": ".transactionevent",
+    "TransactionEventTypedDict": ".transactionevent",
     "TransactionGiftCard": ".transactiongiftcard",
     "TransactionGiftCardTypedDict": ".transactiongiftcard",
     "TransactionIntent": ".transactionintent",

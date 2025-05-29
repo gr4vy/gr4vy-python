@@ -528,7 +528,7 @@ with Gr4vy(
     merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.get(transaction_id="bde12786-dce8-4654-b031-196961d1ddcc", merchant_account_id="default")
+    res = g_client.transactions.get(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591", merchant_account_id="default")
 
     # Handle response
     print(res)
@@ -539,7 +539,7 @@ with Gr4vy(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `transaction_id`                                                    | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |                                                                     |
+| `transaction_id`                                                    | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 | 7099948d-7286-47e4-aad8-b68f7eb44591                                |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
@@ -583,7 +583,7 @@ with Gr4vy(
     merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.capture(transaction_id="9a049029-b958-45dd-86d7-d7f9fc92c411", merchant_account_id="default", amount=1299, airline={
+    res = g_client.transactions.capture(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591", merchant_account_id="default", amount=1299, airline={
         "booking_code": "X36Q9C",
         "is_cardholder_traveling": True,
         "issued_address": "123 Broadway, New York",
@@ -717,7 +717,7 @@ with Gr4vy(
 
 | Parameter                                                                                                                    | Type                                                                                                                         | Required                                                                                                                     | Description                                                                                                                  | Example                                                                                                                      |
 | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `transaction_id`                                                                                                             | *str*                                                                                                                        | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          |                                                                                                                              |
+| `transaction_id`                                                                                                             | *str*                                                                                                                        | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          | 7099948d-7286-47e4-aad8-b68f7eb44591                                                                                         |
 | `merchant_account_id`                                                                                                        | *Optional[str]*                                                                                                              | :heavy_minus_sign:                                                                                                           | The ID of the merchant account to use for this request.                                                                      | default                                                                                                                      |
 | `amount`                                                                                                                     | *OptionalNullable[int]*                                                                                                      | :heavy_minus_sign:                                                                                                           | The amount to capture. This normally needs to be equal or less than the authorized amount, unless over-capture is available. | 1299                                                                                                                         |
 | `airline`                                                                                                                    | [OptionalNullable[models.Airline]](../../models/airline.md)                                                                  | :heavy_minus_sign:                                                                                                           | The airline data to submit to the payment service during the capture call.                                                   |                                                                                                                              |
@@ -761,7 +761,7 @@ with Gr4vy(
     merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.void(transaction_id="7dbc44c9-1ea3-4853-87be-9923dd281b0d", merchant_account_id="default")
+    res = g_client.transactions.void(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591", merchant_account_id="default")
 
     # Handle response
     print(res)
@@ -772,7 +772,7 @@ with Gr4vy(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `transaction_id`                                                    | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |                                                                     |
+| `transaction_id`                                                    | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 | 7099948d-7286-47e4-aad8-b68f7eb44591                                |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 

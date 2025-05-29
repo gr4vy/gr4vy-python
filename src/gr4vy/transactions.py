@@ -5,6 +5,7 @@ from .sdkconfiguration import SDKConfiguration
 from datetime import datetime
 from gr4vy import errors, models, utils
 from gr4vy._hooks import HookContext
+from gr4vy.events import Events
 from gr4vy.transactions_refunds import TransactionsRefunds
 from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
@@ -14,6 +15,7 @@ from typing import Any, Dict, List, Mapping, Optional, Union
 
 class Transactions(BaseSDK):
     refunds: TransactionsRefunds
+    events: Events
 
     def __init__(self, sdk_config: SDKConfiguration) -> None:
         BaseSDK.__init__(self, sdk_config)
@@ -22,6 +24,7 @@ class Transactions(BaseSDK):
 
     def _init_sdks(self):
         self.refunds = TransactionsRefunds(self.sdk_configuration)
+        self.events = Events(self.sdk_configuration)
 
     def list(
         self,
@@ -218,6 +221,7 @@ class Transactions(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_transactions",
                 oauth2_scopes=[],
@@ -565,6 +569,7 @@ class Transactions(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_transactions",
                 oauth2_scopes=[],
@@ -918,6 +923,7 @@ class Transactions(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_transaction",
                 oauth2_scopes=[],
@@ -1207,6 +1213,7 @@ class Transactions(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_transaction",
                 oauth2_scopes=[],
@@ -1364,6 +1371,7 @@ class Transactions(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_transaction",
                 oauth2_scopes=[],
@@ -1521,6 +1529,7 @@ class Transactions(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_transaction",
                 oauth2_scopes=[],
@@ -1693,6 +1702,7 @@ class Transactions(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="capture_transaction",
                 oauth2_scopes=[],
@@ -1865,6 +1875,7 @@ class Transactions(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="capture_transaction",
                 oauth2_scopes=[],
@@ -2018,6 +2029,7 @@ class Transactions(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="void_transaction",
                 oauth2_scopes=[],
@@ -2171,6 +2183,7 @@ class Transactions(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="void_transaction",
                 oauth2_scopes=[],
@@ -2328,6 +2341,7 @@ class Transactions(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_transaction_summary",
                 oauth2_scopes=[],
@@ -2485,6 +2499,7 @@ class Transactions(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_transaction_summary",
                 oauth2_scopes=[],
@@ -2638,6 +2653,7 @@ class Transactions(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="sync_transaction",
                 oauth2_scopes=[],
@@ -2791,6 +2807,7 @@ class Transactions(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="sync_transaction",
                 oauth2_scopes=[],

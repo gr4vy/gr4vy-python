@@ -79,6 +79,7 @@ class MerchantAccounts(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_merchant_accounts",
                 oauth2_scopes=[],
@@ -259,6 +260,7 @@ class MerchantAccounts(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_merchant_accounts",
                 oauth2_scopes=[],
@@ -492,6 +494,7 @@ class MerchantAccounts(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_merchant_account",
                 oauth2_scopes=[],
@@ -702,6 +705,7 @@ class MerchantAccounts(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_merchant_account",
                 oauth2_scopes=[],
@@ -853,6 +857,7 @@ class MerchantAccounts(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_merchant_account",
                 oauth2_scopes=[],
@@ -1004,6 +1009,7 @@ class MerchantAccounts(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_merchant_account",
                 oauth2_scopes=[],
@@ -1220,6 +1226,7 @@ class MerchantAccounts(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="update_merchant_account",
                 oauth2_scopes=[],
@@ -1436,6 +1443,7 @@ class MerchantAccounts(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="update_merchant_account",
                 oauth2_scopes=[],
