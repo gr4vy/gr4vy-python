@@ -88,6 +88,7 @@ class PaymentServices(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_payment_services",
                 oauth2_scopes=[],
@@ -279,6 +280,7 @@ class PaymentServices(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_payment_services",
                 oauth2_scopes=[],
@@ -517,6 +519,7 @@ class PaymentServices(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="update_payment_service",
                 oauth2_scopes=[],
@@ -730,6 +733,7 @@ class PaymentServices(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="update_payment_service",
                 oauth2_scopes=[],
@@ -887,6 +891,7 @@ class PaymentServices(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_payment_service",
                 oauth2_scopes=[],
@@ -1044,6 +1049,7 @@ class PaymentServices(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_payment_service",
                 oauth2_scopes=[],
@@ -1261,6 +1267,7 @@ class PaymentServices(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_payment_service",
                 oauth2_scopes=[],
@@ -1478,6 +1485,7 @@ class PaymentServices(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_payment_service",
                 oauth2_scopes=[],
@@ -1631,6 +1639,7 @@ class PaymentServices(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="delete_payment_service",
                 oauth2_scopes=[],
@@ -1784,6 +1793,7 @@ class PaymentServices(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="delete_payment_service",
                 oauth2_scopes=[],
@@ -1952,6 +1962,7 @@ class PaymentServices(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="verify_payment_service_credentials",
                 oauth2_scopes=[],
@@ -2120,6 +2131,7 @@ class PaymentServices(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="verify_payment_service_credentials",
                 oauth2_scopes=[],
@@ -2279,6 +2291,7 @@ class PaymentServices(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_payment_service_session",
                 oauth2_scopes=[],
@@ -2438,6 +2451,7 @@ class PaymentServices(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_payment_service_session",
                 oauth2_scopes=[],

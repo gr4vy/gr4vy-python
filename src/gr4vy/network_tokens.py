@@ -90,6 +90,7 @@ class NetworkTokens(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_payment_method_network_tokens",
                 oauth2_scopes=[],
@@ -249,6 +250,7 @@ class NetworkTokens(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_payment_method_network_tokens",
                 oauth2_scopes=[],
@@ -422,6 +424,7 @@ class NetworkTokens(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_payment_method_network_token",
                 oauth2_scopes=[],
@@ -593,6 +596,7 @@ class NetworkTokens(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_payment_method_network_token",
                 oauth2_scopes=[],
@@ -749,6 +753,7 @@ class NetworkTokens(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="suspend_payment_method_network_token",
                 oauth2_scopes=[],
@@ -905,6 +910,7 @@ class NetworkTokens(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="suspend_payment_method_network_token",
                 oauth2_scopes=[],
@@ -1061,6 +1067,7 @@ class NetworkTokens(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="resume_payment_method_network_token",
                 oauth2_scopes=[],
@@ -1217,6 +1224,7 @@ class NetworkTokens(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="resume_payment_method_network_token",
                 oauth2_scopes=[],
@@ -1373,6 +1381,7 @@ class NetworkTokens(BaseSDK):
 
         http_res = self.do_request(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="delete_payment_method_network_token",
                 oauth2_scopes=[],
@@ -1529,6 +1538,7 @@ class NetworkTokens(BaseSDK):
 
         http_res = await self.do_request_async(
             hook_ctx=HookContext(
+                config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="delete_payment_method_network_token",
                 oauth2_scopes=[],

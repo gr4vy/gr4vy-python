@@ -8,20 +8,26 @@ from gr4vy.utils import get_security_from_env
 from typing import Any, Mapping, Optional
 
 
-class CardSchemeDefinitions(BaseSDK):
+class Events(BaseSDK):
     def list(
         self,
         *,
+        transaction_id: str,
+        cursor: OptionalNullable[str] = UNSET,
+        limit: Optional[int] = 100,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CollectionNoCursorCardSchemeDefinition:
-        r"""List card scheme definitions
+    ) -> models.CollectionTransactionEvent:
+        r"""List transaction events
 
-        Fetch a list of the definitions of each card scheme.
+        Fetch a list of events for a transaction.
 
+        :param transaction_id:
+        :param cursor: A pointer to the page of results to return.
+        :param limit: The maximum number of items that are at returned.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -38,23 +44,26 @@ class CardSchemeDefinitions(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.ListCardSchemeDefinitionsRequest(
+        request = models.ListTransactionEventsRequest(
+            transaction_id=transaction_id,
+            cursor=cursor,
+            limit=limit,
             merchant_account_id=merchant_account_id,
         )
 
         req = self._build_request(
             method="GET",
-            path="/card-scheme-definitions",
+            path="/transactions/{transaction_id}/events",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
             request_body_required=False,
-            request_has_path_params=False,
+            request_has_path_params=True,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
-            _globals=models.ListCardSchemeDefinitionsGlobals(
+            _globals=models.ListTransactionEventsGlobals(
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
@@ -77,7 +86,7 @@ class CardSchemeDefinitions(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="list_card_scheme_definitions",
+                operation_id="list_transaction_events",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -106,7 +115,7 @@ class CardSchemeDefinitions(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(
-                http_res.text, models.CollectionNoCursorCardSchemeDefinition
+                http_res.text, models.CollectionTransactionEvent
             )
         if utils.match_response(http_res, "400", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
@@ -169,16 +178,22 @@ class CardSchemeDefinitions(BaseSDK):
     async def list_async(
         self,
         *,
+        transaction_id: str,
+        cursor: OptionalNullable[str] = UNSET,
+        limit: Optional[int] = 100,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CollectionNoCursorCardSchemeDefinition:
-        r"""List card scheme definitions
+    ) -> models.CollectionTransactionEvent:
+        r"""List transaction events
 
-        Fetch a list of the definitions of each card scheme.
+        Fetch a list of events for a transaction.
 
+        :param transaction_id:
+        :param cursor: A pointer to the page of results to return.
+        :param limit: The maximum number of items that are at returned.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -195,23 +210,26 @@ class CardSchemeDefinitions(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.ListCardSchemeDefinitionsRequest(
+        request = models.ListTransactionEventsRequest(
+            transaction_id=transaction_id,
+            cursor=cursor,
+            limit=limit,
             merchant_account_id=merchant_account_id,
         )
 
         req = self._build_request_async(
             method="GET",
-            path="/card-scheme-definitions",
+            path="/transactions/{transaction_id}/events",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
             request_body_required=False,
-            request_has_path_params=False,
+            request_has_path_params=True,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
-            _globals=models.ListCardSchemeDefinitionsGlobals(
+            _globals=models.ListTransactionEventsGlobals(
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
@@ -234,7 +252,7 @@ class CardSchemeDefinitions(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="list_card_scheme_definitions",
+                operation_id="list_transaction_events",
                 oauth2_scopes=[],
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -263,7 +281,7 @@ class CardSchemeDefinitions(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(
-                http_res.text, models.CollectionNoCursorCardSchemeDefinition
+                http_res.text, models.CollectionTransactionEvent
             )
         if utils.match_response(http_res, "400", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
