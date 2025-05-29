@@ -52,7 +52,6 @@ class JWTScope(str, enum.Enum):
     TRANSACTIONS_WRITE = "transactions.write"
     VAULT_FORWARD_WRITE = "vault-forward.write"
 
-# type JWTScopes = list[JWTScope] | list[str]
 JWTScopes = Union[list[JWTScope], list[str]]
 
 def __b64e(value: bytes) -> str:
