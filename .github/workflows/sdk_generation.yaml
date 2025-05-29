@@ -1,4 +1,4 @@
-name: Generate
+name: Generate SDK
 permissions:
   checks: write
   contents: write

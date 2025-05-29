@@ -1,4 +1,4 @@
-name: Tag SDK Samples
+name: Tag SDK samples
 permissions:
   checks: write
   contents: write
