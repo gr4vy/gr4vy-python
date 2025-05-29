@@ -7,7 +7,6 @@ from gr4vy.utils import (
     FieldMetadata,
     HeaderMetadata,
     PathParamMetadata,
-    QueryParamMetadata,
     RequestMetadata,
 )
 import pydantic
@@ -33,7 +32,6 @@ class AddBuyerShippingDetailsRequestTypedDict(TypedDict):
     buyer_id: str
     r"""The ID of the buyer to add shipping details to."""
     shipping_details_create: ShippingDetailsCreateTypedDict
-    timeout_in_seconds: NotRequired[float]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -48,11 +46,6 @@ class AddBuyerShippingDetailsRequest(BaseModel):
         ShippingDetailsCreate,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
-
-    timeout_in_seconds: Annotated[
-        Optional[float],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = 1
 
     merchant_account_id: Annotated[
         Optional[str],

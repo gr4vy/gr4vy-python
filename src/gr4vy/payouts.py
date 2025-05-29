@@ -385,7 +385,6 @@ class Payouts(BaseSDK):
         payment_method: Union[
             models.PayoutCreatePaymentMethod, models.PayoutCreatePaymentMethodTypedDict
         ],
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         category: OptionalNullable[models.PayoutCategory] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
@@ -413,7 +412,6 @@ class Payouts(BaseSDK):
         :param currency: The ISO-4217 currency code for this payout.
         :param payment_service_id: The ID of the payment service to use for the payout.
         :param payment_method: The type of payment method to send funds too.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param category: The type of payout to process.
         :param external_identifier: A value that can be used to match the payout against your own records.
@@ -438,7 +436,6 @@ class Payouts(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreatePayoutRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             payout_create=models.PayoutCreate(
                 amount=amount,
@@ -592,7 +589,6 @@ class Payouts(BaseSDK):
         payment_method: Union[
             models.PayoutCreatePaymentMethod, models.PayoutCreatePaymentMethodTypedDict
         ],
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         category: OptionalNullable[models.PayoutCategory] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
@@ -620,7 +616,6 @@ class Payouts(BaseSDK):
         :param currency: The ISO-4217 currency code for this payout.
         :param payment_service_id: The ID of the payment service to use for the payout.
         :param payment_method: The type of payment method to send funds too.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param category: The type of payout to process.
         :param external_identifier: A value that can be used to match the payout against your own records.
@@ -645,7 +640,6 @@ class Payouts(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreatePayoutRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             payout_create=models.PayoutCreate(
                 amount=amount,

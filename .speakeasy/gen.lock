@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 722dbfa5df99287f7c6678547358f532
+  docChecksum: 129254530075af5b6f17d9e7f629cc84
   docVersion: 1.0.0
   speakeasyVersion: 1.552.0
   generationVersion: 2.610.0
-  releaseVersion: 1.0.0-beta.12
-  configChecksum: 890ceaf51e9480adae9b90d70438814c
+  releaseVersion: 1.0.0-beta.13
+  configChecksum: 67ec63b94f4e4177654d805430f73a73
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -136,7 +136,6 @@ generatedFiles:
   - docs/models/creategiftcardrequest.md
   - docs/models/creategooglepaydigitalwalletsessionglobals.md
   - docs/models/creategooglepaydigitalwalletsessionrequest.md
-  - docs/models/createmerchantaccountrequest.md
   - docs/models/createpaymentmethodglobals.md
   - docs/models/createpaymentmethodnetworktokencryptogramglobals.md
   - docs/models/createpaymentmethodnetworktokencryptogramrequest.md
@@ -543,7 +542,6 @@ generatedFiles:
   - src/gr4vy/models/create_full_transaction_refundop.py
   - src/gr4vy/models/create_gift_cardop.py
   - src/gr4vy/models/create_google_pay_digital_wallet_sessionop.py
-  - src/gr4vy/models/create_merchant_accountop.py
   - src/gr4vy/models/create_payment_method_network_token_cryptogramop.py
   - src/gr4vy/models/create_payment_method_network_tokenop.py
   - src/gr4vy/models/create_payment_method_payment_service_tokenop.py

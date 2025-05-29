@@ -339,7 +339,6 @@ class TransactionsRefunds(BaseSDK):
         self,
         *,
         transaction_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         amount: OptionalNullable[int] = UNSET,
         target_type: Optional[models.RefundTargetType] = None,
@@ -356,7 +355,6 @@ class TransactionsRefunds(BaseSDK):
         Create a refund for a transaction.
 
         :param transaction_id:
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param amount: The amount requested to refund. If omitted, a full refund will be requested.
         :param target_type:
@@ -380,7 +378,6 @@ class TransactionsRefunds(BaseSDK):
 
         request = models.CreateTransactionRefundRequest(
             transaction_id=transaction_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             transaction_refund_create=models.TransactionRefundCreate(
                 amount=amount,
@@ -519,7 +516,6 @@ class TransactionsRefunds(BaseSDK):
         self,
         *,
         transaction_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         amount: OptionalNullable[int] = UNSET,
         target_type: Optional[models.RefundTargetType] = None,
@@ -536,7 +532,6 @@ class TransactionsRefunds(BaseSDK):
         Create a refund for a transaction.
 
         :param transaction_id:
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param amount: The amount requested to refund. If omitted, a full refund will be requested.
         :param target_type:
@@ -560,7 +555,6 @@ class TransactionsRefunds(BaseSDK):
 
         request = models.CreateTransactionRefundRequest(
             transaction_id=transaction_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             transaction_refund_create=models.TransactionRefundCreate(
                 amount=amount,

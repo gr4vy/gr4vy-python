@@ -14,7 +14,6 @@ class BuyersGiftCards(BaseSDK):
         *,
         buyer_external_identifier: OptionalNullable[str] = UNSET,
         buyer_id: OptionalNullable[str] = UNSET,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -27,7 +26,6 @@ class BuyersGiftCards(BaseSDK):
 
         :param buyer_external_identifier:
         :param buyer_id:
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -47,7 +45,6 @@ class BuyersGiftCards(BaseSDK):
         request = models.ListBuyerGiftCardsRequest(
             buyer_external_identifier=buyer_external_identifier,
             buyer_id=buyer_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 
@@ -179,7 +176,6 @@ class BuyersGiftCards(BaseSDK):
         *,
         buyer_external_identifier: OptionalNullable[str] = UNSET,
         buyer_id: OptionalNullable[str] = UNSET,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -192,7 +188,6 @@ class BuyersGiftCards(BaseSDK):
 
         :param buyer_external_identifier:
         :param buyer_id:
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -212,7 +207,6 @@ class BuyersGiftCards(BaseSDK):
         request = models.ListBuyerGiftCardsRequest(
             buyer_external_identifier=buyer_external_identifier,
             buyer_id=buyer_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 

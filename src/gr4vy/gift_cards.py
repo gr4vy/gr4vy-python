@@ -340,7 +340,6 @@ class GiftCards(BaseSDK):
         self,
         *,
         gift_card_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -352,7 +351,6 @@ class GiftCards(BaseSDK):
         Removes a gift card from our system.
 
         :param gift_card_id: The ID of the gift card.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -371,7 +369,6 @@ class GiftCards(BaseSDK):
 
         request = models.DeleteGiftCardRequest(
             gift_card_id=gift_card_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 
@@ -496,7 +493,6 @@ class GiftCards(BaseSDK):
         self,
         *,
         gift_card_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -508,7 +504,6 @@ class GiftCards(BaseSDK):
         Removes a gift card from our system.
 
         :param gift_card_id: The ID of the gift card.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -527,7 +522,6 @@ class GiftCards(BaseSDK):
 
         request = models.DeleteGiftCardRequest(
             gift_card_id=gift_card_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 
@@ -653,7 +647,6 @@ class GiftCards(BaseSDK):
         *,
         number: str,
         pin: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_external_identifier: OptionalNullable[str] = UNSET,
@@ -668,7 +661,6 @@ class GiftCards(BaseSDK):
 
         :param number: The 16-19 digit number for the gift card.
         :param pin: The PIN for this gift card.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param buyer_id: The ID of the buyer to associate this gift card to. If this field is provided then the `buyer_external_identifier` field needs to be unset.
         :param buyer_external_identifier: The `external_identifier` of the buyer to associate this gift card to. If this field is provided then the `buyer_id` field needs to be unset.
@@ -688,7 +680,6 @@ class GiftCards(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreateGiftCardRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             gift_card_create=models.GiftCardCreate(
                 number=number,
@@ -823,7 +814,6 @@ class GiftCards(BaseSDK):
         *,
         number: str,
         pin: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_external_identifier: OptionalNullable[str] = UNSET,
@@ -838,7 +828,6 @@ class GiftCards(BaseSDK):
 
         :param number: The 16-19 digit number for the gift card.
         :param pin: The PIN for this gift card.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param buyer_id: The ID of the buyer to associate this gift card to. If this field is provided then the `buyer_external_identifier` field needs to be unset.
         :param buyer_external_identifier: The `external_identifier` of the buyer to associate this gift card to. If this field is provided then the `buyer_id` field needs to be unset.
@@ -858,7 +847,6 @@ class GiftCards(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreateGiftCardRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             gift_card_create=models.GiftCardCreate(
                 number=number,

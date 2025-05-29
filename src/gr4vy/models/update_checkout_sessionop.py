@@ -7,7 +7,6 @@ from gr4vy.utils import (
     FieldMetadata,
     HeaderMetadata,
     PathParamMetadata,
-    QueryParamMetadata,
     RequestMetadata,
 )
 import pydantic
@@ -33,7 +32,6 @@ class UpdateCheckoutSessionRequestTypedDict(TypedDict):
     session_id: str
     r"""The ID of the checkout session."""
     checkout_session_create: CheckoutSessionCreateTypedDict
-    timeout_in_seconds: NotRequired[float]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -48,11 +46,6 @@ class UpdateCheckoutSessionRequest(BaseModel):
         CheckoutSessionCreate,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
-
-    timeout_in_seconds: Annotated[
-        Optional[float],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = 1
 
     merchant_account_id: Annotated[
         Optional[str],

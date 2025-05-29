@@ -2,20 +2,20 @@ speakeasyVersion: 1.552.0
 sources:
     openapi:
         sourceNamespace: openapi
-        sourceRevisionDigest: sha256:e2c9d0644dc5c7dee5ac38f7143da34c09028a8afc7270d66e80b5be78e4314e
-        sourceBlobDigest: sha256:eeb78b97ba5fd4a13215af67f280dc733d1677122e198dbccd74f31103d2bb9d
+        sourceRevisionDigest: sha256:95b9e57cd5974086c8cfd15150633b12dc730e133979a3e4991f9d0a9fad0bab
+        sourceBlobDigest: sha256:e2e8b6b8cc2b1f92b1fedf9c129b2bebdd07025c7d0a7f5e92c2f4322d699ab3
         tags:
             - latest
-            - speakeasy-sdk-regen-1748423722
+            - speakeasy-sdk-regen-1748500959
             - 1.0.0
 targets:
     python:
         source: openapi
         sourceNamespace: openapi
-        sourceRevisionDigest: sha256:e2c9d0644dc5c7dee5ac38f7143da34c09028a8afc7270d66e80b5be78e4314e
-        sourceBlobDigest: sha256:eeb78b97ba5fd4a13215af67f280dc733d1677122e198dbccd74f31103d2bb9d
+        sourceRevisionDigest: sha256:95b9e57cd5974086c8cfd15150633b12dc730e133979a3e4991f9d0a9fad0bab
+        sourceBlobDigest: sha256:e2e8b6b8cc2b1f92b1fedf9c129b2bebdd07025c7d0a7f5e92c2f4322d699ab3
         codeSamplesNamespace: openapi-python-code-samples
-        codeSamplesRevisionDigest: sha256:97f61e128f7579ce1dfd1fdcb9145c1ae67b3c6d691310a5166680ddb2027d5f
+        codeSamplesRevisionDigest: sha256:736212bf29107212810122f3dfc004eda86bbd1d0303577414d81aa038e32084
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -31,6 +31,7 @@ workflow:
                 - location: ./.speakeasy/overlays/mid-global.yaml
                 - location: ./.speakeasy/overlays/fix-base-model.yaml
                 - location: ./.speakeasy/overlays/fix-checkout-session-body.yaml
+                - location: ./.speakeasy/overlays/fix-remove-timeout-in-seconds.yaml
             registry:
                 location: registry.speakeasyapi.dev/gr4vy/gr4vy/openapi
     targets:

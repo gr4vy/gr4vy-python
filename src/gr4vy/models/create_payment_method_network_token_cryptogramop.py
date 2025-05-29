@@ -7,7 +7,6 @@ from gr4vy.utils import (
     FieldMetadata,
     HeaderMetadata,
     PathParamMetadata,
-    QueryParamMetadata,
     RequestMetadata,
 )
 import pydantic
@@ -35,7 +34,6 @@ class CreatePaymentMethodNetworkTokenCryptogramRequestTypedDict(TypedDict):
     network_token_id: str
     r"""The ID of the network token"""
     cryptogram_create: CryptogramCreateTypedDict
-    timeout_in_seconds: NotRequired[float]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -55,11 +53,6 @@ class CreatePaymentMethodNetworkTokenCryptogramRequest(BaseModel):
         CryptogramCreate,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
-
-    timeout_in_seconds: Annotated[
-        Optional[float],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = 1
 
     merchant_account_id: Annotated[
         Optional[str],

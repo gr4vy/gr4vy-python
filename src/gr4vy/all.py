@@ -13,7 +13,6 @@ class All(BaseSDK):
         self,
         *,
         transaction_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         reason: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
@@ -27,7 +26,6 @@ class All(BaseSDK):
         Create a refund for all instruments on a transaction.
 
         :param transaction_id:
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param reason: An optional reason to attach extra context to the refund requests.
         :param external_identifier: An external identifier that can be used to match the refunds against your own records.
@@ -48,7 +46,6 @@ class All(BaseSDK):
 
         request = models.CreateFullTransactionRefundRequest(
             transaction_id=transaction_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             transaction_refund_all_create=models.TransactionRefundAllCreate(
                 reason=reason,
@@ -184,7 +181,6 @@ class All(BaseSDK):
         self,
         *,
         transaction_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         reason: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
@@ -198,7 +194,6 @@ class All(BaseSDK):
         Create a refund for all instruments on a transaction.
 
         :param transaction_id:
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param reason: An optional reason to attach extra context to the refund requests.
         :param external_identifier: An external identifier that can be used to match the refunds against your own records.
@@ -219,7 +214,6 @@ class All(BaseSDK):
 
         request = models.CreateFullTransactionRefundRequest(
             transaction_id=transaction_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             transaction_refund_all_create=models.TransactionRefundAllCreate(
                 reason=reason,

@@ -13,7 +13,6 @@ class Jobs(BaseSDK):
         self,
         *,
         payment_method_ids: List[str],
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -25,7 +24,6 @@ class Jobs(BaseSDK):
         Schedule one or more stored cards for an account update.
 
         :param payment_method_ids: A list of payment method IDs to request an update for.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -43,7 +41,6 @@ class Jobs(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreateAccountUpdaterJobRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             account_updater_job_create=models.AccountUpdaterJobCreate(
                 payment_method_ids=payment_method_ids,
@@ -180,7 +177,6 @@ class Jobs(BaseSDK):
         self,
         *,
         payment_method_ids: List[str],
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -192,7 +188,6 @@ class Jobs(BaseSDK):
         Schedule one or more stored cards for an account update.
 
         :param payment_method_ids: A list of payment method IDs to request an update for.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -210,7 +205,6 @@ class Jobs(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreateAccountUpdaterJobRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             account_updater_job_create=models.AccountUpdaterJobCreate(
                 payment_method_ids=payment_method_ids,
