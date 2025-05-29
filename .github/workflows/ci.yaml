@@ -16,6 +16,13 @@ jobs:
     runs-on: ubuntu-latest
     
     timeout-minutes: 3
+    strategy:
+      matrix:
+        python:
+          - 3.9
+          - 3.10
+          - 3.11
+          - 3.12
 
     permissions:
       contents: write
@@ -25,9 +32,10 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v2
 
-      - uses: actions/setup-python@v5
+      - name: Use Python ${{ matrix.python }}
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.12
+          python-version: ${{ matrix.python }}
 
       - name: Install poetry
         uses: abatilo/actions-poetry@v3
