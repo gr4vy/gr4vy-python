@@ -1,7 +1,7 @@
 # Gr4vy Python SDK (Beta)
 
 
-Developer-friendly & type-safe Python SDK specifically catered to leverage *gr4vy* API.
+Developer-friendly & type-safe Python SDK specifically catered to leverage *Gr4vy* API.
 
 <div align="left">
     <a href="https://pypi.org/project/gr4vy/"></a><img alt="PyPI - Version" src="https://img.shields.io/pypi/v/gr4vy?style=for-the-badge"></a>
