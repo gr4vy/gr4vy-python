@@ -109,3 +109,13 @@ Based on:
 - [python v1.0.0-beta.12] .
 ### Releases
 - [PyPI v1.0.0-beta.12] https://pypi.org/project/gr4vy/1.0.0-beta.12 - .
+
+## 2025-05-29 06:42:21
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.552.0 (2.610.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v1.0.0-beta.13] .
+### Releases
+- [PyPI v1.0.0-beta.13] https://pypi.org/project/gr4vy/1.0.0-beta.13 - .

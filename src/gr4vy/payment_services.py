@@ -1570,7 +1570,6 @@ class PaymentServices(BaseSDK):
         self,
         *,
         payment_service_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1582,7 +1581,6 @@ class PaymentServices(BaseSDK):
         Deletes all the configuration of a payment service.
 
         :param payment_service_id: the ID of the payment service
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1601,7 +1599,6 @@ class PaymentServices(BaseSDK):
 
         request = models.DeletePaymentServiceRequest(
             payment_service_id=payment_service_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 
@@ -1726,7 +1723,6 @@ class PaymentServices(BaseSDK):
         self,
         *,
         payment_service_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1738,7 +1734,6 @@ class PaymentServices(BaseSDK):
         Deletes all the configuration of a payment service.
 
         :param payment_service_id: the ID of the payment service
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1757,7 +1752,6 @@ class PaymentServices(BaseSDK):
 
         request = models.DeletePaymentServiceRequest(
             payment_service_id=payment_service_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 
@@ -1883,7 +1877,6 @@ class PaymentServices(BaseSDK):
         *,
         payment_service_definition_id: str,
         fields: Union[List[models.FieldT], List[models.FieldTTypedDict]],
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         payment_service_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -1897,7 +1890,6 @@ class PaymentServices(BaseSDK):
 
         :param payment_service_definition_id: The ID of the payment service definition to verify the fields against
         :param fields: The fields and their values, or a set of updated fields to merge with existing values.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param payment_service_id: The optional ID of the configured payment service. New fields will be merged with any existing fields already stored before they are verified.
         :param retries: Override the default retry configuration for this method
@@ -1916,7 +1908,6 @@ class PaymentServices(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.VerifyPaymentServiceCredentialsRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             verify_credentials=models.VerifyCredentials(
                 payment_service_definition_id=payment_service_definition_id,
@@ -2054,7 +2045,6 @@ class PaymentServices(BaseSDK):
         *,
         payment_service_definition_id: str,
         fields: Union[List[models.FieldT], List[models.FieldTTypedDict]],
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         payment_service_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -2068,7 +2058,6 @@ class PaymentServices(BaseSDK):
 
         :param payment_service_definition_id: The ID of the payment service definition to verify the fields against
         :param fields: The fields and their values, or a set of updated fields to merge with existing values.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param payment_service_id: The optional ID of the configured payment service. New fields will be merged with any existing fields already stored before they are verified.
         :param retries: Override the default retry configuration for this method
@@ -2087,7 +2076,6 @@ class PaymentServices(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.VerifyPaymentServiceCredentialsRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             verify_credentials=models.VerifyCredentials(
                 payment_service_definition_id=payment_service_definition_id,

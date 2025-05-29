@@ -722,7 +722,6 @@ class Transactions(BaseSDK):
         *,
         amount: int,
         currency: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         idempotency_key: OptionalNullable[str] = UNSET,
         country: OptionalNullable[str] = UNSET,
@@ -784,7 +783,6 @@ class Transactions(BaseSDK):
 
         :param amount: The monetary amount for this transaction, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`. If the `intent` is set to `capture`, an amount greater than zero must be supplied. All gift card amounts are subtracted from this amount before the remainder is charged to the provided `payment_method`.
         :param currency: A supported ISO-4217 currency code. For redirect requests, this value must match the one specified for `currency` in `payment_method`.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param idempotency_key: A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
         :param country: The 2-letter ISO code of the country where the transaction is processed. This is also used to filter the payment services that can process the transaction. If this value is provided for redirect requests and it's not `null`, it must match the one specified for `country` in `payment_method`. Otherwise, the value specified for `country` in `payment_method` will be assumed implicitly.
@@ -830,7 +828,6 @@ class Transactions(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreateTransactionRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             idempotency_key=idempotency_key,
             transaction_create=models.TransactionCreate(
@@ -1014,7 +1011,6 @@ class Transactions(BaseSDK):
         *,
         amount: int,
         currency: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         idempotency_key: OptionalNullable[str] = UNSET,
         country: OptionalNullable[str] = UNSET,
@@ -1076,7 +1072,6 @@ class Transactions(BaseSDK):
 
         :param amount: The monetary amount for this transaction, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`. If the `intent` is set to `capture`, an amount greater than zero must be supplied. All gift card amounts are subtracted from this amount before the remainder is charged to the provided `payment_method`.
         :param currency: A supported ISO-4217 currency code. For redirect requests, this value must match the one specified for `currency` in `payment_method`.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param idempotency_key: A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
         :param country: The 2-letter ISO code of the country where the transaction is processed. This is also used to filter the payment services that can process the transaction. If this value is provided for redirect requests and it's not `null`, it must match the one specified for `country` in `payment_method`. Otherwise, the value specified for `country` in `payment_method` will be assumed implicitly.
@@ -1122,7 +1117,6 @@ class Transactions(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreateTransactionRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             idempotency_key=idempotency_key,
             transaction_create=models.TransactionCreate(
@@ -1619,7 +1613,6 @@ class Transactions(BaseSDK):
         self,
         *,
         transaction_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         amount: OptionalNullable[int] = UNSET,
         airline: OptionalNullable[
@@ -1635,7 +1628,6 @@ class Transactions(BaseSDK):
         Capture a previously authorized transaction.
 
         :param transaction_id:
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param amount: The amount to capture. This normally needs to be equal or less than the authorized amount, unless over-capture is available.
         :param airline: The airline data to submit to the payment service during the capture call.
@@ -1656,7 +1648,6 @@ class Transactions(BaseSDK):
 
         request = models.CaptureTransactionRequest(
             transaction_id=transaction_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             transaction_capture=models.TransactionCapture(
                 amount=amount,
@@ -1794,7 +1785,6 @@ class Transactions(BaseSDK):
         self,
         *,
         transaction_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         amount: OptionalNullable[int] = UNSET,
         airline: OptionalNullable[
@@ -1810,7 +1800,6 @@ class Transactions(BaseSDK):
         Capture a previously authorized transaction.
 
         :param transaction_id:
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param amount: The amount to capture. This normally needs to be equal or less than the authorized amount, unless over-capture is available.
         :param airline: The airline data to submit to the payment service during the capture call.
@@ -1831,7 +1820,6 @@ class Transactions(BaseSDK):
 
         request = models.CaptureTransactionRequest(
             transaction_id=transaction_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             transaction_capture=models.TransactionCapture(
                 amount=amount,
@@ -1969,7 +1957,6 @@ class Transactions(BaseSDK):
         self,
         *,
         transaction_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1981,7 +1968,6 @@ class Transactions(BaseSDK):
         Void a previously authorized transaction.
 
         :param transaction_id:
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2000,7 +1986,6 @@ class Transactions(BaseSDK):
 
         request = models.VoidTransactionRequest(
             transaction_id=transaction_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 
@@ -2125,7 +2110,6 @@ class Transactions(BaseSDK):
         self,
         *,
         transaction_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -2137,7 +2121,6 @@ class Transactions(BaseSDK):
         Void a previously authorized transaction.
 
         :param transaction_id:
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2156,7 +2139,6 @@ class Transactions(BaseSDK):
 
         request = models.VoidTransactionRequest(
             transaction_id=transaction_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 
@@ -2595,7 +2577,6 @@ class Transactions(BaseSDK):
         self,
         *,
         transaction_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -2607,7 +2588,6 @@ class Transactions(BaseSDK):
         Fetch the latest status for a transaction.
 
         :param transaction_id:
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2626,7 +2606,6 @@ class Transactions(BaseSDK):
 
         request = models.SyncTransactionRequest(
             transaction_id=transaction_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 
@@ -2751,7 +2730,6 @@ class Transactions(BaseSDK):
         self,
         *,
         transaction_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -2763,7 +2741,6 @@ class Transactions(BaseSDK):
         Fetch the latest status for a transaction.
 
         :param transaction_id:
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2782,7 +2759,6 @@ class Transactions(BaseSDK):
 
         request = models.SyncTransactionRequest(
             transaction_id=transaction_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 

@@ -14,7 +14,6 @@ class Domains(BaseSDK):
         *,
         digital_wallet_id: str,
         domain_name: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -27,7 +26,6 @@ class Domains(BaseSDK):
 
         :param digital_wallet_id: The ID of the digital wallet to remove a domain for.
         :param domain_name: The domain to add or remove.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -46,7 +44,6 @@ class Domains(BaseSDK):
 
         request = models.RegisterDigitalWalletDomainRequest(
             digital_wallet_id=digital_wallet_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             digital_wallet_domain=models.DigitalWalletDomain(
                 domain_name=domain_name,
@@ -182,7 +179,6 @@ class Domains(BaseSDK):
         *,
         digital_wallet_id: str,
         domain_name: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -195,7 +191,6 @@ class Domains(BaseSDK):
 
         :param digital_wallet_id: The ID of the digital wallet to remove a domain for.
         :param domain_name: The domain to add or remove.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -214,7 +209,6 @@ class Domains(BaseSDK):
 
         request = models.RegisterDigitalWalletDomainRequest(
             digital_wallet_id=digital_wallet_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             digital_wallet_domain=models.DigitalWalletDomain(
                 domain_name=domain_name,
@@ -350,7 +344,6 @@ class Domains(BaseSDK):
         *,
         digital_wallet_id: str,
         domain_name: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -363,7 +356,6 @@ class Domains(BaseSDK):
 
         :param digital_wallet_id:
         :param domain_name: The domain to add or remove.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -382,7 +374,6 @@ class Domains(BaseSDK):
 
         request = models.UnregisterDigitalWalletDomainRequest(
             digital_wallet_id=digital_wallet_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             digital_wallet_domain=models.DigitalWalletDomain(
                 domain_name=domain_name,
@@ -518,7 +509,6 @@ class Domains(BaseSDK):
         *,
         digital_wallet_id: str,
         domain_name: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -531,7 +521,6 @@ class Domains(BaseSDK):
 
         :param digital_wallet_id:
         :param domain_name: The domain to add or remove.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -550,7 +539,6 @@ class Domains(BaseSDK):
 
         request = models.UnregisterDigitalWalletDomainRequest(
             digital_wallet_id=digital_wallet_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             digital_wallet_domain=models.DigitalWalletDomain(
                 domain_name=domain_name,

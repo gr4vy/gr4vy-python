@@ -10,7 +10,6 @@ from gr4vy.utils import (
     FieldMetadata,
     HeaderMetadata,
     PathParamMetadata,
-    QueryParamMetadata,
     RequestMetadata,
 )
 import pydantic
@@ -35,7 +34,6 @@ class CreateTransactionRefundGlobals(BaseModel):
 class CreateTransactionRefundRequestTypedDict(TypedDict):
     transaction_id: str
     transaction_refund_create: TransactionRefundCreateTypedDict
-    timeout_in_seconds: NotRequired[float]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -49,11 +47,6 @@ class CreateTransactionRefundRequest(BaseModel):
         TransactionRefundCreate,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
-
-    timeout_in_seconds: Annotated[
-        Optional[float],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = 1
 
     merchant_account_id: Annotated[
         Optional[str],

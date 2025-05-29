@@ -30,7 +30,6 @@ class DigitalWallets(BaseSDK):
         provider: models.DigitalWalletProvider,
         merchant_name: str,
         accept_terms_and_conditions: bool,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         merchant_display_name: OptionalNullable[str] = UNSET,
         merchant_url: OptionalNullable[str] = UNSET,
@@ -48,7 +47,6 @@ class DigitalWallets(BaseSDK):
         :param provider:
         :param merchant_name:
         :param accept_terms_and_conditions:
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param merchant_display_name:
         :param merchant_url:
@@ -70,7 +68,6 @@ class DigitalWallets(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ConfigureDigitalWalletRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             digital_wallet_create=models.DigitalWalletCreate(
                 provider=provider,
@@ -213,7 +210,6 @@ class DigitalWallets(BaseSDK):
         provider: models.DigitalWalletProvider,
         merchant_name: str,
         accept_terms_and_conditions: bool,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         merchant_display_name: OptionalNullable[str] = UNSET,
         merchant_url: OptionalNullable[str] = UNSET,
@@ -231,7 +227,6 @@ class DigitalWallets(BaseSDK):
         :param provider:
         :param merchant_name:
         :param accept_terms_and_conditions:
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param merchant_display_name:
         :param merchant_url:
@@ -253,7 +248,6 @@ class DigitalWallets(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ConfigureDigitalWalletRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             digital_wallet_create=models.DigitalWalletCreate(
                 provider=provider,
@@ -1020,7 +1014,6 @@ class DigitalWallets(BaseSDK):
         self,
         *,
         digital_wallet_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1032,7 +1025,6 @@ class DigitalWallets(BaseSDK):
         Delete a configured digital wallet.
 
         :param digital_wallet_id: The ID of the digital wallet to delete.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1051,7 +1043,6 @@ class DigitalWallets(BaseSDK):
 
         request = models.DeleteDigitalWalletRequest(
             digital_wallet_id=digital_wallet_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 
@@ -1176,7 +1167,6 @@ class DigitalWallets(BaseSDK):
         self,
         *,
         digital_wallet_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1188,7 +1178,6 @@ class DigitalWallets(BaseSDK):
         Delete a configured digital wallet.
 
         :param digital_wallet_id: The ID of the digital wallet to delete.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1207,7 +1196,6 @@ class DigitalWallets(BaseSDK):
 
         request = models.DeleteDigitalWalletRequest(
             digital_wallet_id=digital_wallet_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 
@@ -1332,7 +1320,6 @@ class DigitalWallets(BaseSDK):
         self,
         *,
         digital_wallet_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         merchant_name: OptionalNullable[str] = UNSET,
         domain_names: OptionalNullable[List[str]] = UNSET,
@@ -1349,7 +1336,6 @@ class DigitalWallets(BaseSDK):
         Update a digital wallet.
 
         :param digital_wallet_id: The ID of the digital wallet to edit.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param merchant_name:
         :param domain_names:
@@ -1373,7 +1359,6 @@ class DigitalWallets(BaseSDK):
 
         request = models.UpdateDigitalWalletRequest(
             digital_wallet_id=digital_wallet_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             digital_wallet_update=models.DigitalWalletUpdate(
                 merchant_name=merchant_name,
@@ -1512,7 +1497,6 @@ class DigitalWallets(BaseSDK):
         self,
         *,
         digital_wallet_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         merchant_name: OptionalNullable[str] = UNSET,
         domain_names: OptionalNullable[List[str]] = UNSET,
@@ -1529,7 +1513,6 @@ class DigitalWallets(BaseSDK):
         Update a digital wallet.
 
         :param digital_wallet_id: The ID of the digital wallet to edit.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param merchant_name:
         :param domain_names:
@@ -1553,7 +1536,6 @@ class DigitalWallets(BaseSDK):
 
         request = models.UpdateDigitalWalletRequest(
             digital_wallet_id=digital_wallet_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             digital_wallet_update=models.DigitalWalletUpdate(
                 merchant_name=merchant_name,

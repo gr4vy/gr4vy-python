@@ -375,7 +375,6 @@ class MerchantAccounts(BaseSDK):
         *,
         id: str,
         display_name: str,
-        timeout_in_seconds: Optional[float] = 1,
         account_updater_enabled: Optional[bool] = False,
         account_updater_request_encryption_key: OptionalNullable[str] = UNSET,
         account_updater_request_encryption_key_id: OptionalNullable[str] = UNSET,
@@ -406,7 +405,6 @@ class MerchantAccounts(BaseSDK):
 
         :param id: The ID for the merchant account.
         :param display_name: The display name for the merchant account.
-        :param timeout_in_seconds:
         :param account_updater_enabled: Whether the Real-Time Account Updater service is enabled for this merchant account. The Account Updater service is used to update card details when cards are lost, stolen or expired. If the field is not set or if it's set to `false`, the Account Updater service doesn't get called if a payment fails with expired or invalid card details. If the field is set to `true`, the service is called. Please note that for this to work the other `account_updater_* fields` must be set as well.
         :param account_updater_request_encryption_key: The public key used to encrypt the request to the Real-Time Account Updater service. The Account Updater service is used to update card details when cards are lost, stolen or expired. If the field is not set or if it's set to `null`, the Account Updater service doesn't get called. If the field is set, the other `account_updater_*` fields must be set as well.
         :param account_updater_request_encryption_key_id: The ID of the key used to encrypt the request to the Real-Time Account Updater service. The Account Updater service is used to update card details when cards are lost, stolen or expired. If the field is not set or if it's set to `null`, the Account Updater service doesn't get called. If the field is set, the other `account_updater_*` fields must be set as well.
@@ -441,31 +439,28 @@ class MerchantAccounts(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CreateMerchantAccountRequest(
-            timeout_in_seconds=timeout_in_seconds,
-            merchant_account_create=models.MerchantAccountCreate(
-                account_updater_enabled=account_updater_enabled,
-                account_updater_request_encryption_key=account_updater_request_encryption_key,
-                account_updater_request_encryption_key_id=account_updater_request_encryption_key_id,
-                account_updater_response_decryption_key=account_updater_response_decryption_key,
-                account_updater_response_decryption_key_id=account_updater_response_decryption_key_id,
-                over_capture_amount=over_capture_amount,
-                over_capture_percentage=over_capture_percentage,
-                loon_client_key=loon_client_key,
-                loon_secret_key=loon_secret_key,
-                loon_accepted_schemes=loon_accepted_schemes,
-                visa_network_tokens_requestor_id=visa_network_tokens_requestor_id,
-                visa_network_tokens_app_id=visa_network_tokens_app_id,
-                amex_network_tokens_requestor_id=amex_network_tokens_requestor_id,
-                amex_network_tokens_app_id=amex_network_tokens_app_id,
-                mastercard_network_tokens_requestor_id=mastercard_network_tokens_requestor_id,
-                mastercard_network_tokens_app_id=mastercard_network_tokens_app_id,
-                outbound_webhook_url=outbound_webhook_url,
-                outbound_webhook_username=outbound_webhook_username,
-                outbound_webhook_password=outbound_webhook_password,
-                id=id,
-                display_name=display_name,
-            ),
+        request = models.MerchantAccountCreate(
+            account_updater_enabled=account_updater_enabled,
+            account_updater_request_encryption_key=account_updater_request_encryption_key,
+            account_updater_request_encryption_key_id=account_updater_request_encryption_key_id,
+            account_updater_response_decryption_key=account_updater_response_decryption_key,
+            account_updater_response_decryption_key_id=account_updater_response_decryption_key_id,
+            over_capture_amount=over_capture_amount,
+            over_capture_percentage=over_capture_percentage,
+            loon_client_key=loon_client_key,
+            loon_secret_key=loon_secret_key,
+            loon_accepted_schemes=loon_accepted_schemes,
+            visa_network_tokens_requestor_id=visa_network_tokens_requestor_id,
+            visa_network_tokens_app_id=visa_network_tokens_app_id,
+            amex_network_tokens_requestor_id=amex_network_tokens_requestor_id,
+            amex_network_tokens_app_id=amex_network_tokens_app_id,
+            mastercard_network_tokens_requestor_id=mastercard_network_tokens_requestor_id,
+            mastercard_network_tokens_app_id=mastercard_network_tokens_app_id,
+            outbound_webhook_url=outbound_webhook_url,
+            outbound_webhook_username=outbound_webhook_username,
+            outbound_webhook_password=outbound_webhook_password,
+            id=id,
+            display_name=display_name,
         )
 
         req = self._build_request(
@@ -482,11 +477,7 @@ class MerchantAccounts(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.merchant_account_create,
-                False,
-                False,
-                "json",
-                models.MerchantAccountCreate,
+                request, False, False, "json", models.MerchantAccountCreate
             ),
             timeout_ms=timeout_ms,
         )
@@ -594,7 +585,6 @@ class MerchantAccounts(BaseSDK):
         *,
         id: str,
         display_name: str,
-        timeout_in_seconds: Optional[float] = 1,
         account_updater_enabled: Optional[bool] = False,
         account_updater_request_encryption_key: OptionalNullable[str] = UNSET,
         account_updater_request_encryption_key_id: OptionalNullable[str] = UNSET,
@@ -625,7 +615,6 @@ class MerchantAccounts(BaseSDK):
 
         :param id: The ID for the merchant account.
         :param display_name: The display name for the merchant account.
-        :param timeout_in_seconds:
         :param account_updater_enabled: Whether the Real-Time Account Updater service is enabled for this merchant account. The Account Updater service is used to update card details when cards are lost, stolen or expired. If the field is not set or if it's set to `false`, the Account Updater service doesn't get called if a payment fails with expired or invalid card details. If the field is set to `true`, the service is called. Please note that for this to work the other `account_updater_* fields` must be set as well.
         :param account_updater_request_encryption_key: The public key used to encrypt the request to the Real-Time Account Updater service. The Account Updater service is used to update card details when cards are lost, stolen or expired. If the field is not set or if it's set to `null`, the Account Updater service doesn't get called. If the field is set, the other `account_updater_*` fields must be set as well.
         :param account_updater_request_encryption_key_id: The ID of the key used to encrypt the request to the Real-Time Account Updater service. The Account Updater service is used to update card details when cards are lost, stolen or expired. If the field is not set or if it's set to `null`, the Account Updater service doesn't get called. If the field is set, the other `account_updater_*` fields must be set as well.
@@ -660,31 +649,28 @@ class MerchantAccounts(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CreateMerchantAccountRequest(
-            timeout_in_seconds=timeout_in_seconds,
-            merchant_account_create=models.MerchantAccountCreate(
-                account_updater_enabled=account_updater_enabled,
-                account_updater_request_encryption_key=account_updater_request_encryption_key,
-                account_updater_request_encryption_key_id=account_updater_request_encryption_key_id,
-                account_updater_response_decryption_key=account_updater_response_decryption_key,
-                account_updater_response_decryption_key_id=account_updater_response_decryption_key_id,
-                over_capture_amount=over_capture_amount,
-                over_capture_percentage=over_capture_percentage,
-                loon_client_key=loon_client_key,
-                loon_secret_key=loon_secret_key,
-                loon_accepted_schemes=loon_accepted_schemes,
-                visa_network_tokens_requestor_id=visa_network_tokens_requestor_id,
-                visa_network_tokens_app_id=visa_network_tokens_app_id,
-                amex_network_tokens_requestor_id=amex_network_tokens_requestor_id,
-                amex_network_tokens_app_id=amex_network_tokens_app_id,
-                mastercard_network_tokens_requestor_id=mastercard_network_tokens_requestor_id,
-                mastercard_network_tokens_app_id=mastercard_network_tokens_app_id,
-                outbound_webhook_url=outbound_webhook_url,
-                outbound_webhook_username=outbound_webhook_username,
-                outbound_webhook_password=outbound_webhook_password,
-                id=id,
-                display_name=display_name,
-            ),
+        request = models.MerchantAccountCreate(
+            account_updater_enabled=account_updater_enabled,
+            account_updater_request_encryption_key=account_updater_request_encryption_key,
+            account_updater_request_encryption_key_id=account_updater_request_encryption_key_id,
+            account_updater_response_decryption_key=account_updater_response_decryption_key,
+            account_updater_response_decryption_key_id=account_updater_response_decryption_key_id,
+            over_capture_amount=over_capture_amount,
+            over_capture_percentage=over_capture_percentage,
+            loon_client_key=loon_client_key,
+            loon_secret_key=loon_secret_key,
+            loon_accepted_schemes=loon_accepted_schemes,
+            visa_network_tokens_requestor_id=visa_network_tokens_requestor_id,
+            visa_network_tokens_app_id=visa_network_tokens_app_id,
+            amex_network_tokens_requestor_id=amex_network_tokens_requestor_id,
+            amex_network_tokens_app_id=amex_network_tokens_app_id,
+            mastercard_network_tokens_requestor_id=mastercard_network_tokens_requestor_id,
+            mastercard_network_tokens_app_id=mastercard_network_tokens_app_id,
+            outbound_webhook_url=outbound_webhook_url,
+            outbound_webhook_username=outbound_webhook_username,
+            outbound_webhook_password=outbound_webhook_password,
+            id=id,
+            display_name=display_name,
         )
 
         req = self._build_request_async(
@@ -701,11 +687,7 @@ class MerchantAccounts(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.merchant_account_create,
-                False,
-                False,
-                "json",
-                models.MerchantAccountCreate,
+                request, False, False, "json", models.MerchantAccountCreate
             ),
             timeout_ms=timeout_ms,
         )
@@ -1114,7 +1096,6 @@ class MerchantAccounts(BaseSDK):
         self,
         *,
         merchant_account_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         account_updater_enabled: Optional[bool] = False,
         account_updater_request_encryption_key: OptionalNullable[str] = UNSET,
         account_updater_request_encryption_key_id: OptionalNullable[str] = UNSET,
@@ -1145,7 +1126,6 @@ class MerchantAccounts(BaseSDK):
         Update info for a merchant account in an instance.
 
         :param merchant_account_id: The ID of the merchant account
-        :param timeout_in_seconds:
         :param account_updater_enabled: Whether the Real-Time Account Updater service is enabled for this merchant account. The Account Updater service is used to update card details when cards are lost, stolen or expired. If the field is not set or if it's set to `false`, the Account Updater service doesn't get called if a payment fails with expired or invalid card details. If the field is set to `true`, the service is called. Please note that for this to work the other `account_updater_* fields` must be set as well.
         :param account_updater_request_encryption_key: The public key used to encrypt the request to the Real-Time Account Updater service. The Account Updater service is used to update card details when cards are lost, stolen or expired. If the field is not set or if it's set to `null`, the Account Updater service doesn't get called. If the field is set, the other `account_updater_*` fields must be set as well.
         :param account_updater_request_encryption_key_id: The ID of the key used to encrypt the request to the Real-Time Account Updater service. The Account Updater service is used to update card details when cards are lost, stolen or expired. If the field is not set or if it's set to `null`, the Account Updater service doesn't get called. If the field is set, the other `account_updater_*` fields must be set as well.
@@ -1183,7 +1163,6 @@ class MerchantAccounts(BaseSDK):
 
         request = models.UpdateMerchantAccountRequest(
             merchant_account_id=merchant_account_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_update=models.MerchantAccountUpdate(
                 account_updater_enabled=account_updater_enabled,
                 account_updater_request_encryption_key=account_updater_request_encryption_key,
@@ -1333,7 +1312,6 @@ class MerchantAccounts(BaseSDK):
         self,
         *,
         merchant_account_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         account_updater_enabled: Optional[bool] = False,
         account_updater_request_encryption_key: OptionalNullable[str] = UNSET,
         account_updater_request_encryption_key_id: OptionalNullable[str] = UNSET,
@@ -1364,7 +1342,6 @@ class MerchantAccounts(BaseSDK):
         Update info for a merchant account in an instance.
 
         :param merchant_account_id: The ID of the merchant account
-        :param timeout_in_seconds:
         :param account_updater_enabled: Whether the Real-Time Account Updater service is enabled for this merchant account. The Account Updater service is used to update card details when cards are lost, stolen or expired. If the field is not set or if it's set to `false`, the Account Updater service doesn't get called if a payment fails with expired or invalid card details. If the field is set to `true`, the service is called. Please note that for this to work the other `account_updater_* fields` must be set as well.
         :param account_updater_request_encryption_key: The public key used to encrypt the request to the Real-Time Account Updater service. The Account Updater service is used to update card details when cards are lost, stolen or expired. If the field is not set or if it's set to `null`, the Account Updater service doesn't get called. If the field is set, the other `account_updater_*` fields must be set as well.
         :param account_updater_request_encryption_key_id: The ID of the key used to encrypt the request to the Real-Time Account Updater service. The Account Updater service is used to update card details when cards are lost, stolen or expired. If the field is not set or if it's set to `null`, the Account Updater service doesn't get called. If the field is set, the other `account_updater_*` fields must be set as well.
@@ -1402,7 +1379,6 @@ class MerchantAccounts(BaseSDK):
 
         request = models.UpdateMerchantAccountRequest(
             merchant_account_id=merchant_account_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_update=models.MerchantAccountUpdate(
                 account_updater_enabled=account_updater_enabled,
                 account_updater_request_encryption_key=account_updater_request_encryption_key,

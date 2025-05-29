@@ -12,7 +12,6 @@ class CheckoutSessions(BaseSDK):
     def create(
         self,
         *,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         checkout_session_create: Optional[
             Union[models.CheckoutSessionCreate, models.CheckoutSessionCreateTypedDict]
@@ -26,7 +25,6 @@ class CheckoutSessions(BaseSDK):
 
         Create a new checkout session.
 
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param checkout_session_create:
         :param retries: Override the default retry configuration for this method
@@ -45,7 +43,6 @@ class CheckoutSessions(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreateCheckoutSessionRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             checkout_session_create=utils.get_pydantic_model(
                 checkout_session_create, Optional[models.CheckoutSessionCreate]
@@ -179,7 +176,6 @@ class CheckoutSessions(BaseSDK):
     async def create_async(
         self,
         *,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         checkout_session_create: Optional[
             Union[models.CheckoutSessionCreate, models.CheckoutSessionCreateTypedDict]
@@ -193,7 +189,6 @@ class CheckoutSessions(BaseSDK):
 
         Create a new checkout session.
 
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param checkout_session_create:
         :param retries: Override the default retry configuration for this method
@@ -212,7 +207,6 @@ class CheckoutSessions(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreateCheckoutSessionRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             checkout_session_create=utils.get_pydantic_model(
                 checkout_session_create, Optional[models.CheckoutSessionCreate]
@@ -347,7 +341,6 @@ class CheckoutSessions(BaseSDK):
         self,
         *,
         session_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         cart_items: OptionalNullable[
             Union[List[models.CartItem], List[models.CartItemTypedDict]]
@@ -370,7 +363,6 @@ class CheckoutSessions(BaseSDK):
         Update the information stored on a checkout session.
 
         :param session_id: The ID of the checkout session.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param cart_items: An array of cart items that represents the line items of a transaction.
         :param metadata: Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it.
@@ -394,7 +386,6 @@ class CheckoutSessions(BaseSDK):
 
         request = models.UpdateCheckoutSessionRequest(
             session_id=session_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             checkout_session_create=models.CheckoutSessionCreate(
                 cart_items=utils.get_pydantic_model(
@@ -539,7 +530,6 @@ class CheckoutSessions(BaseSDK):
         self,
         *,
         session_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         cart_items: OptionalNullable[
             Union[List[models.CartItem], List[models.CartItemTypedDict]]
@@ -562,7 +552,6 @@ class CheckoutSessions(BaseSDK):
         Update the information stored on a checkout session.
 
         :param session_id: The ID of the checkout session.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param cart_items: An array of cart items that represents the line items of a transaction.
         :param metadata: Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it.
@@ -586,7 +575,6 @@ class CheckoutSessions(BaseSDK):
 
         request = models.UpdateCheckoutSessionRequest(
             session_id=session_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             checkout_session_create=models.CheckoutSessionCreate(
                 cart_items=utils.get_pydantic_model(
@@ -731,7 +719,6 @@ class CheckoutSessions(BaseSDK):
         self,
         *,
         session_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -743,7 +730,6 @@ class CheckoutSessions(BaseSDK):
         Retrieve the information stored on a checkout session.
 
         :param session_id: The ID of the checkout session.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -762,7 +748,6 @@ class CheckoutSessions(BaseSDK):
 
         request = models.GetCheckoutSessionRequest(
             session_id=session_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 
@@ -886,7 +871,6 @@ class CheckoutSessions(BaseSDK):
         self,
         *,
         session_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -898,7 +882,6 @@ class CheckoutSessions(BaseSDK):
         Retrieve the information stored on a checkout session.
 
         :param session_id: The ID of the checkout session.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -917,7 +900,6 @@ class CheckoutSessions(BaseSDK):
 
         request = models.GetCheckoutSessionRequest(
             session_id=session_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 
@@ -1041,7 +1023,6 @@ class CheckoutSessions(BaseSDK):
         self,
         *,
         session_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1053,7 +1034,6 @@ class CheckoutSessions(BaseSDK):
         Deleta a checkout session and all of its (PCI) data.
 
         :param session_id: The ID of the checkout session.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1072,7 +1052,6 @@ class CheckoutSessions(BaseSDK):
 
         request = models.DeleteCheckoutSessionRequest(
             session_id=session_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 
@@ -1197,7 +1176,6 @@ class CheckoutSessions(BaseSDK):
         self,
         *,
         session_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1209,7 +1187,6 @@ class CheckoutSessions(BaseSDK):
         Deleta a checkout session and all of its (PCI) data.
 
         :param session_id: The ID of the checkout session.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1228,7 +1205,6 @@ class CheckoutSessions(BaseSDK):
 
         request = models.DeleteCheckoutSessionRequest(
             session_id=session_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 

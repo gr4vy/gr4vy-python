@@ -26,7 +26,6 @@ class ListBuyerGiftCardsGlobals(BaseModel):
 class ListBuyerGiftCardsRequestTypedDict(TypedDict):
     buyer_external_identifier: NotRequired[Nullable[str]]
     buyer_id: NotRequired[Nullable[str]]
-    timeout_in_seconds: NotRequired[float]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -42,11 +41,6 @@ class ListBuyerGiftCardsRequest(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
 
-    timeout_in_seconds: Annotated[
-        Optional[float],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = 1
-
     merchant_account_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
@@ -59,7 +53,6 @@ class ListBuyerGiftCardsRequest(BaseModel):
         optional_fields = [
             "buyer_external_identifier",
             "buyer_id",
-            "timeout_in_seconds",
             "merchant_account_id",
         ]
         nullable_fields = ["buyer_external_identifier", "buyer_id"]

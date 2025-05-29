@@ -13,7 +13,6 @@ class Balances(BaseSDK):
         self,
         *,
         items: Union[List[models.Item], List[models.ItemTypedDict]],
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -25,7 +24,6 @@ class Balances(BaseSDK):
         Fetch the balances for one or more gift cards.
 
         :param items: A list of gift cards to request a balance for.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -43,7 +41,6 @@ class Balances(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListGiftCardBalancesRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             gift_card_balance_request=models.GiftCardBalanceRequest(
                 items=utils.get_pydantic_model(items, List[models.Item]),
@@ -180,7 +177,6 @@ class Balances(BaseSDK):
         self,
         *,
         items: Union[List[models.Item], List[models.ItemTypedDict]],
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -192,7 +188,6 @@ class Balances(BaseSDK):
         Fetch the balances for one or more gift cards.
 
         :param items: A list of gift cards to request a balance for.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -210,7 +205,6 @@ class Balances(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListGiftCardBalancesRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             gift_card_balance_request=models.GiftCardBalanceRequest(
                 items=utils.get_pydantic_model(items, List[models.Item]),

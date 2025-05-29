@@ -2,12 +2,7 @@
 
 from __future__ import annotations
 from gr4vy.types import BaseModel
-from gr4vy.utils import (
-    FieldMetadata,
-    HeaderMetadata,
-    PathParamMetadata,
-    QueryParamMetadata,
-)
+from gr4vy.utils import FieldMetadata, HeaderMetadata, PathParamMetadata
 import pydantic
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -29,7 +24,6 @@ class SyncTransactionGlobals(BaseModel):
 
 class SyncTransactionRequestTypedDict(TypedDict):
     transaction_id: str
-    timeout_in_seconds: NotRequired[float]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -38,11 +32,6 @@ class SyncTransactionRequest(BaseModel):
     transaction_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-
-    timeout_in_seconds: Annotated[
-        Optional[float],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = 1
 
     merchant_account_id: Annotated[
         Optional[str],

@@ -409,7 +409,6 @@ class Buyers(BaseSDK):
     def create(
         self,
         *,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         display_name: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
@@ -426,7 +425,6 @@ class Buyers(BaseSDK):
 
         Create a new buyer record.
 
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param display_name: The display name for the buyer.
         :param external_identifier: The merchant identifier for this buyer.
@@ -448,7 +446,6 @@ class Buyers(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.AddBuyerRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             buyer_create=models.BuyerCreate(
                 display_name=display_name,
@@ -583,7 +580,6 @@ class Buyers(BaseSDK):
     async def create_async(
         self,
         *,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         display_name: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
@@ -600,7 +596,6 @@ class Buyers(BaseSDK):
 
         Create a new buyer record.
 
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param display_name: The display name for the buyer.
         :param external_identifier: The merchant identifier for this buyer.
@@ -622,7 +617,6 @@ class Buyers(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.AddBuyerRequest(
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             buyer_create=models.BuyerCreate(
                 display_name=display_name,
@@ -1072,7 +1066,6 @@ class Buyers(BaseSDK):
         self,
         *,
         buyer_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         display_name: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
@@ -1090,7 +1083,6 @@ class Buyers(BaseSDK):
         Updates a buyer record.
 
         :param buyer_id: The ID of the buyer to edit.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param display_name: The display name for the buyer.
         :param external_identifier: The merchant identifier for this buyer.
@@ -1113,7 +1105,6 @@ class Buyers(BaseSDK):
 
         request = models.UpdateBuyerRequest(
             buyer_id=buyer_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             buyer_update=models.BuyerUpdate(
                 display_name=display_name,
@@ -1249,7 +1240,6 @@ class Buyers(BaseSDK):
         self,
         *,
         buyer_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         display_name: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
@@ -1267,7 +1257,6 @@ class Buyers(BaseSDK):
         Updates a buyer record.
 
         :param buyer_id: The ID of the buyer to edit.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param display_name: The display name for the buyer.
         :param external_identifier: The merchant identifier for this buyer.
@@ -1290,7 +1279,6 @@ class Buyers(BaseSDK):
 
         request = models.UpdateBuyerRequest(
             buyer_id=buyer_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
             buyer_update=models.BuyerUpdate(
                 display_name=display_name,
@@ -1426,7 +1414,6 @@ class Buyers(BaseSDK):
         self,
         *,
         buyer_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1438,7 +1425,6 @@ class Buyers(BaseSDK):
         Permanently removes a buyer record.
 
         :param buyer_id: The ID of the buyer to delete.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1457,7 +1443,6 @@ class Buyers(BaseSDK):
 
         request = models.DeleteBuyerRequest(
             buyer_id=buyer_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 
@@ -1582,7 +1567,6 @@ class Buyers(BaseSDK):
         self,
         *,
         buyer_id: str,
-        timeout_in_seconds: Optional[float] = 1,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1594,7 +1578,6 @@ class Buyers(BaseSDK):
         Permanently removes a buyer record.
 
         :param buyer_id: The ID of the buyer to delete.
-        :param timeout_in_seconds:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1613,7 +1596,6 @@ class Buyers(BaseSDK):
 
         request = models.DeleteBuyerRequest(
             buyer_id=buyer_id,
-            timeout_in_seconds=timeout_in_seconds,
             merchant_account_id=merchant_account_id,
         )
 
