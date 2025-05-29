@@ -6,11 +6,11 @@ import json
 from jose import jwk
 from cryptography.hazmat.primitives import hashes, serialization
 import jwt
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, Union
 from datetime import datetime, timedelta, timezone
 from ._version import __user_agent__
 
-class JWTScope(enum.StrEnum):
+class JWTScope(str, enum.Enum):
     READ_ALL = "*.read"
     WRITE_ALL = "*.write"
     EMBED = "embed"
@@ -52,7 +52,7 @@ class JWTScope(enum.StrEnum):
     TRANSACTIONS_WRITE = "transactions.write"
     VAULT_FORWARD_WRITE = "vault-forward.write"
 
-type JWTScopes = list[JWTScope] | list[str]
+JWTScopes = Union[list[JWTScope], list[str]]
 
 def __b64e(value: bytes) -> str:
     return base64.urlsafe_b64encode(value).decode("utf8").strip("=")

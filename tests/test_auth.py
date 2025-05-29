@@ -1,5 +1,5 @@
 from freezegun import freeze_time
-from datetime import datetime, timedelta, UTC
+from datetime import datetime, timedelta, timezone
 import jwt
 from gr4vy.auth import get_token, get_embed_token, update_token, with_token, JWTScope
 from gr4vy._version import __user_agent__
@@ -110,11 +110,11 @@ def test_get_embed_token_takes_optional_checkout_session_id():
     assert decoded["checkout_session_id"] == CHECKOUT_SESSION_ID
 
 
-@freeze_time(datetime.now(UTC))
+@freeze_time(datetime.now(timezone.utc))
 def test_update_token_resigns_with_new_signature_and_expiration():
     original_token = get_token(private_key=PRIVATE_KEY, expires_in=60)
 
-    with freeze_time(datetime.now(UTC) + timedelta(seconds=90)):
+    with freeze_time(datetime.now(timezone.utc) + timedelta(seconds=90)):
         new_token = update_token(
             private_key=PRIVATE_KEY,
             token=original_token,
@@ -131,7 +131,7 @@ def test_update_token_resigns_with_new_signature_and_expiration():
 
 
 # @pytest.mark.asyncio
-@freeze_time(datetime.now(UTC))
+@freeze_time(datetime.now(timezone.utc))
 def test_update_token_allows_embed_token_update_with_new_params():
     original_token = get_embed_token(
         private_key=PRIVATE_KEY,
@@ -144,7 +144,7 @@ def test_update_token_allows_embed_token_update_with_new_params():
         "currency": "USD",
     }
 
-    with freeze_time(datetime.now(UTC) + timedelta(seconds=90)):
+    with freeze_time(datetime.now(timezone.utc) + timedelta(seconds=90)):
         new_token = update_token(
             private_key=PRIVATE_KEY,
             token=original_token,
