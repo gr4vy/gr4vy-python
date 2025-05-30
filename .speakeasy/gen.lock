@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: e1cd254ac4dca1aba0789bf190c296d3
+  docChecksum: 417b1c2ff0e4a516b4e4e55d5c9d7cde
   docVersion: 1.0.0
   speakeasyVersion: 1.554.1
   generationVersion: 2.616.1
-  releaseVersion: 1.0.0-beta.15
-  configChecksum: d164f97bfa415ada9f22fdc71b44a169
+  releaseVersion: 1.0.0-beta.16
+  configChecksum: 21c00c0f8c2803708a1190c02775b238
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -214,8 +214,6 @@ generatedFiles:
   - docs/models/gettransactionrefundglobals.md
   - docs/models/gettransactionrefundrequest.md
   - docs/models/gettransactionrequest.md
-  - docs/models/gettransactionsummaryglobals.md
-  - docs/models/gettransactionsummaryrequest.md
   - docs/models/giftcard.md
   - docs/models/giftcardbalancerequest.md
   - docs/models/giftcardcreate.md
@@ -380,7 +378,6 @@ generatedFiles:
   - docs/models/transactionrefundallcreate.md
   - docs/models/transactionrefundcreate.md
   - docs/models/transactionstatus.md
-  - docs/models/transactionstatussummary.md
   - docs/models/transactionsummary.md
   - docs/models/transactionthreedsecuresummary.md
   - docs/models/unregisterdigitalwalletdomainglobals.md
@@ -597,7 +594,6 @@ generatedFiles:
   - src/gr4vy/models/get_payoutop.py
   - src/gr4vy/models/get_refundop.py
   - src/gr4vy/models/get_transaction_refundop.py
-  - src/gr4vy/models/get_transaction_summaryop.py
   - src/gr4vy/models/get_transactionop.py
   - src/gr4vy/models/giftcard.py
   - src/gr4vy/models/giftcardbalancerequest.py
@@ -718,7 +714,6 @@ generatedFiles:
   - src/gr4vy/models/transactionrefundallcreate.py
   - src/gr4vy/models/transactionrefundcreate.py
   - src/gr4vy/models/transactionstatus.py
-  - src/gr4vy/models/transactionstatussummary.py
   - src/gr4vy/models/transactionsummary.py
   - src/gr4vy/models/transactionthreedsecuresummary.py
   - src/gr4vy/models/unregister_digital_wallet_domainop.py
