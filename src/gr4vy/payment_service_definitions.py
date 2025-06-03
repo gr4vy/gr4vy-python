@@ -15,6 +15,7 @@ class PaymentServiceDefinitions(BaseSDK):
         *,
         cursor: OptionalNullable[str] = UNSET,
         limit: Optional[int] = 20,
+        application_name: Optional[str] = "core-api",
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -26,6 +27,7 @@ class PaymentServiceDefinitions(BaseSDK):
 
         :param cursor: A pointer to the page of results to return.
         :param limit: The maximum number of items that are at returned.
+        :param application_name:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -44,6 +46,7 @@ class PaymentServiceDefinitions(BaseSDK):
         request = models.ListPaymentServiceDefinitionsRequest(
             cursor=cursor,
             limit=limit,
+            application_name=application_name,
         )
 
         req = self._build_request(
@@ -118,6 +121,7 @@ class PaymentServiceDefinitions(BaseSDK):
             return self.list(
                 cursor=next_cursor,
                 limit=limit,
+                application_name=application_name,
                 retries=retries,
             )
 
@@ -192,6 +196,7 @@ class PaymentServiceDefinitions(BaseSDK):
         *,
         cursor: OptionalNullable[str] = UNSET,
         limit: Optional[int] = 20,
+        application_name: Optional[str] = "core-api",
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -203,6 +208,7 @@ class PaymentServiceDefinitions(BaseSDK):
 
         :param cursor: A pointer to the page of results to return.
         :param limit: The maximum number of items that are at returned.
+        :param application_name:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -221,6 +227,7 @@ class PaymentServiceDefinitions(BaseSDK):
         request = models.ListPaymentServiceDefinitionsRequest(
             cursor=cursor,
             limit=limit,
+            application_name=application_name,
         )
 
         req = self._build_request_async(
@@ -295,6 +302,7 @@ class PaymentServiceDefinitions(BaseSDK):
             return self.list(
                 cursor=next_cursor,
                 limit=limit,
+                application_name=application_name,
                 retries=retries,
             )
 
@@ -368,6 +376,7 @@ class PaymentServiceDefinitions(BaseSDK):
         self,
         *,
         payment_service_definition_id: str,
+        application_name: Optional[str] = "core-api",
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -378,6 +387,7 @@ class PaymentServiceDefinitions(BaseSDK):
         Get the definition of a payment service that can be configured.
 
         :param payment_service_definition_id:
+        :param application_name:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -395,6 +405,7 @@ class PaymentServiceDefinitions(BaseSDK):
 
         request = models.GetPaymentServiceDefinitionRequest(
             payment_service_definition_id=payment_service_definition_id,
+            application_name=application_name,
         )
 
         req = self._build_request(
@@ -520,6 +531,7 @@ class PaymentServiceDefinitions(BaseSDK):
         self,
         *,
         payment_service_definition_id: str,
+        application_name: Optional[str] = "core-api",
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -530,6 +542,7 @@ class PaymentServiceDefinitions(BaseSDK):
         Get the definition of a payment service that can be configured.
 
         :param payment_service_definition_id:
+        :param application_name:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -547,6 +560,7 @@ class PaymentServiceDefinitions(BaseSDK):
 
         request = models.GetPaymentServiceDefinitionRequest(
             payment_service_definition_id=payment_service_definition_id,
+            application_name=application_name,
         )
 
         req = self._build_request_async(
@@ -673,6 +687,7 @@ class PaymentServiceDefinitions(BaseSDK):
         *,
         payment_service_definition_id: str,
         request_body: Dict[str, Any],
+        application_name: Optional[str] = "core-api",
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -684,6 +699,7 @@ class PaymentServiceDefinitions(BaseSDK):
 
         :param payment_service_definition_id:
         :param request_body:
+        :param application_name:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -701,6 +717,7 @@ class PaymentServiceDefinitions(BaseSDK):
 
         request = models.CreatePaymentServiceDefinitionSessionRequest(
             payment_service_definition_id=payment_service_definition_id,
+            application_name=application_name,
             request_body=request_body,
         )
 
@@ -827,6 +844,7 @@ class PaymentServiceDefinitions(BaseSDK):
         *,
         payment_service_definition_id: str,
         request_body: Dict[str, Any],
+        application_name: Optional[str] = "core-api",
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -838,6 +856,7 @@ class PaymentServiceDefinitions(BaseSDK):
 
         :param payment_service_definition_id:
         :param request_body:
+        :param application_name:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -855,6 +874,7 @@ class PaymentServiceDefinitions(BaseSDK):
 
         request = models.CreatePaymentServiceDefinitionSessionRequest(
             payment_service_definition_id=payment_service_definition_id,
+            application_name=application_name,
             request_body=request_body,
         )
 

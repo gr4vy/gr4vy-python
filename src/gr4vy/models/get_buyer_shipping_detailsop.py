@@ -2,7 +2,12 @@
 
 from __future__ import annotations
 from gr4vy.types import BaseModel
-from gr4vy.utils import FieldMetadata, HeaderMetadata, PathParamMetadata
+from gr4vy.utils import (
+    FieldMetadata,
+    HeaderMetadata,
+    PathParamMetadata,
+    QueryParamMetadata,
+)
 import pydantic
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -27,6 +32,7 @@ class GetBuyerShippingDetailsRequestTypedDict(TypedDict):
     r"""The ID of the buyer to retrieve shipping details for."""
     shipping_details_id: str
     r"""The ID of the shipping details to retrieve."""
+    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -41,6 +47,11 @@ class GetBuyerShippingDetailsRequest(BaseModel):
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
     r"""The ID of the shipping details to retrieve."""
+
+    application_name: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = "core-api"
 
     merchant_account_id: Annotated[
         Optional[str],

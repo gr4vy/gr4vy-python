@@ -29,6 +29,7 @@ class ListGiftCardsRequestTypedDict(TypedDict):
     buyer_id: NotRequired[Nullable[str]]
     cursor: NotRequired[Nullable[str]]
     limit: NotRequired[int]
+    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -54,6 +55,11 @@ class ListGiftCardsRequest(BaseModel):
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = 20
 
+    application_name: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = "core-api"
+
     merchant_account_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
@@ -68,6 +74,7 @@ class ListGiftCardsRequest(BaseModel):
             "buyer_id",
             "cursor",
             "limit",
+            "application_name",
             "merchant_account_id",
         ]
         nullable_fields = ["buyer_external_identifier", "buyer_id", "cursor"]

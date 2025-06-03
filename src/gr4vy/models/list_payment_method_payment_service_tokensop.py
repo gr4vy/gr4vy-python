@@ -33,6 +33,7 @@ class ListPaymentMethodPaymentServiceTokensRequestTypedDict(TypedDict):
     r"""The ID of the payment method"""
     payment_service_id: NotRequired[Nullable[str]]
     r"""The ID of the payment service"""
+    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -49,6 +50,11 @@ class ListPaymentMethodPaymentServiceTokensRequest(BaseModel):
     ] = UNSET
     r"""The ID of the payment service"""
 
+    application_name: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = "core-api"
+
     merchant_account_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
@@ -58,7 +64,11 @@ class ListPaymentMethodPaymentServiceTokensRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["payment_service_id", "merchant_account_id"]
+        optional_fields = [
+            "payment_service_id",
+            "application_name",
+            "merchant_account_id",
+        ]
         nullable_fields = ["payment_service_id"]
         null_default_fields = []
 

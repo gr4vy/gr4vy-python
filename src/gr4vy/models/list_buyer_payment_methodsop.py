@@ -54,6 +54,7 @@ class ListBuyerPaymentMethodsRequestTypedDict(TypedDict):
     r"""The country code to filter payment methods by. This only applies to payment methods with a `country` value."""
     currency: NotRequired[Nullable[str]]
     r"""The currency code to filter payment methods by. This only applies to payment methods with a `currency` value."""
+    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -99,6 +100,11 @@ class ListBuyerPaymentMethodsRequest(BaseModel):
     ] = UNSET
     r"""The currency code to filter payment methods by. This only applies to payment methods with a `currency` value."""
 
+    application_name: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = "core-api"
+
     merchant_account_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
@@ -115,6 +121,7 @@ class ListBuyerPaymentMethodsRequest(BaseModel):
             "order_by",
             "country",
             "currency",
+            "application_name",
             "merchant_account_id",
         ]
         nullable_fields = [

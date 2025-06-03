@@ -10,6 +10,7 @@ from gr4vy.utils import (
     FieldMetadata,
     HeaderMetadata,
     PathParamMetadata,
+    QueryParamMetadata,
     RequestMetadata,
 )
 import pydantic
@@ -34,6 +35,7 @@ class CreateFullTransactionRefundGlobals(BaseModel):
 
 class CreateFullTransactionRefundRequestTypedDict(TypedDict):
     transaction_id: str
+    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
     transaction_refund_all_create: NotRequired[
@@ -45,6 +47,11 @@ class CreateFullTransactionRefundRequest(BaseModel):
     transaction_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
+
+    application_name: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = "core-api"
 
     merchant_account_id: Annotated[
         Optional[str],
@@ -60,7 +67,11 @@ class CreateFullTransactionRefundRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["merchant_account_id", "TransactionRefundAllCreate"]
+        optional_fields = [
+            "application_name",
+            "merchant_account_id",
+            "TransactionRefundAllCreate",
+        ]
         nullable_fields = ["TransactionRefundAllCreate"]
         null_default_fields = []
 
