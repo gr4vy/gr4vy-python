@@ -25,6 +25,12 @@ if TYPE_CHECKING:
         AddBuyerRequest,
         AddBuyerRequestTypedDict,
     )
+    from .add_reportop import (
+        AddReportGlobals,
+        AddReportGlobalsTypedDict,
+        AddReportRequest,
+        AddReportRequestTypedDict,
+    )
     from .address import Address, AddressTypedDict
     from .airline import Airline, AirlineTypedDict, TicketDeliveryMethod
     from .airlineleg import AirlineLeg, AirlineLegTypedDict, RouteType
@@ -142,6 +148,11 @@ if TYPE_CHECKING:
         CollectionPayoutSummaryTypedDict,
     )
     from .collection_refund_ import CollectionRefund, CollectionRefundTypedDict
+    from .collection_report_ import CollectionReport, CollectionReportTypedDict
+    from .collection_reportexecution_ import (
+        CollectionReportExecution,
+        CollectionReportExecutionTypedDict,
+    )
     from .collection_transactionevent_ import (
         CollectionTransactionEvent,
         CollectionTransactionEventTypedDict,
@@ -273,6 +284,12 @@ if TYPE_CHECKING:
         CreatePayoutRequest,
         CreatePayoutRequestTypedDict,
     )
+    from .create_report_execution_urlop import (
+        CreateReportExecutionURLGlobals,
+        CreateReportExecutionURLGlobalsTypedDict,
+        CreateReportExecutionURLRequest,
+        CreateReportExecutionURLRequestTypedDict,
+    )
     from .create_transaction_refundop import (
         CreateTransactionRefundGlobals,
         CreateTransactionRefundGlobalsTypedDict,
@@ -347,6 +364,10 @@ if TYPE_CHECKING:
         DeletePaymentServiceRequest,
         DeletePaymentServiceRequestTypedDict,
     )
+    from .detailedsettlementreportspec import (
+        DetailedSettlementReportSpec,
+        DetailedSettlementReportSpecTypedDict,
+    )
     from .digitalwallet import DigitalWallet, DigitalWalletTypedDict
     from .digitalwalletcreate import DigitalWalletCreate, DigitalWalletCreateTypedDict
     from .digitalwalletdomain import DigitalWalletDomain, DigitalWalletDomainTypedDict
@@ -417,6 +438,18 @@ if TYPE_CHECKING:
         GetRefundRequest,
         GetRefundRequestTypedDict,
     )
+    from .get_report_executionop import (
+        GetReportExecutionGlobals,
+        GetReportExecutionGlobalsTypedDict,
+        GetReportExecutionRequest,
+        GetReportExecutionRequestTypedDict,
+    )
+    from .get_reportop import (
+        GetReportGlobals,
+        GetReportGlobalsTypedDict,
+        GetReportRequest,
+        GetReportRequestTypedDict,
+    )
     from .get_transaction_refundop import (
         GetTransactionRefundGlobals,
         GetTransactionRefundGlobalsTypedDict,
@@ -482,6 +515,12 @@ if TYPE_CHECKING:
     from .guestbuyer_input import GuestBuyerInput, GuestBuyerInputTypedDict
     from .guestbuyer_output import GuestBuyerOutput, GuestBuyerOutputTypedDict
     from .instrumenttype import InstrumentType
+    from .list_all_report_executionsop import (
+        ListAllReportExecutionsGlobals,
+        ListAllReportExecutionsGlobalsTypedDict,
+        ListAllReportExecutionsRequest,
+        ListAllReportExecutionsRequestTypedDict,
+    )
     from .list_audit_logsop import (
         ListAuditLogsGlobals,
         ListAuditLogsGlobalsTypedDict,
@@ -596,6 +635,22 @@ if TYPE_CHECKING:
         ListPayoutsRequestTypedDict,
         ListPayoutsResponse,
         ListPayoutsResponseTypedDict,
+    )
+    from .list_report_executionsop import (
+        ListReportExecutionsGlobals,
+        ListReportExecutionsGlobalsTypedDict,
+        ListReportExecutionsRequest,
+        ListReportExecutionsRequestTypedDict,
+        ListReportExecutionsResponse,
+        ListReportExecutionsResponseTypedDict,
+    )
+    from .list_reportsop import (
+        ListReportsGlobals,
+        ListReportsGlobalsTypedDict,
+        ListReportsRequest,
+        ListReportsRequestTypedDict,
+        ListReportsResponse,
+        ListReportsResponseTypedDict,
     )
     from .list_transaction_eventsop import (
         ListTransactionEventsGlobals,
@@ -738,6 +793,25 @@ if TYPE_CHECKING:
         RegisterDigitalWalletDomainRequest,
         RegisterDigitalWalletDomainRequestTypedDict,
     )
+    from .report import Report, ReportTypedDict
+    from .reportcreate import ReportCreate, ReportCreateTypedDict, Spec, SpecTypedDict
+    from .reportcreatortype import ReportCreatorType
+    from .reportexecution import ReportExecution, ReportExecutionTypedDict
+    from .reportexecutioncontext import (
+        ReportExecutionContext,
+        ReportExecutionContextTypedDict,
+    )
+    from .reportexecutionstatus import ReportExecutionStatus
+    from .reportexecutionsummary import (
+        ReportExecutionSummary,
+        ReportExecutionSummaryTypedDict,
+    )
+    from .reportexecutionurl import ReportExecutionURL, ReportExecutionURLTypedDict
+    from .reportschedule import ReportSchedule
+    from .reportspec import ReportSpec, ReportSpecTypedDict
+    from .reportspecmodel import ReportSpecModel
+    from .reportsummary import ReportSummary, ReportSummaryTypedDict
+    from .reportupdate import ReportUpdate, ReportUpdateTypedDict
     from .requiredcheckoutfields import (
         RequiredCheckoutFields,
         RequiredCheckoutFieldsTypedDict,
@@ -817,6 +891,14 @@ if TYPE_CHECKING:
         TransactionRefundCreate,
         TransactionRefundCreateTypedDict,
     )
+    from .transactionretriesreportspec import (
+        TransactionRetriesReportSpec,
+        TransactionRetriesReportSpecTypedDict,
+    )
+    from .transactionsreportspec import (
+        TransactionsReportSpec,
+        TransactionsReportSpecTypedDict,
+    )
     from .transactionstatus import TransactionStatus
     from .transactionsummary import TransactionSummary, TransactionSummaryTypedDict
     from .transactionthreedsecuresummary import (
@@ -865,6 +947,12 @@ if TYPE_CHECKING:
         UpdatePaymentServiceRequest,
         UpdatePaymentServiceRequestTypedDict,
     )
+    from .update_reportop import (
+        UpdateReportGlobals,
+        UpdateReportGlobalsTypedDict,
+        UpdateReportRequest,
+        UpdateReportRequestTypedDict,
+    )
     from .userstatus import UserStatus
     from .validationerror import (
         Loc,
@@ -907,6 +995,10 @@ __all__ = [
     "AddBuyerShippingDetailsGlobalsTypedDict",
     "AddBuyerShippingDetailsRequest",
     "AddBuyerShippingDetailsRequestTypedDict",
+    "AddReportGlobals",
+    "AddReportGlobalsTypedDict",
+    "AddReportRequest",
+    "AddReportRequestTypedDict",
     "Address",
     "AddressTypedDict",
     "AgeGroup",
@@ -1015,6 +1107,10 @@ __all__ = [
     "CollectionPayoutSummaryTypedDict",
     "CollectionRefund",
     "CollectionRefundTypedDict",
+    "CollectionReport",
+    "CollectionReportExecution",
+    "CollectionReportExecutionTypedDict",
+    "CollectionReportTypedDict",
     "CollectionTransactionEvent",
     "CollectionTransactionEventTypedDict",
     "CollectionTransactionSummary",
@@ -1081,6 +1177,10 @@ __all__ = [
     "CreatePayoutGlobalsTypedDict",
     "CreatePayoutRequest",
     "CreatePayoutRequestTypedDict",
+    "CreateReportExecutionURLGlobals",
+    "CreateReportExecutionURLGlobalsTypedDict",
+    "CreateReportExecutionURLRequest",
+    "CreateReportExecutionURLRequestTypedDict",
     "CreateSession",
     "CreateSessionStatus",
     "CreateSessionTypedDict",
@@ -1137,6 +1237,8 @@ __all__ = [
     "DeletePaymentServiceGlobalsTypedDict",
     "DeletePaymentServiceRequest",
     "DeletePaymentServiceRequestTypedDict",
+    "DetailedSettlementReportSpec",
+    "DetailedSettlementReportSpecTypedDict",
     "DigitalWallet",
     "DigitalWalletCreate",
     "DigitalWalletCreateTypedDict",
@@ -1191,6 +1293,14 @@ __all__ = [
     "GetRefundGlobalsTypedDict",
     "GetRefundRequest",
     "GetRefundRequestTypedDict",
+    "GetReportExecutionGlobals",
+    "GetReportExecutionGlobalsTypedDict",
+    "GetReportExecutionRequest",
+    "GetReportExecutionRequestTypedDict",
+    "GetReportGlobals",
+    "GetReportGlobalsTypedDict",
+    "GetReportRequest",
+    "GetReportRequestTypedDict",
     "GetTransactionGlobals",
     "GetTransactionGlobalsTypedDict",
     "GetTransactionRefundGlobals",
@@ -1243,6 +1353,10 @@ __all__ = [
     "InstrumentType",
     "Item",
     "ItemTypedDict",
+    "ListAllReportExecutionsGlobals",
+    "ListAllReportExecutionsGlobalsTypedDict",
+    "ListAllReportExecutionsRequest",
+    "ListAllReportExecutionsRequestTypedDict",
     "ListAuditLogsGlobals",
     "ListAuditLogsGlobalsTypedDict",
     "ListAuditLogsRequest",
@@ -1323,6 +1437,18 @@ __all__ = [
     "ListPayoutsRequestTypedDict",
     "ListPayoutsResponse",
     "ListPayoutsResponseTypedDict",
+    "ListReportExecutionsGlobals",
+    "ListReportExecutionsGlobalsTypedDict",
+    "ListReportExecutionsRequest",
+    "ListReportExecutionsRequestTypedDict",
+    "ListReportExecutionsResponse",
+    "ListReportExecutionsResponseTypedDict",
+    "ListReportsGlobals",
+    "ListReportsGlobalsTypedDict",
+    "ListReportsRequest",
+    "ListReportsRequestTypedDict",
+    "ListReportsResponse",
+    "ListReportsResponseTypedDict",
     "ListTransactionEventsGlobals",
     "ListTransactionEventsGlobalsTypedDict",
     "ListTransactionEventsRequest",
@@ -1422,6 +1548,28 @@ __all__ = [
     "RegisterDigitalWalletDomainGlobalsTypedDict",
     "RegisterDigitalWalletDomainRequest",
     "RegisterDigitalWalletDomainRequestTypedDict",
+    "Report",
+    "ReportCreate",
+    "ReportCreateTypedDict",
+    "ReportCreatorType",
+    "ReportExecution",
+    "ReportExecutionContext",
+    "ReportExecutionContextTypedDict",
+    "ReportExecutionStatus",
+    "ReportExecutionSummary",
+    "ReportExecutionSummaryTypedDict",
+    "ReportExecutionTypedDict",
+    "ReportExecutionURL",
+    "ReportExecutionURLTypedDict",
+    "ReportSchedule",
+    "ReportSpec",
+    "ReportSpecModel",
+    "ReportSpecTypedDict",
+    "ReportSummary",
+    "ReportSummaryTypedDict",
+    "ReportTypedDict",
+    "ReportUpdate",
+    "ReportUpdateTypedDict",
     "RequiredCheckoutFields",
     "RequiredCheckoutFieldsTypedDict",
     "RequiredFields1",
@@ -1443,6 +1591,8 @@ __all__ = [
     "ShippingDetailsTypedDict",
     "ShippingDetailsUpdate",
     "ShippingDetailsUpdateTypedDict",
+    "Spec",
+    "SpecTypedDict",
     "StatementDescriptor",
     "StatementDescriptorTypedDict",
     "SuspendPaymentMethodNetworkTokenGlobals",
@@ -1497,12 +1647,16 @@ __all__ = [
     "TransactionRefundAllCreateTypedDict",
     "TransactionRefundCreate",
     "TransactionRefundCreateTypedDict",
+    "TransactionRetriesReportSpec",
+    "TransactionRetriesReportSpecTypedDict",
     "TransactionStatus",
     "TransactionSummary",
     "TransactionSummaryTypedDict",
     "TransactionThreeDSecureSummary",
     "TransactionThreeDSecureSummaryTypedDict",
     "TransactionTypedDict",
+    "TransactionsReportSpec",
+    "TransactionsReportSpecTypedDict",
     "UnregisterDigitalWalletDomainGlobals",
     "UnregisterDigitalWalletDomainGlobalsTypedDict",
     "UnregisterDigitalWalletDomainRequest",
@@ -1529,6 +1683,10 @@ __all__ = [
     "UpdatePaymentServiceGlobalsTypedDict",
     "UpdatePaymentServiceRequest",
     "UpdatePaymentServiceRequestTypedDict",
+    "UpdateReportGlobals",
+    "UpdateReportGlobalsTypedDict",
+    "UpdateReportRequest",
+    "UpdateReportRequestTypedDict",
     "UserDevice",
     "UserStatus",
     "ValidationError",
@@ -1564,6 +1722,10 @@ _dynamic_imports: dict[str, str] = {
     "AddBuyerGlobalsTypedDict": ".add_buyerop",
     "AddBuyerRequest": ".add_buyerop",
     "AddBuyerRequestTypedDict": ".add_buyerop",
+    "AddReportGlobals": ".add_reportop",
+    "AddReportGlobalsTypedDict": ".add_reportop",
+    "AddReportRequest": ".add_reportop",
+    "AddReportRequestTypedDict": ".add_reportop",
     "Address": ".address",
     "AddressTypedDict": ".address",
     "Airline": ".airline",
@@ -1656,6 +1818,10 @@ _dynamic_imports: dict[str, str] = {
     "CollectionPayoutSummaryTypedDict": ".collection_payoutsummary_",
     "CollectionRefund": ".collection_refund_",
     "CollectionRefundTypedDict": ".collection_refund_",
+    "CollectionReport": ".collection_report_",
+    "CollectionReportTypedDict": ".collection_report_",
+    "CollectionReportExecution": ".collection_reportexecution_",
+    "CollectionReportExecutionTypedDict": ".collection_reportexecution_",
     "CollectionTransactionEvent": ".collection_transactionevent_",
     "CollectionTransactionEventTypedDict": ".collection_transactionevent_",
     "CollectionTransactionSummary": ".collection_transactionsummary_",
@@ -1738,6 +1904,10 @@ _dynamic_imports: dict[str, str] = {
     "CreatePayoutGlobalsTypedDict": ".create_payoutop",
     "CreatePayoutRequest": ".create_payoutop",
     "CreatePayoutRequestTypedDict": ".create_payoutop",
+    "CreateReportExecutionURLGlobals": ".create_report_execution_urlop",
+    "CreateReportExecutionURLGlobalsTypedDict": ".create_report_execution_urlop",
+    "CreateReportExecutionURLRequest": ".create_report_execution_urlop",
+    "CreateReportExecutionURLRequestTypedDict": ".create_report_execution_urlop",
     "CreateTransactionRefundGlobals": ".create_transaction_refundop",
     "CreateTransactionRefundGlobalsTypedDict": ".create_transaction_refundop",
     "CreateTransactionRefundRequest": ".create_transaction_refundop",
@@ -1795,6 +1965,8 @@ _dynamic_imports: dict[str, str] = {
     "DeletePaymentServiceGlobalsTypedDict": ".delete_payment_serviceop",
     "DeletePaymentServiceRequest": ".delete_payment_serviceop",
     "DeletePaymentServiceRequestTypedDict": ".delete_payment_serviceop",
+    "DetailedSettlementReportSpec": ".detailedsettlementreportspec",
+    "DetailedSettlementReportSpecTypedDict": ".detailedsettlementreportspec",
     "DigitalWallet": ".digitalwallet",
     "DigitalWalletTypedDict": ".digitalwallet",
     "DigitalWalletCreate": ".digitalwalletcreate",
@@ -1849,6 +2021,14 @@ _dynamic_imports: dict[str, str] = {
     "GetRefundGlobalsTypedDict": ".get_refundop",
     "GetRefundRequest": ".get_refundop",
     "GetRefundRequestTypedDict": ".get_refundop",
+    "GetReportExecutionGlobals": ".get_report_executionop",
+    "GetReportExecutionGlobalsTypedDict": ".get_report_executionop",
+    "GetReportExecutionRequest": ".get_report_executionop",
+    "GetReportExecutionRequestTypedDict": ".get_report_executionop",
+    "GetReportGlobals": ".get_reportop",
+    "GetReportGlobalsTypedDict": ".get_reportop",
+    "GetReportRequest": ".get_reportop",
+    "GetReportRequestTypedDict": ".get_reportop",
     "GetTransactionRefundGlobals": ".get_transaction_refundop",
     "GetTransactionRefundGlobalsTypedDict": ".get_transaction_refundop",
     "GetTransactionRefundRequest": ".get_transaction_refundop",
@@ -1901,6 +2081,10 @@ _dynamic_imports: dict[str, str] = {
     "GuestBuyerOutput": ".guestbuyer_output",
     "GuestBuyerOutputTypedDict": ".guestbuyer_output",
     "InstrumentType": ".instrumenttype",
+    "ListAllReportExecutionsGlobals": ".list_all_report_executionsop",
+    "ListAllReportExecutionsGlobalsTypedDict": ".list_all_report_executionsop",
+    "ListAllReportExecutionsRequest": ".list_all_report_executionsop",
+    "ListAllReportExecutionsRequestTypedDict": ".list_all_report_executionsop",
     "ListAuditLogsGlobals": ".list_audit_logsop",
     "ListAuditLogsGlobalsTypedDict": ".list_audit_logsop",
     "ListAuditLogsRequest": ".list_audit_logsop",
@@ -1982,6 +2166,18 @@ _dynamic_imports: dict[str, str] = {
     "ListPayoutsRequestTypedDict": ".list_payoutsop",
     "ListPayoutsResponse": ".list_payoutsop",
     "ListPayoutsResponseTypedDict": ".list_payoutsop",
+    "ListReportExecutionsGlobals": ".list_report_executionsop",
+    "ListReportExecutionsGlobalsTypedDict": ".list_report_executionsop",
+    "ListReportExecutionsRequest": ".list_report_executionsop",
+    "ListReportExecutionsRequestTypedDict": ".list_report_executionsop",
+    "ListReportExecutionsResponse": ".list_report_executionsop",
+    "ListReportExecutionsResponseTypedDict": ".list_report_executionsop",
+    "ListReportsGlobals": ".list_reportsop",
+    "ListReportsGlobalsTypedDict": ".list_reportsop",
+    "ListReportsRequest": ".list_reportsop",
+    "ListReportsRequestTypedDict": ".list_reportsop",
+    "ListReportsResponse": ".list_reportsop",
+    "ListReportsResponseTypedDict": ".list_reportsop",
     "ListTransactionEventsGlobals": ".list_transaction_eventsop",
     "ListTransactionEventsGlobalsTypedDict": ".list_transaction_eventsop",
     "ListTransactionEventsRequest": ".list_transaction_eventsop",
@@ -2084,6 +2280,30 @@ _dynamic_imports: dict[str, str] = {
     "RegisterDigitalWalletDomainGlobalsTypedDict": ".register_digital_wallet_domainop",
     "RegisterDigitalWalletDomainRequest": ".register_digital_wallet_domainop",
     "RegisterDigitalWalletDomainRequestTypedDict": ".register_digital_wallet_domainop",
+    "Report": ".report",
+    "ReportTypedDict": ".report",
+    "ReportCreate": ".reportcreate",
+    "ReportCreateTypedDict": ".reportcreate",
+    "Spec": ".reportcreate",
+    "SpecTypedDict": ".reportcreate",
+    "ReportCreatorType": ".reportcreatortype",
+    "ReportExecution": ".reportexecution",
+    "ReportExecutionTypedDict": ".reportexecution",
+    "ReportExecutionContext": ".reportexecutioncontext",
+    "ReportExecutionContextTypedDict": ".reportexecutioncontext",
+    "ReportExecutionStatus": ".reportexecutionstatus",
+    "ReportExecutionSummary": ".reportexecutionsummary",
+    "ReportExecutionSummaryTypedDict": ".reportexecutionsummary",
+    "ReportExecutionURL": ".reportexecutionurl",
+    "ReportExecutionURLTypedDict": ".reportexecutionurl",
+    "ReportSchedule": ".reportschedule",
+    "ReportSpec": ".reportspec",
+    "ReportSpecTypedDict": ".reportspec",
+    "ReportSpecModel": ".reportspecmodel",
+    "ReportSummary": ".reportsummary",
+    "ReportSummaryTypedDict": ".reportsummary",
+    "ReportUpdate": ".reportupdate",
+    "ReportUpdateTypedDict": ".reportupdate",
     "RequiredCheckoutFields": ".requiredcheckoutfields",
     "RequiredCheckoutFieldsTypedDict": ".requiredcheckoutfields",
     "ResumePaymentMethodNetworkTokenGlobals": ".resume_payment_method_network_tokenop",
@@ -2153,6 +2373,10 @@ _dynamic_imports: dict[str, str] = {
     "TransactionRefundAllCreateTypedDict": ".transactionrefundallcreate",
     "TransactionRefundCreate": ".transactionrefundcreate",
     "TransactionRefundCreateTypedDict": ".transactionrefundcreate",
+    "TransactionRetriesReportSpec": ".transactionretriesreportspec",
+    "TransactionRetriesReportSpecTypedDict": ".transactionretriesreportspec",
+    "TransactionsReportSpec": ".transactionsreportspec",
+    "TransactionsReportSpecTypedDict": ".transactionsreportspec",
     "TransactionStatus": ".transactionstatus",
     "TransactionSummary": ".transactionsummary",
     "TransactionSummaryTypedDict": ".transactionsummary",
@@ -2186,6 +2410,10 @@ _dynamic_imports: dict[str, str] = {
     "UpdatePaymentServiceGlobalsTypedDict": ".update_payment_serviceop",
     "UpdatePaymentServiceRequest": ".update_payment_serviceop",
     "UpdatePaymentServiceRequestTypedDict": ".update_payment_serviceop",
+    "UpdateReportGlobals": ".update_reportop",
+    "UpdateReportGlobalsTypedDict": ".update_reportop",
+    "UpdateReportRequest": ".update_reportop",
+    "UpdateReportRequestTypedDict": ".update_reportop",
     "UserStatus": ".userstatus",
     "Loc": ".validationerror",
     "LocTypedDict": ".validationerror",
