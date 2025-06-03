@@ -143,9 +143,7 @@ class AuditLogs(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListAuditLogsResponse(
-                result=utils.unmarshal_json(
-                    http_res.text, models.CollectionAuditLogEntry
-                ),
+                result=utils.unmarshal_json(http_res.text, models.AuditLogEntries),
                 next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):
@@ -339,9 +337,7 @@ class AuditLogs(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListAuditLogsResponse(
-                result=utils.unmarshal_json(
-                    http_res.text, models.CollectionAuditLogEntry
-                ),
+                result=utils.unmarshal_json(http_res.text, models.AuditLogEntries),
                 next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):

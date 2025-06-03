@@ -46,7 +46,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.CollectionReportExecution](../../models/collectionreportexecution.md)**
+**[models.ReportExecutions](../../models/reportexecutions.md)**
 
 ### Errors
 

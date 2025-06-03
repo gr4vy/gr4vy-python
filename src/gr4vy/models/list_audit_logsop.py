@@ -2,10 +2,7 @@
 
 from __future__ import annotations
 from .auditlogaction import AuditLogAction
-from .collection_auditlogentry_ import (
-    CollectionAuditLogEntry,
-    CollectionAuditLogEntryTypedDict,
-)
+from .auditlogentries import AuditLogEntries, AuditLogEntriesTypedDict
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from gr4vy.utils import (
     FieldMetadata,
@@ -128,10 +125,10 @@ class ListAuditLogsRequest(BaseModel):
 
 
 class ListAuditLogsResponseTypedDict(TypedDict):
-    result: CollectionAuditLogEntryTypedDict
+    result: AuditLogEntriesTypedDict
 
 
 class ListAuditLogsResponse(BaseModel):
     next: Callable[[], Optional[ListAuditLogsResponse]]
 
-    result: CollectionAuditLogEntry
+    result: AuditLogEntries

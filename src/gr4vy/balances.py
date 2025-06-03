@@ -18,7 +18,7 @@ class Balances(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CollectionNoCursorGiftCardSummary:
+    ) -> models.GiftCardSummaries:
         r"""List gift card balances
 
         Fetch the balances for one or more gift cards.
@@ -113,9 +113,7 @@ class Balances(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.CollectionNoCursorGiftCardSummary
-            )
+            return utils.unmarshal_json(http_res.text, models.GiftCardSummaries)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
             raise errors.Error400(data=response_data)
@@ -183,7 +181,7 @@ class Balances(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CollectionNoCursorGiftCardSummary:
+    ) -> models.GiftCardSummaries:
         r"""List gift card balances
 
         Fetch the balances for one or more gift cards.
@@ -278,9 +276,7 @@ class Balances(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.CollectionNoCursorGiftCardSummary
-            )
+            return utils.unmarshal_json(http_res.text, models.GiftCardSummaries)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
             raise errors.Error400(data=response_data)

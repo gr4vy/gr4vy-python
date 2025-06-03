@@ -41,7 +41,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.CollectionTransactionEvent](../../models/collectiontransactionevent.md)**
+**[models.TransactionEvents](../../models/transactionevents.md)**
 
 ### Errors
 

@@ -100,7 +100,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.CollectionNoCursorShippingDetails](../../models/collectionnocursorshippingdetails.md)**
+**[models.ShippingDetailsList](../../models/shippingdetailslist.md)**
 
 ### Errors
 

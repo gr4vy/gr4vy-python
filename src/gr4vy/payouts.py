@@ -131,9 +131,7 @@ class Payouts(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListPayoutsResponse(
-                result=utils.unmarshal_json(
-                    http_res.text, models.CollectionPayoutSummary
-                ),
+                result=utils.unmarshal_json(http_res.text, models.PayoutSummaries),
                 next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):
@@ -315,9 +313,7 @@ class Payouts(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListPayoutsResponse(
-                result=utils.unmarshal_json(
-                    http_res.text, models.CollectionPayoutSummary
-                ),
+                result=utils.unmarshal_json(http_res.text, models.PayoutSummaries),
                 next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):

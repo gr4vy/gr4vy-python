@@ -311,9 +311,7 @@ class Transactions(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListTransactionsResponse(
-                result=utils.unmarshal_json(
-                    http_res.text, models.CollectionTransactionSummary
-                ),
+                result=utils.unmarshal_json(http_res.text, models.TransactionSummaries),
                 next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):
@@ -659,9 +657,7 @@ class Transactions(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListTransactionsResponse(
-                result=utils.unmarshal_json(
-                    http_res.text, models.CollectionTransactionSummary
-                ),
+                result=utils.unmarshal_json(http_res.text, models.TransactionSummaries),
                 next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):

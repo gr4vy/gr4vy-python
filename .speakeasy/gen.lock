@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 4848fbfdeda1092d8723e33b6fc45748
+  docChecksum: 89fd48f9745232ed51fe28a392f0df05
   docVersion: 1.0.0
   speakeasyVersion: 1.555.0
   generationVersion: 2.618.0
-  releaseVersion: 1.0.0-beta.19
-  configChecksum: fdfdc0ef3e96cb776ede6e068d91da0a
+  releaseVersion: 1.0.0-beta.20
+  configChecksum: 99b1b4025eb1f5d67cc799f105327970
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -72,6 +72,7 @@ generatedFiles:
   - docs/models/applepaysessionrequest.md
   - docs/models/approvaltarget.md
   - docs/models/auditlogaction.md
+  - docs/models/auditlogentries.md
   - docs/models/auditlogentry.md
   - docs/models/auditlogentryresource.md
   - docs/models/auditlogentryuser.md
@@ -82,12 +83,14 @@ generatedFiles:
   - docs/models/browserinfo.md
   - docs/models/buyer.md
   - docs/models/buyercreate.md
+  - docs/models/buyers.md
   - docs/models/buyerupdate.md
   - docs/models/capturetransactionglobals.md
   - docs/models/capturetransactionrequest.md
   - docs/models/cardpaymentmethodcreate.md
   - docs/models/cardscheme.md
   - docs/models/cardschemedefinition.md
+  - docs/models/cardschemedefinitions.md
   - docs/models/cardsource.md
   - docs/models/cardtype.md
   - docs/models/cardwithurlpaymentmethodcreate.md
@@ -103,27 +106,6 @@ generatedFiles:
   - docs/models/clicktopaypaymentmethodcreate.md
   - docs/models/clicktopaysession.md
   - docs/models/clicktopaysessionrequest.md
-  - docs/models/collectionauditlogentry.md
-  - docs/models/collectionbuyer.md
-  - docs/models/collectiongiftcard.md
-  - docs/models/collectionmerchantaccount.md
-  - docs/models/collectionnocursorcardschemedefinition.md
-  - docs/models/collectionnocursordigitalwallet.md
-  - docs/models/collectionnocursorgiftcardsummary.md
-  - docs/models/collectionnocursornetworktoken.md
-  - docs/models/collectionnocursorpaymentmethodsummary.md
-  - docs/models/collectionnocursorpaymentoption.md
-  - docs/models/collectionnocursorpaymentservicetoken.md
-  - docs/models/collectionnocursorshippingdetails.md
-  - docs/models/collectionpaymentmethod.md
-  - docs/models/collectionpaymentservice.md
-  - docs/models/collectionpaymentservicedefinition.md
-  - docs/models/collectionpayoutsummary.md
-  - docs/models/collectionrefund.md
-  - docs/models/collectionreport.md
-  - docs/models/collectionreportexecution.md
-  - docs/models/collectiontransactionevent.md
-  - docs/models/collectiontransactionsummary.md
   - docs/models/configuredigitalwalletglobals.md
   - docs/models/configuredigitalwalletrequest.md
   - docs/models/connectionoptions.md
@@ -192,6 +174,7 @@ generatedFiles:
   - docs/models/digitalwalletcreate.md
   - docs/models/digitalwalletdomain.md
   - docs/models/digitalwalletprovider.md
+  - docs/models/digitalwallets.md
   - docs/models/digitalwalletupdate.md
   - docs/models/errordetail.md
   - docs/models/errorlocation.md
@@ -231,9 +214,11 @@ generatedFiles:
   - docs/models/giftcardredemption.md
   - docs/models/giftcardredemptionstatus.md
   - docs/models/giftcardrequest.md
+  - docs/models/giftcards.md
   - docs/models/giftcardservice.md
   - docs/models/giftcardserviceprovider.md
   - docs/models/giftcardstoredrequest.md
+  - docs/models/giftcardsummaries.md
   - docs/models/giftcardsummary.md
   - docs/models/giftcardtokentransactioncreate.md
   - docs/models/giftcardtransactioncreate.md
@@ -307,6 +292,7 @@ generatedFiles:
   - docs/models/loc.md
   - docs/models/merchantaccount.md
   - docs/models/merchantaccountcreate.md
+  - docs/models/merchantaccounts.md
   - docs/models/merchantaccountupdate.md
   - docs/models/merchantprofilescheme.md
   - docs/models/merchantprofileschemesummary.md
@@ -316,25 +302,32 @@ generatedFiles:
   - docs/models/networktoken.md
   - docs/models/networktokencreate.md
   - docs/models/networktokenpaymentmethodcreate.md
+  - docs/models/networktokens.md
   - docs/models/networktokenstatus.md
   - docs/models/orderby.md
   - docs/models/paymentmethod.md
   - docs/models/paymentmethodcard.md
   - docs/models/paymentmethoddetailscard.md
+  - docs/models/paymentmethods.md
   - docs/models/paymentmethodstatus.md
   - docs/models/paymentmethodstoredcard.md
+  - docs/models/paymentmethodsummaries.md
   - docs/models/paymentmethodsummary.md
   - docs/models/paymentoption.md
   - docs/models/paymentoptioncontext.md
   - docs/models/paymentoptioncontextapprovalui.md
   - docs/models/paymentoptionrequest.md
+  - docs/models/paymentoptions.md
   - docs/models/paymentservice.md
   - docs/models/paymentserviceconfiguration.md
   - docs/models/paymentservicecreate.md
   - docs/models/paymentservicedefinition.md
+  - docs/models/paymentservicedefinitions.md
+  - docs/models/paymentservices.md
   - docs/models/paymentservicestatus.md
   - docs/models/paymentservicetoken.md
   - docs/models/paymentservicetokencreate.md
+  - docs/models/paymentservicetokens.md
   - docs/models/paymentserviceupdate.md
   - docs/models/payoutcategory.md
   - docs/models/payoutcreate.md
@@ -343,12 +336,14 @@ generatedFiles:
   - docs/models/payoutmerchantsummary.md
   - docs/models/payoutpaymentservice.md
   - docs/models/payoutstatus.md
+  - docs/models/payoutsummaries.md
   - docs/models/payoutsummary.md
   - docs/models/producttype.md
   - docs/models/recipient.md
   - docs/models/redirectpaymentmethodcreate.md
   - docs/models/redirectpaymentmethodcreatemethod.md
   - docs/models/refund.md
+  - docs/models/refunds.md
   - docs/models/refundstatus.md
   - docs/models/refundtargettype.md
   - docs/models/registerdigitalwalletdomainglobals.md
@@ -358,9 +353,11 @@ generatedFiles:
   - docs/models/reportcreatortype.md
   - docs/models/reportexecution.md
   - docs/models/reportexecutioncontext.md
+  - docs/models/reportexecutions.md
   - docs/models/reportexecutionstatus.md
   - docs/models/reportexecutionsummary.md
   - docs/models/reportexecutionurl.md
+  - docs/models/reports.md
   - docs/models/reportschedule.md
   - docs/models/reportspec.md
   - docs/models/reportspecmodel.md
@@ -376,6 +373,7 @@ generatedFiles:
   - docs/models/security.md
   - docs/models/shippingdetails.md
   - docs/models/shippingdetailscreate.md
+  - docs/models/shippingdetailslist.md
   - docs/models/shippingdetailsupdate.md
   - docs/models/spec.md
   - docs/models/statementdescriptor.md
@@ -401,6 +399,7 @@ generatedFiles:
   - docs/models/transactioncreate.md
   - docs/models/transactioncreatepaymentmethod.md
   - docs/models/transactionevent.md
+  - docs/models/transactionevents.md
   - docs/models/transactiongiftcard.md
   - docs/models/transactionintent.md
   - docs/models/transactionintentoutcome.md
@@ -412,6 +411,7 @@ generatedFiles:
   - docs/models/transactionretriesreportspec.md
   - docs/models/transactionsreportspec.md
   - docs/models/transactionstatus.md
+  - docs/models/transactionsummaries.md
   - docs/models/transactionsummary.md
   - docs/models/transactionthreedsecuresummary.md
   - docs/models/unregisterdigitalwalletdomainglobals.md
@@ -444,31 +444,31 @@ generatedFiles:
   - docs/sdks/all/README.md
   - docs/sdks/auditlogs/README.md
   - docs/sdks/balances/README.md
-  - docs/sdks/buyers/README.md
   - docs/sdks/buyersgiftcards/README.md
   - docs/sdks/buyerspaymentmethods/README.md
+  - docs/sdks/buyerssdk/README.md
   - docs/sdks/buyersshippingdetails/README.md
-  - docs/sdks/cardschemedefinitions/README.md
+  - docs/sdks/cardschemedefinitionssdk/README.md
   - docs/sdks/checkoutsessions/README.md
-  - docs/sdks/digitalwallets/README.md
+  - docs/sdks/digitalwalletssdk/README.md
   - docs/sdks/domains/README.md
   - docs/sdks/events/README.md
   - docs/sdks/executions/README.md
-  - docs/sdks/giftcards/README.md
+  - docs/sdks/giftcardssdk/README.md
   - docs/sdks/gr4vy/README.md
   - docs/sdks/jobs/README.md
-  - docs/sdks/merchantaccounts/README.md
-  - docs/sdks/networktokens/README.md
+  - docs/sdks/merchantaccountssdk/README.md
   - docs/sdks/networktokenscryptogram/README.md
-  - docs/sdks/paymentmethods/README.md
-  - docs/sdks/paymentoptions/README.md
-  - docs/sdks/paymentservicedefinitions/README.md
-  - docs/sdks/paymentservices/README.md
-  - docs/sdks/paymentservicetokens/README.md
+  - docs/sdks/paymentmethodsnetworktokens/README.md
+  - docs/sdks/paymentmethodspaymentservicetokens/README.md
+  - docs/sdks/paymentmethodssdk/README.md
+  - docs/sdks/paymentoptionssdk/README.md
+  - docs/sdks/paymentservicedefinitionssdk/README.md
+  - docs/sdks/paymentservicessdk/README.md
   - docs/sdks/payouts/README.md
-  - docs/sdks/refunds/README.md
-  - docs/sdks/reports/README.md
+  - docs/sdks/refundssdk/README.md
   - docs/sdks/reportsexecutions/README.md
+  - docs/sdks/reportssdk/README.md
   - docs/sdks/sessions/README.md
   - docs/sdks/transactions/README.md
   - docs/sdks/transactionsrefunds/README.md
@@ -488,13 +488,13 @@ generatedFiles:
   - src/gr4vy/audit_logs.py
   - src/gr4vy/balances.py
   - src/gr4vy/basesdk.py
-  - src/gr4vy/buyers.py
   - src/gr4vy/buyers_gift_cards.py
   - src/gr4vy/buyers_payment_methods.py
+  - src/gr4vy/buyers_sdk.py
   - src/gr4vy/buyers_shipping_details.py
-  - src/gr4vy/card_scheme_definitions.py
+  - src/gr4vy/card_scheme_definitions_sdk.py
   - src/gr4vy/checkout_sessions.py
-  - src/gr4vy/digital_wallets.py
+  - src/gr4vy/digital_wallets_sdk.py
   - src/gr4vy/domains.py
   - src/gr4vy/errors/__init__.py
   - src/gr4vy/errors/apierror.py
@@ -512,10 +512,10 @@ generatedFiles:
   - src/gr4vy/errors/httpvalidationerror.py
   - src/gr4vy/events.py
   - src/gr4vy/executions.py
-  - src/gr4vy/gift_cards.py
+  - src/gr4vy/gift_cards_sdk.py
   - src/gr4vy/httpclient.py
   - src/gr4vy/jobs.py
-  - src/gr4vy/merchant_accounts.py
+  - src/gr4vy/merchant_accounts_sdk.py
   - src/gr4vy/models/__init__.py
   - src/gr4vy/models/accountupdaterinquirysummary.py
   - src/gr4vy/models/accountupdaterjob.py
@@ -532,6 +532,7 @@ generatedFiles:
   - src/gr4vy/models/applepaysessionrequest.py
   - src/gr4vy/models/approvaltarget.py
   - src/gr4vy/models/auditlogaction.py
+  - src/gr4vy/models/auditlogentries.py
   - src/gr4vy/models/auditlogentry.py
   - src/gr4vy/models/auditlogentryresource.py
   - src/gr4vy/models/auditlogentryuser.py
@@ -541,11 +542,13 @@ generatedFiles:
   - src/gr4vy/models/browserinfo.py
   - src/gr4vy/models/buyer.py
   - src/gr4vy/models/buyercreate.py
+  - src/gr4vy/models/buyers.py
   - src/gr4vy/models/buyerupdate.py
   - src/gr4vy/models/capture_transactionop.py
   - src/gr4vy/models/cardpaymentmethodcreate.py
   - src/gr4vy/models/cardscheme.py
   - src/gr4vy/models/cardschemedefinition.py
+  - src/gr4vy/models/cardschemedefinitions.py
   - src/gr4vy/models/cardtype.py
   - src/gr4vy/models/cardwithurlpaymentmethodcreate.py
   - src/gr4vy/models/cartitem.py
@@ -560,27 +563,6 @@ generatedFiles:
   - src/gr4vy/models/clicktopaypaymentmethodcreate.py
   - src/gr4vy/models/clicktopaysession.py
   - src/gr4vy/models/clicktopaysessionrequest.py
-  - src/gr4vy/models/collection_auditlogentry_.py
-  - src/gr4vy/models/collection_buyer_.py
-  - src/gr4vy/models/collection_giftcard_.py
-  - src/gr4vy/models/collection_merchantaccount_.py
-  - src/gr4vy/models/collection_paymentmethod_.py
-  - src/gr4vy/models/collection_paymentservice_.py
-  - src/gr4vy/models/collection_paymentservicedefinition_.py
-  - src/gr4vy/models/collection_payoutsummary_.py
-  - src/gr4vy/models/collection_refund_.py
-  - src/gr4vy/models/collection_report_.py
-  - src/gr4vy/models/collection_reportexecution_.py
-  - src/gr4vy/models/collection_transactionevent_.py
-  - src/gr4vy/models/collection_transactionsummary_.py
-  - src/gr4vy/models/collectionnocursor_cardschemedefinition_.py
-  - src/gr4vy/models/collectionnocursor_digitalwallet_.py
-  - src/gr4vy/models/collectionnocursor_giftcardsummary_.py
-  - src/gr4vy/models/collectionnocursor_networktoken_.py
-  - src/gr4vy/models/collectionnocursor_paymentmethodsummary_.py
-  - src/gr4vy/models/collectionnocursor_paymentoption_.py
-  - src/gr4vy/models/collectionnocursor_paymentservicetoken_.py
-  - src/gr4vy/models/collectionnocursor_shippingdetails_.py
   - src/gr4vy/models/configure_digital_walletop.py
   - src/gr4vy/models/connectionoptions.py
   - src/gr4vy/models/create_account_updater_jobop.py
@@ -622,6 +604,7 @@ generatedFiles:
   - src/gr4vy/models/digitalwalletcreate.py
   - src/gr4vy/models/digitalwalletdomain.py
   - src/gr4vy/models/digitalwalletprovider.py
+  - src/gr4vy/models/digitalwallets.py
   - src/gr4vy/models/digitalwalletupdate.py
   - src/gr4vy/models/errordetail.py
   - src/gr4vy/models/errorlocation.py
@@ -648,9 +631,11 @@ generatedFiles:
   - src/gr4vy/models/giftcardredemption.py
   - src/gr4vy/models/giftcardredemptionstatus.py
   - src/gr4vy/models/giftcardrequest.py
+  - src/gr4vy/models/giftcards.py
   - src/gr4vy/models/giftcardservice.py
   - src/gr4vy/models/giftcardserviceprovider.py
   - src/gr4vy/models/giftcardstoredrequest.py
+  - src/gr4vy/models/giftcardsummaries.py
   - src/gr4vy/models/giftcardsummary.py
   - src/gr4vy/models/giftcardtokentransactioncreate.py
   - src/gr4vy/models/giftcardtransactioncreate.py
@@ -690,6 +675,7 @@ generatedFiles:
   - src/gr4vy/models/list_transactionsop.py
   - src/gr4vy/models/merchantaccount.py
   - src/gr4vy/models/merchantaccountcreate.py
+  - src/gr4vy/models/merchantaccounts.py
   - src/gr4vy/models/merchantaccountupdate.py
   - src/gr4vy/models/merchantprofilescheme.py
   - src/gr4vy/models/merchantprofileschemesummary.py
@@ -698,24 +684,31 @@ generatedFiles:
   - src/gr4vy/models/networktoken.py
   - src/gr4vy/models/networktokencreate.py
   - src/gr4vy/models/networktokenpaymentmethodcreate.py
+  - src/gr4vy/models/networktokens.py
   - src/gr4vy/models/networktokenstatus.py
   - src/gr4vy/models/paymentmethod.py
   - src/gr4vy/models/paymentmethodcard.py
   - src/gr4vy/models/paymentmethoddetailscard.py
+  - src/gr4vy/models/paymentmethods.py
   - src/gr4vy/models/paymentmethodstatus.py
   - src/gr4vy/models/paymentmethodstoredcard.py
+  - src/gr4vy/models/paymentmethodsummaries.py
   - src/gr4vy/models/paymentmethodsummary.py
   - src/gr4vy/models/paymentoption.py
   - src/gr4vy/models/paymentoptioncontext.py
   - src/gr4vy/models/paymentoptioncontextapprovalui.py
   - src/gr4vy/models/paymentoptionrequest.py
+  - src/gr4vy/models/paymentoptions.py
   - src/gr4vy/models/paymentservice.py
   - src/gr4vy/models/paymentserviceconfiguration.py
   - src/gr4vy/models/paymentservicecreate.py
   - src/gr4vy/models/paymentservicedefinition.py
+  - src/gr4vy/models/paymentservicedefinitions.py
+  - src/gr4vy/models/paymentservices.py
   - src/gr4vy/models/paymentservicestatus.py
   - src/gr4vy/models/paymentservicetoken.py
   - src/gr4vy/models/paymentservicetokencreate.py
+  - src/gr4vy/models/paymentservicetokens.py
   - src/gr4vy/models/paymentserviceupdate.py
   - src/gr4vy/models/payoutcategory.py
   - src/gr4vy/models/payoutcreate.py
@@ -723,11 +716,13 @@ generatedFiles:
   - src/gr4vy/models/payoutmerchantsummary.py
   - src/gr4vy/models/payoutpaymentservice.py
   - src/gr4vy/models/payoutstatus.py
+  - src/gr4vy/models/payoutsummaries.py
   - src/gr4vy/models/payoutsummary.py
   - src/gr4vy/models/producttype.py
   - src/gr4vy/models/recipient.py
   - src/gr4vy/models/redirectpaymentmethodcreate.py
   - src/gr4vy/models/refund.py
+  - src/gr4vy/models/refunds.py
   - src/gr4vy/models/refundstatus.py
   - src/gr4vy/models/refundtargettype.py
   - src/gr4vy/models/register_digital_wallet_domainop.py
@@ -736,9 +731,11 @@ generatedFiles:
   - src/gr4vy/models/reportcreatortype.py
   - src/gr4vy/models/reportexecution.py
   - src/gr4vy/models/reportexecutioncontext.py
+  - src/gr4vy/models/reportexecutions.py
   - src/gr4vy/models/reportexecutionstatus.py
   - src/gr4vy/models/reportexecutionsummary.py
   - src/gr4vy/models/reportexecutionurl.py
+  - src/gr4vy/models/reports.py
   - src/gr4vy/models/reportschedule.py
   - src/gr4vy/models/reportspec.py
   - src/gr4vy/models/reportspecmodel.py
@@ -749,6 +746,7 @@ generatedFiles:
   - src/gr4vy/models/security.py
   - src/gr4vy/models/shippingdetails.py
   - src/gr4vy/models/shippingdetailscreate.py
+  - src/gr4vy/models/shippingdetailslist.py
   - src/gr4vy/models/shippingdetailsupdate.py
   - src/gr4vy/models/statementdescriptor.py
   - src/gr4vy/models/suspend_payment_method_network_tokenop.py
@@ -767,6 +765,7 @@ generatedFiles:
   - src/gr4vy/models/transactioncapture.py
   - src/gr4vy/models/transactioncreate.py
   - src/gr4vy/models/transactionevent.py
+  - src/gr4vy/models/transactionevents.py
   - src/gr4vy/models/transactiongiftcard.py
   - src/gr4vy/models/transactionintent.py
   - src/gr4vy/models/transactionintentoutcome.py
@@ -778,6 +777,7 @@ generatedFiles:
   - src/gr4vy/models/transactionretriesreportspec.py
   - src/gr4vy/models/transactionsreportspec.py
   - src/gr4vy/models/transactionstatus.py
+  - src/gr4vy/models/transactionsummaries.py
   - src/gr4vy/models/transactionsummary.py
   - src/gr4vy/models/transactionthreedsecuresummary.py
   - src/gr4vy/models/unregister_digital_wallet_domainop.py
@@ -795,18 +795,18 @@ generatedFiles:
   - src/gr4vy/models/void_transactionop.py
   - src/gr4vy/models/voidablefield.py
   - src/gr4vy/models/walletpaymentoptioncontext.py
-  - src/gr4vy/network_tokens.py
   - src/gr4vy/network_tokens_cryptogram.py
-  - src/gr4vy/payment_methods.py
-  - src/gr4vy/payment_options.py
-  - src/gr4vy/payment_service_definitions.py
-  - src/gr4vy/payment_service_tokens.py
-  - src/gr4vy/payment_services.py
+  - src/gr4vy/payment_methods_network_tokens.py
+  - src/gr4vy/payment_methods_payment_service_tokens.py
+  - src/gr4vy/payment_methods_sdk.py
+  - src/gr4vy/payment_options_sdk.py
+  - src/gr4vy/payment_service_definitions_sdk.py
+  - src/gr4vy/payment_services_sdk.py
   - src/gr4vy/payouts.py
   - src/gr4vy/py.typed
-  - src/gr4vy/refunds.py
-  - src/gr4vy/reports.py
+  - src/gr4vy/refunds_sdk.py
   - src/gr4vy/reports_executions.py
+  - src/gr4vy/reports_sdk.py
   - src/gr4vy/sdk.py
   - src/gr4vy/sdkconfiguration.py
   - src/gr4vy/sessions.py

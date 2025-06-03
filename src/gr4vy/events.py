@@ -20,7 +20,7 @@ class Events(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CollectionTransactionEvent:
+    ) -> models.TransactionEvents:
         r"""List transaction events
 
         Fetch a list of events for a transaction.
@@ -114,9 +114,7 @@ class Events(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.CollectionTransactionEvent
-            )
+            return utils.unmarshal_json(http_res.text, models.TransactionEvents)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
             raise errors.Error400(data=response_data)
@@ -186,7 +184,7 @@ class Events(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CollectionTransactionEvent:
+    ) -> models.TransactionEvents:
         r"""List transaction events
 
         Fetch a list of events for a transaction.
@@ -280,9 +278,7 @@ class Events(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.CollectionTransactionEvent
-            )
+            return utils.unmarshal_json(http_res.text, models.TransactionEvents)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
             raise errors.Error400(data=response_data)
