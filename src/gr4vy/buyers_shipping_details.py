@@ -13,7 +13,6 @@ class BuyersShippingDetails(BaseSDK):
         self,
         *,
         buyer_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         first_name: OptionalNullable[str] = UNSET,
         last_name: OptionalNullable[str] = UNSET,
@@ -32,7 +31,6 @@ class BuyersShippingDetails(BaseSDK):
         Associate shipping details to a buyer.
 
         :param buyer_id: The ID of the buyer to add shipping details to.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param first_name: The first name(s) or given name for the buyer.
         :param last_name: The last name, or family name, of the buyer.
@@ -56,7 +54,6 @@ class BuyersShippingDetails(BaseSDK):
 
         request = models.AddBuyerShippingDetailsRequest(
             buyer_id=buyer_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
             shipping_details_create=models.ShippingDetailsCreate(
                 first_name=first_name,
@@ -198,7 +195,6 @@ class BuyersShippingDetails(BaseSDK):
         self,
         *,
         buyer_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         first_name: OptionalNullable[str] = UNSET,
         last_name: OptionalNullable[str] = UNSET,
@@ -217,7 +213,6 @@ class BuyersShippingDetails(BaseSDK):
         Associate shipping details to a buyer.
 
         :param buyer_id: The ID of the buyer to add shipping details to.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param first_name: The first name(s) or given name for the buyer.
         :param last_name: The last name, or family name, of the buyer.
@@ -241,7 +236,6 @@ class BuyersShippingDetails(BaseSDK):
 
         request = models.AddBuyerShippingDetailsRequest(
             buyer_id=buyer_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
             shipping_details_create=models.ShippingDetailsCreate(
                 first_name=first_name,
@@ -383,7 +377,6 @@ class BuyersShippingDetails(BaseSDK):
         self,
         *,
         buyer_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -395,7 +388,6 @@ class BuyersShippingDetails(BaseSDK):
         List all the shipping details associated to a specific buyer.
 
         :param buyer_id: The ID of the buyer to retrieve shipping details for.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -414,7 +406,6 @@ class BuyersShippingDetails(BaseSDK):
 
         request = models.ListBuyerShippingDetailsRequest(
             buyer_id=buyer_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -546,7 +537,6 @@ class BuyersShippingDetails(BaseSDK):
         self,
         *,
         buyer_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -558,7 +548,6 @@ class BuyersShippingDetails(BaseSDK):
         List all the shipping details associated to a specific buyer.
 
         :param buyer_id: The ID of the buyer to retrieve shipping details for.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -577,7 +566,6 @@ class BuyersShippingDetails(BaseSDK):
 
         request = models.ListBuyerShippingDetailsRequest(
             buyer_id=buyer_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -710,7 +698,6 @@ class BuyersShippingDetails(BaseSDK):
         *,
         buyer_id: str,
         shipping_details_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -723,7 +710,6 @@ class BuyersShippingDetails(BaseSDK):
 
         :param buyer_id: The ID of the buyer to retrieve shipping details for.
         :param shipping_details_id: The ID of the shipping details to retrieve.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -743,7 +729,6 @@ class BuyersShippingDetails(BaseSDK):
         request = models.GetBuyerShippingDetailsRequest(
             buyer_id=buyer_id,
             shipping_details_id=shipping_details_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -874,7 +859,6 @@ class BuyersShippingDetails(BaseSDK):
         *,
         buyer_id: str,
         shipping_details_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -887,7 +871,6 @@ class BuyersShippingDetails(BaseSDK):
 
         :param buyer_id: The ID of the buyer to retrieve shipping details for.
         :param shipping_details_id: The ID of the shipping details to retrieve.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -907,7 +890,6 @@ class BuyersShippingDetails(BaseSDK):
         request = models.GetBuyerShippingDetailsRequest(
             buyer_id=buyer_id,
             shipping_details_id=shipping_details_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -1038,7 +1020,6 @@ class BuyersShippingDetails(BaseSDK):
         *,
         buyer_id: str,
         shipping_details_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         first_name: OptionalNullable[str] = UNSET,
         last_name: OptionalNullable[str] = UNSET,
@@ -1058,7 +1039,6 @@ class BuyersShippingDetails(BaseSDK):
 
         :param buyer_id: The ID of the buyer to update shipping details for.
         :param shipping_details_id: The ID of the shipping details to update.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param first_name: The first name(s) or given name for the buyer.
         :param last_name: The last name, or family name, of the buyer.
@@ -1083,7 +1063,6 @@ class BuyersShippingDetails(BaseSDK):
         request = models.UpdateBuyerShippingDetailsRequest(
             buyer_id=buyer_id,
             shipping_details_id=shipping_details_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
             shipping_details_update=models.ShippingDetailsUpdate(
                 first_name=first_name,
@@ -1226,7 +1205,6 @@ class BuyersShippingDetails(BaseSDK):
         *,
         buyer_id: str,
         shipping_details_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         first_name: OptionalNullable[str] = UNSET,
         last_name: OptionalNullable[str] = UNSET,
@@ -1246,7 +1224,6 @@ class BuyersShippingDetails(BaseSDK):
 
         :param buyer_id: The ID of the buyer to update shipping details for.
         :param shipping_details_id: The ID of the shipping details to update.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param first_name: The first name(s) or given name for the buyer.
         :param last_name: The last name, or family name, of the buyer.
@@ -1271,7 +1248,6 @@ class BuyersShippingDetails(BaseSDK):
         request = models.UpdateBuyerShippingDetailsRequest(
             buyer_id=buyer_id,
             shipping_details_id=shipping_details_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
             shipping_details_update=models.ShippingDetailsUpdate(
                 first_name=first_name,
@@ -1414,7 +1390,6 @@ class BuyersShippingDetails(BaseSDK):
         *,
         buyer_id: str,
         shipping_details_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1427,7 +1402,6 @@ class BuyersShippingDetails(BaseSDK):
 
         :param buyer_id: The ID of the buyer to delete shipping details for.
         :param shipping_details_id: The ID of the shipping details to delete.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1447,7 +1421,6 @@ class BuyersShippingDetails(BaseSDK):
         request = models.DeleteBuyerShippingDetailsRequest(
             buyer_id=buyer_id,
             shipping_details_id=shipping_details_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -1574,7 +1547,6 @@ class BuyersShippingDetails(BaseSDK):
         *,
         buyer_id: str,
         shipping_details_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1587,7 +1559,6 @@ class BuyersShippingDetails(BaseSDK):
 
         :param buyer_id: The ID of the buyer to delete shipping details for.
         :param shipping_details_id: The ID of the shipping details to delete.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1607,7 +1578,6 @@ class BuyersShippingDetails(BaseSDK):
         request = models.DeleteBuyerShippingDetailsRequest(
             buyer_id=buyer_id,
             shipping_details_id=shipping_details_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 

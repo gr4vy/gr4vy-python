@@ -20,32 +20,14 @@ List all transactions for a specific merchant account sorted by most recently cr
 
 ```python
 from gr4vy import Gr4vy
-from gr4vy.utils import parse_datetime
 import os
 
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.list(cursor="ZXhhbXBsZTE", created_at_lte=parse_datetime("2022-01-01T12:00:00+08:00"), created_at_gte=parse_datetime("2022-01-01T12:00:00+08:00"), updated_at_lte=parse_datetime("2022-01-01T12:00:00+08:00"), updated_at_gte=parse_datetime("2022-01-01T12:00:00+08:00"), search="transaction-12345", buyer_external_identifier="buyer-12345", buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", buyer_email_address="john@example.com", buyer_search="John", ip_address="8.214.133.47", status=[
-        "authorization_succeeded",
-    ], id="7099948d-7286-47e4-aad8-b68f7eb44591", payment_service_transaction_id="tx-12345", external_identifier="transaction-12345", metadata=[
-        "{\"first_key\":\"first_value\",\"second_key\":\"second_value\"}",
-    ], amount_eq=1299, amount_lte=1299, amount_gte=1299, currency=[
-        "USD",
-    ], country=[
-        "US",
-    ], payment_service_id=[
-        "fffd152a-9532-4087-9a4f-de58754210f0",
-    ], payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", payment_method_label="1234", payment_method_scheme="[\"visa\"]", payment_method_country="[\"US\"]", payment_method_fingerprint="a50b85c200ee0795d6fd33a5c66f37a4564f554355c5b46a756aac485dd168a4", method=[
-        "card",
-    ], error_code=[
-        "insufficient_funds",
-    ], has_refunds=True, pending_review=True, checkout_session_id="4137b1cf-39ac-42a8-bad6-1c680d5dab6b", reconciliation_id="7jZXl4gBUNl0CnaLEnfXbt", has_gift_card_redemptions=True, gift_card_id="356d56e5-fe16-42ae-97ee-8d55d846ae2e", gift_card_last4="7890", has_settlements=True, payment_method_bin="411111", payment_source=[
-        "recurring",
-    ], is_subsequent_payment=True, merchant_initiated=True, used_3ds=True, merchant_account_id="default")
+    res = g_client.transactions.list()
 
     while res is not None:
         # Handle items
@@ -101,7 +83,6 @@ with Gr4vy(
 | `is_subsequent_payment`                                                                                                                                                                                                                                      | *OptionalNullable[bool]*                                                                                                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                                                                                           | Filters for transactions where the `is_subsequent_payment` matches the provided value.                                                                                                                                                                       | true                                                                                                                                                                                                                                                         |
 | `merchant_initiated`                                                                                                                                                                                                                                         | *OptionalNullable[bool]*                                                                                                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                                                                                           | Filters for transactions where the `merchant_initiated` matches the provided value.                                                                                                                                                                          | true                                                                                                                                                                                                                                                         |
 | `used_3ds`                                                                                                                                                                                                                                                   | *OptionalNullable[bool]*                                                                                                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                                                                                           | Filters for transactions that attempted 3DS authentication or not.                                                                                                                                                                                           | true                                                                                                                                                                                                                                                         |
-| `application_name`                                                                                                                                                                                                                                           | *Optional[str]*                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                           | N/A                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                              |
 | `merchant_account_id`                                                                                                                                                                                                                                        | *Optional[str]*                                                                                                                                                                                                                                              | :heavy_minus_sign:                                                                                                                                                                                                                                           | The ID of the merchant account to use for this request.                                                                                                                                                                                                      | default                                                                                                                                                                                                                                                      |
 | `retries`                                                                                                                                                                                                                                                    | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                                                                                                                             | :heavy_minus_sign:                                                                                                                                                                                                                                           | Configuration to override the default retry behavior of the client.                                                                                                                                                                                          |                                                                                                                                                                                                                                                              |
 
@@ -134,319 +115,15 @@ Create a transaction.
 ### Example Usage
 
 ```python
-from datetime import date
-from gr4vy import Gr4vy, models
-from gr4vy.utils import parse_datetime
+from gr4vy import Gr4vy
 import os
 
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.create(amount=1299, currency="EUR", merchant_account_id="default", idempotency_key="request-12345", country="US", payment_method={
-        "expiration_date": "12/30",
-        "number": "4111111111111111",
-        "buyer_external_identifier": "buyer-12345",
-        "buyer_id": "fe26475d-ec3e-4884-9553-f7356683f7f9",
-        "external_identifier": "payment-method-12345",
-        "card_type": "credit",
-        "method": "card",
-        "security_code": "123",
-    }, buyer=models.GuestBuyerInput(
-        display_name="John Doe",
-        external_identifier="buyer-12345",
-        billing_details=models.BillingDetailsInput(
-            first_name="John",
-            last_name="Doe",
-            email_address="john@example.com",
-            phone_number="+1234567890",
-            address=models.Address(
-                city="San Jose",
-                country="US",
-                postal_code="94560",
-                state="California",
-                state_code="US-CA",
-                house_number_or_name="10",
-                line1="Stafford Appartments",
-                line2="29th Street",
-                organization="Gr4vy",
-            ),
-            tax_id=models.TaxID(
-                value="12345678931",
-                kind="br.cnpj",
-            ),
-        ),
-        shipping_details=models.ShippingDetailsCreate(
-            first_name="John",
-            last_name="Doe",
-            email_address="john@example.com",
-            phone_number="+1234567890",
-            address=models.Address(
-                city="San Jose",
-                country="US",
-                postal_code="94560",
-                state="California",
-                state_code="US-CA",
-                house_number_or_name="10",
-                line1="Stafford Appartments",
-                line2="29th Street",
-                organization="Gr4vy",
-            ),
-        ),
-    ), buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", buyer_external_identifier="buyer-12345", gift_cards=[
-        {
-            "id": "356d56e5-fe16-42ae-97ee-8d55d846ae2e",
-            "amount": 1299,
-        },
-        {
-            "id": "356d56e5-fe16-42ae-97ee-8d55d846ae2e",
-            "amount": 1299,
-        },
-        {
-            "number": "4123455541234561234",
-            "pin": "1234",
-            "amount": 1299,
-        },
-    ], external_identifier="transaction-12345", three_d_secure_data={
-        "cavv": "3q2+78r+ur7erb7vyv66vv8=",
-        "eci": "05",
-        "version": "2.1.0",
-        "directory_response": "C",
-        "scheme": "visa",
-        "authentication_response": "Y",
-        "cavv_algorithm": "A",
-        "xid": "12345",
-    }, metadata={
-        "cohort": "cohort-12345",
-        "order": "order-12345",
-    }, airline={
-        "booking_code": "X36Q9C",
-        "is_cardholder_traveling": True,
-        "issued_address": "123 Broadway, New York",
-        "issued_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
-        "issuing_carrier_code": "649",
-        "issuing_carrier_name": "Air Transat A.T. Inc",
-        "issuing_iata_designator": "TS",
-        "issuing_icao_code": "TSC",
-        "legs": [
-            {
-                "arrival_airport": "LAX",
-                "arrival_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
-                "arrival_city": "Los Angeles",
-                "arrival_country": "US",
-                "carrier_code": "649",
-                "carrier_name": "Air Transat A.T. Inc",
-                "iata_designator": "TS",
-                "icao_code": "TSC",
-                "coupon_number": "15885566",
-                "departure_airport": "LHR",
-                "departure_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
-                "departure_city": "London",
-                "departure_country": "GB",
-                "departure_tax_amount": 1200,
-                "fare_amount": 129900,
-                "fare_basis_code": "FY",
-                "fee_amount": 1200,
-                "flight_class": "E",
-                "flight_number": "101",
-                "route_type": "round_trip",
-                "seat_class": "F",
-                "stop_over": False,
-                "tax_amount": 1200,
-            },
-            {
-                "arrival_airport": "LAX",
-                "arrival_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
-                "arrival_city": "Los Angeles",
-                "arrival_country": "US",
-                "carrier_code": "649",
-                "carrier_name": "Air Transat A.T. Inc",
-                "iata_designator": "TS",
-                "icao_code": "TSC",
-                "coupon_number": "15885566",
-                "departure_airport": "LHR",
-                "departure_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
-                "departure_city": "London",
-                "departure_country": "GB",
-                "departure_tax_amount": 1200,
-                "fare_amount": 129900,
-                "fare_basis_code": "FY",
-                "fee_amount": 1200,
-                "flight_class": "E",
-                "flight_number": "101",
-                "route_type": "round_trip",
-                "seat_class": "F",
-                "stop_over": False,
-                "tax_amount": 1200,
-            },
-            {
-                "arrival_airport": "LAX",
-                "arrival_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
-                "arrival_city": "Los Angeles",
-                "arrival_country": "US",
-                "carrier_code": "649",
-                "carrier_name": "Air Transat A.T. Inc",
-                "iata_designator": "TS",
-                "icao_code": "TSC",
-                "coupon_number": "15885566",
-                "departure_airport": "LHR",
-                "departure_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
-                "departure_city": "London",
-                "departure_country": "GB",
-                "departure_tax_amount": 1200,
-                "fare_amount": 129900,
-                "fare_basis_code": "FY",
-                "fee_amount": 1200,
-                "flight_class": "E",
-                "flight_number": "101",
-                "route_type": "round_trip",
-                "seat_class": "F",
-                "stop_over": False,
-                "tax_amount": 1200,
-            },
-        ],
-        "passenger_name_record": "JOHN L",
-        "passengers": [
-            {
-                "age_group": "adult",
-                "date_of_birth": date.fromisoformat("2013-07-16"),
-                "email_address": "john@example.com",
-                "first_name": "John",
-                "frequent_flyer_number": "15885566",
-                "last_name": "Luhn",
-                "passport_number": "11117700225",
-                "phone_number": "+1234567890",
-                "ticket_number": "BA1236699999",
-                "title": "Mr.",
-                "country_code": "US",
-            },
-            {
-                "age_group": "adult",
-                "date_of_birth": date.fromisoformat("2013-07-16"),
-                "email_address": "john@example.com",
-                "first_name": "John",
-                "frequent_flyer_number": "15885566",
-                "last_name": "Luhn",
-                "passport_number": "11117700225",
-                "phone_number": "+1234567890",
-                "ticket_number": "BA1236699999",
-                "title": "Mr.",
-                "country_code": "US",
-            },
-            {
-                "age_group": "adult",
-                "date_of_birth": date.fromisoformat("2013-07-16"),
-                "email_address": "john@example.com",
-                "first_name": "John",
-                "frequent_flyer_number": "15885566",
-                "last_name": "Luhn",
-                "passport_number": "11117700225",
-                "phone_number": "+1234567890",
-                "ticket_number": "BA1236699999",
-                "title": "Mr.",
-                "country_code": "US",
-            },
-        ],
-        "reservation_system": "Amadeus",
-        "restricted_ticket": False,
-        "ticket_delivery_method": "electronic",
-        "ticket_number": "123-1234-151555",
-        "travel_agency_code": "12345",
-        "travel_agency_invoice_number": "EG15555155",
-        "travel_agency_name": "ACME Agency",
-        "travel_agency_plan_name": "B733",
-    }, cart_items=[
-        {
-            "name": "GoPro HD",
-            "quantity": 2,
-            "unit_amount": 1299,
-            "discount_amount": 0,
-            "tax_amount": 0,
-            "external_identifier": "goprohd",
-            "sku": "GPHD1078",
-            "product_url": "https://example.com/catalog/go-pro-hd",
-            "image_url": "https://example.com/images/go-pro-hd.jpg",
-            "categories": [
-                "camera",
-                "travel",
-                "gear",
-            ],
-            "product_type": "physical",
-            "seller_country": "US",
-        },
-        {
-            "name": "GoPro HD",
-            "quantity": 2,
-            "unit_amount": 1299,
-            "discount_amount": 0,
-            "tax_amount": 0,
-            "external_identifier": "goprohd",
-            "sku": "GPHD1078",
-            "product_url": "https://example.com/catalog/go-pro-hd",
-            "image_url": "https://example.com/images/go-pro-hd.jpg",
-            "categories": [
-                "camera",
-                "travel",
-                "gear",
-            ],
-            "product_type": "physical",
-            "seller_country": "US",
-        },
-        {
-            "name": "GoPro HD",
-            "quantity": 2,
-            "unit_amount": 1299,
-            "discount_amount": 0,
-            "tax_amount": 0,
-            "external_identifier": "goprohd",
-            "sku": "GPHD1078",
-            "product_url": "https://example.com/catalog/go-pro-hd",
-            "image_url": "https://example.com/images/go-pro-hd.jpg",
-            "categories": [
-                "camera",
-                "travel",
-                "gear",
-            ],
-            "product_type": "physical",
-            "seller_country": "US",
-        },
-    ], statement_descriptor={
-        "name": "ACME",
-        "description": "ACME San Jose Electronics",
-        "city": "San Jose",
-        "country": "US",
-        "phone_number": "+1234567890",
-        "url": "www.example.com",
-    }, previous_scheme_transaction_id="123456789012345", browser_info={
-        "javascript_enabled": False,
-        "java_enabled": False,
-        "language": "<value>",
-        "color_depth": 242405,
-        "screen_height": 557747,
-        "screen_width": 288219,
-        "time_zone_offset": 538274,
-        "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "user_device": "desktop",
-        "accept_header": "*/*",
-    }, shipping_details_id="bf8c36ad-02d9-4904-b0f9-a230b149e341", anti_fraud_fingerprint="yGeBAFYgFmM=", payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0", recipient={
-        "first_name": "",
-        "last_name": "",
-        "address": {
-            "city": "San Jose",
-            "country": "US",
-            "postal_code": "94560",
-            "state": "California",
-            "state_code": "US-CA",
-            "house_number_or_name": "10",
-            "line1": "Stafford Appartments",
-            "line2": "29th Street",
-            "organization": "Gr4vy",
-        },
-        "account_number": "act12345",
-        "date_of_birth": date.fromisoformat("1995-12-23"),
-    })
+    res = g_client.transactions.create(amount=1299, currency="EUR")
 
     # Handle response
     print(res)
@@ -459,7 +136,6 @@ with Gr4vy(
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `amount`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | *int*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | The monetary amount for this transaction, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`. If the `intent` is set to `capture`, an amount greater than zero must be supplied. All gift card amounts are subtracted from this amount before the remainder is charged to the provided `payment_method`.                                                                                                                                                                                                                                                                          | 1299                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `currency`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | *str*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | A supported ISO-4217 currency code. For redirect requests, this value must match the one specified for `currency` in `payment_method`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | EUR                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| `application_name`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | *Optional[str]*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | N/A                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | `merchant_account_id`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | *Optional[str]*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | The ID of the merchant account to use for this request.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | default                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | `idempotency_key`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.                                                                                                                                                                                                                                                                                                                                                                                                                                                 | request-12345                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `country`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | *OptionalNullable[str]*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | The 2-letter ISO code of the country where the transaction is processed. This is also used to filter the payment services that can process the transaction. If this value is provided for redirect requests and it's not `null`, it must match the one specified for `country` in `payment_method`. Otherwise, the value specified for `country` in `payment_method` will be assumed implicitly.                                                                                                                                                                                                                                                      | US                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -526,10 +202,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.get(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591", merchant_account_id="default")
+    res = g_client.transactions.get(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591")
 
     # Handle response
     print(res)
@@ -541,7 +216,6 @@ with Gr4vy(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `transaction_id`                                                    | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 | 7099948d-7286-47e4-aad8-b68f7eb44591                                |
-| `application_name`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
@@ -574,141 +248,15 @@ Capture a previously authorized transaction.
 ### Example Usage
 
 ```python
-from datetime import date
 from gr4vy import Gr4vy
-from gr4vy.utils import parse_datetime
 import os
 
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.capture(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591", merchant_account_id="default", amount=1299, airline={
-        "booking_code": "X36Q9C",
-        "is_cardholder_traveling": True,
-        "issued_address": "123 Broadway, New York",
-        "issued_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
-        "issuing_carrier_code": "649",
-        "issuing_carrier_name": "Air Transat A.T. Inc",
-        "issuing_iata_designator": "TS",
-        "issuing_icao_code": "TSC",
-        "legs": [
-            {
-                "arrival_airport": "LAX",
-                "arrival_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
-                "arrival_city": "Los Angeles",
-                "arrival_country": "US",
-                "carrier_code": "649",
-                "carrier_name": "Air Transat A.T. Inc",
-                "iata_designator": "TS",
-                "icao_code": "TSC",
-                "coupon_number": "15885566",
-                "departure_airport": "LHR",
-                "departure_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
-                "departure_city": "London",
-                "departure_country": "GB",
-                "departure_tax_amount": 1200,
-                "fare_amount": 129900,
-                "fare_basis_code": "FY",
-                "fee_amount": 1200,
-                "flight_class": "E",
-                "flight_number": "101",
-                "route_type": "round_trip",
-                "seat_class": "F",
-                "stop_over": False,
-                "tax_amount": 1200,
-            },
-            {
-                "arrival_airport": "LAX",
-                "arrival_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
-                "arrival_city": "Los Angeles",
-                "arrival_country": "US",
-                "carrier_code": "649",
-                "carrier_name": "Air Transat A.T. Inc",
-                "iata_designator": "TS",
-                "icao_code": "TSC",
-                "coupon_number": "15885566",
-                "departure_airport": "LHR",
-                "departure_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
-                "departure_city": "London",
-                "departure_country": "GB",
-                "departure_tax_amount": 1200,
-                "fare_amount": 129900,
-                "fare_basis_code": "FY",
-                "fee_amount": 1200,
-                "flight_class": "E",
-                "flight_number": "101",
-                "route_type": "round_trip",
-                "seat_class": "F",
-                "stop_over": False,
-                "tax_amount": 1200,
-            },
-            {
-                "arrival_airport": "LAX",
-                "arrival_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
-                "arrival_city": "Los Angeles",
-                "arrival_country": "US",
-                "carrier_code": "649",
-                "carrier_name": "Air Transat A.T. Inc",
-                "iata_designator": "TS",
-                "icao_code": "TSC",
-                "coupon_number": "15885566",
-                "departure_airport": "LHR",
-                "departure_at": parse_datetime("2013-07-16T19:23:00.000+00:00"),
-                "departure_city": "London",
-                "departure_country": "GB",
-                "departure_tax_amount": 1200,
-                "fare_amount": 129900,
-                "fare_basis_code": "FY",
-                "fee_amount": 1200,
-                "flight_class": "E",
-                "flight_number": "101",
-                "route_type": "round_trip",
-                "seat_class": "F",
-                "stop_over": False,
-                "tax_amount": 1200,
-            },
-        ],
-        "passenger_name_record": "JOHN L",
-        "passengers": [
-            {
-                "age_group": "adult",
-                "date_of_birth": date.fromisoformat("2013-07-16"),
-                "email_address": "john@example.com",
-                "first_name": "John",
-                "frequent_flyer_number": "15885566",
-                "last_name": "Luhn",
-                "passport_number": "11117700225",
-                "phone_number": "+1234567890",
-                "ticket_number": "BA1236699999",
-                "title": "Mr.",
-                "country_code": "US",
-            },
-            {
-                "age_group": "adult",
-                "date_of_birth": date.fromisoformat("2013-07-16"),
-                "email_address": "john@example.com",
-                "first_name": "John",
-                "frequent_flyer_number": "15885566",
-                "last_name": "Luhn",
-                "passport_number": "11117700225",
-                "phone_number": "+1234567890",
-                "ticket_number": "BA1236699999",
-                "title": "Mr.",
-                "country_code": "US",
-            },
-        ],
-        "reservation_system": "Amadeus",
-        "restricted_ticket": False,
-        "ticket_delivery_method": "electronic",
-        "ticket_number": "123-1234-151555",
-        "travel_agency_code": "12345",
-        "travel_agency_invoice_number": "EG15555155",
-        "travel_agency_name": "ACME Agency",
-        "travel_agency_plan_name": "B733",
-    })
+    res = g_client.transactions.capture(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591")
 
     # Handle response
     print(res)
@@ -720,7 +268,6 @@ with Gr4vy(
 | Parameter                                                                                                                    | Type                                                                                                                         | Required                                                                                                                     | Description                                                                                                                  | Example                                                                                                                      |
 | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `transaction_id`                                                                                                             | *str*                                                                                                                        | :heavy_check_mark:                                                                                                           | N/A                                                                                                                          | 7099948d-7286-47e4-aad8-b68f7eb44591                                                                                         |
-| `application_name`                                                                                                           | *Optional[str]*                                                                                                              | :heavy_minus_sign:                                                                                                           | N/A                                                                                                                          |                                                                                                                              |
 | `merchant_account_id`                                                                                                        | *Optional[str]*                                                                                                              | :heavy_minus_sign:                                                                                                           | The ID of the merchant account to use for this request.                                                                      | default                                                                                                                      |
 | `amount`                                                                                                                     | *OptionalNullable[int]*                                                                                                      | :heavy_minus_sign:                                                                                                           | The amount to capture. This normally needs to be equal or less than the authorized amount, unless over-capture is available. | 1299                                                                                                                         |
 | `airline`                                                                                                                    | [OptionalNullable[models.Airline]](../../models/airline.md)                                                                  | :heavy_minus_sign:                                                                                                           | The airline data to submit to the payment service during the capture call.                                                   |                                                                                                                              |
@@ -761,10 +308,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.void(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591", merchant_account_id="default")
+    res = g_client.transactions.void(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591")
 
     # Handle response
     print(res)
@@ -776,7 +322,6 @@ with Gr4vy(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `transaction_id`                                                    | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 | 7099948d-7286-47e4-aad8-b68f7eb44591                                |
-| `application_name`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
@@ -815,10 +360,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.sync(transaction_id="2ee546e0-3b11-478e-afec-fdb362611e22", merchant_account_id="default")
+    res = g_client.transactions.sync(transaction_id="2ee546e0-3b11-478e-afec-fdb362611e22")
 
     # Handle response
     print(res)
@@ -830,7 +374,6 @@ with Gr4vy(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `transaction_id`                                                    | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |                                                                     |
-| `application_name`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 

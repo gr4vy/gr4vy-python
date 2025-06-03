@@ -20,31 +20,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.payment_options.list(merchant_account_id="default", metadata={
-        "cohort": "a",
-    }, country="US", currency="USD", amount=1299, cart_items=[
-        {
-            "name": "GoPro HD",
-            "quantity": 2,
-            "unit_amount": 1299,
-            "discount_amount": 0,
-            "tax_amount": 0,
-            "external_identifier": "goprohd",
-            "sku": "GPHD1078",
-            "product_url": "https://example.com/catalog/go-pro-hd",
-            "image_url": "https://example.com/images/go-pro-hd.jpg",
-            "categories": [
-                "camera",
-                "travel",
-                "gear",
-            ],
-            "product_type": "physical",
-            "seller_country": "US",
-        },
-    ])
+    res = g_client.payment_options.list()
 
     # Handle response
     print(res)
@@ -55,7 +33,6 @@ with Gr4vy(
 
 | Parameter                                                                                                                     | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   | Example                                                                                                                       |
 | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| `application_name`                                                                                                            | *Optional[str]*                                                                                                               | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |                                                                                                                               |
 | `merchant_account_id`                                                                                                         | *Optional[str]*                                                                                                               | :heavy_minus_sign:                                                                                                            | The ID of the merchant account to use for this request.                                                                       | default                                                                                                                       |
 | `metadata`                                                                                                                    | Dict[str, *str*]                                                                                                              | :heavy_minus_sign:                                                                                                            | The metadata to used to evaluate checkout rules, which will help determine the right payment options to display.              | {<br/>"cohort": "a"<br/>}                                                                                                     |
 | `country`                                                                                                                     | *OptionalNullable[str]*                                                                                                       | :heavy_minus_sign:                                                                                                            | The country code used to evaluate checkout rules, and which are used to help determine the right payment options to display.  | US                                                                                                                            |

@@ -22,10 +22,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.refunds.list(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591", merchant_account_id="default")
+    res = g_client.transactions.refunds.list(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591")
 
     # Handle response
     print(res)
@@ -37,7 +36,6 @@ with Gr4vy(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `transaction_id`                                                    | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 | 7099948d-7286-47e4-aad8-b68f7eb44591                                |
-| `application_name`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
@@ -76,10 +74,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.refunds.create(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591", merchant_account_id="default", amount=1299, target_id="7a6c366d-9205-45ab-8021-0d9ee37f20f2", reason="Refund due to user request.", external_identifier="refund-12345")
+    res = g_client.transactions.refunds.create(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591")
 
     # Handle response
     print(res)
@@ -91,7 +88,6 @@ with Gr4vy(
 | Parameter                                                                                                                       | Type                                                                                                                            | Required                                                                                                                        | Description                                                                                                                     | Example                                                                                                                         |
 | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | `transaction_id`                                                                                                                | *str*                                                                                                                           | :heavy_check_mark:                                                                                                              | N/A                                                                                                                             | 7099948d-7286-47e4-aad8-b68f7eb44591                                                                                            |
-| `application_name`                                                                                                              | *Optional[str]*                                                                                                                 | :heavy_minus_sign:                                                                                                              | N/A                                                                                                                             |                                                                                                                                 |
 | `merchant_account_id`                                                                                                           | *Optional[str]*                                                                                                                 | :heavy_minus_sign:                                                                                                              | The ID of the merchant account to use for this request.                                                                         | default                                                                                                                         |
 | `amount`                                                                                                                        | *OptionalNullable[int]*                                                                                                         | :heavy_minus_sign:                                                                                                              | The amount requested to refund. If omitted, a full refund will be requested.                                                    | 1299                                                                                                                            |
 | `target_type`                                                                                                                   | [Optional[models.RefundTargetType]](../../models/refundtargettype.md)                                                           | :heavy_minus_sign:                                                                                                              | N/A                                                                                                                             |                                                                                                                                 |
@@ -135,10 +131,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.transactions.refunds.get(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591", refund_id="6a1d4e46-14ed-4fe1-a45f-eff4e025d211", merchant_account_id="default")
+    res = g_client.transactions.refunds.get(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591", refund_id="6a1d4e46-14ed-4fe1-a45f-eff4e025d211")
 
     # Handle response
     print(res)
@@ -151,7 +146,6 @@ with Gr4vy(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `transaction_id`                                                    | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 | 7099948d-7286-47e4-aad8-b68f7eb44591                                |
 | `refund_id`                                                         | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 | 6a1d4e46-14ed-4fe1-a45f-eff4e025d211                                |
-| `application_name`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 

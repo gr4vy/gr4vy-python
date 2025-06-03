@@ -20,10 +20,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.buyers.payment_methods.list(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", buyer_external_identifier="buyer-12345", country="US", currency="USD", merchant_account_id="default")
+    res = g_client.buyers.payment_methods.list()
 
     # Handle response
     print(res)
@@ -39,7 +38,6 @@ with Gr4vy(
 | `order_by`                                                                                                    | [Optional[models.OrderBy]](../../models/orderby.md)                                                           | :heavy_minus_sign:                                                                                            | The direction to sort the payment methods in.                                                                 | desc                                                                                                          |
 | `country`                                                                                                     | *OptionalNullable[str]*                                                                                       | :heavy_minus_sign:                                                                                            | The country code to filter payment methods by. This only applies to payment methods with a `country` value.   | US                                                                                                            |
 | `currency`                                                                                                    | *OptionalNullable[str]*                                                                                       | :heavy_minus_sign:                                                                                            | The currency code to filter payment methods by. This only applies to payment methods with a `currency` value. | USD                                                                                                           |
-| `application_name`                                                                                            | *Optional[str]*                                                                                               | :heavy_minus_sign:                                                                                            | N/A                                                                                                           |                                                                                                               |
 | `merchant_account_id`                                                                                         | *Optional[str]*                                                                                               | :heavy_minus_sign:                                                                                            | The ID of the merchant account to use for this request.                                                       | default                                                                                                       |
 | `retries`                                                                                                     | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                              | :heavy_minus_sign:                                                                                            | Configuration to override the default retry behavior of the client.                                           |                                                                                                               |
 

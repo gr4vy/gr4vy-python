@@ -13,7 +13,6 @@ class Sessions(BaseSDK):
         self,
         *,
         origin_domain: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -25,7 +24,6 @@ class Sessions(BaseSDK):
         Create a session for use with Google Pay.
 
         :param origin_domain: The domain on which Google Pay is being loaded.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -43,7 +41,6 @@ class Sessions(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreateGooglePayDigitalWalletSessionRequest(
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
             google_pay_session_request=models.GooglePaySessionRequest(
                 origin_domain=origin_domain,
@@ -179,7 +176,6 @@ class Sessions(BaseSDK):
         self,
         *,
         origin_domain: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -191,7 +187,6 @@ class Sessions(BaseSDK):
         Create a session for use with Google Pay.
 
         :param origin_domain: The domain on which Google Pay is being loaded.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -209,7 +204,6 @@ class Sessions(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreateGooglePayDigitalWalletSessionRequest(
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
             google_pay_session_request=models.GooglePaySessionRequest(
                 origin_domain=origin_domain,
@@ -346,7 +340,6 @@ class Sessions(BaseSDK):
         *,
         validation_url: str,
         domain_name: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -359,7 +352,6 @@ class Sessions(BaseSDK):
 
         :param validation_url: The validation URL as provided by the Apple SDK when processing a payment.
         :param domain_name: The domain on which Apple Pay is being loaded.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -377,7 +369,6 @@ class Sessions(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreateApplePayDigitalWalletSessionRequest(
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
             apple_pay_session_request=models.ApplePaySessionRequest(
                 validation_url=validation_url,
@@ -515,7 +506,6 @@ class Sessions(BaseSDK):
         *,
         validation_url: str,
         domain_name: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -528,7 +518,6 @@ class Sessions(BaseSDK):
 
         :param validation_url: The validation URL as provided by the Apple SDK when processing a payment.
         :param domain_name: The domain on which Apple Pay is being loaded.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -546,7 +535,6 @@ class Sessions(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreateApplePayDigitalWalletSessionRequest(
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
             apple_pay_session_request=models.ApplePaySessionRequest(
                 validation_url=validation_url,
@@ -683,7 +671,6 @@ class Sessions(BaseSDK):
         self,
         *,
         checkout_session_id: str,
-        application_name: Optional[str] = "core-api",
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -694,7 +681,6 @@ class Sessions(BaseSDK):
         Create a session for use with Click to Pay.
 
         :param checkout_session_id: The checkout session ID to create a Click to Pay session for.
-        :param application_name:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -710,11 +696,8 @@ class Sessions(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CreateClickToPayDigitalWalletSessionRequest(
-            application_name=application_name,
-            click_to_pay_session_request=models.ClickToPaySessionRequest(
-                checkout_session_id=checkout_session_id,
-            ),
+        request = models.ClickToPaySessionRequest(
+            checkout_session_id=checkout_session_id,
         )
 
         req = self._build_request(
@@ -731,11 +714,7 @@ class Sessions(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.click_to_pay_session_request,
-                False,
-                False,
-                "json",
-                models.ClickToPaySessionRequest,
+                request, False, False, "json", models.ClickToPaySessionRequest
             ),
             timeout_ms=timeout_ms,
         )
@@ -843,7 +822,6 @@ class Sessions(BaseSDK):
         self,
         *,
         checkout_session_id: str,
-        application_name: Optional[str] = "core-api",
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -854,7 +832,6 @@ class Sessions(BaseSDK):
         Create a session for use with Click to Pay.
 
         :param checkout_session_id: The checkout session ID to create a Click to Pay session for.
-        :param application_name:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -870,11 +847,8 @@ class Sessions(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CreateClickToPayDigitalWalletSessionRequest(
-            application_name=application_name,
-            click_to_pay_session_request=models.ClickToPaySessionRequest(
-                checkout_session_id=checkout_session_id,
-            ),
+        request = models.ClickToPaySessionRequest(
+            checkout_session_id=checkout_session_id,
         )
 
         req = self._build_request_async(
@@ -891,11 +865,7 @@ class Sessions(BaseSDK):
             http_headers=http_headers,
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.click_to_pay_session_request,
-                False,
-                False,
-                "json",
-                models.ClickToPaySessionRequest,
+                request, False, False, "json", models.ClickToPaySessionRequest
             ),
             timeout_ms=timeout_ms,
         )

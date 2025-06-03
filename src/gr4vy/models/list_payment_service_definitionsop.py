@@ -17,7 +17,6 @@ class ListPaymentServiceDefinitionsRequestTypedDict(TypedDict):
     r"""A pointer to the page of results to return."""
     limit: NotRequired[int]
     r"""The maximum number of items that are at returned."""
-    application_name: NotRequired[str]
 
 
 class ListPaymentServiceDefinitionsRequest(BaseModel):
@@ -33,14 +32,9 @@ class ListPaymentServiceDefinitionsRequest(BaseModel):
     ] = 20
     r"""The maximum number of items that are at returned."""
 
-    application_name: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = "core-api"
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["cursor", "limit", "application_name"]
+        optional_fields = ["cursor", "limit"]
         nullable_fields = ["cursor"]
         null_default_fields = []
 

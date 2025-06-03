@@ -487,7 +487,6 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.merchant_accounts.get(merchant_account_id="merchant-12345")
@@ -513,10 +512,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.buyers.list(cursor="ZXhhbXBsZTE", search="John", external_identifier="buyer-12345", merchant_account_id="default")
+    res = g_client.buyers.list()
 
     while res is not None:
         # Handle items
@@ -540,13 +538,12 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.account_updater.jobs.create(payment_method_ids=[
         "ef9496d8-53a5-4aad-8ca2-00eb68334389",
         "f29e886e-93cc-4714-b4a3-12b7a718e595",
-    ], merchant_account_id="default",
+    ],
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
 
     assert res is not None
@@ -566,13 +563,12 @@ import os
 with Gr4vy(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.account_updater.jobs.create(payment_method_ids=[
         "ef9496d8-53a5-4aad-8ca2-00eb68334389",
         "f29e886e-93cc-4714-b4a3-12b7a718e595",
-    ], merchant_account_id="default")
+    ])
 
     assert res is not None
 
@@ -623,7 +619,6 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
     res = None
     try:
@@ -631,7 +626,7 @@ with Gr4vy(
         res = g_client.account_updater.jobs.create(payment_method_ids=[
             "ef9496d8-53a5-4aad-8ca2-00eb68334389",
             "f29e886e-93cc-4714-b4a3-12b7a718e595",
-        ], merchant_account_id="default")
+        ])
 
         assert res is not None
 
@@ -709,13 +704,12 @@ with Gr4vy(
     server="sandbox",
     id="<id>"
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.account_updater.jobs.create(payment_method_ids=[
         "ef9496d8-53a5-4aad-8ca2-00eb68334389",
         "f29e886e-93cc-4714-b4a3-12b7a718e595",
-    ], merchant_account_id="default")
+    ])
 
     assert res is not None
 
@@ -735,13 +729,12 @@ import os
 with Gr4vy(
     server_url="https://api.example.gr4vy.app",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.account_updater.jobs.create(payment_method_ids=[
         "ef9496d8-53a5-4aad-8ca2-00eb68334389",
         "f29e886e-93cc-4714-b4a3-12b7a718e595",
-    ], merchant_account_id="default")
+    ])
 
     assert res is not None
 
@@ -846,7 +839,6 @@ def main():
 
     with Gr4vy(
         bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-        merchant_account_id="default",
     ) as g_client:
         # Rest of application here...
 
@@ -856,7 +848,6 @@ async def amain():
 
     async with Gr4vy(
         bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-        merchant_account_id="default",
     ) as g_client:
         # Rest of application here...
 ```

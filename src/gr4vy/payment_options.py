@@ -12,7 +12,6 @@ class PaymentOptions(BaseSDK):
     def list(
         self,
         *,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         metadata: OptionalNullable[Dict[str, str]] = UNSET,
         country: OptionalNullable[str] = UNSET,
@@ -31,7 +30,6 @@ class PaymentOptions(BaseSDK):
 
         List the payment options available at checkout. filtering by country, currency, and additional fields passed to Flow rules.
 
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param metadata: The metadata to used to evaluate checkout rules, which will help determine the right payment options to display.
         :param country: The country code used to evaluate checkout rules, and which are used to help determine the right payment options to display.
@@ -55,7 +53,6 @@ class PaymentOptions(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListPaymentOptionsRequest(
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
             payment_option_request=models.PaymentOptionRequest(
                 metadata=metadata,
@@ -199,7 +196,6 @@ class PaymentOptions(BaseSDK):
     async def list_async(
         self,
         *,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         metadata: OptionalNullable[Dict[str, str]] = UNSET,
         country: OptionalNullable[str] = UNSET,
@@ -218,7 +214,6 @@ class PaymentOptions(BaseSDK):
 
         List the payment options available at checkout. filtering by country, currency, and additional fields passed to Flow rules.
 
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param metadata: The metadata to used to evaluate checkout rules, which will help determine the right payment options to display.
         :param country: The country code used to evaluate checkout rules, and which are used to help determine the right payment options to display.
@@ -242,7 +237,6 @@ class PaymentOptions(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.ListPaymentOptionsRequest(
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
             payment_option_request=models.PaymentOptionRequest(
                 metadata=metadata,

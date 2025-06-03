@@ -13,7 +13,6 @@ class Refunds(BaseSDK):
         self,
         *,
         refund_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -25,7 +24,6 @@ class Refunds(BaseSDK):
         Fetch a refund.
 
         :param refund_id:
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -44,7 +42,6 @@ class Refunds(BaseSDK):
 
         request = models.GetRefundRequest(
             refund_id=refund_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -174,7 +171,6 @@ class Refunds(BaseSDK):
         self,
         *,
         refund_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -186,7 +182,6 @@ class Refunds(BaseSDK):
         Fetch a refund.
 
         :param refund_id:
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -205,7 +200,6 @@ class Refunds(BaseSDK):
 
         request = models.GetRefundRequest(
             refund_id=refund_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 

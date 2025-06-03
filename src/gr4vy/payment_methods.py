@@ -34,7 +34,6 @@ class PaymentMethods(BaseSDK):
         buyer_external_identifier: OptionalNullable[str] = UNSET,
         status: OptionalNullable[List[models.PaymentMethodStatus]] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -51,7 +50,6 @@ class PaymentMethods(BaseSDK):
         :param buyer_external_identifier: The external identifier of the buyer to filter payment methods by.
         :param status:
         :param external_identifier: The external identifier of the payment method to filter by.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -75,7 +73,6 @@ class PaymentMethods(BaseSDK):
             buyer_external_identifier=buyer_external_identifier,
             status=status,
             external_identifier=external_identifier,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -158,7 +155,6 @@ class PaymentMethods(BaseSDK):
                 buyer_external_identifier=buyer_external_identifier,
                 status=status,
                 external_identifier=external_identifier,
-                application_name=application_name,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
             )
@@ -238,7 +234,6 @@ class PaymentMethods(BaseSDK):
         buyer_external_identifier: OptionalNullable[str] = UNSET,
         status: OptionalNullable[List[models.PaymentMethodStatus]] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -255,7 +250,6 @@ class PaymentMethods(BaseSDK):
         :param buyer_external_identifier: The external identifier of the buyer to filter payment methods by.
         :param status:
         :param external_identifier: The external identifier of the payment method to filter by.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -279,7 +273,6 @@ class PaymentMethods(BaseSDK):
             buyer_external_identifier=buyer_external_identifier,
             status=status,
             external_identifier=external_identifier,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -362,7 +355,6 @@ class PaymentMethods(BaseSDK):
                 buyer_external_identifier=buyer_external_identifier,
                 status=status,
                 external_identifier=external_identifier,
-                application_name=application_name,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
             )
@@ -437,7 +429,6 @@ class PaymentMethods(BaseSDK):
         self,
         *,
         request_body: Union[models.Body, models.BodyTypedDict],
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -449,7 +440,6 @@ class PaymentMethods(BaseSDK):
         Store a new payment method.
 
         :param request_body:
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -467,7 +457,6 @@ class PaymentMethods(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreatePaymentMethodRequest(
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
             request_body=utils.get_pydantic_model(request_body, models.Body),
         )
@@ -597,7 +586,6 @@ class PaymentMethods(BaseSDK):
         self,
         *,
         request_body: Union[models.Body, models.BodyTypedDict],
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -609,7 +597,6 @@ class PaymentMethods(BaseSDK):
         Store a new payment method.
 
         :param request_body:
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -627,7 +614,6 @@ class PaymentMethods(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreatePaymentMethodRequest(
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
             request_body=utils.get_pydantic_model(request_body, models.Body),
         )
@@ -757,7 +743,6 @@ class PaymentMethods(BaseSDK):
         self,
         *,
         payment_method_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -769,7 +754,6 @@ class PaymentMethods(BaseSDK):
         Retrieve a payment method.
 
         :param payment_method_id: The ID of the payment method
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -788,7 +772,6 @@ class PaymentMethods(BaseSDK):
 
         request = models.GetPaymentMethodRequest(
             payment_method_id=payment_method_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -918,7 +901,6 @@ class PaymentMethods(BaseSDK):
         self,
         *,
         payment_method_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -930,7 +912,6 @@ class PaymentMethods(BaseSDK):
         Retrieve a payment method.
 
         :param payment_method_id: The ID of the payment method
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -949,7 +930,6 @@ class PaymentMethods(BaseSDK):
 
         request = models.GetPaymentMethodRequest(
             payment_method_id=payment_method_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -1079,7 +1059,6 @@ class PaymentMethods(BaseSDK):
         self,
         *,
         payment_method_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1091,7 +1070,6 @@ class PaymentMethods(BaseSDK):
         Delete a payment method.
 
         :param payment_method_id: The ID of the payment method
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1110,7 +1088,6 @@ class PaymentMethods(BaseSDK):
 
         request = models.DeletePaymentMethodRequest(
             payment_method_id=payment_method_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -1236,7 +1213,6 @@ class PaymentMethods(BaseSDK):
         self,
         *,
         payment_method_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1248,7 +1224,6 @@ class PaymentMethods(BaseSDK):
         Delete a payment method.
 
         :param payment_method_id: The ID of the payment method
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1267,7 +1242,6 @@ class PaymentMethods(BaseSDK):
 
         request = models.DeletePaymentMethodRequest(
             payment_method_id=payment_method_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 

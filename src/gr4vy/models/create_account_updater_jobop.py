@@ -6,12 +6,7 @@ from .accountupdaterjobcreate import (
     AccountUpdaterJobCreateTypedDict,
 )
 from gr4vy.types import BaseModel
-from gr4vy.utils import (
-    FieldMetadata,
-    HeaderMetadata,
-    QueryParamMetadata,
-    RequestMetadata,
-)
+from gr4vy.utils import FieldMetadata, HeaderMetadata, RequestMetadata
 import pydantic
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -33,7 +28,6 @@ class CreateAccountUpdaterJobGlobals(BaseModel):
 
 class CreateAccountUpdaterJobRequestTypedDict(TypedDict):
     account_updater_job_create: AccountUpdaterJobCreateTypedDict
-    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -43,11 +37,6 @@ class CreateAccountUpdaterJobRequest(BaseModel):
         AccountUpdaterJobCreate,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
-
-    application_name: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = "core-api"
 
     merchant_account_id: Annotated[
         Optional[str],
