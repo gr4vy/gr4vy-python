@@ -24,20 +24,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.buyers.shipping_details.create(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", merchant_account_id="default", first_name="John", last_name="Doe", email_address="john@example.com", phone_number="+1234567890", address={
-        "city": "San Jose",
-        "country": "US",
-        "postal_code": "94560",
-        "state": "California",
-        "state_code": "US-CA",
-        "house_number_or_name": "10",
-        "line1": "Stafford Appartments",
-        "line2": "29th Street",
-        "organization": "Gr4vy",
-    })
+    res = g_client.buyers.shipping_details.create(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9")
 
     # Handle response
     print(res)
@@ -49,7 +38,6 @@ with Gr4vy(
 | Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     | Example                                                                                         |
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `buyer_id`                                                                                      | *str*                                                                                           | :heavy_check_mark:                                                                              | The ID of the buyer to add shipping details to.                                                 | fe26475d-ec3e-4884-9553-f7356683f7f9                                                            |
-| `application_name`                                                                              | *Optional[str]*                                                                                 | :heavy_minus_sign:                                                                              | N/A                                                                                             |                                                                                                 |
 | `merchant_account_id`                                                                           | *Optional[str]*                                                                                 | :heavy_minus_sign:                                                                              | The ID of the merchant account to use for this request.                                         | default                                                                                         |
 | `first_name`                                                                                    | *OptionalNullable[str]*                                                                         | :heavy_minus_sign:                                                                              | The first name(s) or given name for the buyer.                                                  | John                                                                                            |
 | `last_name`                                                                                     | *OptionalNullable[str]*                                                                         | :heavy_minus_sign:                                                                              | The last name, or family name, of the buyer.                                                    | Doe                                                                                             |
@@ -93,10 +81,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.buyers.shipping_details.list(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", merchant_account_id="default")
+    res = g_client.buyers.shipping_details.list(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9")
 
     # Handle response
     print(res)
@@ -108,7 +95,6 @@ with Gr4vy(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `buyer_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | The ID of the buyer to retrieve shipping details for.               | fe26475d-ec3e-4884-9553-f7356683f7f9                                |
-| `application_name`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
@@ -147,10 +133,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.buyers.shipping_details.get(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", shipping_details_id="bf8c36ad-02d9-4904-b0f9-a230b149e341", merchant_account_id="default")
+    res = g_client.buyers.shipping_details.get(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", shipping_details_id="bf8c36ad-02d9-4904-b0f9-a230b149e341")
 
     # Handle response
     print(res)
@@ -163,7 +148,6 @@ with Gr4vy(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `buyer_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | The ID of the buyer to retrieve shipping details for.               | fe26475d-ec3e-4884-9553-f7356683f7f9                                |
 | `shipping_details_id`                                               | *str*                                                               | :heavy_check_mark:                                                  | The ID of the shipping details to retrieve.                         | bf8c36ad-02d9-4904-b0f9-a230b149e341                                |
-| `application_name`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
@@ -202,20 +186,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.buyers.shipping_details.update(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", shipping_details_id="bf8c36ad-02d9-4904-b0f9-a230b149e341", merchant_account_id="default", first_name="John", last_name="Doe", email_address="john@example.com", phone_number="+1234567890", address={
-        "city": "San Jose",
-        "country": "US",
-        "postal_code": "94560",
-        "state": "California",
-        "state_code": "US-CA",
-        "house_number_or_name": "10",
-        "line1": "Stafford Appartments",
-        "line2": "29th Street",
-        "organization": "Gr4vy",
-    })
+    res = g_client.buyers.shipping_details.update(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", shipping_details_id="bf8c36ad-02d9-4904-b0f9-a230b149e341")
 
     # Handle response
     print(res)
@@ -228,7 +201,6 @@ with Gr4vy(
 | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `buyer_id`                                                                                      | *str*                                                                                           | :heavy_check_mark:                                                                              | The ID of the buyer to update shipping details for.                                             | fe26475d-ec3e-4884-9553-f7356683f7f9                                                            |
 | `shipping_details_id`                                                                           | *str*                                                                                           | :heavy_check_mark:                                                                              | The ID of the shipping details to update.                                                       | bf8c36ad-02d9-4904-b0f9-a230b149e341                                                            |
-| `application_name`                                                                              | *Optional[str]*                                                                                 | :heavy_minus_sign:                                                                              | N/A                                                                                             |                                                                                                 |
 | `merchant_account_id`                                                                           | *Optional[str]*                                                                                 | :heavy_minus_sign:                                                                              | The ID of the merchant account to use for this request.                                         | default                                                                                         |
 | `first_name`                                                                                    | *OptionalNullable[str]*                                                                         | :heavy_minus_sign:                                                                              | The first name(s) or given name for the buyer.                                                  | John                                                                                            |
 | `last_name`                                                                                     | *OptionalNullable[str]*                                                                         | :heavy_minus_sign:                                                                              | The last name, or family name, of the buyer.                                                    | Doe                                                                                             |
@@ -272,10 +244,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.buyers.shipping_details.delete(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", shipping_details_id="bf8c36ad-02d9-4904-b0f9-a230b149e341", merchant_account_id="default")
+    res = g_client.buyers.shipping_details.delete(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", shipping_details_id="bf8c36ad-02d9-4904-b0f9-a230b149e341")
 
     # Handle response
     print(res)
@@ -288,7 +259,6 @@ with Gr4vy(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `buyer_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | The ID of the buyer to delete shipping details for.                 | fe26475d-ec3e-4884-9553-f7356683f7f9                                |
 | `shipping_details_id`                                               | *str*                                                               | :heavy_check_mark:                                                  | The ID of the shipping details to delete.                           | bf8c36ad-02d9-4904-b0f9-a230b149e341                                |
-| `application_name`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 

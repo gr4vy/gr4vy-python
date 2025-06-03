@@ -7,7 +7,6 @@ from gr4vy.utils import (
     FieldMetadata,
     HeaderMetadata,
     PathParamMetadata,
-    QueryParamMetadata,
     RequestMetadata,
 )
 import pydantic
@@ -33,7 +32,6 @@ class UpdateDigitalWalletRequestTypedDict(TypedDict):
     digital_wallet_id: str
     r"""The ID of the digital wallet to edit."""
     digital_wallet_update: DigitalWalletUpdateTypedDict
-    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -48,11 +46,6 @@ class UpdateDigitalWalletRequest(BaseModel):
         DigitalWalletUpdate,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
-
-    application_name: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = "core-api"
 
     merchant_account_id: Annotated[
         Optional[str],

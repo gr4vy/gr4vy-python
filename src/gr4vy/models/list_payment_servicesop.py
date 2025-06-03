@@ -43,7 +43,6 @@ class ListPaymentServicesRequestTypedDict(TypedDict):
     r"""The maximum number of items that are at returned."""
     deleted: NotRequired[Nullable[bool]]
     r"""Return any deleted payment service."""
-    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -73,11 +72,6 @@ class ListPaymentServicesRequest(BaseModel):
     ] = UNSET
     r"""Return any deleted payment service."""
 
-    application_name: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = "core-api"
-
     merchant_account_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
@@ -92,7 +86,6 @@ class ListPaymentServicesRequest(BaseModel):
             "cursor",
             "limit",
             "deleted",
-            "application_name",
             "merchant_account_id",
         ]
         nullable_fields = ["method", "cursor", "deleted"]

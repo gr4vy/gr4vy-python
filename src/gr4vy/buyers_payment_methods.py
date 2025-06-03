@@ -17,7 +17,6 @@ class BuyersPaymentMethods(BaseSDK):
         order_by: Optional[models.OrderBy] = "desc",
         country: OptionalNullable[str] = UNSET,
         currency: OptionalNullable[str] = UNSET,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -33,7 +32,6 @@ class BuyersPaymentMethods(BaseSDK):
         :param order_by: The direction to sort the payment methods in.
         :param country: The country code to filter payment methods by. This only applies to payment methods with a `country` value.
         :param currency: The currency code to filter payment methods by. This only applies to payment methods with a `currency` value.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -56,7 +54,6 @@ class BuyersPaymentMethods(BaseSDK):
             order_by=order_by,
             country=country,
             currency=currency,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -192,7 +189,6 @@ class BuyersPaymentMethods(BaseSDK):
         order_by: Optional[models.OrderBy] = "desc",
         country: OptionalNullable[str] = UNSET,
         currency: OptionalNullable[str] = UNSET,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -208,7 +204,6 @@ class BuyersPaymentMethods(BaseSDK):
         :param order_by: The direction to sort the payment methods in.
         :param country: The country code to filter payment methods by. This only applies to payment methods with a `country` value.
         :param currency: The currency code to filter payment methods by. This only applies to payment methods with a `currency` value.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -231,7 +226,6 @@ class BuyersPaymentMethods(BaseSDK):
             order_by=order_by,
             country=country,
             currency=currency,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 

@@ -17,7 +17,6 @@ class AuditLogs(BaseSDK):
         limit: Optional[int] = 20,
         action: OptionalNullable[models.AuditLogAction] = UNSET,
         user_id: OptionalNullable[str] = UNSET,
-        application_name: Optional[str] = "core-api",
         resource_type: OptionalNullable[str] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -33,7 +32,6 @@ class AuditLogs(BaseSDK):
         :param limit: The maximum number of items that are at returned.
         :param action: Filters the results to only the items for which the `audit-log` has an `action` that matches this value.
         :param user_id: Filters the results to only the items for which the `user` has an `id` that matches this value.
-        :param application_name:
         :param resource_type: Filters the results to only the items for which the `audit-log` has a `resource` that matches this type value.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
@@ -56,7 +54,6 @@ class AuditLogs(BaseSDK):
             limit=limit,
             action=action,
             user_id=user_id,
-            application_name=application_name,
             resource_type=resource_type,
             merchant_account_id=merchant_account_id,
         )
@@ -138,7 +135,6 @@ class AuditLogs(BaseSDK):
                 limit=limit,
                 action=action,
                 user_id=user_id,
-                application_name=application_name,
                 resource_type=resource_type,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
@@ -217,7 +213,6 @@ class AuditLogs(BaseSDK):
         limit: Optional[int] = 20,
         action: OptionalNullable[models.AuditLogAction] = UNSET,
         user_id: OptionalNullable[str] = UNSET,
-        application_name: Optional[str] = "core-api",
         resource_type: OptionalNullable[str] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -233,7 +228,6 @@ class AuditLogs(BaseSDK):
         :param limit: The maximum number of items that are at returned.
         :param action: Filters the results to only the items for which the `audit-log` has an `action` that matches this value.
         :param user_id: Filters the results to only the items for which the `user` has an `id` that matches this value.
-        :param application_name:
         :param resource_type: Filters the results to only the items for which the `audit-log` has a `resource` that matches this type value.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
@@ -256,7 +250,6 @@ class AuditLogs(BaseSDK):
             limit=limit,
             action=action,
             user_id=user_id,
-            application_name=application_name,
             resource_type=resource_type,
             merchant_account_id=merchant_account_id,
         )
@@ -338,7 +331,6 @@ class AuditLogs(BaseSDK):
                 limit=limit,
                 action=action,
                 user_id=user_id,
-                application_name=application_name,
                 resource_type=resource_type,
                 merchant_account_id=merchant_account_id,
                 retries=retries,

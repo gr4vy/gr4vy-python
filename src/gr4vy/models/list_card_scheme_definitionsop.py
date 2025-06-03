@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 from gr4vy.types import BaseModel
-from gr4vy.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
+from gr4vy.utils import FieldMetadata, HeaderMetadata
 import pydantic
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -23,17 +23,11 @@ class ListCardSchemeDefinitionsGlobals(BaseModel):
 
 
 class ListCardSchemeDefinitionsRequestTypedDict(TypedDict):
-    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
 
 class ListCardSchemeDefinitionsRequest(BaseModel):
-    application_name: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = "core-api"
-
     merchant_account_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),

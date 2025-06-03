@@ -3,12 +3,7 @@
 from __future__ import annotations
 from .checkoutsessioncreate import CheckoutSessionCreate, CheckoutSessionCreateTypedDict
 from gr4vy.types import BaseModel
-from gr4vy.utils import (
-    FieldMetadata,
-    HeaderMetadata,
-    QueryParamMetadata,
-    RequestMetadata,
-)
+from gr4vy.utils import FieldMetadata, HeaderMetadata, RequestMetadata
 import pydantic
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -29,18 +24,12 @@ class CreateCheckoutSessionGlobals(BaseModel):
 
 
 class CreateCheckoutSessionRequestTypedDict(TypedDict):
-    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
     checkout_session_create: NotRequired[CheckoutSessionCreateTypedDict]
 
 
 class CreateCheckoutSessionRequest(BaseModel):
-    application_name: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = "core-api"
-
     merchant_account_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),

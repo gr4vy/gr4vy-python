@@ -24,10 +24,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.payment_methods.network_tokens.list(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", merchant_account_id="default")
+    res = g_client.payment_methods.network_tokens.list(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389")
 
     # Handle response
     print(res)
@@ -39,7 +38,6 @@ with Gr4vy(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `payment_method_id`                                                 | *str*                                                               | :heavy_check_mark:                                                  | The ID of the payment method                                        | ef9496d8-53a5-4aad-8ca2-00eb68334389                                |
-| `application_name`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
@@ -78,10 +76,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.payment_methods.network_tokens.create(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", merchant_initiated=False, is_subsequent_payment=False, merchant_account_id="default", security_code="123")
+    res = g_client.payment_methods.network_tokens.create(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", merchant_initiated=False, is_subsequent_payment=False)
 
     # Handle response
     print(res)
@@ -95,7 +92,6 @@ with Gr4vy(
 | `payment_method_id`                                                                               | *str*                                                                                             | :heavy_check_mark:                                                                                | The ID of the payment method                                                                      | ef9496d8-53a5-4aad-8ca2-00eb68334389                                                              |
 | `merchant_initiated`                                                                              | *bool*                                                                                            | :heavy_check_mark:                                                                                | Defines if the request is merchant initiated or not.                                              | false                                                                                             |
 | `is_subsequent_payment`                                                                           | *bool*                                                                                            | :heavy_check_mark:                                                                                | Defines if the request is a subsequent of another request or not.                                 | false                                                                                             |
-| `application_name`                                                                                | *Optional[str]*                                                                                   | :heavy_minus_sign:                                                                                | N/A                                                                                               |                                                                                                   |
 | `merchant_account_id`                                                                             | *Optional[str]*                                                                                   | :heavy_minus_sign:                                                                                | The ID of the merchant account to use for this request.                                           | default                                                                                           |
 | `security_code`                                                                                   | *OptionalNullable[str]*                                                                           | :heavy_minus_sign:                                                                                | The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD. | 123                                                                                               |
 | `retries`                                                                                         | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                  | :heavy_minus_sign:                                                                                | Configuration to override the default retry behavior of the client.                               |                                                                                                   |
@@ -135,10 +131,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.payment_methods.network_tokens.suspend(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", network_token_id="f8dd5cfc-7834-4847-95dc-f75a360e2298", merchant_account_id="default")
+    res = g_client.payment_methods.network_tokens.suspend(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", network_token_id="f8dd5cfc-7834-4847-95dc-f75a360e2298")
 
     # Handle response
     print(res)
@@ -151,7 +146,6 @@ with Gr4vy(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `payment_method_id`                                                 | *str*                                                               | :heavy_check_mark:                                                  | The ID of the payment method                                        | ef9496d8-53a5-4aad-8ca2-00eb68334389                                |
 | `network_token_id`                                                  | *str*                                                               | :heavy_check_mark:                                                  | The ID of the network token                                         | f8dd5cfc-7834-4847-95dc-f75a360e2298                                |
-| `application_name`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
@@ -190,10 +184,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.payment_methods.network_tokens.resume(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", network_token_id="f8dd5cfc-7834-4847-95dc-f75a360e2298", merchant_account_id="default")
+    res = g_client.payment_methods.network_tokens.resume(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", network_token_id="f8dd5cfc-7834-4847-95dc-f75a360e2298")
 
     # Handle response
     print(res)
@@ -206,7 +199,6 @@ with Gr4vy(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `payment_method_id`                                                 | *str*                                                               | :heavy_check_mark:                                                  | The ID of the payment method                                        | ef9496d8-53a5-4aad-8ca2-00eb68334389                                |
 | `network_token_id`                                                  | *str*                                                               | :heavy_check_mark:                                                  | The ID of the network token                                         | f8dd5cfc-7834-4847-95dc-f75a360e2298                                |
-| `application_name`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
@@ -245,10 +237,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    g_client.payment_methods.network_tokens.delete(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", network_token_id="f8dd5cfc-7834-4847-95dc-f75a360e2298", merchant_account_id="default")
+    g_client.payment_methods.network_tokens.delete(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", network_token_id="f8dd5cfc-7834-4847-95dc-f75a360e2298")
 
     # Use the SDK ...
 
@@ -260,7 +251,6 @@ with Gr4vy(
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `payment_method_id`                                                 | *str*                                                               | :heavy_check_mark:                                                  | The ID of the payment method                                        | ef9496d8-53a5-4aad-8ca2-00eb68334389                                |
 | `network_token_id`                                                  | *str*                                                               | :heavy_check_mark:                                                  | The ID of the network token                                         | f8dd5cfc-7834-4847-95dc-f75a360e2298                                |
-| `application_name`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 

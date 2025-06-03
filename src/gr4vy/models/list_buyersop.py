@@ -33,7 +33,6 @@ class ListBuyersRequestTypedDict(TypedDict):
     r"""Filters the results to only the buyers for which the `display_name` or `external_identifier` matches this value."""
     external_identifier: NotRequired[Nullable[str]]
     r"""Filters the results to only the buyers for which the `external_identifier` matches this value."""
-    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -63,11 +62,6 @@ class ListBuyersRequest(BaseModel):
     ] = UNSET
     r"""Filters the results to only the buyers for which the `external_identifier` matches this value."""
 
-    application_name: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = "core-api"
-
     merchant_account_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
@@ -82,7 +76,6 @@ class ListBuyersRequest(BaseModel):
             "limit",
             "search",
             "external_identifier",
-            "application_name",
             "merchant_account_id",
         ]
         nullable_fields = ["cursor", "search", "external_identifier"]

@@ -2,15 +2,13 @@
 
 from __future__ import annotations
 from gr4vy.types import BaseModel
-from gr4vy.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
-from typing import Optional
-from typing_extensions import Annotated, NotRequired, TypedDict
+from gr4vy.utils import FieldMetadata, PathParamMetadata
+from typing_extensions import Annotated, TypedDict
 
 
 class GetMerchantAccountRequestTypedDict(TypedDict):
     merchant_account_id: str
     r"""The ID of the merchant account"""
-    application_name: NotRequired[str]
 
 
 class GetMerchantAccountRequest(BaseModel):
@@ -18,8 +16,3 @@ class GetMerchantAccountRequest(BaseModel):
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
     r"""The ID of the merchant account"""
-
-    application_name: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = "core-api"

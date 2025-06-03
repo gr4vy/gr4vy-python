@@ -22,10 +22,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.digital_wallets.sessions.google_pay(origin_domain="example.com", merchant_account_id="default")
+    res = g_client.digital_wallets.sessions.google_pay(origin_domain="example.com")
 
     # Handle response
     print(res)
@@ -37,7 +36,6 @@ with Gr4vy(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `origin_domain`                                                     | *str*                                                               | :heavy_check_mark:                                                  | The domain on which Google Pay is being loaded.                     | example.com                                                         |
-| `application_name`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
@@ -76,10 +74,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.digital_wallets.sessions.apple_pay(validation_url="https://apple-pay-gateway-cert.apple.com", domain_name="example.com", merchant_account_id="default")
+    res = g_client.digital_wallets.sessions.apple_pay(validation_url="https://apple-pay-gateway-cert.apple.com", domain_name="example.com")
 
     # Handle response
     print(res)
@@ -92,7 +89,6 @@ with Gr4vy(
 | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | `validation_url`                                                           | *str*                                                                      | :heavy_check_mark:                                                         | The validation URL as provided by the Apple SDK when processing a payment. | https://apple-pay-gateway-cert.apple.com                                   |
 | `domain_name`                                                              | *str*                                                                      | :heavy_check_mark:                                                         | The domain on which Apple Pay is being loaded.                             | example.com                                                                |
-| `application_name`                                                         | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | N/A                                                                        |                                                                            |
 | `merchant_account_id`                                                      | *Optional[str]*                                                            | :heavy_minus_sign:                                                         | The ID of the merchant account to use for this request.                    | default                                                                    |
 | `retries`                                                                  | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)           | :heavy_minus_sign:                                                         | Configuration to override the default retry behavior of the client.        |                                                                            |
 
@@ -131,7 +127,6 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
     res = g_client.digital_wallets.sessions.click_to_pay(checkout_session_id="4137b1cf-39ac-42a8-bad6-1c680d5dab6b")
@@ -146,7 +141,6 @@ with Gr4vy(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `checkout_session_id`                                               | *str*                                                               | :heavy_check_mark:                                                  | The checkout session ID to create a Click to Pay session for.       | 4137b1cf-39ac-42a8-bad6-1c680d5dab6b                                |
-| `application_name`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response

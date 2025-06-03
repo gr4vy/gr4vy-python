@@ -2,22 +2,15 @@
 
 from __future__ import annotations
 from gr4vy.types import BaseModel
-from gr4vy.utils import FieldMetadata, PathParamMetadata, QueryParamMetadata
-from typing import Optional
-from typing_extensions import Annotated, NotRequired, TypedDict
+from gr4vy.utils import FieldMetadata, PathParamMetadata
+from typing_extensions import Annotated, TypedDict
 
 
 class GetPaymentServiceDefinitionRequestTypedDict(TypedDict):
     payment_service_definition_id: str
-    application_name: NotRequired[str]
 
 
 class GetPaymentServiceDefinitionRequest(BaseModel):
     payment_service_definition_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-
-    application_name: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = "core-api"

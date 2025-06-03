@@ -20,10 +20,9 @@ import os
 
 with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
-    merchant_account_id="default",
 ) as g_client:
 
-    res = g_client.refunds.get(refund_id="6a1d4e46-14ed-4fe1-a45f-eff4e025d211", merchant_account_id="default")
+    res = g_client.refunds.get(refund_id="6a1d4e46-14ed-4fe1-a45f-eff4e025d211")
 
     # Handle response
     print(res)
@@ -35,7 +34,6 @@ with Gr4vy(
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | `refund_id`                                                         | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 | 6a1d4e46-14ed-4fe1-a45f-eff4e025d211                                |
-| `application_name`                                                  | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |                                                                     |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 

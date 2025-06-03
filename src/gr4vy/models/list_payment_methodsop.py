@@ -46,7 +46,6 @@ class ListPaymentMethodsRequestTypedDict(TypedDict):
     status: NotRequired[Nullable[List[PaymentMethodStatus]]]
     external_identifier: NotRequired[Nullable[str]]
     r"""The external identifier of the payment method to filter by."""
-    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -93,11 +92,6 @@ class ListPaymentMethodsRequest(BaseModel):
     ] = UNSET
     r"""The external identifier of the payment method to filter by."""
 
-    application_name: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = "core-api"
-
     merchant_account_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
@@ -114,7 +108,6 @@ class ListPaymentMethodsRequest(BaseModel):
             "buyer_external_identifier",
             "status",
             "external_identifier",
-            "application_name",
             "merchant_account_id",
         ]
         nullable_fields = [

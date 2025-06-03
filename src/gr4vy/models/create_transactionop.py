@@ -3,12 +3,7 @@
 from __future__ import annotations
 from .transactioncreate import TransactionCreate, TransactionCreateTypedDict
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import (
-    FieldMetadata,
-    HeaderMetadata,
-    QueryParamMetadata,
-    RequestMetadata,
-)
+from gr4vy.utils import FieldMetadata, HeaderMetadata, RequestMetadata
 import pydantic
 from pydantic import model_serializer
 from typing import Optional
@@ -31,7 +26,6 @@ class CreateTransactionGlobals(BaseModel):
 
 class CreateTransactionRequestTypedDict(TypedDict):
     transaction_create: TransactionCreateTypedDict
-    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
     idempotency_key: NotRequired[Nullable[str]]
@@ -43,11 +37,6 @@ class CreateTransactionRequest(BaseModel):
         TransactionCreate,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
-
-    application_name: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = "core-api"
 
     merchant_account_id: Annotated[
         Optional[str],
@@ -65,7 +54,7 @@ class CreateTransactionRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["application_name", "merchant_account_id", "idempotency-key"]
+        optional_fields = ["merchant_account_id", "idempotency-key"]
         nullable_fields = ["idempotency-key"]
         null_default_fields = []
 

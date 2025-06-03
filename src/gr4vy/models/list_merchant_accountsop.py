@@ -19,7 +19,6 @@ class ListMerchantAccountsRequestTypedDict(TypedDict):
     r"""The maximum number of items that are at returned."""
     search: NotRequired[Nullable[str]]
     r"""The search term to filter merchant accounts by."""
-    application_name: NotRequired[str]
 
 
 class ListMerchantAccountsRequest(BaseModel):
@@ -41,14 +40,9 @@ class ListMerchantAccountsRequest(BaseModel):
     ] = UNSET
     r"""The search term to filter merchant accounts by."""
 
-    application_name: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = "core-api"
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["cursor", "limit", "search", "application_name"]
+        optional_fields = ["cursor", "limit", "search"]
         nullable_fields = ["cursor", "search"]
         null_default_fields = []
 

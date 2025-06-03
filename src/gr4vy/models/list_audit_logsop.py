@@ -43,7 +43,6 @@ class ListAuditLogsRequestTypedDict(TypedDict):
     r"""Filters the results to only the items for which the `audit-log` has an `action` that matches this value."""
     user_id: NotRequired[Nullable[str]]
     r"""Filters the results to only the items for which the `user` has an `id` that matches this value."""
-    application_name: NotRequired[str]
     resource_type: NotRequired[Nullable[str]]
     r"""Filters the results to only the items for which the `audit-log` has a `resource` that matches this type value."""
     merchant_account_id: NotRequired[str]
@@ -77,11 +76,6 @@ class ListAuditLogsRequest(BaseModel):
     ] = UNSET
     r"""Filters the results to only the items for which the `user` has an `id` that matches this value."""
 
-    application_name: Annotated[
-        Optional[str],
-        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = "core-api"
-
     resource_type: Annotated[
         OptionalNullable[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
@@ -102,7 +96,6 @@ class ListAuditLogsRequest(BaseModel):
             "limit",
             "action",
             "user_id",
-            "application_name",
             "resource_type",
             "merchant_account_id",
         ]

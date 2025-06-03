@@ -35,7 +35,6 @@ class Buyers(BaseSDK):
         limit: Optional[int] = 20,
         search: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -50,7 +49,6 @@ class Buyers(BaseSDK):
         :param limit: The maximum number of items that are at returned.
         :param search: Filters the results to only the buyers for which the `display_name` or `external_identifier` matches this value.
         :param external_identifier: Filters the results to only the buyers for which the `external_identifier` matches this value.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -72,7 +70,6 @@ class Buyers(BaseSDK):
             limit=limit,
             search=search,
             external_identifier=external_identifier,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -153,7 +150,6 @@ class Buyers(BaseSDK):
                 limit=limit,
                 search=search,
                 external_identifier=external_identifier,
-                application_name=application_name,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
             )
@@ -229,7 +225,6 @@ class Buyers(BaseSDK):
         limit: Optional[int] = 20,
         search: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -244,7 +239,6 @@ class Buyers(BaseSDK):
         :param limit: The maximum number of items that are at returned.
         :param search: Filters the results to only the buyers for which the `display_name` or `external_identifier` matches this value.
         :param external_identifier: Filters the results to only the buyers for which the `external_identifier` matches this value.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -266,7 +260,6 @@ class Buyers(BaseSDK):
             limit=limit,
             search=search,
             external_identifier=external_identifier,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -347,7 +340,6 @@ class Buyers(BaseSDK):
                 limit=limit,
                 search=search,
                 external_identifier=external_identifier,
-                application_name=application_name,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
             )
@@ -419,7 +411,6 @@ class Buyers(BaseSDK):
     def create(
         self,
         *,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         display_name: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
@@ -436,7 +427,6 @@ class Buyers(BaseSDK):
 
         Create a new buyer record.
 
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param display_name: The display name for the buyer.
         :param external_identifier: The merchant identifier for this buyer.
@@ -458,7 +448,6 @@ class Buyers(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.AddBuyerRequest(
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
             buyer_create=models.BuyerCreate(
                 display_name=display_name,
@@ -594,7 +583,6 @@ class Buyers(BaseSDK):
     async def create_async(
         self,
         *,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         display_name: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
@@ -611,7 +599,6 @@ class Buyers(BaseSDK):
 
         Create a new buyer record.
 
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param display_name: The display name for the buyer.
         :param external_identifier: The merchant identifier for this buyer.
@@ -633,7 +620,6 @@ class Buyers(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.AddBuyerRequest(
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
             buyer_create=models.BuyerCreate(
                 display_name=display_name,
@@ -770,7 +756,6 @@ class Buyers(BaseSDK):
         self,
         *,
         buyer_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -782,7 +767,6 @@ class Buyers(BaseSDK):
         Fetches a buyer by its ID.
 
         :param buyer_id: The ID of the buyer to retrieve.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -801,7 +785,6 @@ class Buyers(BaseSDK):
 
         request = models.GetBuyerRequest(
             buyer_id=buyer_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -931,7 +914,6 @@ class Buyers(BaseSDK):
         self,
         *,
         buyer_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -943,7 +925,6 @@ class Buyers(BaseSDK):
         Fetches a buyer by its ID.
 
         :param buyer_id: The ID of the buyer to retrieve.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -962,7 +943,6 @@ class Buyers(BaseSDK):
 
         request = models.GetBuyerRequest(
             buyer_id=buyer_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -1092,7 +1072,6 @@ class Buyers(BaseSDK):
         self,
         *,
         buyer_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         display_name: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
@@ -1110,7 +1089,6 @@ class Buyers(BaseSDK):
         Updates a buyer record.
 
         :param buyer_id: The ID of the buyer to edit.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param display_name: The display name for the buyer.
         :param external_identifier: The merchant identifier for this buyer.
@@ -1133,7 +1111,6 @@ class Buyers(BaseSDK):
 
         request = models.UpdateBuyerRequest(
             buyer_id=buyer_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
             buyer_update=models.BuyerUpdate(
                 display_name=display_name,
@@ -1270,7 +1247,6 @@ class Buyers(BaseSDK):
         self,
         *,
         buyer_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         display_name: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
@@ -1288,7 +1264,6 @@ class Buyers(BaseSDK):
         Updates a buyer record.
 
         :param buyer_id: The ID of the buyer to edit.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param display_name: The display name for the buyer.
         :param external_identifier: The merchant identifier for this buyer.
@@ -1311,7 +1286,6 @@ class Buyers(BaseSDK):
 
         request = models.UpdateBuyerRequest(
             buyer_id=buyer_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
             buyer_update=models.BuyerUpdate(
                 display_name=display_name,
@@ -1448,7 +1422,6 @@ class Buyers(BaseSDK):
         self,
         *,
         buyer_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1460,7 +1433,6 @@ class Buyers(BaseSDK):
         Permanently removes a buyer record.
 
         :param buyer_id: The ID of the buyer to delete.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1479,7 +1451,6 @@ class Buyers(BaseSDK):
 
         request = models.DeleteBuyerRequest(
             buyer_id=buyer_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -1605,7 +1576,6 @@ class Buyers(BaseSDK):
         self,
         *,
         buyer_id: str,
-        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1617,7 +1587,6 @@ class Buyers(BaseSDK):
         Permanently removes a buyer record.
 
         :param buyer_id: The ID of the buyer to delete.
-        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1636,7 +1605,6 @@ class Buyers(BaseSDK):
 
         request = models.DeleteBuyerRequest(
             buyer_id=buyer_id,
-            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
