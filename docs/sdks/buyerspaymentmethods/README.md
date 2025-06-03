@@ -43,7 +43,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.CollectionNoCursorPaymentMethodSummary](../../models/collectionnocursorpaymentmethodsummary.md)**
+**[models.PaymentMethodSummaries](../../models/paymentmethodsummaries.md)**
 
 ### Errors
 

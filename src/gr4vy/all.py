@@ -20,7 +20,7 @@ class All(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CollectionRefund:
+    ) -> models.Refunds:
         r"""Create batch transaction refund
 
         Create a refund for all instruments on a transaction.
@@ -119,7 +119,7 @@ class All(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.CollectionRefund)
+            return utils.unmarshal_json(http_res.text, models.Refunds)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
             raise errors.Error400(data=response_data)
@@ -189,7 +189,7 @@ class All(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CollectionRefund:
+    ) -> models.Refunds:
         r"""Create batch transaction refund
 
         Create a refund for all instruments on a transaction.
@@ -288,7 +288,7 @@ class All(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.CollectionRefund)
+            return utils.unmarshal_json(http_res.text, models.Refunds)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
             raise errors.Error400(data=response_data)

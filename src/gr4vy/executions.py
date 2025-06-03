@@ -135,9 +135,7 @@ class Executions(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListReportExecutionsResponse(
-                result=utils.unmarshal_json(
-                    http_res.text, models.CollectionReportExecution
-                ),
+                result=utils.unmarshal_json(http_res.text, models.ReportExecutions),
                 next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):
@@ -323,9 +321,7 @@ class Executions(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListReportExecutionsResponse(
-                result=utils.unmarshal_json(
-                    http_res.text, models.CollectionReportExecution
-                ),
+                result=utils.unmarshal_json(http_res.text, models.ReportExecutions),
                 next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):

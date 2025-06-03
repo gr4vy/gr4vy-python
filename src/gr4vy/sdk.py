@@ -17,20 +17,20 @@ import weakref
 if TYPE_CHECKING:
     from gr4vy.account_updater import AccountUpdater
     from gr4vy.audit_logs import AuditLogs
-    from gr4vy.buyers import Buyers
-    from gr4vy.card_scheme_definitions import CardSchemeDefinitions
+    from gr4vy.buyers_sdk import BuyersSDK
+    from gr4vy.card_scheme_definitions_sdk import CardSchemeDefinitionsSDK
     from gr4vy.checkout_sessions import CheckoutSessions
-    from gr4vy.digital_wallets import DigitalWallets
-    from gr4vy.gift_cards import GiftCards
-    from gr4vy.merchant_accounts import MerchantAccounts
-    from gr4vy.payment_methods import PaymentMethods
-    from gr4vy.payment_options import PaymentOptions
-    from gr4vy.payment_service_definitions import PaymentServiceDefinitions
-    from gr4vy.payment_services import PaymentServices
+    from gr4vy.digital_wallets_sdk import DigitalWalletsSDK
+    from gr4vy.gift_cards_sdk import GiftCardsSDK
+    from gr4vy.merchant_accounts_sdk import MerchantAccountsSDK
+    from gr4vy.payment_methods_sdk import PaymentMethodsSDK
+    from gr4vy.payment_options_sdk import PaymentOptionsSDK
+    from gr4vy.payment_service_definitions_sdk import PaymentServiceDefinitionsSDK
+    from gr4vy.payment_services_sdk import PaymentServicesSDK
     from gr4vy.payouts import Payouts
-    from gr4vy.refunds import Refunds
-    from gr4vy.reports import Reports
+    from gr4vy.refunds_sdk import RefundsSDK
     from gr4vy.reports_executions import ReportsExecutions
+    from gr4vy.reports_sdk import ReportsSDK
     from gr4vy.transactions import Transactions
 
 
@@ -38,45 +38,45 @@ class Gr4vy(BaseSDK):
     r"""Gr4vy: The Gr4vy API."""
 
     account_updater: "AccountUpdater"
-    buyers: "Buyers"
-    payment_methods: "PaymentMethods"
-    gift_cards: "GiftCards"
-    card_scheme_definitions: "CardSchemeDefinitions"
-    digital_wallets: "DigitalWallets"
+    buyers: "BuyersSDK"
+    payment_methods: "PaymentMethodsSDK"
+    gift_cards: "GiftCardsSDK"
+    card_scheme_definitions: "CardSchemeDefinitionsSDK"
+    digital_wallets: "DigitalWalletsSDK"
     transactions: "Transactions"
-    refunds: "Refunds"
-    payment_options: "PaymentOptions"
-    payment_service_definitions: "PaymentServiceDefinitions"
-    payment_services: "PaymentServices"
+    refunds: "RefundsSDK"
+    payment_options: "PaymentOptionsSDK"
+    payment_service_definitions: "PaymentServiceDefinitionsSDK"
+    payment_services: "PaymentServicesSDK"
     audit_logs: "AuditLogs"
-    reports: "Reports"
+    reports: "ReportsSDK"
     reports_executions: "ReportsExecutions"
     checkout_sessions: "CheckoutSessions"
-    merchant_accounts: "MerchantAccounts"
+    merchant_accounts: "MerchantAccountsSDK"
     payouts: "Payouts"
     _sub_sdk_map = {
         "account_updater": ("gr4vy.account_updater", "AccountUpdater"),
-        "buyers": ("gr4vy.buyers", "Buyers"),
-        "payment_methods": ("gr4vy.payment_methods", "PaymentMethods"),
-        "gift_cards": ("gr4vy.gift_cards", "GiftCards"),
+        "buyers": ("gr4vy.buyers_sdk", "BuyersSDK"),
+        "payment_methods": ("gr4vy.payment_methods_sdk", "PaymentMethodsSDK"),
+        "gift_cards": ("gr4vy.gift_cards_sdk", "GiftCardsSDK"),
         "card_scheme_definitions": (
-            "gr4vy.card_scheme_definitions",
-            "CardSchemeDefinitions",
+            "gr4vy.card_scheme_definitions_sdk",
+            "CardSchemeDefinitionsSDK",
         ),
-        "digital_wallets": ("gr4vy.digital_wallets", "DigitalWallets"),
+        "digital_wallets": ("gr4vy.digital_wallets_sdk", "DigitalWalletsSDK"),
         "transactions": ("gr4vy.transactions", "Transactions"),
-        "refunds": ("gr4vy.refunds", "Refunds"),
-        "payment_options": ("gr4vy.payment_options", "PaymentOptions"),
+        "refunds": ("gr4vy.refunds_sdk", "RefundsSDK"),
+        "payment_options": ("gr4vy.payment_options_sdk", "PaymentOptionsSDK"),
         "payment_service_definitions": (
-            "gr4vy.payment_service_definitions",
-            "PaymentServiceDefinitions",
+            "gr4vy.payment_service_definitions_sdk",
+            "PaymentServiceDefinitionsSDK",
         ),
-        "payment_services": ("gr4vy.payment_services", "PaymentServices"),
+        "payment_services": ("gr4vy.payment_services_sdk", "PaymentServicesSDK"),
         "audit_logs": ("gr4vy.audit_logs", "AuditLogs"),
-        "reports": ("gr4vy.reports", "Reports"),
+        "reports": ("gr4vy.reports_sdk", "ReportsSDK"),
         "reports_executions": ("gr4vy.reports_executions", "ReportsExecutions"),
         "checkout_sessions": ("gr4vy.checkout_sessions", "CheckoutSessions"),
-        "merchant_accounts": ("gr4vy.merchant_accounts", "MerchantAccounts"),
+        "merchant_accounts": ("gr4vy.merchant_accounts_sdk", "MerchantAccountsSDK"),
         "payouts": ("gr4vy.payouts", "Payouts"),
     }
 

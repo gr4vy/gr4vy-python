@@ -50,7 +50,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.CollectionNoCursorGiftCardSummary](../../models/collectionnocursorgiftcardsummary.md)**
+**[models.GiftCardSummaries](../../models/giftcardsummaries.md)**
 
 ### Errors
 

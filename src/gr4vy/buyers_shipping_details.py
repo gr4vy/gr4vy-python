@@ -382,7 +382,7 @@ class BuyersShippingDetails(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CollectionNoCursorShippingDetails:
+    ) -> models.ShippingDetailsList:
         r"""List a buyer's shipping details
 
         List all the shipping details associated to a specific buyer.
@@ -472,9 +472,7 @@ class BuyersShippingDetails(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.CollectionNoCursorShippingDetails
-            )
+            return utils.unmarshal_json(http_res.text, models.ShippingDetailsList)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
             raise errors.Error400(data=response_data)
@@ -542,7 +540,7 @@ class BuyersShippingDetails(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CollectionNoCursorShippingDetails:
+    ) -> models.ShippingDetailsList:
         r"""List a buyer's shipping details
 
         List all the shipping details associated to a specific buyer.
@@ -632,9 +630,7 @@ class BuyersShippingDetails(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(
-                http_res.text, models.CollectionNoCursorShippingDetails
-            )
+            return utils.unmarshal_json(http_res.text, models.ShippingDetailsList)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
             raise errors.Error400(data=response_data)

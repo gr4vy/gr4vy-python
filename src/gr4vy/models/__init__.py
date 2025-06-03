@@ -46,6 +46,7 @@ if TYPE_CHECKING:
     )
     from .approvaltarget import ApprovalTarget
     from .auditlogaction import AuditLogAction
+    from .auditlogentries import AuditLogEntries, AuditLogEntriesTypedDict
     from .auditlogentry import AuditLogEntry, AuditLogEntryTypedDict
     from .auditlogentryresource import (
         AuditLogEntryResource,
@@ -61,6 +62,7 @@ if TYPE_CHECKING:
     from .browserinfo import BrowserInfo, BrowserInfoTypedDict, UserDevice
     from .buyer import Buyer, BuyerTypedDict
     from .buyercreate import BuyerCreate, BuyerCreateTypedDict
+    from .buyers import Buyers, BuyersTypedDict
     from .buyerupdate import BuyerUpdate, BuyerUpdateTypedDict
     from .capture_transactionop import (
         CaptureTransactionGlobals,
@@ -76,6 +78,10 @@ if TYPE_CHECKING:
     from .cardschemedefinition import (
         CardSchemeDefinition,
         CardSchemeDefinitionTypedDict,
+    )
+    from .cardschemedefinitions import (
+        CardSchemeDefinitions,
+        CardSchemeDefinitionsTypedDict,
     )
     from .cardtype import CardType
     from .cardwithurlpaymentmethodcreate import (
@@ -120,78 +126,6 @@ if TYPE_CHECKING:
     from .clicktopaysessionrequest import (
         ClickToPaySessionRequest,
         ClickToPaySessionRequestTypedDict,
-    )
-    from .collection_auditlogentry_ import (
-        CollectionAuditLogEntry,
-        CollectionAuditLogEntryTypedDict,
-    )
-    from .collection_buyer_ import CollectionBuyer, CollectionBuyerTypedDict
-    from .collection_giftcard_ import CollectionGiftCard, CollectionGiftCardTypedDict
-    from .collection_merchantaccount_ import (
-        CollectionMerchantAccount,
-        CollectionMerchantAccountTypedDict,
-    )
-    from .collection_paymentmethod_ import (
-        CollectionPaymentMethod,
-        CollectionPaymentMethodTypedDict,
-    )
-    from .collection_paymentservice_ import (
-        CollectionPaymentService,
-        CollectionPaymentServiceTypedDict,
-    )
-    from .collection_paymentservicedefinition_ import (
-        CollectionPaymentServiceDefinition,
-        CollectionPaymentServiceDefinitionTypedDict,
-    )
-    from .collection_payoutsummary_ import (
-        CollectionPayoutSummary,
-        CollectionPayoutSummaryTypedDict,
-    )
-    from .collection_refund_ import CollectionRefund, CollectionRefundTypedDict
-    from .collection_report_ import CollectionReport, CollectionReportTypedDict
-    from .collection_reportexecution_ import (
-        CollectionReportExecution,
-        CollectionReportExecutionTypedDict,
-    )
-    from .collection_transactionevent_ import (
-        CollectionTransactionEvent,
-        CollectionTransactionEventTypedDict,
-    )
-    from .collection_transactionsummary_ import (
-        CollectionTransactionSummary,
-        CollectionTransactionSummaryTypedDict,
-    )
-    from .collectionnocursor_cardschemedefinition_ import (
-        CollectionNoCursorCardSchemeDefinition,
-        CollectionNoCursorCardSchemeDefinitionTypedDict,
-    )
-    from .collectionnocursor_digitalwallet_ import (
-        CollectionNoCursorDigitalWallet,
-        CollectionNoCursorDigitalWalletTypedDict,
-    )
-    from .collectionnocursor_giftcardsummary_ import (
-        CollectionNoCursorGiftCardSummary,
-        CollectionNoCursorGiftCardSummaryTypedDict,
-    )
-    from .collectionnocursor_networktoken_ import (
-        CollectionNoCursorNetworkToken,
-        CollectionNoCursorNetworkTokenTypedDict,
-    )
-    from .collectionnocursor_paymentmethodsummary_ import (
-        CollectionNoCursorPaymentMethodSummary,
-        CollectionNoCursorPaymentMethodSummaryTypedDict,
-    )
-    from .collectionnocursor_paymentoption_ import (
-        CollectionNoCursorPaymentOption,
-        CollectionNoCursorPaymentOptionTypedDict,
-    )
-    from .collectionnocursor_paymentservicetoken_ import (
-        CollectionNoCursorPaymentServiceToken,
-        CollectionNoCursorPaymentServiceTokenTypedDict,
-    )
-    from .collectionnocursor_shippingdetails_ import (
-        CollectionNoCursorShippingDetails,
-        CollectionNoCursorShippingDetailsTypedDict,
     )
     from .configure_digital_walletop import (
         ConfigureDigitalWalletGlobals,
@@ -372,6 +306,7 @@ if TYPE_CHECKING:
     from .digitalwalletcreate import DigitalWalletCreate, DigitalWalletCreateTypedDict
     from .digitalwalletdomain import DigitalWalletDomain, DigitalWalletDomainTypedDict
     from .digitalwalletprovider import DigitalWalletProvider
+    from .digitalwallets import DigitalWallets, DigitalWalletsTypedDict
     from .digitalwalletupdate import DigitalWalletUpdate, DigitalWalletUpdateTypedDict
     from .errordetail import ErrorDetail, ErrorDetailTypedDict
     from .errorlocation import ErrorLocation
@@ -474,12 +409,14 @@ if TYPE_CHECKING:
     from .giftcardredemption import GiftCardRedemption, GiftCardRedemptionTypedDict
     from .giftcardredemptionstatus import GiftCardRedemptionStatus
     from .giftcardrequest import GiftCardRequest, GiftCardRequestTypedDict
+    from .giftcards import GiftCards, GiftCardsTypedDict
     from .giftcardservice import GiftCardService, GiftCardServiceTypedDict
     from .giftcardserviceprovider import GiftCardServiceProvider
     from .giftcardstoredrequest import (
         GiftCardStoredRequest,
         GiftCardStoredRequestTypedDict,
     )
+    from .giftcardsummaries import GiftCardSummaries, GiftCardSummariesTypedDict
     from .giftcardsummary import GiftCardSummary, GiftCardSummaryTypedDict
     from .giftcardtokentransactioncreate import (
         GiftCardTokenTransactionCreate,
@@ -677,6 +614,7 @@ if TYPE_CHECKING:
         MerchantAccountCreate,
         MerchantAccountCreateTypedDict,
     )
+    from .merchantaccounts import MerchantAccounts, MerchantAccountsTypedDict
     from .merchantaccountupdate import (
         MerchantAccountUpdate,
         MerchantAccountUpdateTypedDict,
@@ -698,6 +636,7 @@ if TYPE_CHECKING:
         NetworkTokenPaymentMethodCreate,
         NetworkTokenPaymentMethodCreateTypedDict,
     )
+    from .networktokens import NetworkTokens, NetworkTokensTypedDict
     from .networktokenstatus import NetworkTokenStatus
     from .paymentmethod import PaymentMethod, PaymentMethodTypedDict
     from .paymentmethodcard import PaymentMethodCard, PaymentMethodCardTypedDict
@@ -705,10 +644,15 @@ if TYPE_CHECKING:
         PaymentMethodDetailsCard,
         PaymentMethodDetailsCardTypedDict,
     )
+    from .paymentmethods import PaymentMethods, PaymentMethodsTypedDict
     from .paymentmethodstatus import PaymentMethodStatus
     from .paymentmethodstoredcard import (
         PaymentMethodStoredCard,
         PaymentMethodStoredCardTypedDict,
+    )
+    from .paymentmethodsummaries import (
+        PaymentMethodSummaries,
+        PaymentMethodSummariesTypedDict,
     )
     from .paymentmethodsummary import (
         PaymentMethodSummary,
@@ -736,6 +680,7 @@ if TYPE_CHECKING:
         PaymentOptionRequest,
         PaymentOptionRequestTypedDict,
     )
+    from .paymentoptions import PaymentOptions, PaymentOptionsTypedDict
     from .paymentservice import PaymentService, PaymentServiceTypedDict
     from .paymentserviceconfiguration import (
         PaymentServiceConfiguration,
@@ -749,11 +694,20 @@ if TYPE_CHECKING:
         PaymentServiceDefinition,
         PaymentServiceDefinitionTypedDict,
     )
+    from .paymentservicedefinitions import (
+        PaymentServiceDefinitions,
+        PaymentServiceDefinitionsTypedDict,
+    )
+    from .paymentservices import PaymentServices, PaymentServicesTypedDict
     from .paymentservicestatus import PaymentServiceStatus
     from .paymentservicetoken import PaymentServiceToken, PaymentServiceTokenTypedDict
     from .paymentservicetokencreate import (
         PaymentServiceTokenCreate,
         PaymentServiceTokenCreateTypedDict,
+    )
+    from .paymentservicetokens import (
+        PaymentServiceTokens,
+        PaymentServiceTokensTypedDict,
     )
     from .paymentserviceupdate import (
         PaymentServiceUpdate,
@@ -776,6 +730,7 @@ if TYPE_CHECKING:
         PayoutPaymentServiceTypedDict,
     )
     from .payoutstatus import PayoutStatus
+    from .payoutsummaries import PayoutSummaries, PayoutSummariesTypedDict
     from .payoutsummary import PayoutSummary, PayoutSummaryTypedDict
     from .producttype import ProductType
     from .recipient import Recipient, RecipientTypedDict
@@ -785,6 +740,7 @@ if TYPE_CHECKING:
         RedirectPaymentMethodCreateTypedDict,
     )
     from .refund import Refund, RefundTypedDict
+    from .refunds import Refunds, RefundsTypedDict
     from .refundstatus import RefundStatus
     from .refundtargettype import RefundTargetType
     from .register_digital_wallet_domainop import (
@@ -801,12 +757,14 @@ if TYPE_CHECKING:
         ReportExecutionContext,
         ReportExecutionContextTypedDict,
     )
+    from .reportexecutions import ReportExecutions, ReportExecutionsTypedDict
     from .reportexecutionstatus import ReportExecutionStatus
     from .reportexecutionsummary import (
         ReportExecutionSummary,
         ReportExecutionSummaryTypedDict,
     )
     from .reportexecutionurl import ReportExecutionURL, ReportExecutionURLTypedDict
+    from .reports import Reports, ReportsTypedDict
     from .reportschedule import ReportSchedule
     from .reportspec import ReportSpec, ReportSpecTypedDict
     from .reportspecmodel import ReportSpecModel
@@ -828,6 +786,7 @@ if TYPE_CHECKING:
         ShippingDetailsCreate,
         ShippingDetailsCreateTypedDict,
     )
+    from .shippingdetailslist import ShippingDetailsList, ShippingDetailsListTypedDict
     from .shippingdetailsupdate import (
         ShippingDetailsUpdate,
         ShippingDetailsUpdateTypedDict,
@@ -871,6 +830,7 @@ if TYPE_CHECKING:
         TransactionCreateTypedDict,
     )
     from .transactionevent import Name, TransactionEvent, TransactionEventTypedDict
+    from .transactionevents import TransactionEvents, TransactionEventsTypedDict
     from .transactiongiftcard import TransactionGiftCard, TransactionGiftCardTypedDict
     from .transactionintent import TransactionIntent
     from .transactionintentoutcome import TransactionIntentOutcome
@@ -900,6 +860,10 @@ if TYPE_CHECKING:
         TransactionsReportSpecTypedDict,
     )
     from .transactionstatus import TransactionStatus
+    from .transactionsummaries import (
+        TransactionSummaries,
+        TransactionSummariesTypedDict,
+    )
     from .transactionsummary import TransactionSummary, TransactionSummaryTypedDict
     from .transactionthreedsecuresummary import (
         ResponseData,
@@ -1015,6 +979,8 @@ __all__ = [
     "ApplePaySessionRequestTypedDict",
     "ApprovalTarget",
     "AuditLogAction",
+    "AuditLogEntries",
+    "AuditLogEntriesTypedDict",
     "AuditLogEntry",
     "AuditLogEntryResource",
     "AuditLogEntryResourceTypedDict",
@@ -1035,6 +1001,8 @@ __all__ = [
     "BuyerTypedDict",
     "BuyerUpdate",
     "BuyerUpdateTypedDict",
+    "Buyers",
+    "BuyersTypedDict",
     "CVVResponseCode",
     "CaptureTransactionGlobals",
     "CaptureTransactionGlobalsTypedDict",
@@ -1045,6 +1013,8 @@ __all__ = [
     "CardScheme",
     "CardSchemeDefinition",
     "CardSchemeDefinitionTypedDict",
+    "CardSchemeDefinitions",
+    "CardSchemeDefinitionsTypedDict",
     "CardSource",
     "CardType",
     "CardWithURLPaymentMethodCreate",
@@ -1073,48 +1043,6 @@ __all__ = [
     "ClickToPaySessionRequest",
     "ClickToPaySessionRequestTypedDict",
     "ClickToPaySessionTypedDict",
-    "CollectionAuditLogEntry",
-    "CollectionAuditLogEntryTypedDict",
-    "CollectionBuyer",
-    "CollectionBuyerTypedDict",
-    "CollectionGiftCard",
-    "CollectionGiftCardTypedDict",
-    "CollectionMerchantAccount",
-    "CollectionMerchantAccountTypedDict",
-    "CollectionNoCursorCardSchemeDefinition",
-    "CollectionNoCursorCardSchemeDefinitionTypedDict",
-    "CollectionNoCursorDigitalWallet",
-    "CollectionNoCursorDigitalWalletTypedDict",
-    "CollectionNoCursorGiftCardSummary",
-    "CollectionNoCursorGiftCardSummaryTypedDict",
-    "CollectionNoCursorNetworkToken",
-    "CollectionNoCursorNetworkTokenTypedDict",
-    "CollectionNoCursorPaymentMethodSummary",
-    "CollectionNoCursorPaymentMethodSummaryTypedDict",
-    "CollectionNoCursorPaymentOption",
-    "CollectionNoCursorPaymentOptionTypedDict",
-    "CollectionNoCursorPaymentServiceToken",
-    "CollectionNoCursorPaymentServiceTokenTypedDict",
-    "CollectionNoCursorShippingDetails",
-    "CollectionNoCursorShippingDetailsTypedDict",
-    "CollectionPaymentMethod",
-    "CollectionPaymentMethodTypedDict",
-    "CollectionPaymentService",
-    "CollectionPaymentServiceDefinition",
-    "CollectionPaymentServiceDefinitionTypedDict",
-    "CollectionPaymentServiceTypedDict",
-    "CollectionPayoutSummary",
-    "CollectionPayoutSummaryTypedDict",
-    "CollectionRefund",
-    "CollectionRefundTypedDict",
-    "CollectionReport",
-    "CollectionReportExecution",
-    "CollectionReportExecutionTypedDict",
-    "CollectionReportTypedDict",
-    "CollectionTransactionEvent",
-    "CollectionTransactionEventTypedDict",
-    "CollectionTransactionSummary",
-    "CollectionTransactionSummaryTypedDict",
     "ConfigureDigitalWalletGlobals",
     "ConfigureDigitalWalletGlobalsTypedDict",
     "ConfigureDigitalWalletRequest",
@@ -1248,6 +1176,8 @@ __all__ = [
     "DigitalWalletTypedDict",
     "DigitalWalletUpdate",
     "DigitalWalletUpdateTypedDict",
+    "DigitalWallets",
+    "DigitalWalletsTypedDict",
     "ErrorDetail",
     "ErrorDetailTypedDict",
     "ErrorLocation",
@@ -1325,6 +1255,8 @@ __all__ = [
     "GiftCardServiceTypedDict",
     "GiftCardStoredRequest",
     "GiftCardStoredRequestTypedDict",
+    "GiftCardSummaries",
+    "GiftCardSummariesTypedDict",
     "GiftCardSummary",
     "GiftCardSummaryTypedDict",
     "GiftCardTokenTransactionCreate",
@@ -1334,6 +1266,8 @@ __all__ = [
     "GiftCardTypedDict",
     "GiftCardUnion",
     "GiftCardUnionTypedDict",
+    "GiftCards",
+    "GiftCardsTypedDict",
     "GooglePayAssuranceDetails",
     "GooglePayAssuranceDetailsTypedDict",
     "GooglePayFPANPaymentMethodCreate",
@@ -1471,6 +1405,8 @@ __all__ = [
     "MerchantAccountTypedDict",
     "MerchantAccountUpdate",
     "MerchantAccountUpdateTypedDict",
+    "MerchantAccounts",
+    "MerchantAccountsTypedDict",
     "MerchantProfileScheme",
     "MerchantProfileSchemeSummary",
     "MerchantProfileSchemeSummaryTypedDict",
@@ -1485,6 +1421,8 @@ __all__ = [
     "NetworkTokenPaymentMethodCreateTypedDict",
     "NetworkTokenStatus",
     "NetworkTokenTypedDict",
+    "NetworkTokens",
+    "NetworkTokensTypedDict",
     "OrderBy",
     "PaymentMethod",
     "PaymentMethodCard",
@@ -1494,9 +1432,13 @@ __all__ = [
     "PaymentMethodStatus",
     "PaymentMethodStoredCard",
     "PaymentMethodStoredCardTypedDict",
+    "PaymentMethodSummaries",
+    "PaymentMethodSummariesTypedDict",
     "PaymentMethodSummary",
     "PaymentMethodSummaryTypedDict",
     "PaymentMethodTypedDict",
+    "PaymentMethods",
+    "PaymentMethodsTypedDict",
     "PaymentOption",
     "PaymentOptionContext",
     "PaymentOptionContextApprovalUI",
@@ -1505,6 +1447,8 @@ __all__ = [
     "PaymentOptionRequest",
     "PaymentOptionRequestTypedDict",
     "PaymentOptionTypedDict",
+    "PaymentOptions",
+    "PaymentOptionsTypedDict",
     "PaymentService",
     "PaymentServiceConfiguration",
     "PaymentServiceConfigurationTypedDict",
@@ -1512,14 +1456,20 @@ __all__ = [
     "PaymentServiceCreateTypedDict",
     "PaymentServiceDefinition",
     "PaymentServiceDefinitionTypedDict",
+    "PaymentServiceDefinitions",
+    "PaymentServiceDefinitionsTypedDict",
     "PaymentServiceStatus",
     "PaymentServiceToken",
     "PaymentServiceTokenCreate",
     "PaymentServiceTokenCreateTypedDict",
     "PaymentServiceTokenTypedDict",
+    "PaymentServiceTokens",
+    "PaymentServiceTokensTypedDict",
     "PaymentServiceTypedDict",
     "PaymentServiceUpdate",
     "PaymentServiceUpdateTypedDict",
+    "PaymentServices",
+    "PaymentServicesTypedDict",
     "PayoutCategory",
     "PayoutCreate",
     "PayoutCreatePaymentMethod",
@@ -1532,6 +1482,8 @@ __all__ = [
     "PayoutPaymentService",
     "PayoutPaymentServiceTypedDict",
     "PayoutStatus",
+    "PayoutSummaries",
+    "PayoutSummariesTypedDict",
     "PayoutSummary",
     "PayoutSummaryTypedDict",
     "ProductType",
@@ -1544,6 +1496,8 @@ __all__ = [
     "RefundStatus",
     "RefundTargetType",
     "RefundTypedDict",
+    "Refunds",
+    "RefundsTypedDict",
     "RegisterDigitalWalletDomainGlobals",
     "RegisterDigitalWalletDomainGlobalsTypedDict",
     "RegisterDigitalWalletDomainRequest",
@@ -1561,6 +1515,8 @@ __all__ = [
     "ReportExecutionTypedDict",
     "ReportExecutionURL",
     "ReportExecutionURLTypedDict",
+    "ReportExecutions",
+    "ReportExecutionsTypedDict",
     "ReportSchedule",
     "ReportSpec",
     "ReportSpecModel",
@@ -1570,6 +1526,8 @@ __all__ = [
     "ReportTypedDict",
     "ReportUpdate",
     "ReportUpdateTypedDict",
+    "Reports",
+    "ReportsTypedDict",
     "RequiredCheckoutFields",
     "RequiredCheckoutFieldsTypedDict",
     "RequiredFields1",
@@ -1588,6 +1546,8 @@ __all__ = [
     "ShippingDetails",
     "ShippingDetailsCreate",
     "ShippingDetailsCreateTypedDict",
+    "ShippingDetailsList",
+    "ShippingDetailsListTypedDict",
     "ShippingDetailsTypedDict",
     "ShippingDetailsUpdate",
     "ShippingDetailsUpdateTypedDict",
@@ -1634,6 +1594,8 @@ __all__ = [
     "TransactionCreateTypedDict",
     "TransactionEvent",
     "TransactionEventTypedDict",
+    "TransactionEvents",
+    "TransactionEventsTypedDict",
     "TransactionGiftCard",
     "TransactionGiftCardTypedDict",
     "TransactionIntent",
@@ -1650,6 +1612,8 @@ __all__ = [
     "TransactionRetriesReportSpec",
     "TransactionRetriesReportSpecTypedDict",
     "TransactionStatus",
+    "TransactionSummaries",
+    "TransactionSummariesTypedDict",
     "TransactionSummary",
     "TransactionSummaryTypedDict",
     "TransactionThreeDSecureSummary",
@@ -1744,6 +1708,8 @@ _dynamic_imports: dict[str, str] = {
     "ApplePaySessionRequestTypedDict": ".applepaysessionrequest",
     "ApprovalTarget": ".approvaltarget",
     "AuditLogAction": ".auditlogaction",
+    "AuditLogEntries": ".auditlogentries",
+    "AuditLogEntriesTypedDict": ".auditlogentries",
     "AuditLogEntry": ".auditlogentry",
     "AuditLogEntryTypedDict": ".auditlogentry",
     "AuditLogEntryResource": ".auditlogentryresource",
@@ -1762,6 +1728,8 @@ _dynamic_imports: dict[str, str] = {
     "BuyerTypedDict": ".buyer",
     "BuyerCreate": ".buyercreate",
     "BuyerCreateTypedDict": ".buyercreate",
+    "Buyers": ".buyers",
+    "BuyersTypedDict": ".buyers",
     "BuyerUpdate": ".buyerupdate",
     "BuyerUpdateTypedDict": ".buyerupdate",
     "CaptureTransactionGlobals": ".capture_transactionop",
@@ -1773,6 +1741,8 @@ _dynamic_imports: dict[str, str] = {
     "CardScheme": ".cardscheme",
     "CardSchemeDefinition": ".cardschemedefinition",
     "CardSchemeDefinitionTypedDict": ".cardschemedefinition",
+    "CardSchemeDefinitions": ".cardschemedefinitions",
+    "CardSchemeDefinitionsTypedDict": ".cardschemedefinitions",
     "CardType": ".cardtype",
     "CardWithURLPaymentMethodCreate": ".cardwithurlpaymentmethodcreate",
     "CardWithURLPaymentMethodCreateTypedDict": ".cardwithurlpaymentmethodcreate",
@@ -1800,48 +1770,6 @@ _dynamic_imports: dict[str, str] = {
     "ClickToPaySessionTypedDict": ".clicktopaysession",
     "ClickToPaySessionRequest": ".clicktopaysessionrequest",
     "ClickToPaySessionRequestTypedDict": ".clicktopaysessionrequest",
-    "CollectionAuditLogEntry": ".collection_auditlogentry_",
-    "CollectionAuditLogEntryTypedDict": ".collection_auditlogentry_",
-    "CollectionBuyer": ".collection_buyer_",
-    "CollectionBuyerTypedDict": ".collection_buyer_",
-    "CollectionGiftCard": ".collection_giftcard_",
-    "CollectionGiftCardTypedDict": ".collection_giftcard_",
-    "CollectionMerchantAccount": ".collection_merchantaccount_",
-    "CollectionMerchantAccountTypedDict": ".collection_merchantaccount_",
-    "CollectionPaymentMethod": ".collection_paymentmethod_",
-    "CollectionPaymentMethodTypedDict": ".collection_paymentmethod_",
-    "CollectionPaymentService": ".collection_paymentservice_",
-    "CollectionPaymentServiceTypedDict": ".collection_paymentservice_",
-    "CollectionPaymentServiceDefinition": ".collection_paymentservicedefinition_",
-    "CollectionPaymentServiceDefinitionTypedDict": ".collection_paymentservicedefinition_",
-    "CollectionPayoutSummary": ".collection_payoutsummary_",
-    "CollectionPayoutSummaryTypedDict": ".collection_payoutsummary_",
-    "CollectionRefund": ".collection_refund_",
-    "CollectionRefundTypedDict": ".collection_refund_",
-    "CollectionReport": ".collection_report_",
-    "CollectionReportTypedDict": ".collection_report_",
-    "CollectionReportExecution": ".collection_reportexecution_",
-    "CollectionReportExecutionTypedDict": ".collection_reportexecution_",
-    "CollectionTransactionEvent": ".collection_transactionevent_",
-    "CollectionTransactionEventTypedDict": ".collection_transactionevent_",
-    "CollectionTransactionSummary": ".collection_transactionsummary_",
-    "CollectionTransactionSummaryTypedDict": ".collection_transactionsummary_",
-    "CollectionNoCursorCardSchemeDefinition": ".collectionnocursor_cardschemedefinition_",
-    "CollectionNoCursorCardSchemeDefinitionTypedDict": ".collectionnocursor_cardschemedefinition_",
-    "CollectionNoCursorDigitalWallet": ".collectionnocursor_digitalwallet_",
-    "CollectionNoCursorDigitalWalletTypedDict": ".collectionnocursor_digitalwallet_",
-    "CollectionNoCursorGiftCardSummary": ".collectionnocursor_giftcardsummary_",
-    "CollectionNoCursorGiftCardSummaryTypedDict": ".collectionnocursor_giftcardsummary_",
-    "CollectionNoCursorNetworkToken": ".collectionnocursor_networktoken_",
-    "CollectionNoCursorNetworkTokenTypedDict": ".collectionnocursor_networktoken_",
-    "CollectionNoCursorPaymentMethodSummary": ".collectionnocursor_paymentmethodsummary_",
-    "CollectionNoCursorPaymentMethodSummaryTypedDict": ".collectionnocursor_paymentmethodsummary_",
-    "CollectionNoCursorPaymentOption": ".collectionnocursor_paymentoption_",
-    "CollectionNoCursorPaymentOptionTypedDict": ".collectionnocursor_paymentoption_",
-    "CollectionNoCursorPaymentServiceToken": ".collectionnocursor_paymentservicetoken_",
-    "CollectionNoCursorPaymentServiceTokenTypedDict": ".collectionnocursor_paymentservicetoken_",
-    "CollectionNoCursorShippingDetails": ".collectionnocursor_shippingdetails_",
-    "CollectionNoCursorShippingDetailsTypedDict": ".collectionnocursor_shippingdetails_",
     "ConfigureDigitalWalletGlobals": ".configure_digital_walletop",
     "ConfigureDigitalWalletGlobalsTypedDict": ".configure_digital_walletop",
     "ConfigureDigitalWalletRequest": ".configure_digital_walletop",
@@ -1974,6 +1902,8 @@ _dynamic_imports: dict[str, str] = {
     "DigitalWalletDomain": ".digitalwalletdomain",
     "DigitalWalletDomainTypedDict": ".digitalwalletdomain",
     "DigitalWalletProvider": ".digitalwalletprovider",
+    "DigitalWallets": ".digitalwallets",
+    "DigitalWalletsTypedDict": ".digitalwallets",
     "DigitalWalletUpdate": ".digitalwalletupdate",
     "DigitalWalletUpdateTypedDict": ".digitalwalletupdate",
     "ErrorDetail": ".errordetail",
@@ -2051,11 +1981,15 @@ _dynamic_imports: dict[str, str] = {
     "GiftCardRedemptionStatus": ".giftcardredemptionstatus",
     "GiftCardRequest": ".giftcardrequest",
     "GiftCardRequestTypedDict": ".giftcardrequest",
+    "GiftCards": ".giftcards",
+    "GiftCardsTypedDict": ".giftcards",
     "GiftCardService": ".giftcardservice",
     "GiftCardServiceTypedDict": ".giftcardservice",
     "GiftCardServiceProvider": ".giftcardserviceprovider",
     "GiftCardStoredRequest": ".giftcardstoredrequest",
     "GiftCardStoredRequestTypedDict": ".giftcardstoredrequest",
+    "GiftCardSummaries": ".giftcardsummaries",
+    "GiftCardSummariesTypedDict": ".giftcardsummaries",
     "GiftCardSummary": ".giftcardsummary",
     "GiftCardSummaryTypedDict": ".giftcardsummary",
     "GiftCardTokenTransactionCreate": ".giftcardtokentransactioncreate",
@@ -2196,6 +2130,8 @@ _dynamic_imports: dict[str, str] = {
     "MerchantAccountTypedDict": ".merchantaccount",
     "MerchantAccountCreate": ".merchantaccountcreate",
     "MerchantAccountCreateTypedDict": ".merchantaccountcreate",
+    "MerchantAccounts": ".merchantaccounts",
+    "MerchantAccountsTypedDict": ".merchantaccounts",
     "MerchantAccountUpdate": ".merchantaccountupdate",
     "MerchantAccountUpdateTypedDict": ".merchantaccountupdate",
     "MerchantProfileScheme": ".merchantprofilescheme",
@@ -2211,6 +2147,8 @@ _dynamic_imports: dict[str, str] = {
     "CardSource": ".networktokenpaymentmethodcreate",
     "NetworkTokenPaymentMethodCreate": ".networktokenpaymentmethodcreate",
     "NetworkTokenPaymentMethodCreateTypedDict": ".networktokenpaymentmethodcreate",
+    "NetworkTokens": ".networktokens",
+    "NetworkTokensTypedDict": ".networktokens",
     "NetworkTokenStatus": ".networktokenstatus",
     "PaymentMethod": ".paymentmethod",
     "PaymentMethodTypedDict": ".paymentmethod",
@@ -2218,9 +2156,13 @@ _dynamic_imports: dict[str, str] = {
     "PaymentMethodCardTypedDict": ".paymentmethodcard",
     "PaymentMethodDetailsCard": ".paymentmethoddetailscard",
     "PaymentMethodDetailsCardTypedDict": ".paymentmethoddetailscard",
+    "PaymentMethods": ".paymentmethods",
+    "PaymentMethodsTypedDict": ".paymentmethods",
     "PaymentMethodStatus": ".paymentmethodstatus",
     "PaymentMethodStoredCard": ".paymentmethodstoredcard",
     "PaymentMethodStoredCardTypedDict": ".paymentmethodstoredcard",
+    "PaymentMethodSummaries": ".paymentmethodsummaries",
+    "PaymentMethodSummariesTypedDict": ".paymentmethodsummaries",
     "PaymentMethodSummary": ".paymentmethodsummary",
     "PaymentMethodSummaryTypedDict": ".paymentmethodsummary",
     "Context": ".paymentoption",
@@ -2237,6 +2179,8 @@ _dynamic_imports: dict[str, str] = {
     "PaymentOptionContextApprovalUITypedDict": ".paymentoptioncontextapprovalui",
     "PaymentOptionRequest": ".paymentoptionrequest",
     "PaymentOptionRequestTypedDict": ".paymentoptionrequest",
+    "PaymentOptions": ".paymentoptions",
+    "PaymentOptionsTypedDict": ".paymentoptions",
     "PaymentService": ".paymentservice",
     "PaymentServiceTypedDict": ".paymentservice",
     "PaymentServiceConfiguration": ".paymentserviceconfiguration",
@@ -2245,11 +2189,17 @@ _dynamic_imports: dict[str, str] = {
     "PaymentServiceCreateTypedDict": ".paymentservicecreate",
     "PaymentServiceDefinition": ".paymentservicedefinition",
     "PaymentServiceDefinitionTypedDict": ".paymentservicedefinition",
+    "PaymentServiceDefinitions": ".paymentservicedefinitions",
+    "PaymentServiceDefinitionsTypedDict": ".paymentservicedefinitions",
+    "PaymentServices": ".paymentservices",
+    "PaymentServicesTypedDict": ".paymentservices",
     "PaymentServiceStatus": ".paymentservicestatus",
     "PaymentServiceToken": ".paymentservicetoken",
     "PaymentServiceTokenTypedDict": ".paymentservicetoken",
     "PaymentServiceTokenCreate": ".paymentservicetokencreate",
     "PaymentServiceTokenCreateTypedDict": ".paymentservicetokencreate",
+    "PaymentServiceTokens": ".paymentservicetokens",
+    "PaymentServiceTokensTypedDict": ".paymentservicetokens",
     "PaymentServiceUpdate": ".paymentserviceupdate",
     "PaymentServiceUpdateTypedDict": ".paymentserviceupdate",
     "PayoutCategory": ".payoutcategory",
@@ -2264,6 +2214,8 @@ _dynamic_imports: dict[str, str] = {
     "PayoutPaymentService": ".payoutpaymentservice",
     "PayoutPaymentServiceTypedDict": ".payoutpaymentservice",
     "PayoutStatus": ".payoutstatus",
+    "PayoutSummaries": ".payoutsummaries",
+    "PayoutSummariesTypedDict": ".payoutsummaries",
     "PayoutSummary": ".payoutsummary",
     "PayoutSummaryTypedDict": ".payoutsummary",
     "ProductType": ".producttype",
@@ -2274,6 +2226,8 @@ _dynamic_imports: dict[str, str] = {
     "RedirectPaymentMethodCreateTypedDict": ".redirectpaymentmethodcreate",
     "Refund": ".refund",
     "RefundTypedDict": ".refund",
+    "Refunds": ".refunds",
+    "RefundsTypedDict": ".refunds",
     "RefundStatus": ".refundstatus",
     "RefundTargetType": ".refundtargettype",
     "RegisterDigitalWalletDomainGlobals": ".register_digital_wallet_domainop",
@@ -2291,11 +2245,15 @@ _dynamic_imports: dict[str, str] = {
     "ReportExecutionTypedDict": ".reportexecution",
     "ReportExecutionContext": ".reportexecutioncontext",
     "ReportExecutionContextTypedDict": ".reportexecutioncontext",
+    "ReportExecutions": ".reportexecutions",
+    "ReportExecutionsTypedDict": ".reportexecutions",
     "ReportExecutionStatus": ".reportexecutionstatus",
     "ReportExecutionSummary": ".reportexecutionsummary",
     "ReportExecutionSummaryTypedDict": ".reportexecutionsummary",
     "ReportExecutionURL": ".reportexecutionurl",
     "ReportExecutionURLTypedDict": ".reportexecutionurl",
+    "Reports": ".reports",
+    "ReportsTypedDict": ".reports",
     "ReportSchedule": ".reportschedule",
     "ReportSpec": ".reportspec",
     "ReportSpecTypedDict": ".reportspec",
@@ -2316,6 +2274,8 @@ _dynamic_imports: dict[str, str] = {
     "ShippingDetailsTypedDict": ".shippingdetails",
     "ShippingDetailsCreate": ".shippingdetailscreate",
     "ShippingDetailsCreateTypedDict": ".shippingdetailscreate",
+    "ShippingDetailsList": ".shippingdetailslist",
+    "ShippingDetailsListTypedDict": ".shippingdetailslist",
     "ShippingDetailsUpdate": ".shippingdetailsupdate",
     "ShippingDetailsUpdateTypedDict": ".shippingdetailsupdate",
     "StatementDescriptor": ".statementdescriptor",
@@ -2360,6 +2320,8 @@ _dynamic_imports: dict[str, str] = {
     "Name": ".transactionevent",
     "TransactionEvent": ".transactionevent",
     "TransactionEventTypedDict": ".transactionevent",
+    "TransactionEvents": ".transactionevents",
+    "TransactionEventsTypedDict": ".transactionevents",
     "TransactionGiftCard": ".transactiongiftcard",
     "TransactionGiftCardTypedDict": ".transactiongiftcard",
     "TransactionIntent": ".transactionintent",
@@ -2378,6 +2340,8 @@ _dynamic_imports: dict[str, str] = {
     "TransactionsReportSpec": ".transactionsreportspec",
     "TransactionsReportSpecTypedDict": ".transactionsreportspec",
     "TransactionStatus": ".transactionstatus",
+    "TransactionSummaries": ".transactionsummaries",
+    "TransactionSummariesTypedDict": ".transactionsummaries",
     "TransactionSummary": ".transactionsummary",
     "TransactionSummaryTypedDict": ".transactionsummary",
     "ResponseData": ".transactionthreedsecuresummary",

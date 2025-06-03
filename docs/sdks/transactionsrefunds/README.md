@@ -41,7 +41,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.CollectionRefund](../../models/collectionrefund.md)**
+**[models.Refunds](../../models/refunds.md)**
 
 ### Errors
 
