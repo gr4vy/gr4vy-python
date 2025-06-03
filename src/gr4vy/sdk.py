@@ -29,6 +29,8 @@ if TYPE_CHECKING:
     from gr4vy.payment_services import PaymentServices
     from gr4vy.payouts import Payouts
     from gr4vy.refunds import Refunds
+    from gr4vy.reports import Reports
+    from gr4vy.reports_executions import ReportsExecutions
     from gr4vy.transactions import Transactions
 
 
@@ -47,6 +49,8 @@ class Gr4vy(BaseSDK):
     payment_service_definitions: "PaymentServiceDefinitions"
     payment_services: "PaymentServices"
     audit_logs: "AuditLogs"
+    reports: "Reports"
+    reports_executions: "ReportsExecutions"
     checkout_sessions: "CheckoutSessions"
     merchant_accounts: "MerchantAccounts"
     payouts: "Payouts"
@@ -69,6 +73,8 @@ class Gr4vy(BaseSDK):
         ),
         "payment_services": ("gr4vy.payment_services", "PaymentServices"),
         "audit_logs": ("gr4vy.audit_logs", "AuditLogs"),
+        "reports": ("gr4vy.reports", "Reports"),
+        "reports_executions": ("gr4vy.reports_executions", "ReportsExecutions"),
         "checkout_sessions": ("gr4vy.checkout_sessions", "CheckoutSessions"),
         "merchant_accounts": ("gr4vy.merchant_accounts", "MerchantAccounts"),
         "payouts": ("gr4vy.payouts", "Payouts"),

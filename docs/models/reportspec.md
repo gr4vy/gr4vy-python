@@ -1,0 +1,9 @@
+# ReportSpec
+
+
+## Fields
+
+| Field                                                                      | Type                                                                       | Required                                                                   | Description                                                                | Example                                                                    |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `model`                                                                    | [models.ReportSpecModel](../models/reportspecmodel.md)                     | :heavy_check_mark:                                                         | N/A                                                                        |                                                                            |
+| `params`                                                                   | Dict[str, *Any*]                                                           | :heavy_check_mark:                                                         | The parameters for the report model.                                       | {<br/>"fields": [<br/>"id",<br/>"status"<br/>],<br/>"filters": {<br/>"status": [<br/>"succeeded"<br/>]<br/>}<br/>} |
