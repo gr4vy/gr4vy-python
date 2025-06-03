@@ -7,6 +7,7 @@ from gr4vy.utils import (
     FieldMetadata,
     HeaderMetadata,
     PathParamMetadata,
+    QueryParamMetadata,
     RequestMetadata,
 )
 import pydantic
@@ -31,6 +32,7 @@ class UnregisterDigitalWalletDomainGlobals(BaseModel):
 class UnregisterDigitalWalletDomainRequestTypedDict(TypedDict):
     digital_wallet_id: str
     digital_wallet_domain: DigitalWalletDomainTypedDict
+    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -44,6 +46,11 @@ class UnregisterDigitalWalletDomainRequest(BaseModel):
         DigitalWalletDomain,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
+
+    application_name: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = "core-api"
 
     merchant_account_id: Annotated[
         Optional[str],

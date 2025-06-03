@@ -2,7 +2,12 @@
 
 from __future__ import annotations
 from gr4vy.types import BaseModel
-from gr4vy.utils import FieldMetadata, HeaderMetadata, PathParamMetadata
+from gr4vy.utils import (
+    FieldMetadata,
+    HeaderMetadata,
+    PathParamMetadata,
+    QueryParamMetadata,
+)
 import pydantic
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -25,6 +30,7 @@ class GetGiftCardGlobals(BaseModel):
 class GetGiftCardRequestTypedDict(TypedDict):
     gift_card_id: str
     r"""The ID of the gift card."""
+    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -34,6 +40,11 @@ class GetGiftCardRequest(BaseModel):
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
     r"""The ID of the gift card."""
+
+    application_name: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = "core-api"
 
     merchant_account_id: Annotated[
         Optional[str],

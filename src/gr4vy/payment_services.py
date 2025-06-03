@@ -17,6 +17,7 @@ class PaymentServices(BaseSDK):
         cursor: OptionalNullable[str] = UNSET,
         limit: Optional[int] = 20,
         deleted: OptionalNullable[bool] = UNSET,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -31,6 +32,7 @@ class PaymentServices(BaseSDK):
         :param cursor: A pointer to the page of results to return.
         :param limit: The maximum number of items that are at returned.
         :param deleted: Return any deleted payment service.
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -52,6 +54,7 @@ class PaymentServices(BaseSDK):
             cursor=cursor,
             limit=limit,
             deleted=deleted,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -132,6 +135,7 @@ class PaymentServices(BaseSDK):
                 cursor=next_cursor,
                 limit=limit,
                 deleted=deleted,
+                application_name=application_name,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
             )
@@ -209,6 +213,7 @@ class PaymentServices(BaseSDK):
         cursor: OptionalNullable[str] = UNSET,
         limit: Optional[int] = 20,
         deleted: OptionalNullable[bool] = UNSET,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -223,6 +228,7 @@ class PaymentServices(BaseSDK):
         :param cursor: A pointer to the page of results to return.
         :param limit: The maximum number of items that are at returned.
         :param deleted: Return any deleted payment service.
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -244,6 +250,7 @@ class PaymentServices(BaseSDK):
             cursor=cursor,
             limit=limit,
             deleted=deleted,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -324,6 +331,7 @@ class PaymentServices(BaseSDK):
                 cursor=next_cursor,
                 limit=limit,
                 deleted=deleted,
+                application_name=application_name,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
             )
@@ -402,6 +410,7 @@ class PaymentServices(BaseSDK):
         fields: Union[List[models.FieldT], List[models.FieldTTypedDict]],
         accepted_currencies: List[str],
         accepted_countries: List[str],
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         reporting_fields: OptionalNullable[
             Union[List[models.FieldT], List[models.FieldTTypedDict]]
@@ -433,6 +442,7 @@ class PaymentServices(BaseSDK):
         :param fields: The non-secret credential fields that have been configured for this payment service. Any secret fields are omitted.
         :param accepted_currencies: A list of currencies for which this service is enabled, in ISO 4217 three-letter code format.
         :param accepted_countries: A list of countries for which this service is enabled, in ISO two-letter code format.
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param reporting_fields: The non-secret reporting fields that have been configured for this payment service. Any secret fields are omitted.
         :param position: Deprecated field used to define the order in which to process payment services
@@ -459,6 +469,7 @@ class PaymentServices(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.UpdatePaymentServiceRequest(
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
             payment_service_create=models.PaymentServiceCreate(
                 display_name=display_name,
@@ -616,6 +627,7 @@ class PaymentServices(BaseSDK):
         fields: Union[List[models.FieldT], List[models.FieldTTypedDict]],
         accepted_currencies: List[str],
         accepted_countries: List[str],
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         reporting_fields: OptionalNullable[
             Union[List[models.FieldT], List[models.FieldTTypedDict]]
@@ -647,6 +659,7 @@ class PaymentServices(BaseSDK):
         :param fields: The non-secret credential fields that have been configured for this payment service. Any secret fields are omitted.
         :param accepted_currencies: A list of currencies for which this service is enabled, in ISO 4217 three-letter code format.
         :param accepted_countries: A list of countries for which this service is enabled, in ISO two-letter code format.
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param reporting_fields: The non-secret reporting fields that have been configured for this payment service. Any secret fields are omitted.
         :param position: Deprecated field used to define the order in which to process payment services
@@ -673,6 +686,7 @@ class PaymentServices(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.UpdatePaymentServiceRequest(
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
             payment_service_create=models.PaymentServiceCreate(
                 display_name=display_name,
@@ -826,6 +840,7 @@ class PaymentServices(BaseSDK):
         self,
         *,
         payment_service_id: str,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -837,6 +852,7 @@ class PaymentServices(BaseSDK):
         Get the details of a configured payment service.
 
         :param payment_service_id: the ID of the payment service
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -855,6 +871,7 @@ class PaymentServices(BaseSDK):
 
         request = models.GetPaymentServiceRequest(
             payment_service_id=payment_service_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -984,6 +1001,7 @@ class PaymentServices(BaseSDK):
         self,
         *,
         payment_service_id: str,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -995,6 +1013,7 @@ class PaymentServices(BaseSDK):
         Get the details of a configured payment service.
 
         :param payment_service_id: the ID of the payment service
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1013,6 +1032,7 @@ class PaymentServices(BaseSDK):
 
         request = models.GetPaymentServiceRequest(
             payment_service_id=payment_service_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -1142,6 +1162,7 @@ class PaymentServices(BaseSDK):
         self,
         *,
         payment_service_id: str,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         display_name: OptionalNullable[str] = UNSET,
         fields: OptionalNullable[
@@ -1175,6 +1196,7 @@ class PaymentServices(BaseSDK):
         Configures a new payment service for use by merchants.
 
         :param payment_service_id: the ID of the payment service
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param display_name: The display name for the payment service.
         :param fields: The non-secret credential fields that have been configured for this payment service. Any secret fields are omitted.
@@ -1206,6 +1228,7 @@ class PaymentServices(BaseSDK):
 
         request = models.CreatePaymentServiceRequest(
             payment_service_id=payment_service_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
             payment_service_update=models.PaymentServiceUpdate(
                 display_name=display_name,
@@ -1360,6 +1383,7 @@ class PaymentServices(BaseSDK):
         self,
         *,
         payment_service_id: str,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         display_name: OptionalNullable[str] = UNSET,
         fields: OptionalNullable[
@@ -1393,6 +1417,7 @@ class PaymentServices(BaseSDK):
         Configures a new payment service for use by merchants.
 
         :param payment_service_id: the ID of the payment service
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param display_name: The display name for the payment service.
         :param fields: The non-secret credential fields that have been configured for this payment service. Any secret fields are omitted.
@@ -1424,6 +1449,7 @@ class PaymentServices(BaseSDK):
 
         request = models.CreatePaymentServiceRequest(
             payment_service_id=payment_service_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
             payment_service_update=models.PaymentServiceUpdate(
                 display_name=display_name,
@@ -1578,6 +1604,7 @@ class PaymentServices(BaseSDK):
         self,
         *,
         payment_service_id: str,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1589,6 +1616,7 @@ class PaymentServices(BaseSDK):
         Deletes all the configuration of a payment service.
 
         :param payment_service_id: the ID of the payment service
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1607,6 +1635,7 @@ class PaymentServices(BaseSDK):
 
         request = models.DeletePaymentServiceRequest(
             payment_service_id=payment_service_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -1732,6 +1761,7 @@ class PaymentServices(BaseSDK):
         self,
         *,
         payment_service_id: str,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1743,6 +1773,7 @@ class PaymentServices(BaseSDK):
         Deletes all the configuration of a payment service.
 
         :param payment_service_id: the ID of the payment service
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1761,6 +1792,7 @@ class PaymentServices(BaseSDK):
 
         request = models.DeletePaymentServiceRequest(
             payment_service_id=payment_service_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -1887,6 +1919,7 @@ class PaymentServices(BaseSDK):
         *,
         payment_service_definition_id: str,
         fields: Union[List[models.FieldT], List[models.FieldTTypedDict]],
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         payment_service_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -1900,6 +1933,7 @@ class PaymentServices(BaseSDK):
 
         :param payment_service_definition_id: The ID of the payment service definition to verify the fields against
         :param fields: The fields and their values, or a set of updated fields to merge with existing values.
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param payment_service_id: The optional ID of the configured payment service. New fields will be merged with any existing fields already stored before they are verified.
         :param retries: Override the default retry configuration for this method
@@ -1918,6 +1952,7 @@ class PaymentServices(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.VerifyPaymentServiceCredentialsRequest(
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
             verify_credentials=models.VerifyCredentials(
                 payment_service_definition_id=payment_service_definition_id,
@@ -2056,6 +2091,7 @@ class PaymentServices(BaseSDK):
         *,
         payment_service_definition_id: str,
         fields: Union[List[models.FieldT], List[models.FieldTTypedDict]],
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         payment_service_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -2069,6 +2105,7 @@ class PaymentServices(BaseSDK):
 
         :param payment_service_definition_id: The ID of the payment service definition to verify the fields against
         :param fields: The fields and their values, or a set of updated fields to merge with existing values.
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param payment_service_id: The optional ID of the configured payment service. New fields will be merged with any existing fields already stored before they are verified.
         :param retries: Override the default retry configuration for this method
@@ -2087,6 +2124,7 @@ class PaymentServices(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.VerifyPaymentServiceCredentialsRequest(
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
             verify_credentials=models.VerifyCredentials(
                 payment_service_definition_id=payment_service_definition_id,
@@ -2225,6 +2263,7 @@ class PaymentServices(BaseSDK):
         *,
         payment_service_id: str,
         request_body: Dict[str, Any],
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -2237,6 +2276,7 @@ class PaymentServices(BaseSDK):
 
         :param payment_service_id: the ID of the payment service
         :param request_body:
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2255,6 +2295,7 @@ class PaymentServices(BaseSDK):
 
         request = models.CreatePaymentServiceSessionRequest(
             payment_service_id=payment_service_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
             request_body=request_body,
         )
@@ -2385,6 +2426,7 @@ class PaymentServices(BaseSDK):
         *,
         payment_service_id: str,
         request_body: Dict[str, Any],
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -2397,6 +2439,7 @@ class PaymentServices(BaseSDK):
 
         :param payment_service_id: the ID of the payment service
         :param request_body:
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2415,6 +2458,7 @@ class PaymentServices(BaseSDK):
 
         request = models.CreatePaymentServiceSessionRequest(
             payment_service_id=payment_service_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
             request_body=request_body,
         )

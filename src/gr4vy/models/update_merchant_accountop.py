@@ -3,14 +3,21 @@
 from __future__ import annotations
 from .merchantaccountupdate import MerchantAccountUpdate, MerchantAccountUpdateTypedDict
 from gr4vy.types import BaseModel
-from gr4vy.utils import FieldMetadata, PathParamMetadata, RequestMetadata
-from typing_extensions import Annotated, TypedDict
+from gr4vy.utils import (
+    FieldMetadata,
+    PathParamMetadata,
+    QueryParamMetadata,
+    RequestMetadata,
+)
+from typing import Optional
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class UpdateMerchantAccountRequestTypedDict(TypedDict):
     merchant_account_id: str
     r"""The ID of the merchant account"""
     merchant_account_update: MerchantAccountUpdateTypedDict
+    application_name: NotRequired[str]
 
 
 class UpdateMerchantAccountRequest(BaseModel):
@@ -23,3 +30,8 @@ class UpdateMerchantAccountRequest(BaseModel):
         MerchantAccountUpdate,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
+
+    application_name: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = "core-api"

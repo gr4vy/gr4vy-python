@@ -112,6 +112,7 @@ class ListTransactionsRequestTypedDict(TypedDict):
     r"""Filters for transactions where the `merchant_initiated` matches the provided value."""
     used_3ds: NotRequired[Nullable[bool]]
     r"""Filters for transactions that attempted 3DS authentication or not."""
+    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -375,6 +376,11 @@ class ListTransactionsRequest(BaseModel):
     ] = UNSET
     r"""Filters for transactions that attempted 3DS authentication or not."""
 
+    application_name: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = "core-api"
+
     merchant_account_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
@@ -428,6 +434,7 @@ class ListTransactionsRequest(BaseModel):
             "is_subsequent_payment",
             "merchant_initiated",
             "used_3ds",
+            "application_name",
             "merchant_account_id",
         ]
         nullable_fields = [

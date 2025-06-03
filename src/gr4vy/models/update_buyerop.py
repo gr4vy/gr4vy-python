@@ -7,6 +7,7 @@ from gr4vy.utils import (
     FieldMetadata,
     HeaderMetadata,
     PathParamMetadata,
+    QueryParamMetadata,
     RequestMetadata,
 )
 import pydantic
@@ -32,6 +33,7 @@ class UpdateBuyerRequestTypedDict(TypedDict):
     buyer_id: str
     r"""The ID of the buyer to edit."""
     buyer_update: BuyerUpdateTypedDict
+    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -46,6 +48,11 @@ class UpdateBuyerRequest(BaseModel):
         BuyerUpdate,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
+
+    application_name: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = "core-api"
 
     merchant_account_id: Annotated[
         Optional[str],

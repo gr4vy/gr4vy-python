@@ -15,6 +15,7 @@ class NetworkTokensCryptogram(BaseSDK):
         payment_method_id: str,
         network_token_id: str,
         merchant_initiated: bool,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -28,6 +29,7 @@ class NetworkTokensCryptogram(BaseSDK):
         :param payment_method_id: The ID of the payment method
         :param network_token_id: The ID of the network token
         :param merchant_initiated: Defines if the request is merchant initiated or not.
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -47,6 +49,7 @@ class NetworkTokensCryptogram(BaseSDK):
         request = models.CreatePaymentMethodNetworkTokenCryptogramRequest(
             payment_method_id=payment_method_id,
             network_token_id=network_token_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
             cryptogram_create=models.CryptogramCreate(
                 merchant_initiated=merchant_initiated,
@@ -180,6 +183,7 @@ class NetworkTokensCryptogram(BaseSDK):
         payment_method_id: str,
         network_token_id: str,
         merchant_initiated: bool,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -193,6 +197,7 @@ class NetworkTokensCryptogram(BaseSDK):
         :param payment_method_id: The ID of the payment method
         :param network_token_id: The ID of the network token
         :param merchant_initiated: Defines if the request is merchant initiated or not.
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -212,6 +217,7 @@ class NetworkTokensCryptogram(BaseSDK):
         request = models.CreatePaymentMethodNetworkTokenCryptogramRequest(
             payment_method_id=payment_method_id,
             network_token_id=network_token_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
             cryptogram_create=models.CryptogramCreate(
                 merchant_initiated=merchant_initiated,

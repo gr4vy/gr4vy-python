@@ -35,6 +35,7 @@ with Gr4vy(
 | Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            | Example                                                                                |
 | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `transaction_id`                                                                       | *str*                                                                                  | :heavy_check_mark:                                                                     | N/A                                                                                    | 7099948d-7286-47e4-aad8-b68f7eb44591                                                   |
+| `application_name`                                                                     | *Optional[str]*                                                                        | :heavy_minus_sign:                                                                     | N/A                                                                                    |                                                                                        |
 | `merchant_account_id`                                                                  | *Optional[str]*                                                                        | :heavy_minus_sign:                                                                     | The ID of the merchant account to use for this request.                                | default                                                                                |
 | `reason`                                                                               | *OptionalNullable[str]*                                                                | :heavy_minus_sign:                                                                     | An optional reason to attach extra context to the refund requests.                     | Refund due to user request.                                                            |
 | `external_identifier`                                                                  | *OptionalNullable[str]*                                                                | :heavy_minus_sign:                                                                     | An external identifier that can be used to match the refunds against your own records. | refund-12345                                                                           |
@@ -42,7 +43,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.CollectionNoCursorRefund](../../models/collectionnocursorrefund.md)**
+**[models.CollectionRefund](../../models/collectionrefund.md)**
 
 ### Errors
 

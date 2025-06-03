@@ -34,6 +34,7 @@ class ListTransactionEventsRequestTypedDict(TypedDict):
     r"""A pointer to the page of results to return."""
     limit: NotRequired[int]
     r"""The maximum number of items that are at returned."""
+    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -55,6 +56,11 @@ class ListTransactionEventsRequest(BaseModel):
     ] = 100
     r"""The maximum number of items that are at returned."""
 
+    application_name: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = "core-api"
+
     merchant_account_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
@@ -64,7 +70,7 @@ class ListTransactionEventsRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["cursor", "limit", "merchant_account_id"]
+        optional_fields = ["cursor", "limit", "application_name", "merchant_account_id"]
         nullable_fields = ["cursor"]
         null_default_fields = []
 

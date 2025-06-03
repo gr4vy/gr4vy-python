@@ -15,6 +15,7 @@ class Payouts(BaseSDK):
         *,
         cursor: OptionalNullable[str] = UNSET,
         limit: Optional[int] = 20,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -27,6 +28,7 @@ class Payouts(BaseSDK):
 
         :param cursor: A pointer to the page of results to return.
         :param limit: The maximum number of items that are at returned.
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -46,6 +48,7 @@ class Payouts(BaseSDK):
         request = models.ListPayoutsRequest(
             cursor=cursor,
             limit=limit,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -124,6 +127,7 @@ class Payouts(BaseSDK):
             return self.list(
                 cursor=next_cursor,
                 limit=limit,
+                application_name=application_name,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
             )
@@ -199,6 +203,7 @@ class Payouts(BaseSDK):
         *,
         cursor: OptionalNullable[str] = UNSET,
         limit: Optional[int] = 20,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -211,6 +216,7 @@ class Payouts(BaseSDK):
 
         :param cursor: A pointer to the page of results to return.
         :param limit: The maximum number of items that are at returned.
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -230,6 +236,7 @@ class Payouts(BaseSDK):
         request = models.ListPayoutsRequest(
             cursor=cursor,
             limit=limit,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -308,6 +315,7 @@ class Payouts(BaseSDK):
             return self.list(
                 cursor=next_cursor,
                 limit=limit,
+                application_name=application_name,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
             )
@@ -387,6 +395,7 @@ class Payouts(BaseSDK):
         payment_method: Union[
             models.PayoutCreatePaymentMethod, models.PayoutCreatePaymentMethodTypedDict
         ],
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         category: OptionalNullable[models.PayoutCategory] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
@@ -414,6 +423,7 @@ class Payouts(BaseSDK):
         :param currency: The ISO-4217 currency code for this payout.
         :param payment_service_id: The ID of the payment service to use for the payout.
         :param payment_method: The type of payment method to send funds too.
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param category: The type of payout to process.
         :param external_identifier: A value that can be used to match the payout against your own records.
@@ -438,6 +448,7 @@ class Payouts(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreatePayoutRequest(
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
             payout_create=models.PayoutCreate(
                 amount=amount,
@@ -592,6 +603,7 @@ class Payouts(BaseSDK):
         payment_method: Union[
             models.PayoutCreatePaymentMethod, models.PayoutCreatePaymentMethodTypedDict
         ],
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         category: OptionalNullable[models.PayoutCategory] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
@@ -619,6 +631,7 @@ class Payouts(BaseSDK):
         :param currency: The ISO-4217 currency code for this payout.
         :param payment_service_id: The ID of the payment service to use for the payout.
         :param payment_method: The type of payment method to send funds too.
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param category: The type of payout to process.
         :param external_identifier: A value that can be used to match the payout against your own records.
@@ -643,6 +656,7 @@ class Payouts(BaseSDK):
             base_url = self._get_url(base_url, url_variables)
 
         request = models.CreatePayoutRequest(
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
             payout_create=models.PayoutCreate(
                 amount=amount,
@@ -792,6 +806,7 @@ class Payouts(BaseSDK):
         self,
         *,
         payout_id: str,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -803,6 +818,7 @@ class Payouts(BaseSDK):
         Retreives a payout.
 
         :param payout_id:
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -821,6 +837,7 @@ class Payouts(BaseSDK):
 
         request = models.GetPayoutRequest(
             payout_id=payout_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -950,6 +967,7 @@ class Payouts(BaseSDK):
         self,
         *,
         payout_id: str,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -961,6 +979,7 @@ class Payouts(BaseSDK):
         Retreives a payout.
 
         :param payout_id:
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -979,6 +998,7 @@ class Payouts(BaseSDK):
 
         request = models.GetPayoutRequest(
             payout_id=payout_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 

@@ -14,7 +14,12 @@ from .redirectpaymentmethodcreate import (
     RedirectPaymentMethodCreateTypedDict,
 )
 from gr4vy.types import BaseModel
-from gr4vy.utils import FieldMetadata, HeaderMetadata, RequestMetadata
+from gr4vy.utils import (
+    FieldMetadata,
+    HeaderMetadata,
+    QueryParamMetadata,
+    RequestMetadata,
+)
 import pydantic
 from typing import Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
@@ -56,6 +61,7 @@ Body = TypeAliasType(
 
 class CreatePaymentMethodRequestTypedDict(TypedDict):
     request_body: BodyTypedDict
+    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -64,6 +70,11 @@ class CreatePaymentMethodRequest(BaseModel):
     request_body: Annotated[
         Body, FieldMetadata(request=RequestMetadata(media_type="application/json"))
     ]
+
+    application_name: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = "core-api"
 
     merchant_account_id: Annotated[
         Optional[str],

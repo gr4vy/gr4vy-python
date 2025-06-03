@@ -2,7 +2,12 @@
 
 from __future__ import annotations
 from gr4vy.types import BaseModel
-from gr4vy.utils import FieldMetadata, HeaderMetadata, PathParamMetadata
+from gr4vy.utils import (
+    FieldMetadata,
+    HeaderMetadata,
+    PathParamMetadata,
+    QueryParamMetadata,
+)
 import pydantic
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
@@ -24,6 +29,7 @@ class GetTransactionGlobals(BaseModel):
 
 class GetTransactionRequestTypedDict(TypedDict):
     transaction_id: str
+    application_name: NotRequired[str]
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -32,6 +38,11 @@ class GetTransactionRequest(BaseModel):
     transaction_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
+
+    application_name: Annotated[
+        Optional[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = "core-api"
 
     merchant_account_id: Annotated[
         Optional[str],

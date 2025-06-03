@@ -14,6 +14,7 @@ class PaymentServiceTokens(BaseSDK):
         *,
         payment_method_id: str,
         payment_service_id: OptionalNullable[str] = UNSET,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -26,6 +27,7 @@ class PaymentServiceTokens(BaseSDK):
 
         :param payment_method_id: The ID of the payment method
         :param payment_service_id: The ID of the payment service
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -45,6 +47,7 @@ class PaymentServiceTokens(BaseSDK):
         request = models.ListPaymentMethodPaymentServiceTokensRequest(
             payment_method_id=payment_method_id,
             payment_service_id=payment_service_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -177,6 +180,7 @@ class PaymentServiceTokens(BaseSDK):
         *,
         payment_method_id: str,
         payment_service_id: OptionalNullable[str] = UNSET,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -189,6 +193,7 @@ class PaymentServiceTokens(BaseSDK):
 
         :param payment_method_id: The ID of the payment method
         :param payment_service_id: The ID of the payment service
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -208,6 +213,7 @@ class PaymentServiceTokens(BaseSDK):
         request = models.ListPaymentMethodPaymentServiceTokensRequest(
             payment_method_id=payment_method_id,
             payment_service_id=payment_service_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -341,6 +347,7 @@ class PaymentServiceTokens(BaseSDK):
         payment_method_id: str,
         payment_service_id: str,
         redirect_url: str,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         security_code: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -355,6 +362,7 @@ class PaymentServiceTokens(BaseSDK):
         :param payment_method_id: The ID of the payment method
         :param payment_service_id: The ID of the payment method to use.
         :param redirect_url: The redirect URL to redirect a buyer to after they have authorized the payment method.
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param security_code: The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD.
         :param retries: Override the default retry configuration for this method
@@ -374,6 +382,7 @@ class PaymentServiceTokens(BaseSDK):
 
         request = models.CreatePaymentMethodPaymentServiceTokenRequest(
             payment_method_id=payment_method_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
             payment_service_token_create=models.PaymentServiceTokenCreate(
                 security_code=security_code,
@@ -513,6 +522,7 @@ class PaymentServiceTokens(BaseSDK):
         payment_method_id: str,
         payment_service_id: str,
         redirect_url: str,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         security_code: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -527,6 +537,7 @@ class PaymentServiceTokens(BaseSDK):
         :param payment_method_id: The ID of the payment method
         :param payment_service_id: The ID of the payment method to use.
         :param redirect_url: The redirect URL to redirect a buyer to after they have authorized the payment method.
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param security_code: The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD.
         :param retries: Override the default retry configuration for this method
@@ -546,6 +557,7 @@ class PaymentServiceTokens(BaseSDK):
 
         request = models.CreatePaymentMethodPaymentServiceTokenRequest(
             payment_method_id=payment_method_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
             payment_service_token_create=models.PaymentServiceTokenCreate(
                 security_code=security_code,
@@ -684,6 +696,7 @@ class PaymentServiceTokens(BaseSDK):
         *,
         payment_method_id: str,
         payment_service_token_id: str,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -696,6 +709,7 @@ class PaymentServiceTokens(BaseSDK):
 
         :param payment_method_id: The ID of the payment method
         :param payment_service_token_id: The ID of the payment service token
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -715,6 +729,7 @@ class PaymentServiceTokens(BaseSDK):
         request = models.DeletePaymentMethodPaymentServiceTokenRequest(
             payment_method_id=payment_method_id,
             payment_service_token_id=payment_service_token_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
@@ -841,6 +856,7 @@ class PaymentServiceTokens(BaseSDK):
         *,
         payment_method_id: str,
         payment_service_token_id: str,
+        application_name: Optional[str] = "core-api",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -853,6 +869,7 @@ class PaymentServiceTokens(BaseSDK):
 
         :param payment_method_id: The ID of the payment method
         :param payment_service_token_id: The ID of the payment service token
+        :param application_name:
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -872,6 +889,7 @@ class PaymentServiceTokens(BaseSDK):
         request = models.DeletePaymentMethodPaymentServiceTokenRequest(
             payment_method_id=payment_method_id,
             payment_service_token_id=payment_service_token_id,
+            application_name=application_name,
             merchant_account_id=merchant_account_id,
         )
 
