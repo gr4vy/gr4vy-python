@@ -453,11 +453,8 @@ except ValueError as error:
 
 * [list](docs/sdks/executions/README.md#list) - List executions for report
 * [url](docs/sdks/executions/README.md#url) - Create URL for executed report
-
-### [reports_executions](docs/sdks/reportsexecutions/README.md)
-
-* [list](docs/sdks/reportsexecutions/README.md#list) - List executed reports
-* [get](docs/sdks/reportsexecutions/README.md#get) - Get executed report
+* [all](docs/sdks/executions/README.md#all) - List executed reports
+* [get](docs/sdks/executions/README.md#get) - Get executed report
 
 ### [transactions](docs/sdks/transactions/README.md)
 
