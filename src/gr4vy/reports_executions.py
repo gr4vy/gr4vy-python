@@ -6,7 +6,8 @@ from gr4vy import errors, models, utils
 from gr4vy._hooks import HookContext
 from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
-from typing import Any, List, Mapping, Optional
+from jsonpath import JSONPath
+from typing import Any, Dict, List, Mapping, Optional, Union
 
 
 class ReportsExecutions(BaseSDK):
@@ -25,7 +26,7 @@ class ReportsExecutions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ReportExecutions:
+    ) -> Optional[models.ListAllReportExecutionsResponse]:
         r"""List executed reports
 
         List all executed reports that have been generated.
@@ -125,9 +126,35 @@ class ReportsExecutions(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ListAllReportExecutionsResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.next_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None:
+                return None
+
+            return self.list(
+                cursor=next_cursor,
+                limit=limit,
+                report_name=report_name,
+                created_at_lte=created_at_lte,
+                created_at_gte=created_at_gte,
+                status=status,
+                creator_id=creator_id,
+                merchant_account_id=merchant_account_id,
+                retries=retries,
+            )
+
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.ReportExecutions)
+            return models.ListAllReportExecutionsResponse(
+                result=utils.unmarshal_json(http_res.text, models.ReportExecutions),
+                next=next_func,
+            )
         if utils.match_response(http_res, "400", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
             raise errors.Error400(data=response_data)
@@ -201,7 +228,7 @@ class ReportsExecutions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ReportExecutions:
+    ) -> Optional[models.ListAllReportExecutionsResponse]:
         r"""List executed reports
 
         List all executed reports that have been generated.
@@ -301,9 +328,35 @@ class ReportsExecutions(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ListAllReportExecutionsResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.next_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None:
+                return None
+
+            return self.list(
+                cursor=next_cursor,
+                limit=limit,
+                report_name=report_name,
+                created_at_lte=created_at_lte,
+                created_at_gte=created_at_gte,
+                status=status,
+                creator_id=creator_id,
+                merchant_account_id=merchant_account_id,
+                retries=retries,
+            )
+
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.ReportExecutions)
+            return models.ListAllReportExecutionsResponse(
+                result=utils.unmarshal_json(http_res.text, models.ReportExecutions),
+                next=next_func,
+            )
         if utils.match_response(http_res, "400", "application/json"):
             response_data = utils.unmarshal_json(http_res.text, errors.Error400Data)
             raise errors.Error400(data=response_data)

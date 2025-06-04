@@ -479,6 +479,8 @@ if TYPE_CHECKING:
         ListAllReportExecutionsGlobalsTypedDict,
         ListAllReportExecutionsRequest,
         ListAllReportExecutionsRequestTypedDict,
+        ListAllReportExecutionsResponse,
+        ListAllReportExecutionsResponseTypedDict,
     )
     from .list_audit_logsop import (
         ListAuditLogsGlobals,
@@ -1338,6 +1340,8 @@ __all__ = [
     "ListAllReportExecutionsGlobalsTypedDict",
     "ListAllReportExecutionsRequest",
     "ListAllReportExecutionsRequestTypedDict",
+    "ListAllReportExecutionsResponse",
+    "ListAllReportExecutionsResponseTypedDict",
     "ListAuditLogsGlobals",
     "ListAuditLogsGlobalsTypedDict",
     "ListAuditLogsRequest",
@@ -2092,6 +2096,8 @@ _dynamic_imports: dict[str, str] = {
     "ListAllReportExecutionsGlobalsTypedDict": ".list_all_report_executionsop",
     "ListAllReportExecutionsRequest": ".list_all_report_executionsop",
     "ListAllReportExecutionsRequestTypedDict": ".list_all_report_executionsop",
+    "ListAllReportExecutionsResponse": ".list_all_report_executionsop",
+    "ListAllReportExecutionsResponseTypedDict": ".list_all_report_executionsop",
     "ListAuditLogsGlobals": ".list_audit_logsop",
     "ListAuditLogsGlobalsTypedDict": ".list_audit_logsop",
     "ListAuditLogsRequest": ".list_audit_logsop",

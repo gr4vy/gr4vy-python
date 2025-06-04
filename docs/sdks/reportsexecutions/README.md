@@ -26,8 +26,10 @@ with Gr4vy(
 
     res = g_client.reports_executions.list(limit=20)
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 
@@ -47,7 +49,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.ReportExecutions](../../models/reportexecutions.md)**
+**[models.ListAllReportExecutionsResponse](../../models/listallreportexecutionsresponse.md)**
 
 ### Errors
 
