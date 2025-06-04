@@ -30,7 +30,6 @@ if TYPE_CHECKING:
     from gr4vy.payment_services_sdk import PaymentServicesSDK
     from gr4vy.payouts import Payouts
     from gr4vy.refunds_sdk import RefundsSDK
-    from gr4vy.reports_executions import ReportsExecutions
     from gr4vy.reports_sdk import ReportsSDK
     from gr4vy.transactions import Transactions
 
@@ -51,7 +50,6 @@ class Gr4vy(BaseSDK):
     payment_services: "PaymentServicesSDK"
     audit_logs: "AuditLogs"
     reports: "ReportsSDK"
-    reports_executions: "ReportsExecutions"
     checkout_sessions: "CheckoutSessions"
     merchant_accounts: "MerchantAccountsSDK"
     payouts: "Payouts"
@@ -76,7 +74,6 @@ class Gr4vy(BaseSDK):
         "payment_services": ("gr4vy.payment_services_sdk", "PaymentServicesSDK"),
         "audit_logs": ("gr4vy.audit_logs", "AuditLogs"),
         "reports": ("gr4vy.reports_sdk", "ReportsSDK"),
-        "reports_executions": ("gr4vy.reports_executions", "ReportsExecutions"),
         "checkout_sessions": ("gr4vy.checkout_sessions", "CheckoutSessions"),
         "merchant_accounts": ("gr4vy.merchant_accounts_sdk", "MerchantAccountsSDK"),
         "payouts": ("gr4vy.payouts", "Payouts"),
