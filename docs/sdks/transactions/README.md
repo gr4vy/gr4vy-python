@@ -20,14 +20,32 @@ List all transactions for a specific merchant account sorted by most recently cr
 
 ```python
 from gr4vy import Gr4vy
+from gr4vy.utils import parse_datetime
 import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.transactions.list()
+    res = g_client.transactions.list(cursor="ZXhhbXBsZTE", limit=20, created_at_lte=parse_datetime("2022-01-01T12:00:00+08:00"), created_at_gte=parse_datetime("2022-01-01T12:00:00+08:00"), updated_at_lte=parse_datetime("2022-01-01T12:00:00+08:00"), updated_at_gte=parse_datetime("2022-01-01T12:00:00+08:00"), search="transaction-12345", buyer_external_identifier="buyer-12345", buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", buyer_email_address="john@example.com", buyer_search="John", ip_address="8.214.133.47", status=[
+        "authorization_succeeded",
+    ], id="7099948d-7286-47e4-aad8-b68f7eb44591", payment_service_transaction_id="tx-12345", external_identifier="transaction-12345", metadata=[
+        "{\"first_key\":\"first_value\",\"second_key\":\"second_value\"}",
+    ], amount_eq=1299, amount_lte=1299, amount_gte=1299, currency=[
+        "USD",
+    ], country=[
+        "US",
+    ], payment_service_id=[
+        "fffd152a-9532-4087-9a4f-de58754210f0",
+    ], payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", payment_method_label="1234", payment_method_scheme="[\"visa\"]", payment_method_country="[\"US\"]", payment_method_fingerprint="a50b85c200ee0795d6fd33a5c66f37a4564f554355c5b46a756aac485dd168a4", method=[
+        "card",
+    ], error_code=[
+        "insufficient_funds",
+    ], has_refunds=True, pending_review=True, checkout_session_id="4137b1cf-39ac-42a8-bad6-1c680d5dab6b", reconciliation_id="7jZXl4gBUNl0CnaLEnfXbt", has_gift_card_redemptions=True, gift_card_id="356d56e5-fe16-42ae-97ee-8d55d846ae2e", gift_card_last4="7890", has_settlements=True, payment_method_bin="411111", payment_source=[
+        "recurring",
+    ], is_subsequent_payment=True, merchant_initiated=True, used_3ds=True)
 
     while res is not None:
         # Handle items
@@ -120,10 +138,11 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.transactions.create(amount=1299, currency="EUR")
+    res = g_client.transactions.create(amount=1299, currency="EUR", idempotency_key="request-12345", store=True, is_subsequent_payment=True, merchant_initiated=True, async_capture=True, account_funding_transaction=True, allow_partial_authorization=False)
 
     # Handle response
     print(res)
@@ -201,6 +220,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
@@ -253,6 +273,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
@@ -307,6 +328,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
@@ -359,6 +381,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 

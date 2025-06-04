@@ -21,10 +21,11 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.payment_methods.payment_service_tokens.list(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389")
+    res = g_client.payment_methods.payment_service_tokens.list(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0")
 
     # Handle response
     print(res)
@@ -74,6 +75,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
@@ -129,6 +131,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 

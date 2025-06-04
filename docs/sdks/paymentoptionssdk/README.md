@@ -19,10 +19,11 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.payment_options.list()
+    res = g_client.payment_options.list(locale="en")
 
     # Handle response
     print(res)

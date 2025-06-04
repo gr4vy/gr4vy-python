@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 89fd48f9745232ed51fe28a392f0df05
+  docChecksum: 54dd7bfb870a3e989dff2fc05be69eb7
   docVersion: 1.0.0
-  speakeasyVersion: 1.555.0
-  generationVersion: 2.618.0
-  releaseVersion: 1.0.0-beta.20
-  configChecksum: 99b1b4025eb1f5d67cc799f105327970
+  speakeasyVersion: 1.555.2
+  generationVersion: 2.620.2
+  releaseVersion: 1.0.0-beta.21
+  configChecksum: 1a28ef9be349abb6808e0d4c4a2b0c27
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -60,6 +60,8 @@ generatedFiles:
   - docs/models/addbuyerrequest.md
   - docs/models/addbuyershippingdetailsglobals.md
   - docs/models/addbuyershippingdetailsrequest.md
+  - docs/models/addpaymentlinkglobals.md
+  - docs/models/addpaymentlinkrequest.md
   - docs/models/addreportglobals.md
   - docs/models/addreportrequest.md
   - docs/models/address.md
@@ -106,6 +108,7 @@ generatedFiles:
   - docs/models/clicktopaypaymentmethodcreate.md
   - docs/models/clicktopaysession.md
   - docs/models/clicktopaysessionrequest.md
+  - docs/models/collectionpaymentlink.md
   - docs/models/configuredigitalwalletglobals.md
   - docs/models/configuredigitalwalletrequest.md
   - docs/models/connectionoptions.md
@@ -178,6 +181,8 @@ generatedFiles:
   - docs/models/digitalwalletupdate.md
   - docs/models/errordetail.md
   - docs/models/errorlocation.md
+  - docs/models/expirepaymentlinkglobals.md
+  - docs/models/expirepaymentlinkrequest.md
   - docs/models/fieldt.md
   - docs/models/getbuyerglobals.md
   - docs/models/getbuyerrequest.md
@@ -190,6 +195,8 @@ generatedFiles:
   - docs/models/getgiftcardglobals.md
   - docs/models/getgiftcardrequest.md
   - docs/models/getmerchantaccountrequest.md
+  - docs/models/getpaymentlinkglobals.md
+  - docs/models/getpaymentlinkrequest.md
   - docs/models/getpaymentmethodglobals.md
   - docs/models/getpaymentmethodrequest.md
   - docs/models/getpaymentservicedefinitionrequest.md
@@ -259,6 +266,9 @@ generatedFiles:
   - docs/models/listgiftcardsresponse.md
   - docs/models/listmerchantaccountsrequest.md
   - docs/models/listmerchantaccountsresponse.md
+  - docs/models/listpaymentlinksglobals.md
+  - docs/models/listpaymentlinksrequest.md
+  - docs/models/listpaymentlinksresponse.md
   - docs/models/listpaymentmethodnetworktokensglobals.md
   - docs/models/listpaymentmethodnetworktokensrequest.md
   - docs/models/listpaymentmethodpaymentservicetokensglobals.md
@@ -290,6 +300,7 @@ generatedFiles:
   - docs/models/listtransactionsrequest.md
   - docs/models/listtransactionsresponse.md
   - docs/models/loc.md
+  - docs/models/locale.md
   - docs/models/merchantaccount.md
   - docs/models/merchantaccountcreate.md
   - docs/models/merchantaccounts.md
@@ -305,6 +316,9 @@ generatedFiles:
   - docs/models/networktokens.md
   - docs/models/networktokenstatus.md
   - docs/models/orderby.md
+  - docs/models/paymentlink.md
+  - docs/models/paymentlinkcreate.md
+  - docs/models/paymentlinkstatus.md
   - docs/models/paymentmethod.md
   - docs/models/paymentmethodcard.md
   - docs/models/paymentmethoddetailscard.md
@@ -459,6 +473,7 @@ generatedFiles:
   - docs/sdks/jobs/README.md
   - docs/sdks/merchantaccountssdk/README.md
   - docs/sdks/networktokenscryptogram/README.md
+  - docs/sdks/paymentlinks/README.md
   - docs/sdks/paymentmethodsnetworktokens/README.md
   - docs/sdks/paymentmethodspaymentservicetokens/README.md
   - docs/sdks/paymentmethodssdk/README.md
@@ -522,6 +537,7 @@ generatedFiles:
   - src/gr4vy/models/accountupdaterjobcreate.py
   - src/gr4vy/models/add_buyer_shipping_detailsop.py
   - src/gr4vy/models/add_buyerop.py
+  - src/gr4vy/models/add_payment_linkop.py
   - src/gr4vy/models/add_reportop.py
   - src/gr4vy/models/address.py
   - src/gr4vy/models/airline.py
@@ -563,6 +579,7 @@ generatedFiles:
   - src/gr4vy/models/clicktopaypaymentmethodcreate.py
   - src/gr4vy/models/clicktopaysession.py
   - src/gr4vy/models/clicktopaysessionrequest.py
+  - src/gr4vy/models/collection_paymentlink_.py
   - src/gr4vy/models/configure_digital_walletop.py
   - src/gr4vy/models/connectionoptions.py
   - src/gr4vy/models/create_account_updater_jobop.py
@@ -608,6 +625,7 @@ generatedFiles:
   - src/gr4vy/models/digitalwalletupdate.py
   - src/gr4vy/models/errordetail.py
   - src/gr4vy/models/errorlocation.py
+  - src/gr4vy/models/expire_payment_linkop.py
   - src/gr4vy/models/field.py
   - src/gr4vy/models/get_buyer_shipping_detailsop.py
   - src/gr4vy/models/get_buyerop.py
@@ -615,6 +633,7 @@ generatedFiles:
   - src/gr4vy/models/get_digital_walletop.py
   - src/gr4vy/models/get_gift_cardop.py
   - src/gr4vy/models/get_merchant_accountop.py
+  - src/gr4vy/models/get_payment_linkop.py
   - src/gr4vy/models/get_payment_methodop.py
   - src/gr4vy/models/get_payment_service_definitionop.py
   - src/gr4vy/models/get_payment_serviceop.py
@@ -661,6 +680,7 @@ generatedFiles:
   - src/gr4vy/models/list_gift_card_balancesop.py
   - src/gr4vy/models/list_gift_cardsop.py
   - src/gr4vy/models/list_merchant_accountsop.py
+  - src/gr4vy/models/list_payment_linksop.py
   - src/gr4vy/models/list_payment_method_network_tokensop.py
   - src/gr4vy/models/list_payment_method_payment_service_tokensop.py
   - src/gr4vy/models/list_payment_methodsop.py
@@ -686,6 +706,9 @@ generatedFiles:
   - src/gr4vy/models/networktokenpaymentmethodcreate.py
   - src/gr4vy/models/networktokens.py
   - src/gr4vy/models/networktokenstatus.py
+  - src/gr4vy/models/paymentlink.py
+  - src/gr4vy/models/paymentlinkcreate.py
+  - src/gr4vy/models/paymentlinkstatus.py
   - src/gr4vy/models/paymentmethod.py
   - src/gr4vy/models/paymentmethodcard.py
   - src/gr4vy/models/paymentmethoddetailscard.py
@@ -796,6 +819,7 @@ generatedFiles:
   - src/gr4vy/models/voidablefield.py
   - src/gr4vy/models/walletpaymentoptioncontext.py
   - src/gr4vy/network_tokens_cryptogram.py
+  - src/gr4vy/payment_links.py
   - src/gr4vy/payment_methods_network_tokens.py
   - src/gr4vy/payment_methods_payment_service_tokens.py
   - src/gr4vy/payment_methods_sdk.py
@@ -3977,6 +4001,131 @@ examples:
       responses:
         "200":
           application/json: {"type": "report-execution", "id": "a1b2c3d4-5678-90ab-cdef-1234567890ab", "created_at": "2024-05-30T12:34:56.000Z", "updated_at": "2024-05-30T13:00:00.000Z", "status": "dispatched", "context": {"reference_timestamp": "2024-05-30T12:34:56.000Z", "reference_timezone": "UTC"}, "report": {"type": "report", "id": "a1b2c3d4-5678-90ab-cdef-1234567890ab", "merchant_account_id": "merchant-account-12345", "name": "Monthly Transaction Report"}}
+        "400":
+          application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
+        "401":
+          application/json: {"type": "error", "code": "unauthorized", "status": 401, "message": "No valid API authentication found"}
+        "403":
+          application/json: {"type": "error", "code": "forbidden", "status": 403, "message": "Request failed validation"}
+        "404":
+          application/json: {"type": "error", "code": "not_found", "status": 404, "message": "The resource could not be found"}
+        "405":
+          application/json: {"type": "error", "code": "method_not_allowed", "status": 405, "message": "Method Not Allowed"}
+        "409":
+          application/json: {"type": "error", "code": "duplicate_record", "status": 409, "message": "Request failed validation"}
+        "422":
+          application/json: {}
+        "425":
+          application/json: {"type": "error", "code": "too_early", "status": 425, "message": "Request failed validation"}
+        "429":
+          application/json: {"type": "error", "code": "too_many_requests", "status": 429, "message": "Request failed validation"}
+        "500":
+          application/json: {"type": "error", "code": "server_error", "status": 500, "message": "Request could not be processed"}
+        "502":
+          application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
+        "504":
+          application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
+  add_payment_link:
+    speakeasy-default-add-payment-link:
+      requestBody:
+        application/json: {"amount": 1299, "country": "DE", "currency": "EUR"}
+      responses:
+        "201":
+          application/json: {"id": "a1b2c3d4-5678-90ab-cdef-1234567890ab", "type": "payment-link", "url": "https://example.com/link/a1b2c3d4-5678-90ab-cdef-1234567890ab", "amount": 1299, "country": "DE", "currency": "EUR", "intent": "capture", "cart_items": [{"name": "Widget", "quantity": 2, "unit_amount": 1299}], "payment_source": "moto", "created_at": "2024-05-30T12:34:56.000Z", "updated_at": "2024-05-30T13:00:00.000Z", "status": "completed"}
+        "400":
+          application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
+        "401":
+          application/json: {"type": "error", "code": "unauthorized", "status": 401, "message": "No valid API authentication found"}
+        "403":
+          application/json: {"type": "error", "code": "forbidden", "status": 403, "message": "Request failed validation"}
+        "404":
+          application/json: {"type": "error", "code": "not_found", "status": 404, "message": "The resource could not be found"}
+        "405":
+          application/json: {"type": "error", "code": "method_not_allowed", "status": 405, "message": "Method Not Allowed"}
+        "409":
+          application/json: {"type": "error", "code": "duplicate_record", "status": 409, "message": "Request failed validation"}
+        "422":
+          application/json: {}
+        "425":
+          application/json: {"type": "error", "code": "too_early", "status": 425, "message": "Request failed validation"}
+        "429":
+          application/json: {"type": "error", "code": "too_many_requests", "status": 429, "message": "Request failed validation"}
+        "500":
+          application/json: {"type": "error", "code": "server_error", "status": 500, "message": "Request could not be processed"}
+        "502":
+          application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
+        "504":
+          application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
+  list_payment_links:
+    speakeasy-default-list-payment-links:
+      parameters:
+        query:
+          limit: 20
+      responses:
+        "200":
+          application/json: {"items": [], "limit": 20}
+        "400":
+          application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
+        "401":
+          application/json: {"type": "error", "code": "unauthorized", "status": 401, "message": "No valid API authentication found"}
+        "403":
+          application/json: {"type": "error", "code": "forbidden", "status": 403, "message": "Request failed validation"}
+        "404":
+          application/json: {"type": "error", "code": "not_found", "status": 404, "message": "The resource could not be found"}
+        "405":
+          application/json: {"type": "error", "code": "method_not_allowed", "status": 405, "message": "Method Not Allowed"}
+        "409":
+          application/json: {"type": "error", "code": "duplicate_record", "status": 409, "message": "Request failed validation"}
+        "422":
+          application/json: {}
+        "425":
+          application/json: {"type": "error", "code": "too_early", "status": 425, "message": "Request failed validation"}
+        "429":
+          application/json: {"type": "error", "code": "too_many_requests", "status": 429, "message": "Request failed validation"}
+        "500":
+          application/json: {"type": "error", "code": "server_error", "status": 500, "message": "Request could not be processed"}
+        "502":
+          application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
+        "504":
+          application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
+  expire_payment_link:
+    speakeasy-default-expire-payment-link:
+      parameters:
+        path:
+          payment_link_id: "a1b2c3d4-5678-90ab-cdef-1234567890ab"
+      responses:
+        "400":
+          application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
+        "401":
+          application/json: {"type": "error", "code": "unauthorized", "status": 401, "message": "No valid API authentication found"}
+        "403":
+          application/json: {"type": "error", "code": "forbidden", "status": 403, "message": "Request failed validation"}
+        "404":
+          application/json: {"type": "error", "code": "not_found", "status": 404, "message": "The resource could not be found"}
+        "405":
+          application/json: {"type": "error", "code": "method_not_allowed", "status": 405, "message": "Method Not Allowed"}
+        "409":
+          application/json: {"type": "error", "code": "duplicate_record", "status": 409, "message": "Request failed validation"}
+        "422":
+          application/json: {}
+        "425":
+          application/json: {"type": "error", "code": "too_early", "status": 425, "message": "Request failed validation"}
+        "429":
+          application/json: {"type": "error", "code": "too_many_requests", "status": 429, "message": "Request failed validation"}
+        "500":
+          application/json: {"type": "error", "code": "server_error", "status": 500, "message": "Request could not be processed"}
+        "502":
+          application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
+        "504":
+          application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
+  get_payment_link:
+    speakeasy-default-get-payment-link:
+      parameters:
+        path:
+          payment_link_id: "a1b2c3d4-5678-90ab-cdef-1234567890ab"
+      responses:
+        "200":
+          application/json: {"id": "a1b2c3d4-5678-90ab-cdef-1234567890ab", "type": "payment-link", "url": "https://example.com/link/a1b2c3d4-5678-90ab-cdef-1234567890ab", "amount": 1299, "country": "DE", "currency": "EUR", "intent": "authorize", "cart_items": [{"name": "Widget", "quantity": 2, "unit_amount": 1299}], "payment_source": "recurring", "created_at": "2024-05-30T12:34:56.000Z", "updated_at": "2024-05-30T13:00:00.000Z", "status": "active"}
         "400":
           application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
         "401":

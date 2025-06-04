@@ -25,6 +25,12 @@ if TYPE_CHECKING:
         AddBuyerRequest,
         AddBuyerRequestTypedDict,
     )
+    from .add_payment_linkop import (
+        AddPaymentLinkGlobals,
+        AddPaymentLinkGlobalsTypedDict,
+        AddPaymentLinkRequest,
+        AddPaymentLinkRequestTypedDict,
+    )
     from .add_reportop import (
         AddReportGlobals,
         AddReportGlobalsTypedDict,
@@ -126,6 +132,10 @@ if TYPE_CHECKING:
     from .clicktopaysessionrequest import (
         ClickToPaySessionRequest,
         ClickToPaySessionRequestTypedDict,
+    )
+    from .collection_paymentlink_ import (
+        CollectionPaymentLink,
+        CollectionPaymentLinkTypedDict,
     )
     from .configure_digital_walletop import (
         ConfigureDigitalWalletGlobals,
@@ -310,6 +320,12 @@ if TYPE_CHECKING:
     from .digitalwalletupdate import DigitalWalletUpdate, DigitalWalletUpdateTypedDict
     from .errordetail import ErrorDetail, ErrorDetailTypedDict
     from .errorlocation import ErrorLocation
+    from .expire_payment_linkop import (
+        ExpirePaymentLinkGlobals,
+        ExpirePaymentLinkGlobalsTypedDict,
+        ExpirePaymentLinkRequest,
+        ExpirePaymentLinkRequestTypedDict,
+    )
     from .field import FieldT, FieldTTypedDict
     from .get_buyer_shipping_detailsop import (
         GetBuyerShippingDetailsGlobals,
@@ -344,6 +360,12 @@ if TYPE_CHECKING:
     from .get_merchant_accountop import (
         GetMerchantAccountRequest,
         GetMerchantAccountRequestTypedDict,
+    )
+    from .get_payment_linkop import (
+        GetPaymentLinkGlobals,
+        GetPaymentLinkGlobalsTypedDict,
+        GetPaymentLinkRequest,
+        GetPaymentLinkRequestTypedDict,
     )
     from .get_payment_methodop import (
         GetPaymentMethodGlobals,
@@ -525,6 +547,14 @@ if TYPE_CHECKING:
         ListMerchantAccountsResponse,
         ListMerchantAccountsResponseTypedDict,
     )
+    from .list_payment_linksop import (
+        ListPaymentLinksGlobals,
+        ListPaymentLinksGlobalsTypedDict,
+        ListPaymentLinksRequest,
+        ListPaymentLinksRequestTypedDict,
+        ListPaymentLinksResponse,
+        ListPaymentLinksResponseTypedDict,
+    )
     from .list_payment_method_network_tokensop import (
         ListPaymentMethodNetworkTokensGlobals,
         ListPaymentMethodNetworkTokensGlobalsTypedDict,
@@ -638,6 +668,9 @@ if TYPE_CHECKING:
     )
     from .networktokens import NetworkTokens, NetworkTokensTypedDict
     from .networktokenstatus import NetworkTokenStatus
+    from .paymentlink import PaymentLink, PaymentLinkTypedDict
+    from .paymentlinkcreate import Locale, PaymentLinkCreate, PaymentLinkCreateTypedDict
+    from .paymentlinkstatus import PaymentLinkStatus
     from .paymentmethod import PaymentMethod, PaymentMethodTypedDict
     from .paymentmethodcard import PaymentMethodCard, PaymentMethodCardTypedDict
     from .paymentmethoddetailscard import (
@@ -959,6 +992,10 @@ __all__ = [
     "AddBuyerShippingDetailsGlobalsTypedDict",
     "AddBuyerShippingDetailsRequest",
     "AddBuyerShippingDetailsRequestTypedDict",
+    "AddPaymentLinkGlobals",
+    "AddPaymentLinkGlobalsTypedDict",
+    "AddPaymentLinkRequest",
+    "AddPaymentLinkRequestTypedDict",
     "AddReportGlobals",
     "AddReportGlobalsTypedDict",
     "AddReportRequest",
@@ -1043,6 +1080,8 @@ __all__ = [
     "ClickToPaySessionRequest",
     "ClickToPaySessionRequestTypedDict",
     "ClickToPaySessionTypedDict",
+    "CollectionPaymentLink",
+    "CollectionPaymentLinkTypedDict",
     "ConfigureDigitalWalletGlobals",
     "ConfigureDigitalWalletGlobalsTypedDict",
     "ConfigureDigitalWalletRequest",
@@ -1181,6 +1220,10 @@ __all__ = [
     "ErrorDetail",
     "ErrorDetailTypedDict",
     "ErrorLocation",
+    "ExpirePaymentLinkGlobals",
+    "ExpirePaymentLinkGlobalsTypedDict",
+    "ExpirePaymentLinkRequest",
+    "ExpirePaymentLinkRequestTypedDict",
     "FieldT",
     "FieldTTypedDict",
     "GetBuyerGlobals",
@@ -1205,6 +1248,10 @@ __all__ = [
     "GetGiftCardRequestTypedDict",
     "GetMerchantAccountRequest",
     "GetMerchantAccountRequestTypedDict",
+    "GetPaymentLinkGlobals",
+    "GetPaymentLinkGlobalsTypedDict",
+    "GetPaymentLinkRequest",
+    "GetPaymentLinkRequestTypedDict",
     "GetPaymentMethodGlobals",
     "GetPaymentMethodGlobalsTypedDict",
     "GetPaymentMethodRequest",
@@ -1337,6 +1384,12 @@ __all__ = [
     "ListMerchantAccountsRequestTypedDict",
     "ListMerchantAccountsResponse",
     "ListMerchantAccountsResponseTypedDict",
+    "ListPaymentLinksGlobals",
+    "ListPaymentLinksGlobalsTypedDict",
+    "ListPaymentLinksRequest",
+    "ListPaymentLinksRequestTypedDict",
+    "ListPaymentLinksResponse",
+    "ListPaymentLinksResponseTypedDict",
     "ListPaymentMethodNetworkTokensGlobals",
     "ListPaymentMethodNetworkTokensGlobalsTypedDict",
     "ListPaymentMethodNetworkTokensRequest",
@@ -1399,6 +1452,7 @@ __all__ = [
     "ListTransactionsResponseTypedDict",
     "Loc",
     "LocTypedDict",
+    "Locale",
     "MerchantAccount",
     "MerchantAccountCreate",
     "MerchantAccountCreateTypedDict",
@@ -1424,6 +1478,11 @@ __all__ = [
     "NetworkTokens",
     "NetworkTokensTypedDict",
     "OrderBy",
+    "PaymentLink",
+    "PaymentLinkCreate",
+    "PaymentLinkCreateTypedDict",
+    "PaymentLinkStatus",
+    "PaymentLinkTypedDict",
     "PaymentMethod",
     "PaymentMethodCard",
     "PaymentMethodCardTypedDict",
@@ -1686,6 +1745,10 @@ _dynamic_imports: dict[str, str] = {
     "AddBuyerGlobalsTypedDict": ".add_buyerop",
     "AddBuyerRequest": ".add_buyerop",
     "AddBuyerRequestTypedDict": ".add_buyerop",
+    "AddPaymentLinkGlobals": ".add_payment_linkop",
+    "AddPaymentLinkGlobalsTypedDict": ".add_payment_linkop",
+    "AddPaymentLinkRequest": ".add_payment_linkop",
+    "AddPaymentLinkRequestTypedDict": ".add_payment_linkop",
     "AddReportGlobals": ".add_reportop",
     "AddReportGlobalsTypedDict": ".add_reportop",
     "AddReportRequest": ".add_reportop",
@@ -1770,6 +1833,8 @@ _dynamic_imports: dict[str, str] = {
     "ClickToPaySessionTypedDict": ".clicktopaysession",
     "ClickToPaySessionRequest": ".clicktopaysessionrequest",
     "ClickToPaySessionRequestTypedDict": ".clicktopaysessionrequest",
+    "CollectionPaymentLink": ".collection_paymentlink_",
+    "CollectionPaymentLinkTypedDict": ".collection_paymentlink_",
     "ConfigureDigitalWalletGlobals": ".configure_digital_walletop",
     "ConfigureDigitalWalletGlobalsTypedDict": ".configure_digital_walletop",
     "ConfigureDigitalWalletRequest": ".configure_digital_walletop",
@@ -1909,6 +1974,10 @@ _dynamic_imports: dict[str, str] = {
     "ErrorDetail": ".errordetail",
     "ErrorDetailTypedDict": ".errordetail",
     "ErrorLocation": ".errorlocation",
+    "ExpirePaymentLinkGlobals": ".expire_payment_linkop",
+    "ExpirePaymentLinkGlobalsTypedDict": ".expire_payment_linkop",
+    "ExpirePaymentLinkRequest": ".expire_payment_linkop",
+    "ExpirePaymentLinkRequestTypedDict": ".expire_payment_linkop",
     "FieldT": ".field",
     "FieldTTypedDict": ".field",
     "GetBuyerShippingDetailsGlobals": ".get_buyer_shipping_detailsop",
@@ -1933,6 +2002,10 @@ _dynamic_imports: dict[str, str] = {
     "GetGiftCardRequestTypedDict": ".get_gift_cardop",
     "GetMerchantAccountRequest": ".get_merchant_accountop",
     "GetMerchantAccountRequestTypedDict": ".get_merchant_accountop",
+    "GetPaymentLinkGlobals": ".get_payment_linkop",
+    "GetPaymentLinkGlobalsTypedDict": ".get_payment_linkop",
+    "GetPaymentLinkRequest": ".get_payment_linkop",
+    "GetPaymentLinkRequestTypedDict": ".get_payment_linkop",
     "GetPaymentMethodGlobals": ".get_payment_methodop",
     "GetPaymentMethodGlobalsTypedDict": ".get_payment_methodop",
     "GetPaymentMethodRequest": ".get_payment_methodop",
@@ -2066,6 +2139,12 @@ _dynamic_imports: dict[str, str] = {
     "ListMerchantAccountsRequestTypedDict": ".list_merchant_accountsop",
     "ListMerchantAccountsResponse": ".list_merchant_accountsop",
     "ListMerchantAccountsResponseTypedDict": ".list_merchant_accountsop",
+    "ListPaymentLinksGlobals": ".list_payment_linksop",
+    "ListPaymentLinksGlobalsTypedDict": ".list_payment_linksop",
+    "ListPaymentLinksRequest": ".list_payment_linksop",
+    "ListPaymentLinksRequestTypedDict": ".list_payment_linksop",
+    "ListPaymentLinksResponse": ".list_payment_linksop",
+    "ListPaymentLinksResponseTypedDict": ".list_payment_linksop",
     "ListPaymentMethodNetworkTokensGlobals": ".list_payment_method_network_tokensop",
     "ListPaymentMethodNetworkTokensGlobalsTypedDict": ".list_payment_method_network_tokensop",
     "ListPaymentMethodNetworkTokensRequest": ".list_payment_method_network_tokensop",
@@ -2150,6 +2229,12 @@ _dynamic_imports: dict[str, str] = {
     "NetworkTokens": ".networktokens",
     "NetworkTokensTypedDict": ".networktokens",
     "NetworkTokenStatus": ".networktokenstatus",
+    "PaymentLink": ".paymentlink",
+    "PaymentLinkTypedDict": ".paymentlink",
+    "Locale": ".paymentlinkcreate",
+    "PaymentLinkCreate": ".paymentlinkcreate",
+    "PaymentLinkCreateTypedDict": ".paymentlinkcreate",
+    "PaymentLinkStatus": ".paymentlinkstatus",
     "PaymentMethod": ".paymentmethod",
     "PaymentMethodTypedDict": ".paymentmethod",
     "PaymentMethodCard": ".paymentmethodcard",
