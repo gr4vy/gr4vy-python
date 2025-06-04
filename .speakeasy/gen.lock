@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 54dd7bfb870a3e989dff2fc05be69eb7
+  docChecksum: 3fb59d319a3cab2558dfb4e0aa9fd086
   docVersion: 1.0.0
   speakeasyVersion: 1.555.2
   generationVersion: 2.620.2
-  releaseVersion: 1.0.0-beta.21
-  configChecksum: 1a28ef9be349abb6808e0d4c4a2b0c27
+  releaseVersion: 1.0.0-beta.22
+  configChecksum: 938dea129f08a8db1d7ed680c1487c10
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -243,6 +243,7 @@ generatedFiles:
   - docs/models/item.md
   - docs/models/listallreportexecutionsglobals.md
   - docs/models/listallreportexecutionsrequest.md
+  - docs/models/listallreportexecutionsresponse.md
   - docs/models/listauditlogsglobals.md
   - docs/models/listauditlogsrequest.md
   - docs/models/listauditlogsresponse.md
