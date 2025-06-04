@@ -24,7 +24,7 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.payment_service_definitions.list()
+    res = g_client.payment_service_definitions.list(cursor="ZXhhbXBsZTE", limit=20)
 
     while res is not None:
         # Handle items

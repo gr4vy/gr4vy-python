@@ -25,10 +25,11 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.payment_services.list()
+    res = g_client.payment_services.list(cursor="ZXhhbXBsZTE", limit=20, deleted=True)
 
     while res is not None:
         # Handle items
@@ -82,6 +83,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
@@ -102,7 +104,7 @@ with Gr4vy(
         "US",
         "DE",
         "GB",
-    ])
+    ], three_d_secure_enabled=True, settlement_reporting_enabled=True)
 
     # Handle response
     print(res)
@@ -164,6 +166,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
@@ -216,10 +219,11 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.payment_services.update(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0")
+    res = g_client.payment_services.update(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0", settlement_reporting_enabled=True)
 
     # Handle response
     print(res)
@@ -281,6 +285,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
@@ -333,6 +338,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
@@ -387,6 +393,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 

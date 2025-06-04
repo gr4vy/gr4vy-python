@@ -25,7 +25,7 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.merchant_accounts.list()
+    res = g_client.merchant_accounts.list(cursor="ZXhhbXBsZTE", limit=20, search="merchant-12345")
 
     while res is not None:
         # Handle items
@@ -80,7 +80,7 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.merchant_accounts.create(id="merchant-12345", display_name="Example")
+    res = g_client.merchant_accounts.create(id="merchant-12345", display_name="Example", account_updater_enabled=True)
 
     # Handle response
     print(res)
@@ -202,7 +202,7 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.merchant_accounts.update(merchant_account_id="merchant-12345")
+    res = g_client.merchant_accounts.update(merchant_account_id="merchant-12345", account_updater_enabled=True)
 
     # Handle response
     print(res)

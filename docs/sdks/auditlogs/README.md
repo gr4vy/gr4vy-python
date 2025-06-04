@@ -19,10 +19,11 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.audit_logs.list()
+    res = g_client.audit_logs.list(cursor="ZXhhbXBsZTE", limit=20, action="created", user_id="14b7b8c5-a6ba-4fb6-bbab-52d43c7f37ef", resource_type="user")
 
     while res is not None:
         # Handle items

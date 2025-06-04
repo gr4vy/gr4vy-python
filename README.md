@@ -380,6 +380,13 @@ except ValueError as error:
 * [get](docs/sdks/merchantaccountssdk/README.md#get) - Get a merchant account
 * [update](docs/sdks/merchantaccountssdk/README.md#update) - Update a merchant account
 
+### [payment_links](docs/sdks/paymentlinks/README.md)
+
+* [create](docs/sdks/paymentlinks/README.md#create) - Add a payment link
+* [list](docs/sdks/paymentlinks/README.md#list) - List all payment links
+* [expire](docs/sdks/paymentlinks/README.md#expire) - Expire a payment link
+* [get](docs/sdks/paymentlinks/README.md#get) - Get payment link
+
 ### [payment_methods](docs/sdks/paymentmethodssdk/README.md)
 
 * [list](docs/sdks/paymentmethodssdk/README.md#list) - List all payment methods
@@ -483,7 +490,7 @@ except ValueError as error:
 
 A parameter is configured globally. This parameter may be set on the SDK client instance itself during initialization. When configured as an option during SDK initialization, This global value will be used as the default on the operations that use it. When such operations are called, there is a place in each to override the global value, if needed.
 
-For example, you can set `merchant_account_id` to `"default"` at SDK initialization and then you do not have to pass the same value on calls to operations like `get`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
+For example, you can set `merchant_account_id` to `` at SDK initialization and then you do not have to pass the same value on calls to operations like `get`. But if you want to do so you may, which will locally override the global setting. See the example code below for a demonstration.
 
 
 ### Available Globals
@@ -503,6 +510,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
@@ -528,10 +536,11 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.buyers.list()
+    res = g_client.buyers.list(cursor="ZXhhbXBsZTE", limit=20, search="John", external_identifier="buyer-12345")
 
     while res is not None:
         # Handle items
@@ -554,6 +563,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
@@ -579,6 +589,7 @@ import os
 
 with Gr4vy(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
@@ -635,6 +646,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
     res = None
@@ -720,6 +732,7 @@ import os
 with Gr4vy(
     server="sandbox",
     id="<id>"
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
@@ -745,6 +758,7 @@ import os
 
 with Gr4vy(
     server_url="https://api.example.gr4vy.app",
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
@@ -855,6 +869,7 @@ import os
 def main():
 
     with Gr4vy(
+        merchant_account_id="default",
         bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     ) as g_client:
         # Rest of application here...
@@ -864,6 +879,7 @@ def main():
 async def amain():
 
     async with Gr4vy(
+        merchant_account_id="default",
         bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     ) as g_client:
         # Rest of application here...

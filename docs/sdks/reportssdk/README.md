@@ -22,10 +22,11 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.reports.list()
+    res = g_client.reports.list(limit=20)
 
     while res is not None:
         # Handle items
@@ -80,6 +81,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
@@ -93,7 +95,7 @@ with Gr4vy(
                 },
             },
         },
-    })
+    }, schedule_timezone="UTC")
 
     # Handle response
     print(res)
@@ -147,6 +149,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
@@ -199,6 +202,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 

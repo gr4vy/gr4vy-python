@@ -20,10 +20,11 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.reports_executions.list()
+    res = g_client.reports_executions.list(limit=20)
 
     # Handle response
     print(res)
@@ -78,6 +79,7 @@ import os
 
 
 with Gr4vy(
+    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
