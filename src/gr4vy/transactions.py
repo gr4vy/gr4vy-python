@@ -83,7 +83,7 @@ class Transactions(BaseSDK):
     ) -> Optional[models.ListTransactionsResponse]:
         r"""List transactions
 
-        List all transactions for a specific merchant account sorted by most recently created.
+        Returns a paginated list of transactions for the merchant account, sorted by most recently updated. You can filter, sort, and search transactions using query parameters.
 
         :param cursor: A pointer to the page of results to return.
         :param limit: The maximum number of items that are at returned.
@@ -429,7 +429,7 @@ class Transactions(BaseSDK):
     ) -> Optional[models.ListTransactionsResponse]:
         r"""List transactions
 
-        List all transactions for a specific merchant account sorted by most recently created.
+        Returns a paginated list of transactions for the merchant account, sorted by most recently updated. You can filter, sort, and search transactions using query parameters.
 
         :param cursor: A pointer to the page of results to return.
         :param limit: The maximum number of items that are at returned.
@@ -783,10 +783,10 @@ class Transactions(BaseSDK):
     ) -> models.Transaction:
         r"""Create transaction
 
-        Create a transaction.
+        Create a new transaction using a supported payment method. If additional buyer authorization is required, an approval URL will be returned. Duplicated gift card numbers are not supported.
 
         :param amount: The monetary amount for this transaction, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`. If the `intent` is set to `capture`, an amount greater than zero must be supplied. All gift card amounts are subtracted from this amount before the remainder is charged to the provided `payment_method`.
-        :param currency: A supported ISO-4217 currency code. For redirect requests, this value must match the one specified for `currency` in `payment_method`.
+        :param currency: A supported ISO 4217 currency code. For redirect requests, this value must match the one specified for `currency` in `payment_method`.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param idempotency_key: A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
         :param country: The 2-letter ISO code of the country where the transaction is processed. This is also used to filter the payment services that can process the transaction. If this value is provided for redirect requests and it's not `null`, it must match the one specified for `country` in `payment_method`. Otherwise, the value specified for `country` in `payment_method` will be assumed implicitly.
@@ -1073,10 +1073,10 @@ class Transactions(BaseSDK):
     ) -> models.Transaction:
         r"""Create transaction
 
-        Create a transaction.
+        Create a new transaction using a supported payment method. If additional buyer authorization is required, an approval URL will be returned. Duplicated gift card numbers are not supported.
 
         :param amount: The monetary amount for this transaction, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`. If the `intent` is set to `capture`, an amount greater than zero must be supplied. All gift card amounts are subtracted from this amount before the remainder is charged to the provided `payment_method`.
-        :param currency: A supported ISO-4217 currency code. For redirect requests, this value must match the one specified for `currency` in `payment_method`.
+        :param currency: A supported ISO 4217 currency code. For redirect requests, this value must match the one specified for `currency` in `payment_method`.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param idempotency_key: A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
         :param country: The 2-letter ISO code of the country where the transaction is processed. This is also used to filter the payment services that can process the transaction. If this value is provided for redirect requests and it's not `null`, it must match the one specified for `country` in `payment_method`. Otherwise, the value specified for `country` in `payment_method` will be assumed implicitly.
@@ -1313,7 +1313,7 @@ class Transactions(BaseSDK):
     ) -> models.Transaction:
         r"""Get transaction
 
-        Fetch a single transaction by its ID.
+        Retrieve the details of a transaction by its unique identifier.
 
         :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
@@ -1471,7 +1471,7 @@ class Transactions(BaseSDK):
     ) -> models.Transaction:
         r"""Get transaction
 
-        Fetch a single transaction by its ID.
+        Retrieve the details of a transaction by its unique identifier.
 
         :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
@@ -1633,11 +1633,11 @@ class Transactions(BaseSDK):
     ) -> models.Transaction:
         r"""Capture transaction
 
-        Capture a previously authorized transaction.
+        Captures a previously authorized transaction. You can capture the full or a partial amount, as long as it does not exceed the authorized amount (unless over-capture is enabled).
 
         :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
-        :param amount: The amount to capture. This normally needs to be equal or less than the authorized amount, unless over-capture is available.
+        :param amount: The amount to capture, in the smallest currency unit (e.g., cents). This must be less than or equal to the authorized amount, unless over-capture is available.
         :param airline: The airline data to submit to the payment service during the capture call.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1806,11 +1806,11 @@ class Transactions(BaseSDK):
     ) -> models.Transaction:
         r"""Capture transaction
 
-        Capture a previously authorized transaction.
+        Captures a previously authorized transaction. You can capture the full or a partial amount, as long as it does not exceed the authorized amount (unless over-capture is enabled).
 
         :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
-        :param amount: The amount to capture. This normally needs to be equal or less than the authorized amount, unless over-capture is available.
+        :param amount: The amount to capture, in the smallest currency unit (e.g., cents). This must be less than or equal to the authorized amount, unless over-capture is available.
         :param airline: The airline data to submit to the payment service during the capture call.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1975,7 +1975,7 @@ class Transactions(BaseSDK):
     ) -> models.Transaction:
         r"""Void transaction
 
-        Void a previously authorized transaction.
+        Voids a previously authorized transaction. If the transaction was not yet successfully authorized, or was already captured, the void will not be processed. This operation releases the hold on the buyer's funds. Captured transactions can be refunded instead.
 
         :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
@@ -2129,7 +2129,7 @@ class Transactions(BaseSDK):
     ) -> models.Transaction:
         r"""Void transaction
 
-        Void a previously authorized transaction.
+        Voids a previously authorized transaction. If the transaction was not yet successfully authorized, or was already captured, the void will not be processed. This operation releases the hold on the buyer's funds. Captured transactions can be refunded instead.
 
         :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
@@ -2283,7 +2283,7 @@ class Transactions(BaseSDK):
     ) -> models.Transaction:
         r"""Sync transaction
 
-        Fetch the latest status for a transaction.
+        Synchronizes the status of a transaction with the underlying payment service provider. This is useful for transactions in a pending state to check if they've been completed or failed. Only available for some payment service providers.
 
         :param transaction_id:
         :param merchant_account_id: The ID of the merchant account to use for this request.
@@ -2437,7 +2437,7 @@ class Transactions(BaseSDK):
     ) -> models.Transaction:
         r"""Sync transaction
 
-        Fetch the latest status for a transaction.
+        Synchronizes the status of a transaction with the underlying payment service provider. This is useful for transactions in a pending state to check if they've been completed or failed. Only available for some payment service providers.
 
         :param transaction_id:
         :param merchant_account_id: The ID of the merchant account to use for this request.

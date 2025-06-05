@@ -358,7 +358,7 @@ class TransactionsRefunds(BaseSDK):
 
         :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
-        :param amount: The amount requested to refund. If omitted, a full refund will be requested.
+        :param amount: The amount to refund, in the smallest currency unit (e.g., cents). If omitted, a full refund will be requested.
         :param target_type:
         :param target_id: The optional ID of the instrument to refund for. This is only required when the `target_type` is set to `gift-card-redemption`.
         :param reason: An optional reason to attach extra context to the refund request.
@@ -536,7 +536,7 @@ class TransactionsRefunds(BaseSDK):
 
         :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
-        :param amount: The amount requested to refund. If omitted, a full refund will be requested.
+        :param amount: The amount to refund, in the smallest currency unit (e.g., cents). If omitted, a full refund will be requested.
         :param target_type:
         :param target_id: The optional ID of the instrument to refund for. This is only required when the `target_type` is set to `gift-card-redemption`.
         :param reason: An optional reason to attach extra context to the refund request.

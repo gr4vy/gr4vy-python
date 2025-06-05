@@ -16,14 +16,14 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class RefundTypedDict(TypedDict):
     id: str
-    r"""The ID for the refund."""
+    r"""The unique identifier for the refund."""
     transaction_id: str
     r"""The ID of the transaction associated with this refund."""
     status: RefundStatus
     currency: str
-    r"""The currency code for this refund.  Will always match that of the associated transaction."""
+    r"""The ISO 4217 currency code for this refund. Will always match that of the associated transaction."""
     amount: int
-    r"""The amount requested for this refund."""
+    r"""The amount of this refund, in the smallest currency unit (for example, cents or pence)."""
     target_type: RefundTargetType
     reconciliation_id: str
     r"""The base62 encoded refund ID. This represents a shorter version of this refund's `id` which is sent to payment services, anti-fraud services, and other connectors. You can use this ID to reconcile a payment service's refund against our system."""
@@ -51,7 +51,7 @@ class RefundTypedDict(TypedDict):
 
 class Refund(BaseModel):
     id: str
-    r"""The ID for the refund."""
+    r"""The unique identifier for the refund."""
 
     transaction_id: str
     r"""The ID of the transaction associated with this refund."""
@@ -59,10 +59,10 @@ class Refund(BaseModel):
     status: Annotated[RefundStatus, PlainValidator(validate_open_enum(False))]
 
     currency: str
-    r"""The currency code for this refund.  Will always match that of the associated transaction."""
+    r"""The ISO 4217 currency code for this refund. Will always match that of the associated transaction."""
 
     amount: int
-    r"""The amount requested for this refund."""
+    r"""The amount of this refund, in the smallest currency unit (for example, cents or pence)."""
 
     target_type: Annotated[RefundTargetType, PlainValidator(validate_open_enum(False))]
 

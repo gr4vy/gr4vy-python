@@ -19,13 +19,13 @@ class SettlementTypedDict(TypedDict):
     merchant_account_id: str
     r"""The merchant account this settlement belongs to."""
     created_at: datetime
-    r"""Date and time the settlement was created."""
+    r"""The date and time the settlement was created, in ISO 8601 format."""
     updated_at: datetime
-    r"""Date and time the settlement was last updated."""
+    r"""The date and time the settlement was last updated, in ISO 8601 format."""
     posted_at: datetime
-    r"""Date and time the settlement was posted."""
+    r"""The date and time the settlement was posted, in ISO 8601 format."""
     ingested_at: datetime
-    r"""Date and time the settlement was ingested."""
+    r"""The date and time the settlement was ingested, in ISO 8601 format."""
     currency: str
     r"""ISO 4217 currency code for the settlement."""
     amount: int
@@ -60,16 +60,16 @@ class Settlement(BaseModel):
     r"""The merchant account this settlement belongs to."""
 
     created_at: datetime
-    r"""Date and time the settlement was created."""
+    r"""The date and time the settlement was created, in ISO 8601 format."""
 
     updated_at: datetime
-    r"""Date and time the settlement was last updated."""
+    r"""The date and time the settlement was last updated, in ISO 8601 format."""
 
     posted_at: datetime
-    r"""Date and time the settlement was posted."""
+    r"""The date and time the settlement was posted, in ISO 8601 format."""
 
     ingested_at: datetime
-    r"""Date and time the settlement was ingested."""
+    r"""The date and time the settlement was ingested, in ISO 8601 format."""
 
     currency: str
     r"""ISO 4217 currency code for the settlement."""

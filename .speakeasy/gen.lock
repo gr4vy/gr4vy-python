@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 47ce338a47849623b8a0ec21c30fd377
+  docChecksum: f4c69d5f29b0f2fdb32f58d7ba8a74cf
   docVersion: 1.0.0
   speakeasyVersion: 1.556.2
   generationVersion: 2.621.3
-  releaseVersion: 1.0.0-beta.25
-  configChecksum: 8d43f8270b6379fe002df03763fe6cdf
+  releaseVersion: 1.0.0-beta.26
+  configChecksum: da9b46961cc8377a41040caf24e4dc00
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -489,6 +489,7 @@ generatedFiles:
   - docs/sdks/paymentservicessdk/README.md
   - docs/sdks/payouts/README.md
   - docs/sdks/refundssdk/README.md
+  - docs/sdks/reportexecutionssdk/README.md
   - docs/sdks/reportssdk/README.md
   - docs/sdks/sessions/README.md
   - docs/sdks/transactions/README.md
@@ -840,6 +841,7 @@ generatedFiles:
   - src/gr4vy/payouts.py
   - src/gr4vy/py.typed
   - src/gr4vy/refunds_sdk.py
+  - src/gr4vy/report_executions_sdk.py
   - src/gr4vy/reports_sdk.py
   - src/gr4vy/sdk.py
   - src/gr4vy/sdkconfiguration.py
