@@ -23,7 +23,7 @@ class RefundsSDK(BaseSDK):
 
         Fetch a refund.
 
-        :param refund_id:
+        :param refund_id: The ID of the refund
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -181,7 +181,7 @@ class RefundsSDK(BaseSDK):
 
         Fetch a refund.
 
-        :param refund_id:
+        :param refund_id: The ID of the refund
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method

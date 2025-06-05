@@ -24,6 +24,7 @@ class GetRefundGlobals(BaseModel):
 
 class GetRefundRequestTypedDict(TypedDict):
     refund_id: str
+    r"""The ID of the refund"""
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -32,6 +33,7 @@ class GetRefundRequest(BaseModel):
     refund_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
+    r"""The ID of the refund"""
 
     merchant_account_id: Annotated[
         Optional[str],

@@ -8,12 +8,12 @@ from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class GetTransactionGlobalsTypedDict(TypedDict):
+class ListTransactionSettlementsGlobalsTypedDict(TypedDict):
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
 
-class GetTransactionGlobals(BaseModel):
+class ListTransactionSettlementsGlobals(BaseModel):
     merchant_account_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
@@ -22,18 +22,18 @@ class GetTransactionGlobals(BaseModel):
     r"""The ID of the merchant account to use for this request."""
 
 
-class GetTransactionRequestTypedDict(TypedDict):
+class ListTransactionSettlementsRequestTypedDict(TypedDict):
     transaction_id: str
-    r"""The ID of the transaction"""
+    r"""The unique identifier of the transaction."""
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
 
-class GetTransactionRequest(BaseModel):
+class ListTransactionSettlementsRequest(BaseModel):
     transaction_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
-    r"""The ID of the transaction"""
+    r"""The unique identifier of the transaction."""
 
     merchant_account_id: Annotated[
         Optional[str],

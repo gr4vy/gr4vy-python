@@ -30,6 +30,7 @@ class CaptureTransactionGlobals(BaseModel):
 
 class CaptureTransactionRequestTypedDict(TypedDict):
     transaction_id: str
+    r"""The ID of the transaction"""
     transaction_capture: TransactionCaptureTypedDict
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
@@ -39,6 +40,7 @@ class CaptureTransactionRequest(BaseModel):
     transaction_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
+    r"""The ID of the transaction"""
 
     transaction_capture: Annotated[
         TransactionCapture,

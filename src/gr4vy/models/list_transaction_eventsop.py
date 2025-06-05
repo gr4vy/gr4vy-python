@@ -30,6 +30,7 @@ class ListTransactionEventsGlobals(BaseModel):
 
 class ListTransactionEventsRequestTypedDict(TypedDict):
     transaction_id: str
+    r"""The ID of the transaction"""
     cursor: NotRequired[Nullable[str]]
     r"""A pointer to the page of results to return."""
     limit: NotRequired[int]
@@ -42,6 +43,7 @@ class ListTransactionEventsRequest(BaseModel):
     transaction_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
+    r"""The ID of the transaction"""
 
     cursor: Annotated[
         OptionalNullable[str],

@@ -413,6 +413,12 @@ if TYPE_CHECKING:
         GetTransactionRefundRequest,
         GetTransactionRefundRequestTypedDict,
     )
+    from .get_transaction_settlementop import (
+        GetTransactionSettlementGlobals,
+        GetTransactionSettlementGlobalsTypedDict,
+        GetTransactionSettlementRequest,
+        GetTransactionSettlementRequestTypedDict,
+    )
     from .get_transactionop import (
         GetTransactionGlobals,
         GetTransactionGlobalsTypedDict,
@@ -633,6 +639,12 @@ if TYPE_CHECKING:
         ListTransactionRefundsRequest,
         ListTransactionRefundsRequestTypedDict,
     )
+    from .list_transaction_settlementsop import (
+        ListTransactionSettlementsGlobals,
+        ListTransactionSettlementsGlobalsTypedDict,
+        ListTransactionSettlementsRequest,
+        ListTransactionSettlementsRequestTypedDict,
+    )
     from .list_transactionsop import (
         ListTransactionsGlobals,
         ListTransactionsGlobalsTypedDict,
@@ -816,6 +828,8 @@ if TYPE_CHECKING:
         ResumePaymentMethodNetworkTokenRequestTypedDict,
     )
     from .security import Security, SecurityTypedDict
+    from .settlement import Settlement, SettlementTypedDict
+    from .settlements import Settlements, SettlementsTypedDict
     from .shippingdetails import ShippingDetails, ShippingDetailsTypedDict
     from .shippingdetailscreate import (
         ShippingDetailsCreate,
@@ -1288,6 +1302,10 @@ __all__ = [
     "GetTransactionRefundRequestTypedDict",
     "GetTransactionRequest",
     "GetTransactionRequestTypedDict",
+    "GetTransactionSettlementGlobals",
+    "GetTransactionSettlementGlobalsTypedDict",
+    "GetTransactionSettlementRequest",
+    "GetTransactionSettlementRequestTypedDict",
     "GiftCard",
     "GiftCardBalanceRequest",
     "GiftCardBalanceRequestTypedDict",
@@ -1448,6 +1466,10 @@ __all__ = [
     "ListTransactionRefundsGlobalsTypedDict",
     "ListTransactionRefundsRequest",
     "ListTransactionRefundsRequestTypedDict",
+    "ListTransactionSettlementsGlobals",
+    "ListTransactionSettlementsGlobalsTypedDict",
+    "ListTransactionSettlementsRequest",
+    "ListTransactionSettlementsRequestTypedDict",
     "ListTransactionsGlobals",
     "ListTransactionsGlobalsTypedDict",
     "ListTransactionsRequest",
@@ -1606,6 +1628,10 @@ __all__ = [
     "RouteType",
     "Security",
     "SecurityTypedDict",
+    "Settlement",
+    "SettlementTypedDict",
+    "Settlements",
+    "SettlementsTypedDict",
     "ShippingDetails",
     "ShippingDetailsCreate",
     "ShippingDetailsCreateTypedDict",
@@ -2040,6 +2066,10 @@ _dynamic_imports: dict[str, str] = {
     "GetTransactionRefundGlobalsTypedDict": ".get_transaction_refundop",
     "GetTransactionRefundRequest": ".get_transaction_refundop",
     "GetTransactionRefundRequestTypedDict": ".get_transaction_refundop",
+    "GetTransactionSettlementGlobals": ".get_transaction_settlementop",
+    "GetTransactionSettlementGlobalsTypedDict": ".get_transaction_settlementop",
+    "GetTransactionSettlementRequest": ".get_transaction_settlementop",
+    "GetTransactionSettlementRequestTypedDict": ".get_transaction_settlementop",
     "GetTransactionGlobals": ".get_transactionop",
     "GetTransactionGlobalsTypedDict": ".get_transactionop",
     "GetTransactionRequest": ".get_transactionop",
@@ -2205,6 +2235,10 @@ _dynamic_imports: dict[str, str] = {
     "ListTransactionRefundsGlobalsTypedDict": ".list_transaction_refundsop",
     "ListTransactionRefundsRequest": ".list_transaction_refundsop",
     "ListTransactionRefundsRequestTypedDict": ".list_transaction_refundsop",
+    "ListTransactionSettlementsGlobals": ".list_transaction_settlementsop",
+    "ListTransactionSettlementsGlobalsTypedDict": ".list_transaction_settlementsop",
+    "ListTransactionSettlementsRequest": ".list_transaction_settlementsop",
+    "ListTransactionSettlementsRequestTypedDict": ".list_transaction_settlementsop",
     "ListTransactionsGlobals": ".list_transactionsop",
     "ListTransactionsGlobalsTypedDict": ".list_transactionsop",
     "ListTransactionsRequest": ".list_transactionsop",
@@ -2361,6 +2395,10 @@ _dynamic_imports: dict[str, str] = {
     "ResumePaymentMethodNetworkTokenRequestTypedDict": ".resume_payment_method_network_tokenop",
     "Security": ".security",
     "SecurityTypedDict": ".security",
+    "Settlement": ".settlement",
+    "SettlementTypedDict": ".settlement",
+    "Settlements": ".settlements",
+    "SettlementsTypedDict": ".settlements",
     "ShippingDetails": ".shippingdetails",
     "ShippingDetailsTypedDict": ".shippingdetails",
     "ShippingDetailsCreate": ".shippingdetailscreate",
