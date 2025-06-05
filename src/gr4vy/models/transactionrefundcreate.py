@@ -12,7 +12,7 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 class TransactionRefundCreateTypedDict(TypedDict):
     amount: NotRequired[Nullable[int]]
-    r"""The amount requested to refund. If omitted, a full refund will be requested."""
+    r"""The amount to refund, in the smallest currency unit (e.g., cents). If omitted, a full refund will be requested."""
     target_type: NotRequired[RefundTargetType]
     target_id: NotRequired[Nullable[str]]
     r"""The optional ID of the instrument to refund for. This is only required when the `target_type` is set to `gift-card-redemption`."""
@@ -24,7 +24,7 @@ class TransactionRefundCreateTypedDict(TypedDict):
 
 class TransactionRefundCreate(BaseModel):
     amount: OptionalNullable[int] = UNSET
-    r"""The amount requested to refund. If omitted, a full refund will be requested."""
+    r"""The amount to refund, in the smallest currency unit (e.g., cents). If omitted, a full refund will be requested."""
 
     target_type: Annotated[
         Optional[RefundTargetType], PlainValidator(validate_open_enum(False))

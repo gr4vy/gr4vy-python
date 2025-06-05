@@ -9,7 +9,7 @@ class GiftCardTokenTransactionCreateTypedDict(TypedDict):
     id: str
     r"""The ID for the gift card to charge."""
     amount: int
-    r"""The monetary amount for this transaction to charge against the gift card, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`."""
+    r"""The monetary amount for this transaction to charge against the gift card, in the smallest currency unit (for example, cents or pence)."""
 
 
 class GiftCardTokenTransactionCreate(BaseModel):
@@ -17,4 +17,4 @@ class GiftCardTokenTransactionCreate(BaseModel):
     r"""The ID for the gift card to charge."""
 
     amount: int
-    r"""The monetary amount for this transaction to charge against the gift card, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`."""
+    r"""The monetary amount for this transaction to charge against the gift card, in the smallest currency unit (for example, cents or pence)."""

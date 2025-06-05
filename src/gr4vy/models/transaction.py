@@ -57,20 +57,20 @@ class TransactionTypedDict(TypedDict):
     authorized_amount: int
     r"""The amount for this transaction that has been authorized for the `payment_method`. This can be less than the `amount` if gift cards were used."""
     captured_amount: int
-    r"""The captured amount for this transaction. This can be the full value of the `authorized_amount` or less."""
+    r"""The total amount captured for this transaction, in the smallest currency unit (for example, cents or pence). This can be the full value of the `authorized_amount` or less."""
     refunded_amount: int
-    r"""The refunded amount for this transaction. This can be the full value of the `captured_amount` or less."""
+    r"""The total amount refunded for this transaction, in the smallest currency unit (for example, cents or pence). This can be the full value of the `captured_amount` or less."""
     settled_amount: int
-    r"""The net amount settled for this transaction."""
+    r"""The net amount settled for this transaction, in the smallest currency unit (for example, cents or pence)."""
     settled: bool
     r"""Indicates whether this transaction has been settled."""
     intent: TransactionIntent
     gift_card_redemptions: List[GiftCardRedemptionTypedDict]
     r"""The gift cards redeemed for this transaction."""
     created_at: datetime
-    r"""The date this buyer was created at."""
+    r"""The date and time when the transaction was created, in ISO 8601 format."""
     updated_at: datetime
-    r"""The date this buyer was last updated at."""
+    r"""The date and time when the transaction was last updated, in ISO 8601 format."""
     payment_source: TransactionPaymentSource
     r"""The way payment method information made it to this transaction."""
     merchant_initiated: bool
@@ -85,9 +85,9 @@ class TransactionTypedDict(TypedDict):
     type: Literal["transaction"]
     r"""Always `transaction`."""
     settled_currency: NotRequired[Nullable[str]]
-    r"""The currency of this transaction's settlement in ISO 4217 three-letter code format."""
+    r"""The ISO 4217 currency code of this transaction's settlement."""
     country: NotRequired[Nullable[str]]
-    r"""The 2-letter ISO code of the country of the transaction. This is used to filter the payment services that is used to process the transaction."""
+    r"""The 2-letter ISO 3166-1 alpha-2 country code for the transaction. Used to filter payment services for processing."""
     external_identifier: NotRequired[Nullable[str]]
     r"""An external identifier that can be used to match the transaction against your own records."""
     payment_method: NotRequired[Nullable[TransactionPaymentMethodTypedDict]]
@@ -178,13 +178,13 @@ class Transaction(BaseModel):
     r"""The amount for this transaction that has been authorized for the `payment_method`. This can be less than the `amount` if gift cards were used."""
 
     captured_amount: int
-    r"""The captured amount for this transaction. This can be the full value of the `authorized_amount` or less."""
+    r"""The total amount captured for this transaction, in the smallest currency unit (for example, cents or pence). This can be the full value of the `authorized_amount` or less."""
 
     refunded_amount: int
-    r"""The refunded amount for this transaction. This can be the full value of the `captured_amount` or less."""
+    r"""The total amount refunded for this transaction, in the smallest currency unit (for example, cents or pence). This can be the full value of the `captured_amount` or less."""
 
     settled_amount: int
-    r"""The net amount settled for this transaction."""
+    r"""The net amount settled for this transaction, in the smallest currency unit (for example, cents or pence)."""
 
     settled: bool
     r"""Indicates whether this transaction has been settled."""
@@ -195,10 +195,10 @@ class Transaction(BaseModel):
     r"""The gift cards redeemed for this transaction."""
 
     created_at: datetime
-    r"""The date this buyer was created at."""
+    r"""The date and time when the transaction was created, in ISO 8601 format."""
 
     updated_at: datetime
-    r"""The date this buyer was last updated at."""
+    r"""The date and time when the transaction was last updated, in ISO 8601 format."""
 
     payment_source: Annotated[
         TransactionPaymentSource, PlainValidator(validate_open_enum(False))
@@ -231,10 +231,10 @@ class Transaction(BaseModel):
     r"""Always `transaction`."""
 
     settled_currency: OptionalNullable[str] = UNSET
-    r"""The currency of this transaction's settlement in ISO 4217 three-letter code format."""
+    r"""The ISO 4217 currency code of this transaction's settlement."""
 
     country: OptionalNullable[str] = UNSET
-    r"""The 2-letter ISO code of the country of the transaction. This is used to filter the payment services that is used to process the transaction."""
+    r"""The 2-letter ISO 3166-1 alpha-2 country code for the transaction. Used to filter payment services for processing."""
 
     external_identifier: OptionalNullable[str] = UNSET
     r"""An external identifier that can be used to match the transaction against your own records."""

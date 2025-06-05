@@ -131,7 +131,7 @@ class TransactionCreateTypedDict(TypedDict):
     amount: int
     r"""The monetary amount for this transaction, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`. If the `intent` is set to `capture`, an amount greater than zero must be supplied. All gift card amounts are subtracted from this amount before the remainder is charged to the provided `payment_method`."""
     currency: str
-    r"""A supported ISO-4217 currency code. For redirect requests, this value must match the one specified for `currency` in `payment_method`."""
+    r"""A supported ISO 4217 currency code. For redirect requests, this value must match the one specified for `currency` in `payment_method`."""
     country: NotRequired[Nullable[str]]
     r"""The 2-letter ISO code of the country where the transaction is processed. This is also used to filter the payment services that can process the transaction. If this value is provided for redirect requests and it's not `null`, it must match the one specified for `country` in `payment_method`. Otherwise, the value specified for `country` in `payment_method` will be assumed implicitly."""
     payment_method: NotRequired[Nullable[TransactionCreatePaymentMethodTypedDict]]
@@ -213,7 +213,7 @@ class TransactionCreate(BaseModel):
     r"""The monetary amount for this transaction, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`. If the `intent` is set to `capture`, an amount greater than zero must be supplied. All gift card amounts are subtracted from this amount before the remainder is charged to the provided `payment_method`."""
 
     currency: str
-    r"""A supported ISO-4217 currency code. For redirect requests, this value must match the one specified for `currency` in `payment_method`."""
+    r"""A supported ISO 4217 currency code. For redirect requests, this value must match the one specified for `currency` in `payment_method`."""
 
     country: OptionalNullable[str] = UNSET
     r"""The 2-letter ISO code of the country where the transaction is processed. This is also used to filter the payment services that can process the transaction. If this value is provided for redirect requests and it's not `null`, it must match the one specified for `country` in `payment_method`. Otherwise, the value specified for `country` in `payment_method` will be assumed implicitly."""

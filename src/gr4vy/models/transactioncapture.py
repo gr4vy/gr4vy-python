@@ -8,19 +8,19 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class TransactionCaptureTypedDict(TypedDict):
-    r"""Request body for capturing an authorized transaction"""
+    r"""Request body for capturing an authorized transaction."""
 
     amount: NotRequired[Nullable[int]]
-    r"""The amount to capture. This normally needs to be equal or less than the authorized amount, unless over-capture is available."""
+    r"""The amount to capture, in the smallest currency unit (e.g., cents). This must be less than or equal to the authorized amount, unless over-capture is available."""
     airline: NotRequired[Nullable[AirlineTypedDict]]
     r"""The airline data to submit to the payment service during the capture call."""
 
 
 class TransactionCapture(BaseModel):
-    r"""Request body for capturing an authorized transaction"""
+    r"""Request body for capturing an authorized transaction."""
 
     amount: OptionalNullable[int] = UNSET
-    r"""The amount to capture. This normally needs to be equal or less than the authorized amount, unless over-capture is available."""
+    r"""The amount to capture, in the smallest currency unit (e.g., cents). This must be less than or equal to the authorized amount, unless over-capture is available."""
 
     airline: OptionalNullable[Airline] = UNSET
     r"""The airline data to submit to the payment service during the capture call."""
