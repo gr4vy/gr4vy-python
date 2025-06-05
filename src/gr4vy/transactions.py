@@ -42,7 +42,7 @@ class Transactions(BaseSDK):
         buyer_external_identifier: OptionalNullable[str] = UNSET,
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_email_address: OptionalNullable[str] = UNSET,
-        buyer_search: OptionalNullable[str] = UNSET,
+        buyer_search: OptionalNullable[List[str]] = UNSET,
         ip_address: OptionalNullable[str] = UNSET,
         status: OptionalNullable[List[models.TransactionStatus]] = UNSET,
         id: OptionalNullable[str] = UNSET,
@@ -95,7 +95,7 @@ class Transactions(BaseSDK):
         :param buyer_external_identifier:
         :param buyer_id:
         :param buyer_email_address:
-        :param buyer_search:
+        :param buyer_search: Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values.
         :param ip_address:
         :param status: Filters the results to only the transactions that have a `status` that matches with any of the provided status values.
         :param id:
@@ -388,7 +388,7 @@ class Transactions(BaseSDK):
         buyer_external_identifier: OptionalNullable[str] = UNSET,
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_email_address: OptionalNullable[str] = UNSET,
-        buyer_search: OptionalNullable[str] = UNSET,
+        buyer_search: OptionalNullable[List[str]] = UNSET,
         ip_address: OptionalNullable[str] = UNSET,
         status: OptionalNullable[List[models.TransactionStatus]] = UNSET,
         id: OptionalNullable[str] = UNSET,
@@ -441,7 +441,7 @@ class Transactions(BaseSDK):
         :param buyer_external_identifier:
         :param buyer_id:
         :param buyer_email_address:
-        :param buyer_search:
+        :param buyer_search: Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values.
         :param ip_address:
         :param status: Filters the results to only the transactions that have a `status` that matches with any of the provided status values.
         :param id:
