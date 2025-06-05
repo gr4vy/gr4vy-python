@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: d7d17126f6e89082e568bc865432c88a
+  docChecksum: e70b6c9d3a3ce5ae43c14a7b4298177f
   docVersion: 1.0.0
-  speakeasyVersion: 1.555.2
-  generationVersion: 2.620.2
-  releaseVersion: 1.0.0-beta.23
-  configChecksum: 459b8097f4a55d717eb6dd831e79c7bf
+  speakeasyVersion: 1.556.2
+  generationVersion: 2.621.3
+  releaseVersion: 1.0.0-beta.24
+  configChecksum: e8d4a9e1060201573af63e9ea0087ed3
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.19.1
+    core: 5.19.2
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
@@ -214,6 +214,8 @@ generatedFiles:
   - docs/models/gettransactionrefundglobals.md
   - docs/models/gettransactionrefundrequest.md
   - docs/models/gettransactionrequest.md
+  - docs/models/gettransactionsettlementglobals.md
+  - docs/models/gettransactionsettlementrequest.md
   - docs/models/giftcard.md
   - docs/models/giftcardbalancerequest.md
   - docs/models/giftcardcreate.md
@@ -297,6 +299,8 @@ generatedFiles:
   - docs/models/listtransactioneventsrequest.md
   - docs/models/listtransactionrefundsglobals.md
   - docs/models/listtransactionrefundsrequest.md
+  - docs/models/listtransactionsettlementsglobals.md
+  - docs/models/listtransactionsettlementsrequest.md
   - docs/models/listtransactionsglobals.md
   - docs/models/listtransactionsrequest.md
   - docs/models/listtransactionsresponse.md
@@ -386,6 +390,8 @@ generatedFiles:
   - docs/models/resumepaymentmethodnetworktokenrequest.md
   - docs/models/routetype.md
   - docs/models/security.md
+  - docs/models/settlement.md
+  - docs/models/settlements.md
   - docs/models/shippingdetails.md
   - docs/models/shippingdetailscreate.md
   - docs/models/shippingdetailslist.md
@@ -487,6 +493,7 @@ generatedFiles:
   - docs/sdks/sessions/README.md
   - docs/sdks/transactions/README.md
   - docs/sdks/transactionsrefunds/README.md
+  - docs/sdks/transactionssettlements/README.md
   - poetry.toml
   - py.typed
   - pylintrc
@@ -642,6 +649,7 @@ generatedFiles:
   - src/gr4vy/models/get_report_executionop.py
   - src/gr4vy/models/get_reportop.py
   - src/gr4vy/models/get_transaction_refundop.py
+  - src/gr4vy/models/get_transaction_settlementop.py
   - src/gr4vy/models/get_transactionop.py
   - src/gr4vy/models/giftcard.py
   - src/gr4vy/models/giftcardbalancerequest.py
@@ -692,6 +700,7 @@ generatedFiles:
   - src/gr4vy/models/list_reportsop.py
   - src/gr4vy/models/list_transaction_eventsop.py
   - src/gr4vy/models/list_transaction_refundsop.py
+  - src/gr4vy/models/list_transaction_settlementsop.py
   - src/gr4vy/models/list_transactionsop.py
   - src/gr4vy/models/merchantaccount.py
   - src/gr4vy/models/merchantaccountcreate.py
@@ -767,6 +776,8 @@ generatedFiles:
   - src/gr4vy/models/requiredcheckoutfields.py
   - src/gr4vy/models/resume_payment_method_network_tokenop.py
   - src/gr4vy/models/security.py
+  - src/gr4vy/models/settlement.py
+  - src/gr4vy/models/settlements.py
   - src/gr4vy/models/shippingdetails.py
   - src/gr4vy/models/shippingdetailscreate.py
   - src/gr4vy/models/shippingdetailslist.py
@@ -835,6 +846,7 @@ generatedFiles:
   - src/gr4vy/sessions.py
   - src/gr4vy/transactions.py
   - src/gr4vy/transactions_refunds.py
+  - src/gr4vy/transactions_settlements.py
   - src/gr4vy/types/__init__.py
   - src/gr4vy/types/basemodel.py
   - src/gr4vy/utils/__init__.py
@@ -4125,6 +4137,71 @@ examples:
       responses:
         "200":
           application/json: {"id": "a1b2c3d4-5678-90ab-cdef-1234567890ab", "type": "payment-link", "url": "https://example.com/link/a1b2c3d4-5678-90ab-cdef-1234567890ab", "amount": 1299, "country": "DE", "currency": "EUR", "intent": "authorize", "cart_items": [{"name": "Widget", "quantity": 2, "unit_amount": 1299}], "payment_source": "recurring", "created_at": "2024-05-30T12:34:56.000Z", "updated_at": "2024-05-30T13:00:00.000Z", "status": "active"}
+        "400":
+          application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
+        "401":
+          application/json: {"type": "error", "code": "unauthorized", "status": 401, "message": "No valid API authentication found"}
+        "403":
+          application/json: {"type": "error", "code": "forbidden", "status": 403, "message": "Request failed validation"}
+        "404":
+          application/json: {"type": "error", "code": "not_found", "status": 404, "message": "The resource could not be found"}
+        "405":
+          application/json: {"type": "error", "code": "method_not_allowed", "status": 405, "message": "Method Not Allowed"}
+        "409":
+          application/json: {"type": "error", "code": "duplicate_record", "status": 409, "message": "Request failed validation"}
+        "422":
+          application/json: {}
+        "425":
+          application/json: {"type": "error", "code": "too_early", "status": 425, "message": "Request failed validation"}
+        "429":
+          application/json: {"type": "error", "code": "too_many_requests", "status": 429, "message": "Request failed validation"}
+        "500":
+          application/json: {"type": "error", "code": "server_error", "status": 500, "message": "Request could not be processed"}
+        "502":
+          application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
+        "504":
+          application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
+  get_transaction_settlement:
+    speakeasy-default-get-transaction-settlement:
+      parameters:
+        path:
+          transaction_id: "7099948d-7286-47e4-aad8-b68f7eb44591"
+          settlement_id: "b1e2c3d4-5678-1234-9abc-1234567890ab"
+      responses:
+        "200":
+          application/json: {"type": "settlement", "id": "b1e2c3d4-5678-1234-9abc-1234567890ab", "merchant_account_id": "default", "created_at": "2024-06-01T12:00:00.000Z", "updated_at": "2024-06-01T12:00:00.000Z", "posted_at": "2024-06-01T12:00:00.000Z", "ingested_at": "2024-06-01T12:00:00.000Z", "currency": "EUR", "amount": 1100, "commission": 100, "payment_service_report_id": "a1b2c3d4-5678-1234-9abc-1234567890ab", "payment_service_report_file_ids": ["f1e2d3c4-5678-1234-9abc-1234567890ab"], "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591"}
+        "400":
+          application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
+        "401":
+          application/json: {"type": "error", "code": "unauthorized", "status": 401, "message": "No valid API authentication found"}
+        "403":
+          application/json: {"type": "error", "code": "forbidden", "status": 403, "message": "Request failed validation"}
+        "404":
+          application/json: {"type": "error", "code": "not_found", "status": 404, "message": "The resource could not be found"}
+        "405":
+          application/json: {"type": "error", "code": "method_not_allowed", "status": 405, "message": "Method Not Allowed"}
+        "409":
+          application/json: {"type": "error", "code": "duplicate_record", "status": 409, "message": "Request failed validation"}
+        "422":
+          application/json: {}
+        "425":
+          application/json: {"type": "error", "code": "too_early", "status": 425, "message": "Request failed validation"}
+        "429":
+          application/json: {"type": "error", "code": "too_many_requests", "status": 429, "message": "Request failed validation"}
+        "500":
+          application/json: {"type": "error", "code": "server_error", "status": 500, "message": "Request could not be processed"}
+        "502":
+          application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
+        "504":
+          application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
+  list_transaction_settlements:
+    speakeasy-default-list-transaction-settlements:
+      parameters:
+        path:
+          transaction_id: "7099948d-7286-47e4-aad8-b68f7eb44591"
+      responses:
+        "200":
+          application/json: {"items": []}
         "400":
           application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
         "401":

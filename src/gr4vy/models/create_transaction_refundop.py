@@ -33,6 +33,7 @@ class CreateTransactionRefundGlobals(BaseModel):
 
 class CreateTransactionRefundRequestTypedDict(TypedDict):
     transaction_id: str
+    r"""The ID of the transaction"""
     transaction_refund_create: TransactionRefundCreateTypedDict
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
@@ -42,6 +43,7 @@ class CreateTransactionRefundRequest(BaseModel):
     transaction_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
+    r"""The ID of the transaction"""
 
     transaction_refund_create: Annotated[
         TransactionRefundCreate,

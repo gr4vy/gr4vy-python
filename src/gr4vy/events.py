@@ -25,7 +25,7 @@ class Events(BaseSDK):
 
         Fetch a list of events for a transaction.
 
-        :param transaction_id:
+        :param transaction_id: The ID of the transaction
         :param cursor: A pointer to the page of results to return.
         :param limit: The maximum number of items that are at returned.
         :param merchant_account_id: The ID of the merchant account to use for this request.
@@ -189,7 +189,7 @@ class Events(BaseSDK):
 
         Fetch a list of events for a transaction.
 
-        :param transaction_id:
+        :param transaction_id: The ID of the transaction
         :param cursor: A pointer to the page of results to return.
         :param limit: The maximum number of items that are at returned.
         :param merchant_account_id: The ID of the merchant account to use for this request.

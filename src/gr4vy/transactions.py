@@ -7,6 +7,7 @@ from gr4vy import errors, models, utils
 from gr4vy._hooks import HookContext
 from gr4vy.events import Events
 from gr4vy.transactions_refunds import TransactionsRefunds
+from gr4vy.transactions_settlements import TransactionsSettlements
 from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from jsonpath import JSONPath
@@ -16,6 +17,7 @@ from typing import Any, Dict, List, Mapping, Optional, Union
 class Transactions(BaseSDK):
     refunds: TransactionsRefunds
     events: Events
+    settlements: TransactionsSettlements
 
     def __init__(self, sdk_config: SDKConfiguration) -> None:
         BaseSDK.__init__(self, sdk_config)
@@ -25,6 +27,7 @@ class Transactions(BaseSDK):
     def _init_sdks(self):
         self.refunds = TransactionsRefunds(self.sdk_configuration)
         self.events = Events(self.sdk_configuration)
+        self.settlements = TransactionsSettlements(self.sdk_configuration)
 
     def list(
         self,
@@ -1312,7 +1315,7 @@ class Transactions(BaseSDK):
 
         Fetch a single transaction by its ID.
 
-        :param transaction_id:
+        :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1470,7 +1473,7 @@ class Transactions(BaseSDK):
 
         Fetch a single transaction by its ID.
 
-        :param transaction_id:
+        :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -1632,7 +1635,7 @@ class Transactions(BaseSDK):
 
         Capture a previously authorized transaction.
 
-        :param transaction_id:
+        :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param amount: The amount to capture. This normally needs to be equal or less than the authorized amount, unless over-capture is available.
         :param airline: The airline data to submit to the payment service during the capture call.
@@ -1805,7 +1808,7 @@ class Transactions(BaseSDK):
 
         Capture a previously authorized transaction.
 
-        :param transaction_id:
+        :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param amount: The amount to capture. This normally needs to be equal or less than the authorized amount, unless over-capture is available.
         :param airline: The airline data to submit to the payment service during the capture call.
@@ -1974,7 +1977,7 @@ class Transactions(BaseSDK):
 
         Void a previously authorized transaction.
 
-        :param transaction_id:
+        :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2128,7 +2131,7 @@ class Transactions(BaseSDK):
 
         Void a previously authorized transaction.
 
-        :param transaction_id:
+        :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method

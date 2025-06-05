@@ -34,6 +34,7 @@ class CreateFullTransactionRefundGlobals(BaseModel):
 
 class CreateFullTransactionRefundRequestTypedDict(TypedDict):
     transaction_id: str
+    r"""The ID of the transaction"""
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
     transaction_refund_all_create: NotRequired[
@@ -45,6 +46,7 @@ class CreateFullTransactionRefundRequest(BaseModel):
     transaction_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
+    r"""The ID of the transaction"""
 
     merchant_account_id: Annotated[
         Optional[str],
