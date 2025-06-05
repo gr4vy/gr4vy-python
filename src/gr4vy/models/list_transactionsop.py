@@ -51,7 +51,8 @@ class ListTransactionsRequestTypedDict(TypedDict):
     buyer_external_identifier: NotRequired[Nullable[str]]
     buyer_id: NotRequired[Nullable[str]]
     buyer_email_address: NotRequired[Nullable[str]]
-    buyer_search: NotRequired[Nullable[str]]
+    buyer_search: NotRequired[Nullable[List[str]]]
+    r"""Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values."""
     ip_address: NotRequired[Nullable[str]]
     status: NotRequired[Nullable[List[TransactionStatus]]]
     r"""Filters the results to only the transactions that have a `status` that matches with any of the provided status values."""
@@ -171,9 +172,10 @@ class ListTransactionsRequest(BaseModel):
     ] = UNSET
 
     buyer_search: Annotated[
-        OptionalNullable[str],
+        OptionalNullable[List[str]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
+    r"""Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values."""
 
     ip_address: Annotated[
         OptionalNullable[str],
