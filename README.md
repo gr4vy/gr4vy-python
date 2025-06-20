@@ -1,5 +1,4 @@
-# Gr4vy Python SDK (Beta)
-
+# Gr4vy Python SDK
 
 Developer-friendly & type-safe Python SDK specifically catered to leverage *Gr4vy* API.
 
@@ -9,10 +8,6 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *Gr4v
         <img src="https://custom-icon-badges.demolab.com/badge/-Built%20By%20Speakeasy-212015?style=for-the-badge&logoColor=FBE331&logo=speakeasy&labelColor=545454" />
     </a>
 </div>
-
-<br /><br />
-> [!IMPORTANT]
-> This is a Beta release of our latest SDK. Please refer to the [legacy Python SDK](https://github.com/gr4vy/gr4vy-python/tree/legacy) for the latest stable build.
 
 ## Summary
 
@@ -33,7 +28,7 @@ This SDK is designed to simplify development, reduce boilerplate code, and help 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [Gr4vy Python SDK (Beta)](#gr4vy-python-sdk-beta)
+* [Gr4vy Python SDK](#gr4vy-python-sdk)
   * [SDK Installation](#sdk-installation)
   * [IDE Support](#ide-support)
   * [SDK Example Usage](#sdk-example-usage)
@@ -920,12 +915,6 @@ To run the tests, install Python and Poetry, ensure to download the `private_key
 poetry install
 poetry run pytest
 ```
-
-## Maturity
-
-This SDK is in beta, and there may be breaking changes between versions without a major version update. Therefore, we recommend pinning usage
-to a specific package version. This way, you can install the same version each time without breaking changes unless you are intentionally
-looking for the latest version.
 
 ## Contributions
 
