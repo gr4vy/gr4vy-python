@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: f4c69d5f29b0f2fdb32f58d7ba8a74cf
+  docChecksum: 71fcc0f0004abaf66eafe7663ca0f3ae
   docVersion: 1.0.0
-  speakeasyVersion: 1.567.3
-  generationVersion: 2.632.2
-  releaseVersion: 1.0.0
-  configChecksum: b4877ee350314f9cc96d6e02cf5e3b0a
+  speakeasyVersion: 1.568.2
+  generationVersion: 2.634.2
+  releaseVersion: 1.0.1
+  configChecksum: e60e57cd2788010356ddfb5dfb00910d
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
