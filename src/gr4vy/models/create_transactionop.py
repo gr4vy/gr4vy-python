@@ -30,6 +30,11 @@ class CreateTransactionRequestTypedDict(TypedDict):
     r"""The ID of the merchant account to use for this request."""
     idempotency_key: NotRequired[Nullable[str]]
     r"""A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions."""
+    x_forwarded_for: NotRequired[str]
+    r"""The IP address to forward from the customer. Use this when calling
+    our API from the server side to ensure the customer's address is
+    passed to downstream services, rather than your server IP.
+    """
 
 
 class CreateTransactionRequest(BaseModel):
@@ -52,9 +57,19 @@ class CreateTransactionRequest(BaseModel):
     ] = UNSET
     r"""A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions."""
 
+    x_forwarded_for: Annotated[
+        Optional[str],
+        pydantic.Field(alias="X-Forwarded-For"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = None
+    r"""The IP address to forward from the customer. Use this when calling
+    our API from the server side to ensure the customer's address is
+    passed to downstream services, rather than your server IP.
+    """
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["merchant_account_id", "idempotency-key"]
+        optional_fields = ["merchant_account_id", "idempotency-key", "X-Forwarded-For"]
         nullable_fields = ["idempotency-key"]
         null_default_fields = []
 

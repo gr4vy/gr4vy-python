@@ -728,6 +728,7 @@ class Transactions(BaseSDK):
         currency: str,
         merchant_account_id: Optional[str] = None,
         idempotency_key: OptionalNullable[str] = UNSET,
+        x_forwarded_for: Optional[str] = None,
         country: OptionalNullable[str] = UNSET,
         payment_method: OptionalNullable[
             Union[
@@ -789,6 +790,7 @@ class Transactions(BaseSDK):
         :param currency: A supported ISO 4217 currency code. For redirect requests, this value must match the one specified for `currency` in `payment_method`.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param idempotency_key: A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
+        :param x_forwarded_for: The IP address to forward from the customer. Use this when calling our API from the server side to ensure the customer's address is passed to downstream services, rather than your server IP.
         :param country: The 2-letter ISO code of the country where the transaction is processed. This is also used to filter the payment services that can process the transaction. If this value is provided for redirect requests and it's not `null`, it must match the one specified for `country` in `payment_method`. Otherwise, the value specified for `country` in `payment_method` will be assumed implicitly.
         :param payment_method: The optional payment method to use for this transaction. This field is required if no `gift_cards` have been added.
         :param buyer: Guest buyer details provided inline rather than creating a buyer resource beforehand and using the `buyer_id` or `buyer_external_identifier` keys. No buyer resource will be created on Gr4vy when used.
@@ -834,6 +836,7 @@ class Transactions(BaseSDK):
         request = models.CreateTransactionRequest(
             merchant_account_id=merchant_account_id,
             idempotency_key=idempotency_key,
+            x_forwarded_for=x_forwarded_for,
             transaction_create=models.TransactionCreate(
                 amount=amount,
                 currency=currency,
@@ -1018,6 +1021,7 @@ class Transactions(BaseSDK):
         currency: str,
         merchant_account_id: Optional[str] = None,
         idempotency_key: OptionalNullable[str] = UNSET,
+        x_forwarded_for: Optional[str] = None,
         country: OptionalNullable[str] = UNSET,
         payment_method: OptionalNullable[
             Union[
@@ -1079,6 +1083,7 @@ class Transactions(BaseSDK):
         :param currency: A supported ISO 4217 currency code. For redirect requests, this value must match the one specified for `currency` in `payment_method`.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param idempotency_key: A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
+        :param x_forwarded_for: The IP address to forward from the customer. Use this when calling our API from the server side to ensure the customer's address is passed to downstream services, rather than your server IP.
         :param country: The 2-letter ISO code of the country where the transaction is processed. This is also used to filter the payment services that can process the transaction. If this value is provided for redirect requests and it's not `null`, it must match the one specified for `country` in `payment_method`. Otherwise, the value specified for `country` in `payment_method` will be assumed implicitly.
         :param payment_method: The optional payment method to use for this transaction. This field is required if no `gift_cards` have been added.
         :param buyer: Guest buyer details provided inline rather than creating a buyer resource beforehand and using the `buyer_id` or `buyer_external_identifier` keys. No buyer resource will be created on Gr4vy when used.
@@ -1124,6 +1129,7 @@ class Transactions(BaseSDK):
         request = models.CreateTransactionRequest(
             merchant_account_id=merchant_account_id,
             idempotency_key=idempotency_key,
+            x_forwarded_for=x_forwarded_for,
             transaction_create=models.TransactionCreate(
                 amount=amount,
                 currency=currency,
