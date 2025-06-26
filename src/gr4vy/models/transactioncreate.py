@@ -206,6 +206,8 @@ class TransactionCreateTypedDict(TypedDict):
     r"""Defines if the transaction will allow for a partial authorization."""
     recipient: NotRequired[Nullable[RecipientTypedDict]]
     r"""The recipient of any account to account funding. For use with AFTs."""
+    installment_count: NotRequired[Nullable[int]]
+    r"""The number of installments a buyer is required to make."""
 
 
 class TransactionCreate(BaseModel):
@@ -320,6 +322,9 @@ class TransactionCreate(BaseModel):
     recipient: OptionalNullable[Recipient] = UNSET
     r"""The recipient of any account to account funding. For use with AFTs."""
 
+    installment_count: OptionalNullable[int] = UNSET
+    r"""The number of installments a buyer is required to make."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -350,6 +355,7 @@ class TransactionCreate(BaseModel):
             "account_funding_transaction",
             "allow_partial_authorization",
             "recipient",
+            "installment_count",
         ]
         nullable_fields = [
             "country",
@@ -371,6 +377,7 @@ class TransactionCreate(BaseModel):
             "anti_fraud_fingerprint",
             "payment_service_id",
             "recipient",
+            "installment_count",
         ]
         null_default_fields = []
 
