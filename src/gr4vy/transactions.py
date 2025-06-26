@@ -777,6 +777,7 @@ class Transactions(BaseSDK):
         recipient: OptionalNullable[
             Union[models.Recipient, models.RecipientTypedDict]
         ] = UNSET,
+        installment_count: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -818,6 +819,7 @@ class Transactions(BaseSDK):
         :param account_funding_transaction: Marks the transaction as an AFT. Requires the payment service to support this feature, and might `recipient` and `buyer` data
         :param allow_partial_authorization: Defines if the transaction will allow for a partial authorization.
         :param recipient: The recipient of any account to account funding. For use with AFTs.
+        :param installment_count: The number of installments a buyer is required to make.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -886,6 +888,7 @@ class Transactions(BaseSDK):
                 recipient=utils.get_pydantic_model(
                     recipient, OptionalNullable[models.Recipient]
                 ),
+                installment_count=installment_count,
             ),
         )
 
@@ -1070,6 +1073,7 @@ class Transactions(BaseSDK):
         recipient: OptionalNullable[
             Union[models.Recipient, models.RecipientTypedDict]
         ] = UNSET,
+        installment_count: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1111,6 +1115,7 @@ class Transactions(BaseSDK):
         :param account_funding_transaction: Marks the transaction as an AFT. Requires the payment service to support this feature, and might `recipient` and `buyer` data
         :param allow_partial_authorization: Defines if the transaction will allow for a partial authorization.
         :param recipient: The recipient of any account to account funding. For use with AFTs.
+        :param installment_count: The number of installments a buyer is required to make.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1179,6 +1184,7 @@ class Transactions(BaseSDK):
                 recipient=utils.get_pydantic_model(
                     recipient, OptionalNullable[models.Recipient]
                 ),
+                installment_count=installment_count,
             ),
         )
 
