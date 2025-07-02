@@ -30,6 +30,7 @@ RedirectPaymentMethodCreateMethod = Union[
         "bcp",
         "becs",
         "bitpay",
+        "blik",
         "boleto",
         "boost",
         "cashapp",

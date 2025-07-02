@@ -16,11 +16,11 @@ from pydantic import Field
 from typing import Callable, Dict, Optional, Tuple, Union
 
 
-SERVER_PRODUCTION = "production"
 SERVER_SANDBOX = "sandbox"
+SERVER_PRODUCTION = "production"
 SERVERS = {
-    SERVER_PRODUCTION: "https://api.{id}.gr4vy.app",
     SERVER_SANDBOX: "https://api.sandbox.{id}.gr4vy.app",
+    SERVER_PRODUCTION: "https://api.{id}.gr4vy.app",
 }
 """Contains the list of servers available to the SDK"""
 
@@ -49,7 +49,7 @@ class SDKConfiguration:
         if self.server_url is not None and self.server_url:
             return remove_suffix(self.server_url, "/"), {}
         if not self.server:
-            self.server = SERVER_PRODUCTION
+            self.server = SERVER_SANDBOX
 
         if self.server not in SERVERS:
             raise ValueError(f'Invalid server "{self.server}"')

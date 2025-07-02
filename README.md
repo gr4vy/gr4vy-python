@@ -608,40 +608,22 @@ with Gr4vy(
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations. All operations return a response object or raise an exception.
+[`Gr4vyError`](./src/gr4vy/errors/gr4vyerror.py) is the base class for all HTTP error responses. It has the following properties:
 
-By default, an API error will raise a errors.APIError exception, which has the following properties:
-
-| Property        | Type             | Description           |
-|-----------------|------------------|-----------------------|
-| `.status_code`  | *int*            | The HTTP status code  |
-| `.message`      | *str*            | The error message     |
-| `.raw_response` | *httpx.Response* | The raw HTTP response |
-| `.body`         | *str*            | The response content  |
-
-When custom error responses are specified for an operation, the SDK may also raise their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `create_async` method may raise the following exceptions:
-
-| Error Type                 | Status Code | Content Type     |
-| -------------------------- | ----------- | ---------------- |
-| errors.Error400            | 400         | application/json |
-| errors.Error401            | 401         | application/json |
-| errors.Error403            | 403         | application/json |
-| errors.Error404            | 404         | application/json |
-| errors.Error405            | 405         | application/json |
-| errors.Error409            | 409         | application/json |
-| errors.HTTPValidationError | 422         | application/json |
-| errors.Error425            | 425         | application/json |
-| errors.Error429            | 429         | application/json |
-| errors.Error500            | 500         | application/json |
-| errors.Error502            | 502         | application/json |
-| errors.Error504            | 504         | application/json |
-| errors.APIError            | 4XX, 5XX    | \*/\*            |
+| Property           | Type             | Description                                                                             |
+| ------------------ | ---------------- | --------------------------------------------------------------------------------------- |
+| `err.message`      | `str`            | Error message                                                                           |
+| `err.status_code`  | `int`            | HTTP response status code eg `404`                                                      |
+| `err.headers`      | `httpx.Headers`  | HTTP response headers                                                                   |
+| `err.body`         | `str`            | HTTP body. Can be empty string if no body is returned.                                  |
+| `err.raw_response` | `httpx.Response` | Raw HTTP response                                                                       |
+| `err.data`         |                  | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
 ### Example
-
 ```python
 from gr4vy import Gr4vy, errors
 import os
+from typing import Literal
 
 
 with Gr4vy(
@@ -661,46 +643,56 @@ with Gr4vy(
         # Handle response
         print(res)
 
-    except errors.Error400 as e:
-        # handle e.data: errors.Error400Data
-        raise(e)
-    except errors.Error401 as e:
-        # handle e.data: errors.Error401Data
-        raise(e)
-    except errors.Error403 as e:
-        # handle e.data: errors.Error403Data
-        raise(e)
-    except errors.Error404 as e:
-        # handle e.data: errors.Error404Data
-        raise(e)
-    except errors.Error405 as e:
-        # handle e.data: errors.Error405Data
-        raise(e)
-    except errors.Error409 as e:
-        # handle e.data: errors.Error409Data
-        raise(e)
-    except errors.HTTPValidationError as e:
-        # handle e.data: errors.HTTPValidationErrorData
-        raise(e)
-    except errors.Error425 as e:
-        # handle e.data: errors.Error425Data
-        raise(e)
-    except errors.Error429 as e:
-        # handle e.data: errors.Error429Data
-        raise(e)
-    except errors.Error500 as e:
-        # handle e.data: errors.Error500Data
-        raise(e)
-    except errors.Error502 as e:
-        # handle e.data: errors.Error502Data
-        raise(e)
-    except errors.Error504 as e:
-        # handle e.data: errors.Error504Data
-        raise(e)
-    except errors.APIError as e:
-        # handle exception
-        raise(e)
+
+    except errors.Gr4vyError as e:
+        # The base class for HTTP error responses
+        print(e.message)
+        print(e.status_code)
+        print(e.body)
+        print(e.headers)
+        print(e.raw_response)
+
+        # Depending on the method different errors may be thrown
+        if isinstance(e, errors.Error400):
+            print(e.data.type)  # Optional[Literal["error"]]
+            print(e.data.code)  # Optional[str]
+            print(e.data.status)  # Optional[int]
+            print(e.data.message)  # Optional[str]
+            print(e.data.details)  # Optional[List[models.ErrorDetail]]
 ```
+
+### Error Classes
+**Primary errors:**
+* [`Gr4vyError`](./src/gr4vy/errors/gr4vyerror.py): The base class for HTTP error responses.
+  * [`Error400`](./src/gr4vy/errors/error400.py): The request was invalid. Status code `400`.
+  * [`Error401`](./src/gr4vy/errors/error401.py): The request was unauthorized. Status code `401`.
+  * [`Error403`](./src/gr4vy/errors/error403.py): The credentials were invalid or the caller did not have permission to act on the resource. Status code `403`.
+  * [`Error404`](./src/gr4vy/errors/error404.py): The resource was not found. Status code `404`.
+  * [`Error405`](./src/gr4vy/errors/error405.py): The request method was not allowed. Status code `405`.
+  * [`Error409`](./src/gr4vy/errors/error409.py): A duplicate record was found. Status code `409`.
+  * [`Error425`](./src/gr4vy/errors/error425.py): The request was too early. Status code `425`.
+  * [`Error429`](./src/gr4vy/errors/error429.py): Too many requests were made. Status code `429`.
+  * [`Error500`](./src/gr4vy/errors/error500.py): The server encountered an error. Status code `500`.
+  * [`Error502`](./src/gr4vy/errors/error502.py): The server encountered an error. Status code `502`.
+  * [`Error504`](./src/gr4vy/errors/error504.py): The server encountered an error. Status code `504`.
+  * [`HTTPValidationError`](./src/gr4vy/errors/httpvalidationerror.py): Validation Error. Status code `422`. *
+
+<details><summary>Less common errors (5)</summary>
+
+<br />
+
+**Network errors:**
+* [`httpx.RequestError`](https://www.python-httpx.org/exceptions/#httpx.RequestError): Base class for request errors.
+    * [`httpx.ConnectError`](https://www.python-httpx.org/exceptions/#httpx.ConnectError): HTTP client was unable to make a request to a server.
+    * [`httpx.TimeoutException`](https://www.python-httpx.org/exceptions/#httpx.TimeoutException): HTTP request timed out.
+
+
+**Inherit from [`Gr4vyError`](./src/gr4vy/errors/gr4vyerror.py)**:
+* [`ResponseValidationError`](./src/gr4vy/errors/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
+
+</details>
+
+\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
@@ -712,8 +704,8 @@ You can override the default server globally by passing a server name to the `se
 
 | Name         | Server                               | Variables | Description |
 | ------------ | ------------------------------------ | --------- | ----------- |
-| `production` | `https://api.{id}.gr4vy.app`         | `id`      |             |
 | `sandbox`    | `https://api.sandbox.{id}.gr4vy.app` | `id`      |             |
+| `production` | `https://api.{id}.gr4vy.app`         | `id`      |             |
 
 If the selected server has variables, you may override its default values through the additional parameters made available in the SDK constructor:
 
@@ -729,7 +721,7 @@ import os
 
 
 with Gr4vy(
-    server="sandbox",
+    server="production",
     id="<id>"
     merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
@@ -756,7 +748,7 @@ import os
 
 
 with Gr4vy(
-    server_url="https://api.example.gr4vy.app",
+    server_url="https://api.sandbox.example.gr4vy.app",
     merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
