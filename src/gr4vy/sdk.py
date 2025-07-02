@@ -143,10 +143,10 @@ class Gr4vy(BaseSDK):
                 server_url = utils.template_url(server_url, url_params)
 
         server_defaults: Dict[str, Dict[str, str]] = {
-            "production": {
+            "sandbox": {
                 "id": id or "example",
             },
-            "sandbox": {
+            "production": {
                 "id": id or "example",
             },
         }
