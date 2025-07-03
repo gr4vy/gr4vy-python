@@ -11,6 +11,7 @@ AVSResponseCode = Union[
         "no_match",
         "partial_match_address",
         "partial_match_postcode",
+        "partial_match_name",
         "unavailable",
     ],
     UnrecognizedStr,
