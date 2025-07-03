@@ -971,7 +971,7 @@ class CheckoutSessions(BaseSDK):
     ):
         r"""Delete checkout session
 
-        Deleta a checkout session and all of its (PCI) data.
+        Delete a checkout session and all of its (PCI) data.
 
         :param session_id: The ID of the checkout session.
         :param merchant_account_id: The ID of the merchant account to use for this request.
@@ -1114,7 +1114,7 @@ class CheckoutSessions(BaseSDK):
     ):
         r"""Delete checkout session
 
-        Deleta a checkout session and all of its (PCI) data.
+        Delete a checkout session and all of its (PCI) data.
 
         :param session_id: The ID of the checkout session.
         :param merchant_account_id: The ID of the merchant account to use for this request.
