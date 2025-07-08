@@ -367,9 +367,6 @@ class MerchantAccountsSDK(BaseSDK):
         amex_network_tokens_app_id: OptionalNullable[str] = UNSET,
         mastercard_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
         mastercard_network_tokens_app_id: OptionalNullable[str] = UNSET,
-        outbound_webhook_url: OptionalNullable[str] = UNSET,
-        outbound_webhook_username: OptionalNullable[str] = UNSET,
-        outbound_webhook_password: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -397,9 +394,6 @@ class MerchantAccountsSDK(BaseSDK):
         :param amex_network_tokens_app_id: Application ID provided for American Express after onboarding to use Network Tokens.
         :param mastercard_network_tokens_requestor_id: Requestor ID provided for Mastercard after onboarding to use Network Tokens.
         :param mastercard_network_tokens_app_id: Application ID provided for Mastercard after onboarding to use Network Tokens.
-        :param outbound_webhook_url: An optional endpoint URL to deliver webhook notifications to.
-        :param outbound_webhook_username: The optional username to use when `outbound_webhook_url` is configured and requires basic authentication.
-        :param outbound_webhook_password: The optional password to use when `outbound_webhook_url` is configured and requires basic authentication
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -432,9 +426,6 @@ class MerchantAccountsSDK(BaseSDK):
             amex_network_tokens_app_id=amex_network_tokens_app_id,
             mastercard_network_tokens_requestor_id=mastercard_network_tokens_requestor_id,
             mastercard_network_tokens_app_id=mastercard_network_tokens_app_id,
-            outbound_webhook_url=outbound_webhook_url,
-            outbound_webhook_username=outbound_webhook_username,
-            outbound_webhook_password=outbound_webhook_password,
             id=id,
             display_name=display_name,
         )
@@ -567,9 +558,6 @@ class MerchantAccountsSDK(BaseSDK):
         amex_network_tokens_app_id: OptionalNullable[str] = UNSET,
         mastercard_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
         mastercard_network_tokens_app_id: OptionalNullable[str] = UNSET,
-        outbound_webhook_url: OptionalNullable[str] = UNSET,
-        outbound_webhook_username: OptionalNullable[str] = UNSET,
-        outbound_webhook_password: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -597,9 +585,6 @@ class MerchantAccountsSDK(BaseSDK):
         :param amex_network_tokens_app_id: Application ID provided for American Express after onboarding to use Network Tokens.
         :param mastercard_network_tokens_requestor_id: Requestor ID provided for Mastercard after onboarding to use Network Tokens.
         :param mastercard_network_tokens_app_id: Application ID provided for Mastercard after onboarding to use Network Tokens.
-        :param outbound_webhook_url: An optional endpoint URL to deliver webhook notifications to.
-        :param outbound_webhook_username: The optional username to use when `outbound_webhook_url` is configured and requires basic authentication.
-        :param outbound_webhook_password: The optional password to use when `outbound_webhook_url` is configured and requires basic authentication
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -632,9 +617,6 @@ class MerchantAccountsSDK(BaseSDK):
             amex_network_tokens_app_id=amex_network_tokens_app_id,
             mastercard_network_tokens_requestor_id=mastercard_network_tokens_requestor_id,
             mastercard_network_tokens_app_id=mastercard_network_tokens_app_id,
-            outbound_webhook_url=outbound_webhook_url,
-            outbound_webhook_username=outbound_webhook_username,
-            outbound_webhook_password=outbound_webhook_password,
             id=id,
             display_name=display_name,
         )
@@ -1049,9 +1031,6 @@ class MerchantAccountsSDK(BaseSDK):
         mastercard_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
         mastercard_network_tokens_app_id: OptionalNullable[str] = UNSET,
         display_name: OptionalNullable[str] = UNSET,
-        outbound_webhook_url: OptionalNullable[str] = UNSET,
-        outbound_webhook_username: OptionalNullable[str] = UNSET,
-        outbound_webhook_password: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1079,9 +1058,6 @@ class MerchantAccountsSDK(BaseSDK):
         :param mastercard_network_tokens_requestor_id: Requestor ID provided for Mastercard after onboarding to use Network Tokens.
         :param mastercard_network_tokens_app_id: Application ID provided for Mastercard after onboarding to use Network Tokens.
         :param display_name: The display name for the merchant account.
-        :param outbound_webhook_url: An optional endpoint URL to deliver webhook notifications to.
-        :param outbound_webhook_username: The optional username to use when `outbound_webhook_url` is configured and requires basic authentication.
-        :param outbound_webhook_password: The optional password to use when `outbound_webhook_url` is configured and requires basic authentication
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1117,9 +1093,6 @@ class MerchantAccountsSDK(BaseSDK):
                 mastercard_network_tokens_requestor_id=mastercard_network_tokens_requestor_id,
                 mastercard_network_tokens_app_id=mastercard_network_tokens_app_id,
                 display_name=display_name,
-                outbound_webhook_url=outbound_webhook_url,
-                outbound_webhook_username=outbound_webhook_username,
-                outbound_webhook_password=outbound_webhook_password,
             ),
         )
 
@@ -1255,9 +1228,6 @@ class MerchantAccountsSDK(BaseSDK):
         mastercard_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
         mastercard_network_tokens_app_id: OptionalNullable[str] = UNSET,
         display_name: OptionalNullable[str] = UNSET,
-        outbound_webhook_url: OptionalNullable[str] = UNSET,
-        outbound_webhook_username: OptionalNullable[str] = UNSET,
-        outbound_webhook_password: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1285,9 +1255,6 @@ class MerchantAccountsSDK(BaseSDK):
         :param mastercard_network_tokens_requestor_id: Requestor ID provided for Mastercard after onboarding to use Network Tokens.
         :param mastercard_network_tokens_app_id: Application ID provided for Mastercard after onboarding to use Network Tokens.
         :param display_name: The display name for the merchant account.
-        :param outbound_webhook_url: An optional endpoint URL to deliver webhook notifications to.
-        :param outbound_webhook_username: The optional username to use when `outbound_webhook_url` is configured and requires basic authentication.
-        :param outbound_webhook_password: The optional password to use when `outbound_webhook_url` is configured and requires basic authentication
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1323,9 +1290,6 @@ class MerchantAccountsSDK(BaseSDK):
                 mastercard_network_tokens_requestor_id=mastercard_network_tokens_requestor_id,
                 mastercard_network_tokens_app_id=mastercard_network_tokens_app_id,
                 display_name=display_name,
-                outbound_webhook_url=outbound_webhook_url,
-                outbound_webhook_username=outbound_webhook_username,
-                outbound_webhook_password=outbound_webhook_password,
             ),
         )
 

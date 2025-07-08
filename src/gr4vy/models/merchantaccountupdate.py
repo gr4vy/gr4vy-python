@@ -45,12 +45,6 @@ class MerchantAccountUpdateTypedDict(TypedDict):
     r"""Application ID provided for Mastercard after onboarding to use Network Tokens."""
     display_name: NotRequired[Nullable[str]]
     r"""The display name for the merchant account."""
-    outbound_webhook_url: NotRequired[Nullable[str]]
-    r"""An optional endpoint URL to deliver webhook notifications to."""
-    outbound_webhook_username: NotRequired[Nullable[str]]
-    r"""The optional username to use when `outbound_webhook_url` is configured and requires basic authentication."""
-    outbound_webhook_password: NotRequired[Nullable[str]]
-    r"""The optional password to use when `outbound_webhook_url` is configured and requires basic authentication"""
 
 
 class MerchantAccountUpdate(BaseModel):
@@ -107,15 +101,6 @@ class MerchantAccountUpdate(BaseModel):
     display_name: OptionalNullable[str] = UNSET
     r"""The display name for the merchant account."""
 
-    outbound_webhook_url: OptionalNullable[str] = UNSET
-    r"""An optional endpoint URL to deliver webhook notifications to."""
-
-    outbound_webhook_username: OptionalNullable[str] = UNSET
-    r"""The optional username to use when `outbound_webhook_url` is configured and requires basic authentication."""
-
-    outbound_webhook_password: OptionalNullable[str] = UNSET
-    r"""The optional password to use when `outbound_webhook_url` is configured and requires basic authentication"""
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -136,9 +121,6 @@ class MerchantAccountUpdate(BaseModel):
             "mastercard_network_tokens_requestor_id",
             "mastercard_network_tokens_app_id",
             "display_name",
-            "outbound_webhook_url",
-            "outbound_webhook_username",
-            "outbound_webhook_password",
         ]
         nullable_fields = [
             "account_updater_request_encryption_key",
@@ -157,9 +139,6 @@ class MerchantAccountUpdate(BaseModel):
             "mastercard_network_tokens_requestor_id",
             "mastercard_network_tokens_app_id",
             "display_name",
-            "outbound_webhook_url",
-            "outbound_webhook_username",
-            "outbound_webhook_password",
         ]
         null_default_fields = []
 
