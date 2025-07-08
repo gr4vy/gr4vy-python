@@ -7,15 +7,28 @@ from .shippingdetails import ShippingDetails, ShippingDetailsTypedDict
 from .statementdescriptor import StatementDescriptor, StatementDescriptorTypedDict
 from .transactionbuyer import TransactionBuyer, TransactionBuyerTypedDict
 from .transactionintent import TransactionIntent
-from .transactionpaymentsource import TransactionPaymentSource
 from datetime import datetime
-from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
+from gr4vy.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+    UnrecognizedStr,
+)
 from gr4vy.utils import validate_const, validate_open_enum
 import pydantic
 from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator, PlainValidator
-from typing import Any, Dict, List, Literal, Optional
+from typing import Any, Dict, List, Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
+
+
+PaymentLinkPaymentSource = Union[
+    Literal["ecommerce", "moto", "recurring", "installment", "card_on_file"],
+    UnrecognizedStr,
+]
+r"""The payment source for the payment link."""
 
 
 class PaymentLinkTypedDict(TypedDict):
@@ -32,8 +45,8 @@ class PaymentLinkTypedDict(TypedDict):
     intent: TransactionIntent
     cart_items: Nullable[List[CartItemTypedDict]]
     r"""The cart items for the payment link."""
-    payment_source: TransactionPaymentSource
-    r"""The way payment method information made it to this transaction."""
+    payment_source: PaymentLinkPaymentSource
+    r"""The payment source for the payment link."""
     created_at: datetime
     r"""The date and time the payment link was created."""
     updated_at: datetime
@@ -95,9 +108,9 @@ class PaymentLink(BaseModel):
     r"""The cart items for the payment link."""
 
     payment_source: Annotated[
-        TransactionPaymentSource, PlainValidator(validate_open_enum(False))
+        PaymentLinkPaymentSource, PlainValidator(validate_open_enum(False))
     ]
-    r"""The way payment method information made it to this transaction."""
+    r"""The payment source for the payment link."""
 
     created_at: datetime
     r"""The date and time the payment link was created."""
