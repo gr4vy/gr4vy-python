@@ -25,12 +25,6 @@ class MerchantAccountTypedDict(TypedDict):
     r"""The date this merchant account was last updated at."""
     type: Literal["merchant-account"]
     r"""Always `merchant-account`."""
-    outbound_webhook_url: NotRequired[Nullable[str]]
-    r"""An optional endpoint URL to deliver webhook notifications to."""
-    outbound_webhook_username: NotRequired[Nullable[str]]
-    r"""The optional username to use when `outbound_webhook_url` is configured and requires basic authentication."""
-    outbound_webhook_password: NotRequired[Nullable[str]]
-    r"""The optional password to use when `outbound_webhook_url` is configured and requires basic authentication"""
     loon_client_key: NotRequired[Nullable[str]]
     r"""Client key provided by Pagos to authenticate to the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well."""
     loon_secret_key: NotRequired[Nullable[str]]
@@ -88,15 +82,6 @@ class MerchantAccount(BaseModel):
     ] = "merchant-account"
     r"""Always `merchant-account`."""
 
-    outbound_webhook_url: OptionalNullable[str] = UNSET
-    r"""An optional endpoint URL to deliver webhook notifications to."""
-
-    outbound_webhook_username: OptionalNullable[str] = UNSET
-    r"""The optional username to use when `outbound_webhook_url` is configured and requires basic authentication."""
-
-    outbound_webhook_password: OptionalNullable[str] = UNSET
-    r"""The optional password to use when `outbound_webhook_url` is configured and requires basic authentication"""
-
     loon_client_key: OptionalNullable[str] = UNSET
     r"""Client key provided by Pagos to authenticate to the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well."""
 
@@ -148,9 +133,6 @@ class MerchantAccount(BaseModel):
     def serialize_model(self, handler):
         optional_fields = [
             "type",
-            "outbound_webhook_url",
-            "outbound_webhook_username",
-            "outbound_webhook_password",
             "loon_client_key",
             "loon_secret_key",
             "loon_accepted_schemes",
@@ -168,9 +150,6 @@ class MerchantAccount(BaseModel):
             "mastercard_network_tokens_app_id",
         ]
         nullable_fields = [
-            "outbound_webhook_url",
-            "outbound_webhook_username",
-            "outbound_webhook_password",
             "loon_client_key",
             "loon_secret_key",
             "loon_accepted_schemes",
