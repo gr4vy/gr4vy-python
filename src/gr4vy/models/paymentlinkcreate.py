@@ -5,7 +5,6 @@ from .cartitem import CartItem, CartItemTypedDict
 from .guestbuyer_input import GuestBuyerInput, GuestBuyerInputTypedDict
 from .statementdescriptor import StatementDescriptor, StatementDescriptorTypedDict
 from .transactionintent import TransactionIntent
-from .transactionpaymentsource import TransactionPaymentSource
 from datetime import datetime
 from gr4vy.types import (
     BaseModel,
@@ -23,6 +22,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 Locale = Union[Literal["en", "en-GB", "pt", "pt-BR", "es"], UnrecognizedStr]
+
+PaymentLinkCreatePaymentSource = Union[
+    Literal["ecommerce", "moto", "recurring", "installment", "card_on_file"],
+    UnrecognizedStr,
+]
+r"""The payment source for the payment link."""
 
 
 class PaymentLinkCreateTypedDict(TypedDict):
@@ -65,8 +70,8 @@ class PaymentLinkCreateTypedDict(TypedDict):
     r"""The cart items for the payment link."""
     metadata: NotRequired[Nullable[Dict[str, Any]]]
     r"""Arbitrary metadata for the payment link."""
-    payment_source: NotRequired[TransactionPaymentSource]
-    r"""The way payment method information made it to this transaction."""
+    payment_source: NotRequired[PaymentLinkCreatePaymentSource]
+    r"""The payment source for the payment link."""
 
 
 class PaymentLinkCreate(BaseModel):
@@ -134,9 +139,10 @@ class PaymentLinkCreate(BaseModel):
     r"""Arbitrary metadata for the payment link."""
 
     payment_source: Annotated[
-        Optional[TransactionPaymentSource], PlainValidator(validate_open_enum(False))
-    ] = None
-    r"""The way payment method information made it to this transaction."""
+        Optional[PaymentLinkCreatePaymentSource],
+        PlainValidator(validate_open_enum(False)),
+    ] = "ecommerce"
+    r"""The payment source for the payment link."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -41,7 +41,7 @@ class PaymentLinks(BaseSDK):
             Union[List[models.CartItem], List[models.CartItemTypedDict]]
         ] = UNSET,
         metadata: OptionalNullable[Dict[str, Any]] = UNSET,
-        payment_source: Optional[models.TransactionPaymentSource] = None,
+        payment_source: Optional[models.PaymentLinkCreatePaymentSource] = "ecommerce",
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -72,7 +72,7 @@ class PaymentLinks(BaseSDK):
         :param return_url: The return URL after payment completion.
         :param cart_items: The cart items for the payment link.
         :param metadata: Arbitrary metadata for the payment link.
-        :param payment_source: The way payment method information made it to this transaction.
+        :param payment_source: The payment source for the payment link.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -265,7 +265,7 @@ class PaymentLinks(BaseSDK):
             Union[List[models.CartItem], List[models.CartItemTypedDict]]
         ] = UNSET,
         metadata: OptionalNullable[Dict[str, Any]] = UNSET,
-        payment_source: Optional[models.TransactionPaymentSource] = None,
+        payment_source: Optional[models.PaymentLinkCreatePaymentSource] = "ecommerce",
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -296,7 +296,7 @@ class PaymentLinks(BaseSDK):
         :param return_url: The return URL after payment completion.
         :param cart_items: The cart items for the payment link.
         :param metadata: Arbitrary metadata for the payment link.
-        :param payment_source: The way payment method information made it to this transaction.
+        :param payment_source: The payment source for the payment link.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds

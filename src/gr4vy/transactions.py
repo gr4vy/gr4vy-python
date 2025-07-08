@@ -735,7 +735,7 @@ class Transactions(BaseSDK):
         metadata: OptionalNullable[Dict[str, str]] = UNSET,
         is_subsequent_payment: Optional[bool] = False,
         merchant_initiated: Optional[bool] = False,
-        payment_source: Optional[models.TransactionPaymentSource] = None,
+        payment_source: Optional[models.TransactionCreatePaymentSource] = "ecommerce",
         airline: OptionalNullable[
             Union[models.Airline, models.AirlineTypedDict]
         ] = UNSET,
@@ -787,7 +787,7 @@ class Transactions(BaseSDK):
         :param metadata: Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it.
         :param is_subsequent_payment: Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note there are some restrictions on how this flag may be used.  The flag can only be `false` (or not set) when the transaction meets one of the following criteria:  * It is not `merchant_initiated`. * `payment_source` is set to `card_on_file`.  The flag can only be set to `true` when the transaction meets one of the following criteria: * It is not `merchant_initiated`. * `payment_source` is set to `recurring` or `installment` and `merchant_initiated` is set to `true`. * `payment_source` is set to `card_on_file`.
         :param merchant_initiated: Indicates whether the transaction was initiated by the merchant (true) or customer (false).
-        :param payment_source: The way payment method information made it to this transaction.
+        :param payment_source: The use-case for the the transaction.
         :param airline: The airline addendum data which describes the airline booking associated with this transaction.
         :param cart_items: An array of cart items that represents the line items of a transaction.
         :param statement_descriptor: Details about the payment and the merchant which may end up on the (bank) statement for the payment.
@@ -1020,7 +1020,7 @@ class Transactions(BaseSDK):
         metadata: OptionalNullable[Dict[str, str]] = UNSET,
         is_subsequent_payment: Optional[bool] = False,
         merchant_initiated: Optional[bool] = False,
-        payment_source: Optional[models.TransactionPaymentSource] = None,
+        payment_source: Optional[models.TransactionCreatePaymentSource] = "ecommerce",
         airline: OptionalNullable[
             Union[models.Airline, models.AirlineTypedDict]
         ] = UNSET,
@@ -1072,7 +1072,7 @@ class Transactions(BaseSDK):
         :param metadata: Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it.
         :param is_subsequent_payment: Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note there are some restrictions on how this flag may be used.  The flag can only be `false` (or not set) when the transaction meets one of the following criteria:  * It is not `merchant_initiated`. * `payment_source` is set to `card_on_file`.  The flag can only be set to `true` when the transaction meets one of the following criteria: * It is not `merchant_initiated`. * `payment_source` is set to `recurring` or `installment` and `merchant_initiated` is set to `true`. * `payment_source` is set to `card_on_file`.
         :param merchant_initiated: Indicates whether the transaction was initiated by the merchant (true) or customer (false).
-        :param payment_source: The way payment method information made it to this transaction.
+        :param payment_source: The use-case for the the transaction.
         :param airline: The airline addendum data which describes the airline booking associated with this transaction.
         :param cart_items: An array of cart items that represents the line items of a transaction.
         :param statement_descriptor: Details about the payment and the merchant which may end up on the (bank) statement for the payment.
