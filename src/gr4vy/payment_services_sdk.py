@@ -5,6 +5,7 @@ from gr4vy import errors, models, utils
 from gr4vy._hooks import HookContext
 from gr4vy.types import Nullable, OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
+from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
 from jsonpath import JSONPath
 from typing import Any, Dict, List, Mapping, Optional, Union
 
@@ -139,46 +140,46 @@ class PaymentServicesSDK(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListPaymentServicesResponse(
-                result=utils.unmarshal_json_response(models.PaymentServices, http_res),
+                result=unmarshal_json_response(models.PaymentServices, http_res),
                 next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error400Data, http_res)
+            response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
         if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error401Data, http_res)
+            response_data = unmarshal_json_response(errors.Error401Data, http_res)
             raise errors.Error401(response_data, http_res)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error403Data, http_res)
+            response_data = unmarshal_json_response(errors.Error403Data, http_res)
             raise errors.Error403(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error404Data, http_res)
+            response_data = unmarshal_json_response(errors.Error404Data, http_res)
             raise errors.Error404(response_data, http_res)
         if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error405Data, http_res)
+            response_data = unmarshal_json_response(errors.Error405Data, http_res)
             raise errors.Error405(response_data, http_res)
         if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error409Data, http_res)
+            response_data = unmarshal_json_response(errors.Error409Data, http_res)
             raise errors.Error409(response_data, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error425Data, http_res)
+            response_data = unmarshal_json_response(errors.Error425Data, http_res)
             raise errors.Error425(response_data, http_res)
         if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error429Data, http_res)
+            response_data = unmarshal_json_response(errors.Error429Data, http_res)
             raise errors.Error429(response_data, http_res)
         if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error500Data, http_res)
+            response_data = unmarshal_json_response(errors.Error500Data, http_res)
             raise errors.Error500(response_data, http_res)
         if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error502Data, http_res)
+            response_data = unmarshal_json_response(errors.Error502Data, http_res)
             raise errors.Error502(response_data, http_res)
         if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error504Data, http_res)
+            response_data = unmarshal_json_response(errors.Error504Data, http_res)
             raise errors.Error504(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -318,46 +319,46 @@ class PaymentServicesSDK(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListPaymentServicesResponse(
-                result=utils.unmarshal_json_response(models.PaymentServices, http_res),
+                result=unmarshal_json_response(models.PaymentServices, http_res),
                 next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error400Data, http_res)
+            response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
         if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error401Data, http_res)
+            response_data = unmarshal_json_response(errors.Error401Data, http_res)
             raise errors.Error401(response_data, http_res)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error403Data, http_res)
+            response_data = unmarshal_json_response(errors.Error403Data, http_res)
             raise errors.Error403(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error404Data, http_res)
+            response_data = unmarshal_json_response(errors.Error404Data, http_res)
             raise errors.Error404(response_data, http_res)
         if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error405Data, http_res)
+            response_data = unmarshal_json_response(errors.Error405Data, http_res)
             raise errors.Error405(response_data, http_res)
         if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error409Data, http_res)
+            response_data = unmarshal_json_response(errors.Error409Data, http_res)
             raise errors.Error409(response_data, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error425Data, http_res)
+            response_data = unmarshal_json_response(errors.Error425Data, http_res)
             raise errors.Error425(response_data, http_res)
         if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error429Data, http_res)
+            response_data = unmarshal_json_response(errors.Error429Data, http_res)
             raise errors.Error429(response_data, http_res)
         if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error500Data, http_res)
+            response_data = unmarshal_json_response(errors.Error500Data, http_res)
             raise errors.Error500(response_data, http_res)
         if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error502Data, http_res)
+            response_data = unmarshal_json_response(errors.Error502Data, http_res)
             raise errors.Error502(response_data, http_res)
         if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error504Data, http_res)
+            response_data = unmarshal_json_response(errors.Error504Data, http_res)
             raise errors.Error504(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -523,44 +524,44 @@ class PaymentServicesSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return utils.unmarshal_json_response(models.PaymentService, http_res)
+            return unmarshal_json_response(models.PaymentService, http_res)
         if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error400Data, http_res)
+            response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
         if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error401Data, http_res)
+            response_data = unmarshal_json_response(errors.Error401Data, http_res)
             raise errors.Error401(response_data, http_res)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error403Data, http_res)
+            response_data = unmarshal_json_response(errors.Error403Data, http_res)
             raise errors.Error403(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error404Data, http_res)
+            response_data = unmarshal_json_response(errors.Error404Data, http_res)
             raise errors.Error404(response_data, http_res)
         if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error405Data, http_res)
+            response_data = unmarshal_json_response(errors.Error405Data, http_res)
             raise errors.Error405(response_data, http_res)
         if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error409Data, http_res)
+            response_data = unmarshal_json_response(errors.Error409Data, http_res)
             raise errors.Error409(response_data, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error425Data, http_res)
+            response_data = unmarshal_json_response(errors.Error425Data, http_res)
             raise errors.Error425(response_data, http_res)
         if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error429Data, http_res)
+            response_data = unmarshal_json_response(errors.Error429Data, http_res)
             raise errors.Error429(response_data, http_res)
         if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error500Data, http_res)
+            response_data = unmarshal_json_response(errors.Error500Data, http_res)
             raise errors.Error500(response_data, http_res)
         if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error502Data, http_res)
+            response_data = unmarshal_json_response(errors.Error502Data, http_res)
             raise errors.Error502(response_data, http_res)
         if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error504Data, http_res)
+            response_data = unmarshal_json_response(errors.Error504Data, http_res)
             raise errors.Error504(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -726,44 +727,44 @@ class PaymentServicesSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return utils.unmarshal_json_response(models.PaymentService, http_res)
+            return unmarshal_json_response(models.PaymentService, http_res)
         if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error400Data, http_res)
+            response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
         if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error401Data, http_res)
+            response_data = unmarshal_json_response(errors.Error401Data, http_res)
             raise errors.Error401(response_data, http_res)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error403Data, http_res)
+            response_data = unmarshal_json_response(errors.Error403Data, http_res)
             raise errors.Error403(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error404Data, http_res)
+            response_data = unmarshal_json_response(errors.Error404Data, http_res)
             raise errors.Error404(response_data, http_res)
         if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error405Data, http_res)
+            response_data = unmarshal_json_response(errors.Error405Data, http_res)
             raise errors.Error405(response_data, http_res)
         if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error409Data, http_res)
+            response_data = unmarshal_json_response(errors.Error409Data, http_res)
             raise errors.Error409(response_data, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error425Data, http_res)
+            response_data = unmarshal_json_response(errors.Error425Data, http_res)
             raise errors.Error425(response_data, http_res)
         if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error429Data, http_res)
+            response_data = unmarshal_json_response(errors.Error429Data, http_res)
             raise errors.Error429(response_data, http_res)
         if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error500Data, http_res)
+            response_data = unmarshal_json_response(errors.Error500Data, http_res)
             raise errors.Error500(response_data, http_res)
         if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error502Data, http_res)
+            response_data = unmarshal_json_response(errors.Error502Data, http_res)
             raise errors.Error502(response_data, http_res)
         if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error504Data, http_res)
+            response_data = unmarshal_json_response(errors.Error504Data, http_res)
             raise errors.Error504(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -873,44 +874,44 @@ class PaymentServicesSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.PaymentService, http_res)
+            return unmarshal_json_response(models.PaymentService, http_res)
         if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error400Data, http_res)
+            response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
         if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error401Data, http_res)
+            response_data = unmarshal_json_response(errors.Error401Data, http_res)
             raise errors.Error401(response_data, http_res)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error403Data, http_res)
+            response_data = unmarshal_json_response(errors.Error403Data, http_res)
             raise errors.Error403(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error404Data, http_res)
+            response_data = unmarshal_json_response(errors.Error404Data, http_res)
             raise errors.Error404(response_data, http_res)
         if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error405Data, http_res)
+            response_data = unmarshal_json_response(errors.Error405Data, http_res)
             raise errors.Error405(response_data, http_res)
         if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error409Data, http_res)
+            response_data = unmarshal_json_response(errors.Error409Data, http_res)
             raise errors.Error409(response_data, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error425Data, http_res)
+            response_data = unmarshal_json_response(errors.Error425Data, http_res)
             raise errors.Error425(response_data, http_res)
         if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error429Data, http_res)
+            response_data = unmarshal_json_response(errors.Error429Data, http_res)
             raise errors.Error429(response_data, http_res)
         if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error500Data, http_res)
+            response_data = unmarshal_json_response(errors.Error500Data, http_res)
             raise errors.Error500(response_data, http_res)
         if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error502Data, http_res)
+            response_data = unmarshal_json_response(errors.Error502Data, http_res)
             raise errors.Error502(response_data, http_res)
         if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error504Data, http_res)
+            response_data = unmarshal_json_response(errors.Error504Data, http_res)
             raise errors.Error504(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -1020,44 +1021,44 @@ class PaymentServicesSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.PaymentService, http_res)
+            return unmarshal_json_response(models.PaymentService, http_res)
         if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error400Data, http_res)
+            response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
         if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error401Data, http_res)
+            response_data = unmarshal_json_response(errors.Error401Data, http_res)
             raise errors.Error401(response_data, http_res)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error403Data, http_res)
+            response_data = unmarshal_json_response(errors.Error403Data, http_res)
             raise errors.Error403(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error404Data, http_res)
+            response_data = unmarshal_json_response(errors.Error404Data, http_res)
             raise errors.Error404(response_data, http_res)
         if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error405Data, http_res)
+            response_data = unmarshal_json_response(errors.Error405Data, http_res)
             raise errors.Error405(response_data, http_res)
         if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error409Data, http_res)
+            response_data = unmarshal_json_response(errors.Error409Data, http_res)
             raise errors.Error409(response_data, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error425Data, http_res)
+            response_data = unmarshal_json_response(errors.Error425Data, http_res)
             raise errors.Error425(response_data, http_res)
         if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error429Data, http_res)
+            response_data = unmarshal_json_response(errors.Error429Data, http_res)
             raise errors.Error429(response_data, http_res)
         if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error500Data, http_res)
+            response_data = unmarshal_json_response(errors.Error500Data, http_res)
             raise errors.Error500(response_data, http_res)
         if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error502Data, http_res)
+            response_data = unmarshal_json_response(errors.Error502Data, http_res)
             raise errors.Error502(response_data, http_res)
         if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error504Data, http_res)
+            response_data = unmarshal_json_response(errors.Error504Data, http_res)
             raise errors.Error504(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -1227,44 +1228,44 @@ class PaymentServicesSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.PaymentService, http_res)
+            return unmarshal_json_response(models.PaymentService, http_res)
         if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error400Data, http_res)
+            response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
         if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error401Data, http_res)
+            response_data = unmarshal_json_response(errors.Error401Data, http_res)
             raise errors.Error401(response_data, http_res)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error403Data, http_res)
+            response_data = unmarshal_json_response(errors.Error403Data, http_res)
             raise errors.Error403(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error404Data, http_res)
+            response_data = unmarshal_json_response(errors.Error404Data, http_res)
             raise errors.Error404(response_data, http_res)
         if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error405Data, http_res)
+            response_data = unmarshal_json_response(errors.Error405Data, http_res)
             raise errors.Error405(response_data, http_res)
         if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error409Data, http_res)
+            response_data = unmarshal_json_response(errors.Error409Data, http_res)
             raise errors.Error409(response_data, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error425Data, http_res)
+            response_data = unmarshal_json_response(errors.Error425Data, http_res)
             raise errors.Error425(response_data, http_res)
         if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error429Data, http_res)
+            response_data = unmarshal_json_response(errors.Error429Data, http_res)
             raise errors.Error429(response_data, http_res)
         if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error500Data, http_res)
+            response_data = unmarshal_json_response(errors.Error500Data, http_res)
             raise errors.Error500(response_data, http_res)
         if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error502Data, http_res)
+            response_data = unmarshal_json_response(errors.Error502Data, http_res)
             raise errors.Error502(response_data, http_res)
         if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error504Data, http_res)
+            response_data = unmarshal_json_response(errors.Error504Data, http_res)
             raise errors.Error504(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -1434,44 +1435,44 @@ class PaymentServicesSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.PaymentService, http_res)
+            return unmarshal_json_response(models.PaymentService, http_res)
         if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error400Data, http_res)
+            response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
         if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error401Data, http_res)
+            response_data = unmarshal_json_response(errors.Error401Data, http_res)
             raise errors.Error401(response_data, http_res)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error403Data, http_res)
+            response_data = unmarshal_json_response(errors.Error403Data, http_res)
             raise errors.Error403(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error404Data, http_res)
+            response_data = unmarshal_json_response(errors.Error404Data, http_res)
             raise errors.Error404(response_data, http_res)
         if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error405Data, http_res)
+            response_data = unmarshal_json_response(errors.Error405Data, http_res)
             raise errors.Error405(response_data, http_res)
         if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error409Data, http_res)
+            response_data = unmarshal_json_response(errors.Error409Data, http_res)
             raise errors.Error409(response_data, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error425Data, http_res)
+            response_data = unmarshal_json_response(errors.Error425Data, http_res)
             raise errors.Error425(response_data, http_res)
         if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error429Data, http_res)
+            response_data = unmarshal_json_response(errors.Error429Data, http_res)
             raise errors.Error429(response_data, http_res)
         if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error500Data, http_res)
+            response_data = unmarshal_json_response(errors.Error500Data, http_res)
             raise errors.Error500(response_data, http_res)
         if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error502Data, http_res)
+            response_data = unmarshal_json_response(errors.Error502Data, http_res)
             raise errors.Error502(response_data, http_res)
         if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error504Data, http_res)
+            response_data = unmarshal_json_response(errors.Error504Data, http_res)
             raise errors.Error504(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -1577,44 +1578,44 @@ class PaymentServicesSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(Any, http_res)
+            return unmarshal_json_response(Any, http_res)
         if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error400Data, http_res)
+            response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
         if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error401Data, http_res)
+            response_data = unmarshal_json_response(errors.Error401Data, http_res)
             raise errors.Error401(response_data, http_res)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error403Data, http_res)
+            response_data = unmarshal_json_response(errors.Error403Data, http_res)
             raise errors.Error403(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error404Data, http_res)
+            response_data = unmarshal_json_response(errors.Error404Data, http_res)
             raise errors.Error404(response_data, http_res)
         if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error405Data, http_res)
+            response_data = unmarshal_json_response(errors.Error405Data, http_res)
             raise errors.Error405(response_data, http_res)
         if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error409Data, http_res)
+            response_data = unmarshal_json_response(errors.Error409Data, http_res)
             raise errors.Error409(response_data, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error425Data, http_res)
+            response_data = unmarshal_json_response(errors.Error425Data, http_res)
             raise errors.Error425(response_data, http_res)
         if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error429Data, http_res)
+            response_data = unmarshal_json_response(errors.Error429Data, http_res)
             raise errors.Error429(response_data, http_res)
         if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error500Data, http_res)
+            response_data = unmarshal_json_response(errors.Error500Data, http_res)
             raise errors.Error500(response_data, http_res)
         if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error502Data, http_res)
+            response_data = unmarshal_json_response(errors.Error502Data, http_res)
             raise errors.Error502(response_data, http_res)
         if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error504Data, http_res)
+            response_data = unmarshal_json_response(errors.Error504Data, http_res)
             raise errors.Error504(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -1720,44 +1721,44 @@ class PaymentServicesSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(Any, http_res)
+            return unmarshal_json_response(Any, http_res)
         if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error400Data, http_res)
+            response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
         if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error401Data, http_res)
+            response_data = unmarshal_json_response(errors.Error401Data, http_res)
             raise errors.Error401(response_data, http_res)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error403Data, http_res)
+            response_data = unmarshal_json_response(errors.Error403Data, http_res)
             raise errors.Error403(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error404Data, http_res)
+            response_data = unmarshal_json_response(errors.Error404Data, http_res)
             raise errors.Error404(response_data, http_res)
         if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error405Data, http_res)
+            response_data = unmarshal_json_response(errors.Error405Data, http_res)
             raise errors.Error405(response_data, http_res)
         if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error409Data, http_res)
+            response_data = unmarshal_json_response(errors.Error409Data, http_res)
             raise errors.Error409(response_data, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error425Data, http_res)
+            response_data = unmarshal_json_response(errors.Error425Data, http_res)
             raise errors.Error425(response_data, http_res)
         if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error429Data, http_res)
+            response_data = unmarshal_json_response(errors.Error429Data, http_res)
             raise errors.Error429(response_data, http_res)
         if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error500Data, http_res)
+            response_data = unmarshal_json_response(errors.Error500Data, http_res)
             raise errors.Error500(response_data, http_res)
         if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error502Data, http_res)
+            response_data = unmarshal_json_response(errors.Error502Data, http_res)
             raise errors.Error502(response_data, http_res)
         if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error504Data, http_res)
+            response_data = unmarshal_json_response(errors.Error504Data, http_res)
             raise errors.Error504(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -1878,44 +1879,44 @@ class PaymentServicesSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(Any, http_res)
+            return unmarshal_json_response(Any, http_res)
         if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error400Data, http_res)
+            response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
         if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error401Data, http_res)
+            response_data = unmarshal_json_response(errors.Error401Data, http_res)
             raise errors.Error401(response_data, http_res)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error403Data, http_res)
+            response_data = unmarshal_json_response(errors.Error403Data, http_res)
             raise errors.Error403(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error404Data, http_res)
+            response_data = unmarshal_json_response(errors.Error404Data, http_res)
             raise errors.Error404(response_data, http_res)
         if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error405Data, http_res)
+            response_data = unmarshal_json_response(errors.Error405Data, http_res)
             raise errors.Error405(response_data, http_res)
         if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error409Data, http_res)
+            response_data = unmarshal_json_response(errors.Error409Data, http_res)
             raise errors.Error409(response_data, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error425Data, http_res)
+            response_data = unmarshal_json_response(errors.Error425Data, http_res)
             raise errors.Error425(response_data, http_res)
         if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error429Data, http_res)
+            response_data = unmarshal_json_response(errors.Error429Data, http_res)
             raise errors.Error429(response_data, http_res)
         if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error500Data, http_res)
+            response_data = unmarshal_json_response(errors.Error500Data, http_res)
             raise errors.Error500(response_data, http_res)
         if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error502Data, http_res)
+            response_data = unmarshal_json_response(errors.Error502Data, http_res)
             raise errors.Error502(response_data, http_res)
         if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error504Data, http_res)
+            response_data = unmarshal_json_response(errors.Error504Data, http_res)
             raise errors.Error504(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -2036,44 +2037,44 @@ class PaymentServicesSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(Any, http_res)
+            return unmarshal_json_response(Any, http_res)
         if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error400Data, http_res)
+            response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
         if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error401Data, http_res)
+            response_data = unmarshal_json_response(errors.Error401Data, http_res)
             raise errors.Error401(response_data, http_res)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error403Data, http_res)
+            response_data = unmarshal_json_response(errors.Error403Data, http_res)
             raise errors.Error403(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error404Data, http_res)
+            response_data = unmarshal_json_response(errors.Error404Data, http_res)
             raise errors.Error404(response_data, http_res)
         if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error405Data, http_res)
+            response_data = unmarshal_json_response(errors.Error405Data, http_res)
             raise errors.Error405(response_data, http_res)
         if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error409Data, http_res)
+            response_data = unmarshal_json_response(errors.Error409Data, http_res)
             raise errors.Error409(response_data, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error425Data, http_res)
+            response_data = unmarshal_json_response(errors.Error425Data, http_res)
             raise errors.Error425(response_data, http_res)
         if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error429Data, http_res)
+            response_data = unmarshal_json_response(errors.Error429Data, http_res)
             raise errors.Error429(response_data, http_res)
         if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error500Data, http_res)
+            response_data = unmarshal_json_response(errors.Error500Data, http_res)
             raise errors.Error500(response_data, http_res)
         if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error502Data, http_res)
+            response_data = unmarshal_json_response(errors.Error502Data, http_res)
             raise errors.Error502(response_data, http_res)
         if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error504Data, http_res)
+            response_data = unmarshal_json_response(errors.Error504Data, http_res)
             raise errors.Error504(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
@@ -2185,44 +2186,44 @@ class PaymentServicesSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.CreateSession, http_res)
+            return unmarshal_json_response(models.CreateSession, http_res)
         if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error400Data, http_res)
+            response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
         if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error401Data, http_res)
+            response_data = unmarshal_json_response(errors.Error401Data, http_res)
             raise errors.Error401(response_data, http_res)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error403Data, http_res)
+            response_data = unmarshal_json_response(errors.Error403Data, http_res)
             raise errors.Error403(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error404Data, http_res)
+            response_data = unmarshal_json_response(errors.Error404Data, http_res)
             raise errors.Error404(response_data, http_res)
         if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error405Data, http_res)
+            response_data = unmarshal_json_response(errors.Error405Data, http_res)
             raise errors.Error405(response_data, http_res)
         if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error409Data, http_res)
+            response_data = unmarshal_json_response(errors.Error409Data, http_res)
             raise errors.Error409(response_data, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error425Data, http_res)
+            response_data = unmarshal_json_response(errors.Error425Data, http_res)
             raise errors.Error425(response_data, http_res)
         if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error429Data, http_res)
+            response_data = unmarshal_json_response(errors.Error429Data, http_res)
             raise errors.Error429(response_data, http_res)
         if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error500Data, http_res)
+            response_data = unmarshal_json_response(errors.Error500Data, http_res)
             raise errors.Error500(response_data, http_res)
         if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error502Data, http_res)
+            response_data = unmarshal_json_response(errors.Error502Data, http_res)
             raise errors.Error502(response_data, http_res)
         if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error504Data, http_res)
+            response_data = unmarshal_json_response(errors.Error504Data, http_res)
             raise errors.Error504(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
@@ -2334,44 +2335,44 @@ class PaymentServicesSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json_response(models.CreateSession, http_res)
+            return unmarshal_json_response(models.CreateSession, http_res)
         if utils.match_response(http_res, "400", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error400Data, http_res)
+            response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
         if utils.match_response(http_res, "401", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error401Data, http_res)
+            response_data = unmarshal_json_response(errors.Error401Data, http_res)
             raise errors.Error401(response_data, http_res)
         if utils.match_response(http_res, "403", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error403Data, http_res)
+            response_data = unmarshal_json_response(errors.Error403Data, http_res)
             raise errors.Error403(response_data, http_res)
         if utils.match_response(http_res, "404", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error404Data, http_res)
+            response_data = unmarshal_json_response(errors.Error404Data, http_res)
             raise errors.Error404(response_data, http_res)
         if utils.match_response(http_res, "405", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error405Data, http_res)
+            response_data = unmarshal_json_response(errors.Error405Data, http_res)
             raise errors.Error405(response_data, http_res)
         if utils.match_response(http_res, "409", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error409Data, http_res)
+            response_data = unmarshal_json_response(errors.Error409Data, http_res)
             raise errors.Error409(response_data, http_res)
         if utils.match_response(http_res, "422", "application/json"):
-            response_data = utils.unmarshal_json_response(
+            response_data = unmarshal_json_response(
                 errors.HTTPValidationErrorData, http_res
             )
             raise errors.HTTPValidationError(response_data, http_res)
         if utils.match_response(http_res, "425", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error425Data, http_res)
+            response_data = unmarshal_json_response(errors.Error425Data, http_res)
             raise errors.Error425(response_data, http_res)
         if utils.match_response(http_res, "429", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error429Data, http_res)
+            response_data = unmarshal_json_response(errors.Error429Data, http_res)
             raise errors.Error429(response_data, http_res)
         if utils.match_response(http_res, "500", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error500Data, http_res)
+            response_data = unmarshal_json_response(errors.Error500Data, http_res)
             raise errors.Error500(response_data, http_res)
         if utils.match_response(http_res, "502", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error502Data, http_res)
+            response_data = unmarshal_json_response(errors.Error502Data, http_res)
             raise errors.Error502(response_data, http_res)
         if utils.match_response(http_res, "504", "application/json"):
-            response_data = utils.unmarshal_json_response(errors.Error504Data, http_res)
+            response_data = unmarshal_json_response(errors.Error504Data, http_res)
             raise errors.Error504(response_data, http_res)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)

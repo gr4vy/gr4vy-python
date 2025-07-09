@@ -682,13 +682,8 @@ if TYPE_CHECKING:
     )
     from .networktokens import NetworkTokens, NetworkTokensTypedDict
     from .networktokenstatus import NetworkTokenStatus
-    from .paymentlink import PaymentLink, PaymentLinkPaymentSource, PaymentLinkTypedDict
-    from .paymentlinkcreate import (
-        Locale,
-        PaymentLinkCreate,
-        PaymentLinkCreatePaymentSource,
-        PaymentLinkCreateTypedDict,
-    )
+    from .paymentlink import PaymentLink, PaymentLinkTypedDict
+    from .paymentlinkcreate import Locale, PaymentLinkCreate, PaymentLinkCreateTypedDict
     from .paymentlinkstatus import PaymentLinkStatus
     from .paymentmethod import PaymentMethod, PaymentMethodTypedDict
     from .paymentmethodcard import PaymentMethodCard, PaymentMethodCardTypedDict
@@ -870,11 +865,7 @@ if TYPE_CHECKING:
         TokenPaymentMethodCreate,
         TokenPaymentMethodCreateTypedDict,
     )
-    from .transaction import (
-        Transaction,
-        TransactionPaymentSource1,
-        TransactionTypedDict,
-    )
+    from .transaction import Transaction, TransactionTypedDict
     from .transactionbuyer import TransactionBuyer, TransactionBuyerTypedDict
     from .transactioncapture import TransactionCapture, TransactionCaptureTypedDict
     from .transactioncreate import (
@@ -885,7 +876,6 @@ if TYPE_CHECKING:
         TransactionCreate,
         TransactionCreatePaymentMethod,
         TransactionCreatePaymentMethodTypedDict,
-        TransactionCreatePaymentSource,
         TransactionCreateTypedDict,
     )
     from .transactionevent import Name, TransactionEvent, TransactionEventTypedDict
@@ -1516,9 +1506,7 @@ __all__ = [
     "OrderBy",
     "PaymentLink",
     "PaymentLinkCreate",
-    "PaymentLinkCreatePaymentSource",
     "PaymentLinkCreateTypedDict",
-    "PaymentLinkPaymentSource",
     "PaymentLinkStatus",
     "PaymentLinkTypedDict",
     "PaymentMethod",
@@ -1692,7 +1680,6 @@ __all__ = [
     "TransactionCreate",
     "TransactionCreatePaymentMethod",
     "TransactionCreatePaymentMethodTypedDict",
-    "TransactionCreatePaymentSource",
     "TransactionCreateTypedDict",
     "TransactionEvent",
     "TransactionEventTypedDict",
@@ -1707,7 +1694,6 @@ __all__ = [
     "TransactionPaymentService",
     "TransactionPaymentServiceTypedDict",
     "TransactionPaymentSource",
-    "TransactionPaymentSource1",
     "TransactionRefundAllCreate",
     "TransactionRefundAllCreateTypedDict",
     "TransactionRefundCreate",
@@ -2284,11 +2270,9 @@ _dynamic_imports: dict[str, str] = {
     "NetworkTokensTypedDict": ".networktokens",
     "NetworkTokenStatus": ".networktokenstatus",
     "PaymentLink": ".paymentlink",
-    "PaymentLinkPaymentSource": ".paymentlink",
     "PaymentLinkTypedDict": ".paymentlink",
     "Locale": ".paymentlinkcreate",
     "PaymentLinkCreate": ".paymentlinkcreate",
-    "PaymentLinkCreatePaymentSource": ".paymentlinkcreate",
     "PaymentLinkCreateTypedDict": ".paymentlinkcreate",
     "PaymentLinkStatus": ".paymentlinkstatus",
     "PaymentMethod": ".paymentmethod",
@@ -2449,7 +2433,6 @@ _dynamic_imports: dict[str, str] = {
     "TokenPaymentMethodCreate": ".tokenpaymentmethodcreate",
     "TokenPaymentMethodCreateTypedDict": ".tokenpaymentmethodcreate",
     "Transaction": ".transaction",
-    "TransactionPaymentSource1": ".transaction",
     "TransactionTypedDict": ".transaction",
     "TransactionBuyer": ".transactionbuyer",
     "TransactionBuyerTypedDict": ".transactionbuyer",
@@ -2462,7 +2445,6 @@ _dynamic_imports: dict[str, str] = {
     "TransactionCreate": ".transactioncreate",
     "TransactionCreatePaymentMethod": ".transactioncreate",
     "TransactionCreatePaymentMethodTypedDict": ".transactioncreate",
-    "TransactionCreatePaymentSource": ".transactioncreate",
     "TransactionCreateTypedDict": ".transactioncreate",
     "Name": ".transactionevent",
     "TransactionEvent": ".transactionevent",

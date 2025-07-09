@@ -24,33 +24,20 @@ from .transactionpaymentservice import (
     TransactionPaymentService,
     TransactionPaymentServiceTypedDict,
 )
+from .transactionpaymentsource import TransactionPaymentSource
 from .transactionstatus import TransactionStatus
 from .transactionthreedsecuresummary import (
     TransactionThreeDSecureSummary,
     TransactionThreeDSecureSummaryTypedDict,
 )
 from datetime import datetime
-from gr4vy.types import (
-    BaseModel,
-    Nullable,
-    OptionalNullable,
-    UNSET,
-    UNSET_SENTINEL,
-    UnrecognizedStr,
-)
+from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from gr4vy.utils import validate_const, validate_open_enum
 import pydantic
 from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator, PlainValidator
-from typing import Dict, List, Literal, Optional, Union
+from typing import Dict, List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-
-
-TransactionPaymentSource1 = Union[
-    Literal["ecommerce", "moto", "recurring", "installment", "card_on_file"],
-    UnrecognizedStr,
-]
-r"""The source of the transaction."""
 
 
 class TransactionTypedDict(TypedDict):
@@ -84,8 +71,8 @@ class TransactionTypedDict(TypedDict):
     r"""The date and time when the transaction was created, in ISO 8601 format."""
     updated_at: datetime
     r"""The date and time when the transaction was last updated, in ISO 8601 format."""
-    payment_source: TransactionPaymentSource1
-    r"""The source of the transaction."""
+    payment_source: TransactionPaymentSource
+    r"""The way payment method information made it to this transaction."""
     merchant_initiated: bool
     r"""Indicates whether the transaction was initiated by the merchant or the customer."""
     is_subsequent_payment: bool
@@ -216,9 +203,9 @@ class Transaction(BaseModel):
     r"""The date and time when the transaction was last updated, in ISO 8601 format."""
 
     payment_source: Annotated[
-        TransactionPaymentSource1, PlainValidator(validate_open_enum(False))
+        TransactionPaymentSource, PlainValidator(validate_open_enum(False))
     ]
-    r"""The source of the transaction."""
+    r"""The way payment method information made it to this transaction."""
 
     merchant_initiated: bool
     r"""Indicates whether the transaction was initiated by the merchant or the customer."""
