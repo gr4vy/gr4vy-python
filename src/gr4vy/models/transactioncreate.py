@@ -58,18 +58,12 @@ from .tokenpaymentmethodcreate import (
     TokenPaymentMethodCreateTypedDict,
 )
 from .transactionintent import TransactionIntent
-from gr4vy.types import (
-    BaseModel,
-    Nullable,
-    OptionalNullable,
-    UNSET,
-    UNSET_SENTINEL,
-    UnrecognizedStr,
-)
+from .transactionpaymentsource import TransactionPaymentSource
+from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
 from pydantic.functional_validators import PlainValidator
-from typing import Any, Dict, List, Literal, Optional, Union
+from typing import Any, Dict, List, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
@@ -133,13 +127,6 @@ ThreeDSecureData = TypeAliasType(
 r"""Pass through 3-D Secure data to support external 3-D Secure authorisation. If using an external 3-D Secure provider, you should not pass a `redirect_url` in the `payment_method` object for a transaction."""
 
 
-TransactionCreatePaymentSource = Union[
-    Literal["ecommerce", "moto", "recurring", "installment", "card_on_file"],
-    UnrecognizedStr,
-]
-r"""The use-case for the the transaction."""
-
-
 class TransactionCreateTypedDict(TypedDict):
     amount: int
     r"""The monetary amount for this transaction, in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`. If the `intent` is set to `capture`, an amount greater than zero must be supplied. All gift card amounts are subtracted from this amount before the remainder is charged to the provided `payment_method`."""
@@ -185,8 +172,8 @@ class TransactionCreateTypedDict(TypedDict):
     """
     merchant_initiated: NotRequired[bool]
     r"""Indicates whether the transaction was initiated by the merchant (true) or customer (false)."""
-    payment_source: NotRequired[TransactionCreatePaymentSource]
-    r"""The use-case for the the transaction."""
+    payment_source: NotRequired[TransactionPaymentSource]
+    r"""The way payment method information made it to this transaction."""
     airline: NotRequired[Nullable[AirlineTypedDict]]
     r"""The airline addendum data which describes the airline booking associated with this transaction."""
     cart_items: NotRequired[Nullable[List[CartItemTypedDict]]]
@@ -286,10 +273,9 @@ class TransactionCreate(BaseModel):
     r"""Indicates whether the transaction was initiated by the merchant (true) or customer (false)."""
 
     payment_source: Annotated[
-        Optional[TransactionCreatePaymentSource],
-        PlainValidator(validate_open_enum(False)),
-    ] = "ecommerce"
-    r"""The use-case for the the transaction."""
+        Optional[TransactionPaymentSource], PlainValidator(validate_open_enum(False))
+    ] = None
+    r"""The way payment method information made it to this transaction."""
 
     airline: OptionalNullable[Airline] = UNSET
     r"""The airline addendum data which describes the airline booking associated with this transaction."""
