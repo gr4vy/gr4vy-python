@@ -75,8 +75,8 @@ class ListTransactionsRequestTypedDict(TypedDict):
     r"""Filters for transactions that were processed by the provided `payment_service_id` values."""
     payment_method_id: NotRequired[Nullable[str]]
     payment_method_label: NotRequired[Nullable[str]]
-    payment_method_scheme: NotRequired[Nullable[str]]
-    r"""Filters for transactions that have a payment method with a scheme that matches with the provided value."""
+    payment_method_scheme: NotRequired[Nullable[List[str]]]
+    r"""Filters for transactions where the `payment_method_scheme` matches one of the provided values."""
     payment_method_country: NotRequired[Nullable[str]]
     r"""Filters for transactions that have a payment method with a country that matches with the provided value."""
     payment_method_fingerprint: NotRequired[Nullable[str]]
@@ -260,10 +260,10 @@ class ListTransactionsRequest(BaseModel):
     ] = UNSET
 
     payment_method_scheme: Annotated[
-        OptionalNullable[str],
+        OptionalNullable[List[str]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""Filters for transactions that have a payment method with a scheme that matches with the provided value."""
+    r"""Filters for transactions where the `payment_method_scheme` matches one of the provided values."""
 
     payment_method_country: Annotated[
         OptionalNullable[str],

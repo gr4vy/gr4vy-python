@@ -58,7 +58,7 @@ class Transactions(BaseSDK):
         payment_service_id: OptionalNullable[List[str]] = UNSET,
         payment_method_id: OptionalNullable[str] = UNSET,
         payment_method_label: OptionalNullable[str] = UNSET,
-        payment_method_scheme: OptionalNullable[str] = UNSET,
+        payment_method_scheme: OptionalNullable[List[str]] = UNSET,
         payment_method_country: OptionalNullable[str] = UNSET,
         payment_method_fingerprint: OptionalNullable[str] = UNSET,
         method: OptionalNullable[List[models.Method]] = UNSET,
@@ -111,7 +111,7 @@ class Transactions(BaseSDK):
         :param payment_service_id: Filters for transactions that were processed by the provided `payment_service_id` values.
         :param payment_method_id:
         :param payment_method_label:
-        :param payment_method_scheme: Filters for transactions that have a payment method with a scheme that matches with the provided value.
+        :param payment_method_scheme: Filters for transactions where the `payment_method_scheme` matches one of the provided values.
         :param payment_method_country: Filters for transactions that have a payment method with a country that matches with the provided value.
         :param payment_method_fingerprint:
         :param method: Filters for transactions that have matching `method` values.
@@ -393,7 +393,7 @@ class Transactions(BaseSDK):
         payment_service_id: OptionalNullable[List[str]] = UNSET,
         payment_method_id: OptionalNullable[str] = UNSET,
         payment_method_label: OptionalNullable[str] = UNSET,
-        payment_method_scheme: OptionalNullable[str] = UNSET,
+        payment_method_scheme: OptionalNullable[List[str]] = UNSET,
         payment_method_country: OptionalNullable[str] = UNSET,
         payment_method_fingerprint: OptionalNullable[str] = UNSET,
         method: OptionalNullable[List[models.Method]] = UNSET,
@@ -446,7 +446,7 @@ class Transactions(BaseSDK):
         :param payment_service_id: Filters for transactions that were processed by the provided `payment_service_id` values.
         :param payment_method_id:
         :param payment_method_label:
-        :param payment_method_scheme: Filters for transactions that have a payment method with a scheme that matches with the provided value.
+        :param payment_method_scheme: Filters for transactions where the `payment_method_scheme` matches one of the provided values.
         :param payment_method_country: Filters for transactions that have a payment method with a country that matches with the provided value.
         :param payment_method_fingerprint:
         :param method: Filters for transactions that have matching `method` values.
