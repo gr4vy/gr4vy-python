@@ -19,6 +19,7 @@ GiftCardErrorCode = Union[
         "service_error",
         "service_network_error",
         "unknown_error",
+        "max_gift_cards_reached",
     ],
     UnrecognizedStr,
 ]
