@@ -15,6 +15,7 @@ Name = Union[
         "transaction-updated-status",
         "transaction-sync-event",
         "transaction-sync-failed-event",
+        "transaction-modified-event",
         "transaction-api-request",
         "transaction-api-response",
         "bin-lookup-request",
