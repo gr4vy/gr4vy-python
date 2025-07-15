@@ -920,6 +920,7 @@ if TYPE_CHECKING:
         TransactionThreeDSecureSummary,
         TransactionThreeDSecureSummaryTypedDict,
     )
+    from .transactionupdate import TransactionUpdate, TransactionUpdateTypedDict
     from .unregister_digital_wallet_domainop import (
         UnregisterDigitalWalletDomainGlobals,
         UnregisterDigitalWalletDomainGlobalsTypedDict,
@@ -965,6 +966,12 @@ if TYPE_CHECKING:
         UpdateReportGlobalsTypedDict,
         UpdateReportRequest,
         UpdateReportRequestTypedDict,
+    )
+    from .update_transactionop import (
+        UpdateTransactionGlobals,
+        UpdateTransactionGlobalsTypedDict,
+        UpdateTransactionRequest,
+        UpdateTransactionRequestTypedDict,
     )
     from .userstatus import UserStatus
     from .validationerror import (
@@ -1708,6 +1715,8 @@ __all__ = [
     "TransactionThreeDSecureSummary",
     "TransactionThreeDSecureSummaryTypedDict",
     "TransactionTypedDict",
+    "TransactionUpdate",
+    "TransactionUpdateTypedDict",
     "TransactionsReportSpec",
     "TransactionsReportSpecTypedDict",
     "UnregisterDigitalWalletDomainGlobals",
@@ -1740,6 +1749,10 @@ __all__ = [
     "UpdateReportGlobalsTypedDict",
     "UpdateReportRequest",
     "UpdateReportRequestTypedDict",
+    "UpdateTransactionGlobals",
+    "UpdateTransactionGlobalsTypedDict",
+    "UpdateTransactionRequest",
+    "UpdateTransactionRequestTypedDict",
     "UserDevice",
     "UserStatus",
     "ValidationError",
@@ -2477,6 +2490,8 @@ _dynamic_imports: dict[str, str] = {
     "ResponseDataTypedDict": ".transactionthreedsecuresummary",
     "TransactionThreeDSecureSummary": ".transactionthreedsecuresummary",
     "TransactionThreeDSecureSummaryTypedDict": ".transactionthreedsecuresummary",
+    "TransactionUpdate": ".transactionupdate",
+    "TransactionUpdateTypedDict": ".transactionupdate",
     "UnregisterDigitalWalletDomainGlobals": ".unregister_digital_wallet_domainop",
     "UnregisterDigitalWalletDomainGlobalsTypedDict": ".unregister_digital_wallet_domainop",
     "UnregisterDigitalWalletDomainRequest": ".unregister_digital_wallet_domainop",
@@ -2507,6 +2522,10 @@ _dynamic_imports: dict[str, str] = {
     "UpdateReportGlobalsTypedDict": ".update_reportop",
     "UpdateReportRequest": ".update_reportop",
     "UpdateReportRequestTypedDict": ".update_reportop",
+    "UpdateTransactionGlobals": ".update_transactionop",
+    "UpdateTransactionGlobalsTypedDict": ".update_transactionop",
+    "UpdateTransactionRequest": ".update_transactionop",
+    "UpdateTransactionRequestTypedDict": ".update_transactionop",
     "UserStatus": ".userstatus",
     "Loc": ".validationerror",
     "LocTypedDict": ".validationerror",

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 14cc4c10a2af71dd2bc3be823f6aba24
+  docChecksum: be0fe4cc79483c8d7fd0a44253bca28d
   docVersion: 1.0.0
-  speakeasyVersion: 1.581.0
-  generationVersion: 2.656.5
-  releaseVersion: 1.1.5
-  configChecksum: fe47970a57e237593bb72e8c3dc6cd99
+  speakeasyVersion: 1.581.2
+  generationVersion: 2.656.9
+  releaseVersion: 1.1.6
+  configChecksum: 015e9e96a07bc7c46e5786015055fa32
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -435,6 +435,7 @@ generatedFiles:
   - docs/models/transactionsummaries.md
   - docs/models/transactionsummary.md
   - docs/models/transactionthreedsecuresummary.md
+  - docs/models/transactionupdate.md
   - docs/models/unregisterdigitalwalletdomainglobals.md
   - docs/models/unregisterdigitalwalletdomainrequest.md
   - docs/models/updatebuyerglobals.md
@@ -450,6 +451,8 @@ generatedFiles:
   - docs/models/updatepaymentservicerequest.md
   - docs/models/updatereportglobals.md
   - docs/models/updatereportrequest.md
+  - docs/models/updatetransactionglobals.md
+  - docs/models/updatetransactionrequest.md
   - docs/models/userdevice.md
   - docs/models/userstatus.md
   - docs/models/utils/retryconfig.md
@@ -818,6 +821,7 @@ generatedFiles:
   - src/gr4vy/models/transactionsummaries.py
   - src/gr4vy/models/transactionsummary.py
   - src/gr4vy/models/transactionthreedsecuresummary.py
+  - src/gr4vy/models/transactionupdate.py
   - src/gr4vy/models/unregister_digital_wallet_domainop.py
   - src/gr4vy/models/update_buyer_shipping_detailsop.py
   - src/gr4vy/models/update_buyerop.py
@@ -826,6 +830,7 @@ generatedFiles:
   - src/gr4vy/models/update_merchant_accountop.py
   - src/gr4vy/models/update_payment_serviceop.py
   - src/gr4vy/models/update_reportop.py
+  - src/gr4vy/models/update_transactionop.py
   - src/gr4vy/models/userstatus.py
   - src/gr4vy/models/validationerror.py
   - src/gr4vy/models/verify_payment_service_credentialsop.py
@@ -4208,6 +4213,40 @@ examples:
       responses:
         "200":
           application/json: {"items": []}
+        "400":
+          application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
+        "401":
+          application/json: {"type": "error", "code": "unauthorized", "status": 401, "message": "No valid API authentication found"}
+        "403":
+          application/json: {"type": "error", "code": "forbidden", "status": 403, "message": "Request failed validation"}
+        "404":
+          application/json: {"type": "error", "code": "not_found", "status": 404, "message": "The resource could not be found"}
+        "405":
+          application/json: {"type": "error", "code": "method_not_allowed", "status": 405, "message": "Method Not Allowed"}
+        "409":
+          application/json: {"type": "error", "code": "duplicate_record", "status": 409, "message": "Request failed validation"}
+        "422":
+          application/json: {}
+        "425":
+          application/json: {"type": "error", "code": "too_early", "status": 425, "message": "Request failed validation"}
+        "429":
+          application/json: {"type": "error", "code": "too_many_requests", "status": 429, "message": "Request failed validation"}
+        "500":
+          application/json: {"type": "error", "code": "server_error", "status": 500, "message": "Request could not be processed"}
+        "502":
+          application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
+        "504":
+          application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
+  update_transaction:
+    speakeasy-default-update-transaction:
+      parameters:
+        path:
+          transaction_id: "7099948d-7286-47e4-aad8-b68f7eb44591"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"type": "transaction", "id": "7099948d-7286-47e4-aad8-b68f7eb44591", "reconciliation_id": "default", "merchant_account_id": "default", "currency": "EUR", "amount": 1299, "status": "authorization_failed", "authorized_amount": 1299, "captured_amount": 1299, "refunded_amount": 1299, "settled_amount": 1100, "settled": true, "intent": "capture", "pending_review": false, "gift_card_redemptions": [{"type": "gift-card-redemption", "id": "31e65fb1-9c67-432e-9c06-83300b9d4059", "status": "failed", "amount": 100, "refunded_amount": 50, "gift_card": {"type": "gift-card", "bin": "412345", "sub_bin": "554", "last4": "1234"}}], "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00", "payment_source": "card_on_file", "merchant_initiated": true, "is_subsequent_payment": false, "intent_outcome": "failed", "multi_tender": true, "account_funding_transaction": true}
         "400":
           application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
         "401":

@@ -458,6 +458,7 @@ except ValueError as error:
 * [list](docs/sdks/transactions/README.md#list) - List transactions
 * [create](docs/sdks/transactions/README.md#create) - Create transaction
 * [get](docs/sdks/transactions/README.md#get) - Get transaction
+* [update](docs/sdks/transactions/README.md#update) - Manually update a transaction
 * [capture](docs/sdks/transactions/README.md#capture) - Capture transaction
 * [void](docs/sdks/transactions/README.md#void) - Void transaction
 * [sync](docs/sdks/transactions/README.md#sync) - Sync transaction
