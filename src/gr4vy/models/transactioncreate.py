@@ -57,13 +57,17 @@ from .tokenpaymentmethodcreate import (
     TokenPaymentMethodCreate,
     TokenPaymentMethodCreateTypedDict,
 )
+from .transactionconnectionoptions import (
+    TransactionConnectionOptions,
+    TransactionConnectionOptionsTypedDict,
+)
 from .transactionintent import TransactionIntent
 from .transactionpaymentsource import TransactionPaymentSource
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
 from pydantic.functional_validators import PlainValidator
-from typing import Any, Dict, List, Optional, Union
+from typing import Dict, List, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
@@ -186,7 +190,7 @@ class TransactionCreateTypedDict(TypedDict):
     r"""Information about the browser used by the buyer. This can be used by anti-fraud services."""
     shipping_details_id: NotRequired[Nullable[str]]
     r"""The unique identifier of a set of shipping details stored for the buyer. If provided, the created transaction will include a copy of the details at the point of transaction creation; i.e. it will not be affected by later changes to the detail in the database."""
-    connection_options: NotRequired[Nullable[Dict[str, Dict[str, Any]]]]
+    connection_options: NotRequired[Nullable[TransactionConnectionOptionsTypedDict]]
     r"""Allows for passing optional configuration per connection to take advantage of connection specific features. When provided, the data is only passed to the target connection type to prevent sharing configuration across connections. Please note that each of the keys this object are in kebab-case, for example `cybersource-anti-fraud` as they represent the ID of the connector. All the other keys will be snake case, for example `merchant_defined_data` or camel case to match an external API that the connector uses."""
     async_capture: NotRequired[bool]
     r"""Whether to capture the transaction asynchronously.
@@ -295,7 +299,7 @@ class TransactionCreate(BaseModel):
     shipping_details_id: OptionalNullable[str] = UNSET
     r"""The unique identifier of a set of shipping details stored for the buyer. If provided, the created transaction will include a copy of the details at the point of transaction creation; i.e. it will not be affected by later changes to the detail in the database."""
 
-    connection_options: OptionalNullable[Dict[str, Dict[str, Any]]] = UNSET
+    connection_options: OptionalNullable[TransactionConnectionOptions] = UNSET
     r"""Allows for passing optional configuration per connection to take advantage of connection specific features. When provided, the data is only passed to the target connection type to prevent sharing configuration across connections. Please note that each of the keys this object are in kebab-case, for example `cybersource-anti-fraud` as they represent the ID of the connector. All the other keys will be snake case, for example `merchant_defined_data` or camel case to match an external API that the connector uses."""
 
     async_capture: Optional[bool] = False

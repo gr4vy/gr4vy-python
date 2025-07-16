@@ -5,14 +5,14 @@ from gr4vy.types import BaseModel
 from typing_extensions import TypedDict
 
 
-class CheckoutCardConnectionOptionsTypedDict(TypedDict):
+class CheckoutPayoutOptionsTypedDict(TypedDict):
     processing_channel_id: str
     r"""The processing channel to be used for the payment."""
     source_id: str
     r"""The ID of the currency account that will fund the payout."""
 
 
-class CheckoutCardConnectionOptions(BaseModel):
+class CheckoutPayoutOptions(BaseModel):
     processing_channel_id: str
     r"""The processing channel to be used for the payment."""
 

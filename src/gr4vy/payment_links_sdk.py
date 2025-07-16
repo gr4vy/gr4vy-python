@@ -11,7 +11,7 @@ from jsonpath import JSONPath
 from typing import Any, Dict, List, Mapping, Optional, Union
 
 
-class PaymentLinks(BaseSDK):
+class PaymentLinksSDK(BaseSDK):
     def create(
         self,
         *,
@@ -23,7 +23,12 @@ class PaymentLinks(BaseSDK):
             Union[models.GuestBuyerInput, models.GuestBuyerInputTypedDict]
         ] = UNSET,
         expires_at: OptionalNullable[datetime] = UNSET,
-        connection_options: OptionalNullable[Dict[str, Dict[str, Any]]] = UNSET,
+        connection_options: OptionalNullable[
+            Union[
+                models.TransactionConnectionOptions,
+                models.TransactionConnectionOptionsTypedDict,
+            ]
+        ] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
         statement_descriptor: OptionalNullable[
             Union[models.StatementDescriptor, models.StatementDescriptorTypedDict]
@@ -96,7 +101,10 @@ class PaymentLinks(BaseSDK):
                     buyer, OptionalNullable[models.GuestBuyerInput]
                 ),
                 expires_at=expires_at,
-                connection_options=connection_options,
+                connection_options=utils.get_pydantic_model(
+                    connection_options,
+                    OptionalNullable[models.TransactionConnectionOptions],
+                ),
                 external_identifier=external_identifier,
                 statement_descriptor=utils.get_pydantic_model(
                     statement_descriptor, OptionalNullable[models.StatementDescriptor]
@@ -247,7 +255,12 @@ class PaymentLinks(BaseSDK):
             Union[models.GuestBuyerInput, models.GuestBuyerInputTypedDict]
         ] = UNSET,
         expires_at: OptionalNullable[datetime] = UNSET,
-        connection_options: OptionalNullable[Dict[str, Dict[str, Any]]] = UNSET,
+        connection_options: OptionalNullable[
+            Union[
+                models.TransactionConnectionOptions,
+                models.TransactionConnectionOptionsTypedDict,
+            ]
+        ] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
         statement_descriptor: OptionalNullable[
             Union[models.StatementDescriptor, models.StatementDescriptorTypedDict]
@@ -320,7 +333,10 @@ class PaymentLinks(BaseSDK):
                     buyer, OptionalNullable[models.GuestBuyerInput]
                 ),
                 expires_at=expires_at,
-                connection_options=connection_options,
+                connection_options=utils.get_pydantic_model(
+                    connection_options,
+                    OptionalNullable[models.TransactionConnectionOptions],
+                ),
                 external_identifier=external_identifier,
                 statement_descriptor=utils.get_pydantic_model(
                     statement_descriptor, OptionalNullable[models.StatementDescriptor]
@@ -581,7 +597,7 @@ class PaymentLinks(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListPaymentLinksResponse(
-                result=unmarshal_json_response(models.CollectionPaymentLink, http_res),
+                result=unmarshal_json_response(models.PaymentLinks, http_res),
                 next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):
@@ -752,7 +768,7 @@ class PaymentLinks(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return models.ListPaymentLinksResponse(
-                result=unmarshal_json_response(models.CollectionPaymentLink, http_res),
+                result=unmarshal_json_response(models.PaymentLinks, http_res),
                 next=next_func,
             )
         if utils.match_response(http_res, "400", "application/json"):
