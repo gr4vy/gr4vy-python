@@ -5,9 +5,9 @@
 
 ### Available Operations
 
-* [list](#list) - List payouts created.
-* [create](#create) - Create a payout.
-* [get](#get) - Get a payout.
+* [list](#list) - List payouts created
+* [create](#create) - Create a payout
+* [get](#get) - Get a payout
 
 ## list
 
@@ -106,7 +106,7 @@ with Gr4vy(
 | `buyer`                                                                                                                                                    | [OptionalNullable[models.GuestBuyerInput]](../../models/guestbuyerinput.md)                                                                                | :heavy_minus_sign:                                                                                                                                         | Inline buyer details for the payout. Use this instead of the `buyer_id` or `buyer_external_identifier`.                                                    |                                                                                                                                                            |
 | `buyer_external_identifier`                                                                                                                                | *OptionalNullable[str]*                                                                                                                                    | :heavy_minus_sign:                                                                                                                                         | The `external_identifier` of a stored buyer to use for this payout. Use this instead of the `buyer_id` or `buyer`.                                         | buyer-12345                                                                                                                                                |
 | `merchant`                                                                                                                                                 | [OptionalNullable[models.PayoutMerchant]](../../models/payoutmerchant.md)                                                                                  | :heavy_minus_sign:                                                                                                                                         | Merchant information for the source of the payout.                                                                                                         |                                                                                                                                                            |
-| `connection_options`                                                                                                                                       | [OptionalNullable[models.ConnectionOptions]](../../models/connectionoptions.md)                                                                            | :heavy_minus_sign:                                                                                                                                         | Optional fields for processing payouts on specific payment services.                                                                                       |                                                                                                                                                            |
+| `connection_options`                                                                                                                                       | [OptionalNullable[models.PayoutConnectionOptions]](../../models/payoutconnectionoptions.md)                                                                | :heavy_minus_sign:                                                                                                                                         | Optional fields for processing payouts on specific payment services.                                                                                       |                                                                                                                                                            |
 | `retries`                                                                                                                                                  | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                           | :heavy_minus_sign:                                                                                                                                         | Configuration to override the default retry behavior of the client.                                                                                        |                                                                                                                                                            |
 
 ### Response
@@ -133,7 +133,7 @@ with Gr4vy(
 
 ## get
 
-Retreives a payout.
+Retrieves a payout.
 
 ### Example Usage
 

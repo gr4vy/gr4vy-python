@@ -1,0 +1,14 @@
+# ForterAntiFraudOptionsCartItemBeneficiaryAddress
+
+
+## Fields
+
+| Field                                                   | Type                                                    | Required                                                | Description                                             | Example                                                 |
+| ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| `country`                                               | *str*                                                   | :heavy_check_mark:                                      | The country code of the beneficiary's address.          | DE                                                      |
+| `address1`                                              | *OptionalNullable[str]*                                 | :heavy_minus_sign:                                      | First line of the beneficiary's address.                |                                                         |
+| `address2`                                              | *OptionalNullable[str]*                                 | :heavy_minus_sign:                                      | Second line of the beneficiary's address.               |                                                         |
+| `zip`                                                   | *OptionalNullable[str]*                                 | :heavy_minus_sign:                                      | Zip or postal code of the beneficiary's address.        |                                                         |
+| `region`                                                | *OptionalNullable[str]*                                 | :heavy_minus_sign:                                      | State or region of the beneficiary's address.           |                                                         |
+| `company`                                               | *OptionalNullable[str]*                                 | :heavy_minus_sign:                                      | Company name associated with the beneficiary's address. |                                                         |
+| `city`                                                  | *OptionalNullable[str]*                                 | :heavy_minus_sign:                                      | City of the beneficiary's address.                      |                                                         |

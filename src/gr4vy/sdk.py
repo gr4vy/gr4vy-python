@@ -23,7 +23,7 @@ if TYPE_CHECKING:
     from gr4vy.digital_wallets_sdk import DigitalWalletsSDK
     from gr4vy.gift_cards_sdk import GiftCardsSDK
     from gr4vy.merchant_accounts_sdk import MerchantAccountsSDK
-    from gr4vy.payment_links import PaymentLinks
+    from gr4vy.payment_links_sdk import PaymentLinksSDK
     from gr4vy.payment_methods_sdk import PaymentMethodsSDK
     from gr4vy.payment_options_sdk import PaymentOptionsSDK
     from gr4vy.payment_service_definitions_sdk import PaymentServiceDefinitionsSDK
@@ -55,7 +55,7 @@ class Gr4vy(BaseSDK):
     checkout_sessions: "CheckoutSessions"
     merchant_accounts: "MerchantAccountsSDK"
     payouts: "Payouts"
-    payment_links: "PaymentLinks"
+    payment_links: "PaymentLinksSDK"
     _sub_sdk_map = {
         "account_updater": ("gr4vy.account_updater", "AccountUpdater"),
         "buyers": ("gr4vy.buyers_sdk", "BuyersSDK"),
@@ -80,7 +80,7 @@ class Gr4vy(BaseSDK):
         "checkout_sessions": ("gr4vy.checkout_sessions", "CheckoutSessions"),
         "merchant_accounts": ("gr4vy.merchant_accounts_sdk", "MerchantAccountsSDK"),
         "payouts": ("gr4vy.payouts", "Payouts"),
-        "payment_links": ("gr4vy.payment_links", "PaymentLinks"),
+        "payment_links": ("gr4vy.payment_links_sdk", "PaymentLinksSDK"),
     }
 
     def __init__(

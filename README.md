@@ -374,12 +374,12 @@ except ValueError as error:
 * [get](docs/sdks/merchantaccountssdk/README.md#get) - Get a merchant account
 * [update](docs/sdks/merchantaccountssdk/README.md#update) - Update a merchant account
 
-### [payment_links](docs/sdks/paymentlinks/README.md)
+### [payment_links](docs/sdks/paymentlinkssdk/README.md)
 
-* [create](docs/sdks/paymentlinks/README.md#create) - Add a payment link
-* [list](docs/sdks/paymentlinks/README.md#list) - List all payment links
-* [expire](docs/sdks/paymentlinks/README.md#expire) - Expire a payment link
-* [get](docs/sdks/paymentlinks/README.md#get) - Get payment link
+* [create](docs/sdks/paymentlinkssdk/README.md#create) - Add a payment link
+* [list](docs/sdks/paymentlinkssdk/README.md#list) - List all payment links
+* [expire](docs/sdks/paymentlinkssdk/README.md#expire) - Expire a payment link
+* [get](docs/sdks/paymentlinkssdk/README.md#get) - Get payment link
 
 ### [payment_methods](docs/sdks/paymentmethodssdk/README.md)
 
@@ -428,9 +428,9 @@ except ValueError as error:
 
 ### [payouts](docs/sdks/payouts/README.md)
 
-* [list](docs/sdks/payouts/README.md#list) - List payouts created.
-* [create](docs/sdks/payouts/README.md#create) - Create a payout.
-* [get](docs/sdks/payouts/README.md#get) - Get a payout.
+* [list](docs/sdks/payouts/README.md#list) - List payouts created
+* [create](docs/sdks/payouts/README.md#create) - Create a payout
+* [get](docs/sdks/payouts/README.md#get) - Get a payout
 
 ### [refunds](docs/sdks/refundssdk/README.md)
 

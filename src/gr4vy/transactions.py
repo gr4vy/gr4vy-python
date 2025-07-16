@@ -747,7 +747,12 @@ class Transactions(BaseSDK):
             Union[models.BrowserInfo, models.BrowserInfoTypedDict]
         ] = UNSET,
         shipping_details_id: OptionalNullable[str] = UNSET,
-        connection_options: OptionalNullable[Dict[str, Dict[str, Any]]] = UNSET,
+        connection_options: OptionalNullable[
+            Union[
+                models.TransactionConnectionOptions,
+                models.TransactionConnectionOptionsTypedDict,
+            ]
+        ] = UNSET,
         async_capture: Optional[bool] = False,
         anti_fraud_fingerprint: OptionalNullable[str] = UNSET,
         payment_service_id: OptionalNullable[str] = UNSET,
@@ -858,7 +863,10 @@ class Transactions(BaseSDK):
                     browser_info, OptionalNullable[models.BrowserInfo]
                 ),
                 shipping_details_id=shipping_details_id,
-                connection_options=connection_options,
+                connection_options=utils.get_pydantic_model(
+                    connection_options,
+                    OptionalNullable[models.TransactionConnectionOptions],
+                ),
                 async_capture=async_capture,
                 anti_fraud_fingerprint=anti_fraud_fingerprint,
                 payment_service_id=payment_service_id,
@@ -1032,7 +1040,12 @@ class Transactions(BaseSDK):
             Union[models.BrowserInfo, models.BrowserInfoTypedDict]
         ] = UNSET,
         shipping_details_id: OptionalNullable[str] = UNSET,
-        connection_options: OptionalNullable[Dict[str, Dict[str, Any]]] = UNSET,
+        connection_options: OptionalNullable[
+            Union[
+                models.TransactionConnectionOptions,
+                models.TransactionConnectionOptionsTypedDict,
+            ]
+        ] = UNSET,
         async_capture: Optional[bool] = False,
         anti_fraud_fingerprint: OptionalNullable[str] = UNSET,
         payment_service_id: OptionalNullable[str] = UNSET,
@@ -1143,7 +1156,10 @@ class Transactions(BaseSDK):
                     browser_info, OptionalNullable[models.BrowserInfo]
                 ),
                 shipping_details_id=shipping_details_id,
-                connection_options=connection_options,
+                connection_options=utils.get_pydantic_model(
+                    connection_options,
+                    OptionalNullable[models.TransactionConnectionOptions],
+                ),
                 async_capture=async_capture,
                 anti_fraud_fingerprint=anti_fraud_fingerprint,
                 payment_service_id=payment_service_id,
@@ -1571,7 +1587,12 @@ class Transactions(BaseSDK):
         merchant_account_id: Optional[str] = None,
         external_identifier: OptionalNullable[str] = UNSET,
         metadata: OptionalNullable[Dict[str, str]] = UNSET,
-        connection_options: OptionalNullable[Dict[str, Dict[str, Any]]] = UNSET,
+        connection_options: OptionalNullable[
+            Union[
+                models.TransactionConnectionOptions,
+                models.TransactionConnectionOptionsTypedDict,
+            ]
+        ] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1607,7 +1628,10 @@ class Transactions(BaseSDK):
             transaction_update=models.TransactionUpdate(
                 external_identifier=external_identifier,
                 metadata=metadata,
-                connection_options=connection_options,
+                connection_options=utils.get_pydantic_model(
+                    connection_options,
+                    OptionalNullable[models.TransactionConnectionOptions],
+                ),
             ),
         )
 
@@ -1732,7 +1756,12 @@ class Transactions(BaseSDK):
         merchant_account_id: Optional[str] = None,
         external_identifier: OptionalNullable[str] = UNSET,
         metadata: OptionalNullable[Dict[str, str]] = UNSET,
-        connection_options: OptionalNullable[Dict[str, Dict[str, Any]]] = UNSET,
+        connection_options: OptionalNullable[
+            Union[
+                models.TransactionConnectionOptions,
+                models.TransactionConnectionOptionsTypedDict,
+            ]
+        ] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1768,7 +1797,10 @@ class Transactions(BaseSDK):
             transaction_update=models.TransactionUpdate(
                 external_identifier=external_identifier,
                 metadata=metadata,
-                connection_options=connection_options,
+                connection_options=utils.get_pydantic_model(
+                    connection_options,
+                    OptionalNullable[models.TransactionConnectionOptions],
+                ),
             ),
         )
 

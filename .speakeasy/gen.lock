@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 0eb581e3eb1dd6f38b2c7ce7243a4448
+  docChecksum: f53cfe74cee9de53d52d79d3b39f78d6
   docVersion: 1.0.0
   speakeasyVersion: 1.582.0
   generationVersion: 2.657.1
-  releaseVersion: 1.1.8
-  configChecksum: 6e3e965e941a22c906ccb0257276e6ed
+  releaseVersion: 1.1.9
+  configChecksum: 3f611ee3b9d2a165ac9caf843ade7552
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -56,6 +56,7 @@ generatedFiles:
   - docs/models/accountupdaterinquirysummary.md
   - docs/models/accountupdaterjob.md
   - docs/models/accountupdaterjobcreate.md
+  - docs/models/accountupdateroptions.md
   - docs/models/addbuyerglobals.md
   - docs/models/addbuyerrequest.md
   - docs/models/addbuyershippingdetailsglobals.md
@@ -65,6 +66,13 @@ generatedFiles:
   - docs/models/addreportglobals.md
   - docs/models/addreportrequest.md
   - docs/models/address.md
+  - docs/models/adyenautorescuesepascenariosenum.md
+  - docs/models/adyencardautorescuescenariosenum.md
+  - docs/models/adyencardoptions.md
+  - docs/models/adyenoptions.md
+  - docs/models/adyensepaoptions.md
+  - docs/models/affirmitineraryoptions.md
+  - docs/models/affirmoptions.md
   - docs/models/agegroup.md
   - docs/models/airline.md
   - docs/models/airlineleg.md
@@ -82,6 +90,8 @@ generatedFiles:
   - docs/models/billingdetailsinput.md
   - docs/models/billingdetailsoutput.md
   - docs/models/body.md
+  - docs/models/braintreedynamicdatafieldsoptions.md
+  - docs/models/braintreeoptions.md
   - docs/models/browserinfo.md
   - docs/models/buyer.md
   - docs/models/buyercreate.md
@@ -97,7 +107,7 @@ generatedFiles:
   - docs/models/cardtype.md
   - docs/models/cardwithurlpaymentmethodcreate.md
   - docs/models/cartitem.md
-  - docs/models/checkoutcardconnectionoptions.md
+  - docs/models/checkoutpayoutoptions.md
   - docs/models/checkoutsession.md
   - docs/models/checkoutsessioncreate.md
   - docs/models/checkoutsessionpaymentmethod.md
@@ -108,10 +118,8 @@ generatedFiles:
   - docs/models/clicktopaypaymentmethodcreate.md
   - docs/models/clicktopaysession.md
   - docs/models/clicktopaysessionrequest.md
-  - docs/models/collectionpaymentlink.md
   - docs/models/configuredigitalwalletglobals.md
   - docs/models/configuredigitalwalletrequest.md
-  - docs/models/connectionoptions.md
   - docs/models/context.md
   - docs/models/createaccountupdaterjobglobals.md
   - docs/models/createaccountupdaterjobrequest.md
@@ -152,6 +160,8 @@ generatedFiles:
   - docs/models/cryptogram.md
   - docs/models/cryptogramcreate.md
   - docs/models/cvvresponsecode.md
+  - docs/models/cybersourceantifraudoptions.md
+  - docs/models/cybersourceoptions.md
   - docs/models/definitionfield.md
   - docs/models/definitionfieldformat.md
   - docs/models/deletebuyerglobals.md
@@ -179,11 +189,28 @@ generatedFiles:
   - docs/models/digitalwalletprovider.md
   - docs/models/digitalwallets.md
   - docs/models/digitalwalletupdate.md
+  - docs/models/dlocaloptions.md
+  - docs/models/dlocalwalletoptions.md
   - docs/models/errordetail.md
   - docs/models/errorlocation.md
   - docs/models/expirepaymentlinkglobals.md
   - docs/models/expirepaymentlinkrequest.md
   - docs/models/fieldt.md
+  - docs/models/fiservinstallmentoptions.md
+  - docs/models/fiservoptions.md
+  - docs/models/forterantifraudoptions.md
+  - docs/models/forterantifraudoptionscartitem.md
+  - docs/models/forterantifraudoptionscartitembasicitemdata.md
+  - docs/models/forterantifraudoptionscartitembeneficiary.md
+  - docs/models/forterantifraudoptionscartitembeneficiaryaddress.md
+  - docs/models/forterantifraudoptionscartitembeneficiarycomments.md
+  - docs/models/forterantifraudoptionscartitembeneficiarypersonaldetails.md
+  - docs/models/forterantifraudoptionscartitembeneficiaryphone.md
+  - docs/models/forterantifraudoptionscartitemdeliverydetails.md
+  - docs/models/forterantifraudoptionscartitemdeliverydetailsdeliverytype.md
+  - docs/models/forterantifraudoptionsdeliverytype.md
+  - docs/models/forterantifraudoptionsdiscount.md
+  - docs/models/forterantifraudoptionsdiscountcoupondiscountamount.md
   - docs/models/getbuyerglobals.md
   - docs/models/getbuyerrequest.md
   - docs/models/getbuyershippingdetailsglobals.md
@@ -232,6 +259,7 @@ generatedFiles:
   - docs/models/giftcardtokentransactioncreate.md
   - docs/models/giftcardtransactioncreate.md
   - docs/models/giftcardunion.md
+  - docs/models/givingblockoptions.md
   - docs/models/googlepayassurancedetails.md
   - docs/models/googlepayfpanpaymentmethodcreate.md
   - docs/models/googlepaypaymentmethodcreate.md
@@ -243,6 +271,7 @@ generatedFiles:
   - docs/models/instrumenttype.md
   - docs/models/internal/globals.md
   - docs/models/item.md
+  - docs/models/latitudeoptions.md
   - docs/models/listallreportexecutionsglobals.md
   - docs/models/listallreportexecutionsrequest.md
   - docs/models/listallreportexecutionsresponse.md
@@ -306,6 +335,7 @@ generatedFiles:
   - docs/models/listtransactionsresponse.md
   - docs/models/loc.md
   - docs/models/locale.md
+  - docs/models/mattildatapioptions.md
   - docs/models/merchantaccount.md
   - docs/models/merchantaccountcreate.md
   - docs/models/merchantaccounts.md
@@ -313,6 +343,8 @@ generatedFiles:
   - docs/models/merchantprofilescheme.md
   - docs/models/merchantprofileschemesummary.md
   - docs/models/method.md
+  - docs/models/mockcardmerchantadvicecodeoptions.md
+  - docs/models/mockcardoptions.md
   - docs/models/mode.md
   - docs/models/name.md
   - docs/models/networktoken.md
@@ -320,9 +352,13 @@ generatedFiles:
   - docs/models/networktokenpaymentmethodcreate.md
   - docs/models/networktokens.md
   - docs/models/networktokenstatus.md
+  - docs/models/nuveiairlinedataoptions.md
+  - docs/models/nuveioptions.md
   - docs/models/orderby.md
+  - docs/models/oxxooptions.md
   - docs/models/paymentlink.md
   - docs/models/paymentlinkcreate.md
+  - docs/models/paymentlinks.md
   - docs/models/paymentlinkstatus.md
   - docs/models/paymentmethod.md
   - docs/models/paymentmethodcard.md
@@ -349,6 +385,7 @@ generatedFiles:
   - docs/models/paymentservicetokens.md
   - docs/models/paymentserviceupdate.md
   - docs/models/payoutcategory.md
+  - docs/models/payoutconnectionoptions.md
   - docs/models/payoutcreate.md
   - docs/models/payoutcreatepaymentmethod.md
   - docs/models/payoutmerchant.md
@@ -357,6 +394,8 @@ generatedFiles:
   - docs/models/payoutstatus.md
   - docs/models/payoutsummaries.md
   - docs/models/payoutsummary.md
+  - docs/models/paypaloptions.md
+  - docs/models/powertranzoptions.md
   - docs/models/producttype.md
   - docs/models/recipient.md
   - docs/models/redirectpaymentmethodcreate.md
@@ -398,6 +437,8 @@ generatedFiles:
   - docs/models/shippingdetailsupdate.md
   - docs/models/spec.md
   - docs/models/statementdescriptor.md
+  - docs/models/stripeconnectoptions.md
+  - docs/models/stripeoptions.md
   - docs/models/suspendpaymentmethodnetworktokenglobals.md
   - docs/models/suspendpaymentmethodnetworktokenrequest.md
   - docs/models/synctransactionglobals.md
@@ -417,6 +458,7 @@ generatedFiles:
   - docs/models/transaction.md
   - docs/models/transactionbuyer.md
   - docs/models/transactioncapture.md
+  - docs/models/transactionconnectionoptions.md
   - docs/models/transactioncreate.md
   - docs/models/transactioncreatepaymentmethod.md
   - docs/models/transactionevent.md
@@ -436,6 +478,10 @@ generatedFiles:
   - docs/models/transactionsummary.md
   - docs/models/transactionthreedsecuresummary.md
   - docs/models/transactionupdate.md
+  - docs/models/travelhubcustomdata.md
+  - docs/models/travelhuboptions.md
+  - docs/models/trustlyoptions.md
+  - docs/models/type.md
   - docs/models/unregisterdigitalwalletdomainglobals.md
   - docs/models/unregisterdigitalwalletdomainrequest.md
   - docs/models/updatebuyerglobals.md
@@ -464,6 +510,10 @@ generatedFiles:
   - docs/models/voidtransactionglobals.md
   - docs/models/voidtransactionrequest.md
   - docs/models/walletpaymentoptioncontext.md
+  - docs/models/wpayeverdaypayoptions.md
+  - docs/models/wpaypaytooptions.md
+  - docs/models/wpaypaytoresourceoptions.md
+  - docs/models/wpaypaytosimulationoptions.md
   - docs/sdks/accountupdater/README.md
   - docs/sdks/all/README.md
   - docs/sdks/auditlogs/README.md
@@ -483,7 +533,7 @@ generatedFiles:
   - docs/sdks/jobs/README.md
   - docs/sdks/merchantaccountssdk/README.md
   - docs/sdks/networktokenscryptogram/README.md
-  - docs/sdks/paymentlinks/README.md
+  - docs/sdks/paymentlinkssdk/README.md
   - docs/sdks/paymentmethodsnetworktokens/README.md
   - docs/sdks/paymentmethodspaymentservicetokens/README.md
   - docs/sdks/paymentmethodssdk/README.md
@@ -549,11 +599,19 @@ generatedFiles:
   - src/gr4vy/models/accountupdaterinquirysummary.py
   - src/gr4vy/models/accountupdaterjob.py
   - src/gr4vy/models/accountupdaterjobcreate.py
+  - src/gr4vy/models/accountupdateroptions.py
   - src/gr4vy/models/add_buyer_shipping_detailsop.py
   - src/gr4vy/models/add_buyerop.py
   - src/gr4vy/models/add_payment_linkop.py
   - src/gr4vy/models/add_reportop.py
   - src/gr4vy/models/address.py
+  - src/gr4vy/models/adyenautorescuesepascenariosenum.py
+  - src/gr4vy/models/adyencardautorescuescenariosenum.py
+  - src/gr4vy/models/adyencardoptions.py
+  - src/gr4vy/models/adyenoptions.py
+  - src/gr4vy/models/adyensepaoptions.py
+  - src/gr4vy/models/affirmitineraryoptions.py
+  - src/gr4vy/models/affirmoptions.py
   - src/gr4vy/models/airline.py
   - src/gr4vy/models/airlineleg.py
   - src/gr4vy/models/airlinepassenger.py
@@ -569,6 +627,8 @@ generatedFiles:
   - src/gr4vy/models/avsresponsecode.py
   - src/gr4vy/models/billingdetails_input.py
   - src/gr4vy/models/billingdetails_output.py
+  - src/gr4vy/models/braintreedynamicdatafieldsoptions.py
+  - src/gr4vy/models/braintreeoptions.py
   - src/gr4vy/models/browserinfo.py
   - src/gr4vy/models/buyer.py
   - src/gr4vy/models/buyercreate.py
@@ -582,7 +642,7 @@ generatedFiles:
   - src/gr4vy/models/cardtype.py
   - src/gr4vy/models/cardwithurlpaymentmethodcreate.py
   - src/gr4vy/models/cartitem.py
-  - src/gr4vy/models/checkoutcardconnectionoptions.py
+  - src/gr4vy/models/checkoutpayoutoptions.py
   - src/gr4vy/models/checkoutsession.py
   - src/gr4vy/models/checkoutsessioncreate.py
   - src/gr4vy/models/checkoutsessionpaymentmethod.py
@@ -593,9 +653,7 @@ generatedFiles:
   - src/gr4vy/models/clicktopaypaymentmethodcreate.py
   - src/gr4vy/models/clicktopaysession.py
   - src/gr4vy/models/clicktopaysessionrequest.py
-  - src/gr4vy/models/collection_paymentlink_.py
   - src/gr4vy/models/configure_digital_walletop.py
-  - src/gr4vy/models/connectionoptions.py
   - src/gr4vy/models/create_account_updater_jobop.py
   - src/gr4vy/models/create_apple_pay_digital_wallet_sessionop.py
   - src/gr4vy/models/create_checkout_sessionop.py
@@ -619,6 +677,8 @@ generatedFiles:
   - src/gr4vy/models/cryptogram.py
   - src/gr4vy/models/cryptogramcreate.py
   - src/gr4vy/models/cvvresponsecode.py
+  - src/gr4vy/models/cybersourceantifraudoptions.py
+  - src/gr4vy/models/cybersourceoptions.py
   - src/gr4vy/models/definitionfield.py
   - src/gr4vy/models/definitionfieldformat.py
   - src/gr4vy/models/delete_buyer_shipping_detailsop.py
@@ -637,10 +697,25 @@ generatedFiles:
   - src/gr4vy/models/digitalwalletprovider.py
   - src/gr4vy/models/digitalwallets.py
   - src/gr4vy/models/digitalwalletupdate.py
+  - src/gr4vy/models/dlocaloptions.py
+  - src/gr4vy/models/dlocalwalletoptions.py
   - src/gr4vy/models/errordetail.py
   - src/gr4vy/models/errorlocation.py
   - src/gr4vy/models/expire_payment_linkop.py
   - src/gr4vy/models/field.py
+  - src/gr4vy/models/fiservinstallmentoptions.py
+  - src/gr4vy/models/fiservoptions.py
+  - src/gr4vy/models/forterantifraudoptions.py
+  - src/gr4vy/models/forterantifraudoptionscartitem.py
+  - src/gr4vy/models/forterantifraudoptionscartitembasicitemdata.py
+  - src/gr4vy/models/forterantifraudoptionscartitembeneficiary.py
+  - src/gr4vy/models/forterantifraudoptionscartitembeneficiaryaddress.py
+  - src/gr4vy/models/forterantifraudoptionscartitembeneficiarycomments.py
+  - src/gr4vy/models/forterantifraudoptionscartitembeneficiarypersonaldetails.py
+  - src/gr4vy/models/forterantifraudoptionscartitembeneficiaryphone.py
+  - src/gr4vy/models/forterantifraudoptionscartitemdeliverydetails.py
+  - src/gr4vy/models/forterantifraudoptionsdiscount.py
+  - src/gr4vy/models/forterantifraudoptionsdiscountcoupondiscountamount.py
   - src/gr4vy/models/get_buyer_shipping_detailsop.py
   - src/gr4vy/models/get_buyerop.py
   - src/gr4vy/models/get_checkout_sessionop.py
@@ -673,6 +748,7 @@ generatedFiles:
   - src/gr4vy/models/giftcardsummary.py
   - src/gr4vy/models/giftcardtokentransactioncreate.py
   - src/gr4vy/models/giftcardtransactioncreate.py
+  - src/gr4vy/models/givingblockoptions.py
   - src/gr4vy/models/googlepayassurancedetails.py
   - src/gr4vy/models/googlepayfpanpaymentmethodcreate.py
   - src/gr4vy/models/googlepaypaymentmethodcreate.py
@@ -684,6 +760,7 @@ generatedFiles:
   - src/gr4vy/models/instrumenttype.py
   - src/gr4vy/models/internal/__init__.py
   - src/gr4vy/models/internal/globals.py
+  - src/gr4vy/models/latitudeoptions.py
   - src/gr4vy/models/list_all_report_executionsop.py
   - src/gr4vy/models/list_audit_logsop.py
   - src/gr4vy/models/list_buyer_gift_cardsop.py
@@ -709,6 +786,7 @@ generatedFiles:
   - src/gr4vy/models/list_transaction_refundsop.py
   - src/gr4vy/models/list_transaction_settlementsop.py
   - src/gr4vy/models/list_transactionsop.py
+  - src/gr4vy/models/mattildatapioptions.py
   - src/gr4vy/models/merchantaccount.py
   - src/gr4vy/models/merchantaccountcreate.py
   - src/gr4vy/models/merchantaccounts.py
@@ -716,14 +794,20 @@ generatedFiles:
   - src/gr4vy/models/merchantprofilescheme.py
   - src/gr4vy/models/merchantprofileschemesummary.py
   - src/gr4vy/models/method.py
+  - src/gr4vy/models/mockcardmerchantadvicecodeoptions.py
+  - src/gr4vy/models/mockcardoptions.py
   - src/gr4vy/models/mode.py
   - src/gr4vy/models/networktoken.py
   - src/gr4vy/models/networktokencreate.py
   - src/gr4vy/models/networktokenpaymentmethodcreate.py
   - src/gr4vy/models/networktokens.py
   - src/gr4vy/models/networktokenstatus.py
+  - src/gr4vy/models/nuveiairlinedataoptions.py
+  - src/gr4vy/models/nuveioptions.py
+  - src/gr4vy/models/oxxooptions.py
   - src/gr4vy/models/paymentlink.py
   - src/gr4vy/models/paymentlinkcreate.py
+  - src/gr4vy/models/paymentlinks.py
   - src/gr4vy/models/paymentlinkstatus.py
   - src/gr4vy/models/paymentmethod.py
   - src/gr4vy/models/paymentmethodcard.py
@@ -750,6 +834,7 @@ generatedFiles:
   - src/gr4vy/models/paymentservicetokens.py
   - src/gr4vy/models/paymentserviceupdate.py
   - src/gr4vy/models/payoutcategory.py
+  - src/gr4vy/models/payoutconnectionoptions.py
   - src/gr4vy/models/payoutcreate.py
   - src/gr4vy/models/payoutmerchant.py
   - src/gr4vy/models/payoutmerchantsummary.py
@@ -757,6 +842,8 @@ generatedFiles:
   - src/gr4vy/models/payoutstatus.py
   - src/gr4vy/models/payoutsummaries.py
   - src/gr4vy/models/payoutsummary.py
+  - src/gr4vy/models/paypaloptions.py
+  - src/gr4vy/models/powertranzoptions.py
   - src/gr4vy/models/producttype.py
   - src/gr4vy/models/recipient.py
   - src/gr4vy/models/redirectpaymentmethodcreate.py
@@ -790,6 +877,8 @@ generatedFiles:
   - src/gr4vy/models/shippingdetailslist.py
   - src/gr4vy/models/shippingdetailsupdate.py
   - src/gr4vy/models/statementdescriptor.py
+  - src/gr4vy/models/stripeconnectoptions.py
+  - src/gr4vy/models/stripeoptions.py
   - src/gr4vy/models/suspend_payment_method_network_tokenop.py
   - src/gr4vy/models/sync_transactionop.py
   - src/gr4vy/models/taxid.py
@@ -804,6 +893,7 @@ generatedFiles:
   - src/gr4vy/models/transaction.py
   - src/gr4vy/models/transactionbuyer.py
   - src/gr4vy/models/transactioncapture.py
+  - src/gr4vy/models/transactionconnectionoptions.py
   - src/gr4vy/models/transactioncreate.py
   - src/gr4vy/models/transactionevent.py
   - src/gr4vy/models/transactionevents.py
@@ -822,6 +912,9 @@ generatedFiles:
   - src/gr4vy/models/transactionsummary.py
   - src/gr4vy/models/transactionthreedsecuresummary.py
   - src/gr4vy/models/transactionupdate.py
+  - src/gr4vy/models/travelhubcustomdata.py
+  - src/gr4vy/models/travelhuboptions.py
+  - src/gr4vy/models/trustlyoptions.py
   - src/gr4vy/models/unregister_digital_wallet_domainop.py
   - src/gr4vy/models/update_buyer_shipping_detailsop.py
   - src/gr4vy/models/update_buyerop.py
@@ -838,8 +931,12 @@ generatedFiles:
   - src/gr4vy/models/void_transactionop.py
   - src/gr4vy/models/voidablefield.py
   - src/gr4vy/models/walletpaymentoptioncontext.py
+  - src/gr4vy/models/wpayeverdaypayoptions.py
+  - src/gr4vy/models/wpaypaytooptions.py
+  - src/gr4vy/models/wpaypaytoresourceoptions.py
+  - src/gr4vy/models/wpaypaytosimulationoptions.py
   - src/gr4vy/network_tokens_cryptogram.py
-  - src/gr4vy/payment_links.py
+  - src/gr4vy/payment_links_sdk.py
   - src/gr4vy/payment_methods_network_tokens.py
   - src/gr4vy/payment_methods_payment_service_tokens.py
   - src/gr4vy/payment_methods_sdk.py

@@ -22,7 +22,7 @@ class Payouts(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListPayoutsResponse]:
-        r"""List payouts created.
+        r"""List payouts created
 
         Returns a list of payouts made.
 
@@ -193,7 +193,7 @@ class Payouts(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> Optional[models.ListPayoutsResponse]:
-        r"""List payouts created.
+        r"""List payouts created
 
         Returns a list of payouts made.
 
@@ -374,14 +374,16 @@ class Payouts(BaseSDK):
             Union[models.PayoutMerchant, models.PayoutMerchantTypedDict]
         ] = UNSET,
         connection_options: OptionalNullable[
-            Union[models.ConnectionOptions, models.ConnectionOptionsTypedDict]
+            Union[
+                models.PayoutConnectionOptions, models.PayoutConnectionOptionsTypedDict
+            ]
         ] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.PayoutSummary:
-        r"""Create a payout.
+        r"""Create a payout
 
         Creates a new payout.
 
@@ -432,7 +434,7 @@ class Payouts(BaseSDK):
                     merchant, OptionalNullable[models.PayoutMerchant]
                 ),
                 connection_options=utils.get_pydantic_model(
-                    connection_options, OptionalNullable[models.ConnectionOptions]
+                    connection_options, OptionalNullable[models.PayoutConnectionOptions]
                 ),
             ),
         )
@@ -568,14 +570,16 @@ class Payouts(BaseSDK):
             Union[models.PayoutMerchant, models.PayoutMerchantTypedDict]
         ] = UNSET,
         connection_options: OptionalNullable[
-            Union[models.ConnectionOptions, models.ConnectionOptionsTypedDict]
+            Union[
+                models.PayoutConnectionOptions, models.PayoutConnectionOptionsTypedDict
+            ]
         ] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.PayoutSummary:
-        r"""Create a payout.
+        r"""Create a payout
 
         Creates a new payout.
 
@@ -626,7 +630,7 @@ class Payouts(BaseSDK):
                     merchant, OptionalNullable[models.PayoutMerchant]
                 ),
                 connection_options=utils.get_pydantic_model(
-                    connection_options, OptionalNullable[models.ConnectionOptions]
+                    connection_options, OptionalNullable[models.PayoutConnectionOptions]
                 ),
             ),
         )
@@ -751,9 +755,9 @@ class Payouts(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.PayoutSummary:
-        r"""Get a payout.
+        r"""Get a payout
 
-        Retreives a payout.
+        Retrieves a payout.
 
         :param payout_id:
         :param merchant_account_id: The ID of the merchant account to use for this request.
@@ -898,9 +902,9 @@ class Payouts(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.PayoutSummary:
-        r"""Get a payout.
+        r"""Get a payout
 
-        Retreives a payout.
+        Retrieves a payout.
 
         :param payout_id:
         :param merchant_account_id: The ID of the merchant account to use for this request.

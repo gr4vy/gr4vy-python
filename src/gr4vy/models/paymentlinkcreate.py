@@ -4,6 +4,10 @@ from __future__ import annotations
 from .cartitem import CartItem, CartItemTypedDict
 from .guestbuyer_input import GuestBuyerInput, GuestBuyerInputTypedDict
 from .statementdescriptor import StatementDescriptor, StatementDescriptorTypedDict
+from .transactionconnectionoptions import (
+    TransactionConnectionOptions,
+    TransactionConnectionOptionsTypedDict,
+)
 from .transactionintent import TransactionIntent
 from .transactionpaymentsource import TransactionPaymentSource
 from datetime import datetime
@@ -36,7 +40,7 @@ class PaymentLinkCreateTypedDict(TypedDict):
     r"""The guest buyer for the payment link."""
     expires_at: NotRequired[Nullable[datetime]]
     r"""The expiration date and time for the payment link."""
-    connection_options: NotRequired[Nullable[Dict[str, Dict[str, Any]]]]
+    connection_options: NotRequired[Nullable[TransactionConnectionOptionsTypedDict]]
     r"""Connection options for the payment link."""
     external_identifier: NotRequired[Nullable[str]]
     r"""The merchant reference for the payment link."""
@@ -85,7 +89,7 @@ class PaymentLinkCreate(BaseModel):
     expires_at: OptionalNullable[datetime] = UNSET
     r"""The expiration date and time for the payment link."""
 
-    connection_options: OptionalNullable[Dict[str, Dict[str, Any]]] = UNSET
+    connection_options: OptionalNullable[TransactionConnectionOptions] = UNSET
     r"""Connection options for the payment link."""
 
     external_identifier: OptionalNullable[str] = UNSET
