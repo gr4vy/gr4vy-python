@@ -88,6 +88,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `latitude-latitudeds` connector."""
     mattilda_tapi: NotRequired[Nullable[MattildaTapiOptionsTypedDict]]
     r"""Custom options to be passed to the `mattilda-tapi` connector."""
+    mattilda_tapifintechs: NotRequired[Nullable[MattildaTapiOptionsTypedDict]]
+    r"""Custom options to be passed to the `mattilda-tapifintechs` connector."""
     mock_card: NotRequired[Nullable[MockCardOptionsTypedDict]]
     r"""Custom options to be passed to the `mock-card` connector."""
     nuvei_card: NotRequired[Nullable[NuveiOptionsTypedDict]]
@@ -241,6 +243,12 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `mattilda-tapi` connector."""
 
+    mattilda_tapifintechs: Annotated[
+        OptionalNullable[MattildaTapiOptions],
+        pydantic.Field(alias="mattilda-tapifintechs"),
+    ] = UNSET
+    r"""Custom options to be passed to the `mattilda-tapifintechs` connector."""
+
     mock_card: Annotated[
         OptionalNullable[MockCardOptions], pydantic.Field(alias="mock-card")
     ] = UNSET
@@ -325,6 +333,7 @@ class TransactionConnectionOptions(BaseModel):
             "latitude-latitude",
             "latitude-latitudeds",
             "mattilda-tapi",
+            "mattilda-tapifintechs",
             "mock-card",
             "nuvei-card",
             "oxxo-oxxo",
@@ -363,6 +372,7 @@ class TransactionConnectionOptions(BaseModel):
             "latitude-latitude",
             "latitude-latitudeds",
             "mattilda-tapi",
+            "mattilda-tapifintechs",
             "mock-card",
             "nuvei-card",
             "oxxo-oxxo",
