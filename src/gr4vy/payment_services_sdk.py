@@ -2096,7 +2096,7 @@ class PaymentServicesSDK(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.CreateSession:
-        r"""Create a session for apayment service definition
+        r"""Create a session for a payment service definition
 
         Creates a session for a payment service that supports sessions.
 
@@ -2245,7 +2245,7 @@ class PaymentServicesSDK(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.CreateSession:
-        r"""Create a session for apayment service definition
+        r"""Create a session for a payment service definition
 
         Creates a session for a payment service that supports sessions.
 
