@@ -414,7 +414,7 @@ except ValueError as error:
 
 * [list](docs/sdks/paymentservicedefinitionssdk/README.md#list) - List payment service definitions
 * [get](docs/sdks/paymentservicedefinitionssdk/README.md#get) - Get a payment service definition
-* [session](docs/sdks/paymentservicedefinitionssdk/README.md#session) - Create a session for apayment service definition
+* [session](docs/sdks/paymentservicedefinitionssdk/README.md#session) - Create a session for a payment service definition
 
 ### [payment_services](docs/sdks/paymentservicessdk/README.md)
 
@@ -424,7 +424,7 @@ except ValueError as error:
 * [update](docs/sdks/paymentservicessdk/README.md#update) - Configure a payment service
 * [delete](docs/sdks/paymentservicessdk/README.md#delete) - Delete a configured payment service
 * [verify](docs/sdks/paymentservicessdk/README.md#verify) - Verify payment service credentials
-* [session](docs/sdks/paymentservicessdk/README.md#session) - Create a session for apayment service definition
+* [session](docs/sdks/paymentservicessdk/README.md#session) - Create a session for a payment service definition
 
 ### [payouts](docs/sdks/payouts/README.md)
 
