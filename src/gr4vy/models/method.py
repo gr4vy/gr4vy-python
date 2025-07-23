@@ -95,6 +95,7 @@ Method = Union[
         "spei",
         "stitch",
         "stripedd",
+        "stripetoken",
         "tapi",
         "tapifintechs",
         "thaiqr",
