@@ -94,7 +94,10 @@ if TYPE_CHECKING:
         CaptureTransactionGlobalsTypedDict,
         CaptureTransactionRequest,
         CaptureTransactionRequestTypedDict,
+        ResponseCaptureTransaction,
+        ResponseCaptureTransactionTypedDict,
     )
+    from .capturestatus import CaptureStatus
     from .cardpaymentmethodcreate import (
         CardPaymentMethodCreate,
         CardPaymentMethodCreateTypedDict,
@@ -967,6 +970,10 @@ if TYPE_CHECKING:
     from .transaction import Transaction, TransactionTypedDict
     from .transactionbuyer import TransactionBuyer, TransactionBuyerTypedDict
     from .transactioncapture import TransactionCapture, TransactionCaptureTypedDict
+    from .transactioncapturecreate import (
+        TransactionCaptureCreate,
+        TransactionCaptureCreateTypedDict,
+    )
     from .transactionconnectionoptions import (
         TransactionConnectionOptions,
         TransactionConnectionOptionsTypedDict,
@@ -1201,6 +1208,7 @@ __all__ = [
     "Buyers",
     "BuyersTypedDict",
     "CVVResponseCode",
+    "CaptureStatus",
     "CaptureTransactionGlobals",
     "CaptureTransactionGlobalsTypedDict",
     "CaptureTransactionRequest",
@@ -1819,6 +1827,8 @@ __all__ = [
     "RequiredFields1TypedDict",
     "RequiredFields2",
     "RequiredFields2TypedDict",
+    "ResponseCaptureTransaction",
+    "ResponseCaptureTransactionTypedDict",
     "ResponseData",
     "ResponseDataTypedDict",
     "ResumePaymentMethodNetworkTokenGlobals",
@@ -1880,6 +1890,8 @@ __all__ = [
     "TransactionBuyer",
     "TransactionBuyerTypedDict",
     "TransactionCapture",
+    "TransactionCaptureCreate",
+    "TransactionCaptureCreateTypedDict",
     "TransactionCaptureTypedDict",
     "TransactionConnectionOptions",
     "TransactionConnectionOptionsTypedDict",
@@ -2074,6 +2086,9 @@ _dynamic_imports: dict[str, str] = {
     "CaptureTransactionGlobalsTypedDict": ".capture_transactionop",
     "CaptureTransactionRequest": ".capture_transactionop",
     "CaptureTransactionRequestTypedDict": ".capture_transactionop",
+    "ResponseCaptureTransaction": ".capture_transactionop",
+    "ResponseCaptureTransactionTypedDict": ".capture_transactionop",
+    "CaptureStatus": ".capturestatus",
     "CardPaymentMethodCreate": ".cardpaymentmethodcreate",
     "CardPaymentMethodCreateTypedDict": ".cardpaymentmethodcreate",
     "CardScheme": ".cardscheme",
@@ -2744,6 +2759,8 @@ _dynamic_imports: dict[str, str] = {
     "TransactionBuyerTypedDict": ".transactionbuyer",
     "TransactionCapture": ".transactioncapture",
     "TransactionCaptureTypedDict": ".transactioncapture",
+    "TransactionCaptureCreate": ".transactioncapturecreate",
+    "TransactionCaptureCreateTypedDict": ".transactioncapturecreate",
     "TransactionConnectionOptions": ".transactionconnectionoptions",
     "TransactionConnectionOptionsTypedDict": ".transactionconnectionoptions",
     "GiftCardUnion": ".transactioncreate",

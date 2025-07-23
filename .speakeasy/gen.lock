@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 327e2c4935960d13fd71b3d738fd512e
+  docChecksum: 5e4e9361e0e64e1e282b23044331f5a2
   docVersion: 1.0.0
-  speakeasyVersion: 1.584.0
-  generationVersion: 2.660.0
-  releaseVersion: 1.1.11
-  configChecksum: c8668d0be8b96f4a20932ce27c733a3c
+  speakeasyVersion: 1.586.0
+  generationVersion: 2.661.4
+  releaseVersion: 1.1.12
+  configChecksum: 48f5f5788d337bc07153096acc0405be
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -97,6 +97,7 @@ generatedFiles:
   - docs/models/buyercreate.md
   - docs/models/buyers.md
   - docs/models/buyerupdate.md
+  - docs/models/capturestatus.md
   - docs/models/capturetransactionglobals.md
   - docs/models/capturetransactionrequest.md
   - docs/models/cardpaymentmethodcreate.md
@@ -424,6 +425,7 @@ generatedFiles:
   - docs/models/requiredcheckoutfields.md
   - docs/models/requiredfields1.md
   - docs/models/requiredfields2.md
+  - docs/models/responsecapturetransaction.md
   - docs/models/responsedata.md
   - docs/models/resumepaymentmethodnetworktokenglobals.md
   - docs/models/resumepaymentmethodnetworktokenrequest.md
@@ -458,6 +460,7 @@ generatedFiles:
   - docs/models/transaction.md
   - docs/models/transactionbuyer.md
   - docs/models/transactioncapture.md
+  - docs/models/transactioncapturecreate.md
   - docs/models/transactionconnectionoptions.md
   - docs/models/transactioncreate.md
   - docs/models/transactioncreatepaymentmethod.md
@@ -635,6 +638,7 @@ generatedFiles:
   - src/gr4vy/models/buyers.py
   - src/gr4vy/models/buyerupdate.py
   - src/gr4vy/models/capture_transactionop.py
+  - src/gr4vy/models/capturestatus.py
   - src/gr4vy/models/cardpaymentmethodcreate.py
   - src/gr4vy/models/cardscheme.py
   - src/gr4vy/models/cardschemedefinition.py
@@ -893,6 +897,7 @@ generatedFiles:
   - src/gr4vy/models/transaction.py
   - src/gr4vy/models/transactionbuyer.py
   - src/gr4vy/models/transactioncapture.py
+  - src/gr4vy/models/transactioncapturecreate.py
   - src/gr4vy/models/transactionconnectionoptions.py
   - src/gr4vy/models/transactioncreate.py
   - src/gr4vy/models/transactionevent.py
@@ -2694,7 +2699,7 @@ examples:
         application/json: {}
       responses:
         "200":
-          application/json: {"type": "transaction", "id": "7099948d-7286-47e4-aad8-b68f7eb44591", "reconciliation_id": "default", "merchant_account_id": "default", "currency": "EUR", "amount": 1299, "status": "authorization_voided", "authorized_amount": 1299, "captured_amount": 1299, "refunded_amount": 1299, "settled_amount": 1100, "settled": true, "intent": "capture", "pending_review": false, "gift_card_redemptions": [], "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00", "payment_source": "ecommerce", "merchant_initiated": true, "is_subsequent_payment": false, "intent_outcome": "succeeded", "multi_tender": true, "account_funding_transaction": true}
+          application/json: {"type": "transaction-capture", "status": "pending", "code": "service_error", "raw_response_code": "E104", "raw_response_description": "Internal error", "transaction": {"type": "transaction", "id": "7099948d-7286-47e4-aad8-b68f7eb44591", "reconciliation_id": "default", "merchant_account_id": "default", "currency": "EUR", "amount": 1299, "status": "authorization_void_pending", "authorized_amount": 1299, "captured_amount": 1299, "refunded_amount": 1299, "settled_amount": 1100, "settled": true, "intent": "capture", "pending_review": false, "gift_card_redemptions": [], "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00", "payment_source": "moto", "merchant_initiated": true, "is_subsequent_payment": false, "intent_outcome": "succeeded", "multi_tender": true, "account_funding_transaction": true}}
         "400":
           application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
         "401":

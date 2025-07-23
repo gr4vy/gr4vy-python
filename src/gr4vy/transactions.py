@@ -1922,6 +1922,7 @@ class Transactions(BaseSDK):
         self,
         *,
         transaction_id: str,
+        prefer: OptionalNullable[str] = UNSET,
         merchant_account_id: Optional[str] = None,
         amount: OptionalNullable[int] = UNSET,
         airline: OptionalNullable[
@@ -1931,12 +1932,13 @@ class Transactions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Transaction:
+    ) -> models.ResponseCaptureTransaction:
         r"""Capture transaction
 
         Captures a previously authorized transaction. You can capture the full or a partial amount, as long as it does not exceed the authorized amount (unless over-capture is enabled).
 
         :param transaction_id: The ID of the transaction
+        :param prefer: The preferred resource type in the response.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param amount: The amount to capture, in the smallest currency unit (e.g., cents). This must be less than or equal to the authorized amount, unless over-capture is available.
         :param airline: The airline data to submit to the payment service during the capture call.
@@ -1957,8 +1959,9 @@ class Transactions(BaseSDK):
 
         request = models.CaptureTransactionRequest(
             transaction_id=transaction_id,
+            prefer=prefer,
             merchant_account_id=merchant_account_id,
-            transaction_capture=models.TransactionCapture(
+            transaction_capture_create=models.TransactionCaptureCreate(
                 amount=amount,
                 airline=utils.get_pydantic_model(
                     airline, OptionalNullable[models.Airline]
@@ -1983,11 +1986,11 @@ class Transactions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.transaction_capture,
+                request.transaction_capture_create,
                 False,
                 False,
                 "json",
-                models.TransactionCapture,
+                models.TransactionCaptureCreate,
             ),
             timeout_ms=timeout_ms,
         )
@@ -2032,7 +2035,7 @@ class Transactions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.Transaction, http_res)
+            return unmarshal_json_response(models.ResponseCaptureTransaction, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
@@ -2084,6 +2087,7 @@ class Transactions(BaseSDK):
         self,
         *,
         transaction_id: str,
+        prefer: OptionalNullable[str] = UNSET,
         merchant_account_id: Optional[str] = None,
         amount: OptionalNullable[int] = UNSET,
         airline: OptionalNullable[
@@ -2093,12 +2097,13 @@ class Transactions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Transaction:
+    ) -> models.ResponseCaptureTransaction:
         r"""Capture transaction
 
         Captures a previously authorized transaction. You can capture the full or a partial amount, as long as it does not exceed the authorized amount (unless over-capture is enabled).
 
         :param transaction_id: The ID of the transaction
+        :param prefer: The preferred resource type in the response.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param amount: The amount to capture, in the smallest currency unit (e.g., cents). This must be less than or equal to the authorized amount, unless over-capture is available.
         :param airline: The airline data to submit to the payment service during the capture call.
@@ -2119,8 +2124,9 @@ class Transactions(BaseSDK):
 
         request = models.CaptureTransactionRequest(
             transaction_id=transaction_id,
+            prefer=prefer,
             merchant_account_id=merchant_account_id,
-            transaction_capture=models.TransactionCapture(
+            transaction_capture_create=models.TransactionCaptureCreate(
                 amount=amount,
                 airline=utils.get_pydantic_model(
                     airline, OptionalNullable[models.Airline]
@@ -2145,11 +2151,11 @@ class Transactions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.transaction_capture,
+                request.transaction_capture_create,
                 False,
                 False,
                 "json",
-                models.TransactionCapture,
+                models.TransactionCaptureCreate,
             ),
             timeout_ms=timeout_ms,
         )
@@ -2194,7 +2200,7 @@ class Transactions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.Transaction, http_res)
+            return unmarshal_json_response(models.ResponseCaptureTransaction, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
