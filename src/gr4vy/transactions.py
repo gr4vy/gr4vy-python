@@ -1922,7 +1922,7 @@ class Transactions(BaseSDK):
         self,
         *,
         transaction_id: str,
-        prefer: OptionalNullable[str] = UNSET,
+        prefer: OptionalNullable[List[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         amount: OptionalNullable[int] = UNSET,
         airline: OptionalNullable[
@@ -2087,7 +2087,7 @@ class Transactions(BaseSDK):
         self,
         *,
         transaction_id: str,
-        prefer: OptionalNullable[str] = UNSET,
+        prefer: OptionalNullable[List[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         amount: OptionalNullable[int] = UNSET,
         airline: OptionalNullable[
@@ -2252,17 +2252,19 @@ class Transactions(BaseSDK):
         self,
         *,
         transaction_id: str,
+        prefer: OptionalNullable[List[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Transaction:
+    ) -> models.ResponseVoidTransaction:
         r"""Void transaction
 
         Voids a previously authorized transaction. If the transaction was not yet successfully authorized, or was already captured, the void will not be processed. This operation releases the hold on the buyer's funds. Captured transactions can be refunded instead.
 
         :param transaction_id: The ID of the transaction
+        :param prefer: The preferred resource type in the response.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2281,6 +2283,7 @@ class Transactions(BaseSDK):
 
         request = models.VoidTransactionRequest(
             transaction_id=transaction_id,
+            prefer=prefer,
             merchant_account_id=merchant_account_id,
         )
 
@@ -2343,7 +2346,7 @@ class Transactions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.Transaction, http_res)
+            return unmarshal_json_response(models.ResponseVoidTransaction, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
@@ -2395,17 +2398,19 @@ class Transactions(BaseSDK):
         self,
         *,
         transaction_id: str,
+        prefer: OptionalNullable[List[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.Transaction:
+    ) -> models.ResponseVoidTransaction:
         r"""Void transaction
 
         Voids a previously authorized transaction. If the transaction was not yet successfully authorized, or was already captured, the void will not be processed. This operation releases the hold on the buyer's funds. Captured transactions can be refunded instead.
 
         :param transaction_id: The ID of the transaction
+        :param prefer: The preferred resource type in the response.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -2424,6 +2429,7 @@ class Transactions(BaseSDK):
 
         request = models.VoidTransactionRequest(
             transaction_id=transaction_id,
+            prefer=prefer,
             merchant_account_id=merchant_account_id,
         )
 
@@ -2486,7 +2492,7 @@ class Transactions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.Transaction, http_res)
+            return unmarshal_json_response(models.ResponseVoidTransaction, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)

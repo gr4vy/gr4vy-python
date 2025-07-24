@@ -16,7 +16,7 @@ from gr4vy.utils import (
 )
 import pydantic
 from pydantic import model_serializer
-from typing import Optional, Union
+from typing import List, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
@@ -38,7 +38,7 @@ class CaptureTransactionRequestTypedDict(TypedDict):
     transaction_id: str
     r"""The ID of the transaction"""
     transaction_capture_create: TransactionCaptureCreateTypedDict
-    prefer: NotRequired[Nullable[str]]
+    prefer: NotRequired[Nullable[List[str]]]
     r"""The preferred resource type in the response."""
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
@@ -56,7 +56,7 @@ class CaptureTransactionRequest(BaseModel):
     ]
 
     prefer: Annotated[
-        OptionalNullable[str],
+        OptionalNullable[List[str]],
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = UNSET
     r"""The preferred resource type in the response."""

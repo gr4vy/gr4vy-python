@@ -1031,6 +1031,7 @@ if TYPE_CHECKING:
         TransactionThreeDSecureSummaryTypedDict,
     )
     from .transactionupdate import TransactionUpdate, TransactionUpdateTypedDict
+    from .transactionvoid import TransactionVoid, TransactionVoidTypedDict
     from .travelhubcustomdata import TravelHubCustomData, TravelHubCustomDataTypedDict
     from .travelhuboptions import TravelhubOptions, TravelhubOptionsTypedDict
     from .trustlyoptions import TrustlyOptions, TrustlyOptionsTypedDict
@@ -1101,12 +1102,15 @@ if TYPE_CHECKING:
     )
     from .verifycredentials import VerifyCredentials, VerifyCredentialsTypedDict
     from .void_transactionop import (
+        ResponseVoidTransaction,
+        ResponseVoidTransactionTypedDict,
         VoidTransactionGlobals,
         VoidTransactionGlobalsTypedDict,
         VoidTransactionRequest,
         VoidTransactionRequestTypedDict,
     )
     from .voidablefield import VoidableField, VoidableFieldTypedDict
+    from .voidstatus import VoidStatus
     from .walletpaymentoptioncontext import (
         WalletPaymentOptionContext,
         WalletPaymentOptionContextTypedDict,
@@ -1831,6 +1835,8 @@ __all__ = [
     "ResponseCaptureTransactionTypedDict",
     "ResponseData",
     "ResponseDataTypedDict",
+    "ResponseVoidTransaction",
+    "ResponseVoidTransactionTypedDict",
     "ResumePaymentMethodNetworkTokenGlobals",
     "ResumePaymentMethodNetworkTokenGlobalsTypedDict",
     "ResumePaymentMethodNetworkTokenRequest",
@@ -1928,6 +1934,8 @@ __all__ = [
     "TransactionTypedDict",
     "TransactionUpdate",
     "TransactionUpdateTypedDict",
+    "TransactionVoid",
+    "TransactionVoidTypedDict",
     "TransactionsReportSpec",
     "TransactionsReportSpecTypedDict",
     "TravelHubCustomData",
@@ -1981,6 +1989,7 @@ __all__ = [
     "VerifyPaymentServiceCredentialsGlobalsTypedDict",
     "VerifyPaymentServiceCredentialsRequest",
     "VerifyPaymentServiceCredentialsRequestTypedDict",
+    "VoidStatus",
     "VoidTransactionGlobals",
     "VoidTransactionGlobalsTypedDict",
     "VoidTransactionRequest",
@@ -2804,6 +2813,8 @@ _dynamic_imports: dict[str, str] = {
     "TransactionThreeDSecureSummaryTypedDict": ".transactionthreedsecuresummary",
     "TransactionUpdate": ".transactionupdate",
     "TransactionUpdateTypedDict": ".transactionupdate",
+    "TransactionVoid": ".transactionvoid",
+    "TransactionVoidTypedDict": ".transactionvoid",
     "TravelHubCustomData": ".travelhubcustomdata",
     "TravelHubCustomDataTypedDict": ".travelhubcustomdata",
     "TravelhubOptions": ".travelhuboptions",
@@ -2855,12 +2866,15 @@ _dynamic_imports: dict[str, str] = {
     "VerifyPaymentServiceCredentialsRequestTypedDict": ".verify_payment_service_credentialsop",
     "VerifyCredentials": ".verifycredentials",
     "VerifyCredentialsTypedDict": ".verifycredentials",
+    "ResponseVoidTransaction": ".void_transactionop",
+    "ResponseVoidTransactionTypedDict": ".void_transactionop",
     "VoidTransactionGlobals": ".void_transactionop",
     "VoidTransactionGlobalsTypedDict": ".void_transactionop",
     "VoidTransactionRequest": ".void_transactionop",
     "VoidTransactionRequestTypedDict": ".void_transactionop",
     "VoidableField": ".voidablefield",
     "VoidableFieldTypedDict": ".voidablefield",
+    "VoidStatus": ".voidstatus",
     "WalletPaymentOptionContext": ".walletpaymentoptioncontext",
     "WalletPaymentOptionContextTypedDict": ".walletpaymentoptioncontext",
     "WpayEverdaypayOptions": ".wpayeverdaypayoptions",
