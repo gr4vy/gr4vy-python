@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: ccfe69d58b8e49ce12271a3d9fc5a7af
+  docChecksum: 569b985f19752d636324edd9fa8eb10b
   docVersion: 1.0.0
-  speakeasyVersion: 1.587.2
-  generationVersion: 2.662.0
-  releaseVersion: 1.1.14
-  configChecksum: 240fd2a0ae5401e933cd9770de3eb368
+  speakeasyVersion: 1.588.0
+  generationVersion: 2.663.0
+  releaseVersion: 1.1.15
+  configChecksum: 5570e66b5cacac5ba0c58ed757312654
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -427,6 +427,7 @@ generatedFiles:
   - docs/models/requiredfields2.md
   - docs/models/responsecapturetransaction.md
   - docs/models/responsedata.md
+  - docs/models/responsevoidtransaction.md
   - docs/models/resumepaymentmethodnetworktokenglobals.md
   - docs/models/resumepaymentmethodnetworktokenrequest.md
   - docs/models/routetype.md
@@ -481,6 +482,7 @@ generatedFiles:
   - docs/models/transactionsummary.md
   - docs/models/transactionthreedsecuresummary.md
   - docs/models/transactionupdate.md
+  - docs/models/transactionvoid.md
   - docs/models/travelhubcustomdata.md
   - docs/models/travelhuboptions.md
   - docs/models/trustlyoptions.md
@@ -510,6 +512,7 @@ generatedFiles:
   - docs/models/verifypaymentservicecredentialsglobals.md
   - docs/models/verifypaymentservicecredentialsrequest.md
   - docs/models/voidablefield.md
+  - docs/models/voidstatus.md
   - docs/models/voidtransactionglobals.md
   - docs/models/voidtransactionrequest.md
   - docs/models/walletpaymentoptioncontext.md
@@ -917,6 +920,7 @@ generatedFiles:
   - src/gr4vy/models/transactionsummary.py
   - src/gr4vy/models/transactionthreedsecuresummary.py
   - src/gr4vy/models/transactionupdate.py
+  - src/gr4vy/models/transactionvoid.py
   - src/gr4vy/models/travelhubcustomdata.py
   - src/gr4vy/models/travelhuboptions.py
   - src/gr4vy/models/trustlyoptions.py
@@ -935,6 +939,7 @@ generatedFiles:
   - src/gr4vy/models/verifycredentials.py
   - src/gr4vy/models/void_transactionop.py
   - src/gr4vy/models/voidablefield.py
+  - src/gr4vy/models/voidstatus.py
   - src/gr4vy/models/walletpaymentoptioncontext.py
   - src/gr4vy/models/wpayeverdaypayoptions.py
   - src/gr4vy/models/wpaypaytooptions.py
