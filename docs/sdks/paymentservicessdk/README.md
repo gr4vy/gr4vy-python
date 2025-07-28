@@ -19,6 +19,7 @@ List the configured payment services.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_payment_services" method="get" path="/payment-services" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -77,6 +78,7 @@ Updates the configuration of a payment service.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="update_payment_service" method="post" path="/payment-services" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -160,6 +162,7 @@ Get the details of a configured payment service.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_payment_service" method="get" path="/payment-services/{payment_service_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -213,6 +216,7 @@ Configures a new payment service for use by merchants.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_payment_service" method="put" path="/payment-services/{payment_service_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -279,6 +283,7 @@ Deletes all the configuration of a payment service.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="delete_payment_service" method="delete" path="/payment-services/{payment_service_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -332,6 +337,7 @@ Verify the credentials of a configured payment service
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="verify_payment_service_credentials" method="post" path="/payment-services/verify" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -387,6 +393,7 @@ Creates a session for a payment service that supports sessions.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_payment_service_session" method="post" path="/payment-services/{payment_service_id}/sessions" -->
 ```python
 from gr4vy import Gr4vy
 import os

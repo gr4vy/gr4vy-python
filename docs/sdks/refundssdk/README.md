@@ -13,6 +13,7 @@ Fetch a refund.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_refund" method="get" path="/refunds/{refund_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os

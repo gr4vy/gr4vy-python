@@ -13,6 +13,7 @@ List all the stored gift cards for a specific buyer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_buyer_gift_cards" method="get" path="/buyers/gift-cards" -->
 ```python
 from gr4vy import Gr4vy
 import os

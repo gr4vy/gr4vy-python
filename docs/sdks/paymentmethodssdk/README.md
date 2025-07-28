@@ -16,6 +16,7 @@ List all stored payment method.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_payment_methods" method="get" path="/payment-methods" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -76,6 +77,7 @@ Store a new payment method.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_payment_method" method="post" path="/payment-methods" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -132,6 +134,7 @@ Retrieve a payment method.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_payment_method" method="get" path="/payment-methods/{payment_method_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -185,6 +188,7 @@ Delete a payment method.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="delete_payment_method" method="delete" path="/payment-methods/{payment_method_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os

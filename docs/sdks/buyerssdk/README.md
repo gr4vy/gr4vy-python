@@ -17,6 +17,7 @@ List all buyers or search for a specific buyer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_buyers" method="get" path="/buyers" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -75,6 +76,7 @@ Create a new buyer record.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="add_buyer" method="post" path="/buyers" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -131,6 +133,7 @@ Fetches a buyer by its ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_buyer" method="get" path="/buyers/{buyer_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -184,6 +187,7 @@ Updates a buyer record.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="update_buyer" method="put" path="/buyers/{buyer_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -241,6 +245,7 @@ Permanently removes a buyer record.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="delete_buyer" method="delete" path="/buyers/{buyer_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os

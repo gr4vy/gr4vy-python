@@ -13,6 +13,7 @@ Retrieve a paginated list of events related to processing a transaction, includi
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_transaction_events" method="get" path="/transactions/{transaction_id}/events" -->
 ```python
 from gr4vy import Gr4vy
 import os

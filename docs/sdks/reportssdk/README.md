@@ -16,6 +16,7 @@ List all configured reports that can be generated.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_reports" method="get" path="/reports" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -75,6 +76,7 @@ Create a new report.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="add_report" method="post" path="/reports" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -143,6 +145,7 @@ Fetches a report by its ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_report" method="get" path="/reports/{report_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -196,6 +199,7 @@ Updates the configuration of a report.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="update_report" method="put" path="/reports/{report_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os

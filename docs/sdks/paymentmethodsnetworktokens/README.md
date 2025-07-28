@@ -17,6 +17,7 @@ List all network tokens stored for a payment method.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_payment_method_network_tokens" method="get" path="/payment-methods/{payment_method_id}/network-tokens" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -70,6 +71,7 @@ Provision a network token for a payment method.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_payment_method_network_token" method="post" path="/payment-methods/{payment_method_id}/network-tokens" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -126,6 +128,7 @@ Suspend a network token for a payment method.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="suspend_payment_method_network_token" method="post" path="/payment-methods/{payment_method_id}/network-tokens/{network_token_id}/suspend" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -180,6 +183,7 @@ Resume a suspended network token for a payment method.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="resume_payment_method_network_token" method="post" path="/payment-methods/{payment_method_id}/network-tokens/{network_token_id}/resume" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -234,6 +238,7 @@ Delete a network token for a payment method.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="delete_payment_method_network_token" method="delete" path="/payment-methods/{payment_method_id}/network-tokens/{network_token_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os

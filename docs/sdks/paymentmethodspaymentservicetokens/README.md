@@ -15,6 +15,7 @@ List all gateway tokens stored for a payment method.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_payment_method_payment_service_tokens" method="get" path="/payment-methods/{payment_method_id}/payment-service-tokens" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -69,6 +70,7 @@ Create a gateway tokens for a payment method.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_payment_method_payment_service_token" method="post" path="/payment-methods/{payment_method_id}/payment-service-tokens" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -125,6 +127,7 @@ Delete a gateway tokens for a payment method.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="delete_payment_method_payment_service_token" method="delete" path="/payment-methods/{payment_method_id}/payment-service-tokens/{payment_service_token_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
