@@ -19,6 +19,7 @@ Returns a paginated list of transactions for the merchant account, sorted by mos
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_transactions" method="get" path="/transactions" -->
 ```python
 from gr4vy import Gr4vy
 from gr4vy.utils import parse_datetime
@@ -147,6 +148,7 @@ Create a new transaction using a supported payment method. If additional buyer a
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_transaction" method="post" path="/transactions" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -231,6 +233,7 @@ Retrieve the details of a transaction by its unique identifier.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_transaction" method="get" path="/transactions/{transaction_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -284,6 +287,7 @@ Manually updates a transaction.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="update_transaction" method="put" path="/transactions/{transaction_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -340,6 +344,7 @@ Captures a previously authorized transaction. You can capture the full or a part
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="capture_transaction" method="post" path="/transactions/{transaction_id}/capture" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -396,6 +401,7 @@ Voids a previously authorized transaction. If the transaction was not yet succes
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="void_transaction" method="post" path="/transactions/{transaction_id}/void" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -450,6 +456,7 @@ Synchronizes the status of a transaction with the underlying payment service pro
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="sync_transaction" method="post" path="/transactions/{transaction_id}/sync" -->
 ```python
 from gr4vy import Gr4vy
 import os

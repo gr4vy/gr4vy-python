@@ -17,6 +17,7 @@ Register a digital wallet like Apple Pay, Google Pay, or Click to Pay.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="configure_digital_wallet" method="post" path="/digital-wallets" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -76,6 +77,7 @@ List configured digital wallets.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_digital_wallets" method="get" path="/digital-wallets" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -128,6 +130,7 @@ Fetch the details a digital wallet.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_digital_wallet" method="get" path="/digital-wallets/{digital_wallet_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -181,6 +184,7 @@ Delete a configured digital wallet.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="delete_digital_wallet" method="delete" path="/digital-wallets/{digital_wallet_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -234,6 +238,7 @@ Update a digital wallet.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="update_digital_wallet" method="put" path="/digital-wallets/{digital_wallet_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os

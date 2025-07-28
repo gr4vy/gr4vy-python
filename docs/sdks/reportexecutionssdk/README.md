@@ -13,6 +13,7 @@ List all executed reports that have been generated.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_all_report_executions" method="get" path="/report-executions" -->
 ```python
 from gr4vy import Gr4vy
 import os

@@ -15,6 +15,7 @@ Returns a list of payouts made.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_payouts" method="get" path="/payouts" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -71,6 +72,7 @@ Creates a new payout.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_payout" method="post" path="/payouts" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -137,6 +139,7 @@ Retrieves a payout.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_payout" method="get" path="/payouts/{payout_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os

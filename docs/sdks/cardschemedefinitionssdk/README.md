@@ -13,6 +13,7 @@ Fetch a list of the definitions of each card scheme.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_card_scheme_definitions" method="get" path="/card-scheme-definitions" -->
 ```python
 from gr4vy import Gr4vy
 import os

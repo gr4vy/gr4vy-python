@@ -13,6 +13,7 @@ Returns a list of activity by dashboard users.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_audit_logs" method="get" path="/audit-logs" -->
 ```python
 from gr4vy import Gr4vy
 import os

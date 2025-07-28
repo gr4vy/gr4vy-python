@@ -15,6 +15,7 @@ List all executions of a specific report.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_report_executions" method="get" path="/reports/{report_id}/executions" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -72,6 +73,7 @@ Creates a download URL for a specific execution of a report.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_report_execution_url" method="post" path="/reports/{report_id}/executions/{report_execution_id}/url" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -126,6 +128,7 @@ Fetch a specific executed report.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_report_execution" method="get" path="/report-executions/{report_execution_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os

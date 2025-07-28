@@ -17,6 +17,7 @@ Associate shipping details to a buyer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="add_buyer_shipping_details" method="post" path="/buyers/{buyer_id}/shipping-details" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -75,6 +76,7 @@ List all the shipping details associated to a specific buyer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_buyer_shipping_details" method="get" path="/buyers/{buyer_id}/shipping-details" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -128,6 +130,7 @@ Get a buyer's shipping details.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_buyer_shipping_details" method="get" path="/buyers/{buyer_id}/shipping-details/{shipping_details_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -182,6 +185,7 @@ Update the shipping details associated to a specific buyer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="update_buyer_shipping_details" method="put" path="/buyers/{buyer_id}/shipping-details/{shipping_details_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -241,6 +245,7 @@ Delete the shipping details associated to a specific buyer.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="delete_buyer_shipping_details" method="delete" path="/buyers/{buyer_id}/shipping-details/{shipping_details_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os

@@ -13,6 +13,7 @@ Fetch the balances for one or more gift cards.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_gift_card_balances" method="post" path="/gift-cards/balances" -->
 ```python
 from gr4vy import Gr4vy
 import os

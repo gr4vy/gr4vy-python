@@ -14,6 +14,7 @@ Retrieve a specific settlement for a transaction by its unique identifier.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_transaction_settlement" method="get" path="/transactions/{transaction_id}/settlements/{settlement_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -68,6 +69,7 @@ List all settlements for a specific transaction.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_transaction_settlements" method="get" path="/transactions/{transaction_id}/settlements" -->
 ```python
 from gr4vy import Gr4vy
 import os

@@ -16,6 +16,7 @@ Fetch details about a gift card.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_gift_card" method="get" path="/gift-cards/{gift_card_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -69,6 +70,7 @@ Removes a gift card from our system.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="delete_gift_card" method="delete" path="/gift-cards/{gift_card_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -122,6 +124,7 @@ Store a new gift card in the vault.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_gift_card" method="post" path="/gift-cards" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -178,6 +181,7 @@ Browser all gift cards.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_gift_cards" method="get" path="/gift-cards" -->
 ```python
 from gr4vy import Gr4vy
 import os

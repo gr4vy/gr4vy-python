@@ -13,6 +13,7 @@ Create a refund for all instruments on a transaction.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_full_transaction_refund" method="post" path="/transactions/{transaction_id}/refunds/all" -->
 ```python
 from gr4vy import Gr4vy
 import os

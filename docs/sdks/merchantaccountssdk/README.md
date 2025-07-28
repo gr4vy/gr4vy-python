@@ -16,6 +16,7 @@ List all merchant accounts in an instance.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_merchant_accounts" method="get" path="/merchant-accounts" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -71,6 +72,7 @@ Create a new merchant account in an instance.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_merchant_account" method="post" path="/merchant-accounts" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -139,6 +141,7 @@ Get info about a merchant account in an instance.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_merchant_account" method="get" path="/merchant-accounts/{merchant_account_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -190,6 +193,7 @@ Update info for a merchant account in an instance.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="update_merchant_account" method="put" path="/merchant-accounts/{merchant_account_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os

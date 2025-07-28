@@ -15,6 +15,7 @@ Create a session for use with Google Pay.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_google_pay_digital_wallet_session" method="post" path="/digital-wallets/google/session" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -68,6 +69,7 @@ Create a session for use with Apple Pay.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_apple_pay_digital_wallet_session" method="post" path="/digital-wallets/apple/session" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -122,6 +124,7 @@ Create a session for use with Click to Pay.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_click_to_pay_digital_wallet_session" method="post" path="/digital-wallets/click-to-pay/session" -->
 ```python
 from gr4vy import Gr4vy
 import os

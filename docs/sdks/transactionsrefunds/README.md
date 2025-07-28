@@ -15,6 +15,7 @@ List refunds for a transaction.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_transaction_refunds" method="get" path="/transactions/{transaction_id}/refunds" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -68,6 +69,7 @@ Create a refund for a transaction.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="create_transaction_refund" method="post" path="/transactions/{transaction_id}/refunds" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -126,6 +128,7 @@ Fetch refund for a transaction.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_transaction_refund" method="get" path="/transactions/{transaction_id}/refunds/{refund_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os

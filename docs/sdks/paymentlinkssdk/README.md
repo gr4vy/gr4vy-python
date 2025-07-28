@@ -16,6 +16,7 @@ Create a new payment link.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="add_payment_link" method="post" path="/payment-links" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -89,6 +90,7 @@ List all created payment links.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="list_payment_links" method="get" path="/payment-links" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -145,6 +147,7 @@ Expire an existing payment link.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="expire_payment_link" method="post" path="/payment-links/{payment_link_id}/expire" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -193,6 +196,7 @@ Fetch the details for a payment link.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="get_payment_link" method="get" path="/payment-links/{payment_link_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
