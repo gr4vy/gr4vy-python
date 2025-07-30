@@ -47,6 +47,12 @@ class RefundTypedDict(TypedDict):
     r"""An external identifier that can be used to match the transaction against your own records."""
     creator: NotRequired[Nullable[CreatorTypedDict]]
     r"""The user that created this resource"""
+    error_code: NotRequired[Nullable[str]]
+    r"""The standardized error code set by Gr4vy."""
+    raw_response_code: NotRequired[Nullable[str]]
+    r"""This is the response code received from the payment service. This can be set to any value and is not standardized across different payment services."""
+    raw_response_description: NotRequired[Nullable[str]]
+    r"""This is the response description received from the payment service. This can be set to any value and is not standardized across different payment services."""
 
 
 class Refund(BaseModel):
@@ -104,6 +110,15 @@ class Refund(BaseModel):
     creator: OptionalNullable[Creator] = UNSET
     r"""The user that created this resource"""
 
+    error_code: OptionalNullable[str] = UNSET
+    r"""The standardized error code set by Gr4vy."""
+
+    raw_response_code: OptionalNullable[str] = UNSET
+    r"""This is the response code received from the payment service. This can be set to any value and is not standardized across different payment services."""
+
+    raw_response_description: OptionalNullable[str] = UNSET
+    r"""This is the response description received from the payment service. This can be set to any value and is not standardized across different payment services."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -114,6 +129,9 @@ class Refund(BaseModel):
             "external_identifier",
             "transaction_external_identifier",
             "creator",
+            "error_code",
+            "raw_response_code",
+            "raw_response_description",
         ]
         nullable_fields = [
             "payment_service_refund_id",
@@ -122,6 +140,9 @@ class Refund(BaseModel):
             "external_identifier",
             "transaction_external_identifier",
             "creator",
+            "error_code",
+            "raw_response_code",
+            "raw_response_description",
         ]
         null_default_fields = []
 
