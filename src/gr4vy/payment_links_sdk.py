@@ -481,6 +481,7 @@ class PaymentLinksSDK(BaseSDK):
         *,
         cursor: OptionalNullable[str] = UNSET,
         limit: Optional[int] = 20,
+        buyer_search: OptionalNullable[List[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -493,6 +494,7 @@ class PaymentLinksSDK(BaseSDK):
 
         :param cursor: A pointer to the page of results to return.
         :param limit: The maximum number of items that are returned.
+        :param buyer_search: Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -512,6 +514,7 @@ class PaymentLinksSDK(BaseSDK):
         request = models.ListPaymentLinksRequest(
             cursor=cursor,
             limit=limit,
+            buyer_search=buyer_search,
             merchant_account_id=merchant_account_id,
         )
 
@@ -590,6 +593,7 @@ class PaymentLinksSDK(BaseSDK):
             return self.list(
                 cursor=next_cursor,
                 limit=limit,
+                buyer_search=buyer_search,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
             )
@@ -652,6 +656,7 @@ class PaymentLinksSDK(BaseSDK):
         *,
         cursor: OptionalNullable[str] = UNSET,
         limit: Optional[int] = 20,
+        buyer_search: OptionalNullable[List[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -664,6 +669,7 @@ class PaymentLinksSDK(BaseSDK):
 
         :param cursor: A pointer to the page of results to return.
         :param limit: The maximum number of items that are returned.
+        :param buyer_search: Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -683,6 +689,7 @@ class PaymentLinksSDK(BaseSDK):
         request = models.ListPaymentLinksRequest(
             cursor=cursor,
             limit=limit,
+            buyer_search=buyer_search,
             merchant_account_id=merchant_account_id,
         )
 
@@ -761,6 +768,7 @@ class PaymentLinksSDK(BaseSDK):
             return self.list(
                 cursor=next_cursor,
                 limit=limit,
+                buyer_search=buyer_search,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
             )

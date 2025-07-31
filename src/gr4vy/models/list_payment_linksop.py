@@ -6,7 +6,7 @@ from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENT
 from gr4vy.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
 import pydantic
 from pydantic import model_serializer
-from typing import Callable, Optional
+from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -29,6 +29,8 @@ class ListPaymentLinksRequestTypedDict(TypedDict):
     r"""A pointer to the page of results to return."""
     limit: NotRequired[int]
     r"""The maximum number of items that are returned."""
+    buyer_search: NotRequired[Nullable[List[str]]]
+    r"""Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values."""
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -46,6 +48,12 @@ class ListPaymentLinksRequest(BaseModel):
     ] = 20
     r"""The maximum number of items that are returned."""
 
+    buyer_search: Annotated[
+        OptionalNullable[List[str]],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values."""
+
     merchant_account_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
@@ -55,8 +63,8 @@ class ListPaymentLinksRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["cursor", "limit", "merchant_account_id"]
-        nullable_fields = ["cursor"]
+        optional_fields = ["cursor", "limit", "buyer_search", "merchant_account_id"]
+        nullable_fields = ["cursor", "buyer_search"]
         null_default_fields = []
 
         serialized = handler(self)

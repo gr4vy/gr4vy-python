@@ -43,7 +43,6 @@ class Transactions(BaseSDK):
         buyer_external_identifier: OptionalNullable[str] = UNSET,
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_email_address: OptionalNullable[str] = UNSET,
-        buyer_search: OptionalNullable[List[str]] = UNSET,
         ip_address: OptionalNullable[str] = UNSET,
         status: OptionalNullable[List[models.TransactionStatus]] = UNSET,
         id: OptionalNullable[str] = UNSET,
@@ -76,6 +75,7 @@ class Transactions(BaseSDK):
         is_subsequent_payment: OptionalNullable[bool] = UNSET,
         merchant_initiated: OptionalNullable[bool] = UNSET,
         used_3ds: OptionalNullable[bool] = UNSET,
+        buyer_search: OptionalNullable[List[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -96,7 +96,6 @@ class Transactions(BaseSDK):
         :param buyer_external_identifier:
         :param buyer_id:
         :param buyer_email_address:
-        :param buyer_search: Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values.
         :param ip_address:
         :param status: Filters the results to only the transactions that have a `status` that matches with any of the provided status values.
         :param id:
@@ -129,6 +128,7 @@ class Transactions(BaseSDK):
         :param is_subsequent_payment: Filters for transactions where the `is_subsequent_payment` matches the provided value.
         :param merchant_initiated: Filters for transactions where the `merchant_initiated` matches the provided value.
         :param used_3ds: Filters for transactions that attempted 3DS authentication or not.
+        :param buyer_search: Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -156,7 +156,6 @@ class Transactions(BaseSDK):
             buyer_external_identifier=buyer_external_identifier,
             buyer_id=buyer_id,
             buyer_email_address=buyer_email_address,
-            buyer_search=buyer_search,
             ip_address=ip_address,
             status=status,
             id=id,
@@ -189,6 +188,7 @@ class Transactions(BaseSDK):
             is_subsequent_payment=is_subsequent_payment,
             merchant_initiated=merchant_initiated,
             used_3ds=used_3ds,
+            buyer_search=buyer_search,
             merchant_account_id=merchant_account_id,
         )
 
@@ -275,7 +275,6 @@ class Transactions(BaseSDK):
                 buyer_external_identifier=buyer_external_identifier,
                 buyer_id=buyer_id,
                 buyer_email_address=buyer_email_address,
-                buyer_search=buyer_search,
                 ip_address=ip_address,
                 status=status,
                 id=id,
@@ -308,6 +307,7 @@ class Transactions(BaseSDK):
                 is_subsequent_payment=is_subsequent_payment,
                 merchant_initiated=merchant_initiated,
                 used_3ds=used_3ds,
+                buyer_search=buyer_search,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
             )
@@ -378,7 +378,6 @@ class Transactions(BaseSDK):
         buyer_external_identifier: OptionalNullable[str] = UNSET,
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_email_address: OptionalNullable[str] = UNSET,
-        buyer_search: OptionalNullable[List[str]] = UNSET,
         ip_address: OptionalNullable[str] = UNSET,
         status: OptionalNullable[List[models.TransactionStatus]] = UNSET,
         id: OptionalNullable[str] = UNSET,
@@ -411,6 +410,7 @@ class Transactions(BaseSDK):
         is_subsequent_payment: OptionalNullable[bool] = UNSET,
         merchant_initiated: OptionalNullable[bool] = UNSET,
         used_3ds: OptionalNullable[bool] = UNSET,
+        buyer_search: OptionalNullable[List[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -431,7 +431,6 @@ class Transactions(BaseSDK):
         :param buyer_external_identifier:
         :param buyer_id:
         :param buyer_email_address:
-        :param buyer_search: Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values.
         :param ip_address:
         :param status: Filters the results to only the transactions that have a `status` that matches with any of the provided status values.
         :param id:
@@ -464,6 +463,7 @@ class Transactions(BaseSDK):
         :param is_subsequent_payment: Filters for transactions where the `is_subsequent_payment` matches the provided value.
         :param merchant_initiated: Filters for transactions where the `merchant_initiated` matches the provided value.
         :param used_3ds: Filters for transactions that attempted 3DS authentication or not.
+        :param buyer_search: Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -491,7 +491,6 @@ class Transactions(BaseSDK):
             buyer_external_identifier=buyer_external_identifier,
             buyer_id=buyer_id,
             buyer_email_address=buyer_email_address,
-            buyer_search=buyer_search,
             ip_address=ip_address,
             status=status,
             id=id,
@@ -524,6 +523,7 @@ class Transactions(BaseSDK):
             is_subsequent_payment=is_subsequent_payment,
             merchant_initiated=merchant_initiated,
             used_3ds=used_3ds,
+            buyer_search=buyer_search,
             merchant_account_id=merchant_account_id,
         )
 
@@ -610,7 +610,6 @@ class Transactions(BaseSDK):
                 buyer_external_identifier=buyer_external_identifier,
                 buyer_id=buyer_id,
                 buyer_email_address=buyer_email_address,
-                buyer_search=buyer_search,
                 ip_address=ip_address,
                 status=status,
                 id=id,
@@ -643,6 +642,7 @@ class Transactions(BaseSDK):
                 is_subsequent_payment=is_subsequent_payment,
                 merchant_initiated=merchant_initiated,
                 used_3ds=used_3ds,
+                buyer_search=buyer_search,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
             )
