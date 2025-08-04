@@ -6,6 +6,11 @@ from typing import Literal, Union
 
 
 ReportSpecModel = Union[
-    Literal["transactions", "transaction_retries", "detailed_settlement"],
+    Literal[
+        "transactions",
+        "transaction_retries",
+        "detailed_settlement",
+        "accounts_receivables",
+    ],
     UnrecognizedStr,
 ]
