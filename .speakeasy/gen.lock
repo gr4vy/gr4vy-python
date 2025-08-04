@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 18e9dcb9b0b9e16d82c8f03803da6742
+  docChecksum: 23ca4a80751e4856a9bb3bf6d003d22c
   docVersion: 1.0.0
   speakeasyVersion: 1.596.0
   generationVersion: 2.672.0
-  releaseVersion: 1.1.22
-  configChecksum: 2065d0bd8985148408caf26a860838ec
+  releaseVersion: 1.1.23
+  configChecksum: 999d729a0bfe5acdd045fa98babd590b
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -53,6 +53,7 @@ generatedFiles:
   - docs/errors/error502.md
   - docs/errors/error504.md
   - docs/errors/httpvalidationerror.md
+  - docs/models/accountsreceivablesreportspec.md
   - docs/models/accountupdaterinquirysummary.md
   - docs/models/accountupdaterjob.md
   - docs/models/accountupdaterjobcreate.md
@@ -602,6 +603,7 @@ generatedFiles:
   - src/gr4vy/jobs.py
   - src/gr4vy/merchant_accounts_sdk.py
   - src/gr4vy/models/__init__.py
+  - src/gr4vy/models/accountsreceivablesreportspec.py
   - src/gr4vy/models/accountupdaterinquirysummary.py
   - src/gr4vy/models/accountupdaterjob.py
   - src/gr4vy/models/accountupdaterjobcreate.py

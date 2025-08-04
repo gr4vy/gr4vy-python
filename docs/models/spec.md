@@ -5,6 +5,12 @@ The report specification.
 
 ## Supported Types
 
+### `models.AccountsReceivablesReportSpec`
+
+```python
+value: models.AccountsReceivablesReportSpec = /* values here */
+```
+
 ### `models.DetailedSettlementReportSpec`
 
 ```python
