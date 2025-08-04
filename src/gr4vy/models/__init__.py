@@ -5,6 +5,10 @@ from importlib import import_module
 import builtins
 
 if TYPE_CHECKING:
+    from .accountsreceivablesreportspec import (
+        AccountsReceivablesReportSpec,
+        AccountsReceivablesReportSpecTypedDict,
+    )
     from .accountupdaterinquirysummary import (
         AccountUpdaterInquirySummary,
         AccountUpdaterInquirySummaryTypedDict,
@@ -1140,6 +1144,8 @@ __all__ = [
     "AccountUpdaterJobTypedDict",
     "AccountUpdaterOptions",
     "AccountUpdaterOptionsTypedDict",
+    "AccountsReceivablesReportSpec",
+    "AccountsReceivablesReportSpecTypedDict",
     "AddBuyerGlobals",
     "AddBuyerGlobalsTypedDict",
     "AddBuyerRequest",
@@ -2010,6 +2016,8 @@ __all__ = [
 ]
 
 _dynamic_imports: dict[str, str] = {
+    "AccountsReceivablesReportSpec": ".accountsreceivablesreportspec",
+    "AccountsReceivablesReportSpecTypedDict": ".accountsreceivablesreportspec",
     "AccountUpdaterInquirySummary": ".accountupdaterinquirysummary",
     "AccountUpdaterInquirySummaryTypedDict": ".accountupdaterinquirysummary",
     "AccountUpdaterJob": ".accountupdaterjob",
