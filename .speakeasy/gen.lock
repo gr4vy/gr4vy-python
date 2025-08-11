@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 1801536375d5cc901c5efc0527008bf9
+  docChecksum: eb410293874cc8728a202068644022a2
   docVersion: 1.0.0
-  speakeasyVersion: 1.598.3
-  generationVersion: 2.674.3
-  releaseVersion: 1.1.27
-  configChecksum: d8303b46e15c7ee8b7e3035604ee297f
+  speakeasyVersion: 1.600.2
+  generationVersion: 2.677.3
+  releaseVersion: 1.1.28
+  configChecksum: 6768d10d7a553f5ae6bbe18dd8356567
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -93,8 +93,6 @@ generatedFiles:
   - docs/models/body.md
   - docs/models/braintreedynamicdatafieldsoptions.md
   - docs/models/braintreeoptions.md
-  - docs/models/browsepaymentmethoddefinitionsgetglobals.md
-  - docs/models/browsepaymentmethoddefinitionsgetrequest.md
   - docs/models/browserinfo.md
   - docs/models/buyer.md
   - docs/models/buyercreate.md
@@ -639,7 +637,6 @@ generatedFiles:
   - src/gr4vy/models/billingdetails_output.py
   - src/gr4vy/models/braintreedynamicdatafieldsoptions.py
   - src/gr4vy/models/braintreeoptions.py
-  - src/gr4vy/models/browse_payment_method_definitions_getop.py
   - src/gr4vy/models/browserinfo.py
   - src/gr4vy/models/buyer.py
   - src/gr4vy/models/buyercreate.py

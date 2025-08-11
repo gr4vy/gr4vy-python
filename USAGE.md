@@ -10,7 +10,12 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.browse_payment_method_definitions_get()
+    res = g_client.account_updater.jobs.create(payment_method_ids=[
+        "ef9496d8-53a5-4aad-8ca2-00eb68334389",
+        "f29e886e-93cc-4714-b4a3-12b7a718e595",
+    ])
+
+    assert res is not None
 
     # Handle response
     print(res)
@@ -18,7 +23,7 @@ with Gr4vy(
 
 </br>
 
-The same SDK client can also be used to make asychronous requests by importing asyncio.
+The same SDK client can also be used to make asynchronous requests by importing asyncio.
 ```python
 # Asynchronous Example
 import asyncio
@@ -32,7 +37,12 @@ async def main():
         bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
     ) as g_client:
 
-        res = await g_client.browse_payment_method_definitions_get_async()
+        res = await g_client.account_updater.jobs.create_async(payment_method_ids=[
+            "ef9496d8-53a5-4aad-8ca2-00eb68334389",
+            "f29e886e-93cc-4714-b4a3-12b7a718e595",
+        ])
+
+        assert res is not None
 
         # Handle response
         print(res)

@@ -366,9 +366,6 @@ except ValueError as error:
 
 * [list](docs/sdks/balances/README.md#list) - List gift card balances
 
-### [Gr4vy SDK](docs/sdks/gr4vy/README.md)
-
-* [browse_payment_method_definitions_get](docs/sdks/gr4vy/README.md#browse_payment_method_definitions_get) - Browse
 
 ### [merchant_accounts](docs/sdks/merchantaccountssdk/README.md)
 
@@ -570,8 +567,13 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.browse_payment_method_definitions_get(,
+    res = g_client.account_updater.jobs.create(payment_method_ids=[
+        "ef9496d8-53a5-4aad-8ca2-00eb68334389",
+        "f29e886e-93cc-4714-b4a3-12b7a718e595",
+    ],
         RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False))
+
+    assert res is not None
 
     # Handle response
     print(res)
@@ -591,7 +593,12 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.browse_payment_method_definitions_get()
+    res = g_client.account_updater.jobs.create(payment_method_ids=[
+        "ef9496d8-53a5-4aad-8ca2-00eb68334389",
+        "f29e886e-93cc-4714-b4a3-12b7a718e595",
+    ])
+
+    assert res is not None
 
     # Handle response
     print(res)
@@ -617,6 +624,7 @@ with Gr4vy(
 ```python
 from gr4vy import Gr4vy, errors
 import os
+from typing import Literal
 
 
 with Gr4vy(
@@ -626,7 +634,12 @@ with Gr4vy(
     res = None
     try:
 
-        res = g_client.browse_payment_method_definitions_get()
+        res = g_client.account_updater.jobs.create(payment_method_ids=[
+            "ef9496d8-53a5-4aad-8ca2-00eb68334389",
+            "f29e886e-93cc-4714-b4a3-12b7a718e595",
+        ])
+
+        assert res is not None
 
         # Handle response
         print(res)
@@ -641,25 +654,29 @@ with Gr4vy(
         print(e.raw_response)
 
         # Depending on the method different errors may be thrown
-        if isinstance(e, errors.HTTPValidationError):
-            print(e.data.detail)  # Optional[List[models.ValidationError]]
+        if isinstance(e, errors.Error400):
+            print(e.data.type)  # Optional[Literal["error"]]
+            print(e.data.code)  # Optional[str]
+            print(e.data.status)  # Optional[int]
+            print(e.data.message)  # Optional[str]
+            print(e.data.details)  # Optional[List[models.ErrorDetail]]
 ```
 
 ### Error Classes
 **Primary errors:**
 * [`Gr4vyError`](./src/gr4vy/errors/gr4vyerror.py): The base class for HTTP error responses.
-  * [`Error400`](./src/gr4vy/errors/error400.py): The request was invalid. Status code `400`. *
-  * [`Error401`](./src/gr4vy/errors/error401.py): The request was unauthorized. Status code `401`. *
-  * [`Error403`](./src/gr4vy/errors/error403.py): The credentials were invalid or the caller did not have permission to act on the resource. Status code `403`. *
-  * [`Error404`](./src/gr4vy/errors/error404.py): The resource was not found. Status code `404`. *
-  * [`Error405`](./src/gr4vy/errors/error405.py): The request method was not allowed. Status code `405`. *
-  * [`Error409`](./src/gr4vy/errors/error409.py): A duplicate record was found. Status code `409`. *
+  * [`Error400`](./src/gr4vy/errors/error400.py): The request was invalid. Status code `400`.
+  * [`Error401`](./src/gr4vy/errors/error401.py): The request was unauthorized. Status code `401`.
+  * [`Error403`](./src/gr4vy/errors/error403.py): The credentials were invalid or the caller did not have permission to act on the resource. Status code `403`.
+  * [`Error404`](./src/gr4vy/errors/error404.py): The resource was not found. Status code `404`.
+  * [`Error405`](./src/gr4vy/errors/error405.py): The request method was not allowed. Status code `405`.
+  * [`Error409`](./src/gr4vy/errors/error409.py): A duplicate record was found. Status code `409`.
+  * [`Error425`](./src/gr4vy/errors/error425.py): The request was too early. Status code `425`.
+  * [`Error429`](./src/gr4vy/errors/error429.py): Too many requests were made. Status code `429`.
+  * [`Error500`](./src/gr4vy/errors/error500.py): The server encountered an error. Status code `500`.
+  * [`Error502`](./src/gr4vy/errors/error502.py): The server encountered an error. Status code `502`.
+  * [`Error504`](./src/gr4vy/errors/error504.py): The server encountered an error. Status code `504`.
   * [`HTTPValidationError`](./src/gr4vy/errors/httpvalidationerror.py): Validation Error. Status code `422`. *
-  * [`Error425`](./src/gr4vy/errors/error425.py): The request was too early. Status code `425`. *
-  * [`Error429`](./src/gr4vy/errors/error429.py): Too many requests were made. Status code `429`. *
-  * [`Error500`](./src/gr4vy/errors/error500.py): The server encountered an error. Status code `500`. *
-  * [`Error502`](./src/gr4vy/errors/error502.py): The server encountered an error. Status code `502`. *
-  * [`Error504`](./src/gr4vy/errors/error504.py): The server encountered an error. Status code `504`. *
 
 <details><summary>Less common errors (5)</summary>
 
@@ -711,7 +728,12 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.browse_payment_method_definitions_get()
+    res = g_client.account_updater.jobs.create(payment_method_ids=[
+        "ef9496d8-53a5-4aad-8ca2-00eb68334389",
+        "f29e886e-93cc-4714-b4a3-12b7a718e595",
+    ])
+
+    assert res is not None
 
     # Handle response
     print(res)
@@ -732,7 +754,12 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.browse_payment_method_definitions_get()
+    res = g_client.account_updater.jobs.create(payment_method_ids=[
+        "ef9496d8-53a5-4aad-8ca2-00eb68334389",
+        "f29e886e-93cc-4714-b4a3-12b7a718e595",
+    ])
+
+    assert res is not None
 
     # Handle response
     print(res)
