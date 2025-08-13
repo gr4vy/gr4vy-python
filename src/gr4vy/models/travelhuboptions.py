@@ -12,6 +12,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TravelhubOptionsTypedDict(TypedDict):
     custom_data: NotRequired[Nullable[List[TravelHubCustomDataTypedDict]]]
     r"""A list of `customData` to pass to the TravelHub API."""
+    company_name: NotRequired[Nullable[str]]
+    r"""Customer company name to pass to the TravelHub API."""
 
 
 class TravelhubOptions(BaseModel):
@@ -20,10 +22,15 @@ class TravelhubOptions(BaseModel):
     ] = UNSET
     r"""A list of `customData` to pass to the TravelHub API."""
 
+    company_name: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="companyName")
+    ] = UNSET
+    r"""Customer company name to pass to the TravelHub API."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["customData"]
-        nullable_fields = ["customData"]
+        optional_fields = ["customData", "companyName"]
+        nullable_fields = ["customData", "companyName"]
         null_default_fields = []
 
         serialized = handler(self)

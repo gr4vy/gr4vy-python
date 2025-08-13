@@ -21,7 +21,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 1.1.28
+  version: 1.1.29
   additionalDependencies:
     dev:
       freezegun: ^1.5.1
@@ -60,6 +60,7 @@ python:
   methodArguments: infer-optional-args
   moduleName: ""
   outputModelSuffix: output
+  packageManager: poetry
   packageName: gr4vy
   pytestFilterWarnings: []
   pytestTimeout: 0
