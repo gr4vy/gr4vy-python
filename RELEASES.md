@@ -629,3 +629,13 @@ Based on:
 - [python v1.1.29] .
 ### Releases
 - [PyPI v1.1.29] https://pypi.org/project/gr4vy/1.1.29 - .
+
+## 2025-08-14 18:25:13
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.604.0 (2.683.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v1.1.30] .
+### Releases
+- [PyPI v1.1.30] https://pypi.org/project/gr4vy/1.1.30 - .

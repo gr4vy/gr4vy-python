@@ -10,6 +10,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TrustlyOptionsTypedDict(TypedDict):
     refresh_split_token: NotRequired[Nullable[bool]]
     r"""Indicates to Gr4vy whether or not the stored Trustly agreement needs refreshing."""
+    url_scheme: NotRequired[Nullable[str]]
+    r"""URL scheme for an app."""
 
 
 class TrustlyOptions(BaseModel):
@@ -18,10 +20,15 @@ class TrustlyOptions(BaseModel):
     ] = UNSET
     r"""Indicates to Gr4vy whether or not the stored Trustly agreement needs refreshing."""
 
+    url_scheme: Annotated[OptionalNullable[str], pydantic.Field(alias="urlScheme")] = (
+        UNSET
+    )
+    r"""URL scheme for an app."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["refreshSplitToken"]
-        nullable_fields = ["refreshSplitToken"]
+        optional_fields = ["refreshSplitToken", "urlScheme"]
+        nullable_fields = ["refreshSplitToken", "urlScheme"]
         null_default_fields = []
 
         serialized = handler(self)
