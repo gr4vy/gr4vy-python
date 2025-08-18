@@ -15,6 +15,8 @@ class StripeConnectOptionsTypedDict(TypedDict):
     r"""The Stripe Connect account to target using the `on_behalf_of` request parameter."""
     transfer_data_destination: NotRequired[Nullable[str]]
     r"""The Stripe Connect account to target using the `transfer_data.destination` request parameter."""
+    transfer_group: NotRequired[Nullable[str]]
+    r"""A string that identifies the payment as part of a group."""
 
 
 class StripeConnectOptions(BaseModel):
@@ -30,6 +32,9 @@ class StripeConnectOptions(BaseModel):
     transfer_data_destination: OptionalNullable[str] = UNSET
     r"""The Stripe Connect account to target using the `transfer_data.destination` request parameter."""
 
+    transfer_group: OptionalNullable[str] = UNSET
+    r"""A string that identifies the payment as part of a group."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -37,12 +42,14 @@ class StripeConnectOptions(BaseModel):
             "application_fee_amount",
             "on_behalf_of",
             "transfer_data_destination",
+            "transfer_group",
         ]
         nullable_fields = [
             "stripe_account",
             "application_fee_amount",
             "on_behalf_of",
             "transfer_data_destination",
+            "transfer_group",
         ]
         null_default_fields = []
 
