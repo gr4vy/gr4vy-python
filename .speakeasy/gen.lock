@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 4b97b5e935470b684ea55c9f7806cdb9
+  docChecksum: 76dc1b3e6c46f05a8a9cbf683e6812a4
   docVersion: 1.0.0
-  speakeasyVersion: 1.604.0
-  generationVersion: 2.683.1
-  releaseVersion: 1.1.30
-  configChecksum: ef8750b57000f29b33731b76a3db988f
+  speakeasyVersion: 1.605.1
+  generationVersion: 2.684.0
+  releaseVersion: 1.1.31
+  configChecksum: 240c1c5c43f63afb2c284a57c3101519
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -4389,3 +4389,4 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## SDK Changes Detected:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.stripe-card.stripe_connect.transfer_group` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.stripe-card.stripe_connect.transfer_group` **Added**\n* `gr4vy.payment-links.create()`: \n  *  `request.connection_options.stripe-card.stripe_connect.transfer_group` **Added**\n"
