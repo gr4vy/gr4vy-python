@@ -48,6 +48,8 @@ Name = Union[
         "payment-connector-response-transaction-void-failed",
         "payment-connector-external-transaction-request",
         "payment-connector-report-transaction-settled",
+        "payment-connector-report-chargeback-posted",
+        "payment-connector-report-chargeback-reversal-posted",
         "digital-wallet-apple-pay-token-decrypted",
         "digital-wallet-google-pay-token-decrypted",
         "digital-wallet-click-to-pay-token-decrypted",
