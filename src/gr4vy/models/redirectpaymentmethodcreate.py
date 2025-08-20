@@ -74,6 +74,7 @@ RedirectPaymentMethodCreateMethod = Union[
         "oney_6x",
         "ovo",
         "oxxo",
+        "p24",
         "pagoefectivo",
         "payid",
         "paymaya",
