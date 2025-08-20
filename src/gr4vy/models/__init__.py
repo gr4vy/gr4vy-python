@@ -52,6 +52,7 @@ if TYPE_CHECKING:
     from .adyencardoptions import AdyenCardOptions, AdyenCardOptionsTypedDict
     from .adyenoptions import AdyenOptions, AdyenOptionsTypedDict
     from .adyensepaoptions import AdyenSepaOptions, AdyenSepaOptionsTypedDict
+    from .adyensplitsoptions import AdyenSplitsOptions, AdyenSplitsOptionsTypedDict
     from .affirmitineraryoptions import (
         AffirmItineraryOptions,
         AffirmItineraryOptionsTypedDict,
@@ -1172,6 +1173,8 @@ __all__ = [
     "AdyenOptionsTypedDict",
     "AdyenSepaOptions",
     "AdyenSepaOptionsTypedDict",
+    "AdyenSplitsOptions",
+    "AdyenSplitsOptionsTypedDict",
     "AffirmItineraryOptions",
     "AffirmItineraryOptionsTypedDict",
     "AffirmOptions",
@@ -2052,6 +2055,8 @@ _dynamic_imports: dict[str, str] = {
     "AdyenOptionsTypedDict": ".adyenoptions",
     "AdyenSepaOptions": ".adyensepaoptions",
     "AdyenSepaOptionsTypedDict": ".adyensepaoptions",
+    "AdyenSplitsOptions": ".adyensplitsoptions",
+    "AdyenSplitsOptionsTypedDict": ".adyensplitsoptions",
     "AffirmItineraryOptions": ".affirmitineraryoptions",
     "AffirmItineraryOptionsTypedDict": ".affirmitineraryoptions",
     "AffirmOptions": ".affirmoptions",

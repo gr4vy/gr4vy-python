@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .adyencardautorescuescenariosenum import AdyenCardAutoRescueScenariosEnum
+from .adyensplitsoptions import AdyenSplitsOptions, AdyenSplitsOptionsTypedDict
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from gr4vy.utils import validate_open_enum
 import pydantic
@@ -22,6 +23,8 @@ class AdyenCardOptionsTypedDict(TypedDict):
     r"""The rescue scenario to simulate for a transaction, when `autoRescue` is set to `true`."""
     window_origin: NotRequired[Nullable[str]]
     r"""The origin of the window where the payment is initiated, used for 3D Secure authentication."""
+    splits: NotRequired[Nullable[AdyenSplitsOptionsTypedDict]]
+    r"""Passes information of splitting payment amounts to the Adyen API."""
 
 
 class AdyenCardOptions(BaseModel):
@@ -52,6 +55,9 @@ class AdyenCardOptions(BaseModel):
     window_origin: OptionalNullable[str] = UNSET
     r"""The origin of the window where the payment is initiated, used for 3D Secure authentication."""
 
+    splits: OptionalNullable[AdyenSplitsOptions] = UNSET
+    r"""Passes information of splitting payment amounts to the Adyen API."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -60,6 +66,7 @@ class AdyenCardOptions(BaseModel):
             "additionalData",
             "autoRescueScenario",
             "window_origin",
+            "splits",
         ]
         nullable_fields = [
             "autoRescue",
@@ -67,6 +74,7 @@ class AdyenCardOptions(BaseModel):
             "additionalData",
             "autoRescueScenario",
             "window_origin",
+            "splits",
         ]
         null_default_fields = []
 
