@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 4f45ca995a1074dbcc5a510e0176f6e6
+  docChecksum: 2c00a922cbfc3592ce1499fd126c7b3f
   docVersion: 1.0.0
   speakeasyVersion: 1.606.0
   generationVersion: 2.686.7
-  releaseVersion: 1.1.32
-  configChecksum: 8ea366449b0f4f7621ffedca4e7a5caf
+  releaseVersion: 1.1.33
+  configChecksum: 95777b4c6b50fdb3f1fc86c7a9171b87
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -4389,3 +4389,11 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## SDK Changes Detected:
+  * `gr4vy.transactions.create()`:  `response.canceled_at` **Added**
+  * `gr4vy.transactions.get()`:  `response.canceled_at` **Added**
+  * `gr4vy.transactions.update()`:  `response.canceled_at` **Added**
+  * `gr4vy.transactions.capture()`:  `response.[transaction].canceled_at` **Added**
+  * `gr4vy.transactions.void()`:  `response.[transaction].canceled_at` **Added**
+  * `gr4vy.transactions.sync()`:  `response.canceled_at` **Added**

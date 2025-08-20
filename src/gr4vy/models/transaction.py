@@ -144,6 +144,8 @@ class TransactionTypedDict(TypedDict):
     r"""The date this transaction was captured at."""
     voided_at: NotRequired[Nullable[datetime]]
     r"""The date this transaction was voided at."""
+    canceled_at: NotRequired[Nullable[datetime]]
+    r"""The date this transaction was canceled at."""
     approval_expires_at: NotRequired[Nullable[datetime]]
     r"""The date this transaction's approval URL will expire at."""
     buyer_approval_timedout_at: NotRequired[Nullable[datetime]]
@@ -332,6 +334,9 @@ class Transaction(BaseModel):
     voided_at: OptionalNullable[datetime] = UNSET
     r"""The date this transaction was voided at."""
 
+    canceled_at: OptionalNullable[datetime] = UNSET
+    r"""The date this transaction was canceled at."""
+
     approval_expires_at: OptionalNullable[datetime] = UNSET
     r"""The date this transaction's approval URL will expire at."""
 
@@ -381,6 +386,7 @@ class Transaction(BaseModel):
             "authorized_at",
             "captured_at",
             "voided_at",
+            "canceled_at",
             "approval_expires_at",
             "buyer_approval_timedout_at",
             "recipient",
@@ -416,6 +422,7 @@ class Transaction(BaseModel):
             "authorized_at",
             "captured_at",
             "voided_at",
+            "canceled_at",
             "approval_expires_at",
             "buyer_approval_timedout_at",
             "recipient",

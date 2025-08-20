@@ -43,6 +43,8 @@ Name = Union[
         "payment-connector-response-transaction-declined",
         "payment-connector-response-transaction-capture-failed",
         "payment-connector-response-transaction-capture-declined",
+        "payment-connector-response-transaction-cancel-succeeded",
+        "payment-connector-response-transaction-cancel-failed",
         "payment-connector-response-transaction-void-succeeded",
         "payment-connector-response-transaction-void-declined",
         "payment-connector-response-transaction-void-failed",
