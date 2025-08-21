@@ -88,6 +88,7 @@ if TYPE_CHECKING:
     from .braintreedynamicdatafieldsoptions import (
         BraintreeDynamicDataFieldsOptions,
         BraintreeDynamicDataFieldsOptionsTypedDict,
+        VaultPaymentMethodCriteria,
     )
     from .braintreeoptions import BraintreeOptions, BraintreeOptionsTypedDict
     from .browserinfo import BrowserInfo, BrowserInfoTypedDict, UserDevice
@@ -1993,6 +1994,7 @@ __all__ = [
     "UserStatus",
     "ValidationError",
     "ValidationErrorTypedDict",
+    "VaultPaymentMethodCriteria",
     "VerifyCredentials",
     "VerifyCredentialsTypedDict",
     "VerifyPaymentServiceCredentialsGlobals",
@@ -2092,6 +2094,7 @@ _dynamic_imports: dict[str, str] = {
     "BillingDetailsOutputTypedDict": ".billingdetails_output",
     "BraintreeDynamicDataFieldsOptions": ".braintreedynamicdatafieldsoptions",
     "BraintreeDynamicDataFieldsOptionsTypedDict": ".braintreedynamicdatafieldsoptions",
+    "VaultPaymentMethodCriteria": ".braintreedynamicdatafieldsoptions",
     "BraintreeOptions": ".braintreeoptions",
     "BraintreeOptionsTypedDict": ".braintreeoptions",
     "BrowserInfo": ".browserinfo",
