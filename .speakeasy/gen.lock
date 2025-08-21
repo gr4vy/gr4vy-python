@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: ece3a7ff276d632a823b3ecc25cc0027
+  docChecksum: 79c74c924ee626442befa6d05ee81412
   docVersion: 1.0.0
   speakeasyVersion: 1.606.0
   generationVersion: 2.686.7
-  releaseVersion: 1.1.34
-  configChecksum: 190e104dc330a23f562e9e2963d54638
+  releaseVersion: 1.1.35
+  configChecksum: 0eb6bf8b15744efadb67110d0a5daf11
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -510,6 +510,7 @@ generatedFiles:
   - docs/models/userstatus.md
   - docs/models/utils/retryconfig.md
   - docs/models/validationerror.md
+  - docs/models/vaultpaymentmethodcriteria.md
   - docs/models/verifycredentials.md
   - docs/models/verifypaymentservicecredentialsglobals.md
   - docs/models/verifypaymentservicecredentialsrequest.md
@@ -4391,4 +4392,4 @@ examples:
           application/json: {}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## SDK Changes Detected:\n* `gr4vy.transactions.list()`:  `request.method` **Changed**\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.adyen-card.splits` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.adyen-card.splits` **Added**\n* `gr4vy.payment-services.list()`:  `request.method` **Changed**\n* `gr4vy.payment-links.create()`: \n  *  `request.connection_options.adyen-card.splits` **Added**\n"
+releaseNotes: "## SDK Changes Detected:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.braintree-card.dynamic_data_fields.vault_payment_method_criteria` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.braintree-card.dynamic_data_fields.vault_payment_method_criteria` **Added**\n* `gr4vy.payment-links.create()`: \n  *  `request.connection_options.braintree-card.dynamic_data_fields.vault_payment_method_criteria` **Added**\n"
