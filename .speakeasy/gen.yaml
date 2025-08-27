@@ -21,7 +21,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 1.1.35
+  version: 1.2.0
   additionalDependencies:
     dev:
       freezegun: ^1.5.1
@@ -33,6 +33,9 @@ python:
       PyJWT: ^2.10.1
       cryptography: ^43.0.0
       python-jose: ^3.4.0
+  allowedRedefinedBuiltins:
+    - id
+    - object
   authors:
     - Gr4vy
   baseErrorName: Gr4vyError

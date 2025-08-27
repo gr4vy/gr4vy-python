@@ -19,15 +19,23 @@ class BuyersSDK(BaseSDK):
     gift_cards: BuyersGiftCards
     shipping_details: BuyersShippingDetails
 
-    def __init__(self, sdk_config: SDKConfiguration) -> None:
-        BaseSDK.__init__(self, sdk_config)
+    def __init__(
+        self, sdk_config: SDKConfiguration, parent_ref: Optional[object] = None
+    ) -> None:
+        BaseSDK.__init__(self, sdk_config, parent_ref=parent_ref)
         self.sdk_configuration = sdk_config
         self._init_sdks()
 
     def _init_sdks(self):
-        self.payment_methods = BuyersPaymentMethods(self.sdk_configuration)
-        self.gift_cards = BuyersGiftCards(self.sdk_configuration)
-        self.shipping_details = BuyersShippingDetails(self.sdk_configuration)
+        self.payment_methods = BuyersPaymentMethods(
+            self.sdk_configuration, parent_ref=self.parent_ref
+        )
+        self.gift_cards = BuyersGiftCards(
+            self.sdk_configuration, parent_ref=self.parent_ref
+        )
+        self.shipping_details = BuyersShippingDetails(
+            self.sdk_configuration, parent_ref=self.parent_ref
+        )
 
     def list(
         self,
