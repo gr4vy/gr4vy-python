@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: d07026f9c8d61b9893a9c6976aa07994
+  docChecksum: 9be807231e8c73fecf945a173612a23c
   docVersion: 1.0.0
   speakeasyVersion: 1.606.8
   generationVersion: 2.687.13
-  releaseVersion: 1.2.0
-  configChecksum: c32aa7a4111182eb5fa869361ae0b6cb
+  releaseVersion: 1.2.1
+  configChecksum: c7d98ee7c47ce38c7a1733ace2849be6
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -99,6 +99,9 @@ generatedFiles:
   - docs/models/buyercreate.md
   - docs/models/buyers.md
   - docs/models/buyerupdate.md
+  - docs/models/cancelstatus.md
+  - docs/models/canceltransactionglobals.md
+  - docs/models/canceltransactionrequest.md
   - docs/models/capturestatus.md
   - docs/models/capturetransactionglobals.md
   - docs/models/capturetransactionrequest.md
@@ -462,6 +465,7 @@ generatedFiles:
   - docs/models/tokenpaymentmethodcreate.md
   - docs/models/transaction.md
   - docs/models/transactionbuyer.md
+  - docs/models/transactioncancel.md
   - docs/models/transactioncapture.md
   - docs/models/transactioncapturecreate.md
   - docs/models/transactionconnectionoptions.md
@@ -645,6 +649,8 @@ generatedFiles:
   - src/gr4vy/models/buyercreate.py
   - src/gr4vy/models/buyers.py
   - src/gr4vy/models/buyerupdate.py
+  - src/gr4vy/models/cancel_transactionop.py
+  - src/gr4vy/models/cancelstatus.py
   - src/gr4vy/models/capture_transactionop.py
   - src/gr4vy/models/capturestatus.py
   - src/gr4vy/models/cardpaymentmethodcreate.py
@@ -904,6 +910,7 @@ generatedFiles:
   - src/gr4vy/models/tokenpaymentmethodcreate.py
   - src/gr4vy/models/transaction.py
   - src/gr4vy/models/transactionbuyer.py
+  - src/gr4vy/models/transactioncancel.py
   - src/gr4vy/models/transactioncapture.py
   - src/gr4vy/models/transactioncapturecreate.py
   - src/gr4vy/models/transactionconnectionoptions.py
@@ -4390,5 +4397,40 @@ examples:
           application/json: "<value>"
         "422":
           application/json: {}
+  cancel_transaction:
+    speakeasy-default-cancel-transaction:
+      parameters:
+        path:
+          transaction_id: "7099948d-7286-47e4-aad8-b68f7eb44591"
+      responses:
+        "200":
+          application/json: {"type": "transaction-cancel", "status": "succeeded", "code": "service_error", "raw_response_code": "E104", "raw_response_description": "Internal error", "transaction": {"type": "transaction", "id": "7099948d-7286-47e4-aad8-b68f7eb44591", "reconciliation_id": "default", "merchant_account_id": "default", "currency": "EUR", "amount": 1299, "status": "authorization_void_pending", "authorized_amount": 1299, "captured_amount": 1299, "refunded_amount": 1299, "settled_amount": 1100, "settled": true, "intent": "authorize", "pending_review": false, "gift_card_redemptions": [{"type": "gift-card-redemption", "id": "31e65fb1-9c67-432e-9c06-83300b9d4059", "status": "succeeded", "amount": 100, "refunded_amount": 50, "gift_card": {"type": "gift-card", "bin": "412345", "sub_bin": "554", "last4": "1234"}}], "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00", "payment_source": "ecommerce", "merchant_initiated": true, "is_subsequent_payment": false, "intent_outcome": "pending", "multi_tender": true, "account_funding_transaction": true}}
+        "400":
+          application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
+        "401":
+          application/json: {"type": "error", "code": "unauthorized", "status": 401, "message": "No valid API authentication found"}
+        "403":
+          application/json: {"type": "error", "code": "forbidden", "status": 403, "message": "Request failed validation"}
+        "404":
+          application/json: {"type": "error", "code": "not_found", "status": 404, "message": "The resource could not be found"}
+        "405":
+          application/json: {"type": "error", "code": "method_not_allowed", "status": 405, "message": "Method Not Allowed"}
+        "409":
+          application/json: {"type": "error", "code": "duplicate_record", "status": 409, "message": "Request failed validation"}
+        "422":
+          application/json: {}
+        "425":
+          application/json: {"type": "error", "code": "too_early", "status": 425, "message": "Request failed validation"}
+        "429":
+          application/json: {"type": "error", "code": "too_many_requests", "status": 429, "message": "Request failed validation"}
+        "500":
+          application/json: {"type": "error", "code": "server_error", "status": 500, "message": "Request could not be processed"}
+        "502":
+          application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
+        "504":
+          application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## SDK Changes Detected:
+  * `gr4vy.transactions.cancel()`: **Added**
