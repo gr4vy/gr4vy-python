@@ -97,6 +97,13 @@ if TYPE_CHECKING:
     from .buyercreate import BuyerCreate, BuyerCreateTypedDict
     from .buyers import Buyers, BuyersTypedDict
     from .buyerupdate import BuyerUpdate, BuyerUpdateTypedDict
+    from .cancel_transactionop import (
+        CancelTransactionGlobals,
+        CancelTransactionGlobalsTypedDict,
+        CancelTransactionRequest,
+        CancelTransactionRequestTypedDict,
+    )
+    from .cancelstatus import CancelStatus
     from .capture_transactionop import (
         CaptureTransactionGlobals,
         CaptureTransactionGlobalsTypedDict,
@@ -977,6 +984,7 @@ if TYPE_CHECKING:
     )
     from .transaction import Transaction, TransactionTypedDict
     from .transactionbuyer import TransactionBuyer, TransactionBuyerTypedDict
+    from .transactioncancel import TransactionCancel, TransactionCancelTypedDict
     from .transactioncapture import TransactionCapture, TransactionCaptureTypedDict
     from .transactioncapturecreate import (
         TransactionCaptureCreate,
@@ -1224,6 +1232,11 @@ __all__ = [
     "Buyers",
     "BuyersTypedDict",
     "CVVResponseCode",
+    "CancelStatus",
+    "CancelTransactionGlobals",
+    "CancelTransactionGlobalsTypedDict",
+    "CancelTransactionRequest",
+    "CancelTransactionRequestTypedDict",
     "CaptureStatus",
     "CaptureTransactionGlobals",
     "CaptureTransactionGlobalsTypedDict",
@@ -1907,6 +1920,8 @@ __all__ = [
     "Transaction",
     "TransactionBuyer",
     "TransactionBuyerTypedDict",
+    "TransactionCancel",
+    "TransactionCancelTypedDict",
     "TransactionCapture",
     "TransactionCaptureCreate",
     "TransactionCaptureCreateTypedDict",
@@ -2109,6 +2124,11 @@ _dynamic_imports: dict[str, str] = {
     "BuyersTypedDict": ".buyers",
     "BuyerUpdate": ".buyerupdate",
     "BuyerUpdateTypedDict": ".buyerupdate",
+    "CancelTransactionGlobals": ".cancel_transactionop",
+    "CancelTransactionGlobalsTypedDict": ".cancel_transactionop",
+    "CancelTransactionRequest": ".cancel_transactionop",
+    "CancelTransactionRequestTypedDict": ".cancel_transactionop",
+    "CancelStatus": ".cancelstatus",
     "CaptureTransactionGlobals": ".capture_transactionop",
     "CaptureTransactionGlobalsTypedDict": ".capture_transactionop",
     "CaptureTransactionRequest": ".capture_transactionop",
@@ -2784,6 +2804,8 @@ _dynamic_imports: dict[str, str] = {
     "TransactionTypedDict": ".transaction",
     "TransactionBuyer": ".transactionbuyer",
     "TransactionBuyerTypedDict": ".transactionbuyer",
+    "TransactionCancel": ".transactioncancel",
+    "TransactionCancelTypedDict": ".transactioncancel",
     "TransactionCapture": ".transactioncapture",
     "TransactionCaptureTypedDict": ".transactioncapture",
     "TransactionCaptureCreate": ".transactioncapturecreate",
