@@ -15,21 +15,21 @@ class SettlementTypedDict(TypedDict):
     r"""A settlement record for a transaction."""
 
     id: str
-    r"""The unique identifier for the settlement."""
+    r"""The unique identifier for the record."""
     merchant_account_id: str
-    r"""The merchant account this settlement belongs to."""
+    r"""The merchant account this record belongs to."""
     created_at: datetime
-    r"""The date and time the settlement was created, in ISO 8601 format."""
+    r"""The date and time the record was created, in ISO 8601 format."""
     updated_at: datetime
-    r"""The date and time the settlement was last updated, in ISO 8601 format."""
+    r"""The date and time the record was last updated, in ISO 8601 format."""
     posted_at: datetime
-    r"""The date and time the settlement was posted, in ISO 8601 format."""
+    r"""The date and time the record was posted, in ISO 8601 format."""
     ingested_at: datetime
-    r"""The date and time the settlement was ingested, in ISO 8601 format."""
+    r"""The date and time the record was ingested, in ISO 8601 format."""
     currency: str
-    r"""ISO 4217 currency code for the settlement."""
+    r"""ISO 4217 currency code."""
     amount: int
-    r"""The total settled amount in the smallest currency unit (e.g. cents)."""
+    r"""The total amount in the smallest currency unit (e.g. cents)."""
     commission: int
     r"""The commission amount deducted in the smallest currency unit."""
     payment_service_report_id: str
@@ -37,45 +37,45 @@ class SettlementTypedDict(TypedDict):
     payment_service_report_file_ids: List[str]
     r"""List of file IDs for the payment service report."""
     transaction_id: str
-    r"""The transaction this settlement is associated with."""
-    type: Literal["settlement"]
-    r"""Always 'settlement'."""
+    r"""The transaction this record is associated with."""
     exchange_rate: NotRequired[Nullable[float]]
-    r"""The exchange rate used for settlement, if applicable."""
+    r"""The exchange rate, if applicable."""
     interchange: NotRequired[Nullable[int]]
     r"""The interchange fee, if applicable, in the smallest currency unit."""
     markup: NotRequired[Nullable[int]]
     r"""The markup fee, if applicable, in the smallest currency unit."""
     scheme_fee: NotRequired[Nullable[int]]
     r"""The scheme fee, if applicable, in the smallest currency unit."""
+    type: Literal["settlement"]
+    r"""Always `settlement`."""
 
 
 class Settlement(BaseModel):
     r"""A settlement record for a transaction."""
 
     id: str
-    r"""The unique identifier for the settlement."""
+    r"""The unique identifier for the record."""
 
     merchant_account_id: str
-    r"""The merchant account this settlement belongs to."""
+    r"""The merchant account this record belongs to."""
 
     created_at: datetime
-    r"""The date and time the settlement was created, in ISO 8601 format."""
+    r"""The date and time the record was created, in ISO 8601 format."""
 
     updated_at: datetime
-    r"""The date and time the settlement was last updated, in ISO 8601 format."""
+    r"""The date and time the record was last updated, in ISO 8601 format."""
 
     posted_at: datetime
-    r"""The date and time the settlement was posted, in ISO 8601 format."""
+    r"""The date and time the record was posted, in ISO 8601 format."""
 
     ingested_at: datetime
-    r"""The date and time the settlement was ingested, in ISO 8601 format."""
+    r"""The date and time the record was ingested, in ISO 8601 format."""
 
     currency: str
-    r"""ISO 4217 currency code for the settlement."""
+    r"""ISO 4217 currency code."""
 
     amount: int
-    r"""The total settled amount in the smallest currency unit (e.g. cents)."""
+    r"""The total amount in the smallest currency unit (e.g. cents)."""
 
     commission: int
     r"""The commission amount deducted in the smallest currency unit."""
@@ -87,19 +87,10 @@ class Settlement(BaseModel):
     r"""List of file IDs for the payment service report."""
 
     transaction_id: str
-    r"""The transaction this settlement is associated with."""
-
-    TYPE: Annotated[
-        Annotated[
-            Optional[Literal["settlement"]],
-            AfterValidator(validate_const("settlement")),
-        ],
-        pydantic.Field(alias="type"),
-    ] = "settlement"
-    r"""Always 'settlement'."""
+    r"""The transaction this record is associated with."""
 
     exchange_rate: OptionalNullable[float] = UNSET
-    r"""The exchange rate used for settlement, if applicable."""
+    r"""The exchange rate, if applicable."""
 
     interchange: OptionalNullable[int] = UNSET
     r"""The interchange fee, if applicable, in the smallest currency unit."""
@@ -110,14 +101,23 @@ class Settlement(BaseModel):
     scheme_fee: OptionalNullable[int] = UNSET
     r"""The scheme fee, if applicable, in the smallest currency unit."""
 
+    TYPE: Annotated[
+        Annotated[
+            Optional[Literal["settlement"]],
+            AfterValidator(validate_const("settlement")),
+        ],
+        pydantic.Field(alias="type"),
+    ] = "settlement"
+    r"""Always `settlement`."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
-            "type",
             "exchange_rate",
             "interchange",
             "markup",
             "scheme_fee",
+            "type",
         ]
         nullable_fields = ["exchange_rate", "interchange", "markup", "scheme_fee"]
         null_default_fields = []
