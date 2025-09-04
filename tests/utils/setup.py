@@ -1,9 +1,11 @@
+import httpx
 import os
 import secrets
 import logging
 from typing import Optional
 from pathlib import Path
 from gr4vy import Gr4vy, auth
+from utils.client import JsonInterceptorClient
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -25,7 +27,12 @@ def create_gr4vy_client(private_key: str, merchant_account_id: Optional[str] = N
     """
     Creates a Gr4vy client instance.
     """
+    base_http_client = httpx.Client()
+    intercepting_client = JsonInterceptorClient(base_http_client)
+
+
     return Gr4vy(
+        client=intercepting_client,
         server="sandbox",
         id="e2e",
         merchant_account_id=merchant_account_id,
