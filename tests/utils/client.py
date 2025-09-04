@@ -3,7 +3,6 @@ import json
 import random
 from typing import Any, Optional, Union
 
-from gr4vy import Gr4vy
 from gr4vy.httpclient import HttpClient  # Using the synchronous client for this example
 
 
@@ -77,7 +76,7 @@ class JsonInterceptorClient(HttpClient):
             return modified_response
 
         except json.JSONDecodeError:
-            # If JSON parsing fails, we must still return a valid response.
+            # If jsn parsing fails, we must still return a valid response.
             # Since we already consumed the stream with .read(), we reconstruct
             # the original response from its stored content.
             return httpx.Response(
@@ -95,7 +94,7 @@ class JsonInterceptorClient(HttpClient):
         content: Optional[httpx._types.RequestContent] = None,
         data: Optional[httpx._types.RequestData] = None,
         files: Optional[httpx._types.RequestFiles] = None,
-        json: Optional[Any] = None,
+        json: Optional[Any] = None, # pylint: disable=redefined-outer-name
         params: Optional[httpx._types.QueryParamTypes] = None,
         headers: Optional[httpx._types.HeaderTypes] = None,
         cookies: Optional[httpx._types.CookieTypes] = None,
