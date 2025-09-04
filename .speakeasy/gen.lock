@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: a73dabbea4336bfc1db04a84822751e2
+  docChecksum: 864f964834748cd909990ae4311efc79
   docVersion: 1.0.0
-  speakeasyVersion: 1.607.0
-  generationVersion: 2.690.1
-  releaseVersion: 1.2.2
-  configChecksum: 97a5470133ba498d151d2c904a121c91
+  speakeasyVersion: 1.609.0
+  generationVersion: 2.692.0
+  releaseVersion: 1.2.3
+  configChecksum: 32c8fa71bd779ec3e90b39de72df9fe7
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.20.2
+    core: 5.20.3
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
@@ -4431,3 +4431,6 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Python SDK Changes Detected:
+  * `gr4vy.audit-logs.list()`:  `request.action` **Changed**
