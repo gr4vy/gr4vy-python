@@ -58,6 +58,8 @@ class TransactionSummaryTypedDict(TypedDict):
     r"""The date and time when the transaction was created, in ISO 8601 format."""
     updated_at: datetime
     r"""The date and time when the transaction was last updated, in ISO 8601 format."""
+    disputed: bool
+    r"""Indicates whether this transaction has been disputed."""
     type: Literal["transaction"]
     r"""Always `transaction`."""
     settled_currency: NotRequired[Nullable[str]]
@@ -137,6 +139,9 @@ class TransactionSummary(BaseModel):
 
     updated_at: datetime
     r"""The date and time when the transaction was last updated, in ISO 8601 format."""
+
+    disputed: bool
+    r"""Indicates whether this transaction has been disputed."""
 
     TYPE: Annotated[
         Annotated[

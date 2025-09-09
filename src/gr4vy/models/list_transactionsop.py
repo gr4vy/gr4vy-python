@@ -108,6 +108,8 @@ class ListTransactionsRequestTypedDict(TypedDict):
     r"""Filters for transactions where the `merchant_initiated` matches the provided value."""
     used_3ds: NotRequired[Nullable[bool]]
     r"""Filters for transactions that attempted 3DS authentication or not."""
+    disputed: NotRequired[Nullable[bool]]
+    r"""Filters for transactions that have been disputed."""
     buyer_search: NotRequired[Nullable[List[str]]]
     r"""Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values."""
     merchant_account_id: NotRequired[str]
@@ -368,6 +370,12 @@ class ListTransactionsRequest(BaseModel):
     ] = UNSET
     r"""Filters for transactions that attempted 3DS authentication or not."""
 
+    disputed: Annotated[
+        OptionalNullable[bool],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters for transactions that have been disputed."""
+
     buyer_search: Annotated[
         OptionalNullable[List[str]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
@@ -426,6 +434,7 @@ class ListTransactionsRequest(BaseModel):
             "is_subsequent_payment",
             "merchant_initiated",
             "used_3ds",
+            "disputed",
             "buyer_search",
             "merchant_account_id",
         ]
@@ -471,6 +480,7 @@ class ListTransactionsRequest(BaseModel):
             "is_subsequent_payment",
             "merchant_initiated",
             "used_3ds",
+            "disputed",
             "buyer_search",
         ]
         null_default_fields = []
