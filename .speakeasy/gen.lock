@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.613.0
   generationVersion: 2.696.0
-  releaseVersion: 1.2.4
-  configChecksum: ff4efc08c1a6c78f453beb0d0a30d3af
+  releaseVersion: 1.2.5
+  configChecksum: f10825c822091770f8d9be3d12d4db4a
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -4431,4 +4431,3 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes Detected:\n* `gr4vy.transactions.list()`: \n  *  `request.disputed` **Added**\n  *  `response.items.[].disputed` **Added**\n* `gr4vy.transactions.create()`:  `response.disputed` **Added**\n* `gr4vy.transactions.get()`:  `response.disputed` **Added**\n* `gr4vy.transactions.update()`:  `response.disputed` **Added**\n* `gr4vy.transactions.capture()`:  `response.[transaction].disputed` **Added**\n* `gr4vy.transactions.void()`:  `response.[transaction].disputed` **Added**\n* `gr4vy.transactions.cancel()`:  `response.transaction.disputed` **Added**\n* `gr4vy.transactions.sync()`:  `response.disputed` **Added**\n"
