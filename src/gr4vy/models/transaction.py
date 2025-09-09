@@ -71,6 +71,8 @@ class TransactionTypedDict(TypedDict):
     r"""The date and time when the transaction was created, in ISO 8601 format."""
     updated_at: datetime
     r"""The date and time when the transaction was last updated, in ISO 8601 format."""
+    disputed: bool
+    r"""Indicates whether this transaction has been disputed."""
     payment_source: TransactionPaymentSource
     r"""The way payment method information made it to this transaction."""
     merchant_initiated: bool
@@ -203,6 +205,9 @@ class Transaction(BaseModel):
 
     updated_at: datetime
     r"""The date and time when the transaction was last updated, in ISO 8601 format."""
+
+    disputed: bool
+    r"""Indicates whether this transaction has been disputed."""
 
     payment_source: Annotated[
         TransactionPaymentSource, PlainValidator(validate_open_enum(False))
