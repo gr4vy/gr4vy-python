@@ -776,6 +776,13 @@ class Transactions(BaseSDK):
             Union[models.Recipient, models.RecipientTypedDict]
         ] = UNSET,
         installment_count: OptionalNullable[int] = UNSET,
+        tax_amount: OptionalNullable[int] = UNSET,
+        merchant_tax_id: OptionalNullable[str] = UNSET,
+        customer_reference_number: OptionalNullable[str] = UNSET,
+        amount_includes_tax: OptionalNullable[bool] = UNSET,
+        supplier_order_number: OptionalNullable[str] = UNSET,
+        duty_amount: OptionalNullable[int] = UNSET,
+        shipping_amount: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -818,6 +825,13 @@ class Transactions(BaseSDK):
         :param allow_partial_authorization: Defines if the transaction will allow for a partial authorization.
         :param recipient: The recipient of any account to account funding. For use with AFTs.
         :param installment_count: The number of installments a buyer is required to make.
+        :param tax_amount: The sales tax amount for this transaction, represented as a monetary amount in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`
+        :param merchant_tax_id: Merchant tax ID (for example, EIN or VAT number).
+        :param customer_reference_number: Customer code or reference.
+        :param amount_includes_tax: Whether the tax is included in the amount.
+        :param supplier_order_number: The merchant's unique identifier for the sales order or invoice.
+        :param duty_amount: Total charges for import/export duties.
+        :param shipping_amount: Total shipping amount.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -890,6 +904,13 @@ class Transactions(BaseSDK):
                     recipient, OptionalNullable[models.Recipient]
                 ),
                 installment_count=installment_count,
+                tax_amount=tax_amount,
+                merchant_tax_id=merchant_tax_id,
+                customer_reference_number=customer_reference_number,
+                amount_includes_tax=amount_includes_tax,
+                supplier_order_number=supplier_order_number,
+                duty_amount=duty_amount,
+                shipping_amount=shipping_amount,
             ),
         )
 
@@ -1069,6 +1090,13 @@ class Transactions(BaseSDK):
             Union[models.Recipient, models.RecipientTypedDict]
         ] = UNSET,
         installment_count: OptionalNullable[int] = UNSET,
+        tax_amount: OptionalNullable[int] = UNSET,
+        merchant_tax_id: OptionalNullable[str] = UNSET,
+        customer_reference_number: OptionalNullable[str] = UNSET,
+        amount_includes_tax: OptionalNullable[bool] = UNSET,
+        supplier_order_number: OptionalNullable[str] = UNSET,
+        duty_amount: OptionalNullable[int] = UNSET,
+        shipping_amount: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1111,6 +1139,13 @@ class Transactions(BaseSDK):
         :param allow_partial_authorization: Defines if the transaction will allow for a partial authorization.
         :param recipient: The recipient of any account to account funding. For use with AFTs.
         :param installment_count: The number of installments a buyer is required to make.
+        :param tax_amount: The sales tax amount for this transaction, represented as a monetary amount in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`
+        :param merchant_tax_id: Merchant tax ID (for example, EIN or VAT number).
+        :param customer_reference_number: Customer code or reference.
+        :param amount_includes_tax: Whether the tax is included in the amount.
+        :param supplier_order_number: The merchant's unique identifier for the sales order or invoice.
+        :param duty_amount: Total charges for import/export duties.
+        :param shipping_amount: Total shipping amount.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1183,6 +1218,13 @@ class Transactions(BaseSDK):
                     recipient, OptionalNullable[models.Recipient]
                 ),
                 installment_count=installment_count,
+                tax_amount=tax_amount,
+                merchant_tax_id=merchant_tax_id,
+                customer_reference_number=customer_reference_number,
+                amount_includes_tax=amount_includes_tax,
+                supplier_order_number=supplier_order_number,
+                duty_amount=duty_amount,
+                shipping_amount=shipping_amount,
             ),
         )
 
