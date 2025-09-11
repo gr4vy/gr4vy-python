@@ -24,7 +24,7 @@ class CartItemTypedDict(TypedDict):
     external_identifier: NotRequired[Nullable[str]]
     r"""An external identifier for the cart item. This can be set to any value and is not sent to the payment service."""
     sku: NotRequired[Nullable[str]]
-    r"""The SKU for the item."""
+    r"""The SKU or product code for the item."""
     product_url: NotRequired[Nullable[str]]
     r"""The product URL for the item."""
     image_url: NotRequired[Nullable[str]]
@@ -35,6 +35,18 @@ class CartItemTypedDict(TypedDict):
     r"""The product type of the cart item."""
     seller_country: NotRequired[Nullable[str]]
     r"""The seller country of the cart item."""
+    tax_exempt: NotRequired[Nullable[bool]]
+    r"""Whether the item is exempt of tax."""
+    unit_of_measure: NotRequired[Nullable[str]]
+    r"""The unit of measure or the unit of measure code."""
+    commodity_code: NotRequired[Nullable[str]]
+    r"""Item commodity code. Generally a UNSPSC code."""
+    description: NotRequired[Nullable[str]]
+    r"""Brief item description."""
+    duty_amount: NotRequired[Nullable[int]]
+    r"""Item import or export duties represented as a monetary amount in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`"""
+    shipping_amount: NotRequired[Nullable[int]]
+    r"""Freight/shipping amount represented as a monetary amount in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`"""
 
 
 class CartItem(BaseModel):
@@ -57,7 +69,7 @@ class CartItem(BaseModel):
     r"""An external identifier for the cart item. This can be set to any value and is not sent to the payment service."""
 
     sku: OptionalNullable[str] = UNSET
-    r"""The SKU for the item."""
+    r"""The SKU or product code for the item."""
 
     product_url: OptionalNullable[str] = UNSET
     r"""The product URL for the item."""
@@ -76,6 +88,24 @@ class CartItem(BaseModel):
     seller_country: OptionalNullable[str] = UNSET
     r"""The seller country of the cart item."""
 
+    tax_exempt: OptionalNullable[bool] = UNSET
+    r"""Whether the item is exempt of tax."""
+
+    unit_of_measure: OptionalNullable[str] = UNSET
+    r"""The unit of measure or the unit of measure code."""
+
+    commodity_code: OptionalNullable[str] = UNSET
+    r"""Item commodity code. Generally a UNSPSC code."""
+
+    description: OptionalNullable[str] = UNSET
+    r"""Brief item description."""
+
+    duty_amount: OptionalNullable[int] = UNSET
+    r"""Item import or export duties represented as a monetary amount in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`"""
+
+    shipping_amount: OptionalNullable[int] = UNSET
+    r"""Freight/shipping amount represented as a monetary amount in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -88,6 +118,12 @@ class CartItem(BaseModel):
             "categories",
             "product_type",
             "seller_country",
+            "tax_exempt",
+            "unit_of_measure",
+            "commodity_code",
+            "description",
+            "duty_amount",
+            "shipping_amount",
         ]
         nullable_fields = [
             "discount_amount",
@@ -99,6 +135,12 @@ class CartItem(BaseModel):
             "categories",
             "product_type",
             "seller_country",
+            "tax_exempt",
+            "unit_of_measure",
+            "commodity_code",
+            "description",
+            "duty_amount",
+            "shipping_amount",
         ]
         null_default_fields = []
 
