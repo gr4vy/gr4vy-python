@@ -21,6 +21,8 @@ class StatementDescriptorTypedDict(TypedDict):
     r"""The value in the phone number field of a customer's statement which should be formatted according to the E164 number standard."""
     url: NotRequired[Nullable[str]]
     r"""The merchant's URL to be displayed in a statement descriptor."""
+    postal_code: NotRequired[Nullable[str]]
+    r"""The merchant's postal code or zip code."""
 
 
 class StatementDescriptor(BaseModel):
@@ -44,6 +46,9 @@ class StatementDescriptor(BaseModel):
     url: OptionalNullable[str] = UNSET
     r"""The merchant's URL to be displayed in a statement descriptor."""
 
+    postal_code: OptionalNullable[str] = UNSET
+    r"""The merchant's postal code or zip code."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -53,6 +58,7 @@ class StatementDescriptor(BaseModel):
             "country",
             "phone_number",
             "url",
+            "postal_code",
         ]
         nullable_fields = [
             "name",
@@ -61,6 +67,7 @@ class StatementDescriptor(BaseModel):
             "country",
             "phone_number",
             "url",
+            "postal_code",
         ]
         null_default_fields = []
 

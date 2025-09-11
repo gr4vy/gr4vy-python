@@ -212,6 +212,20 @@ class TransactionCreateTypedDict(TypedDict):
     r"""The recipient of any account to account funding. For use with AFTs."""
     installment_count: NotRequired[Nullable[int]]
     r"""The number of installments a buyer is required to make."""
+    tax_amount: NotRequired[Nullable[int]]
+    r"""The sales tax amount for this transaction, represented as a monetary amount in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`"""
+    merchant_tax_id: NotRequired[Nullable[str]]
+    r"""Merchant tax ID (for example, EIN or VAT number)."""
+    customer_reference_number: NotRequired[Nullable[str]]
+    r"""Customer code or reference."""
+    amount_includes_tax: NotRequired[Nullable[bool]]
+    r"""Whether the tax is included in the amount."""
+    supplier_order_number: NotRequired[Nullable[str]]
+    r"""The merchant's unique identifier for the sales order or invoice."""
+    duty_amount: NotRequired[Nullable[int]]
+    r"""Total charges for import/export duties."""
+    shipping_amount: NotRequired[Nullable[int]]
+    r"""Total shipping amount."""
 
 
 class TransactionCreate(BaseModel):
@@ -329,6 +343,27 @@ class TransactionCreate(BaseModel):
     installment_count: OptionalNullable[int] = UNSET
     r"""The number of installments a buyer is required to make."""
 
+    tax_amount: OptionalNullable[int] = UNSET
+    r"""The sales tax amount for this transaction, represented as a monetary amount in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`"""
+
+    merchant_tax_id: OptionalNullable[str] = UNSET
+    r"""Merchant tax ID (for example, EIN or VAT number)."""
+
+    customer_reference_number: OptionalNullable[str] = UNSET
+    r"""Customer code or reference."""
+
+    amount_includes_tax: OptionalNullable[bool] = UNSET
+    r"""Whether the tax is included in the amount."""
+
+    supplier_order_number: OptionalNullable[str] = UNSET
+    r"""The merchant's unique identifier for the sales order or invoice."""
+
+    duty_amount: OptionalNullable[int] = UNSET
+    r"""Total charges for import/export duties."""
+
+    shipping_amount: OptionalNullable[int] = UNSET
+    r"""Total shipping amount."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -360,6 +395,13 @@ class TransactionCreate(BaseModel):
             "allow_partial_authorization",
             "recipient",
             "installment_count",
+            "tax_amount",
+            "merchant_tax_id",
+            "customer_reference_number",
+            "amount_includes_tax",
+            "supplier_order_number",
+            "duty_amount",
+            "shipping_amount",
         ]
         nullable_fields = [
             "country",
@@ -382,6 +424,13 @@ class TransactionCreate(BaseModel):
             "payment_service_id",
             "recipient",
             "installment_count",
+            "tax_amount",
+            "merchant_tax_id",
+            "customer_reference_number",
+            "amount_includes_tax",
+            "supplier_order_number",
+            "duty_amount",
+            "shipping_amount",
         ]
         null_default_fields = []
 
