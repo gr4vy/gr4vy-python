@@ -80,10 +80,9 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.digital_wallets.domains.delete(digital_wallet_id="", domain_name="example.com")
+    g_client.digital_wallets.domains.delete(digital_wallet_id="", domain_name="example.com")
 
-    # Handle response
-    print(res)
+    # Use the SDK ...
 
 ```
 
@@ -95,10 +94,6 @@ with Gr4vy(
 | `domain_name`                                                       | *str*                                                               | :heavy_check_mark:                                                  | The domain to add or remove.                                        | example.com                                                         |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
-
-### Response
-
-**[Any](../../models/.md)**
 
 ### Errors
 

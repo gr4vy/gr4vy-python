@@ -1304,7 +1304,7 @@ class BuyersShippingDetails(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Any:
+    ):
         r"""Delete a buyer's shipping details
 
         Delete the shipping details associated to a specific buyer.
@@ -1391,8 +1391,8 @@ class BuyersShippingDetails(BaseSDK):
         )
 
         response_data: Any = None
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Any, http_res)
+        if utils.match_response(http_res, "204", "*"):
+            return
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
@@ -1450,7 +1450,7 @@ class BuyersShippingDetails(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Any:
+    ):
         r"""Delete a buyer's shipping details
 
         Delete the shipping details associated to a specific buyer.
@@ -1537,8 +1537,8 @@ class BuyersShippingDetails(BaseSDK):
         )
 
         response_data: Any = None
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(Any, http_res)
+        if utils.match_response(http_res, "204", "*"):
+            return
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
