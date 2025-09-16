@@ -786,6 +786,7 @@ if TYPE_CHECKING:
         NuveiAirlineDataOptionsTypedDict,
     )
     from .nuveioptions import NuveiOptions, NuveiOptionsTypedDict
+    from .nuveipseoptions import NuveiPSEOptions, NuveiPSEOptionsTypedDict
     from .oxxooptions import OxxoOptions, OxxoOptionsTypedDict
     from .paymentlink import PaymentLink, PaymentLinkTypedDict
     from .paymentlinkcreate import Locale, PaymentLinkCreate, PaymentLinkCreateTypedDict
@@ -1730,6 +1731,8 @@ __all__ = [
     "NuveiAirlineDataOptionsTypedDict",
     "NuveiOptions",
     "NuveiOptionsTypedDict",
+    "NuveiPSEOptions",
+    "NuveiPSEOptionsTypedDict",
     "OrderBy",
     "OxxoOptions",
     "OxxoOptionsTypedDict",
@@ -2623,6 +2626,8 @@ _dynamic_imports: dict[str, str] = {
     "NuveiAirlineDataOptionsTypedDict": ".nuveiairlinedataoptions",
     "NuveiOptions": ".nuveioptions",
     "NuveiOptionsTypedDict": ".nuveioptions",
+    "NuveiPSEOptions": ".nuveipseoptions",
+    "NuveiPSEOptionsTypedDict": ".nuveipseoptions",
     "OxxoOptions": ".oxxooptions",
     "OxxoOptionsTypedDict": ".oxxooptions",
     "PaymentLink": ".paymentlink",
