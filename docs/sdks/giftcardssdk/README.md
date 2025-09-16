@@ -81,10 +81,9 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.gift_cards.delete(gift_card_id="356d56e5-fe16-42ae-97ee-8d55d846ae2e")
+    g_client.gift_cards.delete(gift_card_id="356d56e5-fe16-42ae-97ee-8d55d846ae2e")
 
-    # Handle response
-    print(res)
+    # Use the SDK ...
 
 ```
 
@@ -95,10 +94,6 @@ with Gr4vy(
 | `gift_card_id`                                                      | *str*                                                               | :heavy_check_mark:                                                  | The ID of the gift card.                                            | 356d56e5-fe16-42ae-97ee-8d55d846ae2e                                |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
-
-### Response
-
-**[Any](../../models/.md)**
 
 ### Errors
 

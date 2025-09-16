@@ -294,10 +294,9 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.payment_services.delete(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0")
+    g_client.payment_services.delete(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0")
 
-    # Handle response
-    print(res)
+    # Use the SDK ...
 
 ```
 
@@ -308,10 +307,6 @@ with Gr4vy(
 | `payment_service_id`                                                | *str*                                                               | :heavy_check_mark:                                                  | the ID of the payment service                                       | fffd152a-9532-4087-9a4f-de58754210f0                                |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
-
-### Response
-
-**[Any](../../models/.md)**
 
 ### Errors
 

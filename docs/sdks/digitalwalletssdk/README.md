@@ -195,10 +195,9 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.digital_wallets.delete(digital_wallet_id="1808f5e6-b49c-4db9-94fa-22371ea352f5")
+    g_client.digital_wallets.delete(digital_wallet_id="1808f5e6-b49c-4db9-94fa-22371ea352f5")
 
-    # Handle response
-    print(res)
+    # Use the SDK ...
 
 ```
 
@@ -209,10 +208,6 @@ with Gr4vy(
 | `digital_wallet_id`                                                 | *str*                                                               | :heavy_check_mark:                                                  | The ID of the digital wallet to delete.                             | 1808f5e6-b49c-4db9-94fa-22371ea352f5                                |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
-
-### Response
-
-**[Any](../../models/.md)**
 
 ### Errors
 

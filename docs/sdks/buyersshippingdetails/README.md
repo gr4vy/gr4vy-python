@@ -256,10 +256,9 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.buyers.shipping_details.delete(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", shipping_details_id="bf8c36ad-02d9-4904-b0f9-a230b149e341")
+    g_client.buyers.shipping_details.delete(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", shipping_details_id="bf8c36ad-02d9-4904-b0f9-a230b149e341")
 
-    # Handle response
-    print(res)
+    # Use the SDK ...
 
 ```
 
@@ -271,10 +270,6 @@ with Gr4vy(
 | `shipping_details_id`                                               | *str*                                                               | :heavy_check_mark:                                                  | The ID of the shipping details to delete.                           | bf8c36ad-02d9-4904-b0f9-a230b149e341                                |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
-
-### Response
-
-**[Any](../../models/.md)**
 
 ### Errors
 
