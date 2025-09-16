@@ -43,6 +43,8 @@ class MerchantAccountUpdateTypedDict(TypedDict):
     r"""Requestor ID provided for Mastercard after onboarding to use Network Tokens."""
     mastercard_network_tokens_app_id: NotRequired[Nullable[str]]
     r"""Application ID provided for Mastercard after onboarding to use Network Tokens."""
+    async_network_tokens_enabled: NotRequired[bool]
+    r"""When enabled network tokens will be generated asynchronously and only used on subsequent transactions to speed up transaction processing."""
     display_name: NotRequired[Nullable[str]]
     r"""The display name for the merchant account."""
 
@@ -98,6 +100,9 @@ class MerchantAccountUpdate(BaseModel):
     mastercard_network_tokens_app_id: OptionalNullable[str] = UNSET
     r"""Application ID provided for Mastercard after onboarding to use Network Tokens."""
 
+    async_network_tokens_enabled: Optional[bool] = False
+    r"""When enabled network tokens will be generated asynchronously and only used on subsequent transactions to speed up transaction processing."""
+
     display_name: OptionalNullable[str] = UNSET
     r"""The display name for the merchant account."""
 
@@ -120,6 +125,7 @@ class MerchantAccountUpdate(BaseModel):
             "amex_network_tokens_app_id",
             "mastercard_network_tokens_requestor_id",
             "mastercard_network_tokens_app_id",
+            "async_network_tokens_enabled",
             "display_name",
         ]
         nullable_fields = [
