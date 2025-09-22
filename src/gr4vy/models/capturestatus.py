@@ -6,5 +6,11 @@ from typing import Literal, Union
 
 
 CaptureStatus = Union[
-    Literal["succeeded", "pending", "declined", "failed"], UnrecognizedStr
+    Literal[
+        "succeeded",
+        "pending",
+        "declined",
+        "failed",
+    ],
+    UnrecognizedStr,
 ]

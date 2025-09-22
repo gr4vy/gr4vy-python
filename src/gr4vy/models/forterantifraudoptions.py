@@ -25,7 +25,12 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 ForterAntiFraudOptionsDeliveryType = Union[
-    Literal["DIGITAL", "PHYSICAL", "HYBRID"], UnrecognizedStr
+    Literal[
+        "DIGITAL",
+        "PHYSICAL",
+        "HYBRID",
+    ],
+    UnrecognizedStr,
 ]
 
 

@@ -5,4 +5,11 @@ from gr4vy.types import UnrecognizedStr
 from typing import Literal, Union
 
 
-CardType = Union[Literal["credit", "debit", "prepaid"], UnrecognizedStr]
+CardType = Union[
+    Literal[
+        "credit",
+        "debit",
+        "prepaid",
+    ],
+    UnrecognizedStr,
+]

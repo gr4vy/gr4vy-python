@@ -6,6 +6,12 @@ from typing import Literal, Union
 
 
 ReportExecutionStatus = Union[
-    Literal["dispatched", "failed", "pending", "processing", "succeeded"],
+    Literal[
+        "dispatched",
+        "failed",
+        "pending",
+        "processing",
+        "succeeded",
+    ],
     UnrecognizedStr,
 ]

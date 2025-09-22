@@ -6,5 +6,12 @@ from typing import Literal, Union
 
 
 RefundStatus = Union[
-    Literal["processing", "succeeded", "failed", "declined", "voided"], UnrecognizedStr
+    Literal[
+        "processing",
+        "succeeded",
+        "failed",
+        "declined",
+        "voided",
+    ],
+    UnrecognizedStr,
 ]

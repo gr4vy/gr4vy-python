@@ -6,6 +6,12 @@ from typing import Literal, Union
 
 
 ThreeDSecureStatus = Union[
-    Literal["setup_error", "error", "declined", "cancelled", "complete"],
+    Literal[
+        "setup_error",
+        "error",
+        "declined",
+        "cancelled",
+        "complete",
+    ],
     UnrecognizedStr,
 ]

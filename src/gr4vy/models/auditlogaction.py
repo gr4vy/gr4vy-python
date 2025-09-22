@@ -6,6 +6,13 @@ from typing import Literal, Union
 
 
 AuditLogAction = Union[
-    Literal["created", "updated", "deleted", "voided", "canceled", "captured"],
+    Literal[
+        "created",
+        "updated",
+        "deleted",
+        "voided",
+        "canceled",
+        "captured",
+    ],
     UnrecognizedStr,
 ]

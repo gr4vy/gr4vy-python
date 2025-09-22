@@ -18,7 +18,13 @@ from typing import Literal, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-CardSource = Union[Literal["apple-pay", "google-pay"], UnrecognizedStr]
+CardSource = Union[
+    Literal[
+        "apple-pay",
+        "google-pay",
+    ],
+    UnrecognizedStr,
+]
 
 
 class NetworkTokenPaymentMethodCreateTypedDict(TypedDict):

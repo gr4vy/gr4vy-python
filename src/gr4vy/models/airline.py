@@ -19,7 +19,13 @@ from typing import List, Literal, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-TicketDeliveryMethod = Union[Literal["electronic", "other"], UnrecognizedStr]
+TicketDeliveryMethod = Union[
+    Literal[
+        "electronic",
+        "other",
+    ],
+    UnrecognizedStr,
+]
 
 
 class AirlineTypedDict(TypedDict):

@@ -7,7 +7,9 @@ from typing import Literal, Union
 
 AdyenAutoRescueSepaScenariosEnum = Union[
     Literal[
-        "AutoRescueSuccessfulFirst", "AutoRescueSuccessfulSecond", "AutoRescueFailed"
+        "AutoRescueSuccessfulFirst",
+        "AutoRescueSuccessfulSecond",
+        "AutoRescueFailed",
     ],
     UnrecognizedStr,
 ]

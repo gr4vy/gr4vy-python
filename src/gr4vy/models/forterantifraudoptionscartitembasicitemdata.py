@@ -16,7 +16,13 @@ from typing import Literal, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-Type = Union[Literal["TANGIBLE", "NON_TANGIBLE"], UnrecognizedStr]
+Type = Union[
+    Literal[
+        "TANGIBLE",
+        "NON_TANGIBLE",
+    ],
+    UnrecognizedStr,
+]
 
 
 class ForterAntiFraudOptionsCartItemBasicItemDataTypedDict(TypedDict):

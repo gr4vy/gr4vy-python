@@ -5,4 +5,10 @@ from gr4vy.types import UnrecognizedStr
 from typing import Literal, Union
 
 
-ThreeDSecureMethod = Union[Literal["challenge", "frictionless"], UnrecognizedStr]
+ThreeDSecureMethod = Union[
+    Literal[
+        "challenge",
+        "frictionless",
+    ],
+    UnrecognizedStr,
+]

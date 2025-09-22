@@ -5,4 +5,12 @@ from gr4vy.types import UnrecognizedStr
 from typing import Literal, Union
 
 
-ReportSchedule = Union[Literal["daily", "monthly", "once", "weekly"], UnrecognizedStr]
+ReportSchedule = Union[
+    Literal[
+        "daily",
+        "monthly",
+        "once",
+        "weekly",
+    ],
+    UnrecognizedStr,
+]

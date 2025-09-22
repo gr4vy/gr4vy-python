@@ -16,7 +16,13 @@ from typing import Literal, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-UserDevice = Union[Literal["desktop", "mobile"], UnrecognizedStr]
+UserDevice = Union[
+    Literal[
+        "desktop",
+        "mobile",
+    ],
+    UnrecognizedStr,
+]
 r"""The platform that is being used to access the website."""
 
 

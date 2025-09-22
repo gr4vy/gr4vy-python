@@ -17,7 +17,11 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 VaultPaymentMethodCriteria = Union[
-    Literal["ALWAYS", "ON_SUCCESSFUL_TRANSACTION"], UnrecognizedStr
+    Literal[
+        "ALWAYS",
+        "ON_SUCCESSFUL_TRANSACTION",
+    ],
+    UnrecognizedStr,
 ]
 
 

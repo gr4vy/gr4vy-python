@@ -5,4 +5,10 @@ from gr4vy.types import UnrecognizedStr
 from typing import Literal, Union
 
 
-ApprovalTarget = Union[Literal["new_window", "any"], UnrecognizedStr]
+ApprovalTarget = Union[
+    Literal[
+        "new_window",
+        "any",
+    ],
+    UnrecognizedStr,
+]

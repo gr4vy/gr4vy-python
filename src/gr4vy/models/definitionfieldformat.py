@@ -6,5 +6,12 @@ from typing import Literal, Union
 
 
 DefinitionFieldFormat = Union[
-    Literal["text", "multiline", "number", "timezone", "boolean"], UnrecognizedStr
+    Literal[
+        "text",
+        "multiline",
+        "number",
+        "timezone",
+        "boolean",
+    ],
+    UnrecognizedStr,
 ]

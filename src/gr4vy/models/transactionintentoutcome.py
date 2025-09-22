@@ -6,5 +6,10 @@ from typing import Literal, Union
 
 
 TransactionIntentOutcome = Union[
-    Literal["pending", "succeeded", "failed"], UnrecognizedStr
+    Literal[
+        "pending",
+        "succeeded",
+        "failed",
+    ],
+    UnrecognizedStr,
 ]

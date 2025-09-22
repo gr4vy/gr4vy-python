@@ -17,7 +17,13 @@ from typing import Literal, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-RouteType = Union[Literal["round_trip", "one_way"], UnrecognizedStr]
+RouteType = Union[
+    Literal[
+        "round_trip",
+        "one_way",
+    ],
+    UnrecognizedStr,
+]
 
 
 class AirlineLegTypedDict(TypedDict):

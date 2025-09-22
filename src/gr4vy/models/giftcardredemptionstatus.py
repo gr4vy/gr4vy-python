@@ -6,5 +6,11 @@ from typing import Literal, Union
 
 
 GiftCardRedemptionStatus = Union[
-    Literal["created", "succeeded", "failed", "skipped"], UnrecognizedStr
+    Literal[
+        "created",
+        "succeeded",
+        "failed",
+        "skipped",
+    ],
+    UnrecognizedStr,
 ]
