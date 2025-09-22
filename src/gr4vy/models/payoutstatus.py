@@ -6,5 +6,11 @@ from typing import Literal, Union
 
 
 PayoutStatus = Union[
-    Literal["declined", "failed", "pending", "succeeded"], UnrecognizedStr
+    Literal[
+        "declined",
+        "failed",
+        "pending",
+        "succeeded",
+    ],
+    UnrecognizedStr,
 ]

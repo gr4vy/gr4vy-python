@@ -26,7 +26,16 @@ from typing import Any, Dict, List, Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-Locale = Union[Literal["en", "en-GB", "pt", "pt-BR", "es"], UnrecognizedStr]
+Locale = Union[
+    Literal[
+        "en",
+        "en-GB",
+        "pt",
+        "pt-BR",
+        "es",
+    ],
+    UnrecognizedStr,
+]
 
 
 class PaymentLinkCreateTypedDict(TypedDict):

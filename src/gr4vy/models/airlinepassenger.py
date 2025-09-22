@@ -17,7 +17,13 @@ from typing import Literal, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-AgeGroup = Union[Literal["adult", "infant"], UnrecognizedStr]
+AgeGroup = Union[
+    Literal[
+        "adult",
+        "infant",
+    ],
+    UnrecognizedStr,
+]
 
 
 class AirlinePassengerTypedDict(TypedDict):

@@ -5,4 +5,11 @@ from gr4vy.types import UnrecognizedStr
 from typing import Literal, Union
 
 
-UserStatus = Union[Literal["active", "pending", "deleted"], UnrecognizedStr]
+UserStatus = Union[
+    Literal[
+        "active",
+        "pending",
+        "deleted",
+    ],
+    UnrecognizedStr,
+]

@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 4ded2554ad4849e5b16f382a03d8590a
+  docChecksum: e3e266b62e2014ea67c90f4547c96746
   docVersion: 1.0.0
-  speakeasyVersion: 1.617.1
-  generationVersion: 2.701.8
-  releaseVersion: 1.2.10
-  configChecksum: defbf94f9606be89aa08722001ca446a
+  speakeasyVersion: 1.622.1
+  generationVersion: 2.709.0
+  releaseVersion: 1.2.11
+  configChecksum: ddacb9a46d11ecd1c934a96d64ab0a41
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -4433,4 +4433,3 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes Detected:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.nuvei-pse` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.nuvei-pse` **Added**\n* `gr4vy.payment-links.create()`: \n  *  `request.connection_options.nuvei-pse` **Added**\n"

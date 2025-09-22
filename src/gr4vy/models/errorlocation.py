@@ -6,5 +6,12 @@ from typing import Literal, Union
 
 
 ErrorLocation = Union[
-    Literal["query", "body", "path", "header", "unknown"], UnrecognizedStr
+    Literal[
+        "query",
+        "body",
+        "path",
+        "header",
+        "unknown",
+    ],
+    UnrecognizedStr,
 ]

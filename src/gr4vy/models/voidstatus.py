@@ -6,5 +6,11 @@ from typing import Literal, Union
 
 
 VoidStatus = Union[
-    Literal["succeeded", "pending", "declined", "failed"], UnrecognizedStr
+    Literal[
+        "succeeded",
+        "pending",
+        "declined",
+        "failed",
+    ],
+    UnrecognizedStr,
 ]

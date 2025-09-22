@@ -6,5 +6,10 @@ from typing import Literal, Union
 
 
 DigitalWalletProvider = Union[
-    Literal["apple", "google", "click-to-pay"], UnrecognizedStr
+    Literal[
+        "apple",
+        "google",
+        "click-to-pay",
+    ],
+    UnrecognizedStr,
 ]

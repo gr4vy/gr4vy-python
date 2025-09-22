@@ -6,6 +6,14 @@ from typing import Literal, Union
 
 
 AntiFraudDecision = Union[
-    Literal["accept", "error", "exception", "reject", "review", "skipped"],
+    Literal[
+        "accept",
+        "error",
+        "exception",
+        "reject",
+        "review",
+        "skipped",
+        "pending",
+    ],
     UnrecognizedStr,
 ]

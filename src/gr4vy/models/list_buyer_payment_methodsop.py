@@ -37,7 +37,13 @@ class ListBuyerPaymentMethodsGlobals(BaseModel):
     r"""The ID of the merchant account to use for this request."""
 
 
-OrderBy = Union[Literal["asc", "desc"], UnrecognizedStr]
+OrderBy = Union[
+    Literal[
+        "asc",
+        "desc",
+    ],
+    UnrecognizedStr,
+]
 r"""The direction to sort the payment methods in."""
 
 

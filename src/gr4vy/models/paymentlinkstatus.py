@@ -6,5 +6,11 @@ from typing import Literal, Union
 
 
 PaymentLinkStatus = Union[
-    Literal["active", "completed", "expired", "processing"], UnrecognizedStr
+    Literal[
+        "active",
+        "completed",
+        "expired",
+        "processing",
+    ],
+    UnrecognizedStr,
 ]

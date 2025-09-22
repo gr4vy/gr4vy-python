@@ -5,4 +5,4 @@ from gr4vy.types import UnrecognizedStr
 from typing import Literal, Union
 
 
-PayoutCategory = Union[Literal["online_gambling"], UnrecognizedStr]
+PayoutCategory = Union[Literal["online_gambling",], UnrecognizedStr]

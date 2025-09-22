@@ -6,5 +6,11 @@ from typing import Literal, Union
 
 
 CVVResponseCode = Union[
-    Literal["match", "no_match", "unavailable", "not_provided"], UnrecognizedStr
+    Literal[
+        "match",
+        "no_match",
+        "unavailable",
+        "not_provided",
+    ],
+    UnrecognizedStr,
 ]

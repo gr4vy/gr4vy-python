@@ -6,5 +6,9 @@ from typing import Literal, Union
 
 
 GiftCardServiceProvider = Union[
-    Literal["mock-gift-card", "qwikcilver-gift-card"], UnrecognizedStr
+    Literal[
+        "mock-gift-card",
+        "qwikcilver-gift-card",
+    ],
+    UnrecognizedStr,
 ]

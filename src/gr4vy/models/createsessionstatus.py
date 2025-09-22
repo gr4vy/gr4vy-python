@@ -5,4 +5,10 @@ from gr4vy.types import UnrecognizedStr
 from typing import Literal, Union
 
 
-CreateSessionStatus = Union[Literal["succeeded", "failed"], UnrecognizedStr]
+CreateSessionStatus = Union[
+    Literal[
+        "succeeded",
+        "failed",
+    ],
+    UnrecognizedStr,
+]

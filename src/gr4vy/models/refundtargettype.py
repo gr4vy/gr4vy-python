@@ -6,5 +6,9 @@ from typing import Literal, Union
 
 
 RefundTargetType = Union[
-    Literal["payment-method", "gift-card-redemption"], UnrecognizedStr
+    Literal[
+        "payment-method",
+        "gift-card-redemption",
+    ],
+    UnrecognizedStr,
 ]

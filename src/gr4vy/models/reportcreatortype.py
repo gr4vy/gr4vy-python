@@ -5,4 +5,10 @@ from gr4vy.types import UnrecognizedStr
 from typing import Literal, Union
 
 
-ReportCreatorType = Union[Literal["user", "private_key"], UnrecognizedStr]
+ReportCreatorType = Union[
+    Literal[
+        "user",
+        "private_key",
+    ],
+    UnrecognizedStr,
+]

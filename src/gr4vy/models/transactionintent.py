@@ -5,4 +5,10 @@ from gr4vy.types import UnrecognizedStr
 from typing import Literal, Union
 
 
-TransactionIntent = Union[Literal["authorize", "capture"], UnrecognizedStr]
+TransactionIntent = Union[
+    Literal[
+        "authorize",
+        "capture",
+    ],
+    UnrecognizedStr,
+]

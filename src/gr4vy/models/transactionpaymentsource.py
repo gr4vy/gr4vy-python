@@ -6,7 +6,13 @@ from typing import Literal, Union
 
 
 TransactionPaymentSource = Union[
-    Literal["ecommerce", "moto", "recurring", "installment", "card_on_file"],
+    Literal[
+        "ecommerce",
+        "moto",
+        "recurring",
+        "installment",
+        "card_on_file",
+    ],
     UnrecognizedStr,
 ]
 r"""The way payment method information made it to this transaction."""

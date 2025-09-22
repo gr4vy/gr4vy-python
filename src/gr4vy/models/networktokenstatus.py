@@ -6,5 +6,11 @@ from typing import Literal, Union
 
 
 NetworkTokenStatus = Union[
-    Literal["active", "inactive", "suspended", "deleted"], UnrecognizedStr
+    Literal[
+        "active",
+        "inactive",
+        "suspended",
+        "deleted",
+    ],
+    UnrecognizedStr,
 ]

@@ -6,6 +6,12 @@ from typing import Literal, Union
 
 
 PaymentMethodStatus = Union[
-    Literal["processing", "buyer_approval_required", "succeeded", "failed", "paused"],
+    Literal[
+        "processing",
+        "buyer_approval_required",
+        "succeeded",
+        "failed",
+        "paused",
+    ],
     UnrecognizedStr,
 ]
