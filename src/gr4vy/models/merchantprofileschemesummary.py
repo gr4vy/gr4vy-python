@@ -9,15 +9,15 @@ from typing_extensions import TypedDict
 class MerchantProfileSchemeSummaryTypedDict(TypedDict):
     merchant_acquirer_bin: str
     r"""Acquirer BIN to use when calling 3DS through this scheme."""
-    merchant_url: str
-    r"""URL to send when calling 3DS through this scheme."""
     merchant_acquirer_id: str
     r"""Merchant ID to use when calling 3DS through this scheme."""
     merchant_name: str
     merchant_country_code: str
-    r"""Merchant country code to use when calling 3DS through this scheme."""
+    r"""The merchant's ISO 3166-1 numeric country code."""
     merchant_category_code: str
     r"""Merchant category code to use when calling 3DS through this scheme."""
+    merchant_url: str
+    r"""URL to send when calling 3DS through this scheme."""
     created_at: datetime
     r"""The date and time when this profile was first created in our system."""
 
@@ -26,19 +26,19 @@ class MerchantProfileSchemeSummary(BaseModel):
     merchant_acquirer_bin: str
     r"""Acquirer BIN to use when calling 3DS through this scheme."""
 
-    merchant_url: str
-    r"""URL to send when calling 3DS through this scheme."""
-
     merchant_acquirer_id: str
     r"""Merchant ID to use when calling 3DS through this scheme."""
 
     merchant_name: str
 
     merchant_country_code: str
-    r"""Merchant country code to use when calling 3DS through this scheme."""
+    r"""The merchant's ISO 3166-1 numeric country code."""
 
     merchant_category_code: str
     r"""Merchant category code to use when calling 3DS through this scheme."""
+
+    merchant_url: str
+    r"""URL to send when calling 3DS through this scheme."""
 
     created_at: datetime
     r"""The date and time when this profile was first created in our system."""

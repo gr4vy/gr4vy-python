@@ -22,7 +22,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 1.2.11
+  version: 1.2.12
   additionalDependencies:
     dev:
       freezegun: ^1.5.1
