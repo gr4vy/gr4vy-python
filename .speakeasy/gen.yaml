@@ -22,7 +22,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 1.3.0
+  version: 1.4.0
   additionalDependencies:
     dev:
       freezegun: ^1.5.1
@@ -37,6 +37,7 @@ python:
   allowedRedefinedBuiltins:
     - id
     - object
+  asyncMode: both
   authors:
     - Gr4vy
   baseErrorName: Gr4vyError
@@ -60,6 +61,7 @@ python:
       shared: ""
       webhooks: ""
   inputModelSuffix: input
+  legacyPyright: true
   maxMethodParams: 999
   methodArguments: infer-optional-args
   moduleName: ""
