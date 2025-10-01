@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 40f02849955e7a8d70532c20549d1090
+  docChecksum: e86331b9ffcf3404fd7e6190772164c5
   docVersion: 1.0.0
   speakeasyVersion: 1.631.5
   generationVersion: 2.716.16
-  releaseVersion: 1.4.2
-  configChecksum: ef513ffeee18cc9d97a03ca15ac22184
+  releaseVersion: 1.4.3
+  configChecksum: bee59a3b4646a1da486d657660ab89ca
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -196,6 +196,9 @@ generatedFiles:
   - docs/models/digitalwallets.md
   - docs/models/digitalwalletupdate.md
   - docs/models/dlocaloptions.md
+  - docs/models/dlocalupioptions.md
+  - docs/models/dlocalupirecurringinfooptions.md
+  - docs/models/dlocalupiwalletoptions.md
   - docs/models/dlocalwalletoptions.md
   - docs/models/errordetail.md
   - docs/models/errorlocation.md
@@ -448,6 +451,7 @@ generatedFiles:
   - docs/models/statementdescriptor.md
   - docs/models/stripeconnectoptions.md
   - docs/models/stripeoptions.md
+  - docs/models/subscriptionfrequencyunit.md
   - docs/models/suspendpaymentmethodnetworktokenglobals.md
   - docs/models/suspendpaymentmethodnetworktokenrequest.md
   - docs/models/synctransactionglobals.md
@@ -717,6 +721,9 @@ generatedFiles:
   - src/gr4vy/models/digitalwallets.py
   - src/gr4vy/models/digitalwalletupdate.py
   - src/gr4vy/models/dlocaloptions.py
+  - src/gr4vy/models/dlocalupioptions.py
+  - src/gr4vy/models/dlocalupirecurringinfooptions.py
+  - src/gr4vy/models/dlocalupiwalletoptions.py
   - src/gr4vy/models/dlocalwalletoptions.py
   - src/gr4vy/models/errordetail.py
   - src/gr4vy/models/errorlocation.py
@@ -4433,3 +4440,4 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes Detected:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.dlocal-upi` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.dlocal-upi` **Added**\n* `gr4vy.payment-links.create()`: \n  *  `request.connection_options.dlocal-upi` **Added**\n"

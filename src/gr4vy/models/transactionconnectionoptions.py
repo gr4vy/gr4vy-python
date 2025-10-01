@@ -13,6 +13,7 @@ from .cybersourceantifraudoptions import (
 )
 from .cybersourceoptions import CybersourceOptions, CybersourceOptionsTypedDict
 from .dlocaloptions import DlocalOptions, DlocalOptionsTypedDict
+from .dlocalupioptions import DlocalUPIOptions, DlocalUPIOptionsTypedDict
 from .fiservoptions import FiservOptions, FiservOptionsTypedDict
 from .forterantifraudoptions import (
     ForterAntiFraudOptions,
@@ -73,6 +74,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `cybersource-kcp` connector."""
     dlocal_nequi: NotRequired[Nullable[DlocalOptionsTypedDict]]
     r"""Custom options to be passed to the `dlocal-nequi` connector."""
+    dlocal_upi: NotRequired[Nullable[DlocalUPIOptionsTypedDict]]
+    r"""Custom options to be passed to the `dlocal-upi` connector."""
     fiserv_card: NotRequired[Nullable[FiservOptionsTypedDict]]
     r"""Custom options to be passed to the `fiserv-card` connector."""
     forter_anti_fraud: NotRequired[Nullable[ForterAntiFraudOptionsTypedDict]]
@@ -204,6 +207,11 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `dlocal-nequi` connector."""
 
+    dlocal_upi: Annotated[
+        OptionalNullable[DlocalUPIOptions], pydantic.Field(alias="dlocal-upi")
+    ] = UNSET
+    r"""Custom options to be passed to the `dlocal-upi` connector."""
+
     fiserv_card: Annotated[
         OptionalNullable[FiservOptions], pydantic.Field(alias="fiserv-card")
     ] = UNSET
@@ -333,6 +341,7 @@ class TransactionConnectionOptions(BaseModel):
             "cybersource-ideal",
             "cybersource-kcp",
             "dlocal-nequi",
+            "dlocal-upi",
             "fiserv-card",
             "forter-anti-fraud",
             "gem-gem",
@@ -373,6 +382,7 @@ class TransactionConnectionOptions(BaseModel):
             "cybersource-ideal",
             "cybersource-kcp",
             "dlocal-nequi",
+            "dlocal-upi",
             "fiserv-card",
             "forter-anti-fraud",
             "gem-gem",
