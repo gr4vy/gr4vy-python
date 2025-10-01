@@ -356,6 +356,16 @@ if TYPE_CHECKING:
     from .digitalwallets import DigitalWallets, DigitalWalletsTypedDict
     from .digitalwalletupdate import DigitalWalletUpdate, DigitalWalletUpdateTypedDict
     from .dlocaloptions import DlocalOptions, DlocalOptionsTypedDict
+    from .dlocalupioptions import DlocalUPIOptions, DlocalUPIOptionsTypedDict
+    from .dlocalupirecurringinfooptions import (
+        DlocalUPIRecurringInfoOptions,
+        DlocalUPIRecurringInfoOptionsTypedDict,
+        SubscriptionFrequencyUnit,
+    )
+    from .dlocalupiwalletoptions import (
+        DlocalUPIWalletOptions,
+        DlocalUPIWalletOptionsTypedDict,
+    )
     from .dlocalwalletoptions import DlocalWalletOptions, DlocalWalletOptionsTypedDict
     from .errordetail import ErrorDetail, ErrorDetailTypedDict
     from .errorlocation import ErrorLocation
@@ -1417,6 +1427,12 @@ __all__ = [
     "DigitalWalletsTypedDict",
     "DlocalOptions",
     "DlocalOptionsTypedDict",
+    "DlocalUPIOptions",
+    "DlocalUPIOptionsTypedDict",
+    "DlocalUPIRecurringInfoOptions",
+    "DlocalUPIRecurringInfoOptionsTypedDict",
+    "DlocalUPIWalletOptions",
+    "DlocalUPIWalletOptionsTypedDict",
     "DlocalWalletOptions",
     "DlocalWalletOptionsTypedDict",
     "ErrorDetail",
@@ -1892,6 +1908,7 @@ __all__ = [
     "StripeConnectOptionsTypedDict",
     "StripeOptions",
     "StripeOptionsTypedDict",
+    "SubscriptionFrequencyUnit",
     "SuspendPaymentMethodNetworkTokenGlobals",
     "SuspendPaymentMethodNetworkTokenGlobalsTypedDict",
     "SuspendPaymentMethodNetworkTokenRequest",
@@ -2313,6 +2330,13 @@ _dynamic_imports: dict[str, str] = {
     "DigitalWalletUpdateTypedDict": ".digitalwalletupdate",
     "DlocalOptions": ".dlocaloptions",
     "DlocalOptionsTypedDict": ".dlocaloptions",
+    "DlocalUPIOptions": ".dlocalupioptions",
+    "DlocalUPIOptionsTypedDict": ".dlocalupioptions",
+    "DlocalUPIRecurringInfoOptions": ".dlocalupirecurringinfooptions",
+    "DlocalUPIRecurringInfoOptionsTypedDict": ".dlocalupirecurringinfooptions",
+    "SubscriptionFrequencyUnit": ".dlocalupirecurringinfooptions",
+    "DlocalUPIWalletOptions": ".dlocalupiwalletoptions",
+    "DlocalUPIWalletOptionsTypedDict": ".dlocalupiwalletoptions",
     "DlocalWalletOptions": ".dlocalwalletoptions",
     "DlocalWalletOptionsTypedDict": ".dlocalwalletoptions",
     "ErrorDetail": ".errordetail",
