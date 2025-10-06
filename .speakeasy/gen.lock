@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: feb6597db1f89a609124d6149fab1411
+  docChecksum: 2fa4ae76f247977ebd35e5ebf82284d9
   docVersion: 1.0.0
-  speakeasyVersion: 1.633.1
-  generationVersion: 2.720.1
-  releaseVersion: 1.4.4
-  configChecksum: e26cdf05b16a389241e0cc0eeb429930
+  speakeasyVersion: 1.634.2
+  generationVersion: 2.721.3
+  releaseVersion: 1.5.0
+  configChecksum: fb2b4e74319988e6496bda58021ea4c2
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.22.0
+    core: 5.22.1
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
@@ -36,7 +36,7 @@ features:
     retries: 3.0.2
     sdkHooks: 1.1.0
     serverIDs: 3.0.0
-    unions: 3.0.5
+    unions: 3.1.0
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
@@ -425,6 +425,7 @@ generatedFiles:
   - docs/models/reportexecutionstatus.md
   - docs/models/reportexecutionsummary.md
   - docs/models/reportexecutionurl.md
+  - docs/models/reportexecutionurlgenerate.md
   - docs/models/reports.md
   - docs/models/reportschedule.md
   - docs/models/reportspec.md
@@ -888,6 +889,7 @@ generatedFiles:
   - src/gr4vy/models/reportexecutionstatus.py
   - src/gr4vy/models/reportexecutionsummary.py
   - src/gr4vy/models/reportexecutionurl.py
+  - src/gr4vy/models/reportexecutionurlgenerate.py
   - src/gr4vy/models/reports.py
   - src/gr4vy/models/reportschedule.py
   - src/gr4vy/models/reportspec.py
@@ -4440,3 +4442,6 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Python SDK Changes Detected:
+  * `gr4vy.reports.executions.url()`:  `request.expires_in` **Added**

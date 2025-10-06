@@ -367,6 +367,7 @@ class Executions(BaseSDK):
         report_id: str,
         report_execution_id: str,
         merchant_account_id: Optional[str] = None,
+        expires_in: Optional[int] = 5,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -379,6 +380,7 @@ class Executions(BaseSDK):
         :param report_id: The ID of the report to retrieve a URL for.
         :param report_execution_id: The ID of the execution of a report to retrieve a URL for.
         :param merchant_account_id: The ID of the merchant account to use for this request.
+        :param expires_in: The URL expiration time, in minutes.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -398,6 +400,9 @@ class Executions(BaseSDK):
             report_id=report_id,
             report_execution_id=report_execution_id,
             merchant_account_id=merchant_account_id,
+            report_execution_url_generate=models.ReportExecutionURLGenerate(
+                expires_in=expires_in,
+            ),
         )
 
         req = self._build_request(
@@ -416,6 +421,13 @@ class Executions(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.report_execution_url_generate,
+                False,
+                True,
+                "json",
+                Optional[models.ReportExecutionURLGenerate],
+            ),
             timeout_ms=timeout_ms,
         )
 
@@ -513,6 +525,7 @@ class Executions(BaseSDK):
         report_id: str,
         report_execution_id: str,
         merchant_account_id: Optional[str] = None,
+        expires_in: Optional[int] = 5,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -525,6 +538,7 @@ class Executions(BaseSDK):
         :param report_id: The ID of the report to retrieve a URL for.
         :param report_execution_id: The ID of the execution of a report to retrieve a URL for.
         :param merchant_account_id: The ID of the merchant account to use for this request.
+        :param expires_in: The URL expiration time, in minutes.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -544,6 +558,9 @@ class Executions(BaseSDK):
             report_id=report_id,
             report_execution_id=report_execution_id,
             merchant_account_id=merchant_account_id,
+            report_execution_url_generate=models.ReportExecutionURLGenerate(
+                expires_in=expires_in,
+            ),
         )
 
         req = self._build_request_async(
@@ -562,6 +579,13 @@ class Executions(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.report_execution_url_generate,
+                False,
+                True,
+                "json",
+                Optional[models.ReportExecutionURLGenerate],
+            ),
             timeout_ms=timeout_ms,
         )
 

@@ -934,6 +934,10 @@ if TYPE_CHECKING:
         ReportExecutionSummaryTypedDict,
     )
     from .reportexecutionurl import ReportExecutionURL, ReportExecutionURLTypedDict
+    from .reportexecutionurlgenerate import (
+        ReportExecutionURLGenerate,
+        ReportExecutionURLGenerateTypedDict,
+    )
     from .reports import Reports, ReportsTypedDict
     from .reportschedule import ReportSchedule
     from .reportspec import ReportSpec, ReportSpecTypedDict
@@ -1855,6 +1859,8 @@ __all__ = [
     "ReportExecutionSummaryTypedDict",
     "ReportExecutionTypedDict",
     "ReportExecutionURL",
+    "ReportExecutionURLGenerate",
+    "ReportExecutionURLGenerateTypedDict",
     "ReportExecutionURLTypedDict",
     "ReportExecutions",
     "ReportExecutionsTypedDict",
@@ -2770,6 +2776,8 @@ _dynamic_imports: dict[str, str] = {
     "ReportExecutionSummaryTypedDict": ".reportexecutionsummary",
     "ReportExecutionURL": ".reportexecutionurl",
     "ReportExecutionURLTypedDict": ".reportexecutionurl",
+    "ReportExecutionURLGenerate": ".reportexecutionurlgenerate",
+    "ReportExecutionURLGenerateTypedDict": ".reportexecutionurlgenerate",
     "Reports": ".reports",
     "ReportsTypedDict": ".reports",
     "ReportSchedule": ".reportschedule",

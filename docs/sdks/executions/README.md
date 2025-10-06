@@ -84,7 +84,7 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.reports.executions.url(report_id="4d4c7123-b794-4fad-b1b9-5ab2606e6bbe", report_execution_id="003bc416-f32a-420c-8eb2-062a386e1fb0")
+    res = g_client.reports.executions.url(report_id="4d4c7123-b794-4fad-b1b9-5ab2606e6bbe", report_execution_id="003bc416-f32a-420c-8eb2-062a386e1fb0", expires_in=5)
 
     # Handle response
     print(res)
@@ -98,6 +98,7 @@ with Gr4vy(
 | `report_id`                                                         | *str*                                                               | :heavy_check_mark:                                                  | The ID of the report to retrieve a URL for.                         | 4d4c7123-b794-4fad-b1b9-5ab2606e6bbe                                |
 | `report_execution_id`                                               | *str*                                                               | :heavy_check_mark:                                                  | The ID of the execution of a report to retrieve a URL for.          | 003bc416-f32a-420c-8eb2-062a386e1fb0                                |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
+| `expires_in`                                                        | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | The URL expiration time, in minutes.                                | 5                                                                   |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
 
 ### Response
