@@ -31,6 +31,7 @@ TaxIDKind = Union[
         "id.nik",
         "id.npwp",
         "in.gst",
+        "in.pan",
         "jp.cn",
         "jp.rn",
         "kr.brn",
