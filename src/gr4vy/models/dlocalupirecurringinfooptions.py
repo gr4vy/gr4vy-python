@@ -10,21 +10,23 @@ from typing_extensions import Annotated, TypedDict
 
 SubscriptionFrequencyUnit = Union[
     Literal[
-        "DAILY",
-        "WEEKLY",
-        "MONTHLY",
-        "QUARTERLY",
-        "SEMI_ANNUAL",
-        "ANNUAL",
+        "MONTH",
+        "WEEK",
+        "BI_MONTHLY",
+        "ONDEMAND",
+        "QUARTER",
+        "YEAR",
+        "SEMI_ANNUALLY",
+        "DAY",
     ],
     UnrecognizedStr,
 ]
-r"""Indicates the frequency unit for the subscription. Allowed values are: `DAILY`, `WEEKLY`, `MONTHLY`, `QUARTERLY`, `SEMI_ANNUAL`, and `ANNUAL`."""
+r"""Indicates the frequency unit for the subscription. Allowed values are: `DAY`, `WEEK`, `MONTH`, `BI_MONTHLY`, `QUARTER`, `SEMI_ANNUALLY`, `YEAR`, `ONDEMAND`."""
 
 
 class DlocalUPIRecurringInfoOptionsTypedDict(TypedDict):
     subscription_frequency_unit: SubscriptionFrequencyUnit
-    r"""Indicates the frequency unit for the subscription. Allowed values are: `DAILY`, `WEEKLY`, `MONTHLY`, `QUARTERLY`, `SEMI_ANNUAL`, and `ANNUAL`."""
+    r"""Indicates the frequency unit for the subscription. Allowed values are: `DAY`, `WEEK`, `MONTH`, `BI_MONTHLY`, `QUARTER`, `SEMI_ANNUALLY`, `YEAR`, `ONDEMAND`."""
     subscription_frequency: int
     r"""Indicates the frequency for the subscription."""
     subscription_start_at: str
@@ -37,7 +39,7 @@ class DlocalUPIRecurringInfoOptions(BaseModel):
     subscription_frequency_unit: Annotated[
         SubscriptionFrequencyUnit, PlainValidator(validate_open_enum(False))
     ]
-    r"""Indicates the frequency unit for the subscription. Allowed values are: `DAILY`, `WEEKLY`, `MONTHLY`, `QUARTERLY`, `SEMI_ANNUAL`, and `ANNUAL`."""
+    r"""Indicates the frequency unit for the subscription. Allowed values are: `DAY`, `WEEK`, `MONTH`, `BI_MONTHLY`, `QUARTER`, `SEMI_ANNUALLY`, `YEAR`, `ONDEMAND`."""
 
     subscription_frequency: int
     r"""Indicates the frequency for the subscription."""
