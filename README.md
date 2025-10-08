@@ -298,9 +298,6 @@ except ValueError as error:
 <details open>
 <summary>Available methods</summary>
 
-### [account_updater](docs/sdks/accountupdater/README.md)
-
-
 #### [account_updater.jobs](docs/sdks/jobs/README.md)
 
 * [create](docs/sdks/jobs/README.md#create) - Create account updater job
@@ -373,7 +370,6 @@ except ValueError as error:
 #### [gift_cards.balances](docs/sdks/balances/README.md)
 
 * [list](docs/sdks/balances/README.md#list) - List gift card balances
-
 
 ### [merchant_accounts](docs/sdks/merchantaccountssdk/README.md)
 

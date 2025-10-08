@@ -3,10 +3,10 @@
 import importlib.metadata
 
 __title__: str = "gr4vy"
-__version__: str = "1.5.2"
+__version__: str = "1.5.3"
 __openapi_doc_version__: str = "1.0.0"
-__gen_version__: str = "2.721.3"
-__user_agent__: str = "speakeasy-sdk/python 1.5.2 2.721.3 1.0.0 gr4vy"
+__gen_version__: str = "2.723.4"
+__user_agent__: str = "speakeasy-sdk/python 1.5.3 2.723.4 1.0.0 gr4vy"
 
 try:
     if __package__ is not None:
