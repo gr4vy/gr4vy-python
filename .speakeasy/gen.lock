@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: c7cc431c98478067aa29dc3e01bc4972
+  docChecksum: ed9e553c8bfe26369661652b1d82ce5a
   docVersion: 1.0.0
   speakeasyVersion: 1.636.1
   generationVersion: 2.723.4
-  releaseVersion: 1.5.3
-  configChecksum: 9555c66dfb7c786e758c902d6d77e514
+  releaseVersion: 1.5.4
+  configChecksum: 85fd721c00ba4657aca3095f67a73a12
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -4440,12 +4440,3 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes Detected:
-  * `gr4vy.transactions.create()`:  `response` **Changed**
-  * `gr4vy.transactions.get()`:  `response` **Changed**
-  * `gr4vy.transactions.update()`:  `response` **Changed**
-  * `gr4vy.transactions.capture()`:  `response.[transaction]` **Changed**
-  * `gr4vy.transactions.void()`:  `response.[transaction_void].transaction` **Changed**
-  * `gr4vy.transactions.cancel()`:  `response.transaction` **Changed**
-  * `gr4vy.transactions.sync()`:  `response` **Changed**
