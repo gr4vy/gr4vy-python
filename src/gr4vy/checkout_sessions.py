@@ -89,7 +89,7 @@ class CheckoutSessions(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_checkout_session",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -243,7 +243,7 @@ class CheckoutSessions(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_checkout_session",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -422,7 +422,7 @@ class CheckoutSessions(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="update_checkout_session",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -601,7 +601,7 @@ class CheckoutSessions(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="update_checkout_session",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -748,7 +748,7 @@ class CheckoutSessions(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_checkout_session",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -890,7 +890,7 @@ class CheckoutSessions(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_checkout_session",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1028,7 +1028,7 @@ class CheckoutSessions(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="delete_checkout_session",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1171,7 +1171,7 @@ class CheckoutSessions(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="delete_checkout_session",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

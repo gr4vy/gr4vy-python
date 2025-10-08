@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 79ccf0ce898c806585078724d66e4132
+  docChecksum: c7cc431c98478067aa29dc3e01bc4972
   docVersion: 1.0.0
-  speakeasyVersion: 1.634.2
-  generationVersion: 2.721.3
-  releaseVersion: 1.5.2
-  configChecksum: 551d88f8fdcb844509ef920435816fd7
+  speakeasyVersion: 1.636.1
+  generationVersion: 2.723.4
+  releaseVersion: 1.5.3
+  configChecksum: 9555c66dfb7c786e758c902d6d77e514
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -25,13 +25,13 @@ features:
     globalSecurityFlattening: 1.0.0
     globalServerURLs: 3.1.1
     globals: 3.0.0
-    groups: 3.0.0
+    groups: 3.0.1
     ignores: 3.0.1
     methodArguments: 1.0.2
     nameOverrides: 3.0.1
     nullables: 1.0.1
     openEnums: 1.0.1
-    pagination: 3.0.6
+    pagination: 3.0.7
     responseFormat: 1.0.1
     retries: 3.0.2
     sdkHooks: 1.1.0
@@ -533,7 +533,6 @@ generatedFiles:
   - docs/models/wpaypaytooptions.md
   - docs/models/wpaypaytoresourceoptions.md
   - docs/models/wpaypaytosimulationoptions.md
-  - docs/sdks/accountupdater/README.md
   - docs/sdks/all/README.md
   - docs/sdks/auditlogs/README.md
   - docs/sdks/balances/README.md
@@ -548,7 +547,6 @@ generatedFiles:
   - docs/sdks/events/README.md
   - docs/sdks/executions/README.md
   - docs/sdks/giftcardssdk/README.md
-  - docs/sdks/gr4vy/README.md
   - docs/sdks/jobs/README.md
   - docs/sdks/merchantaccountssdk/README.md
   - docs/sdks/networktokenscryptogram/README.md
@@ -4442,3 +4440,12 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Python SDK Changes Detected:
+  * `gr4vy.transactions.create()`:  `response` **Changed**
+  * `gr4vy.transactions.get()`:  `response` **Changed**
+  * `gr4vy.transactions.update()`:  `response` **Changed**
+  * `gr4vy.transactions.capture()`:  `response.[transaction]` **Changed**
+  * `gr4vy.transactions.void()`:  `response.[transaction_void].transaction` **Changed**
+  * `gr4vy.transactions.cancel()`:  `response.transaction` **Changed**
+  * `gr4vy.transactions.sync()`:  `response` **Changed**

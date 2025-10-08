@@ -89,7 +89,7 @@ class Executions(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_report_executions",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -264,7 +264,7 @@ class Executions(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_report_executions",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -444,7 +444,7 @@ class Executions(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_report_execution_url",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -602,7 +602,7 @@ class Executions(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_report_execution_url",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -749,7 +749,7 @@ class Executions(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_report_execution",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -896,7 +896,7 @@ class Executions(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_report_execution",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

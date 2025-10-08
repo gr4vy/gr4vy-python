@@ -85,7 +85,7 @@ class PaymentMethodsPaymentServiceTokens(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_payment_method_payment_service_tokens",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -235,7 +235,7 @@ class PaymentMethodsPaymentServiceTokens(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_payment_method_payment_service_tokens",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -396,7 +396,7 @@ class PaymentMethodsPaymentServiceTokens(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_payment_method_payment_service_token",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -557,7 +557,7 @@ class PaymentMethodsPaymentServiceTokens(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_payment_method_payment_service_token",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -703,7 +703,7 @@ class PaymentMethodsPaymentServiceTokens(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="delete_payment_method_payment_service_token",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -849,7 +849,7 @@ class PaymentMethodsPaymentServiceTokens(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="delete_payment_method_payment_service_token",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

@@ -122,7 +122,7 @@ class DigitalWalletsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="configure_digital_wallet",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -292,7 +292,7 @@ class DigitalWalletsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="configure_digital_wallet",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -436,7 +436,7 @@ class DigitalWalletsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_digital_wallets",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -580,7 +580,7 @@ class DigitalWalletsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_digital_wallets",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -727,7 +727,7 @@ class DigitalWalletsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_digital_wallet",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -874,7 +874,7 @@ class DigitalWalletsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_digital_wallet",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1017,7 +1017,7 @@ class DigitalWalletsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="delete_digital_wallet",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1160,7 +1160,7 @@ class DigitalWalletsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="delete_digital_wallet",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1327,7 +1327,7 @@ class DigitalWalletsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="update_digital_wallet",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1494,7 +1494,7 @@ class DigitalWalletsSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="update_digital_wallet",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

@@ -93,7 +93,7 @@ class All(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_full_transaction_refund",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -251,7 +251,7 @@ class All(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="create_full_transaction_refund",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

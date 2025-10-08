@@ -118,7 +118,7 @@ class BuyersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_buyers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -296,7 +296,7 @@ class BuyersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_buyers",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -479,7 +479,7 @@ class BuyersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="add_buyer",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -640,7 +640,7 @@ class BuyersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="add_buyer",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -787,7 +787,7 @@ class BuyersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_buyer",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -934,7 +934,7 @@ class BuyersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_buyer",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1098,7 +1098,7 @@ class BuyersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="update_buyer",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1262,7 +1262,7 @@ class BuyersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="update_buyer",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1405,7 +1405,7 @@ class BuyersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="delete_buyer",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -1548,7 +1548,7 @@ class BuyersSDK(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="delete_buyer",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

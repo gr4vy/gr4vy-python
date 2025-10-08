@@ -85,7 +85,7 @@ class TransactionsSettlements(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_transaction_settlement",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -235,7 +235,7 @@ class TransactionsSettlements(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="get_transaction_settlement",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -382,7 +382,7 @@ class TransactionsSettlements(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_transaction_settlements",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),
@@ -529,7 +529,7 @@ class TransactionsSettlements(BaseSDK):
                 config=self.sdk_configuration,
                 base_url=base_url or "",
                 operation_id="list_transaction_settlements",
-                oauth2_scopes=[],
+                oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
                 ),

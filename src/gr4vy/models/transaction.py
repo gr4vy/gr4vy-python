@@ -158,6 +158,20 @@ class TransactionTypedDict(TypedDict):
     r"""An optional merchant advice code which provides insight into the type of transaction or reason why the payment failed."""
     installment_count: NotRequired[Nullable[int]]
     r"""The number of installments for this transaction, if applicable."""
+    tax_amount: NotRequired[Nullable[int]]
+    r"""The sales tax amount for this transaction, represented as a monetary amount in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`"""
+    merchant_tax_id: NotRequired[Nullable[str]]
+    r"""Merchant tax ID (for example, EIN or VAT number)."""
+    customer_reference_number: NotRequired[Nullable[str]]
+    r"""Customer code or reference."""
+    amount_includes_tax: NotRequired[Nullable[bool]]
+    r"""Whether the tax is included in the amount."""
+    supplier_order_number: NotRequired[Nullable[str]]
+    r"""The merchant's unique identifier for the sales order or invoice."""
+    duty_amount: NotRequired[Nullable[int]]
+    r"""Total charges for import/export duties."""
+    shipping_amount: NotRequired[Nullable[int]]
+    r"""Total shipping amount."""
 
 
 class Transaction(BaseModel):
@@ -357,6 +371,27 @@ class Transaction(BaseModel):
     installment_count: OptionalNullable[int] = UNSET
     r"""The number of installments for this transaction, if applicable."""
 
+    tax_amount: OptionalNullable[int] = UNSET
+    r"""The sales tax amount for this transaction, represented as a monetary amount in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`"""
+
+    merchant_tax_id: OptionalNullable[str] = UNSET
+    r"""Merchant tax ID (for example, EIN or VAT number)."""
+
+    customer_reference_number: OptionalNullable[str] = UNSET
+    r"""Customer code or reference."""
+
+    amount_includes_tax: OptionalNullable[bool] = UNSET
+    r"""Whether the tax is included in the amount."""
+
+    supplier_order_number: OptionalNullable[str] = UNSET
+    r"""The merchant's unique identifier for the sales order or invoice."""
+
+    duty_amount: OptionalNullable[int] = UNSET
+    r"""Total charges for import/export duties."""
+
+    shipping_amount: OptionalNullable[int] = UNSET
+    r"""Total shipping amount."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -397,6 +432,13 @@ class Transaction(BaseModel):
             "recipient",
             "merchant_advice_code",
             "installment_count",
+            "tax_amount",
+            "merchant_tax_id",
+            "customer_reference_number",
+            "amount_includes_tax",
+            "supplier_order_number",
+            "duty_amount",
+            "shipping_amount",
         ]
         nullable_fields = [
             "settled_currency",
@@ -433,6 +475,13 @@ class Transaction(BaseModel):
             "recipient",
             "merchant_advice_code",
             "installment_count",
+            "tax_amount",
+            "merchant_tax_id",
+            "customer_reference_number",
+            "amount_includes_tax",
+            "supplier_order_number",
+            "duty_amount",
+            "shipping_amount",
         ]
         null_default_fields = []
 
