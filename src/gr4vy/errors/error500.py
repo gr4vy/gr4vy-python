@@ -33,7 +33,7 @@ class Error500Data(BaseModel):
     r"""A list of details that further ellaborate on the error."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class Error500(Gr4vyError):
     data: Error500Data = field(hash=False)
 

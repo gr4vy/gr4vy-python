@@ -11,31 +11,12 @@ from .transactionconnectionoptions import (
 from .transactionintent import TransactionIntent
 from .transactionpaymentsource import TransactionPaymentSource
 from datetime import datetime
-from gr4vy.types import (
-    BaseModel,
-    Nullable,
-    OptionalNullable,
-    UNSET,
-    UNSET_SENTINEL,
-    UnrecognizedStr,
-)
+from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
 from pydantic.functional_validators import PlainValidator
-from typing import Any, Dict, List, Literal, Optional, Union
+from typing import Any, Dict, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
-
-
-Locale = Union[
-    Literal[
-        "en",
-        "en-GB",
-        "pt",
-        "pt-BR",
-        "es",
-    ],
-    UnrecognizedStr,
-]
 
 
 class PaymentLinkCreateTypedDict(TypedDict):
@@ -55,7 +36,7 @@ class PaymentLinkCreateTypedDict(TypedDict):
     r"""The merchant reference for the payment link."""
     statement_descriptor: NotRequired[Nullable[StatementDescriptorTypedDict]]
     r"""The statement descriptor for the payment link."""
-    locale: NotRequired[Nullable[Locale]]
+    locale: NotRequired[Nullable[str]]
     r"""The locale for the payment link."""
     merchant_name: NotRequired[Nullable[str]]
     r"""The merchant's display name."""
@@ -107,9 +88,7 @@ class PaymentLinkCreate(BaseModel):
     statement_descriptor: OptionalNullable[StatementDescriptor] = UNSET
     r"""The statement descriptor for the payment link."""
 
-    locale: Annotated[
-        OptionalNullable[Locale], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    locale: OptionalNullable[str] = UNSET
     r"""The locale for the payment link."""
 
     merchant_name: OptionalNullable[str] = UNSET

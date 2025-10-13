@@ -33,7 +33,7 @@ class Error405Data(BaseModel):
     r"""A list of details that further ellaborate on the error."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class Error405(Gr4vyError):
     data: Error405Data = field(hash=False)
 

@@ -33,7 +33,7 @@ class Error403Data(BaseModel):
     r"""A list of details that further ellaborate on the error."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class Error403(Gr4vyError):
     data: Error403Data = field(hash=False)
 

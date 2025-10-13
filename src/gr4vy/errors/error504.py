@@ -32,7 +32,7 @@ class Error504Data(BaseModel):
     r"""A list of details that further ellaborate on the error."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class Error504(Gr4vyError):
     data: Error504Data = field(hash=False)
 

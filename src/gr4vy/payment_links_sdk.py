@@ -33,7 +33,7 @@ class PaymentLinksSDK(BaseSDK):
         statement_descriptor: OptionalNullable[
             Union[models.StatementDescriptor, models.StatementDescriptorTypedDict]
         ] = UNSET,
-        locale: OptionalNullable[models.Locale] = UNSET,
+        locale: OptionalNullable[str] = UNSET,
         merchant_name: OptionalNullable[str] = UNSET,
         merchant_url: OptionalNullable[str] = UNSET,
         merchant_banner_url: OptionalNullable[str] = UNSET,
@@ -265,7 +265,7 @@ class PaymentLinksSDK(BaseSDK):
         statement_descriptor: OptionalNullable[
             Union[models.StatementDescriptor, models.StatementDescriptorTypedDict]
         ] = UNSET,
-        locale: OptionalNullable[models.Locale] = UNSET,
+        locale: OptionalNullable[str] = UNSET,
         merchant_name: OptionalNullable[str] = UNSET,
         merchant_url: OptionalNullable[str] = UNSET,
         merchant_banner_url: OptionalNullable[str] = UNSET,

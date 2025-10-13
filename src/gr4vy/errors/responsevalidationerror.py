@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from gr4vy.errors import Gr4vyError
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class ResponseValidationError(Gr4vyError):
     """Error raised when there is a type mismatch between the response data and the expected Pydantic model."""
 
