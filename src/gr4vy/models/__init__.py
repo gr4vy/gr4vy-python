@@ -799,7 +799,7 @@ if TYPE_CHECKING:
     from .nuveipseoptions import NuveiPSEOptions, NuveiPSEOptionsTypedDict
     from .oxxooptions import OxxoOptions, OxxoOptionsTypedDict
     from .paymentlink import PaymentLink, PaymentLinkTypedDict
-    from .paymentlinkcreate import Locale, PaymentLinkCreate, PaymentLinkCreateTypedDict
+    from .paymentlinkcreate import PaymentLinkCreate, PaymentLinkCreateTypedDict
     from .paymentlinks import PaymentLinks, PaymentLinksTypedDict
     from .paymentlinkstatus import PaymentLinkStatus
     from .paymentmethod import PaymentMethod, PaymentMethodTypedDict
@@ -1716,7 +1716,6 @@ __all__ = [
     "ListTransactionsResponseTypedDict",
     "Loc",
     "LocTypedDict",
-    "Locale",
     "MattildaTapiOptions",
     "MattildaTapiOptionsTypedDict",
     "MerchantAccount",
@@ -2662,7 +2661,6 @@ _dynamic_imports: dict[str, str] = {
     "OxxoOptionsTypedDict": ".oxxooptions",
     "PaymentLink": ".paymentlink",
     "PaymentLinkTypedDict": ".paymentlink",
-    "Locale": ".paymentlinkcreate",
     "PaymentLinkCreate": ".paymentlinkcreate",
     "PaymentLinkCreateTypedDict": ".paymentlinkcreate",
     "PaymentLinks": ".paymentlinks",

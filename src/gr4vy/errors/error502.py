@@ -33,7 +33,7 @@ class Error502Data(BaseModel):
     r"""A list of details that further ellaborate on the error."""
 
 
-@dataclass(frozen=True)
+@dataclass(unsafe_hash=True)
 class Error502(Gr4vyError):
     data: Error502Data = field(hash=False)
 
