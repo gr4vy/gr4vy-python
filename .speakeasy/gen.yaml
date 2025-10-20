@@ -17,12 +17,14 @@ generation:
     oAuth2ClientCredentialsEnabled: false
     oAuth2PasswordEnabled: false
     hoistGlobalSecurity: true
+  schemas:
+    allOfMergeStrategy: shallowMerge
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 1.5.6
+  version: 1.6.0
   additionalDependencies:
     dev:
       freezegun: ^1.5.1
