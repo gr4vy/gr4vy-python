@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 from .definitionfield import DefinitionField, DefinitionFieldTypedDict
+from .integrationclient import IntegrationClient
 from .method import Method
 from .mode import Mode
 from .paymentserviceconfiguration import (
@@ -41,6 +42,8 @@ class PaymentServiceDefinitionTypedDict(TypedDict):
     required_checkout_fields: List[RequiredCheckoutFieldsTypedDict]
     r"""A list of condition that define when some fields must be provided with a transaction request."""
     configuration: PaymentServiceConfigurationTypedDict
+    supported_integration_clients: Nullable[List[IntegrationClient]]
+    r"""List of supported integration clients. Defaults to redirect for most redirect connectors."""
     type: Literal["payment-service-definition"]
     r"""Always `payment-service-definition`."""
     icon_url: NotRequired[Nullable[str]]
@@ -78,6 +81,11 @@ class PaymentServiceDefinition(BaseModel):
 
     configuration: PaymentServiceConfiguration
 
+    supported_integration_clients: Nullable[
+        List[Annotated[IntegrationClient, PlainValidator(validate_open_enum(False))]]
+    ]
+    r"""List of supported integration clients. Defaults to redirect for most redirect connectors."""
+
     TYPE: Annotated[
         Annotated[
             Optional[Literal["payment-service-definition"]],
@@ -93,7 +101,7 @@ class PaymentServiceDefinition(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = ["type", "icon_url"]
-        nullable_fields = ["icon_url"]
+        nullable_fields = ["icon_url", "supported_integration_clients"]
         null_default_fields = []
 
         serialized = handler(self)

@@ -783,6 +783,7 @@ class Transactions(BaseSDK):
         supplier_order_number: OptionalNullable[str] = UNSET,
         duty_amount: OptionalNullable[int] = UNSET,
         shipping_amount: OptionalNullable[int] = UNSET,
+        integration_client: OptionalNullable[models.IntegrationClient] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -832,6 +833,7 @@ class Transactions(BaseSDK):
         :param supplier_order_number: The merchant's unique identifier for the sales order or invoice.
         :param duty_amount: Total charges for import/export duties.
         :param shipping_amount: Total shipping amount.
+        :param integration_client: Defines the client where the session for this transaction is going to be used. Please refer to the connections documentation for more guidance.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -911,6 +913,7 @@ class Transactions(BaseSDK):
                 supplier_order_number=supplier_order_number,
                 duty_amount=duty_amount,
                 shipping_amount=shipping_amount,
+                integration_client=integration_client,
             ),
         )
 
@@ -1097,6 +1100,7 @@ class Transactions(BaseSDK):
         supplier_order_number: OptionalNullable[str] = UNSET,
         duty_amount: OptionalNullable[int] = UNSET,
         shipping_amount: OptionalNullable[int] = UNSET,
+        integration_client: OptionalNullable[models.IntegrationClient] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1146,6 +1150,7 @@ class Transactions(BaseSDK):
         :param supplier_order_number: The merchant's unique identifier for the sales order or invoice.
         :param duty_amount: Total charges for import/export duties.
         :param shipping_amount: Total shipping amount.
+        :param integration_client: Defines the client where the session for this transaction is going to be used. Please refer to the connections documentation for more guidance.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1225,6 +1230,7 @@ class Transactions(BaseSDK):
                 supplier_order_number=supplier_order_number,
                 duty_amount=duty_amount,
                 shipping_amount=shipping_amount,
+                integration_client=integration_client,
             ),
         )
 

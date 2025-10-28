@@ -582,6 +582,7 @@ if TYPE_CHECKING:
     from .guestbuyer_input import GuestBuyerInput, GuestBuyerInputTypedDict
     from .guestbuyer_output import GuestBuyerOutput, GuestBuyerOutputTypedDict
     from .instrumenttype import InstrumentType
+    from .integrationclient import IntegrationClient
     from .latitudeoptions import LatitudeOptions, LatitudeOptionsTypedDict
     from .list_all_report_executionsop import (
         ListAllReportExecutionsGlobals,
@@ -1588,6 +1589,7 @@ __all__ = [
     "GuestBuyerOutput",
     "GuestBuyerOutputTypedDict",
     "InstrumentType",
+    "IntegrationClient",
     "Item",
     "ItemTypedDict",
     "LatitudeOptions",
@@ -2496,6 +2498,7 @@ _dynamic_imports: dict[str, str] = {
     "GuestBuyerOutput": ".guestbuyer_output",
     "GuestBuyerOutputTypedDict": ".guestbuyer_output",
     "InstrumentType": ".instrumenttype",
+    "IntegrationClient": ".integrationclient",
     "LatitudeOptions": ".latitudeoptions",
     "LatitudeOptionsTypedDict": ".latitudeoptions",
     "ListAllReportExecutionsGlobals": ".list_all_report_executionsop",

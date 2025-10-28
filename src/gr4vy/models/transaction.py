@@ -158,6 +158,8 @@ class TransactionTypedDict(TypedDict):
     r"""An optional merchant advice code which provides insight into the type of transaction or reason why the payment failed."""
     installment_count: NotRequired[Nullable[int]]
     r"""The number of installments for this transaction, if applicable."""
+    session_token: NotRequired[Nullable[str]]
+    r"""A session token that can be used to fetch session data for direct client integrations."""
     tax_amount: NotRequired[Nullable[int]]
     r"""The sales tax amount for this transaction, represented as a monetary amount in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`"""
     merchant_tax_id: NotRequired[Nullable[str]]
@@ -371,6 +373,9 @@ class Transaction(BaseModel):
     installment_count: OptionalNullable[int] = UNSET
     r"""The number of installments for this transaction, if applicable."""
 
+    session_token: OptionalNullable[str] = UNSET
+    r"""A session token that can be used to fetch session data for direct client integrations."""
+
     tax_amount: OptionalNullable[int] = UNSET
     r"""The sales tax amount for this transaction, represented as a monetary amount in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`"""
 
@@ -432,6 +437,7 @@ class Transaction(BaseModel):
             "recipient",
             "merchant_advice_code",
             "installment_count",
+            "session_token",
             "tax_amount",
             "merchant_tax_id",
             "customer_reference_number",
@@ -475,6 +481,7 @@ class Transaction(BaseModel):
             "recipient",
             "merchant_advice_code",
             "installment_count",
+            "session_token",
             "tax_amount",
             "merchant_tax_id",
             "customer_reference_number",
