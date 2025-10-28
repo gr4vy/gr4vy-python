@@ -41,6 +41,7 @@ from .googlepaypaymentmethodcreate import (
     GooglePayPaymentMethodCreateTypedDict,
 )
 from .guestbuyer_input import GuestBuyerInput, GuestBuyerInputTypedDict
+from .integrationclient import IntegrationClient
 from .networktokenpaymentmethodcreate import (
     NetworkTokenPaymentMethodCreate,
     NetworkTokenPaymentMethodCreateTypedDict,
@@ -226,6 +227,8 @@ class TransactionCreateTypedDict(TypedDict):
     r"""Total charges for import/export duties."""
     shipping_amount: NotRequired[Nullable[int]]
     r"""Total shipping amount."""
+    integration_client: NotRequired[Nullable[IntegrationClient]]
+    r"""Defines the client where the session for this transaction is going to be used. Please refer to the connections documentation for more guidance."""
 
 
 class TransactionCreate(BaseModel):
@@ -364,6 +367,11 @@ class TransactionCreate(BaseModel):
     shipping_amount: OptionalNullable[int] = UNSET
     r"""Total shipping amount."""
 
+    integration_client: Annotated[
+        OptionalNullable[IntegrationClient], PlainValidator(validate_open_enum(False))
+    ] = UNSET
+    r"""Defines the client where the session for this transaction is going to be used. Please refer to the connections documentation for more guidance."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -402,6 +410,7 @@ class TransactionCreate(BaseModel):
             "supplier_order_number",
             "duty_amount",
             "shipping_amount",
+            "integration_client",
         ]
         nullable_fields = [
             "country",
@@ -431,6 +440,7 @@ class TransactionCreate(BaseModel):
             "supplier_order_number",
             "duty_amount",
             "shipping_amount",
+            "integration_client",
         ]
         null_default_fields = []
 
