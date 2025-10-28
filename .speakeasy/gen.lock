@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 5c75c3e00b03624b2ff06b789e80df3b
+  docChecksum: 6307559339b0f384488eeb11b309d144
   docVersion: 1.0.0
-  speakeasyVersion: 1.640.0
-  generationVersion: 2.730.5
-  releaseVersion: 1.6.2
-  configChecksum: 1294a553b678199ce9bf89bc34119618
+  speakeasyVersion: 1.642.0
+  generationVersion: 2.731.4
+  releaseVersion: 1.6.3
+  configChecksum: ea514cf735eef397a58f620a70ed0169
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -210,6 +210,7 @@ generatedFiles:
   - docs/models/forterantifraudoptions.md
   - docs/models/forterantifraudoptionscartitem.md
   - docs/models/forterantifraudoptionscartitembasicitemdata.md
+  - docs/models/forterantifraudoptionscartitembasicitemdatatype.md
   - docs/models/forterantifraudoptionscartitembeneficiary.md
   - docs/models/forterantifraudoptionscartitembeneficiaryaddress.md
   - docs/models/forterantifraudoptionscartitembeneficiarycomments.md
@@ -405,6 +406,10 @@ generatedFiles:
   - docs/models/payoutsummaries.md
   - docs/models/payoutsummary.md
   - docs/models/paypaloptions.md
+  - docs/models/paypalshippingoptions.md
+  - docs/models/paypalshippingoptionsitem.md
+  - docs/models/paypalshippingoptionsitemamount.md
+  - docs/models/paypalshippingoptionsitemtype.md
   - docs/models/powertranzoptions.md
   - docs/models/producttype.md
   - docs/models/recipient.md
@@ -498,7 +503,6 @@ generatedFiles:
   - docs/models/travelhubcustomdata.md
   - docs/models/travelhuboptions.md
   - docs/models/trustlyoptions.md
-  - docs/models/type.md
   - docs/models/unregisterdigitalwalletdomainglobals.md
   - docs/models/unregisterdigitalwalletdomainrequest.md
   - docs/models/updatebuyerglobals.md
@@ -870,6 +874,9 @@ generatedFiles:
   - src/gr4vy/models/payoutsummaries.py
   - src/gr4vy/models/payoutsummary.py
   - src/gr4vy/models/paypaloptions.py
+  - src/gr4vy/models/paypalshippingoptions.py
+  - src/gr4vy/models/paypalshippingoptionsitem.py
+  - src/gr4vy/models/paypalshippingoptionsitemamount.py
   - src/gr4vy/models/powertranzoptions.py
   - src/gr4vy/models/producttype.py
   - src/gr4vy/models/recipient.py
@@ -4441,4 +4448,4 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes Detected:\n* `gr4vy.transactions.create()`: \n  *  `request.integration_client` **Added**\n  *  `response.session_token` **Added**\n* `gr4vy.transactions.get()`:  `response.session_token` **Added**\n* `gr4vy.transactions.update()`:  `response.session_token` **Added**\n* `gr4vy.transactions.capture()`:  `response.[transaction].session_token` **Added**\n* `gr4vy.transactions.void()`:  `response.[transaction].session_token` **Added**\n* `gr4vy.transactions.cancel()`:  `response.transaction.session_token` **Added**\n* `gr4vy.transactions.sync()`:  `response.session_token` **Added**\n* `gr4vy.payment-service-definitions.list()`:  `response.items.[].supported_integration_clients` **Added**\n* `gr4vy.payment-service-definitions.get()`:  `response.supported_integration_clients` **Added**\n"
+releaseNotes: "## Python SDK Changes Detected:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.paypal-paypal.shipping` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.paypal-paypal.shipping` **Added**\n* `gr4vy.payment-links.create()`: \n  *  `request.connection_options.paypal-paypal.shipping` **Added**\n"

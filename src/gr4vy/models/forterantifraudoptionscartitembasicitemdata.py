@@ -16,7 +16,7 @@ from typing import Literal, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-Type = Union[
+ForterAntiFraudOptionsCartItemBasicItemDataType = Union[
     Literal[
         "TANGIBLE",
         "NON_TANGIBLE",
@@ -26,13 +26,14 @@ Type = Union[
 
 
 class ForterAntiFraudOptionsCartItemBasicItemDataTypedDict(TypedDict):
-    type: NotRequired[Nullable[Type]]
+    type: NotRequired[Nullable[ForterAntiFraudOptionsCartItemBasicItemDataType]]
     r"""Indicates whether the item is a physical good or a service/digital item."""
 
 
 class ForterAntiFraudOptionsCartItemBasicItemData(BaseModel):
     type: Annotated[
-        OptionalNullable[Type], PlainValidator(validate_open_enum(False))
+        OptionalNullable[ForterAntiFraudOptionsCartItemBasicItemDataType],
+        PlainValidator(validate_open_enum(False)),
     ] = UNSET
     r"""Indicates whether the item is a physical good or a service/digital item."""
 
