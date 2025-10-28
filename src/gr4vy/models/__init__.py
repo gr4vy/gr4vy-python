@@ -392,8 +392,8 @@ if TYPE_CHECKING:
     )
     from .forterantifraudoptionscartitembasicitemdata import (
         ForterAntiFraudOptionsCartItemBasicItemData,
+        ForterAntiFraudOptionsCartItemBasicItemDataType,
         ForterAntiFraudOptionsCartItemBasicItemDataTypedDict,
-        Type,
     )
     from .forterantifraudoptionscartitembeneficiary import (
         ForterAntiFraudOptionsCartItemBeneficiary,
@@ -902,6 +902,19 @@ if TYPE_CHECKING:
     from .payoutsummaries import PayoutSummaries, PayoutSummariesTypedDict
     from .payoutsummary import PayoutSummary, PayoutSummaryTypedDict
     from .paypaloptions import PaypalOptions, PaypalOptionsTypedDict
+    from .paypalshippingoptions import (
+        PaypalShippingOptions,
+        PaypalShippingOptionsTypedDict,
+    )
+    from .paypalshippingoptionsitem import (
+        PaypalShippingOptionsItem,
+        PaypalShippingOptionsItemType,
+        PaypalShippingOptionsItemTypedDict,
+    )
+    from .paypalshippingoptionsitemamount import (
+        PaypalShippingOptionsItemAmount,
+        PaypalShippingOptionsItemAmountTypedDict,
+    )
     from .powertranzoptions import PowertranzOptions, PowertranzOptionsTypedDict
     from .producttype import ProductType
     from .recipient import Recipient, RecipientTypedDict
@@ -1456,6 +1469,7 @@ __all__ = [
     "ForterAntiFraudOptions",
     "ForterAntiFraudOptionsCartItem",
     "ForterAntiFraudOptionsCartItemBasicItemData",
+    "ForterAntiFraudOptionsCartItemBasicItemDataType",
     "ForterAntiFraudOptionsCartItemBasicItemDataTypedDict",
     "ForterAntiFraudOptionsCartItemBeneficiary",
     "ForterAntiFraudOptionsCartItemBeneficiaryAddress",
@@ -1830,6 +1844,13 @@ __all__ = [
     "PayoutSummaryTypedDict",
     "PaypalOptions",
     "PaypalOptionsTypedDict",
+    "PaypalShippingOptions",
+    "PaypalShippingOptionsItem",
+    "PaypalShippingOptionsItemAmount",
+    "PaypalShippingOptionsItemAmountTypedDict",
+    "PaypalShippingOptionsItemType",
+    "PaypalShippingOptionsItemTypedDict",
+    "PaypalShippingOptionsTypedDict",
     "PowertranzOptions",
     "PowertranzOptionsTypedDict",
     "ProductType",
@@ -1998,7 +2019,6 @@ __all__ = [
     "TravelhubOptionsTypedDict",
     "TrustlyOptions",
     "TrustlyOptionsTypedDict",
-    "Type",
     "UnregisterDigitalWalletDomainGlobals",
     "UnregisterDigitalWalletDomainGlobalsTypedDict",
     "UnregisterDigitalWalletDomainRequest",
@@ -2365,8 +2385,8 @@ _dynamic_imports: dict[str, str] = {
     "ForterAntiFraudOptionsCartItem": ".forterantifraudoptionscartitem",
     "ForterAntiFraudOptionsCartItemTypedDict": ".forterantifraudoptionscartitem",
     "ForterAntiFraudOptionsCartItemBasicItemData": ".forterantifraudoptionscartitembasicitemdata",
+    "ForterAntiFraudOptionsCartItemBasicItemDataType": ".forterantifraudoptionscartitembasicitemdata",
     "ForterAntiFraudOptionsCartItemBasicItemDataTypedDict": ".forterantifraudoptionscartitembasicitemdata",
-    "Type": ".forterantifraudoptionscartitembasicitemdata",
     "ForterAntiFraudOptionsCartItemBeneficiary": ".forterantifraudoptionscartitembeneficiary",
     "ForterAntiFraudOptionsCartItemBeneficiaryTypedDict": ".forterantifraudoptionscartitembeneficiary",
     "ForterAntiFraudOptionsCartItemBeneficiaryAddress": ".forterantifraudoptionscartitembeneficiaryaddress",
@@ -2741,6 +2761,13 @@ _dynamic_imports: dict[str, str] = {
     "PayoutSummaryTypedDict": ".payoutsummary",
     "PaypalOptions": ".paypaloptions",
     "PaypalOptionsTypedDict": ".paypaloptions",
+    "PaypalShippingOptions": ".paypalshippingoptions",
+    "PaypalShippingOptionsTypedDict": ".paypalshippingoptions",
+    "PaypalShippingOptionsItem": ".paypalshippingoptionsitem",
+    "PaypalShippingOptionsItemType": ".paypalshippingoptionsitem",
+    "PaypalShippingOptionsItemTypedDict": ".paypalshippingoptionsitem",
+    "PaypalShippingOptionsItemAmount": ".paypalshippingoptionsitemamount",
+    "PaypalShippingOptionsItemAmountTypedDict": ".paypalshippingoptionsitemamount",
     "PowertranzOptions": ".powertranzoptions",
     "PowertranzOptionsTypedDict": ".powertranzoptions",
     "ProductType": ".producttype",

@@ -979,3 +979,13 @@ Based on:
 - [python v1.6.2] .
 ### Releases
 - [PyPI v1.6.2] https://pypi.org/project/gr4vy/1.6.2 - .
+
+## 2025-10-28 14:37:06
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.642.0 (2.731.4) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v1.6.3] .
+### Releases
+- [PyPI v1.6.3] https://pypi.org/project/gr4vy/1.6.3 - .
