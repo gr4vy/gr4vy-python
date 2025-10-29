@@ -915,6 +915,10 @@ if TYPE_CHECKING:
         PaypalShippingOptionsItemAmount,
         PaypalShippingOptionsItemAmountTypedDict,
     )
+    from .plaidpaymentmethodcreate import (
+        PlaidPaymentMethodCreate,
+        PlaidPaymentMethodCreateTypedDict,
+    )
     from .powertranzoptions import PowertranzOptions, PowertranzOptionsTypedDict
     from .producttype import ProductType
     from .recipient import Recipient, RecipientTypedDict
@@ -1867,6 +1871,8 @@ __all__ = [
     "PaypalShippingOptionsItemType",
     "PaypalShippingOptionsItemTypedDict",
     "PaypalShippingOptionsTypedDict",
+    "PlaidPaymentMethodCreate",
+    "PlaidPaymentMethodCreateTypedDict",
     "PowertranzOptions",
     "PowertranzOptionsTypedDict",
     "ProductType",
@@ -2784,6 +2790,8 @@ _dynamic_imports: dict[str, str] = {
     "PaypalShippingOptionsItemTypedDict": ".paypalshippingoptionsitem",
     "PaypalShippingOptionsItemAmount": ".paypalshippingoptionsitemamount",
     "PaypalShippingOptionsItemAmountTypedDict": ".paypalshippingoptionsitemamount",
+    "PlaidPaymentMethodCreate": ".plaidpaymentmethodcreate",
+    "PlaidPaymentMethodCreateTypedDict": ".plaidpaymentmethodcreate",
     "PowertranzOptions": ".powertranzoptions",
     "PowertranzOptionsTypedDict": ".powertranzoptions",
     "ProductType": ".producttype",

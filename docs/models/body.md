@@ -21,3 +21,9 @@ value: models.RedirectPaymentMethodCreate = /* values here */
 value: models.CheckoutSessionPaymentMethodCreate = /* values here */
 ```
 
+### `models.PlaidPaymentMethodCreate`
+
+```python
+value: models.PlaidPaymentMethodCreate = /* values here */
+```
+

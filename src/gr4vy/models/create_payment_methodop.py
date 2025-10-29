@@ -9,6 +9,10 @@ from .checkoutsessionpaymentmethodcreate import (
     CheckoutSessionPaymentMethodCreate,
     CheckoutSessionPaymentMethodCreateTypedDict,
 )
+from .plaidpaymentmethodcreate import (
+    PlaidPaymentMethodCreate,
+    PlaidPaymentMethodCreateTypedDict,
+)
 from .redirectpaymentmethodcreate import (
     RedirectPaymentMethodCreate,
     RedirectPaymentMethodCreateTypedDict,
@@ -38,6 +42,7 @@ BodyTypedDict = TypeAliasType(
     "BodyTypedDict",
     Union[
         CheckoutSessionPaymentMethodCreateTypedDict,
+        PlaidPaymentMethodCreateTypedDict,
         RedirectPaymentMethodCreateTypedDict,
         CardPaymentMethodCreateTypedDict,
     ],
@@ -48,6 +53,7 @@ Body = TypeAliasType(
     "Body",
     Union[
         CheckoutSessionPaymentMethodCreate,
+        PlaidPaymentMethodCreate,
         RedirectPaymentMethodCreate,
         CardPaymentMethodCreate,
     ],

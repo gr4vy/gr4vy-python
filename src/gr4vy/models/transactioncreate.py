@@ -46,6 +46,10 @@ from .networktokenpaymentmethodcreate import (
     NetworkTokenPaymentMethodCreate,
     NetworkTokenPaymentMethodCreateTypedDict,
 )
+from .plaidpaymentmethodcreate import (
+    PlaidPaymentMethodCreate,
+    PlaidPaymentMethodCreateTypedDict,
+)
 from .recipient import Recipient, RecipientTypedDict
 from .redirectpaymentmethodcreate import (
     RedirectPaymentMethodCreate,
@@ -76,6 +80,7 @@ TransactionCreatePaymentMethodTypedDict = TypeAliasType(
     "TransactionCreatePaymentMethodTypedDict",
     Union[
         TokenPaymentMethodCreateTypedDict,
+        PlaidPaymentMethodCreateTypedDict,
         CheckoutSessionWithURLPaymentMethodCreateTypedDict,
         RedirectPaymentMethodCreateTypedDict,
         ClickToPayPaymentMethodCreateTypedDict,
@@ -94,6 +99,7 @@ TransactionCreatePaymentMethod = TypeAliasType(
     "TransactionCreatePaymentMethod",
     Union[
         TokenPaymentMethodCreate,
+        PlaidPaymentMethodCreate,
         CheckoutSessionWithURLPaymentMethodCreate,
         RedirectPaymentMethodCreate,
         ClickToPayPaymentMethodCreate,
