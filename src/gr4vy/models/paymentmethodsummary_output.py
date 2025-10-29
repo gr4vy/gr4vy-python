@@ -18,7 +18,7 @@ from typing import List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class PaymentMethodSummaryTypedDict(TypedDict):
+class PaymentMethodSummaryOutputTypedDict(TypedDict):
     r"""Payment Method
 
     A summary of a payment method.
@@ -65,7 +65,7 @@ class PaymentMethodSummaryTypedDict(TypedDict):
     r"""The timestamp when this payment method was last used in a transaction."""
 
 
-class PaymentMethodSummary(BaseModel):
+class PaymentMethodSummaryOutput(BaseModel):
     r"""Payment Method
 
     A summary of a payment method.

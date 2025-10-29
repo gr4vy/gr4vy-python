@@ -74,7 +74,7 @@ if TYPE_CHECKING:
     from .approvaltarget import ApprovalTarget
     from .auditlogaction import AuditLogAction
     from .auditlogentries import AuditLogEntries, AuditLogEntriesTypedDict
-    from .auditlogentry import AuditLogEntry, AuditLogEntryTypedDict
+    from .auditlogentry_output import AuditLogEntryOutput, AuditLogEntryOutputTypedDict
     from .auditlogentryresource import (
         AuditLogEntryResource,
         AuditLogEntryResourceTypedDict,
@@ -141,9 +141,9 @@ if TYPE_CHECKING:
         CheckoutSessionCreate,
         CheckoutSessionCreateTypedDict,
     )
-    from .checkoutsessionpaymentmethod import (
-        CheckoutSessionPaymentMethod,
-        CheckoutSessionPaymentMethodTypedDict,
+    from .checkoutsessionpaymentmethod_output import (
+        CheckoutSessionPaymentMethodOutput,
+        CheckoutSessionPaymentMethodOutputTypedDict,
     )
     from .checkoutsessionpaymentmethodcreate import (
         CheckoutSessionPaymentMethodCreate,
@@ -819,15 +819,15 @@ if TYPE_CHECKING:
         PaymentMethodSummaries,
         PaymentMethodSummariesTypedDict,
     )
-    from .paymentmethodsummary import (
-        PaymentMethodSummary,
-        PaymentMethodSummaryTypedDict,
+    from .paymentmethodsummary_output import (
+        PaymentMethodSummaryOutput,
+        PaymentMethodSummaryOutputTypedDict,
     )
-    from .paymentoption import (
+    from .paymentoption_output import (
         Context,
         ContextTypedDict,
-        PaymentOption,
-        PaymentOptionTypedDict,
+        PaymentOptionOutput,
+        PaymentOptionOutputTypedDict,
     )
     from .paymentoptioncontext import (
         PaymentOptionContext,
@@ -1011,10 +1011,16 @@ if TYPE_CHECKING:
         TokenPaymentMethodCreate,
         TokenPaymentMethodCreateTypedDict,
     )
-    from .transaction import Transaction, TransactionTypedDict
-    from .transactionbuyer import TransactionBuyer, TransactionBuyerTypedDict
+    from .transaction_output import TransactionOutput, TransactionOutputTypedDict
+    from .transactionbuyer_output import (
+        TransactionBuyerOutput,
+        TransactionBuyerOutputTypedDict,
+    )
     from .transactioncancel import TransactionCancel, TransactionCancelTypedDict
-    from .transactioncapture import TransactionCapture, TransactionCaptureTypedDict
+    from .transactioncapture_output import (
+        TransactionCaptureOutput,
+        TransactionCaptureOutputTypedDict,
+    )
     from .transactioncapturecreate import (
         TransactionCaptureCreate,
         TransactionCaptureCreateTypedDict,
@@ -1033,14 +1039,18 @@ if TYPE_CHECKING:
         TransactionCreatePaymentMethodTypedDict,
         TransactionCreateTypedDict,
     )
-    from .transactionevent import Name, TransactionEvent, TransactionEventTypedDict
+    from .transactionevent_output import (
+        Name,
+        TransactionEventOutput,
+        TransactionEventOutputTypedDict,
+    )
     from .transactionevents import TransactionEvents, TransactionEventsTypedDict
     from .transactiongiftcard import TransactionGiftCard, TransactionGiftCardTypedDict
     from .transactionintent import TransactionIntent
     from .transactionintentoutcome import TransactionIntentOutcome
-    from .transactionpaymentmethod import (
-        TransactionPaymentMethod,
-        TransactionPaymentMethodTypedDict,
+    from .transactionpaymentmethod_output import (
+        TransactionPaymentMethodOutput,
+        TransactionPaymentMethodOutputTypedDict,
     )
     from .transactionpaymentservice import (
         TransactionPaymentService,
@@ -1068,15 +1078,21 @@ if TYPE_CHECKING:
         TransactionSummaries,
         TransactionSummariesTypedDict,
     )
-    from .transactionsummary import TransactionSummary, TransactionSummaryTypedDict
-    from .transactionthreedsecuresummary import (
+    from .transactionsummary_output import (
+        TransactionSummaryOutput,
+        TransactionSummaryOutputTypedDict,
+    )
+    from .transactionthreedsecuresummary_output import (
         ResponseData,
         ResponseDataTypedDict,
-        TransactionThreeDSecureSummary,
-        TransactionThreeDSecureSummaryTypedDict,
+        TransactionThreeDSecureSummaryOutput,
+        TransactionThreeDSecureSummaryOutputTypedDict,
     )
     from .transactionupdate import TransactionUpdate, TransactionUpdateTypedDict
-    from .transactionvoid import TransactionVoid, TransactionVoidTypedDict
+    from .transactionvoid_output import (
+        TransactionVoidOutput,
+        TransactionVoidOutputTypedDict,
+    )
     from .travelhubcustomdata import TravelHubCustomData, TravelHubCustomDataTypedDict
     from .travelhuboptions import TravelhubOptions, TravelhubOptionsTypedDict
     from .trustlyoptions import TrustlyOptions, TrustlyOptionsTypedDict
@@ -1234,10 +1250,10 @@ __all__ = [
     "AuditLogAction",
     "AuditLogEntries",
     "AuditLogEntriesTypedDict",
-    "AuditLogEntry",
+    "AuditLogEntryOutput",
+    "AuditLogEntryOutputTypedDict",
     "AuditLogEntryResource",
     "AuditLogEntryResourceTypedDict",
-    "AuditLogEntryTypedDict",
     "AuditLogEntryUser",
     "AuditLogEntryUserTypedDict",
     "BillingDetailsInput",
@@ -1289,12 +1305,12 @@ __all__ = [
     "CheckoutSession",
     "CheckoutSessionCreate",
     "CheckoutSessionCreateTypedDict",
-    "CheckoutSessionPaymentMethod",
     "CheckoutSessionPaymentMethodCreate",
     "CheckoutSessionPaymentMethodCreateTypedDict",
     "CheckoutSessionPaymentMethodDetails",
     "CheckoutSessionPaymentMethodDetailsTypedDict",
-    "CheckoutSessionPaymentMethodTypedDict",
+    "CheckoutSessionPaymentMethodOutput",
+    "CheckoutSessionPaymentMethodOutputTypedDict",
     "CheckoutSessionTypedDict",
     "CheckoutSessionWithURLPaymentMethodCreate",
     "CheckoutSessionWithURLPaymentMethodCreateTypedDict",
@@ -1788,19 +1804,19 @@ __all__ = [
     "PaymentMethodStoredCardTypedDict",
     "PaymentMethodSummaries",
     "PaymentMethodSummariesTypedDict",
-    "PaymentMethodSummary",
-    "PaymentMethodSummaryTypedDict",
+    "PaymentMethodSummaryOutput",
+    "PaymentMethodSummaryOutputTypedDict",
     "PaymentMethodTypedDict",
     "PaymentMethods",
     "PaymentMethodsTypedDict",
-    "PaymentOption",
     "PaymentOptionContext",
     "PaymentOptionContextApprovalUI",
     "PaymentOptionContextApprovalUITypedDict",
     "PaymentOptionContextTypedDict",
+    "PaymentOptionOutput",
+    "PaymentOptionOutputTypedDict",
     "PaymentOptionRequest",
     "PaymentOptionRequestTypedDict",
-    "PaymentOptionTypedDict",
     "PaymentOptions",
     "PaymentOptionsTypedDict",
     "PaymentService",
@@ -1965,31 +1981,32 @@ __all__ = [
     "TokenPaymentMethodCreate",
     "TokenPaymentMethodCreateTypedDict",
     "TokenTypedDict",
-    "Transaction",
-    "TransactionBuyer",
-    "TransactionBuyerTypedDict",
+    "TransactionBuyerOutput",
+    "TransactionBuyerOutputTypedDict",
     "TransactionCancel",
     "TransactionCancelTypedDict",
-    "TransactionCapture",
     "TransactionCaptureCreate",
     "TransactionCaptureCreateTypedDict",
-    "TransactionCaptureTypedDict",
+    "TransactionCaptureOutput",
+    "TransactionCaptureOutputTypedDict",
     "TransactionConnectionOptions",
     "TransactionConnectionOptionsTypedDict",
     "TransactionCreate",
     "TransactionCreatePaymentMethod",
     "TransactionCreatePaymentMethodTypedDict",
     "TransactionCreateTypedDict",
-    "TransactionEvent",
-    "TransactionEventTypedDict",
+    "TransactionEventOutput",
+    "TransactionEventOutputTypedDict",
     "TransactionEvents",
     "TransactionEventsTypedDict",
     "TransactionGiftCard",
     "TransactionGiftCardTypedDict",
     "TransactionIntent",
     "TransactionIntentOutcome",
-    "TransactionPaymentMethod",
-    "TransactionPaymentMethodTypedDict",
+    "TransactionOutput",
+    "TransactionOutputTypedDict",
+    "TransactionPaymentMethodOutput",
+    "TransactionPaymentMethodOutputTypedDict",
     "TransactionPaymentService",
     "TransactionPaymentServiceTypedDict",
     "TransactionPaymentSource",
@@ -2002,15 +2019,14 @@ __all__ = [
     "TransactionStatus",
     "TransactionSummaries",
     "TransactionSummariesTypedDict",
-    "TransactionSummary",
-    "TransactionSummaryTypedDict",
-    "TransactionThreeDSecureSummary",
-    "TransactionThreeDSecureSummaryTypedDict",
-    "TransactionTypedDict",
+    "TransactionSummaryOutput",
+    "TransactionSummaryOutputTypedDict",
+    "TransactionThreeDSecureSummaryOutput",
+    "TransactionThreeDSecureSummaryOutputTypedDict",
     "TransactionUpdate",
     "TransactionUpdateTypedDict",
-    "TransactionVoid",
-    "TransactionVoidTypedDict",
+    "TransactionVoidOutput",
+    "TransactionVoidOutputTypedDict",
     "TransactionsReportSpec",
     "TransactionsReportSpecTypedDict",
     "TravelHubCustomData",
@@ -2144,8 +2160,8 @@ _dynamic_imports: dict[str, str] = {
     "AuditLogAction": ".auditlogaction",
     "AuditLogEntries": ".auditlogentries",
     "AuditLogEntriesTypedDict": ".auditlogentries",
-    "AuditLogEntry": ".auditlogentry",
-    "AuditLogEntryTypedDict": ".auditlogentry",
+    "AuditLogEntryOutput": ".auditlogentry_output",
+    "AuditLogEntryOutputTypedDict": ".auditlogentry_output",
     "AuditLogEntryResource": ".auditlogentryresource",
     "AuditLogEntryResourceTypedDict": ".auditlogentryresource",
     "AuditLogEntryUser": ".auditlogentryuser",
@@ -2201,8 +2217,8 @@ _dynamic_imports: dict[str, str] = {
     "CheckoutSessionTypedDict": ".checkoutsession",
     "CheckoutSessionCreate": ".checkoutsessioncreate",
     "CheckoutSessionCreateTypedDict": ".checkoutsessioncreate",
-    "CheckoutSessionPaymentMethod": ".checkoutsessionpaymentmethod",
-    "CheckoutSessionPaymentMethodTypedDict": ".checkoutsessionpaymentmethod",
+    "CheckoutSessionPaymentMethodOutput": ".checkoutsessionpaymentmethod_output",
+    "CheckoutSessionPaymentMethodOutputTypedDict": ".checkoutsessionpaymentmethod_output",
     "CheckoutSessionPaymentMethodCreate": ".checkoutsessionpaymentmethodcreate",
     "CheckoutSessionPaymentMethodCreateTypedDict": ".checkoutsessionpaymentmethodcreate",
     "CheckoutSessionPaymentMethodDetails": ".checkoutsessionpaymentmethoddetails",
@@ -2702,12 +2718,12 @@ _dynamic_imports: dict[str, str] = {
     "PaymentMethodStoredCardTypedDict": ".paymentmethodstoredcard",
     "PaymentMethodSummaries": ".paymentmethodsummaries",
     "PaymentMethodSummariesTypedDict": ".paymentmethodsummaries",
-    "PaymentMethodSummary": ".paymentmethodsummary",
-    "PaymentMethodSummaryTypedDict": ".paymentmethodsummary",
-    "Context": ".paymentoption",
-    "ContextTypedDict": ".paymentoption",
-    "PaymentOption": ".paymentoption",
-    "PaymentOptionTypedDict": ".paymentoption",
+    "PaymentMethodSummaryOutput": ".paymentmethodsummary_output",
+    "PaymentMethodSummaryOutputTypedDict": ".paymentmethodsummary_output",
+    "Context": ".paymentoption_output",
+    "ContextTypedDict": ".paymentoption_output",
+    "PaymentOptionOutput": ".paymentoption_output",
+    "PaymentOptionOutputTypedDict": ".paymentoption_output",
     "PaymentOptionContext": ".paymentoptioncontext",
     "PaymentOptionContextTypedDict": ".paymentoptioncontext",
     "RequiredFields1": ".paymentoptioncontext",
@@ -2865,14 +2881,14 @@ _dynamic_imports: dict[str, str] = {
     "ThreeDSecureV2TypedDict": ".threedsecurev2",
     "TokenPaymentMethodCreate": ".tokenpaymentmethodcreate",
     "TokenPaymentMethodCreateTypedDict": ".tokenpaymentmethodcreate",
-    "Transaction": ".transaction",
-    "TransactionTypedDict": ".transaction",
-    "TransactionBuyer": ".transactionbuyer",
-    "TransactionBuyerTypedDict": ".transactionbuyer",
+    "TransactionOutput": ".transaction_output",
+    "TransactionOutputTypedDict": ".transaction_output",
+    "TransactionBuyerOutput": ".transactionbuyer_output",
+    "TransactionBuyerOutputTypedDict": ".transactionbuyer_output",
     "TransactionCancel": ".transactioncancel",
     "TransactionCancelTypedDict": ".transactioncancel",
-    "TransactionCapture": ".transactioncapture",
-    "TransactionCaptureTypedDict": ".transactioncapture",
+    "TransactionCaptureOutput": ".transactioncapture_output",
+    "TransactionCaptureOutputTypedDict": ".transactioncapture_output",
     "TransactionCaptureCreate": ".transactioncapturecreate",
     "TransactionCaptureCreateTypedDict": ".transactioncapturecreate",
     "TransactionConnectionOptions": ".transactionconnectionoptions",
@@ -2885,17 +2901,17 @@ _dynamic_imports: dict[str, str] = {
     "TransactionCreatePaymentMethod": ".transactioncreate",
     "TransactionCreatePaymentMethodTypedDict": ".transactioncreate",
     "TransactionCreateTypedDict": ".transactioncreate",
-    "Name": ".transactionevent",
-    "TransactionEvent": ".transactionevent",
-    "TransactionEventTypedDict": ".transactionevent",
+    "Name": ".transactionevent_output",
+    "TransactionEventOutput": ".transactionevent_output",
+    "TransactionEventOutputTypedDict": ".transactionevent_output",
     "TransactionEvents": ".transactionevents",
     "TransactionEventsTypedDict": ".transactionevents",
     "TransactionGiftCard": ".transactiongiftcard",
     "TransactionGiftCardTypedDict": ".transactiongiftcard",
     "TransactionIntent": ".transactionintent",
     "TransactionIntentOutcome": ".transactionintentoutcome",
-    "TransactionPaymentMethod": ".transactionpaymentmethod",
-    "TransactionPaymentMethodTypedDict": ".transactionpaymentmethod",
+    "TransactionPaymentMethodOutput": ".transactionpaymentmethod_output",
+    "TransactionPaymentMethodOutputTypedDict": ".transactionpaymentmethod_output",
     "TransactionPaymentService": ".transactionpaymentservice",
     "TransactionPaymentServiceTypedDict": ".transactionpaymentservice",
     "TransactionPaymentSource": ".transactionpaymentsource",
@@ -2910,16 +2926,16 @@ _dynamic_imports: dict[str, str] = {
     "TransactionStatus": ".transactionstatus",
     "TransactionSummaries": ".transactionsummaries",
     "TransactionSummariesTypedDict": ".transactionsummaries",
-    "TransactionSummary": ".transactionsummary",
-    "TransactionSummaryTypedDict": ".transactionsummary",
-    "ResponseData": ".transactionthreedsecuresummary",
-    "ResponseDataTypedDict": ".transactionthreedsecuresummary",
-    "TransactionThreeDSecureSummary": ".transactionthreedsecuresummary",
-    "TransactionThreeDSecureSummaryTypedDict": ".transactionthreedsecuresummary",
+    "TransactionSummaryOutput": ".transactionsummary_output",
+    "TransactionSummaryOutputTypedDict": ".transactionsummary_output",
+    "ResponseData": ".transactionthreedsecuresummary_output",
+    "ResponseDataTypedDict": ".transactionthreedsecuresummary_output",
+    "TransactionThreeDSecureSummaryOutput": ".transactionthreedsecuresummary_output",
+    "TransactionThreeDSecureSummaryOutputTypedDict": ".transactionthreedsecuresummary_output",
     "TransactionUpdate": ".transactionupdate",
     "TransactionUpdateTypedDict": ".transactionupdate",
-    "TransactionVoid": ".transactionvoid",
-    "TransactionVoidTypedDict": ".transactionvoid",
+    "TransactionVoidOutput": ".transactionvoid_output",
+    "TransactionVoidOutputTypedDict": ".transactionvoid_output",
     "TravelHubCustomData": ".travelhubcustomdata",
     "TravelHubCustomDataTypedDict": ".travelhubcustomdata",
     "TravelhubOptions": ".travelhuboptions",

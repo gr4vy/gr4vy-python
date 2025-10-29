@@ -217,7 +217,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.Transaction](../../models/transaction.md)**
+**[models.TransactionOutput](../../models/transactionoutput.md)**
 
 ### Errors
 
@@ -271,7 +271,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.Transaction](../../models/transaction.md)**
+**[models.TransactionOutput](../../models/transactionoutput.md)**
 
 ### Errors
 
@@ -328,7 +328,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.Transaction](../../models/transaction.md)**
+**[models.TransactionOutput](../../models/transactionoutput.md)**
 
 ### Errors
 
@@ -548,7 +548,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.Transaction](../../models/transaction.md)**
+**[models.TransactionOutput](../../models/transactionoutput.md)**
 
 ### Errors
 

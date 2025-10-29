@@ -68,7 +68,7 @@ Name = Union[
 r"""The specific event name."""
 
 
-class TransactionEventTypedDict(TypedDict):
+class TransactionEventOutputTypedDict(TypedDict):
     id: str
     r"""The ID for the event."""
     name: Name
@@ -80,7 +80,7 @@ class TransactionEventTypedDict(TypedDict):
     r"""Always `transaction-event`."""
 
 
-class TransactionEvent(BaseModel):
+class TransactionEventOutput(BaseModel):
     id: str
     r"""The ID for the event."""
 

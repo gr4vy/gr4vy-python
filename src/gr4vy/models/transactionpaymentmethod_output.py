@@ -19,7 +19,7 @@ from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class TransactionPaymentMethodTypedDict(TypedDict):
+class TransactionPaymentMethodOutputTypedDict(TypedDict):
     method: Method
     type: Literal["payment-method"]
     r"""Always `payment-method`."""
@@ -53,7 +53,7 @@ class TransactionPaymentMethodTypedDict(TypedDict):
     r"""The payment account reference (PAR) returned by the card scheme. This is a unique reference to the underlying account that has been used to fund this payment method."""
 
 
-class TransactionPaymentMethod(BaseModel):
+class TransactionPaymentMethodOutput(BaseModel):
     method: Annotated[Method, PlainValidator(validate_open_enum(False))]
 
     TYPE: Annotated[

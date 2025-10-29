@@ -11,7 +11,7 @@ from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class TransactionBuyerTypedDict(TypedDict):
+class TransactionBuyerOutputTypedDict(TypedDict):
     type: Literal["buyer"]
     r"""Always `buyer`."""
     id: NotRequired[Nullable[str]]
@@ -26,7 +26,7 @@ class TransactionBuyerTypedDict(TypedDict):
     r"""The buyer account number."""
 
 
-class TransactionBuyer(BaseModel):
+class TransactionBuyerOutput(BaseModel):
     TYPE: Annotated[
         Annotated[Optional[Literal["buyer"]], AfterValidator(validate_const("buyer"))],
         pydantic.Field(alias="type"),

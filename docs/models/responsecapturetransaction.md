@@ -5,15 +5,15 @@ Successful Response
 
 ## Supported Types
 
-### `models.Transaction`
+### `models.TransactionOutput`
 
 ```python
-value: models.Transaction = /* values here */
+value: models.TransactionOutput = /* values here */
 ```
 
-### `models.TransactionCapture`
+### `models.TransactionCaptureOutput`
 
 ```python
-value: models.TransactionCapture = /* values here */
+value: models.TransactionCaptureOutput = /* values here */
 ```
 

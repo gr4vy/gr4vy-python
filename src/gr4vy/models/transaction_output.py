@@ -13,12 +13,15 @@ from .method import Method
 from .recipient import Recipient, RecipientTypedDict
 from .shippingdetails import ShippingDetails, ShippingDetailsTypedDict
 from .statementdescriptor import StatementDescriptor, StatementDescriptorTypedDict
-from .transactionbuyer import TransactionBuyer, TransactionBuyerTypedDict
+from .transactionbuyer_output import (
+    TransactionBuyerOutput,
+    TransactionBuyerOutputTypedDict,
+)
 from .transactionintent import TransactionIntent
 from .transactionintentoutcome import TransactionIntentOutcome
-from .transactionpaymentmethod import (
-    TransactionPaymentMethod,
-    TransactionPaymentMethodTypedDict,
+from .transactionpaymentmethod_output import (
+    TransactionPaymentMethodOutput,
+    TransactionPaymentMethodOutputTypedDict,
 )
 from .transactionpaymentservice import (
     TransactionPaymentService,
@@ -26,9 +29,9 @@ from .transactionpaymentservice import (
 )
 from .transactionpaymentsource import TransactionPaymentSource
 from .transactionstatus import TransactionStatus
-from .transactionthreedsecuresummary import (
-    TransactionThreeDSecureSummary,
-    TransactionThreeDSecureSummaryTypedDict,
+from .transactionthreedsecuresummary_output import (
+    TransactionThreeDSecureSummaryOutput,
+    TransactionThreeDSecureSummaryOutputTypedDict,
 )
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
@@ -40,7 +43,7 @@ from typing import Dict, List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class TransactionTypedDict(TypedDict):
+class TransactionOutputTypedDict(TypedDict):
     r"""A full transaction resource."""
 
     id: str
@@ -92,7 +95,7 @@ class TransactionTypedDict(TypedDict):
     r"""The 2-letter ISO 3166-1 alpha-2 country code for the transaction. Used to filter payment services for processing."""
     external_identifier: NotRequired[Nullable[str]]
     r"""An external identifier that can be used to match the transaction against your own records."""
-    payment_method: NotRequired[Nullable[TransactionPaymentMethodTypedDict]]
+    payment_method: NotRequired[Nullable[TransactionPaymentMethodOutputTypedDict]]
     r"""The payment method used for this transaction."""
     method: NotRequired[Nullable[Method]]
     r"""The method used for the transaction."""
@@ -104,7 +107,7 @@ class TransactionTypedDict(TypedDict):
     r"""The payment service used for this transaction."""
     pending_review: NotRequired[bool]
     r"""Whether a manual anti fraud review is pending with an anti fraud service."""
-    buyer: NotRequired[Nullable[TransactionBuyerTypedDict]]
+    buyer: NotRequired[Nullable[TransactionBuyerOutputTypedDict]]
     r"""The buyer used for this transaction."""
     raw_response_code: NotRequired[Nullable[str]]
     r"""This is the response code received from the payment service. This can be set to any value and is not standardized across different payment services."""
@@ -132,7 +135,7 @@ class TransactionTypedDict(TypedDict):
     r"""The statement descriptor is the text to be shown on the buyer's statements."""
     scheme_transaction_id: NotRequired[Nullable[str]]
     r"""An identifier for the transaction used by the scheme itself, when available."""
-    three_d_secure: NotRequired[Nullable[TransactionThreeDSecureSummaryTypedDict]]
+    three_d_secure: NotRequired[Nullable[TransactionThreeDSecureSummaryOutputTypedDict]]
     r"""The 3-D Secure data that was sent to the payment service for the transaction."""
     payment_service_transaction_id: NotRequired[Nullable[str]]
     r"""The payment service's unique ID for the transaction."""
@@ -176,7 +179,7 @@ class TransactionTypedDict(TypedDict):
     r"""Total shipping amount."""
 
 
-class Transaction(BaseModel):
+class TransactionOutput(BaseModel):
     r"""A full transaction resource."""
 
     id: str
@@ -264,7 +267,7 @@ class Transaction(BaseModel):
     external_identifier: OptionalNullable[str] = UNSET
     r"""An external identifier that can be used to match the transaction against your own records."""
 
-    payment_method: OptionalNullable[TransactionPaymentMethod] = UNSET
+    payment_method: OptionalNullable[TransactionPaymentMethodOutput] = UNSET
     r"""The payment method used for this transaction."""
 
     method: Annotated[
@@ -286,7 +289,7 @@ class Transaction(BaseModel):
     pending_review: Optional[bool] = False
     r"""Whether a manual anti fraud review is pending with an anti fraud service."""
 
-    buyer: OptionalNullable[TransactionBuyer] = UNSET
+    buyer: OptionalNullable[TransactionBuyerOutput] = UNSET
     r"""The buyer used for this transaction."""
 
     raw_response_code: OptionalNullable[str] = UNSET
@@ -334,7 +337,7 @@ class Transaction(BaseModel):
     scheme_transaction_id: OptionalNullable[str] = UNSET
     r"""An identifier for the transaction used by the scheme itself, when available."""
 
-    three_d_secure: OptionalNullable[TransactionThreeDSecureSummary] = UNSET
+    three_d_secure: OptionalNullable[TransactionThreeDSecureSummaryOutput] = UNSET
     r"""The 3-D Secure data that was sent to the payment service for the transaction."""
 
     payment_service_transaction_id: OptionalNullable[str] = UNSET
