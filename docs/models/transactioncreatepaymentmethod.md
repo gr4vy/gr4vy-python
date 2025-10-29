@@ -59,6 +59,12 @@ value: models.GooglePayFPANPaymentMethodCreate = /* values here */
 value: models.NetworkTokenPaymentMethodCreate = /* values here */
 ```
 
+### `models.PlaidPaymentMethodCreate`
+
+```python
+value: models.PlaidPaymentMethodCreate = /* values here */
+```
+
 ### `models.CheckoutSessionWithURLPaymentMethodCreate`
 
 ```python
