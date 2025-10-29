@@ -6,11 +6,14 @@ from .giftcardservice import GiftCardService, GiftCardServiceTypedDict
 from .instrumenttype import InstrumentType
 from .method import Method
 from .shippingdetails import ShippingDetails, ShippingDetailsTypedDict
-from .transactionbuyer import TransactionBuyer, TransactionBuyerTypedDict
+from .transactionbuyer_output import (
+    TransactionBuyerOutput,
+    TransactionBuyerOutputTypedDict,
+)
 from .transactionintent import TransactionIntent
-from .transactionpaymentmethod import (
-    TransactionPaymentMethod,
-    TransactionPaymentMethodTypedDict,
+from .transactionpaymentmethod_output import (
+    TransactionPaymentMethodOutput,
+    TransactionPaymentMethodOutputTypedDict,
 )
 from .transactionpaymentservice import (
     TransactionPaymentService,
@@ -27,7 +30,7 @@ from typing import List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class TransactionSummaryTypedDict(TypedDict):
+class TransactionSummaryOutputTypedDict(TypedDict):
     r"""A transaction, summarised"""
 
     id: str
@@ -68,7 +71,7 @@ class TransactionSummaryTypedDict(TypedDict):
     r"""The 2-letter ISO 3166-1 alpha-2 country code for the transaction. Used to filter payment services for processing."""
     external_identifier: NotRequired[Nullable[str]]
     r"""An external identifier that can be used to match the transaction against your own records."""
-    payment_method: NotRequired[Nullable[TransactionPaymentMethodTypedDict]]
+    payment_method: NotRequired[Nullable[TransactionPaymentMethodOutputTypedDict]]
     r"""The payment method used for this transaction."""
     method: NotRequired[Nullable[Method]]
     r"""The method used for the transaction."""
@@ -80,7 +83,7 @@ class TransactionSummaryTypedDict(TypedDict):
     r"""The payment service used for this transaction."""
     pending_review: NotRequired[bool]
     r"""Whether a manual anti fraud review is pending with an anti fraud service."""
-    buyer: NotRequired[Nullable[TransactionBuyerTypedDict]]
+    buyer: NotRequired[Nullable[TransactionBuyerOutputTypedDict]]
     r"""The buyer used for this transaction."""
     raw_response_code: NotRequired[Nullable[str]]
     r"""This is the response code received from the payment service. This can be set to any value and is not standardized across different payment services."""
@@ -94,7 +97,7 @@ class TransactionSummaryTypedDict(TypedDict):
     r"""The gift card service used for this transaction."""
 
 
-class TransactionSummary(BaseModel):
+class TransactionSummaryOutput(BaseModel):
     r"""A transaction, summarised"""
 
     id: str
@@ -161,7 +164,7 @@ class TransactionSummary(BaseModel):
     external_identifier: OptionalNullable[str] = UNSET
     r"""An external identifier that can be used to match the transaction against your own records."""
 
-    payment_method: OptionalNullable[TransactionPaymentMethod] = UNSET
+    payment_method: OptionalNullable[TransactionPaymentMethodOutput] = UNSET
     r"""The payment method used for this transaction."""
 
     method: Annotated[
@@ -183,7 +186,7 @@ class TransactionSummary(BaseModel):
     pending_review: Optional[bool] = False
     r"""Whether a manual anti fraud review is pending with an anti fraud service."""
 
-    buyer: OptionalNullable[TransactionBuyer] = UNSET
+    buyer: OptionalNullable[TransactionBuyerOutput] = UNSET
     r"""The buyer used for this transaction."""
 
     raw_response_code: OptionalNullable[str] = UNSET

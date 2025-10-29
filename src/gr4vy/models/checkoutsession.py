@@ -3,9 +3,9 @@
 from __future__ import annotations
 from .airline import Airline, AirlineTypedDict
 from .cartitem import CartItem, CartItemTypedDict
-from .checkoutsessionpaymentmethod import (
-    CheckoutSessionPaymentMethod,
-    CheckoutSessionPaymentMethodTypedDict,
+from .checkoutsessionpaymentmethod_output import (
+    CheckoutSessionPaymentMethodOutput,
+    CheckoutSessionPaymentMethodOutputTypedDict,
 )
 from .guestbuyer_output import GuestBuyerOutput, GuestBuyerOutputTypedDict
 from datetime import datetime
@@ -33,7 +33,7 @@ class CheckoutSessionTypedDict(TypedDict):
     r"""The airline addendum data which describes the airline booking associated with this transaction."""
     type: Literal["checkout-session"]
     r"""Always `checkout-session`"""
-    payment_method: NotRequired[Nullable[CheckoutSessionPaymentMethodTypedDict]]
+    payment_method: NotRequired[Nullable[CheckoutSessionPaymentMethodOutputTypedDict]]
     r"""Information about the payment method stored on the checkout session."""
 
 
@@ -65,7 +65,7 @@ class CheckoutSession(BaseModel):
     ] = "checkout-session"
     r"""Always `checkout-session`"""
 
-    payment_method: OptionalNullable[CheckoutSessionPaymentMethod] = UNSET
+    payment_method: OptionalNullable[CheckoutSessionPaymentMethodOutput] = UNSET
     r"""Information about the payment method stored on the checkout session."""
 
     @model_serializer(mode="wrap")

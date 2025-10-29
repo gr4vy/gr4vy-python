@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 from .cancelstatus import CancelStatus
-from .transaction import Transaction, TransactionTypedDict
+from .transaction_output import TransactionOutput, TransactionOutputTypedDict
 from gr4vy.types import BaseModel, Nullable, UNSET_SENTINEL
 from gr4vy.utils import validate_const, validate_open_enum
 import pydantic
@@ -20,7 +20,7 @@ class TransactionCancelTypedDict(TypedDict):
     r"""This is the response code received from the payment service. This can be set to any value and is not standardized across different payment services."""
     raw_response_description: Nullable[str]
     r"""This is the response description received from the payment service. This can be set to any value and is not standardized across different payment services."""
-    transaction: TransactionTypedDict
+    transaction: TransactionOutputTypedDict
     r"""A full transaction resource."""
     type: Literal["transaction-cancel"]
     r"""Always `transaction-cancel`."""
@@ -38,7 +38,7 @@ class TransactionCancel(BaseModel):
     raw_response_description: Nullable[str]
     r"""This is the response description received from the payment service. This can be set to any value and is not standardized across different payment services."""
 
-    transaction: Transaction
+    transaction: TransactionOutput
     r"""A full transaction resource."""
 
     TYPE: Annotated[
