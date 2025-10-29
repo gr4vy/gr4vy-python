@@ -14,6 +14,7 @@ InstrumentType = Union[
         "googlepay",
         "applepay",
         "network_token",
+        "plaid",
     ],
     UnrecognizedStr,
 ]

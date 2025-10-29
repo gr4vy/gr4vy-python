@@ -349,7 +349,7 @@ class CheckoutSessions(BaseSDK):
         :param metadata: Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it.
         :param buyer: Provide buyer details for the transaction. No buyer resource will be created on Gr4vy when used.
         :param airline: The airline addendum data which describes the airline booking associated with this transaction.
-        :param expires_in:
+        :param expires_in: The time in seconds when this checkout session expires.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -528,7 +528,7 @@ class CheckoutSessions(BaseSDK):
         :param metadata: Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it.
         :param buyer: Provide buyer details for the transaction. No buyer resource will be created on Gr4vy when used.
         :param airline: The airline addendum data which describes the airline booking associated with this transaction.
-        :param expires_in:
+        :param expires_in: The time in seconds when this checkout session expires.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds

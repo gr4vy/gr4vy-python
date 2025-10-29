@@ -20,6 +20,7 @@ class CheckoutSessionCreateTypedDict(TypedDict):
     airline: NotRequired[Nullable[AirlineTypedDict]]
     r"""The airline addendum data which describes the airline booking associated with this transaction."""
     expires_in: NotRequired[float]
+    r"""The time in seconds when this checkout session expires."""
 
 
 class CheckoutSessionCreate(BaseModel):
@@ -36,6 +37,7 @@ class CheckoutSessionCreate(BaseModel):
     r"""The airline addendum data which describes the airline booking associated with this transaction."""
 
     expires_in: Optional[float] = 3600
+    r"""The time in seconds when this checkout session expires."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
