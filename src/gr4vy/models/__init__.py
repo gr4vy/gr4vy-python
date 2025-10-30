@@ -783,6 +783,7 @@ if TYPE_CHECKING:
     )
     from .mockcardoptions import MockCardOptions, MockCardOptionsTypedDict
     from .mode import Mode
+    from .monatospeioptions import MonatoSpeiOptions, MonatoSpeiOptionsTypedDict
     from .networktoken import NetworkToken, NetworkTokenTypedDict
     from .networktokencreate import NetworkTokenCreate, NetworkTokenCreateTypedDict
     from .networktokenpaymentmethodcreate import (
@@ -1772,6 +1773,8 @@ __all__ = [
     "MockCardOptions",
     "MockCardOptionsTypedDict",
     "Mode",
+    "MonatoSpeiOptions",
+    "MonatoSpeiOptionsTypedDict",
     "Name",
     "NetworkToken",
     "NetworkTokenCreate",
@@ -2686,6 +2689,8 @@ _dynamic_imports: dict[str, str] = {
     "MockCardOptions": ".mockcardoptions",
     "MockCardOptionsTypedDict": ".mockcardoptions",
     "Mode": ".mode",
+    "MonatoSpeiOptions": ".monatospeioptions",
+    "MonatoSpeiOptionsTypedDict": ".monatospeioptions",
     "NetworkToken": ".networktoken",
     "NetworkTokenTypedDict": ".networktoken",
     "NetworkTokenCreate": ".networktokencreate",
