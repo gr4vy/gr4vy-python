@@ -727,8 +727,8 @@ import os
 
 
 with Gr4vy(
-    server="production",
-    id="<id>"
+    server="sandbox",
+    id="example",
     merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
