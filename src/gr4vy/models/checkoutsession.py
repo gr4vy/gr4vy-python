@@ -31,6 +31,12 @@ class CheckoutSessionTypedDict(TypedDict):
     r"""Provide buyer details for the transaction. No buyer resource will be created on Gr4vy when used."""
     airline: NotRequired[Nullable[AirlineTypedDict]]
     r"""The airline addendum data which describes the airline booking associated with this transaction."""
+    amount: NotRequired[Nullable[int]]
+    r"""The total amount for this transaction."""
+    currency: NotRequired[Nullable[str]]
+    r"""The currency code for this transaction."""
+    payment_service_id: NotRequired[Nullable[str]]
+    r"""The unique identifier of an existing payment service. When provided, the created transaction will be processed by the given payment service and any routing rules will be skipped."""
     type: Literal["checkout-session"]
     r"""Always `checkout-session`"""
     payment_method: NotRequired[Nullable[CheckoutSessionPaymentMethodOutputTypedDict]]
@@ -56,6 +62,15 @@ class CheckoutSession(BaseModel):
     airline: OptionalNullable[Airline] = UNSET
     r"""The airline addendum data which describes the airline booking associated with this transaction."""
 
+    amount: OptionalNullable[int] = UNSET
+    r"""The total amount for this transaction."""
+
+    currency: OptionalNullable[str] = UNSET
+    r"""The currency code for this transaction."""
+
+    payment_service_id: OptionalNullable[str] = UNSET
+    r"""The unique identifier of an existing payment service. When provided, the created transaction will be processed by the given payment service and any routing rules will be skipped."""
+
     TYPE: Annotated[
         Annotated[
             Optional[Literal["checkout-session"]],
@@ -75,6 +90,9 @@ class CheckoutSession(BaseModel):
             "metadata",
             "buyer",
             "airline",
+            "amount",
+            "currency",
+            "payment_service_id",
             "type",
             "payment_method",
         ]
@@ -83,6 +101,9 @@ class CheckoutSession(BaseModel):
             "metadata",
             "buyer",
             "airline",
+            "amount",
+            "currency",
+            "payment_service_id",
             "payment_method",
         ]
         null_default_fields = []

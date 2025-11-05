@@ -333,6 +333,9 @@ class CheckoutSessions(BaseSDK):
         airline: OptionalNullable[
             Union[models.Airline, models.AirlineTypedDict]
         ] = UNSET,
+        amount: OptionalNullable[int] = UNSET,
+        currency: OptionalNullable[str] = UNSET,
+        payment_service_id: OptionalNullable[str] = UNSET,
         expires_in: Optional[float] = 3600,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -349,6 +352,9 @@ class CheckoutSessions(BaseSDK):
         :param metadata: Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it.
         :param buyer: Provide buyer details for the transaction. No buyer resource will be created on Gr4vy when used.
         :param airline: The airline addendum data which describes the airline booking associated with this transaction.
+        :param amount: The total amount for this transaction.
+        :param currency: The currency code for this transaction.
+        :param payment_service_id: The unique identifier of an existing payment service. When provided, the created transaction will be processed by the given payment service and any routing rules will be skipped.
         :param expires_in: The time in seconds when this checkout session expires.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -379,6 +385,9 @@ class CheckoutSessions(BaseSDK):
                 airline=utils.get_pydantic_model(
                     airline, OptionalNullable[models.Airline]
                 ),
+                amount=amount,
+                currency=currency,
+                payment_service_id=payment_service_id,
                 expires_in=expires_in,
             ),
         )
@@ -512,6 +521,9 @@ class CheckoutSessions(BaseSDK):
         airline: OptionalNullable[
             Union[models.Airline, models.AirlineTypedDict]
         ] = UNSET,
+        amount: OptionalNullable[int] = UNSET,
+        currency: OptionalNullable[str] = UNSET,
+        payment_service_id: OptionalNullable[str] = UNSET,
         expires_in: Optional[float] = 3600,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -528,6 +540,9 @@ class CheckoutSessions(BaseSDK):
         :param metadata: Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it.
         :param buyer: Provide buyer details for the transaction. No buyer resource will be created on Gr4vy when used.
         :param airline: The airline addendum data which describes the airline booking associated with this transaction.
+        :param amount: The total amount for this transaction.
+        :param currency: The currency code for this transaction.
+        :param payment_service_id: The unique identifier of an existing payment service. When provided, the created transaction will be processed by the given payment service and any routing rules will be skipped.
         :param expires_in: The time in seconds when this checkout session expires.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -558,6 +573,9 @@ class CheckoutSessions(BaseSDK):
                 airline=utils.get_pydantic_model(
                     airline, OptionalNullable[models.Airline]
                 ),
+                amount=amount,
+                currency=currency,
+                payment_service_id=payment_service_id,
                 expires_in=expires_in,
             ),
         )
