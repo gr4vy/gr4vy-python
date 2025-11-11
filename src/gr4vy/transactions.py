@@ -797,7 +797,9 @@ class Transactions(BaseSDK):
         :param currency: A supported ISO 4217 currency code. For redirect requests, this value must match the one specified for `currency` in `payment_method`.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param idempotency_key: A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
-        :param x_forwarded_for: The IP address to forward from the customer. Use this when calling our API from the server side to ensure the customer's address is passed to downstream services, rather than your server IP.
+        :param x_forwarded_for: The IP address to forward from the customer. Use this when calling
+            our API from the server side to ensure the customer's address is
+            passed to downstream services, rather than your server IP.
         :param country: The 2-letter ISO code of the country where the transaction is processed. This is also used to filter the payment services that can process the transaction. If this value is provided for redirect requests and it's not `null`, it must match the one specified for `country` in `payment_method`. Otherwise, the value specified for `country` in `payment_method` will be assumed implicitly.
         :param payment_method: The optional payment method to use for this transaction. This field is required if no `gift_cards` have been added.
         :param buyer: Guest buyer details provided inline rather than creating a buyer resource beforehand and using the `buyer_id` or `buyer_external_identifier` keys. No buyer resource will be created on Gr4vy when used.
@@ -806,10 +808,23 @@ class Transactions(BaseSDK):
         :param gift_cards: The optional gift card(s) to use for this transaction. At least one gift card is required if no other `payment_method` has been added. By default, only a maximum limit of 10 gift cards may be used in a single transaction. Please contact our team to change this limit.
         :param external_identifier: An external identifier that can be used to match the transaction against your own records.
         :param intent:
-        :param store: Whether or not to also try and store the payment method with us so that it can be used again for future use. This is only supported for payment methods that support this feature. There are also a few restrictions on how the flag may be set:  * The flag has to be set to `true` when the `payment_source` is set to `recurring` or `installment`, and `merchant_initiated` is set to `false`. * The flag has to be set to `false` (or not set) when using a previously vaulted payment method.
+        :param store: Whether or not to also try and store the payment method with us so that it can be used again for future use. This is only supported for payment methods that support this feature. There are also a few restrictions on how the flag may be set:
+
+            * The flag has to be set to `true` when the `payment_source` is set to `recurring` or `installment`, and `merchant_initiated` is set to `false`.
+            * The flag has to be set to `false` (or not set) when using a previously vaulted payment method.
         :param three_d_secure_data: Pass through 3-D Secure data to support external 3-D Secure authorisation. If using an external 3-D Secure provider, you should not pass a `redirect_url` in the `payment_method` object for a transaction.
         :param metadata: Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it.
-        :param is_subsequent_payment: Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note there are some restrictions on how this flag may be used.  The flag can only be `false` (or not set) when the transaction meets one of the following criteria:  * It is not `merchant_initiated`. * `payment_source` is set to `card_on_file`.  The flag can only be set to `true` when the transaction meets one of the following criteria: * It is not `merchant_initiated`. * `payment_source` is set to `recurring` or `installment` and `merchant_initiated` is set to `true`. * `payment_source` is set to `card_on_file`.
+        :param is_subsequent_payment: Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note there are some restrictions on how this flag may be used.
+
+            The flag can only be `false` (or not set) when the transaction meets one of the following criteria:
+
+            * It is not `merchant_initiated`.
+            * `payment_source` is set to `card_on_file`.
+
+            The flag can only be set to `true` when the transaction meets one of the following criteria:
+            * It is not `merchant_initiated`.
+            * `payment_source` is set to `recurring` or `installment` and `merchant_initiated` is set to `true`.
+            * `payment_source` is set to `card_on_file`.
         :param merchant_initiated: Indicates whether the transaction was initiated by the merchant (true) or customer (false).
         :param payment_source: The way payment method information made it to this transaction.
         :param airline: The airline addendum data which describes the airline booking associated with this transaction.
@@ -819,7 +834,12 @@ class Transactions(BaseSDK):
         :param browser_info: Information about the browser used by the buyer. This can be used by anti-fraud services.
         :param shipping_details_id: The unique identifier of a set of shipping details stored for the buyer. If provided, the created transaction will include a copy of the details at the point of transaction creation; i.e. it will not be affected by later changes to the detail in the database.
         :param connection_options: Allows for passing optional configuration per connection to take advantage of connection specific features. When provided, the data is only passed to the target connection type to prevent sharing configuration across connections. Please note that each of the keys this object are in kebab-case, for example `cybersource-anti-fraud` as they represent the ID of the connector. All the other keys will be snake case, for example `merchant_defined_data` or camel case to match an external API that the connector uses.
-        :param async_capture: Whether to capture the transaction asynchronously.  - When `async_capture` is `false` (default), the transaction is captured in the same request. - When `async_capture` is `true`, the transaction is automatically captured at a later time.  Redirect transactions are not affected by this flag. This flag can only be set to `true` when `intent` is set to `capture`.
+        :param async_capture: Whether to capture the transaction asynchronously.
+
+            - When `async_capture` is `false` (default), the transaction is captured in the same request.
+            - When `async_capture` is `true`, the transaction is automatically captured at a later time.
+
+            Redirect transactions are not affected by this flag. This flag can only be set to `true` when `intent` is set to `capture`.
         :param anti_fraud_fingerprint: This field represents the fingerprint data to be passed to the active anti-fraud service.
         :param payment_service_id: The unique identifier of an existing payment service. When provided, the created transaction will be processed by the given payment service and any routing rules will be skipped.
         :param account_funding_transaction: Marks the transaction as an AFT. Requires the payment service to support this feature, and might `recipient` and `buyer` data
@@ -1114,7 +1134,9 @@ class Transactions(BaseSDK):
         :param currency: A supported ISO 4217 currency code. For redirect requests, this value must match the one specified for `currency` in `payment_method`.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param idempotency_key: A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
-        :param x_forwarded_for: The IP address to forward from the customer. Use this when calling our API from the server side to ensure the customer's address is passed to downstream services, rather than your server IP.
+        :param x_forwarded_for: The IP address to forward from the customer. Use this when calling
+            our API from the server side to ensure the customer's address is
+            passed to downstream services, rather than your server IP.
         :param country: The 2-letter ISO code of the country where the transaction is processed. This is also used to filter the payment services that can process the transaction. If this value is provided for redirect requests and it's not `null`, it must match the one specified for `country` in `payment_method`. Otherwise, the value specified for `country` in `payment_method` will be assumed implicitly.
         :param payment_method: The optional payment method to use for this transaction. This field is required if no `gift_cards` have been added.
         :param buyer: Guest buyer details provided inline rather than creating a buyer resource beforehand and using the `buyer_id` or `buyer_external_identifier` keys. No buyer resource will be created on Gr4vy when used.
@@ -1123,10 +1145,23 @@ class Transactions(BaseSDK):
         :param gift_cards: The optional gift card(s) to use for this transaction. At least one gift card is required if no other `payment_method` has been added. By default, only a maximum limit of 10 gift cards may be used in a single transaction. Please contact our team to change this limit.
         :param external_identifier: An external identifier that can be used to match the transaction against your own records.
         :param intent:
-        :param store: Whether or not to also try and store the payment method with us so that it can be used again for future use. This is only supported for payment methods that support this feature. There are also a few restrictions on how the flag may be set:  * The flag has to be set to `true` when the `payment_source` is set to `recurring` or `installment`, and `merchant_initiated` is set to `false`. * The flag has to be set to `false` (or not set) when using a previously vaulted payment method.
+        :param store: Whether or not to also try and store the payment method with us so that it can be used again for future use. This is only supported for payment methods that support this feature. There are also a few restrictions on how the flag may be set:
+
+            * The flag has to be set to `true` when the `payment_source` is set to `recurring` or `installment`, and `merchant_initiated` is set to `false`.
+            * The flag has to be set to `false` (or not set) when using a previously vaulted payment method.
         :param three_d_secure_data: Pass through 3-D Secure data to support external 3-D Secure authorisation. If using an external 3-D Secure provider, you should not pass a `redirect_url` in the `payment_method` object for a transaction.
         :param metadata: Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it.
-        :param is_subsequent_payment: Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note there are some restrictions on how this flag may be used.  The flag can only be `false` (or not set) when the transaction meets one of the following criteria:  * It is not `merchant_initiated`. * `payment_source` is set to `card_on_file`.  The flag can only be set to `true` when the transaction meets one of the following criteria: * It is not `merchant_initiated`. * `payment_source` is set to `recurring` or `installment` and `merchant_initiated` is set to `true`. * `payment_source` is set to `card_on_file`.
+        :param is_subsequent_payment: Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note there are some restrictions on how this flag may be used.
+
+            The flag can only be `false` (or not set) when the transaction meets one of the following criteria:
+
+            * It is not `merchant_initiated`.
+            * `payment_source` is set to `card_on_file`.
+
+            The flag can only be set to `true` when the transaction meets one of the following criteria:
+            * It is not `merchant_initiated`.
+            * `payment_source` is set to `recurring` or `installment` and `merchant_initiated` is set to `true`.
+            * `payment_source` is set to `card_on_file`.
         :param merchant_initiated: Indicates whether the transaction was initiated by the merchant (true) or customer (false).
         :param payment_source: The way payment method information made it to this transaction.
         :param airline: The airline addendum data which describes the airline booking associated with this transaction.
@@ -1136,7 +1171,12 @@ class Transactions(BaseSDK):
         :param browser_info: Information about the browser used by the buyer. This can be used by anti-fraud services.
         :param shipping_details_id: The unique identifier of a set of shipping details stored for the buyer. If provided, the created transaction will include a copy of the details at the point of transaction creation; i.e. it will not be affected by later changes to the detail in the database.
         :param connection_options: Allows for passing optional configuration per connection to take advantage of connection specific features. When provided, the data is only passed to the target connection type to prevent sharing configuration across connections. Please note that each of the keys this object are in kebab-case, for example `cybersource-anti-fraud` as they represent the ID of the connector. All the other keys will be snake case, for example `merchant_defined_data` or camel case to match an external API that the connector uses.
-        :param async_capture: Whether to capture the transaction asynchronously.  - When `async_capture` is `false` (default), the transaction is captured in the same request. - When `async_capture` is `true`, the transaction is automatically captured at a later time.  Redirect transactions are not affected by this flag. This flag can only be set to `true` when `intent` is set to `capture`.
+        :param async_capture: Whether to capture the transaction asynchronously.
+
+            - When `async_capture` is `false` (default), the transaction is captured in the same request.
+            - When `async_capture` is `true`, the transaction is automatically captured at a later time.
+
+            Redirect transactions are not affected by this flag. This flag can only be set to `true` when `intent` is set to `capture`.
         :param anti_fraud_fingerprint: This field represents the fingerprint data to be passed to the active anti-fraud service.
         :param payment_service_id: The unique identifier of an existing payment service. When provided, the created transaction will be processed by the given payment service and any routing rules will be skipped.
         :param account_funding_transaction: Marks the transaction as an AFT. Requires the payment service to support this feature, and might `recipient` and `buyer` data
