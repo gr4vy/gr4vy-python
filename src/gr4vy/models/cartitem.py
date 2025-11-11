@@ -25,6 +25,8 @@ class CartItemTypedDict(TypedDict):
     r"""An external identifier for the cart item. This can be set to any value and is not sent to the payment service."""
     sku: NotRequired[Nullable[str]]
     r"""The SKU or product code for the item."""
+    upc: NotRequired[Nullable[str]]
+    r"""The UPC for the item."""
     product_url: NotRequired[Nullable[str]]
     r"""The product URL for the item."""
     image_url: NotRequired[Nullable[str]]
@@ -71,6 +73,9 @@ class CartItem(BaseModel):
     sku: OptionalNullable[str] = UNSET
     r"""The SKU or product code for the item."""
 
+    upc: OptionalNullable[str] = UNSET
+    r"""The UPC for the item."""
+
     product_url: OptionalNullable[str] = UNSET
     r"""The product URL for the item."""
 
@@ -113,6 +118,7 @@ class CartItem(BaseModel):
             "tax_amount",
             "external_identifier",
             "sku",
+            "upc",
             "product_url",
             "image_url",
             "categories",
@@ -130,6 +136,7 @@ class CartItem(BaseModel):
             "tax_amount",
             "external_identifier",
             "sku",
+            "upc",
             "product_url",
             "image_url",
             "categories",
