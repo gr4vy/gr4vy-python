@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 5c43d6adc42c06235015ce1f9316c94c
+  docChecksum: 382398289d4d3e68b0f93196913bca1c
   docVersion: 1.0.0
-  speakeasyVersion: 1.654.0
-  generationVersion: 2.750.0
-  releaseVersion: 1.7.4
-  configChecksum: d224d0b2750ccfc3ae3b58681987a4e2
+  speakeasyVersion: 1.655.0
+  generationVersion: 2.751.0
+  releaseVersion: 1.7.5
+  configChecksum: de1464a7d8423a0985dc6b938f70774c
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -4452,3 +4452,4 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes Detected:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.mock-card.skip_retry` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.mock-card.skip_retry` **Added**\n* `gr4vy.payment-links.create()`: \n  *  `request.connection_options.mock-card.skip_retry` **Added**\n"
