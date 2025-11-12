@@ -15,16 +15,21 @@ class MockCardOptionsTypedDict(TypedDict):
         Nullable[MockCardMerchantAdviceCodeOptionsTypedDict]
     ]
     r"""Allows for mocking the merchant advice code."""
+    skip_retry: NotRequired[Nullable[bool]]
+    r"""When set to true, prevents retries on failed transactions."""
 
 
 class MockCardOptions(BaseModel):
     merchant_advice_code: OptionalNullable[MockCardMerchantAdviceCodeOptions] = UNSET
     r"""Allows for mocking the merchant advice code."""
 
+    skip_retry: OptionalNullable[bool] = UNSET
+    r"""When set to true, prevents retries on failed transactions."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["merchant_advice_code"]
-        nullable_fields = ["merchant_advice_code"]
+        optional_fields = ["merchant_advice_code", "skip_retry"]
+        nullable_fields = ["merchant_advice_code", "skip_retry"]
         null_default_fields = []
 
         serialized = handler(self)
