@@ -62,6 +62,7 @@ Name = Union[
         "network-token-cryptogram-provision-failed",
         "the-giving-block-transaction-conversion-succeeded",
         "real-time-account-update",
+        "plaid-request-event",
     ],
     UnrecognizedStr,
 ]
