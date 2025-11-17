@@ -42,8 +42,8 @@ BodyTypedDict = TypeAliasType(
     "BodyTypedDict",
     Union[
         CheckoutSessionPaymentMethodCreateTypedDict,
-        PlaidPaymentMethodCreateTypedDict,
         RedirectPaymentMethodCreateTypedDict,
+        PlaidPaymentMethodCreateTypedDict,
         CardPaymentMethodCreateTypedDict,
     ],
 )
@@ -53,8 +53,8 @@ Body = TypeAliasType(
     "Body",
     Union[
         CheckoutSessionPaymentMethodCreate,
-        PlaidPaymentMethodCreate,
         RedirectPaymentMethodCreate,
+        PlaidPaymentMethodCreate,
         CardPaymentMethodCreate,
     ],
 )
