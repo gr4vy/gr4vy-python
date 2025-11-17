@@ -28,6 +28,8 @@ class PlaidPaymentMethodCreateTypedDict(TypedDict):
     r"""The ID of the buyer to attach the method to."""
     buyer_external_identifier: NotRequired[Nullable[str]]
     r"""The merchant reference for this payment method."""
+    external_identifier: NotRequired[Nullable[str]]
+    r"""The merchant identifier for this payment method."""
 
 
 class PlaidPaymentMethodCreate(BaseModel):
@@ -57,6 +59,9 @@ class PlaidPaymentMethodCreate(BaseModel):
     buyer_external_identifier: OptionalNullable[str] = UNSET
     r"""The merchant reference for this payment method."""
 
+    external_identifier: OptionalNullable[str] = UNSET
+    r"""The merchant identifier for this payment method."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -65,12 +70,14 @@ class PlaidPaymentMethodCreate(BaseModel):
             "payment_service_id",
             "buyer_id",
             "buyer_external_identifier",
+            "external_identifier",
         ]
         nullable_fields = [
             "account_id",
             "payment_service_id",
             "buyer_id",
             "buyer_external_identifier",
+            "external_identifier",
         ]
         null_default_fields = []
 

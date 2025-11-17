@@ -80,9 +80,9 @@ TransactionCreatePaymentMethodTypedDict = TypeAliasType(
     "TransactionCreatePaymentMethodTypedDict",
     Union[
         TokenPaymentMethodCreateTypedDict,
-        PlaidPaymentMethodCreateTypedDict,
         CheckoutSessionWithURLPaymentMethodCreateTypedDict,
         RedirectPaymentMethodCreateTypedDict,
+        PlaidPaymentMethodCreateTypedDict,
         ClickToPayPaymentMethodCreateTypedDict,
         CardWithURLPaymentMethodCreateTypedDict,
         ApplePayPaymentMethodCreateTypedDict,
@@ -99,9 +99,9 @@ TransactionCreatePaymentMethod = TypeAliasType(
     "TransactionCreatePaymentMethod",
     Union[
         TokenPaymentMethodCreate,
-        PlaidPaymentMethodCreate,
         CheckoutSessionWithURLPaymentMethodCreate,
         RedirectPaymentMethodCreate,
+        PlaidPaymentMethodCreate,
         ClickToPayPaymentMethodCreate,
         CardWithURLPaymentMethodCreate,
         ApplePayPaymentMethodCreate,
