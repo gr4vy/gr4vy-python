@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.656.1
   generationVersion: 2.753.1
-  releaseVersion: 1.7.8
-  configChecksum: a8bf9adcd4b4c857f5b8dedfce0786d1
+  releaseVersion: 1.7.10
+  configChecksum: 778f19dd6eeefc418b38bbd0649afed4
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
