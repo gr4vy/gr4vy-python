@@ -778,6 +778,7 @@ class Transactions(BaseSDK):
         installment_count: OptionalNullable[int] = UNSET,
         tax_amount: OptionalNullable[int] = UNSET,
         merchant_tax_id: OptionalNullable[str] = UNSET,
+        purchase_order_number: OptionalNullable[str] = UNSET,
         customer_reference_number: OptionalNullable[str] = UNSET,
         amount_includes_tax: OptionalNullable[bool] = UNSET,
         supplier_order_number: OptionalNullable[str] = UNSET,
@@ -848,6 +849,7 @@ class Transactions(BaseSDK):
         :param installment_count: The number of installments a buyer is required to make.
         :param tax_amount: The sales tax amount for this transaction, represented as a monetary amount in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`
         :param merchant_tax_id: Merchant tax ID (for example, EIN or VAT number).
+        :param purchase_order_number: Invoice number or Purchase Order number.
         :param customer_reference_number: Customer code or reference.
         :param amount_includes_tax: Whether the tax is included in the amount.
         :param supplier_order_number: The merchant's unique identifier for the sales order or invoice.
@@ -928,6 +930,7 @@ class Transactions(BaseSDK):
                 installment_count=installment_count,
                 tax_amount=tax_amount,
                 merchant_tax_id=merchant_tax_id,
+                purchase_order_number=purchase_order_number,
                 customer_reference_number=customer_reference_number,
                 amount_includes_tax=amount_includes_tax,
                 supplier_order_number=supplier_order_number,
@@ -1115,6 +1118,7 @@ class Transactions(BaseSDK):
         installment_count: OptionalNullable[int] = UNSET,
         tax_amount: OptionalNullable[int] = UNSET,
         merchant_tax_id: OptionalNullable[str] = UNSET,
+        purchase_order_number: OptionalNullable[str] = UNSET,
         customer_reference_number: OptionalNullable[str] = UNSET,
         amount_includes_tax: OptionalNullable[bool] = UNSET,
         supplier_order_number: OptionalNullable[str] = UNSET,
@@ -1185,6 +1189,7 @@ class Transactions(BaseSDK):
         :param installment_count: The number of installments a buyer is required to make.
         :param tax_amount: The sales tax amount for this transaction, represented as a monetary amount in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`
         :param merchant_tax_id: Merchant tax ID (for example, EIN or VAT number).
+        :param purchase_order_number: Invoice number or Purchase Order number.
         :param customer_reference_number: Customer code or reference.
         :param amount_includes_tax: Whether the tax is included in the amount.
         :param supplier_order_number: The merchant's unique identifier for the sales order or invoice.
@@ -1265,6 +1270,7 @@ class Transactions(BaseSDK):
                 installment_count=installment_count,
                 tax_amount=tax_amount,
                 merchant_tax_id=merchant_tax_id,
+                purchase_order_number=purchase_order_number,
                 customer_reference_number=customer_reference_number,
                 amount_includes_tax=amount_includes_tax,
                 supplier_order_number=supplier_order_number,
