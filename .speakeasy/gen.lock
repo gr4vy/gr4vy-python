@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: d6f70fcf18086bbc4e08d534c8c62dfe
+  docChecksum: 64f99d8eb42d95fd3c2df2b9bd406a5e
   docVersion: 1.0.0
-  speakeasyVersion: 1.656.1
-  generationVersion: 2.753.1
-  releaseVersion: 1.7.14
-  configChecksum: c47be1a1e27195f7b0a517ccdc116726
+  speakeasyVersion: 1.658.2
+  generationVersion: 2.755.9
+  releaseVersion: 1.7.15
+  configChecksum: f9b8af280683b0383244880c8eaf5c10
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.23.6
+    core: 5.23.9
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
@@ -4452,4 +4452,4 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes Detected:\n* `gr4vy.payment-methods.create()`: \n  *  `request_body.[plaid_payment_method_create].external_identifier` **Added**\n* `gr4vy.transactions.create()`: \n  *  `request.payment_method.[plaid_payment_method_create].external_identifier` **Added**\n"
+releaseNotes: "## Python SDK Changes Detected:\n* `gr4vy.transactions.create()`: \n  *  `request.purchase_order_number` **Added**\n  *  `response.purchase_order_number` **Added**\n* `gr4vy.transactions.get()`:  `response.purchase_order_number` **Added**\n* `gr4vy.transactions.update()`:  `response.purchase_order_number` **Added**\n* `gr4vy.transactions.capture()`:  `response.[transaction-output].purchase_order_number` **Added**\n* `gr4vy.transactions.void()`:  `response.[transaction_void-output].transaction.purchase_order_number` **Added**\n* `gr4vy.transactions.cancel()`:  `response.transaction.purchase_order_number` **Added**\n* `gr4vy.transactions.sync()`:  `response.purchase_order_number` **Added**\n"

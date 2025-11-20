@@ -223,6 +223,8 @@ class TransactionCreateTypedDict(TypedDict):
     r"""The sales tax amount for this transaction, represented as a monetary amount in the smallest currency unit for the given currency, for example `1299` cents to create an authorization for `$12.99`"""
     merchant_tax_id: NotRequired[Nullable[str]]
     r"""Merchant tax ID (for example, EIN or VAT number)."""
+    purchase_order_number: NotRequired[Nullable[str]]
+    r"""Invoice number or Purchase Order number."""
     customer_reference_number: NotRequired[Nullable[str]]
     r"""Customer code or reference."""
     amount_includes_tax: NotRequired[Nullable[bool]]
@@ -358,6 +360,9 @@ class TransactionCreate(BaseModel):
     merchant_tax_id: OptionalNullable[str] = UNSET
     r"""Merchant tax ID (for example, EIN or VAT number)."""
 
+    purchase_order_number: OptionalNullable[str] = UNSET
+    r"""Invoice number or Purchase Order number."""
+
     customer_reference_number: OptionalNullable[str] = UNSET
     r"""Customer code or reference."""
 
@@ -411,6 +416,7 @@ class TransactionCreate(BaseModel):
             "installment_count",
             "tax_amount",
             "merchant_tax_id",
+            "purchase_order_number",
             "customer_reference_number",
             "amount_includes_tax",
             "supplier_order_number",
@@ -441,6 +447,7 @@ class TransactionCreate(BaseModel):
             "installment_count",
             "tax_amount",
             "merchant_tax_id",
+            "purchase_order_number",
             "customer_reference_number",
             "amount_includes_tax",
             "supplier_order_number",
