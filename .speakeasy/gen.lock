@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 64f99d8eb42d95fd3c2df2b9bd406a5e
+  docChecksum: 221a49170cd781fcde9fe9e1a54c91bb
   docVersion: 1.0.0
-  speakeasyVersion: 1.658.2
-  generationVersion: 2.755.9
-  releaseVersion: 1.7.15
-  configChecksum: f9b8af280683b0383244880c8eaf5c10
+  speakeasyVersion: 1.660.0
+  generationVersion: 2.760.2
+  releaseVersion: 1.7.16
+  configChecksum: 9291e43cf17cde1fb329f18cc5d2cabc
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.23.9
+    core: 5.23.10
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
@@ -364,6 +364,7 @@ generatedFiles:
   - docs/models/networktokens.md
   - docs/models/networktokenstatus.md
   - docs/models/nuveiairlinedataoptions.md
+  - docs/models/nuveiidealoptions.md
   - docs/models/nuveioptions.md
   - docs/models/nuveipseoptions.md
   - docs/models/orderby.md
@@ -836,6 +837,7 @@ generatedFiles:
   - src/gr4vy/models/networktokens.py
   - src/gr4vy/models/networktokenstatus.py
   - src/gr4vy/models/nuveiairlinedataoptions.py
+  - src/gr4vy/models/nuveiidealoptions.py
   - src/gr4vy/models/nuveioptions.py
   - src/gr4vy/models/nuveipseoptions.py
   - src/gr4vy/models/oxxooptions.py
@@ -4452,4 +4454,4 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes Detected:\n* `gr4vy.transactions.create()`: \n  *  `request.purchase_order_number` **Added**\n  *  `response.purchase_order_number` **Added**\n* `gr4vy.transactions.get()`:  `response.purchase_order_number` **Added**\n* `gr4vy.transactions.update()`:  `response.purchase_order_number` **Added**\n* `gr4vy.transactions.capture()`:  `response.[transaction-output].purchase_order_number` **Added**\n* `gr4vy.transactions.void()`:  `response.[transaction_void-output].transaction.purchase_order_number` **Added**\n* `gr4vy.transactions.cancel()`:  `response.transaction.purchase_order_number` **Added**\n* `gr4vy.transactions.sync()`:  `response.purchase_order_number` **Added**\n"
+releaseNotes: "## Python SDK Changes Detected:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.nuvei-ideal` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.nuvei-ideal` **Added**\n* `gr4vy.payment-links.create()`: \n  *  `request.connection_options.nuvei-ideal` **Added**\n"

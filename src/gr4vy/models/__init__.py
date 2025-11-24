@@ -797,6 +797,7 @@ if TYPE_CHECKING:
         NuveiAirlineDataOptions,
         NuveiAirlineDataOptionsTypedDict,
     )
+    from .nuveiidealoptions import NuveiIDealOptions, NuveiIDealOptionsTypedDict
     from .nuveioptions import NuveiOptions, NuveiOptionsTypedDict
     from .nuveipseoptions import NuveiPSEOptions, NuveiPSEOptionsTypedDict
     from .oxxooptions import OxxoOptions, OxxoOptionsTypedDict
@@ -1787,6 +1788,8 @@ __all__ = [
     "NetworkTokensTypedDict",
     "NuveiAirlineDataOptions",
     "NuveiAirlineDataOptionsTypedDict",
+    "NuveiIDealOptions",
+    "NuveiIDealOptionsTypedDict",
     "NuveiOptions",
     "NuveiOptionsTypedDict",
     "NuveiPSEOptions",
@@ -2703,6 +2706,8 @@ _dynamic_imports: dict[str, str] = {
     "NetworkTokenStatus": ".networktokenstatus",
     "NuveiAirlineDataOptions": ".nuveiairlinedataoptions",
     "NuveiAirlineDataOptionsTypedDict": ".nuveiairlinedataoptions",
+    "NuveiIDealOptions": ".nuveiidealoptions",
+    "NuveiIDealOptionsTypedDict": ".nuveiidealoptions",
     "NuveiOptions": ".nuveioptions",
     "NuveiOptionsTypedDict": ".nuveioptions",
     "NuveiPSEOptions": ".nuveipseoptions",
