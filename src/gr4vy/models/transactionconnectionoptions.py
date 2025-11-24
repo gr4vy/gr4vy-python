@@ -24,6 +24,7 @@ from .latitudeoptions import LatitudeOptions, LatitudeOptionsTypedDict
 from .mattildatapioptions import MattildaTapiOptions, MattildaTapiOptionsTypedDict
 from .mockcardoptions import MockCardOptions, MockCardOptionsTypedDict
 from .monatospeioptions import MonatoSpeiOptions, MonatoSpeiOptionsTypedDict
+from .nuveiidealoptions import NuveiIDealOptions, NuveiIDealOptionsTypedDict
 from .nuveioptions import NuveiOptions, NuveiOptionsTypedDict
 from .nuveipseoptions import NuveiPSEOptions, NuveiPSEOptionsTypedDict
 from .oxxooptions import OxxoOptions, OxxoOptionsTypedDict
@@ -101,6 +102,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `mock-card` connector."""
     nuvei_card: NotRequired[Nullable[NuveiOptionsTypedDict]]
     r"""Custom options to be passed to the `nuvei-card` connector."""
+    nuvei_ideal: NotRequired[Nullable[NuveiIDealOptionsTypedDict]]
+    r"""Custom options to be passed to the `nuvei-ideal` connector."""
     nuvei_pse: NotRequired[Nullable[NuveiPSEOptionsTypedDict]]
     r"""Custom options to be passed to the `nuvei-pse` connector."""
     oxxo_oxxo: NotRequired[Nullable[OxxoOptionsTypedDict]]
@@ -278,6 +281,11 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `nuvei-card` connector."""
 
+    nuvei_ideal: Annotated[
+        OptionalNullable[NuveiIDealOptions], pydantic.Field(alias="nuvei-ideal")
+    ] = UNSET
+    r"""Custom options to be passed to the `nuvei-ideal` connector."""
+
     nuvei_pse: Annotated[
         OptionalNullable[NuveiPSEOptions], pydantic.Field(alias="nuvei-pse")
     ] = UNSET
@@ -362,6 +370,7 @@ class TransactionConnectionOptions(BaseModel):
             "monato-spei",
             "mock-card",
             "nuvei-card",
+            "nuvei-ideal",
             "nuvei-pse",
             "oxxo-oxxo",
             "paypal-paypal",
@@ -404,6 +413,7 @@ class TransactionConnectionOptions(BaseModel):
             "monato-spei",
             "mock-card",
             "nuvei-card",
+            "nuvei-ideal",
             "nuvei-pse",
             "oxxo-oxxo",
             "paypal-paypal",
