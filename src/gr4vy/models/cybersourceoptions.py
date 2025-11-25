@@ -14,6 +14,8 @@ class CybersourceOptionsTypedDict(TypedDict):
     r"""A list of merchant defined data to be passed to the Cybersource. Each key needs to be a numeric string."""
     ship_to_method: NotRequired[Nullable[str]]
     r"""The shipping method for this transaction."""
+    comments: NotRequired[Nullable[str]]
+    r"""Brief description of the order or any comment you wish to add to the order."""
 
 
 class CybersourceOptions(BaseModel):
@@ -26,17 +28,22 @@ class CybersourceOptions(BaseModel):
     ship_to_method: OptionalNullable[str] = UNSET
     r"""The shipping method for this transaction."""
 
+    comments: OptionalNullable[str] = UNSET
+    r"""Brief description of the order or any comment you wish to add to the order."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
             "meta_key_merchant_id",
             "merchant_defined_information",
             "ship_to_method",
+            "comments",
         ]
         nullable_fields = [
             "meta_key_merchant_id",
             "merchant_defined_information",
             "ship_to_method",
+            "comments",
         ]
         null_default_fields = []
 
