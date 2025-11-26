@@ -8,7 +8,7 @@ from pydantic import model_serializer
 from typing_extensions import NotRequired, TypedDict
 
 
-class BillingDetailsOutputTypedDict(TypedDict):
+class BillingDetailsTypedDict(TypedDict):
     first_name: NotRequired[Nullable[str]]
     r"""The first name(s) or given name for the buyer."""
     last_name: NotRequired[Nullable[str]]
@@ -23,7 +23,7 @@ class BillingDetailsOutputTypedDict(TypedDict):
     r"""The tax ID information associated with the billing details."""
 
 
-class BillingDetailsOutput(BaseModel):
+class BillingDetails(BaseModel):
     first_name: OptionalNullable[str] = UNSET
     r"""The first name(s) or given name for the buyer."""
 

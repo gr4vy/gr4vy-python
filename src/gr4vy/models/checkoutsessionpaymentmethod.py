@@ -15,7 +15,7 @@ from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class CheckoutSessionPaymentMethodOutputTypedDict(TypedDict):
+class CheckoutSessionPaymentMethodTypedDict(TypedDict):
     type: Literal["payment-method"]
     r"""Always `payment-method`"""
     id: NotRequired[Nullable[str]]
@@ -32,7 +32,7 @@ class CheckoutSessionPaymentMethodOutputTypedDict(TypedDict):
     r"""The unique hash derived from the card number."""
 
 
-class CheckoutSessionPaymentMethodOutput(BaseModel):
+class CheckoutSessionPaymentMethod(BaseModel):
     TYPE: Annotated[
         Annotated[
             Optional[Literal["payment-method"]],

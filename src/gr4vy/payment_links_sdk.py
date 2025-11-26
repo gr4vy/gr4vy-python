@@ -20,7 +20,7 @@ class PaymentLinksSDK(BaseSDK):
         currency: str,
         merchant_account_id: Optional[str] = None,
         buyer: OptionalNullable[
-            Union[models.GuestBuyerInput, models.GuestBuyerInputTypedDict]
+            Union[models.GuestBuyer, models.GuestBuyerTypedDict]
         ] = UNSET,
         expires_at: OptionalNullable[datetime] = UNSET,
         connection_options: OptionalNullable[
@@ -98,7 +98,7 @@ class PaymentLinksSDK(BaseSDK):
             merchant_account_id=merchant_account_id,
             payment_link_create=models.PaymentLinkCreate(
                 buyer=utils.get_pydantic_model(
-                    buyer, OptionalNullable[models.GuestBuyerInput]
+                    buyer, OptionalNullable[models.GuestBuyer]
                 ),
                 expires_at=expires_at,
                 connection_options=utils.get_pydantic_model(
@@ -252,7 +252,7 @@ class PaymentLinksSDK(BaseSDK):
         currency: str,
         merchant_account_id: Optional[str] = None,
         buyer: OptionalNullable[
-            Union[models.GuestBuyerInput, models.GuestBuyerInputTypedDict]
+            Union[models.GuestBuyer, models.GuestBuyerTypedDict]
         ] = UNSET,
         expires_at: OptionalNullable[datetime] = UNSET,
         connection_options: OptionalNullable[
@@ -330,7 +330,7 @@ class PaymentLinksSDK(BaseSDK):
             merchant_account_id=merchant_account_id,
             payment_link_create=models.PaymentLinkCreate(
                 buyer=utils.get_pydantic_model(
-                    buyer, OptionalNullable[models.GuestBuyerInput]
+                    buyer, OptionalNullable[models.GuestBuyer]
                 ),
                 expires_at=expires_at,
                 connection_options=utils.get_pydantic_model(

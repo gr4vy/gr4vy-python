@@ -3,7 +3,7 @@
 from __future__ import annotations
 from .airline import Airline, AirlineTypedDict
 from .cartitem import CartItem, CartItemTypedDict
-from .guestbuyer_input import GuestBuyerInput, GuestBuyerInputTypedDict
+from .guestbuyer import GuestBuyer, GuestBuyerTypedDict
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from pydantic import model_serializer
 from typing import Dict, List, Optional
@@ -15,7 +15,7 @@ class CheckoutSessionCreateTypedDict(TypedDict):
     r"""An array of cart items that represents the line items of a transaction."""
     metadata: NotRequired[Nullable[Dict[str, str]]]
     r"""Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it."""
-    buyer: NotRequired[Nullable[GuestBuyerInputTypedDict]]
+    buyer: NotRequired[Nullable[GuestBuyerTypedDict]]
     r"""Provide buyer details for the transaction. No buyer resource will be created on Gr4vy when used."""
     airline: NotRequired[Nullable[AirlineTypedDict]]
     r"""The airline addendum data which describes the airline booking associated with this transaction."""
@@ -36,7 +36,7 @@ class CheckoutSessionCreate(BaseModel):
     metadata: OptionalNullable[Dict[str, str]] = UNSET
     r"""Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it."""
 
-    buyer: OptionalNullable[GuestBuyerInput] = UNSET
+    buyer: OptionalNullable[GuestBuyer] = UNSET
     r"""Provide buyer details for the transaction. No buyer resource will be created on Gr4vy when used."""
 
     airline: OptionalNullable[Airline] = UNSET

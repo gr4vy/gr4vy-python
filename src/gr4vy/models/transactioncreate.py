@@ -40,7 +40,7 @@ from .googlepaypaymentmethodcreate import (
     GooglePayPaymentMethodCreate,
     GooglePayPaymentMethodCreateTypedDict,
 )
-from .guestbuyer_input import GuestBuyerInput, GuestBuyerInputTypedDict
+from .guestbuyer import GuestBuyer, GuestBuyerTypedDict
 from .integrationclient import IntegrationClient
 from .networktokenpaymentmethodcreate import (
     NetworkTokenPaymentMethodCreate,
@@ -147,7 +147,7 @@ class TransactionCreateTypedDict(TypedDict):
     r"""The 2-letter ISO code of the country where the transaction is processed. This is also used to filter the payment services that can process the transaction. If this value is provided for redirect requests and it's not `null`, it must match the one specified for `country` in `payment_method`. Otherwise, the value specified for `country` in `payment_method` will be assumed implicitly."""
     payment_method: NotRequired[Nullable[TransactionCreatePaymentMethodTypedDict]]
     r"""The optional payment method to use for this transaction. This field is required if no `gift_cards` have been added."""
-    buyer: NotRequired[Nullable[GuestBuyerInputTypedDict]]
+    buyer: NotRequired[Nullable[GuestBuyerTypedDict]]
     r"""Guest buyer details provided inline rather than creating a buyer resource beforehand and using the `buyer_id` or `buyer_external_identifier` keys. No buyer resource will be created on Gr4vy when used."""
     buyer_id: NotRequired[Nullable[str]]
     r"""The ID of the buyer to associate this payment method to. If this field is provided then the `buyer_external_identifier` field needs to be unset. If a stored payment method or gift card is provided, then the buyer for that payment method needs to match the buyer for this field."""
@@ -252,7 +252,7 @@ class TransactionCreate(BaseModel):
     payment_method: OptionalNullable[TransactionCreatePaymentMethod] = UNSET
     r"""The optional payment method to use for this transaction. This field is required if no `gift_cards` have been added."""
 
-    buyer: OptionalNullable[GuestBuyerInput] = UNSET
+    buyer: OptionalNullable[GuestBuyer] = UNSET
     r"""Guest buyer details provided inline rather than creating a buyer resource beforehand and using the `buyer_id` or `buyer_external_identifier` keys. No buyer resource will be created on Gr4vy when used."""
 
     buyer_id: OptionalNullable[str] = UNSET

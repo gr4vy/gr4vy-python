@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 from .capturestatus import CaptureStatus
-from .transaction_output import TransactionOutput, TransactionOutputTypedDict
+from .transaction import Transaction, TransactionTypedDict
 from gr4vy.types import BaseModel, Nullable, UNSET_SENTINEL
 from gr4vy.utils import validate_const, validate_open_enum
 import pydantic
@@ -12,7 +12,7 @@ from typing import Literal, Optional
 from typing_extensions import Annotated, TypedDict
 
 
-class TransactionCaptureOutputTypedDict(TypedDict):
+class TransactionCaptureTypedDict(TypedDict):
     status: CaptureStatus
     code: Nullable[str]
     r"""The standardized error code set by Gr4vy."""
@@ -20,13 +20,13 @@ class TransactionCaptureOutputTypedDict(TypedDict):
     r"""This is the response code received from the payment service. This can be set to any value and is not standardized across different payment services."""
     raw_response_description: Nullable[str]
     r"""This is the response description received from the payment service. This can be set to any value and is not standardized across different payment services."""
-    transaction: TransactionOutputTypedDict
+    transaction: TransactionTypedDict
     r"""A full transaction resource."""
     type: Literal["transaction-capture"]
     r"""Always `transaction-capture`."""
 
 
-class TransactionCaptureOutput(BaseModel):
+class TransactionCapture(BaseModel):
     status: Annotated[CaptureStatus, PlainValidator(validate_open_enum(False))]
 
     code: Nullable[str]
@@ -38,7 +38,7 @@ class TransactionCaptureOutput(BaseModel):
     raw_response_description: Nullable[str]
     r"""This is the response description received from the payment service. This can be set to any value and is not standardized across different payment services."""
 
-    transaction: TransactionOutput
+    transaction: Transaction
     r"""A full transaction resource."""
 
     TYPE: Annotated[

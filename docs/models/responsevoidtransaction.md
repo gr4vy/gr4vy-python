@@ -5,81 +5,81 @@ Successful Response
 
 ## Supported Types
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionVoidOutput`
+### `models.TransactionVoid`
 
 ```python
-value: models.TransactionVoidOutput = /* values here */
+value: models.TransactionVoid = /* values here */
 ```
 
-### `models.TransactionVoidOutput`
+### `models.TransactionVoid`
 
 ```python
-value: models.TransactionVoidOutput = /* values here */
+value: models.TransactionVoid = /* values here */
 ```
 
-### `models.TransactionVoidOutput`
+### `models.TransactionVoid`
 
 ```python
-value: models.TransactionVoidOutput = /* values here */
+value: models.TransactionVoid = /* values here */
 ```
 
-### `models.TransactionVoidOutput`
+### `models.TransactionVoid`
 
 ```python
-value: models.TransactionVoidOutput = /* values here */
+value: models.TransactionVoid = /* values here */
 ```
 

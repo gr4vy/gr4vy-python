@@ -5,13 +5,10 @@ from .payoutcategory import PayoutCategory
 from .payoutmerchantsummary import PayoutMerchantSummary, PayoutMerchantSummaryTypedDict
 from .payoutpaymentservice import PayoutPaymentService, PayoutPaymentServiceTypedDict
 from .payoutstatus import PayoutStatus
-from .transactionbuyer_output import (
-    TransactionBuyerOutput,
-    TransactionBuyerOutputTypedDict,
-)
-from .transactionpaymentmethod_output import (
-    TransactionPaymentMethodOutput,
-    TransactionPaymentMethodOutputTypedDict,
+from .transactionbuyer import TransactionBuyer, TransactionBuyerTypedDict
+from .transactionpaymentmethod import (
+    TransactionPaymentMethod,
+    TransactionPaymentMethodTypedDict,
 )
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
@@ -35,7 +32,7 @@ class PayoutSummaryTypedDict(TypedDict):
     r"""The date this payout was created at."""
     currency: str
     r"""A supported ISO-4217 currency code."""
-    payment_method: TransactionPaymentMethodOutputTypedDict
+    payment_method: TransactionPaymentMethodTypedDict
     payment_service: PayoutPaymentServiceTypedDict
     status: PayoutStatus
     updated_at: datetime
@@ -44,7 +41,7 @@ class PayoutSummaryTypedDict(TypedDict):
     r"""Always `payout`."""
     id: NotRequired[Nullable[str]]
     r"""The ID for the payout."""
-    buyer: NotRequired[Nullable[TransactionBuyerOutputTypedDict]]
+    buyer: NotRequired[Nullable[TransactionBuyerTypedDict]]
     r"""The buyer used for this payout."""
     category: NotRequired[Nullable[PayoutCategory]]
     r"""The type of payout to process."""
@@ -73,7 +70,7 @@ class PayoutSummary(BaseModel):
     currency: str
     r"""A supported ISO-4217 currency code."""
 
-    payment_method: TransactionPaymentMethodOutput
+    payment_method: TransactionPaymentMethod
 
     payment_service: PayoutPaymentService
 
@@ -93,7 +90,7 @@ class PayoutSummary(BaseModel):
     id: OptionalNullable[str] = UNSET
     r"""The ID for the payout."""
 
-    buyer: OptionalNullable[TransactionBuyerOutput] = UNSET
+    buyer: OptionalNullable[TransactionBuyer] = UNSET
     r"""The buyer used for this payout."""
 
     category: Annotated[

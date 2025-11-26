@@ -730,7 +730,7 @@ class Transactions(BaseSDK):
             ]
         ] = UNSET,
         buyer: OptionalNullable[
-            Union[models.GuestBuyerInput, models.GuestBuyerInputTypedDict]
+            Union[models.GuestBuyer, models.GuestBuyerTypedDict]
         ] = UNSET,
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_external_identifier: OptionalNullable[str] = UNSET,
@@ -789,7 +789,7 @@ class Transactions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.TransactionOutput:
+    ) -> models.Transaction:
         r"""Create transaction
 
         Create a new transaction using a supported payment method. If additional buyer authorization is required, an approval URL will be returned. Duplicated gift card numbers are not supported.
@@ -884,7 +884,7 @@ class Transactions(BaseSDK):
                     OptionalNullable[models.TransactionCreatePaymentMethod],
                 ),
                 buyer=utils.get_pydantic_model(
-                    buyer, OptionalNullable[models.GuestBuyerInput]
+                    buyer, OptionalNullable[models.GuestBuyer]
                 ),
                 buyer_id=buyer_id,
                 buyer_external_identifier=buyer_external_identifier,
@@ -1006,7 +1006,7 @@ class Transactions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(models.TransactionOutput, http_res)
+            return unmarshal_json_response(models.Transaction, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
@@ -1070,7 +1070,7 @@ class Transactions(BaseSDK):
             ]
         ] = UNSET,
         buyer: OptionalNullable[
-            Union[models.GuestBuyerInput, models.GuestBuyerInputTypedDict]
+            Union[models.GuestBuyer, models.GuestBuyerTypedDict]
         ] = UNSET,
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_external_identifier: OptionalNullable[str] = UNSET,
@@ -1129,7 +1129,7 @@ class Transactions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.TransactionOutput:
+    ) -> models.Transaction:
         r"""Create transaction
 
         Create a new transaction using a supported payment method. If additional buyer authorization is required, an approval URL will be returned. Duplicated gift card numbers are not supported.
@@ -1224,7 +1224,7 @@ class Transactions(BaseSDK):
                     OptionalNullable[models.TransactionCreatePaymentMethod],
                 ),
                 buyer=utils.get_pydantic_model(
-                    buyer, OptionalNullable[models.GuestBuyerInput]
+                    buyer, OptionalNullable[models.GuestBuyer]
                 ),
                 buyer_id=buyer_id,
                 buyer_external_identifier=buyer_external_identifier,
@@ -1346,7 +1346,7 @@ class Transactions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "201", "application/json"):
-            return unmarshal_json_response(models.TransactionOutput, http_res)
+            return unmarshal_json_response(models.Transaction, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
@@ -1403,7 +1403,7 @@ class Transactions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.TransactionOutput:
+    ) -> models.Transaction:
         r"""Get transaction
 
         Retrieve the details of a transaction by its unique identifier.
@@ -1493,7 +1493,7 @@ class Transactions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.TransactionOutput, http_res)
+            return unmarshal_json_response(models.Transaction, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
@@ -1550,7 +1550,7 @@ class Transactions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.TransactionOutput:
+    ) -> models.Transaction:
         r"""Get transaction
 
         Retrieve the details of a transaction by its unique identifier.
@@ -1640,7 +1640,7 @@ class Transactions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.TransactionOutput, http_res)
+            return unmarshal_json_response(models.Transaction, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
@@ -1705,7 +1705,7 @@ class Transactions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.TransactionOutput:
+    ) -> models.Transaction:
         r"""Manually update a transaction
 
         Manually updates a transaction.
@@ -1809,7 +1809,7 @@ class Transactions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.TransactionOutput, http_res)
+            return unmarshal_json_response(models.Transaction, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
@@ -1874,7 +1874,7 @@ class Transactions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.TransactionOutput:
+    ) -> models.Transaction:
         r"""Manually update a transaction
 
         Manually updates a transaction.
@@ -1978,7 +1978,7 @@ class Transactions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.TransactionOutput, http_res)
+            return unmarshal_json_response(models.Transaction, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
@@ -2943,7 +2943,7 @@ class Transactions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.TransactionOutput:
+    ) -> models.Transaction:
         r"""Sync transaction
 
         Synchronizes the status of a transaction with the underlying payment service provider. This is useful for transactions in a pending state to check if they've been completed or failed. Only available for some payment service providers.
@@ -3029,7 +3029,7 @@ class Transactions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.TransactionOutput, http_res)
+            return unmarshal_json_response(models.Transaction, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
@@ -3086,7 +3086,7 @@ class Transactions(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.TransactionOutput:
+    ) -> models.Transaction:
         r"""Sync transaction
 
         Synchronizes the status of a transaction with the underlying payment service provider. This is useful for transactions in a pending state to check if they've been completed or failed. Only available for some payment service providers.
@@ -3172,7 +3172,7 @@ class Transactions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.TransactionOutput, http_res)
+            return unmarshal_json_response(models.Transaction, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
