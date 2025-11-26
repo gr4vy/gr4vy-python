@@ -1035,10 +1035,6 @@ if TYPE_CHECKING:
         TransactionCreateTypedDict,
     )
     from .transactionevent import Name, TransactionEvent, TransactionEventTypedDict
-    from .transactioneventcontext import (
-        TransactionEventContext,
-        TransactionEventContextTypedDict,
-    )
     from .transactionevents import TransactionEvents, TransactionEventsTypedDict
     from .transactiongiftcard import TransactionGiftCard, TransactionGiftCardTypedDict
     from .transactionintent import TransactionIntent
@@ -1988,8 +1984,6 @@ __all__ = [
     "TransactionCreatePaymentMethodTypedDict",
     "TransactionCreateTypedDict",
     "TransactionEvent",
-    "TransactionEventContext",
-    "TransactionEventContextTypedDict",
     "TransactionEventTypedDict",
     "TransactionEvents",
     "TransactionEventsTypedDict",
@@ -2899,8 +2893,6 @@ _dynamic_imports: dict[str, str] = {
     "Name": ".transactionevent",
     "TransactionEvent": ".transactionevent",
     "TransactionEventTypedDict": ".transactionevent",
-    "TransactionEventContext": ".transactioneventcontext",
-    "TransactionEventContextTypedDict": ".transactioneventcontext",
     "TransactionEvents": ".transactionevents",
     "TransactionEventsTypedDict": ".transactionevents",
     "TransactionGiftCard": ".transactiongiftcard",
