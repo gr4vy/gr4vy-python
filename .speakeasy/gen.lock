@@ -1,19 +1,18 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 04712d9b36d452c75b733bf08ffe7e4c
+  docChecksum: 4096c08d92360bbcae85834b2c93b8f7
   docVersion: 1.0.0
-  speakeasyVersion: 1.661.4
+  speakeasyVersion: 1.662.0
   generationVersion: 2.763.3
-  releaseVersion: 1.8.0
-  configChecksum: e62e71ed970a81f22c8c6334e823e4e3
+  releaseVersion: 1.9.0
+  configChecksum: f34984687d511a1554a0f7f515a6f9f7
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 features:
   python:
     additionalDependencies: 1.0.0
-    additionalProperties: 1.0.1
     constsAndDefaults: 1.0.5
     core: 5.23.11
     defaultEnabledRetries: 0.2.0
@@ -485,7 +484,6 @@ generatedFiles:
   - docs/models/transactioncreate.md
   - docs/models/transactioncreatepaymentmethod.md
   - docs/models/transactionevent.md
-  - docs/models/transactioneventcontext.md
   - docs/models/transactionevents.md
   - docs/models/transactiongiftcard.md
   - docs/models/transactionintent.md
@@ -937,7 +935,6 @@ generatedFiles:
   - src/gr4vy/models/transactionconnectionoptions.py
   - src/gr4vy/models/transactioncreate.py
   - src/gr4vy/models/transactionevent.py
-  - src/gr4vy/models/transactioneventcontext.py
   - src/gr4vy/models/transactionevents.py
   - src/gr4vy/models/transactiongiftcard.py
   - src/gr4vy/models/transactionintent.py
