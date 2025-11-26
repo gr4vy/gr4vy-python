@@ -26,8 +26,10 @@ with Gr4vy(
 
     res = g_client.transactions.events.list(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591", cursor="ZXhhbXBsZTE", limit=100)
 
-    # Handle response
-    print(res)
+    while res is not None:
+        # Handle items
+
+        res = res.next()
 
 ```
 
@@ -43,7 +45,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.TransactionEvents](../../models/transactionevents.md)**
+**[models.ListTransactionEventsResponse](../../models/listtransactioneventsresponse.md)**
 
 ### Errors
 

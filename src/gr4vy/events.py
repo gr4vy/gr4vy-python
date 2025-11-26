@@ -6,7 +6,8 @@ from gr4vy._hooks import HookContext
 from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Mapping, Optional
+from jsonpath import JSONPath
+from typing import Any, Dict, List, Mapping, Optional, Union
 
 
 class Events(BaseSDK):
@@ -21,7 +22,7 @@ class Events(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.TransactionEvents:
+    ) -> Optional[models.ListTransactionEventsResponse]:
         r"""List transaction events
 
         Retrieve a paginated list of events related to processing a transaction, including status changes, API requests, and webhook delivery attempts. Events are listed in chronological order, with the most recent events first.
@@ -113,9 +114,31 @@ class Events(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ListTransactionEventsResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.next_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None or str(next_cursor).strip() == "":
+                return None
+
+            return self.list(
+                transaction_id=transaction_id,
+                cursor=next_cursor,
+                limit=limit,
+                merchant_account_id=merchant_account_id,
+                retries=retries,
+            )
+
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.TransactionEvents, http_res)
+            return models.ListTransactionEventsResponse(
+                result=unmarshal_json_response(models.TransactionEvents, http_res),
+                next=next_func,
+            )
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
@@ -174,7 +197,7 @@ class Events(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.TransactionEvents:
+    ) -> Optional[models.ListTransactionEventsResponse]:
         r"""List transaction events
 
         Retrieve a paginated list of events related to processing a transaction, including status changes, API requests, and webhook delivery attempts. Events are listed in chronological order, with the most recent events first.
@@ -266,9 +289,31 @@ class Events(BaseSDK):
             retry_config=retry_config,
         )
 
+        def next_func() -> Optional[models.ListTransactionEventsResponse]:
+            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
+            next_cursor = JSONPath("$.next_cursor").parse(body)
+
+            if len(next_cursor) == 0:
+                return None
+
+            next_cursor = next_cursor[0]
+            if next_cursor is None or str(next_cursor).strip() == "":
+                return None
+
+            return self.list(
+                transaction_id=transaction_id,
+                cursor=next_cursor,
+                limit=limit,
+                merchant_account_id=merchant_account_id,
+                retries=retries,
+            )
+
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.TransactionEvents, http_res)
+            return models.ListTransactionEventsResponse(
+                result=unmarshal_json_response(models.TransactionEvents, http_res),
+                next=next_func,
+            )
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
