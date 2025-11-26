@@ -1,18 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: a8157e3b0f40cbe4708f79566034fb26
+  docChecksum: 04712d9b36d452c75b733bf08ffe7e4c
   docVersion: 1.0.0
-  speakeasyVersion: 1.661.1
-  generationVersion: 2.763.2
-  releaseVersion: 1.7.17
-  configChecksum: 4f371a14a97edf8d1fdd4a71a88d85b5
+  speakeasyVersion: 1.661.4
+  generationVersion: 2.763.3
+  releaseVersion: 1.8.0
+  configChecksum: e62e71ed970a81f22c8c6334e823e4e3
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 features:
   python:
     additionalDependencies: 1.0.0
+    additionalProperties: 1.0.1
     constsAndDefaults: 1.0.5
     core: 5.23.11
     defaultEnabledRetries: 0.2.0
@@ -85,12 +86,11 @@ generatedFiles:
   - docs/models/approvaltarget.md
   - docs/models/auditlogaction.md
   - docs/models/auditlogentries.md
-  - docs/models/auditlogentryoutput.md
+  - docs/models/auditlogentry.md
   - docs/models/auditlogentryresource.md
   - docs/models/auditlogentryuser.md
   - docs/models/avsresponsecode.md
-  - docs/models/billingdetailsinput.md
-  - docs/models/billingdetailsoutput.md
+  - docs/models/billingdetails.md
   - docs/models/body.md
   - docs/models/braintreedynamicdatafieldsoptions.md
   - docs/models/braintreeoptions.md
@@ -116,9 +116,9 @@ generatedFiles:
   - docs/models/checkoutpayoutoptions.md
   - docs/models/checkoutsession.md
   - docs/models/checkoutsessioncreate.md
+  - docs/models/checkoutsessionpaymentmethod.md
   - docs/models/checkoutsessionpaymentmethodcreate.md
   - docs/models/checkoutsessionpaymentmethoddetails.md
-  - docs/models/checkoutsessionpaymentmethodoutput.md
   - docs/models/checkoutsessionwithurlpaymentmethodcreate.md
   - docs/models/clicktopayfpanpaymentmethodcreate.md
   - docs/models/clicktopaypaymentmethodcreate.md
@@ -276,8 +276,7 @@ generatedFiles:
   - docs/models/googlepaypaymentoptioncontext.md
   - docs/models/googlepaysession.md
   - docs/models/googlepaysessionrequest.md
-  - docs/models/guestbuyerinput.md
-  - docs/models/guestbuyeroutput.md
+  - docs/models/guestbuyer.md
   - docs/models/instrumenttype.md
   - docs/models/integrationclient.md
   - docs/models/internal/globals.md
@@ -380,10 +379,10 @@ generatedFiles:
   - docs/models/paymentmethodstatus.md
   - docs/models/paymentmethodstoredcard.md
   - docs/models/paymentmethodsummaries.md
-  - docs/models/paymentmethodsummaryoutput.md
+  - docs/models/paymentmethodsummary.md
+  - docs/models/paymentoption.md
   - docs/models/paymentoptioncontext.md
   - docs/models/paymentoptioncontextapprovalui.md
-  - docs/models/paymentoptionoutput.md
   - docs/models/paymentoptionrequest.md
   - docs/models/paymentoptions.md
   - docs/models/paymentservice.md
@@ -477,20 +476,21 @@ generatedFiles:
   - docs/models/ticketdeliverymethod.md
   - docs/models/token.md
   - docs/models/tokenpaymentmethodcreate.md
-  - docs/models/transactionbuyeroutput.md
+  - docs/models/transaction.md
+  - docs/models/transactionbuyer.md
   - docs/models/transactioncancel.md
+  - docs/models/transactioncapture.md
   - docs/models/transactioncapturecreate.md
-  - docs/models/transactioncaptureoutput.md
   - docs/models/transactionconnectionoptions.md
   - docs/models/transactioncreate.md
   - docs/models/transactioncreatepaymentmethod.md
-  - docs/models/transactioneventoutput.md
+  - docs/models/transactionevent.md
+  - docs/models/transactioneventcontext.md
   - docs/models/transactionevents.md
   - docs/models/transactiongiftcard.md
   - docs/models/transactionintent.md
   - docs/models/transactionintentoutcome.md
-  - docs/models/transactionoutput.md
-  - docs/models/transactionpaymentmethodoutput.md
+  - docs/models/transactionpaymentmethod.md
   - docs/models/transactionpaymentservice.md
   - docs/models/transactionpaymentsource.md
   - docs/models/transactionrefundallcreate.md
@@ -499,10 +499,10 @@ generatedFiles:
   - docs/models/transactionsreportspec.md
   - docs/models/transactionstatus.md
   - docs/models/transactionsummaries.md
-  - docs/models/transactionsummaryoutput.md
-  - docs/models/transactionthreedsecuresummaryoutput.md
+  - docs/models/transactionsummary.md
+  - docs/models/transactionthreedsecuresummary.md
   - docs/models/transactionupdate.md
-  - docs/models/transactionvoidoutput.md
+  - docs/models/transactionvoid.md
   - docs/models/travelhubcustomdata.md
   - docs/models/travelhuboptions.md
   - docs/models/trustlyoptions.md
@@ -647,12 +647,11 @@ generatedFiles:
   - src/gr4vy/models/approvaltarget.py
   - src/gr4vy/models/auditlogaction.py
   - src/gr4vy/models/auditlogentries.py
-  - src/gr4vy/models/auditlogentry_output.py
+  - src/gr4vy/models/auditlogentry.py
   - src/gr4vy/models/auditlogentryresource.py
   - src/gr4vy/models/auditlogentryuser.py
   - src/gr4vy/models/avsresponsecode.py
-  - src/gr4vy/models/billingdetails_input.py
-  - src/gr4vy/models/billingdetails_output.py
+  - src/gr4vy/models/billingdetails.py
   - src/gr4vy/models/braintreedynamicdatafieldsoptions.py
   - src/gr4vy/models/braintreeoptions.py
   - src/gr4vy/models/browserinfo.py
@@ -674,7 +673,7 @@ generatedFiles:
   - src/gr4vy/models/checkoutpayoutoptions.py
   - src/gr4vy/models/checkoutsession.py
   - src/gr4vy/models/checkoutsessioncreate.py
-  - src/gr4vy/models/checkoutsessionpaymentmethod_output.py
+  - src/gr4vy/models/checkoutsessionpaymentmethod.py
   - src/gr4vy/models/checkoutsessionpaymentmethodcreate.py
   - src/gr4vy/models/checkoutsessionpaymentmethoddetails.py
   - src/gr4vy/models/checkoutsessionwithurlpaymentmethodcreate.py
@@ -787,8 +786,7 @@ generatedFiles:
   - src/gr4vy/models/googlepaypaymentoptioncontext.py
   - src/gr4vy/models/googlepaysession.py
   - src/gr4vy/models/googlepaysessionrequest.py
-  - src/gr4vy/models/guestbuyer_input.py
-  - src/gr4vy/models/guestbuyer_output.py
+  - src/gr4vy/models/guestbuyer.py
   - src/gr4vy/models/instrumenttype.py
   - src/gr4vy/models/integrationclient.py
   - src/gr4vy/models/internal/__init__.py
@@ -852,8 +850,8 @@ generatedFiles:
   - src/gr4vy/models/paymentmethodstatus.py
   - src/gr4vy/models/paymentmethodstoredcard.py
   - src/gr4vy/models/paymentmethodsummaries.py
-  - src/gr4vy/models/paymentmethodsummary_output.py
-  - src/gr4vy/models/paymentoption_output.py
+  - src/gr4vy/models/paymentmethodsummary.py
+  - src/gr4vy/models/paymentoption.py
   - src/gr4vy/models/paymentoptioncontext.py
   - src/gr4vy/models/paymentoptioncontextapprovalui.py
   - src/gr4vy/models/paymentoptionrequest.py
@@ -931,19 +929,20 @@ generatedFiles:
   - src/gr4vy/models/threedsecurestatus.py
   - src/gr4vy/models/threedsecurev2.py
   - src/gr4vy/models/tokenpaymentmethodcreate.py
-  - src/gr4vy/models/transaction_output.py
-  - src/gr4vy/models/transactionbuyer_output.py
+  - src/gr4vy/models/transaction.py
+  - src/gr4vy/models/transactionbuyer.py
   - src/gr4vy/models/transactioncancel.py
-  - src/gr4vy/models/transactioncapture_output.py
+  - src/gr4vy/models/transactioncapture.py
   - src/gr4vy/models/transactioncapturecreate.py
   - src/gr4vy/models/transactionconnectionoptions.py
   - src/gr4vy/models/transactioncreate.py
-  - src/gr4vy/models/transactionevent_output.py
+  - src/gr4vy/models/transactionevent.py
+  - src/gr4vy/models/transactioneventcontext.py
   - src/gr4vy/models/transactionevents.py
   - src/gr4vy/models/transactiongiftcard.py
   - src/gr4vy/models/transactionintent.py
   - src/gr4vy/models/transactionintentoutcome.py
-  - src/gr4vy/models/transactionpaymentmethod_output.py
+  - src/gr4vy/models/transactionpaymentmethod.py
   - src/gr4vy/models/transactionpaymentservice.py
   - src/gr4vy/models/transactionpaymentsource.py
   - src/gr4vy/models/transactionrefundallcreate.py
@@ -952,10 +951,10 @@ generatedFiles:
   - src/gr4vy/models/transactionsreportspec.py
   - src/gr4vy/models/transactionstatus.py
   - src/gr4vy/models/transactionsummaries.py
-  - src/gr4vy/models/transactionsummary_output.py
-  - src/gr4vy/models/transactionthreedsecuresummary_output.py
+  - src/gr4vy/models/transactionsummary.py
+  - src/gr4vy/models/transactionthreedsecuresummary.py
   - src/gr4vy/models/transactionupdate.py
-  - src/gr4vy/models/transactionvoid_output.py
+  - src/gr4vy/models/transactionvoid.py
   - src/gr4vy/models/travelhubcustomdata.py
   - src/gr4vy/models/travelhuboptions.py
   - src/gr4vy/models/trustlyoptions.py
@@ -3904,7 +3903,7 @@ examples:
           application_name: "core-api"
       responses:
         "200":
-          application/json: {"items": [{"type": "transaction-event", "id": "f133a3b7-e67e-4d83-bcd3-3e438fedf348", "name": "transaction-api-request", "created_at": "2013-07-16T19:23:00.000+00:00", "context": {}}], "limit": 20}
+          application/json: {"items": [{"type": "transaction-event", "id": "f133a3b7-e67e-4d83-bcd3-3e438fedf348", "name": "transaction-api-request", "created_at": "2013-07-16T19:23:00.000+00:00", "context": {"transaction_id": "<id>", "created_at": "1713124938909"}}], "limit": 20}
         "400":
           application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
         "401":
@@ -4454,4 +4453,6 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes Detected:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.cybersource-card.comments` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.cybersource-card.comments` **Added**\n* `gr4vy.payment-links.create()`: \n  *  `request.connection_options.cybersource-card.comments` **Added**\n"
+releaseNotes: |
+  ## Python SDK Changes Detected:
+  * `gr4vy.transactions.events.list()`:  `response.items.[].context` **Changed** **Breaking** :warning:

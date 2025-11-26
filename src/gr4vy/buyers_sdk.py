@@ -400,7 +400,7 @@ class BuyersSDK(BaseSDK):
         display_name: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
         billing_details: OptionalNullable[
-            Union[models.BillingDetailsInput, models.BillingDetailsInputTypedDict]
+            Union[models.BillingDetails, models.BillingDetailsTypedDict]
         ] = UNSET,
         account_number: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -438,7 +438,7 @@ class BuyersSDK(BaseSDK):
                 display_name=display_name,
                 external_identifier=external_identifier,
                 billing_details=utils.get_pydantic_model(
-                    billing_details, OptionalNullable[models.BillingDetailsInput]
+                    billing_details, OptionalNullable[models.BillingDetails]
                 ),
                 account_number=account_number,
             ),
@@ -561,7 +561,7 @@ class BuyersSDK(BaseSDK):
         display_name: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
         billing_details: OptionalNullable[
-            Union[models.BillingDetailsInput, models.BillingDetailsInputTypedDict]
+            Union[models.BillingDetails, models.BillingDetailsTypedDict]
         ] = UNSET,
         account_number: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -599,7 +599,7 @@ class BuyersSDK(BaseSDK):
                 display_name=display_name,
                 external_identifier=external_identifier,
                 billing_details=utils.get_pydantic_model(
-                    billing_details, OptionalNullable[models.BillingDetailsInput]
+                    billing_details, OptionalNullable[models.BillingDetails]
                 ),
                 account_number=account_number,
             ),
@@ -1018,7 +1018,7 @@ class BuyersSDK(BaseSDK):
         external_identifier: OptionalNullable[str] = UNSET,
         account_number: OptionalNullable[str] = UNSET,
         billing_details: OptionalNullable[
-            Union[models.BillingDetailsInput, models.BillingDetailsInputTypedDict]
+            Union[models.BillingDetails, models.BillingDetailsTypedDict]
         ] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1058,7 +1058,7 @@ class BuyersSDK(BaseSDK):
                 external_identifier=external_identifier,
                 account_number=account_number,
                 billing_details=utils.get_pydantic_model(
-                    billing_details, OptionalNullable[models.BillingDetailsInput]
+                    billing_details, OptionalNullable[models.BillingDetails]
                 ),
             ),
         )
@@ -1182,7 +1182,7 @@ class BuyersSDK(BaseSDK):
         external_identifier: OptionalNullable[str] = UNSET,
         account_number: OptionalNullable[str] = UNSET,
         billing_details: OptionalNullable[
-            Union[models.BillingDetailsInput, models.BillingDetailsInputTypedDict]
+            Union[models.BillingDetails, models.BillingDetailsTypedDict]
         ] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1222,7 +1222,7 @@ class BuyersSDK(BaseSDK):
                 external_identifier=external_identifier,
                 account_number=account_number,
                 billing_details=utils.get_pydantic_model(
-                    billing_details, OptionalNullable[models.BillingDetailsInput]
+                    billing_details, OptionalNullable[models.BillingDetails]
                 ),
             ),
         )

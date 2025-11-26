@@ -328,7 +328,7 @@ class CheckoutSessions(BaseSDK):
         ] = UNSET,
         metadata: OptionalNullable[Dict[str, str]] = UNSET,
         buyer: OptionalNullable[
-            Union[models.GuestBuyerInput, models.GuestBuyerInputTypedDict]
+            Union[models.GuestBuyer, models.GuestBuyerTypedDict]
         ] = UNSET,
         airline: OptionalNullable[
             Union[models.Airline, models.AirlineTypedDict]
@@ -380,7 +380,7 @@ class CheckoutSessions(BaseSDK):
                 ),
                 metadata=metadata,
                 buyer=utils.get_pydantic_model(
-                    buyer, OptionalNullable[models.GuestBuyerInput]
+                    buyer, OptionalNullable[models.GuestBuyer]
                 ),
                 airline=utils.get_pydantic_model(
                     airline, OptionalNullable[models.Airline]
@@ -516,7 +516,7 @@ class CheckoutSessions(BaseSDK):
         ] = UNSET,
         metadata: OptionalNullable[Dict[str, str]] = UNSET,
         buyer: OptionalNullable[
-            Union[models.GuestBuyerInput, models.GuestBuyerInputTypedDict]
+            Union[models.GuestBuyer, models.GuestBuyerTypedDict]
         ] = UNSET,
         airline: OptionalNullable[
             Union[models.Airline, models.AirlineTypedDict]
@@ -568,7 +568,7 @@ class CheckoutSessions(BaseSDK):
                 ),
                 metadata=metadata,
                 buyer=utils.get_pydantic_model(
-                    buyer, OptionalNullable[models.GuestBuyerInput]
+                    buyer, OptionalNullable[models.GuestBuyer]
                 ),
                 airline=utils.get_pydantic_model(
                     airline, OptionalNullable[models.Airline]

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 from .cartitem import CartItem, CartItemTypedDict
-from .guestbuyer_input import GuestBuyerInput, GuestBuyerInputTypedDict
+from .guestbuyer import GuestBuyer, GuestBuyerTypedDict
 from .statementdescriptor import StatementDescriptor, StatementDescriptorTypedDict
 from .transactionconnectionoptions import (
     TransactionConnectionOptions,
@@ -26,7 +26,7 @@ class PaymentLinkCreateTypedDict(TypedDict):
     r"""The country code for the payment link."""
     currency: str
     r"""The currency code for the payment link."""
-    buyer: NotRequired[Nullable[GuestBuyerInputTypedDict]]
+    buyer: NotRequired[Nullable[GuestBuyerTypedDict]]
     r"""The guest buyer for the payment link."""
     expires_at: NotRequired[Nullable[datetime]]
     r"""The expiration date and time for the payment link."""
@@ -73,7 +73,7 @@ class PaymentLinkCreate(BaseModel):
     currency: str
     r"""The currency code for the payment link."""
 
-    buyer: OptionalNullable[GuestBuyerInput] = UNSET
+    buyer: OptionalNullable[GuestBuyer] = UNSET
     r"""The guest buyer for the payment link."""
 
     expires_at: OptionalNullable[datetime] = UNSET

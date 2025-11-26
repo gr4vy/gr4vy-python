@@ -3,11 +3,11 @@
 from __future__ import annotations
 from .airline import Airline, AirlineTypedDict
 from .cartitem import CartItem, CartItemTypedDict
-from .checkoutsessionpaymentmethod_output import (
-    CheckoutSessionPaymentMethodOutput,
-    CheckoutSessionPaymentMethodOutputTypedDict,
+from .checkoutsessionpaymentmethod import (
+    CheckoutSessionPaymentMethod,
+    CheckoutSessionPaymentMethodTypedDict,
 )
-from .guestbuyer_output import GuestBuyerOutput, GuestBuyerOutputTypedDict
+from .guestbuyer import GuestBuyer, GuestBuyerTypedDict
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from gr4vy.utils import validate_const
@@ -27,7 +27,7 @@ class CheckoutSessionTypedDict(TypedDict):
     r"""An array of cart items that represents the line items of a transaction."""
     metadata: NotRequired[Nullable[Dict[str, str]]]
     r"""Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it."""
-    buyer: NotRequired[Nullable[GuestBuyerOutputTypedDict]]
+    buyer: NotRequired[Nullable[GuestBuyerTypedDict]]
     r"""Provide buyer details for the transaction. No buyer resource will be created on Gr4vy when used."""
     airline: NotRequired[Nullable[AirlineTypedDict]]
     r"""The airline addendum data which describes the airline booking associated with this transaction."""
@@ -39,7 +39,7 @@ class CheckoutSessionTypedDict(TypedDict):
     r"""The unique identifier of an existing payment service. When provided, the created transaction will be processed by the given payment service and any routing rules will be skipped."""
     type: Literal["checkout-session"]
     r"""Always `checkout-session`"""
-    payment_method: NotRequired[Nullable[CheckoutSessionPaymentMethodOutputTypedDict]]
+    payment_method: NotRequired[Nullable[CheckoutSessionPaymentMethodTypedDict]]
     r"""Information about the payment method stored on the checkout session."""
 
 
@@ -56,7 +56,7 @@ class CheckoutSession(BaseModel):
     metadata: OptionalNullable[Dict[str, str]] = UNSET
     r"""Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it."""
 
-    buyer: OptionalNullable[GuestBuyerOutput] = UNSET
+    buyer: OptionalNullable[GuestBuyer] = UNSET
     r"""Provide buyer details for the transaction. No buyer resource will be created on Gr4vy when used."""
 
     airline: OptionalNullable[Airline] = UNSET
@@ -80,7 +80,7 @@ class CheckoutSession(BaseModel):
     ] = "checkout-session"
     r"""Always `checkout-session`"""
 
-    payment_method: OptionalNullable[CheckoutSessionPaymentMethodOutput] = UNSET
+    payment_method: OptionalNullable[CheckoutSessionPaymentMethod] = UNSET
     r"""Information about the payment method stored on the checkout session."""
 
     @model_serializer(mode="wrap")

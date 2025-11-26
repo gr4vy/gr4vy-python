@@ -38,7 +38,7 @@ Context = TypeAliasType(
 )
 
 
-class PaymentOptionOutputTypedDict(TypedDict):
+class PaymentOptionTypedDict(TypedDict):
     method: str
     mode: Mode
     can_store_payment_method: bool
@@ -49,7 +49,7 @@ class PaymentOptionOutputTypedDict(TypedDict):
     context: NotRequired[Nullable[ContextTypedDict]]
 
 
-class PaymentOptionOutput(BaseModel):
+class PaymentOption(BaseModel):
     method: str
 
     mode: Annotated[Mode, PlainValidator(validate_open_enum(False))]

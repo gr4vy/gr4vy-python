@@ -5,81 +5,81 @@ Successful Response
 
 ## Supported Types
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionOutput`
+### `models.Transaction`
 
 ```python
-value: models.TransactionOutput = /* values here */
+value: models.Transaction = /* values here */
 ```
 
-### `models.TransactionCaptureOutput`
+### `models.TransactionCapture`
 
 ```python
-value: models.TransactionCaptureOutput = /* values here */
+value: models.TransactionCapture = /* values here */
 ```
 
-### `models.TransactionCaptureOutput`
+### `models.TransactionCapture`
 
 ```python
-value: models.TransactionCaptureOutput = /* values here */
+value: models.TransactionCapture = /* values here */
 ```
 
-### `models.TransactionCaptureOutput`
+### `models.TransactionCapture`
 
 ```python
-value: models.TransactionCaptureOutput = /* values here */
+value: models.TransactionCapture = /* values here */
 ```
 
-### `models.TransactionCaptureOutput`
+### `models.TransactionCapture`
 
 ```python
-value: models.TransactionCaptureOutput = /* values here */
+value: models.TransactionCapture = /* values here */
 ```
 

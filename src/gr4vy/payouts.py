@@ -367,7 +367,7 @@ class Payouts(BaseSDK):
         external_identifier: OptionalNullable[str] = UNSET,
         buyer_id: OptionalNullable[str] = UNSET,
         buyer: OptionalNullable[
-            Union[models.GuestBuyerInput, models.GuestBuyerInputTypedDict]
+            Union[models.GuestBuyer, models.GuestBuyerTypedDict]
         ] = UNSET,
         buyer_external_identifier: OptionalNullable[str] = UNSET,
         merchant: OptionalNullable[
@@ -427,7 +427,7 @@ class Payouts(BaseSDK):
                 external_identifier=external_identifier,
                 buyer_id=buyer_id,
                 buyer=utils.get_pydantic_model(
-                    buyer, OptionalNullable[models.GuestBuyerInput]
+                    buyer, OptionalNullable[models.GuestBuyer]
                 ),
                 buyer_external_identifier=buyer_external_identifier,
                 merchant=utils.get_pydantic_model(
@@ -563,7 +563,7 @@ class Payouts(BaseSDK):
         external_identifier: OptionalNullable[str] = UNSET,
         buyer_id: OptionalNullable[str] = UNSET,
         buyer: OptionalNullable[
-            Union[models.GuestBuyerInput, models.GuestBuyerInputTypedDict]
+            Union[models.GuestBuyer, models.GuestBuyerTypedDict]
         ] = UNSET,
         buyer_external_identifier: OptionalNullable[str] = UNSET,
         merchant: OptionalNullable[
@@ -623,7 +623,7 @@ class Payouts(BaseSDK):
                 external_identifier=external_identifier,
                 buyer_id=buyer_id,
                 buyer=utils.get_pydantic_model(
-                    buyer, OptionalNullable[models.GuestBuyerInput]
+                    buyer, OptionalNullable[models.GuestBuyer]
                 ),
                 buyer_external_identifier=buyer_external_identifier,
                 merchant=utils.get_pydantic_model(

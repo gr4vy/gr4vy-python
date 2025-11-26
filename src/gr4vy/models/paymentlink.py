@@ -5,10 +5,7 @@ from .cartitem import CartItem, CartItemTypedDict
 from .paymentlinkstatus import PaymentLinkStatus
 from .shippingdetails import ShippingDetails, ShippingDetailsTypedDict
 from .statementdescriptor import StatementDescriptor, StatementDescriptorTypedDict
-from .transactionbuyer_output import (
-    TransactionBuyerOutput,
-    TransactionBuyerOutputTypedDict,
-)
+from .transactionbuyer import TransactionBuyer, TransactionBuyerTypedDict
 from .transactionintent import TransactionIntent
 from .transactionpaymentsource import TransactionPaymentSource
 from datetime import datetime
@@ -70,7 +67,7 @@ class PaymentLinkTypedDict(TypedDict):
     r"""The return URL after payment completion."""
     metadata: NotRequired[Nullable[Dict[str, Any]]]
     r"""Arbitrary metadata for the payment link."""
-    buyer: NotRequired[Nullable[TransactionBuyerOutputTypedDict]]
+    buyer: NotRequired[Nullable[TransactionBuyerTypedDict]]
     r"""The buyer associated with the payment link."""
     shipping_details: NotRequired[Nullable[ShippingDetailsTypedDict]]
     r"""The shipping details for the payment link."""
@@ -160,7 +157,7 @@ class PaymentLink(BaseModel):
     metadata: OptionalNullable[Dict[str, Any]] = UNSET
     r"""Arbitrary metadata for the payment link."""
 
-    buyer: OptionalNullable[TransactionBuyerOutput] = UNSET
+    buyer: OptionalNullable[TransactionBuyer] = UNSET
     r"""The buyer associated with the payment link."""
 
     shipping_details: OptionalNullable[ShippingDetails] = UNSET

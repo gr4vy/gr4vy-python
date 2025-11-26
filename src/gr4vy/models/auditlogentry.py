@@ -14,7 +14,7 @@ from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class AuditLogEntryOutputTypedDict(TypedDict):
+class AuditLogEntryTypedDict(TypedDict):
     resource: AuditLogEntryResourceTypedDict
     action: AuditLogAction
     user: AuditLogEntryUserTypedDict
@@ -28,7 +28,7 @@ class AuditLogEntryOutputTypedDict(TypedDict):
     r"""The ID of the merchant account this entry was created for."""
 
 
-class AuditLogEntryOutput(BaseModel):
+class AuditLogEntry(BaseModel):
     resource: AuditLogEntryResource
 
     action: Annotated[AuditLogAction, PlainValidator(validate_open_enum(False))]
