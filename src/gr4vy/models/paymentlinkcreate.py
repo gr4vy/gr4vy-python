@@ -61,6 +61,10 @@ class PaymentLinkCreateTypedDict(TypedDict):
     r"""Arbitrary metadata for the payment link."""
     payment_source: NotRequired[TransactionPaymentSource]
     r"""The way payment method information made it to this transaction."""
+    store: NotRequired[bool]
+    r"""Whether to store the payment method for future use."""
+    buyer_id: NotRequired[Nullable[str]]
+    r"""The ID of the buyer to associate the payment method with. Note: When `buyer_id` is provided, the payment link should be treated as a secret as it will allow the user to manage payment methods for the associated buyer."""
 
 
 class PaymentLinkCreate(BaseModel):
@@ -130,6 +134,12 @@ class PaymentLinkCreate(BaseModel):
     ] = None
     r"""The way payment method information made it to this transaction."""
 
+    store: Optional[bool] = False
+    r"""Whether to store the payment method for future use."""
+
+    buyer_id: OptionalNullable[str] = UNSET
+    r"""The ID of the buyer to associate the payment method with. Note: When `buyer_id` is provided, the payment link should be treated as a secret as it will allow the user to manage payment methods for the associated buyer."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -151,6 +161,8 @@ class PaymentLinkCreate(BaseModel):
             "cart_items",
             "metadata",
             "payment_source",
+            "store",
+            "buyer_id",
         ]
         nullable_fields = [
             "buyer",
@@ -169,6 +181,7 @@ class PaymentLinkCreate(BaseModel):
             "return_url",
             "cart_items",
             "metadata",
+            "buyer_id",
         ]
         null_default_fields = []
 

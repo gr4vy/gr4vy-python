@@ -90,6 +90,7 @@ class PaymentOptionsSDK(BaseSDK):
                 "json",
                 models.PaymentOptionRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -261,6 +262,7 @@ class PaymentOptionsSDK(BaseSDK):
                 "json",
                 models.PaymentOptionRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

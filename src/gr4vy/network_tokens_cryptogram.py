@@ -73,6 +73,7 @@ class NetworkTokensCryptogram(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.cryptogram_create, False, False, "json", models.CryptogramCreate
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -227,6 +228,7 @@ class NetworkTokensCryptogram(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.cryptogram_create, False, False, "json", models.CryptogramCreate
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

@@ -89,6 +89,7 @@ class ReportsSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -271,6 +272,7 @@ class ReportsSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -461,6 +463,7 @@ class ReportsSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.report_create, False, False, "json", models.ReportCreate
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -624,6 +627,7 @@ class ReportsSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.report_create, False, False, "json", models.ReportCreate
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -767,6 +771,7 @@ class ReportsSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -914,6 +919,7 @@ class ReportsSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1075,6 +1081,7 @@ class ReportsSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.report_update, False, False, "json", models.ReportUpdate
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1232,6 +1239,7 @@ class ReportsSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.report_update, False, False, "json", models.ReportUpdate
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

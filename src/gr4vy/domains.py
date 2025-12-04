@@ -74,6 +74,7 @@ class Domains(BaseSDK):
                 "json",
                 models.DigitalWalletDomain,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -229,6 +230,7 @@ class Domains(BaseSDK):
                 "json",
                 models.DigitalWalletDomain,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -384,6 +386,7 @@ class Domains(BaseSDK):
                 "json",
                 models.DigitalWalletDomain,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -539,6 +542,7 @@ class Domains(BaseSDK):
                 "json",
                 models.DigitalWalletDomain,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

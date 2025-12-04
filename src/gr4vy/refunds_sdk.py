@@ -62,6 +62,7 @@ class RefundsSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -209,6 +210,7 @@ class RefundsSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

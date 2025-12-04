@@ -25,7 +25,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 1.9.1
+  version: 1.10.0
   additionalDependencies:
     dev:
       freezegun: ^1.5.1
@@ -70,6 +70,7 @@ python:
   maxMethodParams: 999
   methodArguments: infer-optional-args
   moduleName: ""
+  multipartArrayFormat: legacy
   outputModelSuffix: output
   packageManager: poetry
   packageName: gr4vy

@@ -77,6 +77,7 @@ class GiftCardsSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -224,6 +225,7 @@ class GiftCardsSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -371,6 +373,7 @@ class GiftCardsSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -514,6 +517,7 @@ class GiftCardsSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -671,6 +675,7 @@ class GiftCardsSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.gift_card_create, False, False, "json", models.GiftCardCreate
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -828,6 +833,7 @@ class GiftCardsSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.gift_card_create, False, False, "json", models.GiftCardCreate
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -980,6 +986,7 @@ class GiftCardsSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1159,6 +1166,7 @@ class GiftCardsSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

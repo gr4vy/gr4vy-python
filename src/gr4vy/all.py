@@ -77,6 +77,7 @@ class All(BaseSDK):
                 "json",
                 OptionalNullable[models.TransactionRefundAllCreate],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -235,6 +236,7 @@ class All(BaseSDK):
                 "json",
                 OptionalNullable[models.TransactionRefundAllCreate],
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
