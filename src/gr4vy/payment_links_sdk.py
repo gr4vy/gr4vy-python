@@ -48,6 +48,8 @@ class PaymentLinksSDK(BaseSDK):
         ] = UNSET,
         metadata: OptionalNullable[Dict[str, Any]] = UNSET,
         payment_source: Optional[models.TransactionPaymentSource] = None,
+        store: Optional[bool] = False,
+        buyer_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -79,6 +81,8 @@ class PaymentLinksSDK(BaseSDK):
         :param cart_items: The cart items for the payment link.
         :param metadata: Arbitrary metadata for the payment link.
         :param payment_source: The way payment method information made it to this transaction.
+        :param store: Whether to store the payment method for future use.
+        :param buyer_id: The ID of the buyer to associate the payment method with. Note: When `buyer_id` is provided, the payment link should be treated as a secret as it will allow the user to manage payment methods for the associated buyer.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -127,6 +131,8 @@ class PaymentLinksSDK(BaseSDK):
                 ),
                 metadata=metadata,
                 payment_source=payment_source,
+                store=store,
+                buyer_id=buyer_id,
             ),
         )
 
@@ -153,6 +159,7 @@ class PaymentLinksSDK(BaseSDK):
                 "json",
                 models.PaymentLinkCreate,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -280,6 +287,8 @@ class PaymentLinksSDK(BaseSDK):
         ] = UNSET,
         metadata: OptionalNullable[Dict[str, Any]] = UNSET,
         payment_source: Optional[models.TransactionPaymentSource] = None,
+        store: Optional[bool] = False,
+        buyer_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -311,6 +320,8 @@ class PaymentLinksSDK(BaseSDK):
         :param cart_items: The cart items for the payment link.
         :param metadata: Arbitrary metadata for the payment link.
         :param payment_source: The way payment method information made it to this transaction.
+        :param store: Whether to store the payment method for future use.
+        :param buyer_id: The ID of the buyer to associate the payment method with. Note: When `buyer_id` is provided, the payment link should be treated as a secret as it will allow the user to manage payment methods for the associated buyer.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -359,6 +370,8 @@ class PaymentLinksSDK(BaseSDK):
                 ),
                 metadata=metadata,
                 payment_source=payment_source,
+                store=store,
+                buyer_id=buyer_id,
             ),
         )
 
@@ -385,6 +398,7 @@ class PaymentLinksSDK(BaseSDK):
                 "json",
                 models.PaymentLinkCreate,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -534,6 +548,7 @@ class PaymentLinksSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -709,6 +724,7 @@ class PaymentLinksSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -878,6 +894,7 @@ class PaymentLinksSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1021,6 +1038,7 @@ class PaymentLinksSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1164,6 +1182,7 @@ class PaymentLinksSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1311,6 +1330,7 @@ class PaymentLinksSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

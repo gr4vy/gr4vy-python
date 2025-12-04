@@ -71,6 +71,7 @@ class Sessions(BaseSDK):
                 "json",
                 models.GooglePaySessionRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -223,6 +224,7 @@ class Sessions(BaseSDK):
                 "json",
                 models.GooglePaySessionRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -378,6 +380,7 @@ class Sessions(BaseSDK):
                 "json",
                 models.ApplePaySessionRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -533,6 +536,7 @@ class Sessions(BaseSDK):
                 "json",
                 models.ApplePaySessionRequest,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -673,6 +677,7 @@ class Sessions(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.ClickToPaySessionRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -813,6 +818,7 @@ class Sessions(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request, False, False, "json", models.ClickToPaySessionRequest
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

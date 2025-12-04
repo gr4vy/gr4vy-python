@@ -72,6 +72,7 @@ class PaymentServicesSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -251,6 +252,7 @@ class PaymentServicesSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -481,6 +483,7 @@ class PaymentServicesSDK(BaseSDK):
                 "json",
                 models.PaymentServiceCreate,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -684,6 +687,7 @@ class PaymentServicesSDK(BaseSDK):
                 "json",
                 models.PaymentServiceCreate,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -827,6 +831,7 @@ class PaymentServicesSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -974,6 +979,7 @@ class PaymentServicesSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1185,6 +1191,7 @@ class PaymentServicesSDK(BaseSDK):
                 "json",
                 models.PaymentServiceUpdate,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1392,6 +1399,7 @@ class PaymentServicesSDK(BaseSDK):
                 "json",
                 models.PaymentServiceUpdate,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1535,6 +1543,7 @@ class PaymentServicesSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1678,6 +1687,7 @@ class PaymentServicesSDK(BaseSDK):
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1836,6 +1846,7 @@ class PaymentServicesSDK(BaseSDK):
                 "json",
                 models.VerifyCredentials,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -1994,6 +2005,7 @@ class PaymentServicesSDK(BaseSDK):
                 "json",
                 models.VerifyCredentials,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2143,6 +2155,7 @@ class PaymentServicesSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.request_body, False, False, "json", Dict[str, Any]
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -2292,6 +2305,7 @@ class PaymentServicesSDK(BaseSDK):
             get_serialized_body=lambda: utils.serialize_request_body(
                 request.request_body, False, False, "json", Dict[str, Any]
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 

@@ -71,6 +71,7 @@ class Jobs(BaseSDK):
                 "json",
                 models.AccountUpdaterJobCreate,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
@@ -225,6 +226,7 @@ class Jobs(BaseSDK):
                 "json",
                 models.AccountUpdaterJobCreate,
             ),
+            allow_empty_value=None,
             timeout_ms=timeout_ms,
         )
 
