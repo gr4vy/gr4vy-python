@@ -1,5 +1,4 @@
 # CheckoutSessions
-(*checkout_sessions*)
 
 ## Overview
 

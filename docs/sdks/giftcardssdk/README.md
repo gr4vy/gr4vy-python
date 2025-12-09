@@ -1,5 +1,4 @@
-# GiftCardsSDK
-(*gift_cards*)
+# GiftCards
 
 ## Overview
 

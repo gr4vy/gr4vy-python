@@ -1,5 +1,4 @@
-# PaymentOptionsSDK
-(*payment_options*)
+# PaymentOptions
 
 ## Overview
 

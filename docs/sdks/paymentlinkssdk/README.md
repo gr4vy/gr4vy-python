@@ -1,5 +1,4 @@
-# PaymentLinksSDK
-(*payment_links*)
+# PaymentLinks
 
 ## Overview
 

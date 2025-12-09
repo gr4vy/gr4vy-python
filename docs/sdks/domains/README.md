@@ -1,5 +1,4 @@
-# Domains
-(*digital_wallets.domains*)
+# DigitalWallets.Domains
 
 ## Overview
 

@@ -1,5 +1,4 @@
-# NetworkTokensCryptogram
-(*payment_methods.network_tokens.cryptogram*)
+# PaymentMethods.NetworkTokens.Cryptogram
 
 ## Overview
 

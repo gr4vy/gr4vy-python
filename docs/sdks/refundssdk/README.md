@@ -1,5 +1,4 @@
-# RefundsSDK
-(*refunds*)
+# Refunds
 
 ## Overview
 
