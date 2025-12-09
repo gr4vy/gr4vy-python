@@ -1,5 +1,4 @@
-# BuyersGiftCards
-(*buyers.gift_cards*)
+# Buyers.GiftCards
 
 ## Overview
 

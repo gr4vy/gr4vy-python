@@ -1,5 +1,4 @@
-# DigitalWalletsSDK
-(*digital_wallets*)
+# DigitalWallets
 
 ## Overview
 

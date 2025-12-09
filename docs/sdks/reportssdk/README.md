@@ -1,5 +1,4 @@
-# ReportsSDK
-(*reports*)
+# Reports
 
 ## Overview
 

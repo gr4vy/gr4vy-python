@@ -298,15 +298,15 @@ except ValueError as error:
 <details open>
 <summary>Available methods</summary>
 
-#### [account_updater.jobs](docs/sdks/jobs/README.md)
+### [AccountUpdater.Jobs](docs/sdks/jobs/README.md)
 
 * [create](docs/sdks/jobs/README.md#create) - Create account updater job
 
-### [audit_logs](docs/sdks/auditlogs/README.md)
+### [AuditLogs](docs/sdks/auditlogs/README.md)
 
 * [list](docs/sdks/auditlogs/README.md#list) - List audit log entries
 
-### [buyers](docs/sdks/buyerssdk/README.md)
+### [Buyers](docs/sdks/buyerssdk/README.md)
 
 * [list](docs/sdks/buyerssdk/README.md#list) - List all buyers
 * [create](docs/sdks/buyerssdk/README.md#create) - Add a buyer
@@ -314,15 +314,15 @@ except ValueError as error:
 * [update](docs/sdks/buyerssdk/README.md#update) - Update a buyer
 * [delete](docs/sdks/buyerssdk/README.md#delete) - Delete a buyer
 
-#### [buyers.gift_cards](docs/sdks/buyersgiftcards/README.md)
+#### [Buyers.GiftCards](docs/sdks/buyersgiftcards/README.md)
 
 * [list](docs/sdks/buyersgiftcards/README.md#list) - List gift cards for a buyer
 
-#### [buyers.payment_methods](docs/sdks/buyerspaymentmethods/README.md)
+#### [Buyers.PaymentMethods](docs/sdks/buyerspaymentmethods/README.md)
 
 * [list](docs/sdks/buyerspaymentmethods/README.md#list) - List payment methods for a buyer
 
-#### [buyers.shipping_details](docs/sdks/buyersshippingdetails/README.md)
+#### [Buyers.ShippingDetails](docs/sdks/buyersshippingdetails/README.md)
 
 * [create](docs/sdks/buyersshippingdetails/README.md#create) - Add buyer shipping details
 * [list](docs/sdks/buyersshippingdetails/README.md#list) - List a buyer's shipping details
@@ -330,18 +330,18 @@ except ValueError as error:
 * [update](docs/sdks/buyersshippingdetails/README.md#update) - Update a buyer's shipping details
 * [delete](docs/sdks/buyersshippingdetails/README.md#delete) - Delete a buyer's shipping details
 
-### [card_scheme_definitions](docs/sdks/cardschemedefinitionssdk/README.md)
+### [CardSchemeDefinitions](docs/sdks/cardschemedefinitionssdk/README.md)
 
 * [list](docs/sdks/cardschemedefinitionssdk/README.md#list) - List card scheme definitions
 
-### [checkout_sessions](docs/sdks/checkoutsessions/README.md)
+### [CheckoutSessions](docs/sdks/checkoutsessions/README.md)
 
 * [create](docs/sdks/checkoutsessions/README.md#create) - Create checkout session
 * [update](docs/sdks/checkoutsessions/README.md#update) - Update checkout session
 * [get](docs/sdks/checkoutsessions/README.md#get) - Get checkout session
 * [delete](docs/sdks/checkoutsessions/README.md#delete) - Delete checkout session
 
-### [digital_wallets](docs/sdks/digitalwalletssdk/README.md)
+### [DigitalWallets](docs/sdks/digitalwalletssdk/README.md)
 
 * [create](docs/sdks/digitalwalletssdk/README.md#create) - Register digital wallet
 * [list](docs/sdks/digitalwalletssdk/README.md#list) - List digital wallets
@@ -349,50 +349,50 @@ except ValueError as error:
 * [delete](docs/sdks/digitalwalletssdk/README.md#delete) - Delete digital wallet
 * [update](docs/sdks/digitalwalletssdk/README.md#update) - Update digital wallet
 
-#### [digital_wallets.domains](docs/sdks/domains/README.md)
+#### [DigitalWallets.Domains](docs/sdks/domains/README.md)
 
 * [create](docs/sdks/domains/README.md#create) - Register a digital wallet domain
 * [delete](docs/sdks/domains/README.md#delete) - Remove a digital wallet domain
 
-#### [digital_wallets.sessions](docs/sdks/sessions/README.md)
+#### [DigitalWallets.Sessions](docs/sdks/sessions/README.md)
 
 * [google_pay](docs/sdks/sessions/README.md#google_pay) - Create a Google Pay session
 * [apple_pay](docs/sdks/sessions/README.md#apple_pay) - Create a Apple Pay session
 * [click_to_pay](docs/sdks/sessions/README.md#click_to_pay) - Create a Click to Pay session
 
-### [gift_cards](docs/sdks/giftcardssdk/README.md)
+### [GiftCards](docs/sdks/giftcardssdk/README.md)
 
 * [get](docs/sdks/giftcardssdk/README.md#get) - Get gift card
 * [delete](docs/sdks/giftcardssdk/README.md#delete) - Delete a gift card
 * [create](docs/sdks/giftcardssdk/README.md#create) - Create gift card
 * [list](docs/sdks/giftcardssdk/README.md#list) - List gift cards
 
-#### [gift_cards.balances](docs/sdks/balances/README.md)
+#### [GiftCards.Balances](docs/sdks/balances/README.md)
 
 * [list](docs/sdks/balances/README.md#list) - List gift card balances
 
-### [merchant_accounts](docs/sdks/merchantaccountssdk/README.md)
+### [MerchantAccounts](docs/sdks/merchantaccountssdk/README.md)
 
 * [list](docs/sdks/merchantaccountssdk/README.md#list) - List all merchant accounts
 * [create](docs/sdks/merchantaccountssdk/README.md#create) - Create a merchant account
 * [get](docs/sdks/merchantaccountssdk/README.md#get) - Get a merchant account
 * [update](docs/sdks/merchantaccountssdk/README.md#update) - Update a merchant account
 
-### [payment_links](docs/sdks/paymentlinkssdk/README.md)
+### [PaymentLinks](docs/sdks/paymentlinkssdk/README.md)
 
 * [create](docs/sdks/paymentlinkssdk/README.md#create) - Add a payment link
 * [list](docs/sdks/paymentlinkssdk/README.md#list) - List all payment links
 * [expire](docs/sdks/paymentlinkssdk/README.md#expire) - Expire a payment link
 * [get](docs/sdks/paymentlinkssdk/README.md#get) - Get payment link
 
-### [payment_methods](docs/sdks/paymentmethodssdk/README.md)
+### [PaymentMethods](docs/sdks/paymentmethodssdk/README.md)
 
 * [list](docs/sdks/paymentmethodssdk/README.md#list) - List all payment methods
 * [create](docs/sdks/paymentmethodssdk/README.md#create) - Create payment method
 * [get](docs/sdks/paymentmethodssdk/README.md#get) - Get payment method
 * [delete](docs/sdks/paymentmethodssdk/README.md#delete) - Delete payment method
 
-#### [payment_methods.network_tokens](docs/sdks/paymentmethodsnetworktokens/README.md)
+#### [PaymentMethods.NetworkTokens](docs/sdks/paymentmethodsnetworktokens/README.md)
 
 * [list](docs/sdks/paymentmethodsnetworktokens/README.md#list) - List network tokens
 * [create](docs/sdks/paymentmethodsnetworktokens/README.md#create) - Provision network token
@@ -400,27 +400,27 @@ except ValueError as error:
 * [resume](docs/sdks/paymentmethodsnetworktokens/README.md#resume) - Resume network token
 * [delete](docs/sdks/paymentmethodsnetworktokens/README.md#delete) - Delete network token
 
-#### [payment_methods.network_tokens.cryptogram](docs/sdks/networktokenscryptogram/README.md)
+##### [PaymentMethods.NetworkTokens.Cryptogram](docs/sdks/networktokenscryptogram/README.md)
 
 * [create](docs/sdks/networktokenscryptogram/README.md#create) - Provision network token cryptogram
 
-#### [payment_methods.payment_service_tokens](docs/sdks/paymentmethodspaymentservicetokens/README.md)
+#### [PaymentMethods.PaymentServiceTokens](docs/sdks/paymentmethodspaymentservicetokens/README.md)
 
 * [list](docs/sdks/paymentmethodspaymentservicetokens/README.md#list) - List payment service tokens
 * [create](docs/sdks/paymentmethodspaymentservicetokens/README.md#create) - Create payment service token
 * [delete](docs/sdks/paymentmethodspaymentservicetokens/README.md#delete) - Delete payment service token
 
-### [payment_options](docs/sdks/paymentoptionssdk/README.md)
+### [PaymentOptions](docs/sdks/paymentoptionssdk/README.md)
 
 * [list](docs/sdks/paymentoptionssdk/README.md#list) - List payment options
 
-### [payment_service_definitions](docs/sdks/paymentservicedefinitionssdk/README.md)
+### [PaymentServiceDefinitions](docs/sdks/paymentservicedefinitionssdk/README.md)
 
 * [list](docs/sdks/paymentservicedefinitionssdk/README.md#list) - List payment service definitions
 * [get](docs/sdks/paymentservicedefinitionssdk/README.md#get) - Get a payment service definition
 * [session](docs/sdks/paymentservicedefinitionssdk/README.md#session) - Create a session for a payment service definition
 
-### [payment_services](docs/sdks/paymentservicessdk/README.md)
+### [PaymentServices](docs/sdks/paymentservicessdk/README.md)
 
 * [list](docs/sdks/paymentservicessdk/README.md#list) - List payment services
 * [create](docs/sdks/paymentservicessdk/README.md#create) - Update a configured payment service
@@ -430,34 +430,34 @@ except ValueError as error:
 * [verify](docs/sdks/paymentservicessdk/README.md#verify) - Verify payment service credentials
 * [session](docs/sdks/paymentservicessdk/README.md#session) - Create a session for a payment service definition
 
-### [payouts](docs/sdks/payouts/README.md)
+### [Payouts](docs/sdks/payouts/README.md)
 
 * [list](docs/sdks/payouts/README.md#list) - List payouts created
 * [create](docs/sdks/payouts/README.md#create) - Create a payout
 * [get](docs/sdks/payouts/README.md#get) - Get a payout
 
-### [refunds](docs/sdks/refundssdk/README.md)
+### [Refunds](docs/sdks/refundssdk/README.md)
 
 * [get](docs/sdks/refundssdk/README.md#get) - Get refund
 
-### [report_executions](docs/sdks/reportexecutionssdk/README.md)
+### [ReportExecutions](docs/sdks/reportexecutionssdk/README.md)
 
 * [list](docs/sdks/reportexecutionssdk/README.md#list) - List executed reports
 
-### [reports](docs/sdks/reportssdk/README.md)
+### [Reports](docs/sdks/reportssdk/README.md)
 
 * [list](docs/sdks/reportssdk/README.md#list) - List configured reports
 * [create](docs/sdks/reportssdk/README.md#create) - Add a report
 * [get](docs/sdks/reportssdk/README.md#get) - Get a report
 * [put](docs/sdks/reportssdk/README.md#put) - Update a report
 
-#### [reports.executions](docs/sdks/executions/README.md)
+#### [Reports.Executions](docs/sdks/executions/README.md)
 
 * [list](docs/sdks/executions/README.md#list) - List executions for report
 * [url](docs/sdks/executions/README.md#url) - Create URL for executed report
 * [get](docs/sdks/executions/README.md#get) - Get executed report
 
-### [transactions](docs/sdks/transactions/README.md)
+### [Transactions](docs/sdks/transactions/README.md)
 
 * [list](docs/sdks/transactions/README.md#list) - List transactions
 * [create](docs/sdks/transactions/README.md#create) - Create transaction
@@ -468,21 +468,21 @@ except ValueError as error:
 * [cancel](docs/sdks/transactions/README.md#cancel) - Cancel transaction
 * [sync](docs/sdks/transactions/README.md#sync) - Sync transaction
 
-#### [transactions.events](docs/sdks/events/README.md)
+#### [Transactions.Events](docs/sdks/events/README.md)
 
 * [list](docs/sdks/events/README.md#list) - List transaction events
 
-#### [transactions.refunds](docs/sdks/transactionsrefunds/README.md)
+#### [Transactions.Refunds](docs/sdks/transactionsrefunds/README.md)
 
 * [list](docs/sdks/transactionsrefunds/README.md#list) - List transaction refunds
 * [create](docs/sdks/transactionsrefunds/README.md#create) - Create transaction refund
 * [get](docs/sdks/transactionsrefunds/README.md#get) - Get transaction refund
 
-#### [transactions.refunds.all](docs/sdks/all/README.md)
+##### [Transactions.Refunds.All](docs/sdks/all/README.md)
 
 * [create](docs/sdks/all/README.md#create) - Create batch transaction refund
 
-#### [transactions.settlements](docs/sdks/transactionssettlements/README.md)
+#### [Transactions.Settlements](docs/sdks/transactionssettlements/README.md)
 
 * [get](docs/sdks/transactionssettlements/README.md#get) - Get transaction settlement
 * [list](docs/sdks/transactionssettlements/README.md#list) - List transaction settlements

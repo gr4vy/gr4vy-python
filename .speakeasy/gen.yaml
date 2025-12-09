@@ -20,12 +20,13 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: ""
+  persistentEdits: {}
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 python:
-  version: 1.10.0
+  version: 1.10.1
   additionalDependencies:
     dev:
       freezegun: ^1.5.1
@@ -74,6 +75,7 @@ python:
   outputModelSuffix: output
   packageManager: poetry
   packageName: gr4vy
+  preApplyUnionDiscriminators: false
   pytestFilterWarnings: []
   pytestTimeout: 0
   responseFormat: flat

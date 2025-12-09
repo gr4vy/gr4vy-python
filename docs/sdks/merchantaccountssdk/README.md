@@ -1,5 +1,4 @@
-# MerchantAccountsSDK
-(*merchant_accounts*)
+# MerchantAccounts
 
 ## Overview
 

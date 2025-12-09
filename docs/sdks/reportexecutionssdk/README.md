@@ -1,5 +1,4 @@
-# ReportExecutionsSDK
-(*report_executions*)
+# ReportExecutions
 
 ## Overview
 

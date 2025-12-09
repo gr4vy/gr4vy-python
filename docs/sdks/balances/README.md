@@ -1,5 +1,4 @@
-# Balances
-(*gift_cards.balances*)
+# GiftCards.Balances
 
 ## Overview
 

@@ -1,5 +1,4 @@
-# Sessions
-(*digital_wallets.sessions*)
+# DigitalWallets.Sessions
 
 ## Overview
 

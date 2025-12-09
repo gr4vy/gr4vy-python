@@ -1,5 +1,4 @@
-# PaymentMethodsPaymentServiceTokens
-(*payment_methods.payment_service_tokens*)
+# PaymentMethods.PaymentServiceTokens
 
 ## Overview
 

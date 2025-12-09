@@ -1,5 +1,4 @@
-# PaymentServiceDefinitionsSDK
-(*payment_service_definitions*)
+# PaymentServiceDefinitions
 
 ## Overview
 

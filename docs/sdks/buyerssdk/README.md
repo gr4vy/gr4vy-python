@@ -1,5 +1,4 @@
-# BuyersSDK
-(*buyers*)
+# Buyers
 
 ## Overview
 
