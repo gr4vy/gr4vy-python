@@ -1,24 +1,24 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 17ba731124c7c9de935a28d47cc05e4b
+  docChecksum: 075a27ade07fd12e784874292db14702
   docVersion: 1.0.0
-  speakeasyVersion: 1.673.1
-  generationVersion: 2.776.3
-  releaseVersion: 1.10.1
-  configChecksum: e221ab65f92cc620045e034b9a23d55c
+  speakeasyVersion: 1.676.1
+  generationVersion: 2.781.2
+  releaseVersion: 1.10.2
+  configChecksum: 046784f90c32b2eef550644c6c11e8e4
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 6f631101-1493-465e-a919-6294a5efdfdf
-  pristine_commit_hash: a2292068bc3b11ae6a0607c7ffa69e857c47edd5
-  pristine_tree_hash: 0152d8765976b333c9166d1a29e847759706c02c
+  generation_id: 0545dec4-3a62-44bf-a973-24e763d946f6
+  pristine_commit_hash: b839da5ef90f4411e6d3492b2c23d407e37b4882
+  pristine_tree_hash: 0c740d1f7dd2dc87f5fde908077bf7b3aa775a0b
 features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.23.13
+    core: 5.23.14
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.3.2
@@ -2188,8 +2188,8 @@ trackedFiles:
     pristine_git_object: e8cd3e85682cd3d489cf3c5be75a0563d0c9f4bf
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:767c68b69729a51d5fa5f2b01fc7fe72bbc9c59c
-    pristine_git_object: 6e834023160c0a64fe7f03f30a566fed98d5ab5f
+    last_write_checksum: sha1:ef3275fad8d4710f111f09f23d1027aa2aeb018a
+    pristine_git_object: 6d126f2d5515ef85b8da3deca7a5fb45e19bfb45
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2216,8 +2216,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:8b91dab8d05e5283571b7dffe3cd4401f53833ae
-    pristine_git_object: 980b199ce2e95e458028c5e6f8d7fac34f33e176
+    last_write_checksum: sha1:b2b7c70eb01e723f35583faad07a13ed52988baa
+    pristine_git_object: aa81b97ec4f37f7bd566662d49fcc35c45c4a852
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
