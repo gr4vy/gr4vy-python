@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 075a27ade07fd12e784874292db14702
+  docChecksum: 92d0018c307e2e006ebbd5ceb930b4d0
   docVersion: 1.0.0
   speakeasyVersion: 1.676.1
   generationVersion: 2.781.2
-  releaseVersion: 1.10.2
-  configChecksum: 046784f90c32b2eef550644c6c11e8e4
+  releaseVersion: 1.10.3
+  configChecksum: ae48ce5ffa84e6c6a397e649b240b9b2
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 0545dec4-3a62-44bf-a973-24e763d946f6
-  pristine_commit_hash: b839da5ef90f4411e6d3492b2c23d407e37b4882
-  pristine_tree_hash: 0c740d1f7dd2dc87f5fde908077bf7b3aa775a0b
+  generation_id: a0faf431-0384-44d2-b367-acba6174ba74
+  pristine_commit_hash: 00d445999aa8734aa458240d0cad50e7f6b91e6c
+  pristine_tree_hash: f33dd37c9efc7e9b8c61e1f485b8d41c9fca945f
 features:
   python:
     additionalDependencies: 1.0.0
@@ -1296,8 +1296,8 @@ trackedFiles:
     pristine_git_object: 035ce5c6abfaea3d5bbc1e5863b59248e533e120
   docs/models/method.md:
     id: 51255838a997
-    last_write_checksum: sha1:37421d02fcd2341de309ecb26bbc2f7a2d56d360
-    pristine_git_object: 5a60e818c08689f359638158f42d0445210c6a6c
+    last_write_checksum: sha1:a449db4a1a70f8968a414d800375bb1052dbf531
+    pristine_git_object: c3c9aa85628a43752846d394c993423ead544d4a
   docs/models/mockcardmerchantadvicecodeoptions.md:
     id: 2c64efe23406
     last_write_checksum: sha1:9dd1ae6841279ecc29c51acbf4d51ec885c6707d
@@ -1556,8 +1556,8 @@ trackedFiles:
     pristine_git_object: 388e9081ca39f59dc2514793a5b5a18054892790
   docs/models/redirectpaymentmethodcreatemethod.md:
     id: ae93e1391b37
-    last_write_checksum: sha1:13e9ef899f3990c6e285b127323f4034a299f804
-    pristine_git_object: 60a2c9eb01dbb2fd9a997e5dcbbec12f43701de6
+    last_write_checksum: sha1:14c322a28dd4e951ec2b5818ff3dfa8b9b1a4d67
+    pristine_git_object: 473e8fd2f4ef6dfbe50a3fe9c46bb8165bdcaedf
   docs/models/refund.md:
     id: 3be36b1a2825
     last_write_checksum: sha1:ab6f6a574969fd445e40dfe2e6b69c8cfae86904
@@ -2188,8 +2188,8 @@ trackedFiles:
     pristine_git_object: e8cd3e85682cd3d489cf3c5be75a0563d0c9f4bf
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:ef3275fad8d4710f111f09f23d1027aa2aeb018a
-    pristine_git_object: 6d126f2d5515ef85b8da3deca7a5fb45e19bfb45
+    last_write_checksum: sha1:459af42a660d73c5803f33555b282734f4ef0604
+    pristine_git_object: bcc2e9a500269febe7881a510ded3ae29e71800e
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2216,8 +2216,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:b2b7c70eb01e723f35583faad07a13ed52988baa
-    pristine_git_object: aa81b97ec4f37f7bd566662d49fcc35c45c4a852
+    last_write_checksum: sha1:dff8cf584bea101dae40c5286288000bfd95eb5d
+    pristine_git_object: 1a8359642fd6aa310e6b8f24fcfcdc080584ce1f
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -3184,8 +3184,8 @@ trackedFiles:
     pristine_git_object: f3974e7d85fe1b5a2b60c462124a8e495426930e
   src/gr4vy/models/method.py:
     id: b96e27456af8
-    last_write_checksum: sha1:4646c28704e0ee14a057499563bfe92478a2eef7
-    pristine_git_object: 2488401ecd7fa5fb3eaa2c89314c2b7004cf3a2a
+    last_write_checksum: sha1:4184ccc89866d3a49b102ce7355ef783cf2bed7b
+    pristine_git_object: 1046452ff059b85b96ec2fcd173cd763b0a9af0b
   src/gr4vy/models/mockcardmerchantadvicecodeoptions.py:
     id: 01ae18d5b401
     last_write_checksum: sha1:221aa920d7cdf1ce85a8db7f24e6a421c824c9a2
@@ -3424,8 +3424,8 @@ trackedFiles:
     pristine_git_object: 279fca7fb6e57004c3ac71fca973e8d64f963b8f
   src/gr4vy/models/redirectpaymentmethodcreate.py:
     id: 490d27963970
-    last_write_checksum: sha1:54a0352fbbd5687f0341de8e8ec9e923c7b1b583
-    pristine_git_object: 4fbb2c2b51c71ad3f0d2b5ec470d0af64cf90779
+    last_write_checksum: sha1:7279f6d01261ba31d6283f6c7804ab75fc214087
+    pristine_git_object: 9d71a223c49ab139843b8fa993de97dd45823ee1
   src/gr4vy/models/refund.py:
     id: 8aa63978d78c
     last_write_checksum: sha1:4610504d3f7f4e9b8c2b87f4787ba8b68db98cdc
@@ -7386,6 +7386,10 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: |
+  ## Python SDK Changes:
+  * `gr4vy.transactions.list()`:  `request.method` **Changed**
+  * `gr4vy.payment-services.list()`:  `request.method` **Changed**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json

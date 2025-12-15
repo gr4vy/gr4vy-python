@@ -112,6 +112,7 @@ Method = Union[
         "waave",
         "webpay",
         "wechat",
+        "wero",
         "yape",
         "zippay",
     ],
