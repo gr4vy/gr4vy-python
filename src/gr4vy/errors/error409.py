@@ -19,16 +19,12 @@ class Error409Data(BaseModel):
         pydantic.Field(alias="type"),
     ] = "error"
     r"""Always `error`."""
-
     code: Optional[str] = "duplicate_record"
     r"""Always `duplicate_record`"""
-
     status: Optional[int] = 409
     r"""Always `409`."""
-
     message: Optional[str] = "Generic error"
     r"""A human readable message that provides more context to the error."""
-
     details: Optional[List[models_errordetail.ErrorDetail]] = None
     r"""A list of details that further ellaborate on the error."""
 

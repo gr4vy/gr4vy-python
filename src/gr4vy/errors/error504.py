@@ -19,15 +19,11 @@ class Error504Data(BaseModel):
         pydantic.Field(alias="type"),
     ] = "error"
     r"""Always `error`."""
-
     code: Optional[str] = "gateway_timeout"
     r"""Always `gateway_timeout`"""
-
     status: Optional[int] = 504
-
     message: Optional[str] = "Request could not be processed"
     r"""A human readable message that provides more context to the error."""
-
     details: Optional[List[models_errordetail.ErrorDetail]] = None
     r"""A list of details that further ellaborate on the error."""
 

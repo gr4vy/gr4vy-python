@@ -19,16 +19,12 @@ class Error401Data(BaseModel):
         pydantic.Field(alias="type"),
     ] = "error"
     r"""Always `error`."""
-
     code: Optional[str] = "unauthorized"
     r"""Always `unauthorized`"""
-
     status: Optional[int] = 401
     r"""Always `401`."""
-
     message: Optional[str] = "No valid API authentication found"
     r"""A human readable message that provides more context to the error."""
-
     details: Optional[List[models_errordetail.ErrorDetail]] = None
     r"""A list of details that further ellaborate on the error."""
 

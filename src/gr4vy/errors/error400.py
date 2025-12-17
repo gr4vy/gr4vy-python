@@ -19,16 +19,12 @@ class Error400Data(BaseModel):
         pydantic.Field(alias="type"),
     ] = "error"
     r"""Always `error`."""
-
     code: Optional[str] = "bad_request"
     r"""Always `bad_request`"""
-
     status: Optional[int] = 400
     r"""Always `400`."""
-
     message: Optional[str] = "Generic error"
     r"""A human readable message that provides more context to the error."""
-
     details: Optional[List[models_errordetail.ErrorDetail]] = None
     r"""A list of details that further ellaborate on the error."""
 

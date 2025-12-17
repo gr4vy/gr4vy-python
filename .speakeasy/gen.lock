@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 92d0018c307e2e006ebbd5ceb930b4d0
+  docChecksum: 8f81b73c43b5bdb1ea6910360d24c3a8
   docVersion: 1.0.0
-  speakeasyVersion: 1.676.1
-  generationVersion: 2.781.2
-  releaseVersion: 1.10.3
-  configChecksum: ae48ce5ffa84e6c6a397e649b240b9b2
+  speakeasyVersion: 1.678.0
+  generationVersion: 2.787.2
+  releaseVersion: 1.10.4
+  configChecksum: 1b846ea54d3d2755c912043ebcdddd62
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: a0faf431-0384-44d2-b367-acba6174ba74
-  pristine_commit_hash: 00d445999aa8734aa458240d0cad50e7f6b91e6c
-  pristine_tree_hash: f33dd37c9efc7e9b8c61e1f485b8d41c9fca945f
+  generation_id: 8e3791dd-39d9-4bf8-a462-95b10705820a
+  pristine_commit_hash: 871b2b9d08345997b0f7ee422a181be472423202
+  pristine_tree_hash: 9302eb17ace37d390dacf30366f197de94e98b13
 features:
   python:
     additionalDependencies: 1.0.0
@@ -1752,8 +1752,8 @@ trackedFiles:
     pristine_git_object: 9ac64241fcca930b1e44b194c30dec8d032b73f0
   docs/models/taxidkind.md:
     id: 7a717ea5afc6
-    last_write_checksum: sha1:339db82e581a205d69896b26a01db3b0c6e0c107
-    pristine_git_object: a566724313109bb16c22f49c4e9ac94470e26d6f
+    last_write_checksum: sha1:08c0e043054e79e7e383022831727a4cbfca5712
+    pristine_git_object: e195ea619beb4845da7bbd48b990c01c6ef7307f
   docs/models/threedsecuredata.md:
     id: 9fc94179f0d8
     last_write_checksum: sha1:eca4467bdede3bc850defba397dfd12b63e345e0
@@ -2188,8 +2188,8 @@ trackedFiles:
     pristine_git_object: e8cd3e85682cd3d489cf3c5be75a0563d0c9f4bf
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:459af42a660d73c5803f33555b282734f4ef0604
-    pristine_git_object: bcc2e9a500269febe7881a510ded3ae29e71800e
+    last_write_checksum: sha1:75c55ed11d2b22f72c809304a9dc134d2e385962
+    pristine_git_object: 43f29f881dd56c37eb12b6c3bcc775860f97e568
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2216,8 +2216,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:dff8cf584bea101dae40c5286288000bfd95eb5d
-    pristine_git_object: 1a8359642fd6aa310e6b8f24fcfcdc080584ce1f
+    last_write_checksum: sha1:09077b3244953e1dbc1d22c54bfbf9ab7124d8f1
+    pristine_git_object: 456dd44ea8ae9c6701d2054d324cfb1868a8153c
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -2280,48 +2280,48 @@ trackedFiles:
     pristine_git_object: ab096718e8a15223a59715376206ab9e84184de5
   src/gr4vy/errors/error400.py:
     id: 61e3d984ee10
-    last_write_checksum: sha1:fb7919a1d88fdfa4dfccdf6dc76e6c8355cfde64
-    pristine_git_object: 27a351f172ce615104eb26bfe14035d070ff5466
+    last_write_checksum: sha1:c6b2c89e0fb72a4783506c8f645b15d17b3fa2db
+    pristine_git_object: 694e622c55061eb82d660812743ab077db3def22
   src/gr4vy/errors/error401.py:
     id: 0efd358ac1ca
-    last_write_checksum: sha1:103e82ce80500a60781884bd9ae53226ab034a42
-    pristine_git_object: c353cafa414d56e92dd7a6758ae7ce29c231d8e4
+    last_write_checksum: sha1:3cd7dfcfa12a30a6e1c81db7ed8c79df03b2f9ed
+    pristine_git_object: 604a5d452ba0855874c2e9b81225c45196609dab
   src/gr4vy/errors/error403.py:
     id: b55cd78ec79a
-    last_write_checksum: sha1:db31fafa48432588a713f16515b9939ab9a3193c
-    pristine_git_object: 29dc12e4dd36ca5e3521c742b4ef3a73f642b674
+    last_write_checksum: sha1:47e70e7b63465e86d7fabc63a4f1b4ec354006ea
+    pristine_git_object: a198f485d73767a0b3590925faf6ffb14740255b
   src/gr4vy/errors/error404.py:
     id: cfc52b4ffe85
-    last_write_checksum: sha1:252667bbeb2d4a1d7ecd0c57a99deeb99970da40
-    pristine_git_object: 94db0805190db724a597a0f3b3fb285d99136c8d
+    last_write_checksum: sha1:2547285fb02319cae2ef32326adc3251082cd21a
+    pristine_git_object: 8283d22e1b2687594a8f07fe17d6810e4d0ebe78
   src/gr4vy/errors/error405.py:
     id: b08faa45e1f1
-    last_write_checksum: sha1:34aee6a624434033252288f08547e6695f187d92
-    pristine_git_object: 1c73f9dd4d44d78dd436c841c6f24cf461806a8e
+    last_write_checksum: sha1:048aceb9da96fff76b3fbe97bd666ac19a474e87
+    pristine_git_object: 610f64a8d9e8fcd51a1ba7a42934c7229316273f
   src/gr4vy/errors/error409.py:
     id: 1127094962fe
-    last_write_checksum: sha1:b04400e07ae2904b2f1c84ec43455beb7a21fc67
-    pristine_git_object: a89f88402f174332f1024d3e7042df979e41ed8f
+    last_write_checksum: sha1:9d4ae8cc29cff6d8e194a6780d6acf0e21e398ac
+    pristine_git_object: 3c138b24667eeb3e4846fac08c47ef0a0e4bc54e
   src/gr4vy/errors/error425.py:
     id: f77c8c9a3db7
-    last_write_checksum: sha1:9011286306e72cd21b1a15bbeda5adf20d5480f5
-    pristine_git_object: e39b665a57e6b26c2012abd72bacb6ba083bd689
+    last_write_checksum: sha1:e9e18ecaf7673d16ab7c335721a8eea04481d6a8
+    pristine_git_object: 79dc19c89d2c455dc49b5ce806f0ef3113c93878
   src/gr4vy/errors/error429.py:
     id: 714cd1a93881
-    last_write_checksum: sha1:2e77336f317df1364d32ed6b4178af490b8d3797
-    pristine_git_object: 469ac24bdb40e2d6633a9f8b4b867cf89c311268
+    last_write_checksum: sha1:dfce2a80e3d9b7cce2354855e0e65b48dfaa8737
+    pristine_git_object: e5fea56cb744562ce7587918dc31e44fcf13f76c
   src/gr4vy/errors/error500.py:
     id: 7fc500ac71fc
-    last_write_checksum: sha1:1aa03d4815704e58d9bd13621b9d894395f7ed21
-    pristine_git_object: 49eee2a21bac456b598bf9831650cd8919b4ecb4
+    last_write_checksum: sha1:a58c0784dda235d4c86682fe3df4294d790c2903
+    pristine_git_object: 814b99ad7c513571bf69a2183e995985309a8a69
   src/gr4vy/errors/error502.py:
     id: ee0c973befc3
-    last_write_checksum: sha1:27a87243be9aac76e40c584ac9d887bf18f31ec5
-    pristine_git_object: 9c3f8d6c838be305602509c9763dca9a66f62c79
+    last_write_checksum: sha1:f10e4155c13aacf8d47750877c858d8b8a4e404a
+    pristine_git_object: f6d6150257f45acaab43deb7b0d0b529139d16a7
   src/gr4vy/errors/error504.py:
     id: dfefb8224c08
-    last_write_checksum: sha1:c8567f184fc42b67457e3c950a2ace32862ed749
-    pristine_git_object: 2158937237e93a89e63f9cb6edfed7147b603cb9
+    last_write_checksum: sha1:0db5297b5273dba30b6f8b09c9b6f97c3cbe1b52
+    pristine_git_object: 59799a7622d2da8cd869cc7b1ffa19e5582a351c
   src/gr4vy/errors/gr4vyerror.py:
     id: 83d8ae6a6989
     last_write_checksum: sha1:da4a8184330de666ef8ea5aead2065f22df89059
@@ -3572,8 +3572,8 @@ trackedFiles:
     pristine_git_object: 84bb4f91ca9b6c68e57123a4ecc2c0ec2001d5ce
   src/gr4vy/models/taxidkind.py:
     id: edf64e5b9feb
-    last_write_checksum: sha1:645e7201dec7eb0a75dcd1ee9dc7600ed7608132
-    pristine_git_object: e5ef8bac42b986dcc00c0806b8b17c1d25caabb0
+    last_write_checksum: sha1:a95b6fab9100cc8f7dccb8e092debdb529ad0e64
+    pristine_git_object: e61b9954bd08eff0e1cb10eeff200264a99eaf4e
   src/gr4vy/models/threedsecuredatav1.py:
     id: 082f021da827
     last_write_checksum: sha1:1b37eb073c5804bd156b73f6032271ff3a693d30
@@ -7386,10 +7386,6 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes:
-  * `gr4vy.transactions.list()`:  `request.method` **Changed**
-  * `gr4vy.payment-services.list()`:  `request.method` **Changed**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
