@@ -7,6 +7,7 @@ from .adyenoptions import AdyenOptions, AdyenOptionsTypedDict
 from .adyensepaoptions import AdyenSepaOptions, AdyenSepaOptionsTypedDict
 from .affirmoptions import AffirmOptions, AffirmOptionsTypedDict
 from .braintreeoptions import BraintreeOptions, BraintreeOptionsTypedDict
+from .chaseoptions import ChaseOptions, ChaseOptionsTypedDict
 from .cybersourceantifraudoptions import (
     CybersourceAntiFraudOptions,
     CybersourceAntiFraudOptionsTypedDict,
@@ -66,6 +67,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `affirm-affirm` connector."""
     braintree_card: NotRequired[Nullable[BraintreeOptionsTypedDict]]
     r"""Custom options to be passed to the `braintree-card` connector."""
+    chaseorbital_card: NotRequired[Nullable[ChaseOptionsTypedDict]]
+    r"""Custom options to be passed to the `chaseorbital-card` connector."""
     cybersource_anti_fraud: NotRequired[Nullable[CybersourceAntiFraudOptionsTypedDict]]
     r"""Custom options to be passed to the `cybersource-anti-fraud` connector."""
     cybersource_card: NotRequired[Nullable[CybersourceOptionsTypedDict]]
@@ -186,6 +189,11 @@ class TransactionConnectionOptions(BaseModel):
         OptionalNullable[BraintreeOptions], pydantic.Field(alias="braintree-card")
     ] = UNSET
     r"""Custom options to be passed to the `braintree-card` connector."""
+
+    chaseorbital_card: Annotated[
+        OptionalNullable[ChaseOptions], pydantic.Field(alias="chaseorbital-card")
+    ] = UNSET
+    r"""Custom options to be passed to the `chaseorbital-card` connector."""
 
     cybersource_anti_fraud: Annotated[
         OptionalNullable[CybersourceAntiFraudOptions],
@@ -352,6 +360,7 @@ class TransactionConnectionOptions(BaseModel):
             "adyen-vipps",
             "affirm-affirm",
             "braintree-card",
+            "chaseorbital-card",
             "cybersource-anti-fraud",
             "cybersource-card",
             "cybersource-ideal",
@@ -395,6 +404,7 @@ class TransactionConnectionOptions(BaseModel):
             "adyen-vipps",
             "affirm-affirm",
             "braintree-card",
+            "chaseorbital-card",
             "cybersource-anti-fraud",
             "cybersource-card",
             "cybersource-ideal",
