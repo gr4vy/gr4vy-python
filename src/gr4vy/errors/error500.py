@@ -19,16 +19,12 @@ class Error500Data(BaseModel):
         pydantic.Field(alias="type"),
     ] = "error"
     r"""Always `error`."""
-
     code: Optional[str] = "server_error"
     r"""Always `server_error`"""
-
     status: Optional[int] = 500
     r"""Always `500`."""
-
     message: Optional[str] = "Request could not be processed"
     r"""A human readable message that provides more context to the error."""
-
     details: Optional[List[models_errordetail.ErrorDetail]] = None
     r"""A list of details that further ellaborate on the error."""
 

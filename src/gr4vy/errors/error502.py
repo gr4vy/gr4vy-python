@@ -19,16 +19,12 @@ class Error502Data(BaseModel):
         pydantic.Field(alias="type"),
     ] = "error"
     r"""Always `error`."""
-
     code: Optional[str] = "bad_gateway"
     r"""Always `bad_gateway`"""
-
     status: Optional[int] = 502
     r"""Always `502`."""
-
     message: Optional[str] = "Request could not be processed"
     r"""A human readable message that provides more context to the error."""
-
     details: Optional[List[models_errordetail.ErrorDetail]] = None
     r"""A list of details that further ellaborate on the error."""
 

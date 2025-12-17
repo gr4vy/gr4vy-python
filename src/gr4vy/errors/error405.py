@@ -19,16 +19,12 @@ class Error405Data(BaseModel):
         pydantic.Field(alias="type"),
     ] = "error"
     r"""Always `error`."""
-
     code: Optional[str] = "method_not_allowed"
     r"""Always `method_not_allowed`"""
-
     status: Optional[int] = 405
     r"""Always `405`."""
-
     message: Optional[str] = "Method Not Allowed"
     r"""A human readable message that provides more context to the error."""
-
     details: Optional[List[models_errordetail.ErrorDetail]] = None
     r"""A list of details that further ellaborate on the error."""
 

@@ -19,16 +19,12 @@ class Error425Data(BaseModel):
         pydantic.Field(alias="type"),
     ] = "error"
     r"""Always `error`."""
-
     code: Optional[str] = "too_early"
     r"""Always `too_early`"""
-
     status: Optional[int] = 425
     r"""Always `425`."""
-
     message: Optional[str] = "Generic error"
     r"""A human readable message that provides more context to the error."""
-
     details: Optional[List[models_errordetail.ErrorDetail]] = None
     r"""A list of details that further ellaborate on the error."""
 

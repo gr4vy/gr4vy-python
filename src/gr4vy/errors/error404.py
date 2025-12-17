@@ -19,16 +19,12 @@ class Error404Data(BaseModel):
         pydantic.Field(alias="type"),
     ] = "error"
     r"""Always `error`."""
-
     code: Optional[str] = "not_found"
     r"""Always `not_found`"""
-
     status: Optional[int] = 404
     r"""Always `404`."""
-
     message: Optional[str] = "The resource could not be found"
     r"""A human readable message that provides more context to the error."""
-
     details: Optional[List[models_errordetail.ErrorDetail]] = None
     r"""A list of details that further ellaborate on the error."""
 

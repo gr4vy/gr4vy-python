@@ -19,16 +19,12 @@ class Error429Data(BaseModel):
         pydantic.Field(alias="type"),
     ] = "error"
     r"""Always `error`."""
-
     code: Optional[str] = "too_many_requests"
     r"""Always `too_many_requests`"""
-
     status: Optional[int] = 429
     r"""Always `429`."""
-
     message: Optional[str] = "Generic error"
     r"""A human readable message that provides more context to the error."""
-
     details: Optional[List[models_errordetail.ErrorDetail]] = None
     r"""A list of details that further ellaborate on the error."""
 
