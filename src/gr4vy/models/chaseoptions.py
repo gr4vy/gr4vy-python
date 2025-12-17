@@ -2,26 +2,23 @@
 
 from __future__ import annotations
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-import pydantic
 from pydantic import model_serializer
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import NotRequired, TypedDict
 
 
-class TrustlyOptionsTypedDict(TypedDict):
-    refresh_split_token: NotRequired[Nullable[bool]]
-    r"""Indicates to Gr4vy whether or not the stored Trustly agreement needs refreshing."""
+class ChaseOptionsTypedDict(TypedDict):
+    comments: NotRequired[Nullable[str]]
+    r"""Custom order comment"""
 
 
-class TrustlyOptions(BaseModel):
-    refresh_split_token: Annotated[
-        OptionalNullable[bool], pydantic.Field(alias="refreshSplitToken")
-    ] = UNSET
-    r"""Indicates to Gr4vy whether or not the stored Trustly agreement needs refreshing."""
+class ChaseOptions(BaseModel):
+    comments: OptionalNullable[str] = UNSET
+    r"""Custom order comment"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["refreshSplitToken"]
-        nullable_fields = ["refreshSplitToken"]
+        optional_fields = ["comments"]
+        nullable_fields = ["comments"]
         null_default_fields = []
 
         serialized = handler(self)

@@ -128,6 +128,7 @@ if TYPE_CHECKING:
         CardWithURLPaymentMethodCreateTypedDict,
     )
     from .cartitem import CartItem, CartItemTypedDict
+    from .chaseoptions import ChaseOptions, ChaseOptionsTypedDict
     from .checkoutpayoutoptions import (
         CheckoutPayoutOptions,
         CheckoutPayoutOptionsTypedDict,
@@ -1285,6 +1286,8 @@ __all__ = [
     "CardWithURLPaymentMethodCreateTypedDict",
     "CartItem",
     "CartItemTypedDict",
+    "ChaseOptions",
+    "ChaseOptionsTypedDict",
     "CheckoutPayoutOptions",
     "CheckoutPayoutOptionsTypedDict",
     "CheckoutSession",
@@ -2200,6 +2203,8 @@ _dynamic_imports: dict[str, str] = {
     "CardWithURLPaymentMethodCreateTypedDict": ".cardwithurlpaymentmethodcreate",
     "CartItem": ".cartitem",
     "CartItemTypedDict": ".cartitem",
+    "ChaseOptions": ".chaseoptions",
+    "ChaseOptionsTypedDict": ".chaseoptions",
     "CheckoutPayoutOptions": ".checkoutpayoutoptions",
     "CheckoutPayoutOptionsTypedDict": ".checkoutpayoutoptions",
     "CheckoutSession": ".checkoutsession",
