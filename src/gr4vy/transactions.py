@@ -5,6 +5,7 @@ from .sdkconfiguration import SDKConfiguration
 from datetime import datetime
 from gr4vy import errors, models, utils
 from gr4vy._hooks import HookContext
+from gr4vy.actions import Actions
 from gr4vy.events import Events
 from gr4vy.transactions_refunds import TransactionsRefunds
 from gr4vy.transactions_settlements import TransactionsSettlements
@@ -17,6 +18,7 @@ from typing import Any, Dict, List, Mapping, Optional, Union
 
 class Transactions(BaseSDK):
     refunds: TransactionsRefunds
+    actions: Actions
     events: Events
     settlements: TransactionsSettlements
 
@@ -31,6 +33,7 @@ class Transactions(BaseSDK):
         self.refunds = TransactionsRefunds(
             self.sdk_configuration, parent_ref=self.parent_ref
         )
+        self.actions = Actions(self.sdk_configuration, parent_ref=self.parent_ref)
         self.events = Events(self.sdk_configuration, parent_ref=self.parent_ref)
         self.settlements = TransactionsSettlements(
             self.sdk_configuration, parent_ref=self.parent_ref
