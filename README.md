@@ -470,7 +470,7 @@ except ValueError as error:
 
 #### [Transactions.Actions](docs/sdks/actions/README.md)
 
-* [list](docs/sdks/actions/README.md#list) - Get Flow actions for transaction
+* [list](docs/sdks/actions/README.md#list) - List transaction Flow rules
 
 #### [Transactions.Events](docs/sdks/events/README.md)
 

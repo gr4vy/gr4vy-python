@@ -20,9 +20,9 @@ class Actions(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.TransactionActions:
-        r"""Get Flow actions for transaction
+        r"""List transaction Flow rules
 
-        Retrieve the list of Flow actions that have been triggered for a transaction.
+        Retrieve the list of Flow rule actions that have been triggered for a transaction.
 
         :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
@@ -168,9 +168,9 @@ class Actions(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.TransactionActions:
-        r"""Get Flow actions for transaction
+        r"""List transaction Flow rules
 
-        Retrieve the list of Flow actions that have been triggered for a transaction.
+        Retrieve the list of Flow rule actions that have been triggered for a transaction.
 
         :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
