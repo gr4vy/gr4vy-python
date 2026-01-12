@@ -3,9 +3,7 @@
 from __future__ import annotations
 from .approvaltarget import ApprovalTarget
 from gr4vy.types import BaseModel
-from gr4vy.utils import validate_open_enum
-from pydantic.functional_validators import PlainValidator
-from typing_extensions import Annotated, TypedDict
+from typing_extensions import TypedDict
 
 
 class PaymentServiceConfigurationTypedDict(TypedDict):
@@ -23,9 +21,7 @@ class PaymentServiceConfigurationTypedDict(TypedDict):
 
 
 class PaymentServiceConfiguration(BaseModel):
-    approval_ui_target: Annotated[
-        ApprovalTarget, PlainValidator(validate_open_enum(False))
-    ]
+    approval_ui_target: ApprovalTarget
 
     approval_ui_height: str
     r"""Height of the approval interface in either pixels or view height (vh)."""

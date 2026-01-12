@@ -3,10 +3,8 @@
 from __future__ import annotations
 from .adyenautorescuesepascenariosenum import AdyenAutoRescueSepaScenariosEnum
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_open_enum
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import Dict
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -41,10 +39,7 @@ class AdyenSepaOptions(BaseModel):
     r"""Passes additional data to the Adyen API when creating a transaction."""
 
     auto_rescue_sepa_scenario: Annotated[
-        Annotated[
-            OptionalNullable[AdyenAutoRescueSepaScenariosEnum],
-            PlainValidator(validate_open_enum(False)),
-        ],
+        OptionalNullable[AdyenAutoRescueSepaScenariosEnum],
         pydantic.Field(alias="autoRescueSepaScenario"),
     ] = UNSET
     r"""The rescue scenario to simulate for a transaction, when `autoRescue` is set to `true`."""

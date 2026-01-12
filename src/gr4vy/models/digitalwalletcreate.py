@@ -3,11 +3,9 @@
 from __future__ import annotations
 from .digitalwalletprovider import DigitalWalletProvider
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import List, Optional
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import NotRequired, TypedDict
 
 
 class DigitalWalletCreateTypedDict(TypedDict):
@@ -25,9 +23,7 @@ class DigitalWalletCreateTypedDict(TypedDict):
 class DigitalWalletCreate(BaseModel):
     r"""Request body for registering a new digital wallet"""
 
-    provider: Annotated[
-        DigitalWalletProvider, PlainValidator(validate_open_enum(False))
-    ]
+    provider: DigitalWalletProvider
 
     merchant_name: str
 

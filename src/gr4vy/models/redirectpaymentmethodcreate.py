@@ -9,11 +9,9 @@ from gr4vy.types import (
     UNSET_SENTINEL,
     UnrecognizedStr,
 )
-from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import Literal, Union
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import NotRequired, TypedDict
 
 
 RedirectPaymentMethodCreateMethod = Union[
@@ -144,9 +142,7 @@ class RedirectPaymentMethodCreateTypedDict(TypedDict):
 class RedirectPaymentMethodCreate(BaseModel):
     r"""Create a transaction for an APM/LPM that requires a redirect."""
 
-    method: Annotated[
-        RedirectPaymentMethodCreateMethod, PlainValidator(validate_open_enum(False))
-    ]
+    method: RedirectPaymentMethodCreateMethod
     r"""The method to use, this can be any of the methods that support redirect requests."""
 
     country: str

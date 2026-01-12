@@ -2,10 +2,8 @@
 
 from __future__ import annotations
 from gr4vy.types import BaseModel, UnrecognizedStr
-from gr4vy.utils import validate_open_enum
-from pydantic.functional_validators import PlainValidator
 from typing import Literal, Union
-from typing_extensions import Annotated, TypedDict
+from typing_extensions import TypedDict
 
 
 SubscriptionFrequencyUnit = Union[
@@ -36,9 +34,7 @@ class DlocalUPIRecurringInfoOptionsTypedDict(TypedDict):
 
 
 class DlocalUPIRecurringInfoOptions(BaseModel):
-    subscription_frequency_unit: Annotated[
-        SubscriptionFrequencyUnit, PlainValidator(validate_open_enum(False))
-    ]
+    subscription_frequency_unit: SubscriptionFrequencyUnit
     r"""Indicates the frequency unit for the subscription. Allowed values are: `DAY`, `WEEK`, `MONTH`, `BI_MONTHLY`, `QUARTER`, `SEMI_ANNUALLY`, `YEAR`, `ONDEMAND`."""
 
     subscription_frequency: int

@@ -9,9 +9,9 @@ from .reportexecutionstatus import ReportExecutionStatus
 from .reportsummary import ReportSummary, ReportSummaryTypedDict
 from datetime import datetime
 from gr4vy.types import BaseModel
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional
 from typing_extensions import Annotated, TypedDict
 
@@ -40,7 +40,7 @@ class ReportExecution(BaseModel):
     updated_at: datetime
     r"""The date this report execution was last updated."""
 
-    status: Annotated[ReportExecutionStatus, PlainValidator(validate_open_enum(False))]
+    status: ReportExecutionStatus
 
     context: ReportExecutionContext
 

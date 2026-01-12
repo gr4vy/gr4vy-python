@@ -3,9 +3,7 @@
 from __future__ import annotations
 from .definitionfieldformat import DefinitionFieldFormat
 from gr4vy.types import BaseModel
-from gr4vy.utils import validate_open_enum
 import pydantic
-from pydantic.functional_validators import PlainValidator
 from typing_extensions import Annotated, TypedDict
 
 
@@ -35,10 +33,7 @@ class DefinitionField(BaseModel):
     required: bool
     r"""Defines if this field is required when the service is created."""
 
-    format_: Annotated[
-        Annotated[DefinitionFieldFormat, PlainValidator(validate_open_enum(False))],
-        pydantic.Field(alias="format"),
-    ]
+    format_: Annotated[DefinitionFieldFormat, pydantic.Field(alias="format")]
 
     secret: bool
     r"""Defines if this field is secret. When `true` the field's value is not returned when querying the payment service information."""

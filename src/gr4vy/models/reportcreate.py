@@ -19,9 +19,8 @@ from .transactionsreportspec import (
     TransactionsReportSpecTypedDict,
 )
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import get_discriminator, validate_open_enum
+from gr4vy.utils import get_discriminator
 from pydantic import Discriminator, Tag, model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
@@ -68,7 +67,7 @@ class ReportCreate(BaseModel):
     name: str
     r"""The name of the report."""
 
-    schedule: Annotated[ReportSchedule, PlainValidator(validate_open_enum(False))]
+    schedule: ReportSchedule
 
     schedule_enabled: bool
     r"""Whether the report schedule is enabled."""

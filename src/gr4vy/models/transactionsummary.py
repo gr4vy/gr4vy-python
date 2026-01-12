@@ -19,10 +19,10 @@ from .transactionpaymentservice import (
 from .transactionstatus import TransactionStatus
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -112,7 +112,7 @@ class TransactionSummary(BaseModel):
     amount: int
     r"""The total amount for this transaction across all funding sources including gift cards."""
 
-    status: Annotated[TransactionStatus, PlainValidator(validate_open_enum(False))]
+    status: TransactionStatus
 
     authorized_amount: int
     r"""The amount for this transaction that has been authorized for the `payment_method`. This can be less than the `amount` if gift cards were used."""
@@ -129,7 +129,7 @@ class TransactionSummary(BaseModel):
     settled: bool
     r"""Indicates whether this transaction has been settled."""
 
-    intent: Annotated[TransactionIntent, PlainValidator(validate_open_enum(False))]
+    intent: TransactionIntent
 
     gift_card_redemptions: List[GiftCardRedemption]
     r"""The gift cards redeemed for this transaction."""
@@ -164,14 +164,10 @@ class TransactionSummary(BaseModel):
     payment_method: OptionalNullable[TransactionPaymentMethod] = UNSET
     r"""The payment method used for this transaction."""
 
-    method: Annotated[
-        OptionalNullable[Method], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    method: OptionalNullable[Method] = UNSET
     r"""The method used for the transaction."""
 
-    instrument_type: Annotated[
-        OptionalNullable[InstrumentType], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    instrument_type: OptionalNullable[InstrumentType] = UNSET
     r"""The name of the instrument used to process the transaction."""
 
     error_code: OptionalNullable[str] = UNSET

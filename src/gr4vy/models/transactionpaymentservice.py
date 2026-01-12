@@ -3,9 +3,9 @@
 from __future__ import annotations
 from .method import Method
 from gr4vy.types import BaseModel
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional
 from typing_extensions import Annotated, TypedDict
 
@@ -29,7 +29,7 @@ class TransactionPaymentService(BaseModel):
     payment_service_definition_id: str
     r"""The definition ID of the service used to process this payment."""
 
-    method: Annotated[Method, PlainValidator(validate_open_enum(False))]
+    method: Method
 
     display_name: str
     r"""The display name for the payment service."""

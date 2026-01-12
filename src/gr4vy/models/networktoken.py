@@ -4,9 +4,9 @@ from __future__ import annotations
 from .networktokenstatus import NetworkTokenStatus
 from datetime import datetime
 from gr4vy.types import BaseModel
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional
 from typing_extensions import Annotated, TypedDict
 
@@ -39,7 +39,7 @@ class NetworkToken(BaseModel):
     payment_method_id: str
     r"""The ID of the payment method used to generate this token"""
 
-    status: Annotated[NetworkTokenStatus, PlainValidator(validate_open_enum(False))]
+    status: NetworkTokenStatus
 
     token: str
     r"""The token value. Will be present if succeeded."""

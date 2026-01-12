@@ -3,9 +3,9 @@
 from __future__ import annotations
 from datetime import datetime
 from gr4vy.types import BaseModel, UnrecognizedStr
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Any, Dict, Literal, Optional, Union
 from typing_extensions import Annotated, TypedDict
 
@@ -53,6 +53,7 @@ Name = Union[
         "payment-connector-report-transaction-settled",
         "payment-connector-report-chargeback-posted",
         "payment-connector-report-chargeback-reversal-posted",
+        "payment-connector-transaction-webhook-processed",
         "digital-wallet-apple-pay-token-decrypted",
         "digital-wallet-google-pay-token-decrypted",
         "digital-wallet-click-to-pay-token-decrypted",
@@ -85,7 +86,7 @@ class TransactionEvent(BaseModel):
     id: str
     r"""The ID for the event."""
 
-    name: Annotated[Name, PlainValidator(validate_open_enum(False))]
+    name: Name
     r"""The specific event name."""
 
     created_at: datetime

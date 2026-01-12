@@ -12,10 +12,10 @@ from .walletpaymentoptioncontext import (
     WalletPaymentOptionContextTypedDict,
 )
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
@@ -52,7 +52,7 @@ class PaymentOptionTypedDict(TypedDict):
 class PaymentOption(BaseModel):
     method: str
 
-    mode: Annotated[Mode, PlainValidator(validate_open_enum(False))]
+    mode: Mode
 
     can_store_payment_method: bool
 

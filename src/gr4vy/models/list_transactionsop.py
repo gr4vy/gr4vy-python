@@ -7,15 +7,9 @@ from .transactionstatus import TransactionStatus
 from .transactionsummaries import TransactionSummaries, TransactionSummariesTypedDict
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import (
-    FieldMetadata,
-    HeaderMetadata,
-    QueryParamMetadata,
-    validate_open_enum,
-)
+from gr4vy.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -179,11 +173,7 @@ class ListTransactionsRequest(BaseModel):
     ] = UNSET
 
     status: Annotated[
-        OptionalNullable[
-            List[
-                Annotated[TransactionStatus, PlainValidator(validate_open_enum(False))]
-            ]
-        ],
+        OptionalNullable[List[TransactionStatus]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
     r"""Filters the results to only the transactions that have a `status` that matches with any of the provided status values."""
@@ -273,9 +263,7 @@ class ListTransactionsRequest(BaseModel):
     ] = UNSET
 
     method: Annotated[
-        OptionalNullable[
-            List[Annotated[Method, PlainValidator(validate_open_enum(False))]]
-        ],
+        OptionalNullable[List[Method]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
     r"""Filters for transactions that have matching `method` values."""
@@ -341,13 +329,7 @@ class ListTransactionsRequest(BaseModel):
     r"""Filter for transactions that have a card with a BIN that matches exactly with the provided value."""
 
     payment_source: Annotated[
-        OptionalNullable[
-            List[
-                Annotated[
-                    TransactionPaymentSource, PlainValidator(validate_open_enum(False))
-                ]
-            ]
-        ],
+        OptionalNullable[List[TransactionPaymentSource]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
     r"""Filters the results to only the transactions that have a payment source that matches with any of the provided values."""

@@ -9,11 +9,9 @@ from gr4vy.types import (
     UNSET_SENTINEL,
     UnrecognizedStr,
 )
-from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import Literal, Union
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import NotRequired, TypedDict
 
 
 VaultPaymentMethodCriteria = Union[
@@ -41,10 +39,7 @@ class BraintreeDynamicDataFieldsOptions(BaseModel):
     purchase_order_number: OptionalNullable[str] = UNSET
     r"""Passes the `transaction.purchaseOrderNumber` field when creating a new transaction."""
 
-    vault_payment_method_criteria: Annotated[
-        OptionalNullable[VaultPaymentMethodCriteria],
-        PlainValidator(validate_open_enum(False)),
-    ] = UNSET
+    vault_payment_method_criteria: OptionalNullable[VaultPaymentMethodCriteria] = UNSET
     r"""Passes the `vaultPaymentMethodCriteria` field when creating a new transaction."""
 
     @model_serializer(mode="wrap")

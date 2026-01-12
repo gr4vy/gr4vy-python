@@ -10,10 +10,10 @@ from .reportschedule import ReportSchedule
 from .reportspec import ReportSpec, ReportSpecTypedDict
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -67,7 +67,7 @@ class Report(BaseModel):
     updated_at: datetime
     r"""The date this report was last updated."""
 
-    schedule: Annotated[ReportSchedule, PlainValidator(validate_open_enum(False))]
+    schedule: ReportSchedule
 
     schedule_enabled: bool
     r"""Whether the report schedule is enabled."""
@@ -91,9 +91,7 @@ class Report(BaseModel):
     creator_display_name: OptionalNullable[str] = UNSET
     r"""The display name of the report creator."""
 
-    creator_type: Annotated[
-        OptionalNullable[ReportCreatorType], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    creator_type: OptionalNullable[ReportCreatorType] = UNSET
     r"""The type of the report creator."""
 
     next_execution_at: OptionalNullable[datetime] = UNSET

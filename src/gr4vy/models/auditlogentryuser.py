@@ -3,10 +3,10 @@
 from __future__ import annotations
 from .userstatus import UserStatus
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -32,7 +32,7 @@ class AuditLogEntryUser(BaseModel):
     is_staff: bool
     r"""Whether this is a Gr4vy staff user."""
 
-    status: Annotated[UserStatus, PlainValidator(validate_open_enum(False))]
+    status: UserStatus
 
     TYPE: Annotated[
         Annotated[Optional[Literal["user"]], AfterValidator(validate_const("user"))],

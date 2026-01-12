@@ -3,10 +3,8 @@
 from __future__ import annotations
 from .cardscheme import CardScheme
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import NotRequired, TypedDict
 
 
 class ThreeDSecureDataV2TypedDict(TypedDict):
@@ -42,9 +40,7 @@ class ThreeDSecureDataV2(BaseModel):
     directory_transaction_id: str
     r"""The transaction identifier."""
 
-    scheme: Annotated[
-        OptionalNullable[CardScheme], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    scheme: OptionalNullable[CardScheme] = UNSET
     r"""The scheme/brand of the card that is used for 3-D Secure."""
 
     authentication_response: OptionalNullable[str] = UNSET

@@ -14,10 +14,10 @@ from .requiredcheckoutfields import (
     RequiredCheckoutFieldsTypedDict,
 )
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Dict, List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -57,7 +57,7 @@ class PaymentServiceDefinition(BaseModel):
     display_name: str
     r"""A human friendly name for this service."""
 
-    method: Annotated[Method, PlainValidator(validate_open_enum(False))]
+    method: Method
 
     fields: List[DefinitionField]
     r"""A list of credentials and related fields which can be configured for this service."""
@@ -71,7 +71,7 @@ class PaymentServiceDefinition(BaseModel):
     supported_countries: List[str]
     r"""A list of two-letter ISO country codes that this service supports."""
 
-    mode: Annotated[Mode, PlainValidator(validate_open_enum(False))]
+    mode: Mode
 
     supported_features: Dict[str, bool]
     r"""Features supported by the payment service."""
@@ -81,9 +81,7 @@ class PaymentServiceDefinition(BaseModel):
 
     configuration: PaymentServiceConfiguration
 
-    supported_integration_clients: Nullable[
-        List[Annotated[IntegrationClient, PlainValidator(validate_open_enum(False))]]
-    ]
+    supported_integration_clients: Nullable[List[IntegrationClient]]
     r"""List of supported integration clients. Defaults to redirect for most redirect connectors."""
 
     TYPE: Annotated[

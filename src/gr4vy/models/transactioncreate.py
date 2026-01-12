@@ -69,11 +69,9 @@ from .transactionconnectionoptions import (
 from .transactionintent import TransactionIntent
 from .transactionpaymentsource import TransactionPaymentSource
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import Dict, List, Optional, Union
-from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
+from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
 TransactionCreatePaymentMethodTypedDict = TypeAliasType(
@@ -267,9 +265,7 @@ class TransactionCreate(BaseModel):
     external_identifier: OptionalNullable[str] = UNSET
     r"""An external identifier that can be used to match the transaction against your own records."""
 
-    intent: Annotated[
-        Optional[TransactionIntent], PlainValidator(validate_open_enum(False))
-    ] = None
+    intent: Optional[TransactionIntent] = None
 
     store: Optional[bool] = False
     r"""Whether or not to also try and store the payment method with us so that it can be used again for future use. This is only supported for payment methods that support this feature. There are also a few restrictions on how the flag may be set:
@@ -301,9 +297,7 @@ class TransactionCreate(BaseModel):
     merchant_initiated: Optional[bool] = False
     r"""Indicates whether the transaction was initiated by the merchant (true) or customer (false)."""
 
-    payment_source: Annotated[
-        Optional[TransactionPaymentSource], PlainValidator(validate_open_enum(False))
-    ] = None
+    payment_source: Optional[TransactionPaymentSource] = None
     r"""The way payment method information made it to this transaction."""
 
     airline: OptionalNullable[Airline] = UNSET
@@ -378,9 +372,7 @@ class TransactionCreate(BaseModel):
     shipping_amount: OptionalNullable[int] = UNSET
     r"""Total shipping amount."""
 
-    integration_client: Annotated[
-        OptionalNullable[IntegrationClient], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    integration_client: OptionalNullable[IntegrationClient] = UNSET
     r"""Defines the client where the session for this transaction is going to be used. Please refer to the connections documentation for more guidance."""
 
     @model_serializer(mode="wrap")

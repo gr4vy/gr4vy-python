@@ -3,10 +3,8 @@
 from __future__ import annotations
 from .cardtype import CardType
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import NotRequired, TypedDict
 
 
 class CheckoutSessionPaymentMethodDetailsTypedDict(TypedDict):
@@ -27,9 +25,7 @@ class CheckoutSessionPaymentMethodDetails(BaseModel):
     card_country: OptionalNullable[str] = UNSET
     r"""The country of the card issuer."""
 
-    card_type: Annotated[
-        OptionalNullable[CardType], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    card_type: OptionalNullable[CardType] = UNSET
     r"""The payment scheme of the card."""
 
     card_issuer_name: OptionalNullable[str] = UNSET

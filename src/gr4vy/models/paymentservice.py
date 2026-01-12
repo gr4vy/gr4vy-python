@@ -10,10 +10,10 @@ from .method import Method
 from .paymentservicestatus import PaymentServiceStatus
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Dict, List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -73,7 +73,7 @@ class PaymentService(BaseModel):
     payment_service_definition_id: str
     r"""The definition ID of the service that has been configured."""
 
-    method: Annotated[Method, PlainValidator(validate_open_enum(False))]
+    method: Method
 
     display_name: str
     r"""The display name for the payment service."""
@@ -119,9 +119,7 @@ class PaymentService(BaseModel):
     active: Optional[bool] = True
     r"""Defines if this payment service is currently active."""
 
-    status: Annotated[
-        Optional[PaymentServiceStatus], PlainValidator(validate_open_enum(False))
-    ] = None
+    status: Optional[PaymentServiceStatus] = None
 
     three_d_secure_enabled: OptionalNullable[bool] = UNSET
     r"""Defines if this payment service has 3DS enabled."""

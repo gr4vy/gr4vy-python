@@ -12,10 +12,10 @@ from .transactionpaymentmethod import (
 )
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -74,7 +74,7 @@ class PayoutSummary(BaseModel):
 
     payment_service: PayoutPaymentService
 
-    status: Annotated[PayoutStatus, PlainValidator(validate_open_enum(False))]
+    status: PayoutStatus
 
     updated_at: datetime
     r"""The date this payout was last updated at."""
@@ -93,9 +93,7 @@ class PayoutSummary(BaseModel):
     buyer: OptionalNullable[TransactionBuyer] = UNSET
     r"""The buyer used for this payout."""
 
-    category: Annotated[
-        OptionalNullable[PayoutCategory], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    category: OptionalNullable[PayoutCategory] = UNSET
     r"""The type of payout to process."""
 
     external_identifier: OptionalNullable[str] = UNSET

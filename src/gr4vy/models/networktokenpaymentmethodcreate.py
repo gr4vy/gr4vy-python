@@ -10,10 +10,10 @@ from gr4vy.types import (
     UNSET_SENTINEL,
     UnrecognizedStr,
 )
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Literal, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -71,14 +71,10 @@ class NetworkTokenPaymentMethodCreate(BaseModel):
     redirect_url: OptionalNullable[str] = UNSET
     r"""The URL to redirect a user back to after the complete 3DS in browser."""
 
-    card_source: Annotated[
-        OptionalNullable[CardSource], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    card_source: OptionalNullable[CardSource] = UNSET
     r"""The optional source of the decrypted device token."""
 
-    card_scheme: Annotated[
-        OptionalNullable[CardScheme], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    card_scheme: OptionalNullable[CardScheme] = UNSET
     r"""The original card scheme for which the token was generated."""
 
     card_suffix: OptionalNullable[str] = UNSET

@@ -3,9 +3,7 @@
 from __future__ import annotations
 from .errorlocation import ErrorLocation
 from gr4vy.types import BaseModel
-from gr4vy.utils import validate_open_enum
-from pydantic.functional_validators import PlainValidator
-from typing_extensions import Annotated, TypedDict
+from typing_extensions import TypedDict
 
 
 class ErrorDetailTypedDict(TypedDict):
@@ -19,7 +17,7 @@ class ErrorDetailTypedDict(TypedDict):
 
 
 class ErrorDetail(BaseModel):
-    location: Annotated[ErrorLocation, PlainValidator(validate_open_enum(False))]
+    location: ErrorLocation
 
     pointer: str
     r"""A JSON pointer for the particular property that caused the error."""

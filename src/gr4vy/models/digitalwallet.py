@@ -4,10 +4,10 @@ from __future__ import annotations
 from .digitalwalletprovider import DigitalWalletProvider
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Any, Dict, List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -51,9 +51,7 @@ class DigitalWallet(BaseModel):
     merchant_account_id: str
     r"""The ID of the merchant account this digital wallet belongs to."""
 
-    provider: Annotated[
-        DigitalWalletProvider, PlainValidator(validate_open_enum(False))
-    ]
+    provider: DigitalWalletProvider
 
     merchant_name: str
     r"""The name of the merchant the digital wallet is registered to."""

@@ -11,10 +11,10 @@ from .paymentmethoddetailscard import (
 )
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -54,7 +54,7 @@ class TransactionPaymentMethodTypedDict(TypedDict):
 
 
 class TransactionPaymentMethod(BaseModel):
-    method: Annotated[Method, PlainValidator(validate_open_enum(False))]
+    method: Method
 
     TYPE: Annotated[
         Annotated[
@@ -89,22 +89,16 @@ class TransactionPaymentMethod(BaseModel):
     last_replaced_at: OptionalNullable[datetime] = UNSET
     r"""The date and time when this card was last replaced by the account updater."""
 
-    mode: Annotated[
-        OptionalNullable[Mode], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    mode: OptionalNullable[Mode] = UNSET
     r"""The mode to use with this payment method."""
 
-    scheme: Annotated[
-        OptionalNullable[CardScheme], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    scheme: OptionalNullable[CardScheme] = UNSET
     r"""The scheme of the card. Only applies to card payments."""
 
     id: OptionalNullable[str] = UNSET
     r"""The ID of the payment method."""
 
-    approval_target: Annotated[
-        OptionalNullable[ApprovalTarget], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    approval_target: OptionalNullable[ApprovalTarget] = UNSET
     r"""The browser target that an approval URL must be opened in. If any or null, then there is no specific requirement."""
 
     external_identifier: OptionalNullable[str] = UNSET

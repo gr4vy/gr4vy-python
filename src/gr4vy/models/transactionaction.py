@@ -5,9 +5,9 @@ from .flow import Flow
 from .flowaction import FlowAction
 from datetime import datetime
 from gr4vy.types import BaseModel
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Any, Dict, Literal, Optional
 from typing_extensions import Annotated, TypedDict
 
@@ -26,9 +26,9 @@ class TransactionActionTypedDict(TypedDict):
 
 
 class TransactionAction(BaseModel):
-    id: Annotated[FlowAction, PlainValidator(validate_open_enum(False))]
+    id: FlowAction
 
-    flow: Annotated[Flow, PlainValidator(validate_open_enum(False))]
+    flow: Flow
 
     rule_id: str
     r"""The ID of the rule that triggered this action."""

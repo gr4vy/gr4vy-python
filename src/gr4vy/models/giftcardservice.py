@@ -3,9 +3,9 @@
 from __future__ import annotations
 from .giftcardserviceprovider import GiftCardServiceProvider
 from gr4vy.types import BaseModel
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional
 from typing_extensions import Annotated, TypedDict
 
@@ -24,9 +24,7 @@ class GiftCardService(BaseModel):
     id: str
     r"""The ID for the gift card service."""
 
-    gift_card_service_definition_id: Annotated[
-        GiftCardServiceProvider, PlainValidator(validate_open_enum(False))
-    ]
+    gift_card_service_definition_id: GiftCardServiceProvider
 
     display_name: str
     r"""The display name for the gift card service."""

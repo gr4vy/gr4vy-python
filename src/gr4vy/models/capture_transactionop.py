@@ -13,10 +13,9 @@ from gr4vy.utils import (
     HeaderMetadata,
     PathParamMetadata,
     RequestMetadata,
-    get_discriminator,
 )
 import pydantic
-from pydantic import Discriminator, Tag, model_serializer
+from pydantic import model_serializer
 from typing import List, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
@@ -107,22 +106,7 @@ ResponseCaptureTransactionTypedDict = TypeAliasType(
 r"""Successful Response"""
 
 
-ResponseCaptureTransaction = Annotated[
-    Union[
-        Annotated[Transaction, Tag("processing")],
-        Annotated[Transaction, Tag("authorization_succeeded")],
-        Annotated[Transaction, Tag("authorization_declined")],
-        Annotated[Transaction, Tag("authorization_failed")],
-        Annotated[Transaction, Tag("authorization_voided")],
-        Annotated[Transaction, Tag("authorization_void_pending")],
-        Annotated[Transaction, Tag("capture_succeeded")],
-        Annotated[Transaction, Tag("capture_pending")],
-        Annotated[Transaction, Tag("buyer_approval_pending")],
-        Annotated[TransactionCapture, Tag("succeeded")],
-        Annotated[TransactionCapture, Tag("pending")],
-        Annotated[TransactionCapture, Tag("declined")],
-        Annotated[TransactionCapture, Tag("failed")],
-    ],
-    Discriminator(lambda m: get_discriminator(m, "status", "status")),
-]
+ResponseCaptureTransaction = TypeAliasType(
+    "ResponseCaptureTransaction", Union[TransactionCapture, Transaction]
+)
 r"""Successful Response"""

@@ -12,11 +12,9 @@ from .transactionintent import TransactionIntent
 from .transactionpaymentsource import TransactionPaymentSource
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import Any, Dict, List, Optional
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import NotRequired, TypedDict
 
 
 class PaymentLinkCreateTypedDict(TypedDict):
@@ -116,9 +114,7 @@ class PaymentLinkCreate(BaseModel):
     merchant_favicon_url: OptionalNullable[str] = UNSET
     r"""URL to the merchant's favicon."""
 
-    intent: Annotated[
-        Optional[TransactionIntent], PlainValidator(validate_open_enum(False))
-    ] = None
+    intent: Optional[TransactionIntent] = None
 
     return_url: OptionalNullable[str] = UNSET
     r"""The return URL after payment completion."""
@@ -129,9 +125,7 @@ class PaymentLinkCreate(BaseModel):
     metadata: OptionalNullable[Dict[str, Any]] = UNSET
     r"""Arbitrary metadata for the payment link."""
 
-    payment_source: Annotated[
-        Optional[TransactionPaymentSource], PlainValidator(validate_open_enum(False))
-    ] = None
+    payment_source: Optional[TransactionPaymentSource] = None
     r"""The way payment method information made it to this transaction."""
 
     store: Optional[bool] = False

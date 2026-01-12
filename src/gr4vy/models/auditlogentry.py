@@ -6,10 +6,10 @@ from .auditlogentryresource import AuditLogEntryResource, AuditLogEntryResourceT
 from .auditlogentryuser import AuditLogEntryUser, AuditLogEntryUserTypedDict
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -31,7 +31,7 @@ class AuditLogEntryTypedDict(TypedDict):
 class AuditLogEntry(BaseModel):
     resource: AuditLogEntryResource
 
-    action: Annotated[AuditLogAction, PlainValidator(validate_open_enum(False))]
+    action: AuditLogAction
 
     user: AuditLogEntryUser
 
