@@ -10,10 +10,10 @@ from .transactionintent import TransactionIntent
 from .transactionpaymentsource import TransactionPaymentSource
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Any, Dict, List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -95,14 +95,12 @@ class PaymentLink(BaseModel):
     currency: str
     r"""The currency code for the payment link."""
 
-    intent: Annotated[TransactionIntent, PlainValidator(validate_open_enum(False))]
+    intent: TransactionIntent
 
     cart_items: Nullable[List[CartItem]]
     r"""The cart items for the payment link."""
 
-    payment_source: Annotated[
-        TransactionPaymentSource, PlainValidator(validate_open_enum(False))
-    ]
+    payment_source: TransactionPaymentSource
     r"""The way payment method information made it to this transaction."""
 
     created_at: datetime
@@ -111,7 +109,7 @@ class PaymentLink(BaseModel):
     updated_at: datetime
     r"""The date and time the payment link was last updated."""
 
-    status: Annotated[PaymentLinkStatus, PlainValidator(validate_open_enum(False))]
+    status: PaymentLinkStatus
 
     TYPE: Annotated[
         Annotated[

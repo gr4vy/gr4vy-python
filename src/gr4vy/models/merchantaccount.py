@@ -4,10 +4,10 @@ from __future__ import annotations
 from .cardscheme import CardScheme
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -90,9 +90,7 @@ class MerchantAccount(BaseModel):
     loon_secret_key: OptionalNullable[str] = UNSET
     r"""Secret key provided by Pagos to authenticate to the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well."""
 
-    loon_accepted_schemes: OptionalNullable[
-        List[Annotated[CardScheme, PlainValidator(validate_open_enum(False))]]
-    ] = UNSET
+    loon_accepted_schemes: OptionalNullable[List[CardScheme]] = UNSET
     r"""Card schemes accepted when creating jobs using this set of Loon API keys. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well."""
 
     account_updater_request_encryption_key: OptionalNullable[str] = UNSET

@@ -4,10 +4,10 @@ from __future__ import annotations
 from .transaction import Transaction, TransactionTypedDict
 from .voidstatus import VoidStatus
 from gr4vy.types import BaseModel, Nullable, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional
 from typing_extensions import Annotated, TypedDict
 
@@ -27,7 +27,7 @@ class TransactionVoidTypedDict(TypedDict):
 
 
 class TransactionVoid(BaseModel):
-    status: Annotated[VoidStatus, PlainValidator(validate_open_enum(False))]
+    status: VoidStatus
 
     code: Nullable[str]
     r"""The standardized error code set by Gr4vy."""

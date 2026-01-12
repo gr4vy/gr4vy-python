@@ -14,11 +14,9 @@ from .payoutconnectionoptions import (
 )
 from .payoutmerchant import PayoutMerchant, PayoutMerchantTypedDict
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import Union
-from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
+from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
 PayoutCreatePaymentMethodTypedDict = TypeAliasType(
@@ -82,9 +80,7 @@ class PayoutCreate(BaseModel):
     payment_method: PayoutCreatePaymentMethod
     r"""The type of payment method to send funds too."""
 
-    category: Annotated[
-        OptionalNullable[PayoutCategory], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    category: OptionalNullable[PayoutCategory] = UNSET
     r"""The type of payout to process."""
 
     external_identifier: OptionalNullable[str] = UNSET

@@ -9,11 +9,9 @@ from gr4vy.types import (
     UNSET_SENTINEL,
     UnrecognizedStr,
 )
-from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import Literal, Union
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import NotRequired, TypedDict
 
 
 ForterAntiFraudOptionsCartItemBasicItemDataType = Union[
@@ -31,10 +29,7 @@ class ForterAntiFraudOptionsCartItemBasicItemDataTypedDict(TypedDict):
 
 
 class ForterAntiFraudOptionsCartItemBasicItemData(BaseModel):
-    type: Annotated[
-        OptionalNullable[ForterAntiFraudOptionsCartItemBasicItemDataType],
-        PlainValidator(validate_open_enum(False)),
-    ] = UNSET
+    type: OptionalNullable[ForterAntiFraudOptionsCartItemBasicItemDataType] = UNSET
     r"""Indicates whether the item is a physical good or a service/digital item."""
 
     @model_serializer(mode="wrap")

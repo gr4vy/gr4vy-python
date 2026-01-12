@@ -3,11 +3,9 @@
 from __future__ import annotations
 from .producttype import ProductType
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import List
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import NotRequired, TypedDict
 
 
 class CartItemTypedDict(TypedDict):
@@ -85,9 +83,7 @@ class CartItem(BaseModel):
     categories: OptionalNullable[List[str]] = UNSET
     r"""A list of strings containing product categories for the item."""
 
-    product_type: Annotated[
-        OptionalNullable[ProductType], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    product_type: OptionalNullable[ProductType] = UNSET
     r"""The product type of the cart item."""
 
     seller_country: OptionalNullable[str] = UNSET

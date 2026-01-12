@@ -4,10 +4,10 @@ from __future__ import annotations
 from .paymentmethodstatus import PaymentMethodStatus
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -42,7 +42,7 @@ class PaymentServiceToken(BaseModel):
     payment_service_id: str
     r"""The ID of the payment method used to generate this token."""
 
-    status: Annotated[PaymentMethodStatus, PlainValidator(validate_open_enum(False))]
+    status: PaymentMethodStatus
 
     created_at: datetime
     r"""The date and time when this payment service token was first created in our system."""

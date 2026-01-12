@@ -9,11 +9,9 @@ from gr4vy.types import (
     UNSET_SENTINEL,
     UnrecognizedStr,
 )
-from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import Literal, Union
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import NotRequired, TypedDict
 
 
 UserDevice = Union[
@@ -64,7 +62,7 @@ class BrowserInfo(BaseModel):
     user_agent: str
     r"""Exact content of the HTTP user-agent header."""
 
-    user_device: Annotated[UserDevice, PlainValidator(validate_open_enum(False))]
+    user_device: UserDevice
     r"""The platform that is being used to access the website."""
 
     accept_header: OptionalNullable[str] = UNSET

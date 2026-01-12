@@ -4,10 +4,10 @@ from __future__ import annotations
 from .giftcarderrorcode import GiftCardErrorCode
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -72,9 +72,7 @@ class GiftCardSummary(BaseModel):
     balance: OptionalNullable[int] = UNSET
     r"""The amount remaining on the balance for this gift card according to the gift card service. This may be `null` if the balance could not be fetched."""
 
-    balance_error_code: Annotated[
-        OptionalNullable[GiftCardErrorCode], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    balance_error_code: OptionalNullable[GiftCardErrorCode] = UNSET
     r"""If the last balance update failed, this will contain the internal code for this error."""
 
     balance_raw_error_code: OptionalNullable[str] = UNSET

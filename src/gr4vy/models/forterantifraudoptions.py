@@ -17,11 +17,9 @@ from gr4vy.types import (
     UNSET_SENTINEL,
     UnrecognizedStr,
 )
-from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import List, Literal, Union
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import NotRequired, TypedDict
 
 
 ForterAntiFraudOptionsDeliveryType = Union[
@@ -48,10 +46,7 @@ class ForterAntiFraudOptionsTypedDict(TypedDict):
 
 
 class ForterAntiFraudOptions(BaseModel):
-    delivery_type: Annotated[
-        OptionalNullable[ForterAntiFraudOptionsDeliveryType],
-        PlainValidator(validate_open_enum(False)),
-    ] = UNSET
+    delivery_type: OptionalNullable[ForterAntiFraudOptionsDeliveryType] = UNSET
     r"""The delivery type"""
 
     delivery_method: OptionalNullable[str] = UNSET

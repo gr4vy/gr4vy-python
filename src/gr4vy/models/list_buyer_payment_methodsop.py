@@ -14,11 +14,10 @@ from gr4vy.utils import (
     HeaderMetadata,
     QueryParamMetadata,
     validate_const,
-    validate_open_enum,
 )
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -88,7 +87,7 @@ class ListBuyerPaymentMethodsRequest(BaseModel):
     r"""The field to sort the payment methods by."""
 
     order_by: Annotated[
-        Annotated[Optional[OrderBy], PlainValidator(validate_open_enum(False))],
+        Optional[OrderBy],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = "desc"
     r"""The direction to sort the payment methods in."""

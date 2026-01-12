@@ -4,15 +4,9 @@ from __future__ import annotations
 from .method import Method
 from .paymentservices import PaymentServices, PaymentServicesTypedDict
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import (
-    FieldMetadata,
-    HeaderMetadata,
-    QueryParamMetadata,
-    validate_open_enum,
-)
+from gr4vy.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import Callable, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -46,7 +40,7 @@ class ListPaymentServicesRequestTypedDict(TypedDict):
 
 class ListPaymentServicesRequest(BaseModel):
     method: Annotated[
-        Annotated[OptionalNullable[Method], PlainValidator(validate_open_enum(False))],
+        OptionalNullable[Method],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
     r"""Return any payment service for this method."""

@@ -3,11 +3,9 @@
 from __future__ import annotations
 from .refundtargettype import RefundTargetType
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import Optional
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import NotRequired, TypedDict
 
 
 class TransactionRefundCreateTypedDict(TypedDict):
@@ -26,9 +24,7 @@ class TransactionRefundCreate(BaseModel):
     amount: OptionalNullable[int] = UNSET
     r"""The amount to refund, in the smallest currency unit (e.g., cents). If omitted, a full refund will be requested."""
 
-    target_type: Annotated[
-        Optional[RefundTargetType], PlainValidator(validate_open_enum(False))
-    ] = None
+    target_type: Optional[RefundTargetType] = None
 
     target_id: OptionalNullable[str] = UNSET
     r"""The optional ID of the instrument to refund for. This is only required when the `target_type` is set to `gift-card-redemption`."""

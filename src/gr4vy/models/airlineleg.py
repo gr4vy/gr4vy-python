@@ -10,11 +10,9 @@ from gr4vy.types import (
     UNSET_SENTINEL,
     UnrecognizedStr,
 )
-from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import Literal, Union
-from typing_extensions import Annotated, NotRequired, TypedDict
+from typing_extensions import NotRequired, TypedDict
 
 
 RouteType = Union[
@@ -133,9 +131,7 @@ class AirlineLeg(BaseModel):
     flight_number: OptionalNullable[str] = UNSET
     r"""Unique identifier of the flight number."""
 
-    route_type: Annotated[
-        OptionalNullable[RouteType], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    route_type: OptionalNullable[RouteType] = UNSET
     r"""The route type of the flight."""
 
     seat_class: OptionalNullable[str] = UNSET

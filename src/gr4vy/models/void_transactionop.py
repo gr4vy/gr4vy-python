@@ -4,14 +4,9 @@ from __future__ import annotations
 from .transaction import Transaction, TransactionTypedDict
 from .transactionvoid import TransactionVoid, TransactionVoidTypedDict
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import (
-    FieldMetadata,
-    HeaderMetadata,
-    PathParamMetadata,
-    get_discriminator,
-)
+from gr4vy.utils import FieldMetadata, HeaderMetadata, PathParamMetadata
 import pydantic
-from pydantic import Discriminator, Tag, model_serializer
+from pydantic import model_serializer
 from typing import List, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
@@ -96,22 +91,7 @@ ResponseVoidTransactionTypedDict = TypeAliasType(
 r"""Successful Response"""
 
 
-ResponseVoidTransaction = Annotated[
-    Union[
-        Annotated[Transaction, Tag("processing")],
-        Annotated[Transaction, Tag("authorization_succeeded")],
-        Annotated[Transaction, Tag("authorization_declined")],
-        Annotated[Transaction, Tag("authorization_failed")],
-        Annotated[Transaction, Tag("authorization_voided")],
-        Annotated[Transaction, Tag("authorization_void_pending")],
-        Annotated[Transaction, Tag("capture_succeeded")],
-        Annotated[Transaction, Tag("capture_pending")],
-        Annotated[Transaction, Tag("buyer_approval_pending")],
-        Annotated[TransactionVoid, Tag("succeeded")],
-        Annotated[TransactionVoid, Tag("pending")],
-        Annotated[TransactionVoid, Tag("declined")],
-        Annotated[TransactionVoid, Tag("failed")],
-    ],
-    Discriminator(lambda m: get_discriminator(m, "status", "status")),
-]
+ResponseVoidTransaction = TypeAliasType(
+    "ResponseVoidTransaction", Union[TransactionVoid, Transaction]
+)
 r"""Successful Response"""

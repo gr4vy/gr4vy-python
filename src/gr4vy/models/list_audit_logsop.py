@@ -4,15 +4,9 @@ from __future__ import annotations
 from .auditlogaction import AuditLogAction
 from .auditlogentries import AuditLogEntries, AuditLogEntriesTypedDict
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import (
-    FieldMetadata,
-    HeaderMetadata,
-    QueryParamMetadata,
-    validate_open_enum,
-)
+from gr4vy.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import Callable, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -60,9 +54,7 @@ class ListAuditLogsRequest(BaseModel):
     r"""The maximum number of items that are at returned."""
 
     action: Annotated[
-        Annotated[
-            OptionalNullable[AuditLogAction], PlainValidator(validate_open_enum(False))
-        ],
+        OptionalNullable[AuditLogAction],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
     r"""Filters the results to only the items for which the `audit-log` has an `action` that matches this value."""

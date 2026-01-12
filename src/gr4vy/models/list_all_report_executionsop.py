@@ -5,15 +5,9 @@ from .reportexecutions import ReportExecutions, ReportExecutionsTypedDict
 from .reportexecutionstatus import ReportExecutionStatus
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import (
-    FieldMetadata,
-    HeaderMetadata,
-    QueryParamMetadata,
-    validate_open_enum,
-)
+from gr4vy.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import Callable, List, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -83,13 +77,7 @@ class ListAllReportExecutionsRequest(BaseModel):
     r"""Filters the results to only reports created after this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`."""
 
     status: Annotated[
-        OptionalNullable[
-            List[
-                Annotated[
-                    ReportExecutionStatus, PlainValidator(validate_open_enum(False))
-                ]
-            ]
-        ],
+        OptionalNullable[List[ReportExecutionStatus]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
     r"""Filters the results to only the reports that have a `status` that matches with any of the provided status values."""

@@ -3,9 +3,7 @@
 from __future__ import annotations
 from .taxidkind import TaxIDKind
 from gr4vy.types import BaseModel
-from gr4vy.utils import validate_open_enum
-from pydantic.functional_validators import PlainValidator
-from typing_extensions import Annotated, TypedDict
+from typing_extensions import TypedDict
 
 
 class TaxIDTypedDict(TypedDict):
@@ -18,4 +16,4 @@ class TaxID(BaseModel):
     value: str
     r"""The tax ID for the buyer."""
 
-    kind: Annotated[TaxIDKind, PlainValidator(validate_open_enum(False))]
+    kind: TaxIDKind

@@ -5,10 +5,10 @@ from .giftcarderrorcode import GiftCardErrorCode
 from .giftcardredemptionstatus import GiftCardRedemptionStatus
 from .transactiongiftcard import TransactionGiftCard, TransactionGiftCardTypedDict
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -38,9 +38,7 @@ class GiftCardRedemption(BaseModel):
     id: str
     r"""The ID for the gift card redemption."""
 
-    status: Annotated[
-        GiftCardRedemptionStatus, PlainValidator(validate_open_enum(False))
-    ]
+    status: GiftCardRedemptionStatus
 
     amount: int
     r"""The amount redeemed for this gift card."""
@@ -62,9 +60,7 @@ class GiftCardRedemption(BaseModel):
     gift_card_service_redemption_id: OptionalNullable[str] = UNSET
     r"""The gift card service's unique ID for the redemption."""
 
-    error_code: Annotated[
-        OptionalNullable[GiftCardErrorCode], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    error_code: OptionalNullable[GiftCardErrorCode] = UNSET
     r"""If this gift card redemption resulted in an error, this will contain the internal code for the error."""
 
     raw_error_code: OptionalNullable[str] = UNSET

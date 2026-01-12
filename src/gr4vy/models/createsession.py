@@ -3,10 +3,10 @@
 from __future__ import annotations
 from .createsessionstatus import CreateSessionStatus
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Any, Dict, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -28,7 +28,7 @@ class CreateSessionTypedDict(TypedDict):
 class CreateSession(BaseModel):
     r"""The session data received from the payment service."""
 
-    status: Annotated[CreateSessionStatus, PlainValidator(validate_open_enum(False))]
+    status: CreateSessionStatus
 
     TYPE: Annotated[
         Annotated[

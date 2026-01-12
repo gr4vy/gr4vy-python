@@ -12,10 +12,10 @@ from .paymentmethoddetailscard import (
 from .paymentmethodstatus import PaymentMethodStatus
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -82,7 +82,7 @@ class PaymentMethod(BaseModel):
     A stored payment method.
     """
 
-    method: Annotated[Method, PlainValidator(validate_open_enum(False))]
+    method: Method
 
     id: str
     r"""The ID for the payment method."""
@@ -99,7 +99,7 @@ class PaymentMethod(BaseModel):
     usage_count: int
     r"""The number of times this payment method has been used in transactions."""
 
-    status: Annotated[PaymentMethodStatus, PlainValidator(validate_open_enum(False))]
+    status: PaymentMethodStatus
 
     created_at: datetime
     r"""The date and time when this payment method was first created in our system."""
@@ -140,19 +140,13 @@ class PaymentMethod(BaseModel):
     last_replaced_at: OptionalNullable[datetime] = UNSET
     r"""The date and time when this card was last replaced by the account updater."""
 
-    mode: Annotated[
-        OptionalNullable[Mode], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    mode: OptionalNullable[Mode] = UNSET
     r"""The mode to use with this payment method."""
 
-    scheme: Annotated[
-        OptionalNullable[CardScheme], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    scheme: OptionalNullable[CardScheme] = UNSET
     r"""The scheme of the card. Only applies to card payments."""
 
-    additional_schemes: OptionalNullable[
-        List[Annotated[CardScheme, PlainValidator(validate_open_enum(False))]]
-    ] = UNSET
+    additional_schemes: OptionalNullable[List[CardScheme]] = UNSET
     r"""Additional schemes of the card besides the primary scheme. Only applies to card payment methods."""
 
     cit_last_used_at: OptionalNullable[datetime] = UNSET

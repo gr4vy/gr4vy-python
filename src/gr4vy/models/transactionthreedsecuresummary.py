@@ -7,11 +7,9 @@ from .threedsecuremethod import ThreeDSecureMethod
 from .threedsecurestatus import ThreeDSecureStatus
 from .threedsecurev2 import ThreeDSecureV2, ThreeDSecureV2TypedDict
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_open_enum
 from pydantic import model_serializer
-from pydantic.functional_validators import PlainValidator
 from typing import Union
-from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
+from typing_extensions import NotRequired, TypeAliasType, TypedDict
 
 
 ResponseDataTypedDict = TypeAliasType(
@@ -41,14 +39,10 @@ class TransactionThreeDSecureSummary(BaseModel):
     version: OptionalNullable[str] = UNSET
     r"""The version of 3DS used for this transaction."""
 
-    status: Annotated[
-        OptionalNullable[ThreeDSecureStatus], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    status: OptionalNullable[ThreeDSecureStatus] = UNSET
     r"""The status of the 3DS challenge for this transaction."""
 
-    method: Annotated[
-        OptionalNullable[ThreeDSecureMethod], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    method: OptionalNullable[ThreeDSecureMethod] = UNSET
     r"""The method used for 3DS authentication for this transaction."""
 
     response_data: OptionalNullable[ResponseData] = UNSET

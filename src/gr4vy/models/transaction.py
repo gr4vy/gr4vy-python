@@ -32,10 +32,10 @@ from .transactionthreedsecuresummary import (
 )
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
-from gr4vy.utils import validate_const, validate_open_enum
+from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator, PlainValidator
+from pydantic.functional_validators import AfterValidator
 from typing import Dict, List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -196,7 +196,7 @@ class Transaction(BaseModel):
     amount: int
     r"""The total amount for this transaction across all funding sources including gift cards."""
 
-    status: Annotated[TransactionStatus, PlainValidator(validate_open_enum(False))]
+    status: TransactionStatus
 
     authorized_amount: int
     r"""The amount for this transaction that has been authorized for the `payment_method`. This can be less than the `amount` if gift cards were used."""
@@ -213,7 +213,7 @@ class Transaction(BaseModel):
     settled: bool
     r"""Indicates whether this transaction has been settled."""
 
-    intent: Annotated[TransactionIntent, PlainValidator(validate_open_enum(False))]
+    intent: TransactionIntent
 
     gift_card_redemptions: List[GiftCardRedemption]
     r"""The gift cards redeemed for this transaction."""
@@ -227,9 +227,7 @@ class Transaction(BaseModel):
     disputed: bool
     r"""Indicates whether this transaction has been disputed."""
 
-    payment_source: Annotated[
-        TransactionPaymentSource, PlainValidator(validate_open_enum(False))
-    ]
+    payment_source: TransactionPaymentSource
     r"""The way payment method information made it to this transaction."""
 
     merchant_initiated: bool
@@ -238,9 +236,7 @@ class Transaction(BaseModel):
     is_subsequent_payment: bool
     r"""Indicates whether the transaction represents a subsequent payment or an initial one."""
 
-    intent_outcome: Annotated[
-        TransactionIntentOutcome, PlainValidator(validate_open_enum(False))
-    ]
+    intent_outcome: TransactionIntentOutcome
 
     multi_tender: bool
     r"""The outcome of the original intent of a transaction. This allows you to understand if the intent of the transaction (e.g. `capture` or `authorize`) has been achieved when dealing with multiple payment instruments."""
@@ -269,14 +265,10 @@ class Transaction(BaseModel):
     payment_method: OptionalNullable[TransactionPaymentMethod] = UNSET
     r"""The payment method used for this transaction."""
 
-    method: Annotated[
-        OptionalNullable[Method], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    method: OptionalNullable[Method] = UNSET
     r"""The method used for the transaction."""
 
-    instrument_type: Annotated[
-        OptionalNullable[InstrumentType], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    instrument_type: OptionalNullable[InstrumentType] = UNSET
     r"""The name of the instrument used to process the transaction."""
 
     error_code: OptionalNullable[str] = UNSET
@@ -312,19 +304,13 @@ class Transaction(BaseModel):
     auth_response_code: OptionalNullable[str] = UNSET
     r"""This is the response description received from the processor."""
 
-    avs_response_code: Annotated[
-        OptionalNullable[AVSResponseCode], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    avs_response_code: OptionalNullable[AVSResponseCode] = UNSET
     r"""The response code received from the payment service for the Address Verification Check (AVS). This code is mapped to a standardized Gr4vy AVS response code."""
 
-    cvv_response_code: Annotated[
-        OptionalNullable[CVVResponseCode], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    cvv_response_code: OptionalNullable[CVVResponseCode] = UNSET
     r"""The response code received from the payment service for the Card Verification Value (CVV). This code is mapped to a standardized Gr4vy CVV response code."""
 
-    anti_fraud_decision: Annotated[
-        OptionalNullable[AntiFraudDecision], PlainValidator(validate_open_enum(False))
-    ] = UNSET
+    anti_fraud_decision: OptionalNullable[AntiFraudDecision] = UNSET
     r"""The mapped decision received from the anti-fraud service. In case of a review decision this field is not updated once the review is resolved."""
 
     cart_items: OptionalNullable[List[CartItem]] = UNSET
