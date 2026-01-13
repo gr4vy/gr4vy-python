@@ -50,6 +50,7 @@ class PaymentLinksSDK(BaseSDK):
         payment_source: Optional[models.TransactionPaymentSource] = None,
         store: Optional[bool] = False,
         buyer_id: OptionalNullable[str] = UNSET,
+        installment_count: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -83,6 +84,7 @@ class PaymentLinksSDK(BaseSDK):
         :param payment_source: The way payment method information made it to this transaction.
         :param store: Whether to store the payment method for future use.
         :param buyer_id: The ID of the buyer to associate the payment method with. Note: When `buyer_id` is provided, the payment link should be treated as a secret as it will allow the user to manage payment methods for the associated buyer.
+        :param installment_count: The number of installments a buyer is required to make.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -133,6 +135,7 @@ class PaymentLinksSDK(BaseSDK):
                 payment_source=payment_source,
                 store=store,
                 buyer_id=buyer_id,
+                installment_count=installment_count,
             ),
         )
 
@@ -289,6 +292,7 @@ class PaymentLinksSDK(BaseSDK):
         payment_source: Optional[models.TransactionPaymentSource] = None,
         store: Optional[bool] = False,
         buyer_id: OptionalNullable[str] = UNSET,
+        installment_count: OptionalNullable[int] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -322,6 +326,7 @@ class PaymentLinksSDK(BaseSDK):
         :param payment_source: The way payment method information made it to this transaction.
         :param store: Whether to store the payment method for future use.
         :param buyer_id: The ID of the buyer to associate the payment method with. Note: When `buyer_id` is provided, the payment link should be treated as a secret as it will allow the user to manage payment methods for the associated buyer.
+        :param installment_count: The number of installments a buyer is required to make.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -372,6 +377,7 @@ class PaymentLinksSDK(BaseSDK):
                 payment_source=payment_source,
                 store=store,
                 buyer_id=buyer_id,
+                installment_count=installment_count,
             ),
         )
 

@@ -77,6 +77,8 @@ class PaymentLinkTypedDict(TypedDict):
     r"""Whether the payment method was stored."""
     buyer_id: NotRequired[Nullable[str]]
     r"""The ID of the buyer to associate with the stored payment method."""
+    installment_count: NotRequired[Nullable[int]]
+    r"""The number of installments a buyer is required to make."""
 
 
 class PaymentLink(BaseModel):
@@ -174,6 +176,9 @@ class PaymentLink(BaseModel):
     buyer_id: OptionalNullable[str] = UNSET
     r"""The ID of the buyer to associate with the stored payment method."""
 
+    installment_count: OptionalNullable[int] = UNSET
+    r"""The number of installments a buyer is required to make."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -196,6 +201,7 @@ class PaymentLink(BaseModel):
             "connection_options",
             "store",
             "buyer_id",
+            "installment_count",
         ]
         nullable_fields = [
             "expires_at",
@@ -216,6 +222,7 @@ class PaymentLink(BaseModel):
             "shipping_details",
             "connection_options",
             "buyer_id",
+            "installment_count",
         ]
         null_default_fields = []
 
