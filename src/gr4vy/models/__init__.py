@@ -1013,6 +1013,7 @@ if TYPE_CHECKING:
     )
     from .taxid import TaxID, TaxIDTypedDict
     from .taxidkind import TaxIDKind
+    from .threedsecure import ThreeDSecure, ThreeDSecureTypedDict
     from .threedsecuredatav1 import ThreeDSecureDataV1, ThreeDSecureDataV1TypedDict
     from .threedsecuredatav2 import ThreeDSecureDataV2, ThreeDSecureDataV2TypedDict
     from .threedsecureerror import ThreeDSecureError, ThreeDSecureErrorTypedDict
@@ -1974,6 +1975,7 @@ __all__ = [
     "TaxID",
     "TaxIDKind",
     "TaxIDTypedDict",
+    "ThreeDSecure",
     "ThreeDSecureData",
     "ThreeDSecureDataTypedDict",
     "ThreeDSecureDataV1",
@@ -1984,6 +1986,7 @@ __all__ = [
     "ThreeDSecureErrorTypedDict",
     "ThreeDSecureMethod",
     "ThreeDSecureStatus",
+    "ThreeDSecureTypedDict",
     "ThreeDSecureV2",
     "ThreeDSecureV2TypedDict",
     "TicketDeliveryMethod",
@@ -2895,6 +2898,8 @@ _dynamic_imports: dict[str, str] = {
     "TaxID": ".taxid",
     "TaxIDTypedDict": ".taxid",
     "TaxIDKind": ".taxidkind",
+    "ThreeDSecure": ".threedsecure",
+    "ThreeDSecureTypedDict": ".threedsecure",
     "ThreeDSecureDataV1": ".threedsecuredatav1",
     "ThreeDSecureDataV1TypedDict": ".threedsecuredatav1",
     "ThreeDSecureDataV2": ".threedsecuredatav2",

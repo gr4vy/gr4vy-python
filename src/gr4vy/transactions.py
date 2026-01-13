@@ -748,6 +748,9 @@ class Transactions(BaseSDK):
         three_d_secure_data: OptionalNullable[
             Union[models.ThreeDSecureData, models.ThreeDSecureDataTypedDict]
         ] = UNSET,
+        three_d_secure: OptionalNullable[
+            Union[models.ThreeDSecure, models.ThreeDSecureTypedDict]
+        ] = UNSET,
         metadata: OptionalNullable[Dict[str, str]] = UNSET,
         is_subsequent_payment: Optional[bool] = False,
         merchant_initiated: Optional[bool] = False,
@@ -819,6 +822,7 @@ class Transactions(BaseSDK):
             * The flag has to be set to `true` when the `payment_source` is set to `recurring` or `installment`, and `merchant_initiated` is set to `false`.
             * The flag has to be set to `false` (or not set) when using a previously vaulted payment method.
         :param three_d_secure_data: Pass through 3-D Secure data to support external 3-D Secure authorisation. If using an external 3-D Secure provider, you should not pass a `redirect_url` in the `payment_method` object for a transaction.
+        :param three_d_secure: Optional 3-D Secure values to use during the authentication flow.
         :param metadata: Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it.
         :param is_subsequent_payment: Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note there are some restrictions on how this flag may be used.
 
@@ -901,6 +905,9 @@ class Transactions(BaseSDK):
                 store=store,
                 three_d_secure_data=utils.get_pydantic_model(
                     three_d_secure_data, OptionalNullable[models.ThreeDSecureData]
+                ),
+                three_d_secure=utils.get_pydantic_model(
+                    three_d_secure, OptionalNullable[models.ThreeDSecure]
                 ),
                 metadata=metadata,
                 is_subsequent_payment=is_subsequent_payment,
@@ -1089,6 +1096,9 @@ class Transactions(BaseSDK):
         three_d_secure_data: OptionalNullable[
             Union[models.ThreeDSecureData, models.ThreeDSecureDataTypedDict]
         ] = UNSET,
+        three_d_secure: OptionalNullable[
+            Union[models.ThreeDSecure, models.ThreeDSecureTypedDict]
+        ] = UNSET,
         metadata: OptionalNullable[Dict[str, str]] = UNSET,
         is_subsequent_payment: Optional[bool] = False,
         merchant_initiated: Optional[bool] = False,
@@ -1160,6 +1170,7 @@ class Transactions(BaseSDK):
             * The flag has to be set to `true` when the `payment_source` is set to `recurring` or `installment`, and `merchant_initiated` is set to `false`.
             * The flag has to be set to `false` (or not set) when using a previously vaulted payment method.
         :param three_d_secure_data: Pass through 3-D Secure data to support external 3-D Secure authorisation. If using an external 3-D Secure provider, you should not pass a `redirect_url` in the `payment_method` object for a transaction.
+        :param three_d_secure: Optional 3-D Secure values to use during the authentication flow.
         :param metadata: Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it.
         :param is_subsequent_payment: Indicates whether the transaction represents a subsequent payment coming from a setup recurring payment. Please note there are some restrictions on how this flag may be used.
 
@@ -1242,6 +1253,9 @@ class Transactions(BaseSDK):
                 store=store,
                 three_d_secure_data=utils.get_pydantic_model(
                     three_d_secure_data, OptionalNullable[models.ThreeDSecureData]
+                ),
+                three_d_secure=utils.get_pydantic_model(
+                    three_d_secure, OptionalNullable[models.ThreeDSecure]
                 ),
                 metadata=metadata,
                 is_subsequent_payment=is_subsequent_payment,
