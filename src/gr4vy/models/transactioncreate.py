@@ -56,6 +56,7 @@ from .redirectpaymentmethodcreate import (
     RedirectPaymentMethodCreateTypedDict,
 )
 from .statementdescriptor import StatementDescriptor, StatementDescriptorTypedDict
+from .threedsecure import ThreeDSecure, ThreeDSecureTypedDict
 from .threedsecuredatav1 import ThreeDSecureDataV1, ThreeDSecureDataV1TypedDict
 from .threedsecuredatav2 import ThreeDSecureDataV2, ThreeDSecureDataV2TypedDict
 from .tokenpaymentmethodcreate import (
@@ -164,6 +165,8 @@ class TransactionCreateTypedDict(TypedDict):
     """
     three_d_secure_data: NotRequired[Nullable[ThreeDSecureDataTypedDict]]
     r"""Pass through 3-D Secure data to support external 3-D Secure authorisation. If using an external 3-D Secure provider, you should not pass a `redirect_url` in the `payment_method` object for a transaction."""
+    three_d_secure: NotRequired[Nullable[ThreeDSecureTypedDict]]
+    r"""Optional 3-D Secure values to use during the authentication flow."""
     metadata: NotRequired[Nullable[Dict[str, str]]]
     r"""Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it."""
     is_subsequent_payment: NotRequired[bool]
@@ -277,6 +280,9 @@ class TransactionCreate(BaseModel):
     three_d_secure_data: OptionalNullable[ThreeDSecureData] = UNSET
     r"""Pass through 3-D Secure data to support external 3-D Secure authorisation. If using an external 3-D Secure provider, you should not pass a `redirect_url` in the `payment_method` object for a transaction."""
 
+    three_d_secure: OptionalNullable[ThreeDSecure] = UNSET
+    r"""Optional 3-D Secure values to use during the authentication flow."""
+
     metadata: OptionalNullable[Dict[str, str]] = UNSET
     r"""Any additional information about the transaction that you would like to store as key-value pairs. This data is passed to payment service providers that support it."""
 
@@ -388,6 +394,7 @@ class TransactionCreate(BaseModel):
             "intent",
             "store",
             "three_d_secure_data",
+            "three_d_secure",
             "metadata",
             "is_subsequent_payment",
             "merchant_initiated",
@@ -425,6 +432,7 @@ class TransactionCreate(BaseModel):
             "gift_cards",
             "external_identifier",
             "three_d_secure_data",
+            "three_d_secure",
             "metadata",
             "airline",
             "cart_items",
