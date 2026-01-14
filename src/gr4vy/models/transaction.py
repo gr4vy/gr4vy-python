@@ -176,6 +176,8 @@ class TransactionTypedDict(TypedDict):
     r"""Total charges for import/export duties."""
     shipping_amount: NotRequired[Nullable[int]]
     r"""Total shipping amount."""
+    iso_response_code: NotRequired[Nullable[str]]
+    r"""This is the ISO8583 response code code received from the payment service."""
 
 
 class Transaction(BaseModel):
@@ -388,6 +390,9 @@ class Transaction(BaseModel):
     shipping_amount: OptionalNullable[int] = UNSET
     r"""Total shipping amount."""
 
+    iso_response_code: OptionalNullable[str] = UNSET
+    r"""This is the ISO8583 response code code received from the payment service."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = [
@@ -437,6 +442,7 @@ class Transaction(BaseModel):
             "supplier_order_number",
             "duty_amount",
             "shipping_amount",
+            "iso_response_code",
         ]
         nullable_fields = [
             "settled_currency",
@@ -482,6 +488,7 @@ class Transaction(BaseModel):
             "supplier_order_number",
             "duty_amount",
             "shipping_amount",
+            "iso_response_code",
         ]
         null_default_fields = []
 
