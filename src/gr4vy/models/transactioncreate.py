@@ -383,100 +383,99 @@ class TransactionCreate(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = [
-            "country",
-            "payment_method",
-            "buyer",
-            "buyer_id",
-            "buyer_external_identifier",
-            "gift_cards",
-            "external_identifier",
-            "intent",
-            "store",
-            "three_d_secure_data",
-            "three_d_secure",
-            "metadata",
-            "is_subsequent_payment",
-            "merchant_initiated",
-            "payment_source",
-            "airline",
-            "cart_items",
-            "statement_descriptor",
-            "previous_scheme_transaction_id",
-            "browser_info",
-            "shipping_details_id",
-            "connection_options",
-            "async_capture",
-            "anti_fraud_fingerprint",
-            "payment_service_id",
-            "account_funding_transaction",
-            "allow_partial_authorization",
-            "recipient",
-            "installment_count",
-            "tax_amount",
-            "merchant_tax_id",
-            "purchase_order_number",
-            "customer_reference_number",
-            "amount_includes_tax",
-            "supplier_order_number",
-            "duty_amount",
-            "shipping_amount",
-            "integration_client",
-        ]
-        nullable_fields = [
-            "country",
-            "payment_method",
-            "buyer",
-            "buyer_id",
-            "buyer_external_identifier",
-            "gift_cards",
-            "external_identifier",
-            "three_d_secure_data",
-            "three_d_secure",
-            "metadata",
-            "airline",
-            "cart_items",
-            "statement_descriptor",
-            "previous_scheme_transaction_id",
-            "browser_info",
-            "shipping_details_id",
-            "connection_options",
-            "anti_fraud_fingerprint",
-            "payment_service_id",
-            "recipient",
-            "installment_count",
-            "tax_amount",
-            "merchant_tax_id",
-            "purchase_order_number",
-            "customer_reference_number",
-            "amount_includes_tax",
-            "supplier_order_number",
-            "duty_amount",
-            "shipping_amount",
-            "integration_client",
-        ]
-        null_default_fields = []
-
+        optional_fields = set(
+            [
+                "country",
+                "payment_method",
+                "buyer",
+                "buyer_id",
+                "buyer_external_identifier",
+                "gift_cards",
+                "external_identifier",
+                "intent",
+                "store",
+                "three_d_secure_data",
+                "three_d_secure",
+                "metadata",
+                "is_subsequent_payment",
+                "merchant_initiated",
+                "payment_source",
+                "airline",
+                "cart_items",
+                "statement_descriptor",
+                "previous_scheme_transaction_id",
+                "browser_info",
+                "shipping_details_id",
+                "connection_options",
+                "async_capture",
+                "anti_fraud_fingerprint",
+                "payment_service_id",
+                "account_funding_transaction",
+                "allow_partial_authorization",
+                "recipient",
+                "installment_count",
+                "tax_amount",
+                "merchant_tax_id",
+                "purchase_order_number",
+                "customer_reference_number",
+                "amount_includes_tax",
+                "supplier_order_number",
+                "duty_amount",
+                "shipping_amount",
+                "integration_client",
+            ]
+        )
+        nullable_fields = set(
+            [
+                "country",
+                "payment_method",
+                "buyer",
+                "buyer_id",
+                "buyer_external_identifier",
+                "gift_cards",
+                "external_identifier",
+                "three_d_secure_data",
+                "three_d_secure",
+                "metadata",
+                "airline",
+                "cart_items",
+                "statement_descriptor",
+                "previous_scheme_transaction_id",
+                "browser_info",
+                "shipping_details_id",
+                "connection_options",
+                "anti_fraud_fingerprint",
+                "payment_service_id",
+                "recipient",
+                "installment_count",
+                "tax_amount",
+                "merchant_tax_id",
+                "purchase_order_number",
+                "customer_reference_number",
+                "amount_includes_tax",
+                "supplier_order_number",
+                "duty_amount",
+                "shipping_amount",
+                "integration_client",
+            ]
+        )
         serialized = handler(self)
-
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k)
-            serialized.pop(k, None)
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
-            optional_nullable = k in optional_fields and k in nullable_fields
-            is_set = (
-                self.__pydantic_fields_set__.intersection({n})
-                or k in null_default_fields
-            )  # pylint: disable=no-member
-
-            if val is not None and val != UNSET_SENTINEL:
-                m[k] = val
-            elif val != UNSET_SENTINEL and (
-                not k in optional_fields or (optional_nullable and is_set)
-            ):
-                m[k] = val
+            if val != UNSET_SENTINEL:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
+                    m[k] = val
 
         return m

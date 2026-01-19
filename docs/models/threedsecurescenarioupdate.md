@@ -1,0 +1,9 @@
+# ThreeDSecureScenarioUpdate
+
+
+## Fields
+
+| Field                                                                                                  | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
+| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
+| `conditions`                                                                                           | [OptionalNullable[models.ThreeDSecureScenarioConditions]](../models/threedsecurescenarioconditions.md) | :heavy_minus_sign:                                                                                     | Conditions for the scenario.                                                                           |
+| `outcome`                                                                                              | [OptionalNullable[models.ThreeDSecureScenarioOutcome]](../models/threedsecurescenariooutcome.md)       | :heavy_minus_sign:                                                                                     | Outcome for the scenario.                                                                              |

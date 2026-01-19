@@ -395,123 +395,122 @@ class Transaction(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = [
-            "type",
-            "settled_currency",
-            "country",
-            "external_identifier",
-            "payment_method",
-            "method",
-            "instrument_type",
-            "error_code",
-            "payment_service",
-            "pending_review",
-            "buyer",
-            "raw_response_code",
-            "raw_response_description",
-            "shipping_details",
-            "checkout_session_id",
-            "gift_card_service",
-            "airline",
-            "auth_response_code",
-            "avs_response_code",
-            "cvv_response_code",
-            "anti_fraud_decision",
-            "cart_items",
-            "statement_descriptor",
-            "scheme_transaction_id",
-            "three_d_secure",
-            "payment_service_transaction_id",
-            "additional_identifiers",
-            "metadata",
-            "authorized_at",
-            "captured_at",
-            "voided_at",
-            "canceled_at",
-            "approval_expires_at",
-            "buyer_approval_timedout_at",
-            "recipient",
-            "merchant_advice_code",
-            "installment_count",
-            "session_token",
-            "tax_amount",
-            "merchant_tax_id",
-            "purchase_order_number",
-            "customer_reference_number",
-            "amount_includes_tax",
-            "supplier_order_number",
-            "duty_amount",
-            "shipping_amount",
-            "iso_response_code",
-        ]
-        nullable_fields = [
-            "settled_currency",
-            "country",
-            "external_identifier",
-            "payment_method",
-            "method",
-            "instrument_type",
-            "error_code",
-            "payment_service",
-            "buyer",
-            "raw_response_code",
-            "raw_response_description",
-            "shipping_details",
-            "checkout_session_id",
-            "gift_card_service",
-            "airline",
-            "auth_response_code",
-            "avs_response_code",
-            "cvv_response_code",
-            "anti_fraud_decision",
-            "cart_items",
-            "statement_descriptor",
-            "scheme_transaction_id",
-            "three_d_secure",
-            "payment_service_transaction_id",
-            "metadata",
-            "authorized_at",
-            "captured_at",
-            "voided_at",
-            "canceled_at",
-            "approval_expires_at",
-            "buyer_approval_timedout_at",
-            "recipient",
-            "merchant_advice_code",
-            "installment_count",
-            "session_token",
-            "tax_amount",
-            "merchant_tax_id",
-            "purchase_order_number",
-            "customer_reference_number",
-            "amount_includes_tax",
-            "supplier_order_number",
-            "duty_amount",
-            "shipping_amount",
-            "iso_response_code",
-        ]
-        null_default_fields = []
-
+        optional_fields = set(
+            [
+                "type",
+                "settled_currency",
+                "country",
+                "external_identifier",
+                "payment_method",
+                "method",
+                "instrument_type",
+                "error_code",
+                "payment_service",
+                "pending_review",
+                "buyer",
+                "raw_response_code",
+                "raw_response_description",
+                "shipping_details",
+                "checkout_session_id",
+                "gift_card_service",
+                "airline",
+                "auth_response_code",
+                "avs_response_code",
+                "cvv_response_code",
+                "anti_fraud_decision",
+                "cart_items",
+                "statement_descriptor",
+                "scheme_transaction_id",
+                "three_d_secure",
+                "payment_service_transaction_id",
+                "additional_identifiers",
+                "metadata",
+                "authorized_at",
+                "captured_at",
+                "voided_at",
+                "canceled_at",
+                "approval_expires_at",
+                "buyer_approval_timedout_at",
+                "recipient",
+                "merchant_advice_code",
+                "installment_count",
+                "session_token",
+                "tax_amount",
+                "merchant_tax_id",
+                "purchase_order_number",
+                "customer_reference_number",
+                "amount_includes_tax",
+                "supplier_order_number",
+                "duty_amount",
+                "shipping_amount",
+                "iso_response_code",
+            ]
+        )
+        nullable_fields = set(
+            [
+                "settled_currency",
+                "country",
+                "external_identifier",
+                "payment_method",
+                "method",
+                "instrument_type",
+                "error_code",
+                "payment_service",
+                "buyer",
+                "raw_response_code",
+                "raw_response_description",
+                "shipping_details",
+                "checkout_session_id",
+                "gift_card_service",
+                "airline",
+                "auth_response_code",
+                "avs_response_code",
+                "cvv_response_code",
+                "anti_fraud_decision",
+                "cart_items",
+                "statement_descriptor",
+                "scheme_transaction_id",
+                "three_d_secure",
+                "payment_service_transaction_id",
+                "metadata",
+                "authorized_at",
+                "captured_at",
+                "voided_at",
+                "canceled_at",
+                "approval_expires_at",
+                "buyer_approval_timedout_at",
+                "recipient",
+                "merchant_advice_code",
+                "installment_count",
+                "session_token",
+                "tax_amount",
+                "merchant_tax_id",
+                "purchase_order_number",
+                "customer_reference_number",
+                "amount_includes_tax",
+                "supplier_order_number",
+                "duty_amount",
+                "shipping_amount",
+                "iso_response_code",
+            ]
+        )
         serialized = handler(self)
-
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k)
-            serialized.pop(k, None)
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
-            optional_nullable = k in optional_fields and k in nullable_fields
-            is_set = (
-                self.__pydantic_fields_set__.intersection({n})
-                or k in null_default_fields
-            )  # pylint: disable=no-member
-
-            if val is not None and val != UNSET_SENTINEL:
-                m[k] = val
-            elif val != UNSET_SENTINEL and (
-                not k in optional_fields or (optional_nullable and is_set)
-            ):
-                m[k] = val
+            if val != UNSET_SENTINEL:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
+                    m[k] = val
 
         return m

@@ -33,6 +33,7 @@ if TYPE_CHECKING:
     from gr4vy.refunds_sdk import RefundsSDK
     from gr4vy.report_executions_sdk import ReportExecutionsSDK
     from gr4vy.reports_sdk import ReportsSDK
+    from gr4vy.three_ds_scenarios import ThreeDsScenarios
     from gr4vy.transactions import Transactions
 
 
@@ -55,6 +56,7 @@ class Gr4vy(BaseSDK):
     report_executions: "ReportExecutionsSDK"
     checkout_sessions: "CheckoutSessions"
     merchant_accounts: "MerchantAccountsSDK"
+    three_ds_scenarios: "ThreeDsScenarios"
     payouts: "Payouts"
     payment_links: "PaymentLinksSDK"
     _sub_sdk_map = {
@@ -80,6 +82,7 @@ class Gr4vy(BaseSDK):
         "report_executions": ("gr4vy.report_executions_sdk", "ReportExecutionsSDK"),
         "checkout_sessions": ("gr4vy.checkout_sessions", "CheckoutSessions"),
         "merchant_accounts": ("gr4vy.merchant_accounts_sdk", "MerchantAccountsSDK"),
+        "three_ds_scenarios": ("gr4vy.three_ds_scenarios", "ThreeDsScenarios"),
         "payouts": ("gr4vy.payouts", "Payouts"),
         "payment_links": ("gr4vy.payment_links_sdk", "PaymentLinksSDK"),
     }

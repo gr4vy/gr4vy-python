@@ -263,6 +263,12 @@ if TYPE_CHECKING:
         CreateReportExecutionURLRequest,
         CreateReportExecutionURLRequestTypedDict,
     )
+    from .create_three_ds_scenarioop import (
+        CreateThreeDsScenarioGlobals,
+        CreateThreeDsScenarioGlobalsTypedDict,
+        CreateThreeDsScenarioRequest,
+        CreateThreeDsScenarioRequestTypedDict,
+    )
     from .create_transaction_refundop import (
         CreateTransactionRefundGlobals,
         CreateTransactionRefundGlobalsTypedDict,
@@ -341,6 +347,12 @@ if TYPE_CHECKING:
         DeletePaymentServiceGlobalsTypedDict,
         DeletePaymentServiceRequest,
         DeletePaymentServiceRequestTypedDict,
+    )
+    from .delete_three_ds_scenarioop import (
+        DeleteThreeDsScenarioGlobals,
+        DeleteThreeDsScenarioGlobalsTypedDict,
+        DeleteThreeDsScenarioRequest,
+        DeleteThreeDsScenarioRequestTypedDict,
     )
     from .detailedsettlementreportspec import (
         DetailedSettlementReportSpec,
@@ -506,6 +518,14 @@ if TYPE_CHECKING:
         GetReportGlobalsTypedDict,
         GetReportRequest,
         GetReportRequestTypedDict,
+    )
+    from .get_three_ds_scenarioop import (
+        GetThreeDsScenarioGlobals,
+        GetThreeDsScenarioGlobalsTypedDict,
+        GetThreeDsScenarioRequest,
+        GetThreeDsScenarioRequestTypedDict,
+        GetThreeDsScenarioResponse,
+        GetThreeDsScenarioResponseTypedDict,
     )
     from .get_transaction_refundop import (
         GetTransactionRefundGlobals,
@@ -1018,6 +1038,40 @@ if TYPE_CHECKING:
     from .threedsecuredatav2 import ThreeDSecureDataV2, ThreeDSecureDataV2TypedDict
     from .threedsecureerror import ThreeDSecureError, ThreeDSecureErrorTypedDict
     from .threedsecuremethod import ThreeDSecureMethod
+    from .threedsecurescenario import (
+        ThreeDSecureScenario,
+        ThreeDSecureScenarioTypedDict,
+    )
+    from .threedsecurescenarioconditions import (
+        ThreeDSecureScenarioConditions,
+        ThreeDSecureScenarioConditionsTypedDict,
+    )
+    from .threedsecurescenariocreate import (
+        ThreeDSecureScenarioCreate,
+        ThreeDSecureScenarioCreateTypedDict,
+    )
+    from .threedsecurescenariooutcome import (
+        ThreeDSecureScenarioOutcome,
+        ThreeDSecureScenarioOutcomeTypedDict,
+    )
+    from .threedsecurescenariooutcomeauthentication import (
+        ThreeDSecureScenarioOutcomeAuthentication,
+        ThreeDSecureScenarioOutcomeAuthenticationTransactionStatus,
+        ThreeDSecureScenarioOutcomeAuthenticationTypedDict,
+    )
+    from .threedsecurescenariooutcomeresult import (
+        ThreeDSecureScenarioOutcomeResult,
+        ThreeDSecureScenarioOutcomeResultTransactionStatus,
+        ThreeDSecureScenarioOutcomeResultTypedDict,
+    )
+    from .threedsecurescenarios import (
+        ThreeDSecureScenarios,
+        ThreeDSecureScenariosTypedDict,
+    )
+    from .threedsecurescenarioupdate import (
+        ThreeDSecureScenarioUpdate,
+        ThreeDSecureScenarioUpdateTypedDict,
+    )
     from .threedsecurestatus import ThreeDSecureStatus
     from .threedsecurev2 import ThreeDSecureV2, ThreeDSecureV2TypedDict
     from .tokenpaymentmethodcreate import (
@@ -1140,6 +1194,12 @@ if TYPE_CHECKING:
         UpdateReportGlobalsTypedDict,
         UpdateReportRequest,
         UpdateReportRequestTypedDict,
+    )
+    from .update_three_ds_scenarioop import (
+        UpdateThreeDsScenarioGlobals,
+        UpdateThreeDsScenarioGlobalsTypedDict,
+        UpdateThreeDsScenarioRequest,
+        UpdateThreeDsScenarioRequestTypedDict,
     )
     from .update_transactionop import (
         UpdateTransactionGlobals,
@@ -1388,6 +1448,10 @@ __all__ = [
     "CreateSession",
     "CreateSessionStatus",
     "CreateSessionTypedDict",
+    "CreateThreeDsScenarioGlobals",
+    "CreateThreeDsScenarioGlobalsTypedDict",
+    "CreateThreeDsScenarioRequest",
+    "CreateThreeDsScenarioRequestTypedDict",
     "CreateTransactionGlobals",
     "CreateTransactionGlobalsTypedDict",
     "CreateTransactionRefundGlobals",
@@ -1445,6 +1509,10 @@ __all__ = [
     "DeletePaymentServiceGlobalsTypedDict",
     "DeletePaymentServiceRequest",
     "DeletePaymentServiceRequestTypedDict",
+    "DeleteThreeDsScenarioGlobals",
+    "DeleteThreeDsScenarioGlobalsTypedDict",
+    "DeleteThreeDsScenarioRequest",
+    "DeleteThreeDsScenarioRequestTypedDict",
     "DetailedSettlementReportSpec",
     "DetailedSettlementReportSpecTypedDict",
     "DigitalWallet",
@@ -1560,6 +1628,12 @@ __all__ = [
     "GetReportGlobalsTypedDict",
     "GetReportRequest",
     "GetReportRequestTypedDict",
+    "GetThreeDsScenarioGlobals",
+    "GetThreeDsScenarioGlobalsTypedDict",
+    "GetThreeDsScenarioRequest",
+    "GetThreeDsScenarioRequestTypedDict",
+    "GetThreeDsScenarioResponse",
+    "GetThreeDsScenarioResponseTypedDict",
     "GetTransactionGlobals",
     "GetTransactionGlobalsTypedDict",
     "GetTransactionRefundGlobals",
@@ -1985,6 +2059,24 @@ __all__ = [
     "ThreeDSecureError",
     "ThreeDSecureErrorTypedDict",
     "ThreeDSecureMethod",
+    "ThreeDSecureScenario",
+    "ThreeDSecureScenarioConditions",
+    "ThreeDSecureScenarioConditionsTypedDict",
+    "ThreeDSecureScenarioCreate",
+    "ThreeDSecureScenarioCreateTypedDict",
+    "ThreeDSecureScenarioOutcome",
+    "ThreeDSecureScenarioOutcomeAuthentication",
+    "ThreeDSecureScenarioOutcomeAuthenticationTransactionStatus",
+    "ThreeDSecureScenarioOutcomeAuthenticationTypedDict",
+    "ThreeDSecureScenarioOutcomeResult",
+    "ThreeDSecureScenarioOutcomeResultTransactionStatus",
+    "ThreeDSecureScenarioOutcomeResultTypedDict",
+    "ThreeDSecureScenarioOutcomeTypedDict",
+    "ThreeDSecureScenarioTypedDict",
+    "ThreeDSecureScenarioUpdate",
+    "ThreeDSecureScenarioUpdateTypedDict",
+    "ThreeDSecureScenarios",
+    "ThreeDSecureScenariosTypedDict",
     "ThreeDSecureStatus",
     "ThreeDSecureTypedDict",
     "ThreeDSecureV2",
@@ -2082,6 +2174,10 @@ __all__ = [
     "UpdateReportGlobalsTypedDict",
     "UpdateReportRequest",
     "UpdateReportRequestTypedDict",
+    "UpdateThreeDsScenarioGlobals",
+    "UpdateThreeDsScenarioGlobalsTypedDict",
+    "UpdateThreeDsScenarioRequest",
+    "UpdateThreeDsScenarioRequestTypedDict",
     "UpdateTransactionGlobals",
     "UpdateTransactionGlobalsTypedDict",
     "UpdateTransactionRequest",
@@ -2314,6 +2410,10 @@ _dynamic_imports: dict[str, str] = {
     "CreateReportExecutionURLGlobalsTypedDict": ".create_report_execution_urlop",
     "CreateReportExecutionURLRequest": ".create_report_execution_urlop",
     "CreateReportExecutionURLRequestTypedDict": ".create_report_execution_urlop",
+    "CreateThreeDsScenarioGlobals": ".create_three_ds_scenarioop",
+    "CreateThreeDsScenarioGlobalsTypedDict": ".create_three_ds_scenarioop",
+    "CreateThreeDsScenarioRequest": ".create_three_ds_scenarioop",
+    "CreateThreeDsScenarioRequestTypedDict": ".create_three_ds_scenarioop",
     "CreateTransactionRefundGlobals": ".create_transaction_refundop",
     "CreateTransactionRefundGlobalsTypedDict": ".create_transaction_refundop",
     "CreateTransactionRefundRequest": ".create_transaction_refundop",
@@ -2375,6 +2475,10 @@ _dynamic_imports: dict[str, str] = {
     "DeletePaymentServiceGlobalsTypedDict": ".delete_payment_serviceop",
     "DeletePaymentServiceRequest": ".delete_payment_serviceop",
     "DeletePaymentServiceRequestTypedDict": ".delete_payment_serviceop",
+    "DeleteThreeDsScenarioGlobals": ".delete_three_ds_scenarioop",
+    "DeleteThreeDsScenarioGlobalsTypedDict": ".delete_three_ds_scenarioop",
+    "DeleteThreeDsScenarioRequest": ".delete_three_ds_scenarioop",
+    "DeleteThreeDsScenarioRequestTypedDict": ".delete_three_ds_scenarioop",
     "DetailedSettlementReportSpec": ".detailedsettlementreportspec",
     "DetailedSettlementReportSpecTypedDict": ".detailedsettlementreportspec",
     "DigitalWallet": ".digitalwallet",
@@ -2491,6 +2595,12 @@ _dynamic_imports: dict[str, str] = {
     "GetReportGlobalsTypedDict": ".get_reportop",
     "GetReportRequest": ".get_reportop",
     "GetReportRequestTypedDict": ".get_reportop",
+    "GetThreeDsScenarioGlobals": ".get_three_ds_scenarioop",
+    "GetThreeDsScenarioGlobalsTypedDict": ".get_three_ds_scenarioop",
+    "GetThreeDsScenarioRequest": ".get_three_ds_scenarioop",
+    "GetThreeDsScenarioRequestTypedDict": ".get_three_ds_scenarioop",
+    "GetThreeDsScenarioResponse": ".get_three_ds_scenarioop",
+    "GetThreeDsScenarioResponseTypedDict": ".get_three_ds_scenarioop",
     "GetTransactionRefundGlobals": ".get_transaction_refundop",
     "GetTransactionRefundGlobalsTypedDict": ".get_transaction_refundop",
     "GetTransactionRefundRequest": ".get_transaction_refundop",
@@ -2907,6 +3017,24 @@ _dynamic_imports: dict[str, str] = {
     "ThreeDSecureError": ".threedsecureerror",
     "ThreeDSecureErrorTypedDict": ".threedsecureerror",
     "ThreeDSecureMethod": ".threedsecuremethod",
+    "ThreeDSecureScenario": ".threedsecurescenario",
+    "ThreeDSecureScenarioTypedDict": ".threedsecurescenario",
+    "ThreeDSecureScenarioConditions": ".threedsecurescenarioconditions",
+    "ThreeDSecureScenarioConditionsTypedDict": ".threedsecurescenarioconditions",
+    "ThreeDSecureScenarioCreate": ".threedsecurescenariocreate",
+    "ThreeDSecureScenarioCreateTypedDict": ".threedsecurescenariocreate",
+    "ThreeDSecureScenarioOutcome": ".threedsecurescenariooutcome",
+    "ThreeDSecureScenarioOutcomeTypedDict": ".threedsecurescenariooutcome",
+    "ThreeDSecureScenarioOutcomeAuthentication": ".threedsecurescenariooutcomeauthentication",
+    "ThreeDSecureScenarioOutcomeAuthenticationTransactionStatus": ".threedsecurescenariooutcomeauthentication",
+    "ThreeDSecureScenarioOutcomeAuthenticationTypedDict": ".threedsecurescenariooutcomeauthentication",
+    "ThreeDSecureScenarioOutcomeResult": ".threedsecurescenariooutcomeresult",
+    "ThreeDSecureScenarioOutcomeResultTransactionStatus": ".threedsecurescenariooutcomeresult",
+    "ThreeDSecureScenarioOutcomeResultTypedDict": ".threedsecurescenariooutcomeresult",
+    "ThreeDSecureScenarios": ".threedsecurescenarios",
+    "ThreeDSecureScenariosTypedDict": ".threedsecurescenarios",
+    "ThreeDSecureScenarioUpdate": ".threedsecurescenarioupdate",
+    "ThreeDSecureScenarioUpdateTypedDict": ".threedsecurescenarioupdate",
     "ThreeDSecureStatus": ".threedsecurestatus",
     "ThreeDSecureV2": ".threedsecurev2",
     "ThreeDSecureV2TypedDict": ".threedsecurev2",
@@ -3007,6 +3135,10 @@ _dynamic_imports: dict[str, str] = {
     "UpdateReportGlobalsTypedDict": ".update_reportop",
     "UpdateReportRequest": ".update_reportop",
     "UpdateReportRequestTypedDict": ".update_reportop",
+    "UpdateThreeDsScenarioGlobals": ".update_three_ds_scenarioop",
+    "UpdateThreeDsScenarioGlobalsTypedDict": ".update_three_ds_scenarioop",
+    "UpdateThreeDsScenarioRequest": ".update_three_ds_scenarioop",
+    "UpdateThreeDsScenarioRequestTypedDict": ".update_three_ds_scenarioop",
     "UpdateTransactionGlobals": ".update_transactionop",
     "UpdateTransactionGlobalsTypedDict": ".update_transactionop",
     "UpdateTransactionRequest": ".update_transactionop",
