@@ -27,6 +27,22 @@ class ListTransactionsGlobals(BaseModel):
     ] = None
     r"""The ID of the merchant account to use for this request."""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["merchant_account_id"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 class ListTransactionsRequestTypedDict(TypedDict):
     cursor: NotRequired[Nullable[str]]
@@ -373,121 +389,120 @@ class ListTransactionsRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = [
-            "cursor",
-            "limit",
-            "created_at_lte",
-            "created_at_gte",
-            "updated_at_lte",
-            "updated_at_gte",
-            "search",
-            "buyer_external_identifier",
-            "buyer_id",
-            "buyer_email_address",
-            "ip_address",
-            "status",
-            "id",
-            "payment_service_transaction_id",
-            "external_identifier",
-            "metadata",
-            "amount_eq",
-            "amount_lte",
-            "amount_gte",
-            "currency",
-            "country",
-            "payment_service_id",
-            "payment_method_id",
-            "payment_method_label",
-            "payment_method_scheme",
-            "payment_method_country",
-            "payment_method_fingerprint",
-            "method",
-            "error_code",
-            "has_refunds",
-            "pending_review",
-            "checkout_session_id",
-            "reconciliation_id",
-            "has_gift_card_redemptions",
-            "gift_card_id",
-            "gift_card_last4",
-            "has_settlements",
-            "payment_method_bin",
-            "payment_source",
-            "is_subsequent_payment",
-            "merchant_initiated",
-            "used_3ds",
-            "disputed",
-            "buyer_search",
-            "merchant_account_id",
-        ]
-        nullable_fields = [
-            "cursor",
-            "created_at_lte",
-            "created_at_gte",
-            "updated_at_lte",
-            "updated_at_gte",
-            "search",
-            "buyer_external_identifier",
-            "buyer_id",
-            "buyer_email_address",
-            "ip_address",
-            "status",
-            "id",
-            "payment_service_transaction_id",
-            "external_identifier",
-            "metadata",
-            "amount_eq",
-            "amount_lte",
-            "amount_gte",
-            "currency",
-            "country",
-            "payment_service_id",
-            "payment_method_id",
-            "payment_method_label",
-            "payment_method_scheme",
-            "payment_method_country",
-            "payment_method_fingerprint",
-            "method",
-            "error_code",
-            "has_refunds",
-            "pending_review",
-            "checkout_session_id",
-            "reconciliation_id",
-            "has_gift_card_redemptions",
-            "gift_card_id",
-            "gift_card_last4",
-            "has_settlements",
-            "payment_method_bin",
-            "payment_source",
-            "is_subsequent_payment",
-            "merchant_initiated",
-            "used_3ds",
-            "disputed",
-            "buyer_search",
-        ]
-        null_default_fields = []
-
+        optional_fields = set(
+            [
+                "cursor",
+                "limit",
+                "created_at_lte",
+                "created_at_gte",
+                "updated_at_lte",
+                "updated_at_gte",
+                "search",
+                "buyer_external_identifier",
+                "buyer_id",
+                "buyer_email_address",
+                "ip_address",
+                "status",
+                "id",
+                "payment_service_transaction_id",
+                "external_identifier",
+                "metadata",
+                "amount_eq",
+                "amount_lte",
+                "amount_gte",
+                "currency",
+                "country",
+                "payment_service_id",
+                "payment_method_id",
+                "payment_method_label",
+                "payment_method_scheme",
+                "payment_method_country",
+                "payment_method_fingerprint",
+                "method",
+                "error_code",
+                "has_refunds",
+                "pending_review",
+                "checkout_session_id",
+                "reconciliation_id",
+                "has_gift_card_redemptions",
+                "gift_card_id",
+                "gift_card_last4",
+                "has_settlements",
+                "payment_method_bin",
+                "payment_source",
+                "is_subsequent_payment",
+                "merchant_initiated",
+                "used_3ds",
+                "disputed",
+                "buyer_search",
+                "merchant_account_id",
+            ]
+        )
+        nullable_fields = set(
+            [
+                "cursor",
+                "created_at_lte",
+                "created_at_gte",
+                "updated_at_lte",
+                "updated_at_gte",
+                "search",
+                "buyer_external_identifier",
+                "buyer_id",
+                "buyer_email_address",
+                "ip_address",
+                "status",
+                "id",
+                "payment_service_transaction_id",
+                "external_identifier",
+                "metadata",
+                "amount_eq",
+                "amount_lte",
+                "amount_gte",
+                "currency",
+                "country",
+                "payment_service_id",
+                "payment_method_id",
+                "payment_method_label",
+                "payment_method_scheme",
+                "payment_method_country",
+                "payment_method_fingerprint",
+                "method",
+                "error_code",
+                "has_refunds",
+                "pending_review",
+                "checkout_session_id",
+                "reconciliation_id",
+                "has_gift_card_redemptions",
+                "gift_card_id",
+                "gift_card_last4",
+                "has_settlements",
+                "payment_method_bin",
+                "payment_source",
+                "is_subsequent_payment",
+                "merchant_initiated",
+                "used_3ds",
+                "disputed",
+                "buyer_search",
+            ]
+        )
         serialized = handler(self)
-
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k)
-            serialized.pop(k, None)
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
-            optional_nullable = k in optional_fields and k in nullable_fields
-            is_set = (
-                self.__pydantic_fields_set__.intersection({n})
-                or k in null_default_fields
-            )  # pylint: disable=no-member
-
-            if val is not None and val != UNSET_SENTINEL:
-                m[k] = val
-            elif val != UNSET_SENTINEL and (
-                not k in optional_fields or (optional_nullable and is_set)
-            ):
-                m[k] = val
+            if val != UNSET_SENTINEL:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
+                    m[k] = val
 
         return m
 

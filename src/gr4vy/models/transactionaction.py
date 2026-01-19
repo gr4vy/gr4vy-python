@@ -4,9 +4,10 @@ from __future__ import annotations
 from .flow import Flow
 from .flowaction import FlowAction
 from datetime import datetime
-from gr4vy.types import BaseModel
+from gr4vy.types import BaseModel, UNSET_SENTINEL
 from gr4vy.utils import validate_const
 import pydantic
+from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator
 from typing import Any, Dict, Literal, Optional
 from typing_extensions import Annotated, TypedDict
@@ -46,3 +47,19 @@ class TransactionAction(BaseModel):
         pydantic.Field(alias="type"),
     ] = "action"
     r"""Always `action`."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["type"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

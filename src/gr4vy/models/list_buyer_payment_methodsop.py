@@ -35,6 +35,22 @@ class ListBuyerPaymentMethodsGlobals(BaseModel):
     ] = None
     r"""The ID of the merchant account to use for this request."""
 
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["merchant_account_id"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
+
 
 OrderBy = Union[
     Literal[
@@ -113,44 +129,37 @@ class ListBuyerPaymentMethodsRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = [
-            "buyer_id",
-            "buyer_external_identifier",
-            "sort_by",
-            "order_by",
-            "country",
-            "currency",
-            "merchant_account_id",
-        ]
-        nullable_fields = [
-            "buyer_id",
-            "buyer_external_identifier",
-            "sort_by",
-            "country",
-            "currency",
-        ]
-        null_default_fields = []
-
+        optional_fields = set(
+            [
+                "buyer_id",
+                "buyer_external_identifier",
+                "sort_by",
+                "order_by",
+                "country",
+                "currency",
+                "merchant_account_id",
+            ]
+        )
+        nullable_fields = set(
+            ["buyer_id", "buyer_external_identifier", "sort_by", "country", "currency"]
+        )
         serialized = handler(self)
-
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k)
-            serialized.pop(k, None)
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
-            optional_nullable = k in optional_fields and k in nullable_fields
-            is_set = (
-                self.__pydantic_fields_set__.intersection({n})
-                or k in null_default_fields
-            )  # pylint: disable=no-member
-
-            if val is not None and val != UNSET_SENTINEL:
-                m[k] = val
-            elif val != UNSET_SENTINEL and (
-                not k in optional_fields or (optional_nullable and is_set)
-            ):
-                m[k] = val
+            if val != UNSET_SENTINEL:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
+                    m[k] = val
 
         return m

@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 from .payoutcreate import PayoutCreate, PayoutCreateTypedDict
-from gr4vy.types import BaseModel
+from gr4vy.types import BaseModel, UNSET_SENTINEL
 from gr4vy.utils import FieldMetadata, HeaderMetadata, RequestMetadata
 import pydantic
+from pydantic import model_serializer
 from typing import Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -21,6 +22,22 @@ class CreatePayoutGlobals(BaseModel):
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
     r"""The ID of the merchant account to use for this request."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["merchant_account_id"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m
 
 
 class CreatePayoutRequestTypedDict(TypedDict):
@@ -41,3 +58,19 @@ class CreatePayoutRequest(BaseModel):
         FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
     ] = None
     r"""The ID of the merchant account to use for this request."""
+
+    @model_serializer(mode="wrap")
+    def serialize_model(self, handler):
+        optional_fields = set(["merchant_account_id"])
+        serialized = handler(self)
+        m = {}
+
+        for n, f in type(self).model_fields.items():
+            k = f.alias or n
+            val = serialized.get(k)
+
+            if val != UNSET_SENTINEL:
+                if val is not None or k not in optional_fields:
+                    m[k] = val
+
+        return m

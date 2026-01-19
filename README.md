@@ -457,6 +457,13 @@ except ValueError as error:
 * [url](docs/sdks/executions/README.md#url) - Create URL for executed report
 * [get](docs/sdks/executions/README.md#get) - Get executed report
 
+### [ThreeDsScenarios](docs/sdks/threedsscenarios/README.md)
+
+* [create](docs/sdks/threedsscenarios/README.md#create) - Create a 3DS scenario
+* [list](docs/sdks/threedsscenarios/README.md#list) - List 3DS scenario
+* [update](docs/sdks/threedsscenarios/README.md#update) - Update a 3DS scenario
+* [delete](docs/sdks/threedsscenarios/README.md#delete) - Delete a 3DS scenario
+
 ### [Transactions](docs/sdks/transactions/README.md)
 
 * [list](docs/sdks/transactions/README.md#list) - List transactions
