@@ -61,6 +61,7 @@ The method to use, this can be any of the methods that support redirect requests
 | `ONEY_3X`         | oney_3x           |
 | `ONEY_4X`         | oney_4x           |
 | `ONEY_6X`         | oney_6x           |
+| `ONLINEBANKINGCZ` | onlinebankingcz   |
 | `OVO`             | ovo               |
 | `OXXO`            | oxxo              |
 | `P24`             | p24               |
