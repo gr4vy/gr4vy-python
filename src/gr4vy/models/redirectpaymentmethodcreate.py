@@ -70,6 +70,7 @@ RedirectPaymentMethodCreateMethod = Union[
         "oney_3x",
         "oney_4x",
         "oney_6x",
+        "onlinebankingcz",
         "ovo",
         "oxxo",
         "p24",
