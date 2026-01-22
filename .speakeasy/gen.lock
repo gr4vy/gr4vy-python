@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 9dcf80c6e4d11a5b0bbca4e2fd4387a6
+  docChecksum: f53edb322dae5f9e9e7c4511d04f07c5
   docVersion: 1.0.0
-  speakeasyVersion: 1.692.0
-  generationVersion: 2.797.1
-  releaseVersion: 1.10.16
-  configChecksum: 0b873a4e8436757ae481572573780ae3
+  speakeasyVersion: 1.693.0
+  generationVersion: 2.798.0
+  releaseVersion: 1.10.17
+  configChecksum: 0863205315f8e4f55281e74b85c4db51
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 408a96df-2fcc-4cdb-9eff-4a3e36f147d4
-  pristine_commit_hash: 9403a997f745e5d7ac8d4e5479be5c4676b380d1
-  pristine_tree_hash: 5aadfa9987a87d905e6fc6185369d3c79554bc93
+  generation_id: cb08a808-37e7-47b5-b300-369e778f0791
+  pristine_commit_hash: 937cb201ce9a944de92bc37f8200f20f4d0d44b1
+  pristine_tree_hash: a93777a7ed31136f7d54a2a90ce351a57c77b122
 features:
   python:
     additionalDependencies: 1.0.0
@@ -34,7 +34,7 @@ features:
     methodArguments: 1.0.2
     nameOverrides: 3.0.1
     nullables: 1.0.2
-    openEnums: 1.0.2
+    openEnums: 1.0.3
     pagination: 3.0.7
     responseFormat: 1.0.1
     retries: 3.0.3
@@ -1006,6 +1006,10 @@ trackedFiles:
     id: 78d178685e70
     last_write_checksum: sha1:89a3c62d35123b30dd02fb065f8b322e43bd8d61
     pristine_git_object: 60b23318fa15a249a44f90ab09be27b9982d657e
+  docs/models/gocardlessoptions.md:
+    id: 254502b90afb
+    last_write_checksum: sha1:48a94dd163818b2fcc901d5193e43455fa8dadf3
+    pristine_git_object: 18cf7ad90ba7cab35d8ce0c6b75d74bfbd70990d
   docs/models/googlepayassurancedetails.md:
     id: c951c667724a
     last_write_checksum: sha1:a33fd5dd57371f46f2751e5522eb81c09c7a6e9c
@@ -1594,6 +1598,10 @@ trackedFiles:
     id: 2c019befb41d
     last_write_checksum: sha1:8004a7242b7def1f862b5ef664b2c33152a71ffc
     pristine_git_object: 0e375c9640cf01b198aa52553f0d0a06cec692f1
+  docs/models/purposecode.md:
+    id: 87976877fdcf
+    last_write_checksum: sha1:0b92c772a38ebf10bbaedbf7d68f90781d70d358
+    pristine_git_object: 96bfa227d5023c5350f4411534bdd87a5476da02
   docs/models/recipient.md:
     id: 135fcc028099
     last_write_checksum: sha1:f3177e35bc8d9fb455623026424837eedba7c4d3
@@ -1916,8 +1924,8 @@ trackedFiles:
     pristine_git_object: 3ce9395068714fd740cb6d824c7262e700d58ece
   docs/models/transactionconnectionoptions.md:
     id: 4c92c21f3107
-    last_write_checksum: sha1:c4fd90586ecf7409d940c0e8f242df7abc754387
-    pristine_git_object: 39f6d2994c5488cef87982585bef5d57c1fe9e15
+    last_write_checksum: sha1:391e4988dbf30bfa738cddd851d26ae2bc8c3cd5
+    pristine_git_object: 35cb4edd7c8625347cbafd9584db88d85a094cec
   docs/models/transactioncreate.md:
     id: 2eccca1e0d3d
     last_write_checksum: sha1:a097d65c9f0a1469d4908e1fb95ad63d4bb751bd
@@ -2304,8 +2312,8 @@ trackedFiles:
     pristine_git_object: e8cd3e85682cd3d489cf3c5be75a0563d0c9f4bf
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:f6272520451c6c3328c5aa8a4546e399756643f3
-    pristine_git_object: de07bc18b040ed80c9def167663f786906fcb3ce
+    last_write_checksum: sha1:bb628c11fb64fc3b2a3ea74633fe50f5a56634f1
+    pristine_git_object: e633cc8dbc806e84884f6b0da57582488ab10072
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2332,8 +2340,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:0cc9cb0119d52a0d6eaee7ef58be42d7d56243b6
-    pristine_git_object: 0b2a7d04c2919eac6a86c7ed19073d196b8823fc
+    last_write_checksum: sha1:d663c1a029aa7dd8627ab807fa7489849be2f348
+    pristine_git_object: 08c7e0ba9b09a93ed83e33c12d937c1a53443825
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -2484,8 +2492,8 @@ trackedFiles:
     pristine_git_object: 2d392799bbe0b66682b15c14348917eccbcd684e
   src/gr4vy/models/__init__.py:
     id: 427cc7fddfe2
-    last_write_checksum: sha1:d2c5c451fe5f80cd2bea9e0156047b008af614f3
-    pristine_git_object: 9c07d100223a9704c31ccce60e20235e89182c57
+    last_write_checksum: sha1:8fbc6691d6806dbbfc1dd7683f7557de3289c0f0
+    pristine_git_object: 70f64a71a5db648bdb60ce93481db2d409ffda6a
   src/gr4vy/models/accountsreceivablesreportspec.py:
     id: cc6a9368f988
     last_write_checksum: sha1:dcf155a79da77b3ca554d2cf60138dd4fbae33bd
@@ -3150,6 +3158,10 @@ trackedFiles:
     id: c9e9f369770c
     last_write_checksum: sha1:b61a85107e46f0b01ad0592cf6c3604f113ee704
     pristine_git_object: 02394e3f2ad2c04e1d87afd0ff64680ee02a4d7d
+  src/gr4vy/models/gocardlessoptions.py:
+    id: "3214015450e8"
+    last_write_checksum: sha1:64758007234918b5a2077ea5b72dd1fe52d10213
+    pristine_git_object: 06df809958a7e7aba05dc5d07194f3a942456dc9
   src/gr4vy/models/googlepayassurancedetails.py:
     id: 054ed0eec332
     last_write_checksum: sha1:d2bc9db6c3a9c199dcba72e5ef3c25c379a19f5b
@@ -3816,8 +3828,8 @@ trackedFiles:
     pristine_git_object: d131f6923f2e506c7df2e7e6631ea68d3703b10b
   src/gr4vy/models/transactionconnectionoptions.py:
     id: e12dfa576d74
-    last_write_checksum: sha1:87f6458f759c54e51e9fc9a4e60b6fa1f49a485f
-    pristine_git_object: 8cd3081476cc22fb56109e016e8b28e07433dc38
+    last_write_checksum: sha1:f2157e29bdb0b94cbd060a92ae8fddc333111235
+    pristine_git_object: b750820a7f0a6b864f8a37e28840bae95a16d040
   src/gr4vy/models/transactioncreate.py:
     id: 640e0433670e
     last_write_checksum: sha1:3076c5f17dfe09d2211b1fadd7a95588c6900a23
@@ -7745,6 +7757,7 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.gocardless-gocardless` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.gocardless-gocardless` **Added**\n* `gr4vy.payment-links.create()`: \n  *  `request.connection_options.gocardless-gocardless` **Added**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json

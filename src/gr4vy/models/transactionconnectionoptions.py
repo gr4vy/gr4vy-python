@@ -21,6 +21,7 @@ from .forterantifraudoptions import (
     ForterAntiFraudOptionsTypedDict,
 )
 from .givingblockoptions import GivingBlockOptions, GivingBlockOptionsTypedDict
+from .gocardlessoptions import GoCardlessOptions, GoCardlessOptionsTypedDict
 from .latitudeoptions import LatitudeOptions, LatitudeOptionsTypedDict
 from .mattildatapioptions import MattildaTapiOptions, MattildaTapiOptionsTypedDict
 from .mockcardoptions import MockCardOptions, MockCardOptionsTypedDict
@@ -91,6 +92,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `gem-gemds` connector."""
     givingblock_givingblock: NotRequired[Nullable[GivingBlockOptionsTypedDict]]
     r"""Custom options to be passed to the `givingblock-givingblock` connector."""
+    gocardless_gocardless: NotRequired[Nullable[GoCardlessOptionsTypedDict]]
+    r"""Custom options to be passed to the `gocardless-gocardless` connector."""
     latitude_latitude: NotRequired[Nullable[LatitudeOptionsTypedDict]]
     r"""Custom options to be passed to the `latitude-latitude` connector."""
     latitude_latitudeds: NotRequired[Nullable[LatitudeOptionsTypedDict]]
@@ -253,6 +256,12 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `givingblock-givingblock` connector."""
 
+    gocardless_gocardless: Annotated[
+        OptionalNullable[GoCardlessOptions],
+        pydantic.Field(alias="gocardless-gocardless"),
+    ] = UNSET
+    r"""Custom options to be passed to the `gocardless-gocardless` connector."""
+
     latitude_latitude: Annotated[
         OptionalNullable[LatitudeOptions], pydantic.Field(alias="latitude-latitude")
     ] = UNSET
@@ -373,6 +382,7 @@ class TransactionConnectionOptions(BaseModel):
                 "gem-gem",
                 "gem-gemds",
                 "givingblock-givingblock",
+                "gocardless-gocardless",
                 "latitude-latitude",
                 "latitude-latitudeds",
                 "mattilda-tapi",
@@ -419,6 +429,7 @@ class TransactionConnectionOptions(BaseModel):
                 "gem-gem",
                 "gem-gemds",
                 "givingblock-givingblock",
+                "gocardless-gocardless",
                 "latitude-latitude",
                 "latitude-latitudeds",
                 "mattilda-tapi",

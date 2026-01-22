@@ -575,6 +575,11 @@ if TYPE_CHECKING:
         GiftCardTransactionCreateTypedDict,
     )
     from .givingblockoptions import GivingBlockOptions, GivingBlockOptionsTypedDict
+    from .gocardlessoptions import (
+        GoCardlessOptions,
+        GoCardlessOptionsTypedDict,
+        PurposeCode,
+    )
     from .googlepayassurancedetails import (
         GooglePayAssuranceDetails,
         GooglePayAssuranceDetailsTypedDict,
@@ -1677,6 +1682,8 @@ __all__ = [
     "GiftCardsTypedDict",
     "GivingBlockOptions",
     "GivingBlockOptionsTypedDict",
+    "GoCardlessOptions",
+    "GoCardlessOptionsTypedDict",
     "GooglePayAssuranceDetails",
     "GooglePayAssuranceDetailsTypedDict",
     "GooglePayFPANPaymentMethodCreate",
@@ -1955,6 +1962,7 @@ __all__ = [
     "PowertranzOptions",
     "PowertranzOptionsTypedDict",
     "ProductType",
+    "PurposeCode",
     "Recipient",
     "RecipientTypedDict",
     "RedirectPaymentMethodCreate",
@@ -2644,6 +2652,9 @@ _dynamic_imports: dict[str, str] = {
     "GiftCardTransactionCreateTypedDict": ".giftcardtransactioncreate",
     "GivingBlockOptions": ".givingblockoptions",
     "GivingBlockOptionsTypedDict": ".givingblockoptions",
+    "GoCardlessOptions": ".gocardlessoptions",
+    "GoCardlessOptionsTypedDict": ".gocardlessoptions",
+    "PurposeCode": ".gocardlessoptions",
     "GooglePayAssuranceDetails": ".googlepayassurancedetails",
     "GooglePayAssuranceDetailsTypedDict": ".googlepayassurancedetails",
     "GooglePayFPANPaymentMethodCreate": ".googlepayfpanpaymentmethodcreate",
