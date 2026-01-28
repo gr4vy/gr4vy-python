@@ -53,6 +53,8 @@ class CreateFullTransactionRefundRequestTypedDict(TypedDict):
     r"""The ID of the transaction"""
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
+    idempotency_key: NotRequired[Nullable[str]]
+    r"""A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions."""
     transaction_refund_all_create: NotRequired[
         Nullable[TransactionRefundAllCreateTypedDict]
     ]
@@ -71,6 +73,13 @@ class CreateFullTransactionRefundRequest(BaseModel):
     ] = None
     r"""The ID of the merchant account to use for this request."""
 
+    idempotency_key: Annotated[
+        OptionalNullable[str],
+        pydantic.Field(alias="idempotency-key"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = UNSET
+    r"""A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions."""
+
     transaction_refund_all_create: Annotated[
         OptionalNullable[TransactionRefundAllCreate],
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
@@ -78,8 +87,10 @@ class CreateFullTransactionRefundRequest(BaseModel):
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["merchant_account_id", "TransactionRefundAllCreate"])
-        nullable_fields = set(["TransactionRefundAllCreate"])
+        optional_fields = set(
+            ["merchant_account_id", "idempotency-key", "TransactionRefundAllCreate"]
+        )
+        nullable_fields = set(["idempotency-key", "TransactionRefundAllCreate"])
         serialized = handler(self)
         m = {}
 

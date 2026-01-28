@@ -5,7 +5,7 @@ from .transactionrefundcreate import (
     TransactionRefundCreate,
     TransactionRefundCreateTypedDict,
 )
-from gr4vy.types import BaseModel, UNSET_SENTINEL
+from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from gr4vy.utils import (
     FieldMetadata,
     HeaderMetadata,
@@ -54,6 +54,8 @@ class CreateTransactionRefundRequestTypedDict(TypedDict):
     transaction_refund_create: TransactionRefundCreateTypedDict
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
+    idempotency_key: NotRequired[Nullable[str]]
+    r"""A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions."""
 
 
 class CreateTransactionRefundRequest(BaseModel):
@@ -74,18 +76,34 @@ class CreateTransactionRefundRequest(BaseModel):
     ] = None
     r"""The ID of the merchant account to use for this request."""
 
+    idempotency_key: Annotated[
+        OptionalNullable[str],
+        pydantic.Field(alias="idempotency-key"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = UNSET
+    r"""A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["merchant_account_id"])
+        optional_fields = set(["merchant_account_id", "idempotency-key"])
+        nullable_fields = set(["idempotency-key"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
             val = serialized.get(k)
+            is_nullable_and_explicitly_set = (
+                k in nullable_fields
+                and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
+            )
 
             if val != UNSET_SENTINEL:
-                if val is not None or k not in optional_fields:
+                if (
+                    val is not None
+                    or k not in optional_fields
+                    or is_nullable_and_explicitly_set
+                ):
                     m[k] = val
 
         return m

@@ -325,6 +325,7 @@ class TransactionsRefunds(BaseSDK):
         *,
         transaction_id: str,
         merchant_account_id: Optional[str] = None,
+        idempotency_key: OptionalNullable[str] = UNSET,
         amount: OptionalNullable[int] = UNSET,
         target_type: Optional[models.RefundTargetType] = None,
         target_id: OptionalNullable[str] = UNSET,
@@ -341,6 +342,7 @@ class TransactionsRefunds(BaseSDK):
 
         :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
+        :param idempotency_key: A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
         :param amount: The amount to refund, in the smallest currency unit (e.g., cents). If omitted, a full refund will be requested.
         :param target_type:
         :param target_id: The optional ID of the instrument to refund for. This is only required when the `target_type` is set to `gift-card-redemption`.
@@ -364,6 +366,7 @@ class TransactionsRefunds(BaseSDK):
         request = models.CreateTransactionRefundRequest(
             transaction_id=transaction_id,
             merchant_account_id=merchant_account_id,
+            idempotency_key=idempotency_key,
             transaction_refund_create=models.TransactionRefundCreate(
                 amount=amount,
                 target_type=target_type,
@@ -493,6 +496,7 @@ class TransactionsRefunds(BaseSDK):
         *,
         transaction_id: str,
         merchant_account_id: Optional[str] = None,
+        idempotency_key: OptionalNullable[str] = UNSET,
         amount: OptionalNullable[int] = UNSET,
         target_type: Optional[models.RefundTargetType] = None,
         target_id: OptionalNullable[str] = UNSET,
@@ -509,6 +513,7 @@ class TransactionsRefunds(BaseSDK):
 
         :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
+        :param idempotency_key: A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
         :param amount: The amount to refund, in the smallest currency unit (e.g., cents). If omitted, a full refund will be requested.
         :param target_type:
         :param target_id: The optional ID of the instrument to refund for. This is only required when the `target_type` is set to `gift-card-redemption`.
@@ -532,6 +537,7 @@ class TransactionsRefunds(BaseSDK):
         request = models.CreateTransactionRefundRequest(
             transaction_id=transaction_id,
             merchant_account_id=merchant_account_id,
+            idempotency_key=idempotency_key,
             transaction_refund_create=models.TransactionRefundCreate(
                 amount=amount,
                 target_type=target_type,
