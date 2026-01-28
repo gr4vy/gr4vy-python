@@ -15,6 +15,7 @@ class All(BaseSDK):
         *,
         transaction_id: str,
         merchant_account_id: Optional[str] = None,
+        idempotency_key: OptionalNullable[str] = UNSET,
         reason: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -28,6 +29,7 @@ class All(BaseSDK):
 
         :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
+        :param idempotency_key: A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
         :param reason: An optional reason to attach extra context to the refund requests.
         :param external_identifier: An external identifier that can be used to match the refunds against your own records.
         :param retries: Override the default retry configuration for this method
@@ -48,6 +50,7 @@ class All(BaseSDK):
         request = models.CreateFullTransactionRefundRequest(
             transaction_id=transaction_id,
             merchant_account_id=merchant_account_id,
+            idempotency_key=idempotency_key,
             transaction_refund_all_create=models.TransactionRefundAllCreate(
                 reason=reason,
                 external_identifier=external_identifier,
@@ -174,6 +177,7 @@ class All(BaseSDK):
         *,
         transaction_id: str,
         merchant_account_id: Optional[str] = None,
+        idempotency_key: OptionalNullable[str] = UNSET,
         reason: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -187,6 +191,7 @@ class All(BaseSDK):
 
         :param transaction_id: The ID of the transaction
         :param merchant_account_id: The ID of the merchant account to use for this request.
+        :param idempotency_key: A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
         :param reason: An optional reason to attach extra context to the refund requests.
         :param external_identifier: An external identifier that can be used to match the refunds against your own records.
         :param retries: Override the default retry configuration for this method
@@ -207,6 +212,7 @@ class All(BaseSDK):
         request = models.CreateFullTransactionRefundRequest(
             transaction_id=transaction_id,
             merchant_account_id=merchant_account_id,
+            idempotency_key=idempotency_key,
             transaction_refund_all_create=models.TransactionRefundAllCreate(
                 reason=reason,
                 external_identifier=external_identifier,
