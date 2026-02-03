@@ -2389,11 +2389,12 @@ class Transactions(BaseSDK):
         transaction_id: str,
         prefer: OptionalNullable[List[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
+        idempotency_key: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ResponseVoidTransaction:
+    ) -> models.Response200VoidTransaction:
         r"""Void transaction
 
         Voids a previously authorized transaction. If the transaction was not yet successfully authorized, or was already captured, the void will not be processed. This operation releases the hold on the buyer's funds. Captured transactions can be refunded instead.
@@ -2401,6 +2402,7 @@ class Transactions(BaseSDK):
         :param transaction_id: The ID of the transaction
         :param prefer: The preferred resource type in the response.
         :param merchant_account_id: The ID of the merchant account to use for this request.
+        :param idempotency_key: A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2420,6 +2422,7 @@ class Transactions(BaseSDK):
             transaction_id=transaction_id,
             prefer=prefer,
             merchant_account_id=merchant_account_id,
+            idempotency_key=idempotency_key,
         )
 
         req = self._build_request(
@@ -2482,7 +2485,7 @@ class Transactions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.ResponseVoidTransaction, http_res)
+            return unmarshal_json_response(models.Response200VoidTransaction, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
@@ -2536,11 +2539,12 @@ class Transactions(BaseSDK):
         transaction_id: str,
         prefer: OptionalNullable[List[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
+        idempotency_key: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.ResponseVoidTransaction:
+    ) -> models.Response200VoidTransaction:
         r"""Void transaction
 
         Voids a previously authorized transaction. If the transaction was not yet successfully authorized, or was already captured, the void will not be processed. This operation releases the hold on the buyer's funds. Captured transactions can be refunded instead.
@@ -2548,6 +2552,7 @@ class Transactions(BaseSDK):
         :param transaction_id: The ID of the transaction
         :param prefer: The preferred resource type in the response.
         :param merchant_account_id: The ID of the merchant account to use for this request.
+        :param idempotency_key: A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2567,6 +2572,7 @@ class Transactions(BaseSDK):
             transaction_id=transaction_id,
             prefer=prefer,
             merchant_account_id=merchant_account_id,
+            idempotency_key=idempotency_key,
         )
 
         req = self._build_request_async(
@@ -2629,7 +2635,7 @@ class Transactions(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.ResponseVoidTransaction, http_res)
+            return unmarshal_json_response(models.Response200VoidTransaction, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
