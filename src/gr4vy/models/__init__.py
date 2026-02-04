@@ -105,8 +105,8 @@ if TYPE_CHECKING:
         CaptureTransactionGlobalsTypedDict,
         CaptureTransactionRequest,
         CaptureTransactionRequestTypedDict,
-        ResponseCaptureTransaction,
-        ResponseCaptureTransactionTypedDict,
+        Response200CaptureTransaction,
+        Response200CaptureTransactionTypedDict,
     )
     from .capturestatus import CaptureStatus
     from .cardpaymentmethodcreate import (
@@ -263,6 +263,10 @@ if TYPE_CHECKING:
         CreateReportExecutionURLRequest,
         CreateReportExecutionURLRequestTypedDict,
     )
+    from .create_three_ds_configurationop import (
+        CreateThreeDsConfigurationRequest,
+        CreateThreeDsConfigurationRequestTypedDict,
+    )
     from .create_three_ds_scenarioop import (
         CreateThreeDsScenarioGlobals,
         CreateThreeDsScenarioGlobalsTypedDict,
@@ -348,6 +352,10 @@ if TYPE_CHECKING:
         DeletePaymentServiceRequest,
         DeletePaymentServiceRequestTypedDict,
     )
+    from .delete_three_ds_configurationop import (
+        DeleteThreeDsConfigurationRequest,
+        DeleteThreeDsConfigurationRequestTypedDict,
+    )
     from .delete_three_ds_scenarioop import (
         DeleteThreeDsScenarioGlobals,
         DeleteThreeDsScenarioGlobalsTypedDict,
@@ -376,6 +384,10 @@ if TYPE_CHECKING:
         DlocalUPIWalletOptionsTypedDict,
     )
     from .dlocalwalletoptions import DlocalWalletOptions, DlocalWalletOptionsTypedDict
+    from .edit_three_ds_configurationop import (
+        EditThreeDsConfigurationRequest,
+        EditThreeDsConfigurationRequestTypedDict,
+    )
     from .errordetail import ErrorDetail, ErrorDetailTypedDict
     from .errorlocation import ErrorLocation
     from .expire_payment_linkop import (
@@ -754,6 +766,10 @@ if TYPE_CHECKING:
         ListReportsResponse,
         ListReportsResponseTypedDict,
     )
+    from .list_three_ds_configurationsop import (
+        ListThreeDsConfigurationsRequest,
+        ListThreeDsConfigurationsRequestTypedDict,
+    )
     from .list_transaction_actionsop import (
         ListTransactionActionsGlobals,
         ListTransactionActionsGlobalsTypedDict,
@@ -795,6 +811,22 @@ if TYPE_CHECKING:
         MerchantAccountCreateTypedDict,
     )
     from .merchantaccounts import MerchantAccounts, MerchantAccountsTypedDict
+    from .merchantaccountthreedsconfiguration import (
+        MerchantAccountThreeDSConfiguration,
+        MerchantAccountThreeDSConfigurationTypedDict,
+    )
+    from .merchantaccountthreedsconfigurationcreate import (
+        MerchantAccountThreeDSConfigurationCreate,
+        MerchantAccountThreeDSConfigurationCreateTypedDict,
+    )
+    from .merchantaccountthreedsconfigurations import (
+        MerchantAccountThreeDSConfigurations,
+        MerchantAccountThreeDSConfigurationsTypedDict,
+    )
+    from .merchantaccountthreedsconfigurationupdate import (
+        MerchantAccountThreeDSConfigurationUpdate,
+        MerchantAccountThreeDSConfigurationUpdateTypedDict,
+    )
     from .merchantaccountupdate import (
         MerchantAccountUpdate,
         MerchantAccountUpdateTypedDict,
@@ -1453,6 +1485,8 @@ __all__ = [
     "CreateSession",
     "CreateSessionStatus",
     "CreateSessionTypedDict",
+    "CreateThreeDsConfigurationRequest",
+    "CreateThreeDsConfigurationRequestTypedDict",
     "CreateThreeDsScenarioGlobals",
     "CreateThreeDsScenarioGlobalsTypedDict",
     "CreateThreeDsScenarioRequest",
@@ -1514,6 +1548,8 @@ __all__ = [
     "DeletePaymentServiceGlobalsTypedDict",
     "DeletePaymentServiceRequest",
     "DeletePaymentServiceRequestTypedDict",
+    "DeleteThreeDsConfigurationRequest",
+    "DeleteThreeDsConfigurationRequestTypedDict",
     "DeleteThreeDsScenarioGlobals",
     "DeleteThreeDsScenarioGlobalsTypedDict",
     "DeleteThreeDsScenarioRequest",
@@ -1541,6 +1577,8 @@ __all__ = [
     "DlocalUPIWalletOptionsTypedDict",
     "DlocalWalletOptions",
     "DlocalWalletOptionsTypedDict",
+    "EditThreeDsConfigurationRequest",
+    "EditThreeDsConfigurationRequestTypedDict",
     "ErrorDetail",
     "ErrorDetailTypedDict",
     "ErrorLocation",
@@ -1808,6 +1846,8 @@ __all__ = [
     "ListReportsRequestTypedDict",
     "ListReportsResponse",
     "ListReportsResponseTypedDict",
+    "ListThreeDsConfigurationsRequest",
+    "ListThreeDsConfigurationsRequestTypedDict",
     "ListTransactionActionsGlobals",
     "ListTransactionActionsGlobalsTypedDict",
     "ListTransactionActionsRequest",
@@ -1839,6 +1879,14 @@ __all__ = [
     "MerchantAccount",
     "MerchantAccountCreate",
     "MerchantAccountCreateTypedDict",
+    "MerchantAccountThreeDSConfiguration",
+    "MerchantAccountThreeDSConfigurationCreate",
+    "MerchantAccountThreeDSConfigurationCreateTypedDict",
+    "MerchantAccountThreeDSConfigurationTypedDict",
+    "MerchantAccountThreeDSConfigurationUpdate",
+    "MerchantAccountThreeDSConfigurationUpdateTypedDict",
+    "MerchantAccountThreeDSConfigurations",
+    "MerchantAccountThreeDSConfigurationsTypedDict",
     "MerchantAccountTypedDict",
     "MerchantAccountUpdate",
     "MerchantAccountUpdateTypedDict",
@@ -2012,10 +2060,10 @@ __all__ = [
     "RequiredFields1TypedDict",
     "RequiredFields2",
     "RequiredFields2TypedDict",
+    "Response200CaptureTransaction",
+    "Response200CaptureTransactionTypedDict",
     "Response200VoidTransaction",
     "Response200VoidTransactionTypedDict",
-    "ResponseCaptureTransaction",
-    "ResponseCaptureTransactionTypedDict",
     "ResponseData",
     "ResponseDataTypedDict",
     "ResumePaymentMethodNetworkTokenGlobals",
@@ -2315,8 +2363,8 @@ _dynamic_imports: dict[str, str] = {
     "CaptureTransactionGlobalsTypedDict": ".capture_transactionop",
     "CaptureTransactionRequest": ".capture_transactionop",
     "CaptureTransactionRequestTypedDict": ".capture_transactionop",
-    "ResponseCaptureTransaction": ".capture_transactionop",
-    "ResponseCaptureTransactionTypedDict": ".capture_transactionop",
+    "Response200CaptureTransaction": ".capture_transactionop",
+    "Response200CaptureTransactionTypedDict": ".capture_transactionop",
     "CaptureStatus": ".capturestatus",
     "CardPaymentMethodCreate": ".cardpaymentmethodcreate",
     "CardPaymentMethodCreateTypedDict": ".cardpaymentmethodcreate",
@@ -2418,6 +2466,8 @@ _dynamic_imports: dict[str, str] = {
     "CreateReportExecutionURLGlobalsTypedDict": ".create_report_execution_urlop",
     "CreateReportExecutionURLRequest": ".create_report_execution_urlop",
     "CreateReportExecutionURLRequestTypedDict": ".create_report_execution_urlop",
+    "CreateThreeDsConfigurationRequest": ".create_three_ds_configurationop",
+    "CreateThreeDsConfigurationRequestTypedDict": ".create_three_ds_configurationop",
     "CreateThreeDsScenarioGlobals": ".create_three_ds_scenarioop",
     "CreateThreeDsScenarioGlobalsTypedDict": ".create_three_ds_scenarioop",
     "CreateThreeDsScenarioRequest": ".create_three_ds_scenarioop",
@@ -2483,6 +2533,8 @@ _dynamic_imports: dict[str, str] = {
     "DeletePaymentServiceGlobalsTypedDict": ".delete_payment_serviceop",
     "DeletePaymentServiceRequest": ".delete_payment_serviceop",
     "DeletePaymentServiceRequestTypedDict": ".delete_payment_serviceop",
+    "DeleteThreeDsConfigurationRequest": ".delete_three_ds_configurationop",
+    "DeleteThreeDsConfigurationRequestTypedDict": ".delete_three_ds_configurationop",
     "DeleteThreeDsScenarioGlobals": ".delete_three_ds_scenarioop",
     "DeleteThreeDsScenarioGlobalsTypedDict": ".delete_three_ds_scenarioop",
     "DeleteThreeDsScenarioRequest": ".delete_three_ds_scenarioop",
@@ -2511,6 +2563,8 @@ _dynamic_imports: dict[str, str] = {
     "DlocalUPIWalletOptionsTypedDict": ".dlocalupiwalletoptions",
     "DlocalWalletOptions": ".dlocalwalletoptions",
     "DlocalWalletOptionsTypedDict": ".dlocalwalletoptions",
+    "EditThreeDsConfigurationRequest": ".edit_three_ds_configurationop",
+    "EditThreeDsConfigurationRequestTypedDict": ".edit_three_ds_configurationop",
     "ErrorDetail": ".errordetail",
     "ErrorDetailTypedDict": ".errordetail",
     "ErrorLocation": ".errorlocation",
@@ -2780,6 +2834,8 @@ _dynamic_imports: dict[str, str] = {
     "ListReportsRequestTypedDict": ".list_reportsop",
     "ListReportsResponse": ".list_reportsop",
     "ListReportsResponseTypedDict": ".list_reportsop",
+    "ListThreeDsConfigurationsRequest": ".list_three_ds_configurationsop",
+    "ListThreeDsConfigurationsRequestTypedDict": ".list_three_ds_configurationsop",
     "ListTransactionActionsGlobals": ".list_transaction_actionsop",
     "ListTransactionActionsGlobalsTypedDict": ".list_transaction_actionsop",
     "ListTransactionActionsRequest": ".list_transaction_actionsop",
@@ -2812,6 +2868,14 @@ _dynamic_imports: dict[str, str] = {
     "MerchantAccountCreateTypedDict": ".merchantaccountcreate",
     "MerchantAccounts": ".merchantaccounts",
     "MerchantAccountsTypedDict": ".merchantaccounts",
+    "MerchantAccountThreeDSConfiguration": ".merchantaccountthreedsconfiguration",
+    "MerchantAccountThreeDSConfigurationTypedDict": ".merchantaccountthreedsconfiguration",
+    "MerchantAccountThreeDSConfigurationCreate": ".merchantaccountthreedsconfigurationcreate",
+    "MerchantAccountThreeDSConfigurationCreateTypedDict": ".merchantaccountthreedsconfigurationcreate",
+    "MerchantAccountThreeDSConfigurations": ".merchantaccountthreedsconfigurations",
+    "MerchantAccountThreeDSConfigurationsTypedDict": ".merchantaccountthreedsconfigurations",
+    "MerchantAccountThreeDSConfigurationUpdate": ".merchantaccountthreedsconfigurationupdate",
+    "MerchantAccountThreeDSConfigurationUpdateTypedDict": ".merchantaccountthreedsconfigurationupdate",
     "MerchantAccountUpdate": ".merchantaccountupdate",
     "MerchantAccountUpdateTypedDict": ".merchantaccountupdate",
     "MerchantProfileScheme": ".merchantprofilescheme",
