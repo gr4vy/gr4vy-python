@@ -98,7 +98,7 @@ It's also possible to write a standalone Python script without needing to set up
 ```python
 #!/usr/bin/env -S uv run --script
 # /// script
-# requires-python = ">=3.9"
+# requires-python = ">=3.10"
 # dependencies = [
 #     "gr4vy",
 # ]
@@ -377,6 +377,13 @@ except ValueError as error:
 * [create](docs/sdks/merchantaccountssdk/README.md#create) - Create a merchant account
 * [get](docs/sdks/merchantaccountssdk/README.md#get) - Get a merchant account
 * [update](docs/sdks/merchantaccountssdk/README.md#update) - Update a merchant account
+
+#### [MerchantAccounts.ThreeDsConfiguration](docs/sdks/threedsconfiguration/README.md)
+
+* [create](docs/sdks/threedsconfiguration/README.md#create) - Create 3DS configuration for merchant
+* [list](docs/sdks/threedsconfiguration/README.md#list) - List 3DS configurations for merchant
+* [update](docs/sdks/threedsconfiguration/README.md#update) - Edit 3DS configuration
+* [delete](docs/sdks/threedsconfiguration/README.md#delete) - Delete 3DS configuration for a merchant
 
 ### [PaymentLinks](docs/sdks/paymentlinkssdk/README.md)
 

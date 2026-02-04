@@ -6,13 +6,20 @@ from gr4vy.utils import FieldMetadata, PathParamMetadata
 from typing_extensions import Annotated, TypedDict
 
 
-class GetMerchantAccountRequestTypedDict(TypedDict):
+class DeleteThreeDsConfigurationRequestTypedDict(TypedDict):
     merchant_account_id: str
     r"""The ID of the merchant account."""
+    three_ds_configuration_id: str
+    r"""The ID of the 3DS configuration for a merchant account."""
 
 
-class GetMerchantAccountRequest(BaseModel):
+class DeleteThreeDsConfigurationRequest(BaseModel):
     merchant_account_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
     r"""The ID of the merchant account."""
+
+    three_ds_configuration_id: Annotated[
+        str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
+    ]
+    r"""The ID of the 3DS configuration for a merchant account."""

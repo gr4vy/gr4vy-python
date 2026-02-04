@@ -58,6 +58,8 @@ class CaptureTransactionRequestTypedDict(TypedDict):
     r"""The preferred resource type in the response."""
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
+    idempotency_key: NotRequired[Nullable[str]]
+    r"""A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions."""
 
 
 class CaptureTransactionRequest(BaseModel):
@@ -84,10 +86,17 @@ class CaptureTransactionRequest(BaseModel):
     ] = None
     r"""The ID of the merchant account to use for this request."""
 
+    idempotency_key: Annotated[
+        OptionalNullable[str],
+        pydantic.Field(alias="idempotency-key"),
+        FieldMetadata(header=HeaderMetadata(style="simple", explode=False)),
+    ] = UNSET
+    r"""A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["prefer", "merchant_account_id"])
-        nullable_fields = set(["prefer"])
+        optional_fields = set(["prefer", "merchant_account_id", "idempotency-key"])
+        nullable_fields = set(["prefer", "idempotency-key"])
         serialized = handler(self)
         m = {}
 
@@ -110,14 +119,14 @@ class CaptureTransactionRequest(BaseModel):
         return m
 
 
-ResponseCaptureTransactionTypedDict = TypeAliasType(
-    "ResponseCaptureTransactionTypedDict",
+Response200CaptureTransactionTypedDict = TypeAliasType(
+    "Response200CaptureTransactionTypedDict",
     Union[TransactionCaptureTypedDict, TransactionTypedDict],
 )
 r"""Successful Response"""
 
 
-ResponseCaptureTransaction = TypeAliasType(
-    "ResponseCaptureTransaction", Union[TransactionCapture, Transaction]
+Response200CaptureTransaction = TypeAliasType(
+    "Response200CaptureTransaction", Union[TransactionCapture, Transaction]
 )
 r"""Successful Response"""
