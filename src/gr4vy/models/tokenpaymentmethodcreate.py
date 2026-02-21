@@ -65,3 +65,9 @@ class TokenPaymentMethodCreate(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TokenPaymentMethodCreate.model_rebuild()
+except NameError:
+    pass

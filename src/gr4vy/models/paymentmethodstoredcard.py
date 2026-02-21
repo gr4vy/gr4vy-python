@@ -42,3 +42,9 @@ class PaymentMethodStoredCard(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    PaymentMethodStoredCard.model_rebuild()
+except NameError:
+    pass

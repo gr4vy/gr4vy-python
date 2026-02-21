@@ -168,3 +168,9 @@ class Refund(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    Refund.model_rebuild()
+except NameError:
+    pass

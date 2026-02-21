@@ -59,3 +59,9 @@ class TransactionPaymentService(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TransactionPaymentService.model_rebuild()
+except NameError:
+    pass

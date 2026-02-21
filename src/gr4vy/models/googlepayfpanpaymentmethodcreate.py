@@ -111,3 +111,9 @@ class GooglePayFPANPaymentMethodCreate(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    GooglePayFPANPaymentMethodCreate.model_rebuild()
+except NameError:
+    pass

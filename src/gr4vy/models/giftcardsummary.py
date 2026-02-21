@@ -126,3 +126,9 @@ class GiftCardSummary(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    GiftCardSummary.model_rebuild()
+except NameError:
+    pass

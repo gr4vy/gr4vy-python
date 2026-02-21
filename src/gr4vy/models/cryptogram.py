@@ -45,3 +45,9 @@ class Cryptogram(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    Cryptogram.model_rebuild()
+except NameError:
+    pass

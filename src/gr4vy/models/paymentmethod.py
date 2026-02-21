@@ -222,3 +222,9 @@ class PaymentMethod(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    PaymentMethod.model_rebuild()
+except NameError:
+    pass

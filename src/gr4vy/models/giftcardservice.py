@@ -54,3 +54,9 @@ class GiftCardService(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    GiftCardService.model_rebuild()
+except NameError:
+    pass

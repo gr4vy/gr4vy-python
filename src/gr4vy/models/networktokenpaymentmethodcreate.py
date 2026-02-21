@@ -130,3 +130,9 @@ class NetworkTokenPaymentMethodCreate(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    NetworkTokenPaymentMethodCreate.model_rebuild()
+except NameError:
+    pass

@@ -45,3 +45,9 @@ class AccountsReceivablesReportSpec(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    AccountsReceivablesReportSpec.model_rebuild()
+except NameError:
+    pass

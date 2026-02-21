@@ -89,3 +89,9 @@ class CheckoutSessionPaymentMethod(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    CheckoutSessionPaymentMethod.model_rebuild()
+except NameError:
+    pass

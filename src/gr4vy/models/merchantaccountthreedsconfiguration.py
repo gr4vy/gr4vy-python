@@ -112,3 +112,9 @@ class MerchantAccountThreeDSConfiguration(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    MerchantAccountThreeDSConfiguration.model_rebuild()
+except NameError:
+    pass

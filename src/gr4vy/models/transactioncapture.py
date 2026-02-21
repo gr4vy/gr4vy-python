@@ -74,3 +74,9 @@ class TransactionCapture(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TransactionCapture.model_rebuild()
+except NameError:
+    pass

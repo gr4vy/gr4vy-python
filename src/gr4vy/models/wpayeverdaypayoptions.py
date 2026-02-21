@@ -85,3 +85,9 @@ class WpayEverdaypayOptions(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    WpayEverdaypayOptions.model_rebuild()
+except NameError:
+    pass

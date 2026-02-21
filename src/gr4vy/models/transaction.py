@@ -514,3 +514,9 @@ class Transaction(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    Transaction.model_rebuild()
+except NameError:
+    pass

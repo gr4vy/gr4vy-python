@@ -74,3 +74,9 @@ class TransactionCancel(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TransactionCancel.model_rebuild()
+except NameError:
+    pass

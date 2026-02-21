@@ -77,3 +77,9 @@ class FiservInstallmentOptions(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    FiservInstallmentOptions.model_rebuild()
+except NameError:
+    pass

@@ -119,3 +119,9 @@ class TransactionEvent(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TransactionEvent.model_rebuild()
+except NameError:
+    pass

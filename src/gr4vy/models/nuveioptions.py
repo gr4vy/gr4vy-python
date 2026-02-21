@@ -53,3 +53,9 @@ class NuveiOptions(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    NuveiOptions.model_rebuild()
+except NameError:
+    pass

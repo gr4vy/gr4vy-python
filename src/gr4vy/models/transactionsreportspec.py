@@ -45,3 +45,9 @@ class TransactionsReportSpec(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TransactionsReportSpec.model_rebuild()
+except NameError:
+    pass

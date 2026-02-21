@@ -89,3 +89,9 @@ class PaymentServiceToken(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    PaymentServiceToken.model_rebuild()
+except NameError:
+    pass

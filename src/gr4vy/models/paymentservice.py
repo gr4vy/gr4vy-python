@@ -186,3 +186,9 @@ class PaymentService(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    PaymentService.model_rebuild()
+except NameError:
+    pass

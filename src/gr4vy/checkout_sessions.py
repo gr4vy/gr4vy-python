@@ -67,7 +67,7 @@ class CheckoutSessions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.checkout_session_create,
+                request.checkout_session_create if request is not None else None,
                 False,
                 True,
                 "json",
@@ -222,7 +222,7 @@ class CheckoutSessions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.checkout_session_create,
+                request.checkout_session_create if request is not None else None,
                 False,
                 True,
                 "json",
