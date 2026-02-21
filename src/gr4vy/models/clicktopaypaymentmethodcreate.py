@@ -107,3 +107,9 @@ class ClickToPayPaymentMethodCreate(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    ClickToPayPaymentMethodCreate.model_rebuild()
+except NameError:
+    pass

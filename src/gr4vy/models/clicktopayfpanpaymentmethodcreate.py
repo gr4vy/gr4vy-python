@@ -110,3 +110,9 @@ class ClickToPayFPANPaymentMethodCreate(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    ClickToPayFPANPaymentMethodCreate.model_rebuild()
+except NameError:
+    pass

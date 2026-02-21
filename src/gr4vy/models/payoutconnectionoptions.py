@@ -43,3 +43,9 @@ class PayoutConnectionOptions(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    PayoutConnectionOptions.model_rebuild()
+except NameError:
+    pass

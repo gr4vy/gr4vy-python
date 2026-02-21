@@ -96,3 +96,9 @@ class PaymentOption(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    PaymentOption.model_rebuild()
+except NameError:
+    pass

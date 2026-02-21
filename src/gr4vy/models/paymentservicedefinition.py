@@ -120,3 +120,9 @@ class PaymentServiceDefinition(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    PaymentServiceDefinition.model_rebuild()
+except NameError:
+    pass

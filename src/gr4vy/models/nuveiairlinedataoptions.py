@@ -49,3 +49,9 @@ class NuveiAirlineDataOptions(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    NuveiAirlineDataOptions.model_rebuild()
+except NameError:
+    pass

@@ -37,3 +37,9 @@ class DefinitionField(BaseModel):
 
     secret: bool
     r"""Defines if this field is secret. When `true` the field's value is not returned when querying the payment service information."""
+
+
+try:
+    DefinitionField.model_rebuild()
+except NameError:
+    pass

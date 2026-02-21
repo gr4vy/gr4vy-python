@@ -85,3 +85,9 @@ class AccountUpdaterOptions(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    AccountUpdaterOptions.model_rebuild()
+except NameError:
+    pass

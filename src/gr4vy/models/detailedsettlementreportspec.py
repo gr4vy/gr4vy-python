@@ -45,3 +45,9 @@ class DetailedSettlementReportSpec(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    DetailedSettlementReportSpec.model_rebuild()
+except NameError:
+    pass

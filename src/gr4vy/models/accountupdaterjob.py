@@ -70,3 +70,9 @@ class AccountUpdaterJob(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    AccountUpdaterJob.model_rebuild()
+except NameError:
+    pass

@@ -75,3 +75,9 @@ class ThreeDSecureScenario(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    ThreeDSecureScenario.model_rebuild()
+except NameError:
+    pass

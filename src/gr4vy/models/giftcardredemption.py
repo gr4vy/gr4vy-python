@@ -108,3 +108,9 @@ class GiftCardRedemption(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    GiftCardRedemption.model_rebuild()
+except NameError:
+    pass

@@ -109,3 +109,9 @@ class CardWithURLPaymentMethodCreate(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    CardWithURLPaymentMethodCreate.model_rebuild()
+except NameError:
+    pass

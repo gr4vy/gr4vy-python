@@ -26,6 +26,7 @@ CardScheme = Union[
         "nyce",
         "other",
         "pulse",
+        "qcard",
         "rupay",
         "star",
         "uatp",

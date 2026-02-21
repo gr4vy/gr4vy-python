@@ -42,3 +42,9 @@ class GivingBlockOptions(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    GivingBlockOptions.model_rebuild()
+except NameError:
+    pass

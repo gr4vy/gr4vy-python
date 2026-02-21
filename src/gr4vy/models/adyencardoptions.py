@@ -95,3 +95,9 @@ class AdyenCardOptions(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    AdyenCardOptions.model_rebuild()
+except NameError:
+    pass

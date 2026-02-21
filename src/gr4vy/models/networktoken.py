@@ -75,3 +75,9 @@ class NetworkToken(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    NetworkToken.model_rebuild()
+except NameError:
+    pass

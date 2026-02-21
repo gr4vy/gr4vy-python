@@ -27,6 +27,7 @@ from .mattildatapioptions import MattildaTapiOptions, MattildaTapiOptionsTypedDi
 from .mockcardoptions import MockCardOptions, MockCardOptionsTypedDict
 from .monatospeioptions import MonatoSpeiOptions, MonatoSpeiOptionsTypedDict
 from .nuveiidealoptions import NuveiIDealOptions, NuveiIDealOptionsTypedDict
+from .nuveiklarnaoptions import NuveiKlarnaOptions, NuveiKlarnaOptionsTypedDict
 from .nuveioptions import NuveiOptions, NuveiOptionsTypedDict
 from .nuveipseoptions import NuveiPSEOptions, NuveiPSEOptionsTypedDict
 from .oxxooptions import OxxoOptions, OxxoOptionsTypedDict
@@ -110,6 +111,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `nuvei-card` connector."""
     nuvei_ideal: NotRequired[Nullable[NuveiIDealOptionsTypedDict]]
     r"""Custom options to be passed to the `nuvei-ideal` connector."""
+    nuvei_klarna: NotRequired[Nullable[NuveiKlarnaOptionsTypedDict]]
+    r"""Custom options to be passed to the `nuvei-klarna` connector."""
     nuvei_pse: NotRequired[Nullable[NuveiPSEOptionsTypedDict]]
     r"""Custom options to be passed to the `nuvei-pse` connector."""
     oxxo_oxxo: NotRequired[Nullable[OxxoOptionsTypedDict]]
@@ -303,6 +306,11 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `nuvei-ideal` connector."""
 
+    nuvei_klarna: Annotated[
+        OptionalNullable[NuveiKlarnaOptions], pydantic.Field(alias="nuvei-klarna")
+    ] = UNSET
+    r"""Custom options to be passed to the `nuvei-klarna` connector."""
+
     nuvei_pse: Annotated[
         OptionalNullable[NuveiPSEOptions], pydantic.Field(alias="nuvei-pse")
     ] = UNSET
@@ -391,6 +399,7 @@ class TransactionConnectionOptions(BaseModel):
                 "mock-card",
                 "nuvei-card",
                 "nuvei-ideal",
+                "nuvei-klarna",
                 "nuvei-pse",
                 "oxxo-oxxo",
                 "paypal-paypal",
@@ -438,6 +447,7 @@ class TransactionConnectionOptions(BaseModel):
                 "mock-card",
                 "nuvei-card",
                 "nuvei-ideal",
+                "nuvei-klarna",
                 "nuvei-pse",
                 "oxxo-oxxo",
                 "paypal-paypal",
@@ -470,3 +480,9 @@ class TransactionConnectionOptions(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TransactionConnectionOptions.model_rebuild()
+except NameError:
+    pass

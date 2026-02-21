@@ -194,3 +194,9 @@ class MerchantAccount(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    MerchantAccount.model_rebuild()
+except NameError:
+    pass

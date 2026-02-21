@@ -163,3 +163,9 @@ class ListBuyerPaymentMethodsRequest(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    ListBuyerPaymentMethodsRequest.model_rebuild()
+except NameError:
+    pass

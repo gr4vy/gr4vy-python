@@ -74,7 +74,7 @@ class All(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.transaction_refund_all_create,
+                request.transaction_refund_all_create if request is not None else None,
                 True,
                 True,
                 "json",
@@ -236,7 +236,7 @@ class All(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.transaction_refund_all_create,
+                request.transaction_refund_all_create if request is not None else None,
                 True,
                 True,
                 "json",

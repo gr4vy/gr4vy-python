@@ -42,3 +42,9 @@ class TrustlyOptions(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TrustlyOptions.model_rebuild()
+except NameError:
+    pass

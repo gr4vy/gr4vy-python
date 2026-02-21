@@ -257,3 +257,9 @@ class TransactionSummary(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TransactionSummary.model_rebuild()
+except NameError:
+    pass

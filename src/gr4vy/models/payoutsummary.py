@@ -153,3 +153,9 @@ class PayoutSummary(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    PayoutSummary.model_rebuild()
+except NameError:
+    pass

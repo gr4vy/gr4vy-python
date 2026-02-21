@@ -94,3 +94,9 @@ class PayoutMerchantSummary(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    PayoutMerchantSummary.model_rebuild()
+except NameError:
+    pass

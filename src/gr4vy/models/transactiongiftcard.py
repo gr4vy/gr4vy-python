@@ -68,3 +68,9 @@ class TransactionGiftCard(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TransactionGiftCard.model_rebuild()
+except NameError:
+    pass

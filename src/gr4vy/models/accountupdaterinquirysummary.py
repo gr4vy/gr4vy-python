@@ -50,3 +50,9 @@ class AccountUpdaterInquirySummary(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    AccountUpdaterInquirySummary.model_rebuild()
+except NameError:
+    pass

@@ -105,3 +105,9 @@ class Buyer(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    Buyer.model_rebuild()
+except NameError:
+    pass

@@ -130,3 +130,9 @@ class CheckoutSession(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    CheckoutSession.model_rebuild()
+except NameError:
+    pass

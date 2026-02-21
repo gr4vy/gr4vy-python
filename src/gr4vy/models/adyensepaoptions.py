@@ -89,3 +89,9 @@ class AdyenSepaOptions(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    AdyenSepaOptions.model_rebuild()
+except NameError:
+    pass

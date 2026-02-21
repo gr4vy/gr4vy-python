@@ -70,3 +70,9 @@ class AuditLogEntryUser(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    AuditLogEntryUser.model_rebuild()
+except NameError:
+    pass

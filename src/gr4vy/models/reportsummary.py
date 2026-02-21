@@ -81,3 +81,9 @@ class ReportSummary(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    ReportSummary.model_rebuild()
+except NameError:
+    pass

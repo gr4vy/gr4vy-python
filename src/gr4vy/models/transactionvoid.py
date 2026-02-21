@@ -74,3 +74,9 @@ class TransactionVoid(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TransactionVoid.model_rebuild()
+except NameError:
+    pass

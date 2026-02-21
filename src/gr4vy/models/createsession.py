@@ -72,3 +72,9 @@ class CreateSession(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    CreateSession.model_rebuild()
+except NameError:
+    pass

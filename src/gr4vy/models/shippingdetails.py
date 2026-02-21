@@ -106,3 +106,9 @@ class ShippingDetails(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    ShippingDetails.model_rebuild()
+except NameError:
+    pass

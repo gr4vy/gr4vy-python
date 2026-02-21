@@ -76,3 +76,9 @@ class AuditLogEntry(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    AuditLogEntry.model_rebuild()
+except NameError:
+    pass
