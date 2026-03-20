@@ -27,3 +27,21 @@ value: models.CheckoutSessionPaymentMethodCreate = /* values here */
 value: models.PlaidPaymentMethodCreate = /* values here */
 ```
 
+### `models.ACHBankPaymentMethodCreate`
+
+```python
+value: models.ACHBankPaymentMethodCreate = /* values here */
+```
+
+### `models.BACSBankPaymentMethodCreate`
+
+```python
+value: models.BACSBankPaymentMethodCreate = /* values here */
+```
+
+### `models.SEPABankPaymentMethodCreate`
+
+```python
+value: models.SEPABankPaymentMethodCreate = /* values here */
+```
+

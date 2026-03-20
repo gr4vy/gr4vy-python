@@ -14,6 +14,7 @@ from .cybersourceantifraudoptions import (
 )
 from .cybersourceoptions import CybersourceOptions, CybersourceOptionsTypedDict
 from .dlocaloptions import DlocalOptions, DlocalOptionsTypedDict
+from .dlocalpixoptions import DlocalPIXOptions, DlocalPIXOptionsTypedDict
 from .dlocalupioptions import DlocalUPIOptions, DlocalUPIOptionsTypedDict
 from .fiservoptions import FiservOptions, FiservOptionsTypedDict
 from .forterantifraudoptions import (
@@ -27,11 +28,16 @@ from .mattildatapioptions import MattildaTapiOptions, MattildaTapiOptionsTypedDi
 from .mockcardoptions import MockCardOptions, MockCardOptionsTypedDict
 from .monatospeioptions import MonatoSpeiOptions, MonatoSpeiOptionsTypedDict
 from .nuveiidealoptions import NuveiIDealOptions, NuveiIDealOptionsTypedDict
+from .nuveiklarnaoptions import NuveiKlarnaOptions, NuveiKlarnaOptionsTypedDict
 from .nuveioptions import NuveiOptions, NuveiOptionsTypedDict
 from .nuveipseoptions import NuveiPSEOptions, NuveiPSEOptionsTypedDict
 from .oxxooptions import OxxoOptions, OxxoOptionsTypedDict
 from .paypaloptions import PaypalOptions, PaypalOptionsTypedDict
 from .powertranzoptions import PowertranzOptions, PowertranzOptionsTypedDict
+from .riskifiedantifraudoptions import (
+    RiskifiedAntiFraudOptions,
+    RiskifiedAntiFraudOptionsTypedDict,
+)
 from .stripeoptions import StripeOptions, StripeOptionsTypedDict
 from .travelhuboptions import TravelhubOptions, TravelhubOptionsTypedDict
 from .trustlyoptions import TrustlyOptions, TrustlyOptionsTypedDict
@@ -58,6 +64,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `adyen-giropay` connector."""
     adyen_ideal: NotRequired[Nullable[AdyenOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-ideal` connector."""
+    adyen_pix: NotRequired[Nullable[AdyenOptionsTypedDict]]
+    r"""Custom options to be passed to the `adyen-pix` connector."""
     adyen_sepa: NotRequired[Nullable[AdyenSepaOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-sepa` connector."""
     adyen_sofort: NotRequired[Nullable[AdyenOptionsTypedDict]]
@@ -82,6 +90,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `dlocal-nequi` connector."""
     dlocal_upi: NotRequired[Nullable[DlocalUPIOptionsTypedDict]]
     r"""Custom options to be passed to the `dlocal-upi` connector."""
+    dlocal_pix: NotRequired[Nullable[DlocalPIXOptionsTypedDict]]
+    r"""Custom options to be passed to the `dlocal-pix` connector."""
     fiserv_card: NotRequired[Nullable[FiservOptionsTypedDict]]
     r"""Custom options to be passed to the `fiserv-card` connector."""
     forter_anti_fraud: NotRequired[Nullable[ForterAntiFraudOptionsTypedDict]]
@@ -110,6 +120,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `nuvei-card` connector."""
     nuvei_ideal: NotRequired[Nullable[NuveiIDealOptionsTypedDict]]
     r"""Custom options to be passed to the `nuvei-ideal` connector."""
+    nuvei_klarna: NotRequired[Nullable[NuveiKlarnaOptionsTypedDict]]
+    r"""Custom options to be passed to the `nuvei-klarna` connector."""
     nuvei_pse: NotRequired[Nullable[NuveiPSEOptionsTypedDict]]
     r"""Custom options to be passed to the `nuvei-pse` connector."""
     oxxo_oxxo: NotRequired[Nullable[OxxoOptionsTypedDict]]
@@ -120,6 +132,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `paypal-paypalpaylater` connector."""
     powertranz_card: NotRequired[Nullable[PowertranzOptionsTypedDict]]
     r"""Custom options to be passed to the `powertranz-card` connector."""
+    riskified_anti_fraud: NotRequired[Nullable[RiskifiedAntiFraudOptionsTypedDict]]
+    r"""Custom options to be passed to the `riskified-anti-fraud` connector."""
     stripe_card: NotRequired[Nullable[StripeOptionsTypedDict]]
     r"""Custom options to be passed to the `stripe-card` connector."""
     travelhub_card: NotRequired[Nullable[TravelhubOptionsTypedDict]]
@@ -167,6 +181,11 @@ class TransactionConnectionOptions(BaseModel):
         OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-ideal")
     ] = UNSET
     r"""Custom options to be passed to the `adyen-ideal` connector."""
+
+    adyen_pix: Annotated[
+        OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-pix")
+    ] = UNSET
+    r"""Custom options to be passed to the `adyen-pix` connector."""
 
     adyen_sepa: Annotated[
         OptionalNullable[AdyenSepaOptions], pydantic.Field(alias="adyen-sepa")
@@ -228,6 +247,11 @@ class TransactionConnectionOptions(BaseModel):
         OptionalNullable[DlocalUPIOptions], pydantic.Field(alias="dlocal-upi")
     ] = UNSET
     r"""Custom options to be passed to the `dlocal-upi` connector."""
+
+    dlocal_pix: Annotated[
+        OptionalNullable[DlocalPIXOptions], pydantic.Field(alias="dlocal-pix")
+    ] = UNSET
+    r"""Custom options to be passed to the `dlocal-pix` connector."""
 
     fiserv_card: Annotated[
         OptionalNullable[FiservOptions], pydantic.Field(alias="fiserv-card")
@@ -303,6 +327,11 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `nuvei-ideal` connector."""
 
+    nuvei_klarna: Annotated[
+        OptionalNullable[NuveiKlarnaOptions], pydantic.Field(alias="nuvei-klarna")
+    ] = UNSET
+    r"""Custom options to be passed to the `nuvei-klarna` connector."""
+
     nuvei_pse: Annotated[
         OptionalNullable[NuveiPSEOptions], pydantic.Field(alias="nuvei-pse")
     ] = UNSET
@@ -327,6 +356,12 @@ class TransactionConnectionOptions(BaseModel):
         OptionalNullable[PowertranzOptions], pydantic.Field(alias="powertranz-card")
     ] = UNSET
     r"""Custom options to be passed to the `powertranz-card` connector."""
+
+    riskified_anti_fraud: Annotated[
+        OptionalNullable[RiskifiedAntiFraudOptions],
+        pydantic.Field(alias="riskified-anti-fraud"),
+    ] = UNSET
+    r"""Custom options to be passed to the `riskified-anti-fraud` connector."""
 
     stripe_card: Annotated[
         OptionalNullable[StripeOptions], pydantic.Field(alias="stripe-card")
@@ -365,6 +400,7 @@ class TransactionConnectionOptions(BaseModel):
                 "adyen-cashapp",
                 "adyen-giropay",
                 "adyen-ideal",
+                "adyen-pix",
                 "adyen-sepa",
                 "adyen-sofort",
                 "adyen-vipps",
@@ -377,6 +413,7 @@ class TransactionConnectionOptions(BaseModel):
                 "cybersource-kcp",
                 "dlocal-nequi",
                 "dlocal-upi",
+                "dlocal-pix",
                 "fiserv-card",
                 "forter-anti-fraud",
                 "gem-gem",
@@ -391,11 +428,13 @@ class TransactionConnectionOptions(BaseModel):
                 "mock-card",
                 "nuvei-card",
                 "nuvei-ideal",
+                "nuvei-klarna",
                 "nuvei-pse",
                 "oxxo-oxxo",
                 "paypal-paypal",
                 "paypal-paypalpaylater",
                 "powertranz-card",
+                "riskified-anti-fraud",
                 "stripe-card",
                 "travelhub-card",
                 "trustly-trustly",
@@ -412,6 +451,7 @@ class TransactionConnectionOptions(BaseModel):
                 "adyen-cashapp",
                 "adyen-giropay",
                 "adyen-ideal",
+                "adyen-pix",
                 "adyen-sepa",
                 "adyen-sofort",
                 "adyen-vipps",
@@ -424,6 +464,7 @@ class TransactionConnectionOptions(BaseModel):
                 "cybersource-kcp",
                 "dlocal-nequi",
                 "dlocal-upi",
+                "dlocal-pix",
                 "fiserv-card",
                 "forter-anti-fraud",
                 "gem-gem",
@@ -438,11 +479,13 @@ class TransactionConnectionOptions(BaseModel):
                 "mock-card",
                 "nuvei-card",
                 "nuvei-ideal",
+                "nuvei-klarna",
                 "nuvei-pse",
                 "oxxo-oxxo",
                 "paypal-paypal",
                 "paypal-paypalpaylater",
                 "powertranz-card",
+                "riskified-anti-fraud",
                 "stripe-card",
                 "travelhub-card",
                 "trustly-trustly",
@@ -455,7 +498,7 @@ class TransactionConnectionOptions(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
                 and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
@@ -470,3 +513,9 @@ class TransactionConnectionOptions(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    TransactionConnectionOptions.model_rebuild()
+except NameError:
+    pass

@@ -2,15 +2,24 @@
 
 3DS transaction status.
 
+## Example Usage
+
+```python
+from gr4vy.models import ThreeDSecureScenarioOutcomeAuthenticationTransactionStatus
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: ThreeDSecureScenarioOutcomeAuthenticationTransactionStatus = "Y"
+```
+
 
 ## Values
 
-| Name      | Value     |
-| --------- | --------- |
-| `Y`       | Y         |
-| `N`       | N         |
-| `A`       | A         |
-| `R`       | R         |
-| `U`       | U         |
-| `C`       | C         |
-| `TIMEOUT` | timeout   |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"Y"`
+- `"N"`
+- `"A"`
+- `"R"`
+- `"U"`
+- `"C"`
+- `"timeout"`

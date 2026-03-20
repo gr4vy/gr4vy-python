@@ -1,11 +1,20 @@
 # AdyenCardAutoRescueScenariosEnum
 
+## Example Usage
+
+```python
+from gr4vy.models import AdyenCardAutoRescueScenariosEnum
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: AdyenCardAutoRescueScenariosEnum = "AutoRescueSuccessfulFirst"
+```
+
 
 ## Values
 
-| Name                            | Value                           |
-| ------------------------------- | ------------------------------- |
-| `AUTO_RESCUE_SUCCESSFUL_FIRST`  | AutoRescueSuccessfulFirst       |
-| `AUTO_RESCUE_SUCCESSFUL_SECOND` | AutoRescueSuccessfulSecond      |
-| `AUTO_RESCUE_FAILED`            | AutoRescueFailed                |
-| `AUTO_RESCUE_FRAUD`             | AutoRescueFraud                 |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"AutoRescueSuccessfulFirst"`
+- `"AutoRescueSuccessfulSecond"`
+- `"AutoRescueFailed"`
+- `"AutoRescueFraud"`

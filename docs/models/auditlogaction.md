@@ -1,13 +1,22 @@
 # AuditLogAction
 
+## Example Usage
+
+```python
+from gr4vy.models import AuditLogAction
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: AuditLogAction = "created"
+```
+
 
 ## Values
 
-| Name       | Value      |
-| ---------- | ---------- |
-| `CREATED`  | created    |
-| `UPDATED`  | updated    |
-| `DELETED`  | deleted    |
-| `VOIDED`   | voided     |
-| `CANCELED` | canceled   |
-| `CAPTURED` | captured   |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"created"`
+- `"updated"`
+- `"deleted"`
+- `"voided"`
+- `"canceled"`
+- `"captured"`

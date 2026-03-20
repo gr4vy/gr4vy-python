@@ -2,10 +2,19 @@
 
 The direction to sort the payment methods in.
 
+## Example Usage
+
+```python
+from gr4vy.models import OrderBy
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: OrderBy = "asc"
+```
+
 
 ## Values
 
-| Name   | Value  |
-| ------ | ------ |
-| `ASC`  | asc    |
-| `DESC` | desc   |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"asc"`
+- `"desc"`

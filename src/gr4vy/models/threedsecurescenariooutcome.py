@@ -15,32 +15,32 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class ThreeDSecureScenarioOutcomeTypedDict(TypedDict):
-    version: str
-    r"""The version of 3DS which will be simulated."""
     authentication: ThreeDSecureScenarioOutcomeAuthenticationTypedDict
+    version: NotRequired[Nullable[str]]
+    r"""The version of 3DS which will be simulated."""
     result: NotRequired[Nullable[ThreeDSecureScenarioOutcomeResultTypedDict]]
     r"""3DS result value. Required if authentication status is \"C\"."""
 
 
 class ThreeDSecureScenarioOutcome(BaseModel):
-    version: str
-    r"""The version of 3DS which will be simulated."""
-
     authentication: ThreeDSecureScenarioOutcomeAuthentication
+
+    version: OptionalNullable[str] = UNSET
+    r"""The version of 3DS which will be simulated."""
 
     result: OptionalNullable[ThreeDSecureScenarioOutcomeResult] = UNSET
     r"""3DS result value. Required if authentication status is \"C\"."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["result"])
-        nullable_fields = set(["result"])
+        optional_fields = set(["version", "result"])
+        nullable_fields = set(["version", "result"])
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
                 and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member

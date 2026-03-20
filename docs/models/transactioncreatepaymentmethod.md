@@ -65,6 +65,12 @@ value: models.NetworkTokenPaymentMethodCreate = /* values here */
 value: models.PlaidPaymentMethodCreate = /* values here */
 ```
 
+### `models.BaseBankPaymentMethodCreate`
+
+```python
+value: models.BaseBankPaymentMethodCreate = /* values here */
+```
+
 ### `models.CheckoutSessionWithURLPaymentMethodCreate`
 
 ```python

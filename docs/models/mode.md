@@ -1,15 +1,24 @@
 # Mode
 
+## Example Usage
+
+```python
+from gr4vy.models import Mode
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: Mode = "card"
+```
+
 
 ## Values
 
-| Name               | Value              |
-| ------------------ | ------------------ |
-| `CARD`             | card               |
-| `REDIRECT`         | redirect           |
-| `APPLEPAY`         | applepay           |
-| `GOOGLEPAY`        | googlepay          |
-| `CHECKOUT_SESSION` | checkout-session   |
-| `CLICK_TO_PAY`     | click-to-pay       |
-| `GIFT_CARD`        | gift-card          |
-| `BANK`             | bank               |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"card"`
+- `"redirect"`
+- `"applepay"`
+- `"googlepay"`
+- `"checkout-session"`
+- `"click-to-pay"`
+- `"gift-card"`
+- `"bank"`

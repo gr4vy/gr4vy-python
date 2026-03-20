@@ -153,7 +153,7 @@ class Refund(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
                 and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member
@@ -168,3 +168,9 @@ class Refund(BaseModel):
                     m[k] = val
 
         return m
+
+
+try:
+    Refund.model_rebuild()
+except NameError:
+    pass

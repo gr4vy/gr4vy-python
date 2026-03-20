@@ -1,11 +1,20 @@
 # FlowAction
 
+## Example Usage
+
+```python
+from gr4vy.models import FlowAction
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: FlowAction = "select-payment-options"
+```
+
 
 ## Values
 
-| Name                     | Value                    |
-| ------------------------ | ------------------------ |
-| `SELECT_PAYMENT_OPTIONS` | select-payment-options   |
-| `ROUTE_TRANSACTION`      | route-transaction        |
-| `DECLINE_EARLY`          | decline-early            |
-| `SKIP_3DS`               | skip-3ds                 |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"select-payment-options"`
+- `"route-transaction"`
+- `"decline-early"`
+- `"skip-3ds"`

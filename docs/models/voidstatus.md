@@ -1,11 +1,20 @@
 # VoidStatus
 
+## Example Usage
+
+```python
+from gr4vy.models import VoidStatus
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: VoidStatus = "succeeded"
+```
+
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `SUCCEEDED` | succeeded   |
-| `PENDING`   | pending     |
-| `DECLINED`  | declined    |
-| `FAILED`    | failed      |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"succeeded"`
+- `"pending"`
+- `"declined"`
+- `"failed"`

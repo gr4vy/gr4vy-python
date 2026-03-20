@@ -1,9 +1,18 @@
 # CardSource
 
+## Example Usage
+
+```python
+from gr4vy.models import CardSource
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: CardSource = "apple-pay"
+```
+
 
 ## Values
 
-| Name         | Value        |
-| ------------ | ------------ |
-| `APPLE_PAY`  | apple-pay    |
-| `GOOGLE_PAY` | google-pay   |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"apple-pay"`
+- `"google-pay"`

@@ -1,15 +1,25 @@
 # InstrumentType
 
+## Example Usage
+
+```python
+from gr4vy.models import InstrumentType
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: InstrumentType = "pan"
+```
+
 
 ## Values
 
-| Name             | Value            |
-| ---------------- | ---------------- |
-| `PAN`            | pan              |
-| `CARD_TOKEN`     | card_token       |
-| `REDIRECT`       | redirect         |
-| `REDIRECT_TOKEN` | redirect_token   |
-| `GOOGLEPAY`      | googlepay        |
-| `APPLEPAY`       | applepay         |
-| `NETWORK_TOKEN`  | network_token    |
-| `PLAID`          | plaid            |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"pan"`
+- `"card_token"`
+- `"redirect"`
+- `"redirect_token"`
+- `"googlepay"`
+- `"applepay"`
+- `"network_token"`
+- `"plaid"`
+- `"bank"`

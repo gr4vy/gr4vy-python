@@ -2,13 +2,22 @@
 
 The way payment method information made it to this transaction.
 
+## Example Usage
+
+```python
+from gr4vy.models import TransactionPaymentSource
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: TransactionPaymentSource = "ecommerce"
+```
+
 
 ## Values
 
-| Name           | Value          |
-| -------------- | -------------- |
-| `ECOMMERCE`    | ecommerce      |
-| `MOTO`         | moto           |
-| `RECURRING`    | recurring      |
-| `INSTALLMENT`  | installment    |
-| `CARD_ON_FILE` | card_on_file   |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"ecommerce"`
+- `"moto"`
+- `"recurring"`
+- `"installment"`
+- `"card_on_file"`
