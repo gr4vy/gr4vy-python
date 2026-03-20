@@ -1,9 +1,18 @@
 # VaultPaymentMethodCriteria
 
+## Example Usage
+
+```python
+from gr4vy.models import VaultPaymentMethodCriteria
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: VaultPaymentMethodCriteria = "ALWAYS"
+```
+
 
 ## Values
 
-| Name                        | Value                       |
-| --------------------------- | --------------------------- |
-| `ALWAYS`                    | ALWAYS                      |
-| `ON_SUCCESSFUL_TRANSACTION` | ON_SUCCESSFUL_TRANSACTION   |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"ALWAYS"`
+- `"ON_SUCCESSFUL_TRANSACTION"`

@@ -15,6 +15,7 @@ class BuyersPaymentMethods(BaseSDK):
         *,
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_external_identifier: OptionalNullable[str] = UNSET,
+        sort_by: OptionalNullable[models.SortBy] = UNSET,
         order_by: Optional[models.OrderBy] = "desc",
         country: OptionalNullable[str] = UNSET,
         currency: OptionalNullable[str] = UNSET,
@@ -30,6 +31,7 @@ class BuyersPaymentMethods(BaseSDK):
 
         :param buyer_id: The ID of the buyer to query payment methods for.
         :param buyer_external_identifier: The external identifier of the buyer to query payment methods for.
+        :param sort_by: The field to sort the payment methods by.
         :param order_by: The direction to sort the payment methods in.
         :param country: The country code to filter payment methods by. This only applies to payment methods with a `country` value.
         :param currency: The currency code to filter payment methods by. This only applies to payment methods with a `currency` value.
@@ -52,6 +54,7 @@ class BuyersPaymentMethods(BaseSDK):
         request = models.ListBuyerPaymentMethodsRequest(
             buyer_id=buyer_id,
             buyer_external_identifier=buyer_external_identifier,
+            sort_by=sort_by,
             order_by=order_by,
             country=country,
             currency=currency,
@@ -175,6 +178,7 @@ class BuyersPaymentMethods(BaseSDK):
         *,
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_external_identifier: OptionalNullable[str] = UNSET,
+        sort_by: OptionalNullable[models.SortBy] = UNSET,
         order_by: Optional[models.OrderBy] = "desc",
         country: OptionalNullable[str] = UNSET,
         currency: OptionalNullable[str] = UNSET,
@@ -190,6 +194,7 @@ class BuyersPaymentMethods(BaseSDK):
 
         :param buyer_id: The ID of the buyer to query payment methods for.
         :param buyer_external_identifier: The external identifier of the buyer to query payment methods for.
+        :param sort_by: The field to sort the payment methods by.
         :param order_by: The direction to sort the payment methods in.
         :param country: The country code to filter payment methods by. This only applies to payment methods with a `country` value.
         :param currency: The currency code to filter payment methods by. This only applies to payment methods with a `currency` value.
@@ -212,6 +217,7 @@ class BuyersPaymentMethods(BaseSDK):
         request = models.ListBuyerPaymentMethodsRequest(
             buyer_id=buyer_id,
             buyer_external_identifier=buyer_external_identifier,
+            sort_by=sort_by,
             order_by=order_by,
             country=country,
             currency=currency,

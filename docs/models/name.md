@@ -2,60 +2,69 @@
 
 The specific event name.
 
+## Example Usage
+
+```python
+from gr4vy.models import Name
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: Name = "transaction-updated-status"
+```
+
 
 ## Values
 
-| Name                                                             | Value                                                            |
-| ---------------------------------------------------------------- | ---------------------------------------------------------------- |
-| `TRANSACTION_UPDATED_STATUS`                                     | transaction-updated-status                                       |
-| `TRANSACTION_SYNC_EVENT`                                         | transaction-sync-event                                           |
-| `TRANSACTION_SYNC_FAILED_EVENT`                                  | transaction-sync-failed-event                                    |
-| `TRANSACTION_MODIFIED_EVENT`                                     | transaction-modified-event                                       |
-| `TRANSACTION_API_REQUEST`                                        | transaction-api-request                                          |
-| `TRANSACTION_API_RESPONSE`                                       | transaction-api-response                                         |
-| `BIN_LOOKUP_REQUEST`                                             | bin-lookup-request                                               |
-| `THREE_D_SECURE_SUCCESS`                                         | three-d-secure-success                                           |
-| `THREE_D_SECURE_REQUEST_ERROR`                                   | three-d-secure-request-error                                     |
-| `THREE_D_SECURE_PREPARATION_REQUEST`                             | three-d-secure-preparation-request                               |
-| `THREE_D_SECURE_AUTHENTICATION_REQUEST`                          | three-d-secure-authentication-request                            |
-| `THREE_D_SECURE_RESULT_REQUEST`                                  | three-d-secure-result-request                                    |
-| `ANTI_FRAUD_DECISION`                                            | anti-fraud-decision                                              |
-| `ANTI_FRAUD_DECISION_ERROR`                                      | anti-fraud-decision-error                                        |
-| `ANTI_FRAUD_DECISION_SKIPPED`                                    | anti-fraud-decision-skipped                                      |
-| `ANTI_FRAUD_WEBHOOK`                                             | anti-fraud-webhook                                               |
-| `ANTI_FRAUD_TRANSACTION_STATUS_UPDATE`                           | anti-fraud-transaction-status-update                             |
-| `ANTI_FRAUD_TRANSACTION_STATUS_UPDATE_ERROR`                     | anti-fraud-transaction-status-update-error                       |
-| `ANTI_FRAUD_DECISION_UPDATE`                                     | anti-fraud-decision-update                                       |
-| `ANTI_FRAUD_DECISION_UPDATE_ERROR`                               | anti-fraud-decision-update-error                                 |
-| `GIFT_CARD_REDEMPTION_SUCCEEDED`                                 | gift-card-redemption-succeeded                                   |
-| `GIFT_CARD_REDEMPTION_FAILED`                                    | gift-card-redemption-failed                                      |
-| `GIFT_CARD_REFUND_SUCCEEDED`                                     | gift-card-refund-succeeded                                       |
-| `GIFT_CARD_REFUND_FAILED`                                        | gift-card-refund-failed                                          |
-| `GIFT_CARD_REVERSAL_SUCCEEDED`                                   | gift-card-reversal-succeeded                                     |
-| `PAYMENT_CONNECTOR_RESPONSE_TRANSACTION_AUTHORIZATION_SUCCEEDED` | payment-connector-response-transaction-authorization-succeeded   |
-| `PAYMENT_CONNECTOR_RESPONSE_TRANSACTION_CAPTURE_SUCCEEDED`       | payment-connector-response-transaction-capture-succeeded         |
-| `PAYMENT_CONNECTOR_RESPONSE_TRANSACTION_AUTHORIZATION_FAILED`    | payment-connector-response-transaction-authorization-failed      |
-| `PAYMENT_CONNECTOR_RESPONSE_TRANSACTION_DECLINED`                | payment-connector-response-transaction-declined                  |
-| `PAYMENT_CONNECTOR_RESPONSE_TRANSACTION_CAPTURE_FAILED`          | payment-connector-response-transaction-capture-failed            |
-| `PAYMENT_CONNECTOR_RESPONSE_TRANSACTION_CAPTURE_DECLINED`        | payment-connector-response-transaction-capture-declined          |
-| `PAYMENT_CONNECTOR_RESPONSE_TRANSACTION_CANCEL_SUCCEEDED`        | payment-connector-response-transaction-cancel-succeeded          |
-| `PAYMENT_CONNECTOR_RESPONSE_TRANSACTION_CANCEL_PENDING`          | payment-connector-response-transaction-cancel-pending            |
-| `PAYMENT_CONNECTOR_RESPONSE_TRANSACTION_CANCEL_FAILED`           | payment-connector-response-transaction-cancel-failed             |
-| `PAYMENT_CONNECTOR_RESPONSE_TRANSACTION_VOID_SUCCEEDED`          | payment-connector-response-transaction-void-succeeded            |
-| `PAYMENT_CONNECTOR_RESPONSE_TRANSACTION_VOID_DECLINED`           | payment-connector-response-transaction-void-declined             |
-| `PAYMENT_CONNECTOR_RESPONSE_TRANSACTION_VOID_FAILED`             | payment-connector-response-transaction-void-failed               |
-| `PAYMENT_CONNECTOR_EXTERNAL_TRANSACTION_REQUEST`                 | payment-connector-external-transaction-request                   |
-| `PAYMENT_CONNECTOR_REPORT_TRANSACTION_SETTLED`                   | payment-connector-report-transaction-settled                     |
-| `PAYMENT_CONNECTOR_REPORT_CHARGEBACK_POSTED`                     | payment-connector-report-chargeback-posted                       |
-| `PAYMENT_CONNECTOR_REPORT_CHARGEBACK_REVERSAL_POSTED`            | payment-connector-report-chargeback-reversal-posted              |
-| `PAYMENT_CONNECTOR_TRANSACTION_WEBHOOK_PROCESSED`                | payment-connector-transaction-webhook-processed                  |
-| `DIGITAL_WALLET_APPLE_PAY_TOKEN_DECRYPTED`                       | digital-wallet-apple-pay-token-decrypted                         |
-| `DIGITAL_WALLET_GOOGLE_PAY_TOKEN_DECRYPTED`                      | digital-wallet-google-pay-token-decrypted                        |
-| `DIGITAL_WALLET_CLICK_TO_PAY_TOKEN_DECRYPTED`                    | digital-wallet-click-to-pay-token-decrypted                      |
-| `NETWORK_TOKEN_PROVISION_SUCCEEDED`                              | network-token-provision-succeeded                                |
-| `NETWORK_TOKEN_PROVISION_FAILED`                                 | network-token-provision-failed                                   |
-| `NETWORK_TOKEN_CRYPTOGRAM_PROVISION_SUCCEEDED`                   | network-token-cryptogram-provision-succeeded                     |
-| `NETWORK_TOKEN_CRYPTOGRAM_PROVISION_FAILED`                      | network-token-cryptogram-provision-failed                        |
-| `THE_GIVING_BLOCK_TRANSACTION_CONVERSION_SUCCEEDED`              | the-giving-block-transaction-conversion-succeeded                |
-| `REAL_TIME_ACCOUNT_UPDATE`                                       | real-time-account-update                                         |
-| `PLAID_REQUEST_EVENT`                                            | plaid-request-event                                              |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"transaction-updated-status"`
+- `"transaction-sync-event"`
+- `"transaction-sync-failed-event"`
+- `"transaction-modified-event"`
+- `"transaction-api-request"`
+- `"transaction-api-response"`
+- `"bin-lookup-request"`
+- `"three-d-secure-success"`
+- `"three-d-secure-request-error"`
+- `"three-d-secure-preparation-request"`
+- `"three-d-secure-authentication-request"`
+- `"three-d-secure-result-request"`
+- `"anti-fraud-decision"`
+- `"anti-fraud-decision-error"`
+- `"anti-fraud-decision-skipped"`
+- `"anti-fraud-webhook"`
+- `"anti-fraud-transaction-status-update"`
+- `"anti-fraud-transaction-status-update-error"`
+- `"anti-fraud-decision-update"`
+- `"anti-fraud-decision-update-error"`
+- `"gift-card-redemption-succeeded"`
+- `"gift-card-redemption-failed"`
+- `"gift-card-refund-succeeded"`
+- `"gift-card-refund-failed"`
+- `"gift-card-reversal-succeeded"`
+- `"payment-connector-response-transaction-authorization-succeeded"`
+- `"payment-connector-response-transaction-capture-succeeded"`
+- `"payment-connector-response-transaction-authorization-failed"`
+- `"payment-connector-response-transaction-declined"`
+- `"payment-connector-response-transaction-capture-failed"`
+- `"payment-connector-response-transaction-capture-declined"`
+- `"payment-connector-response-transaction-cancel-succeeded"`
+- `"payment-connector-response-transaction-cancel-pending"`
+- `"payment-connector-response-transaction-cancel-failed"`
+- `"payment-connector-response-transaction-void-succeeded"`
+- `"payment-connector-response-transaction-void-declined"`
+- `"payment-connector-response-transaction-void-failed"`
+- `"payment-connector-external-transaction-request"`
+- `"payment-connector-report-transaction-settled"`
+- `"payment-connector-report-chargeback-posted"`
+- `"payment-connector-report-chargeback-reversal-posted"`
+- `"payment-connector-transaction-webhook-processed"`
+- `"digital-wallet-apple-pay-token-decrypted"`
+- `"digital-wallet-google-pay-token-decrypted"`
+- `"digital-wallet-click-to-pay-token-decrypted"`
+- `"network-token-provision-succeeded"`
+- `"network-token-provision-failed"`
+- `"network-token-cryptogram-provision-succeeded"`
+- `"network-token-cryptogram-provision-failed"`
+- `"the-giving-block-transaction-conversion-succeeded"`
+- `"real-time-account-update"`
+- `"plaid-request-event"`

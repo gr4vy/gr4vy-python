@@ -9,15 +9,9 @@ from gr4vy.types import (
     UNSET_SENTINEL,
     UnrecognizedStr,
 )
-from gr4vy.utils import (
-    FieldMetadata,
-    HeaderMetadata,
-    QueryParamMetadata,
-    validate_const,
-)
+from gr4vy.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
 import pydantic
 from pydantic import model_serializer
-from pydantic.functional_validators import AfterValidator
 from typing import Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
 
@@ -43,13 +37,22 @@ class ListBuyerPaymentMethodsGlobals(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
 
             if val != UNSET_SENTINEL:
                 if val is not None or k not in optional_fields:
                     m[k] = val
 
         return m
+
+
+SortBy = Literal[
+    "last_used_at",
+    "usage_count",
+    "cit_last_used_at",
+    "cit_usage_count",
+]
+r"""The field to sort the payment methods by."""
 
 
 OrderBy = Union[
@@ -67,7 +70,7 @@ class ListBuyerPaymentMethodsRequestTypedDict(TypedDict):
     r"""The ID of the buyer to query payment methods for."""
     buyer_external_identifier: NotRequired[Nullable[str]]
     r"""The external identifier of the buyer to query payment methods for."""
-    sort_by: Nullable[Literal["last_used_at"]]
+    sort_by: NotRequired[Nullable[SortBy]]
     r"""The field to sort the payment methods by."""
     order_by: NotRequired[OrderBy]
     r"""The direction to sort the payment methods in."""
@@ -92,14 +95,10 @@ class ListBuyerPaymentMethodsRequest(BaseModel):
     ] = UNSET
     r"""The external identifier of the buyer to query payment methods for."""
 
-    SORT_BY: Annotated[
-        Annotated[
-            OptionalNullable[Literal["last_used_at"]],
-            AfterValidator(validate_const("last_used_at")),
-        ],
-        pydantic.Field(alias="sort_by"),
+    sort_by: Annotated[
+        OptionalNullable[SortBy],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
-    ] = "last_used_at"
+    ] = UNSET
     r"""The field to sort the payment methods by."""
 
     order_by: Annotated[
@@ -148,7 +147,7 @@ class ListBuyerPaymentMethodsRequest(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
                 and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member

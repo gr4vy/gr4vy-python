@@ -1,16 +1,25 @@
 # TransactionStatus
 
+## Example Usage
+
+```python
+from gr4vy.models import TransactionStatus
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: TransactionStatus = "processing"
+```
+
 
 ## Values
 
-| Name                         | Value                        |
-| ---------------------------- | ---------------------------- |
-| `PROCESSING`                 | processing                   |
-| `AUTHORIZATION_SUCCEEDED`    | authorization_succeeded      |
-| `AUTHORIZATION_DECLINED`     | authorization_declined       |
-| `AUTHORIZATION_FAILED`       | authorization_failed         |
-| `AUTHORIZATION_VOIDED`       | authorization_voided         |
-| `AUTHORIZATION_VOID_PENDING` | authorization_void_pending   |
-| `CAPTURE_SUCCEEDED`          | capture_succeeded            |
-| `CAPTURE_PENDING`            | capture_pending              |
-| `BUYER_APPROVAL_PENDING`     | buyer_approval_pending       |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"processing"`
+- `"authorization_succeeded"`
+- `"authorization_declined"`
+- `"authorization_failed"`
+- `"authorization_voided"`
+- `"authorization_void_pending"`
+- `"capture_succeeded"`
+- `"capture_pending"`
+- `"buyer_approval_pending"`

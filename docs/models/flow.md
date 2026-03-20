@@ -1,11 +1,20 @@
 # Flow
 
+## Example Usage
+
+```python
+from gr4vy.models import Flow
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: Flow = "checkout"
+```
+
 
 ## Values
 
-| Name                   | Value                  |
-| ---------------------- | ---------------------- |
-| `CHECKOUT`             | checkout               |
-| `CARD_TRANSACTION`     | card-transaction       |
-| `NON_CARD_TRANSACTION` | non-card-transaction   |
-| `REDIRECT_TRANSACTION` | redirect-transaction   |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"checkout"`
+- `"card-transaction"`
+- `"non-card-transaction"`
+- `"redirect-transaction"`

@@ -1,11 +1,20 @@
 # PayoutStatus
 
+## Example Usage
+
+```python
+from gr4vy.models import PayoutStatus
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: PayoutStatus = "declined"
+```
+
 
 ## Values
 
-| Name        | Value       |
-| ----------- | ----------- |
-| `DECLINED`  | declined    |
-| `FAILED`    | failed      |
-| `PENDING`   | pending     |
-| `SUCCEEDED` | succeeded   |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"declined"`
+- `"failed"`
+- `"pending"`
+- `"succeeded"`

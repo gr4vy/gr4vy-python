@@ -1,9 +1,18 @@
 # ReportCreatorType
 
+## Example Usage
+
+```python
+from gr4vy.models import ReportCreatorType
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: ReportCreatorType = "user"
+```
+
 
 ## Values
 
-| Name          | Value         |
-| ------------- | ------------- |
-| `USER`        | user          |
-| `PRIVATE_KEY` | private_key   |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"user"`
+- `"private_key"`

@@ -6,6 +6,10 @@ from .applepaypaymentmethodcreate import (
     ApplePayPaymentMethodCreate,
     ApplePayPaymentMethodCreateTypedDict,
 )
+from .basebankpaymentmethodcreate import (
+    BaseBankPaymentMethodCreate,
+    BaseBankPaymentMethodCreateTypedDict,
+)
 from .browserinfo import BrowserInfo, BrowserInfoTypedDict
 from .cardwithurlpaymentmethodcreate import (
     CardWithURLPaymentMethodCreate,
@@ -79,6 +83,7 @@ TransactionCreatePaymentMethodTypedDict = TypeAliasType(
     "TransactionCreatePaymentMethodTypedDict",
     Union[
         TokenPaymentMethodCreateTypedDict,
+        BaseBankPaymentMethodCreateTypedDict,
         CheckoutSessionWithURLPaymentMethodCreateTypedDict,
         RedirectPaymentMethodCreateTypedDict,
         PlaidPaymentMethodCreateTypedDict,
@@ -98,6 +103,7 @@ TransactionCreatePaymentMethod = TypeAliasType(
     "TransactionCreatePaymentMethod",
     Union[
         TokenPaymentMethodCreate,
+        BaseBankPaymentMethodCreate,
         CheckoutSessionWithURLPaymentMethodCreate,
         RedirectPaymentMethodCreate,
         PlaidPaymentMethodCreate,
@@ -464,7 +470,7 @@ class TransactionCreate(BaseModel):
 
         for n, f in type(self).model_fields.items():
             k = f.alias or n
-            val = serialized.get(k)
+            val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
                 and (self.__pydantic_fields_set__.intersection({n}))  # pylint: disable=no-member

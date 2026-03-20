@@ -424,7 +424,7 @@ class Executions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.report_execution_url_generate,
+                request.report_execution_url_generate if request is not None else None,
                 False,
                 True,
                 "json",
@@ -583,7 +583,7 @@ class Executions(BaseSDK):
             ),
             security=self.sdk_configuration.security,
             get_serialized_body=lambda: utils.serialize_request_body(
-                request.report_execution_url_generate,
+                request.report_execution_url_generate if request is not None else None,
                 False,
                 True,
                 "json",

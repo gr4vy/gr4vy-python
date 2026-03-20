@@ -1,10 +1,19 @@
 # PaymentServiceStatus
 
+## Example Usage
+
+```python
+from gr4vy.models import PaymentServiceStatus
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: PaymentServiceStatus = "pending"
+```
+
 
 ## Values
 
-| Name      | Value     |
-| --------- | --------- |
-| `PENDING` | pending   |
-| `CREATED` | created   |
-| `FAILED`  | failed    |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"pending"`
+- `"created"`
+- `"failed"`

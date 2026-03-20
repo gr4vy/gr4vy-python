@@ -1,15 +1,24 @@
 # ProductType
 
+## Example Usage
+
+```python
+from gr4vy.models import ProductType
+
+# Open enum: unrecognized values are captured as UnrecognizedStr
+value: ProductType = "physical"
+```
+
 
 ## Values
 
-| Name           | Value          |
-| -------------- | -------------- |
-| `PHYSICAL`     | physical       |
-| `DISCOUNT`     | discount       |
-| `SHIPPING_FEE` | shipping_fee   |
-| `SALES_TAX`    | sales_tax      |
-| `DIGITAL`      | digital        |
-| `GIFT_CARD`    | gift_card      |
-| `STORE_CREDIT` | store_credit   |
-| `SURCHARGE`    | surcharge      |
+This is an open enum. Unrecognized values will not fail type checks.
+
+- `"physical"`
+- `"discount"`
+- `"shipping_fee"`
+- `"sales_tax"`
+- `"digital"`
+- `"gift_card"`
+- `"store_credit"`
+- `"surcharge"`

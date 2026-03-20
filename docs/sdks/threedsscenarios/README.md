@@ -27,7 +27,6 @@ with Gr4vy(
 ) as g_client:
 
     res = g_client.three_ds_scenarios.create(conditions={}, outcome={
-        "version": "2.2.0",
         "authentication": {
             "transaction_status": "Y",
         },
