@@ -70,6 +70,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `adyen-sepa` connector."""
     adyen_sofort: NotRequired[Nullable[AdyenOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-sofort` connector."""
+    adyen_swish: NotRequired[Nullable[AdyenOptionsTypedDict]]
+    r"""Custom options to be passed to the `adyen-swish` connector."""
     adyen_vipps: NotRequired[Nullable[AdyenOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-vipps` connector."""
     affirm_affirm: NotRequired[Nullable[AffirmOptionsTypedDict]]
@@ -196,6 +198,11 @@ class TransactionConnectionOptions(BaseModel):
         OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-sofort")
     ] = UNSET
     r"""Custom options to be passed to the `adyen-sofort` connector."""
+
+    adyen_swish: Annotated[
+        OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-swish")
+    ] = UNSET
+    r"""Custom options to be passed to the `adyen-swish` connector."""
 
     adyen_vipps: Annotated[
         OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-vipps")
@@ -403,6 +410,7 @@ class TransactionConnectionOptions(BaseModel):
                 "adyen-pix",
                 "adyen-sepa",
                 "adyen-sofort",
+                "adyen-swish",
                 "adyen-vipps",
                 "affirm-affirm",
                 "braintree-card",
@@ -454,6 +462,7 @@ class TransactionConnectionOptions(BaseModel):
                 "adyen-pix",
                 "adyen-sepa",
                 "adyen-sofort",
+                "adyen-swish",
                 "adyen-vipps",
                 "affirm-affirm",
                 "braintree-card",

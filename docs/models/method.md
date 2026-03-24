@@ -108,6 +108,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"sofort"`
 - `"spei"`
 - `"stitch"`
+- `"swish"`
 - `"stripedd"`
 - `"stripetoken"`
 - `"tapi"`

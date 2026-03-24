@@ -4,7 +4,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from gr4vy.errors import Gr4vyError
 from gr4vy.models import errordetail as models_errordetail
-from gr4vy.types import BaseModel
+from gr4vy.types import BaseModel, OptionalNullable, UNSET
 from gr4vy.utils import validate_const
 import httpx
 import pydantic
@@ -27,6 +27,8 @@ class Error409Data(BaseModel):
     r"""A human readable message that provides more context to the error."""
     details: Optional[List[models_errordetail.ErrorDetail]] = None
     r"""A list of details that further ellaborate on the error."""
+    resource_id: OptionalNullable[str] = UNSET
+    r"""The ID of the conflicting resource."""
 
 
 @dataclass(unsafe_hash=True)

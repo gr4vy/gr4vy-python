@@ -101,6 +101,7 @@ Method = Union[
         "sofort",
         "spei",
         "stitch",
+        "swish",
         "stripedd",
         "stripetoken",
         "tapi",
