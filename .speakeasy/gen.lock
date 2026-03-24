@@ -1,24 +1,24 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 6a4366cb86b4f510c23758a900b3849b
+  docChecksum: b5fb2166164e47e15403139ae7a906b9
   docVersion: 1.0.0
-  speakeasyVersion: 1.758.0
-  generationVersion: 2.866.2
-  releaseVersion: 2.0.1
-  configChecksum: 744540499662b3c0fa77c5708d03906e
+  speakeasyVersion: 1.759.1
+  generationVersion: 2.869.10
+  releaseVersion: 2.0.2
+  configChecksum: 5d8d3b1bc18f685ef1b4f4151527dbf1
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 41a650e4-0660-41c6-bbf8-5a329ba13ec0
-  pristine_commit_hash: 8438a32b45b934daff6808e6e5863df67b9d7497
-  pristine_tree_hash: 664762ec7bb55d0a4abf30b38fed571b90f201c6
+  generation_id: be470257-bbaa-4985-8718-d27b8d33aa24
+  pristine_commit_hash: 6cac35f57bcf98708672c5508074c16dbd33bf50
+  pristine_tree_hash: 2aa062133039b73bbcb70a9c7a74abb48fc77f7e
 features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.7
-    core: 6.0.19
+    core: 6.0.20
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.1
     envVarSecurityUsage: 0.3.2
@@ -35,7 +35,7 @@ features:
     nameOverrides: 3.0.3
     nullables: 1.0.2
     openEnums: 1.0.4
-    pagination: 3.0.7
+    pagination: 3.0.8
     responseFormat: 1.1.0
     retries: 3.0.4
     sdkHooks: 1.2.1
@@ -76,8 +76,8 @@ trackedFiles:
     pristine_git_object: 788659dfa53bbe6c547822e651658dc4334f8b80
   docs/errors/error409.md:
     id: 780bf0d0ad4e
-    last_write_checksum: sha1:9e292902954078cc2344e8cc24417ed0a5ea76ca
-    pristine_git_object: fd4f49e09bba3ee925e65241836462dbd9f378fe
+    last_write_checksum: sha1:dbcb6d02113f26ee689220db650a5c2089ae3560
+    pristine_git_object: d160cf2b2db44f7f3ec418fbbf1270c4155c65a6
   docs/errors/error425.md:
     id: d77f86cc0da0
     last_write_checksum: sha1:6e0d6a5fc27ba29f43880576206a342850a6324d
@@ -1424,8 +1424,8 @@ trackedFiles:
     pristine_git_object: 035ce5c6abfaea3d5bbc1e5863b59248e533e120
   docs/models/method.md:
     id: 51255838a997
-    last_write_checksum: sha1:217325714cf590836a3d9eb735d9906d3c4db64e
-    pristine_git_object: 3b35fd9ba2b3f5e425f7c09f78b101f9a012df3f
+    last_write_checksum: sha1:bf6b83e096b26882636a651fe26d368cbadbdcfd
+    pristine_git_object: 47edb38a801e18380babfe9d98c2dcfe73ece1d0
   docs/models/mockcardmerchantadvicecodeoptions.md:
     id: 2c64efe23406
     last_write_checksum: sha1:9dd1ae6841279ecc29c51acbf4d51ec885c6707d
@@ -1692,8 +1692,8 @@ trackedFiles:
     pristine_git_object: 9fc5693a4598b46699b86b9e5fb8315cd15d2cc1
   docs/models/redirectpaymentmethodcreatemethod.md:
     id: ae93e1391b37
-    last_write_checksum: sha1:e9229f7698e7a0be16e9e00efd6a74c0da88508f
-    pristine_git_object: 33dadde3e3d60765348eab080639b9456467cb25
+    last_write_checksum: sha1:54f86d5f94aabe27284badc91465e2d9395ed627
+    pristine_git_object: 13c261923b7ca0f6525f0ead81d0152fbb956f36
   docs/models/refund.md:
     id: 3be36b1a2825
     last_write_checksum: sha1:2fa86e07647644e2c424a89c39ea160d54559857
@@ -2020,8 +2020,8 @@ trackedFiles:
     pristine_git_object: 3ce9395068714fd740cb6d824c7262e700d58ece
   docs/models/transactionconnectionoptions.md:
     id: 4c92c21f3107
-    last_write_checksum: sha1:04c827fe25c249222284bf24ea2f06c3c1a924b7
-    pristine_git_object: a4f1bba5226f06b1ec1a2be629b7d99cbe68ddf2
+    last_write_checksum: sha1:cef2b5c84978519713b9339fa650e4324ed740e1
+    pristine_git_object: d41a9327afb5dd5e243345a61b96f40cb02bc23d
   docs/models/transactioncreate.md:
     id: 2eccca1e0d3d
     last_write_checksum: sha1:090a83933465e600bafa8aabdac68a3d2c163ac8
@@ -2412,8 +2412,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:d2244d396ec7c5e5bcd50f72f541ad1a6380ec1d
-    pristine_git_object: ddb52e3c72235c52dd0b07d518a54552a3a8059d
+    last_write_checksum: sha1:750191bebec6ecdd4f626056bf3f78362c73b14a
+    pristine_git_object: f5e7f765d8ef5af89defd5cd4c52da517a223037
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2440,8 +2440,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:e66dcd292a728109da139a0b9fe22e3f880d0131
-    pristine_git_object: 6ef441dd21f4186fded40bf6c6d363f4f56374af
+    last_write_checksum: sha1:131d7dc6bb06a69c8482489cc40cb2df521b3abb
+    pristine_git_object: 833664271fc3ea4ec18b83d09bca19ae5898e30b
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -2528,8 +2528,8 @@ trackedFiles:
     pristine_git_object: 610f64a8d9e8fcd51a1ba7a42934c7229316273f
   src/gr4vy/errors/error409.py:
     id: 1127094962fe
-    last_write_checksum: sha1:9d4ae8cc29cff6d8e194a6780d6acf0e21e398ac
-    pristine_git_object: 3c138b24667eeb3e4846fac08c47ef0a0e4bc54e
+    last_write_checksum: sha1:865de1dac93f37c5e298b1fcc2ac3227e40795da
+    pristine_git_object: f5e5f9df5b9725e450045eeccc174b71d4066639
   src/gr4vy/errors/error425.py:
     id: f77c8c9a3db7
     last_write_checksum: sha1:e9e18ecaf7673d16ab7c335721a8eea04481d6a8
@@ -3504,8 +3504,8 @@ trackedFiles:
     pristine_git_object: f3974e7d85fe1b5a2b60c462124a8e495426930e
   src/gr4vy/models/method.py:
     id: b96e27456af8
-    last_write_checksum: sha1:9236589bf29dc067b73f031962e47a8775bad05e
-    pristine_git_object: 2de8ca94a90837d6e623a0e5c8a07931d05b6ce9
+    last_write_checksum: sha1:888a7764bc4fa8ce74385cc001ad716327bc01d6
+    pristine_git_object: d1ab4b0183009e16eedf2a977b2335f82308fa6d
   src/gr4vy/models/mockcardmerchantadvicecodeoptions.py:
     id: 01ae18d5b401
     last_write_checksum: sha1:a497bfa2ec8f4f2728fb7d850015a6e661eb4368
@@ -3748,8 +3748,8 @@ trackedFiles:
     pristine_git_object: 8c9c64adbea69350ed5c2c705f45be9115faddca
   src/gr4vy/models/redirectpaymentmethodcreate.py:
     id: 490d27963970
-    last_write_checksum: sha1:8a019ca8b9278dc98152d054f5693adef542bbee
-    pristine_git_object: 9d494b5eca47d2678652ba3c1afc8db79b0d3f8d
+    last_write_checksum: sha1:0cf49fe53b299e312dfb73cc73a846d566269c37
+    pristine_git_object: 0ad58a5f893687550497c802aa690782087f6a89
   src/gr4vy/models/refund.py:
     id: 8aa63978d78c
     last_write_checksum: sha1:63f066382d875fd371807ad6d22d89767a315359
@@ -4004,8 +4004,8 @@ trackedFiles:
     pristine_git_object: a55a2395e9891bdc414bb7ec14f26ed582b0cb1a
   src/gr4vy/models/transactionconnectionoptions.py:
     id: e12dfa576d74
-    last_write_checksum: sha1:874603bc45de884d95a49747d83cbe3e5a916756
-    pristine_git_object: 77de07e38e975df9857e8a761c6f1594175935a1
+    last_write_checksum: sha1:387ce6a386635fb0d9c985d0bae30a56578a660b
+    pristine_git_object: c1abb9ac78a99e861887b726a0018970afc436b0
   src/gr4vy/models/transactioncreate.py:
     id: 640e0433670e
     last_write_checksum: sha1:d9ce890f49bd9b547b3a66b7e89aef386e23d7aa
@@ -8073,7 +8073,7 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.transactions.create()`: \n  *  `request` **Changed** (Breaking ⚠️)\n  *  `response` **Changed**\n* `gr4vy.three_ds_scenarios.update()`: \n  *  `request.outcome.version` **Changed**\n  *  `response.outcome.version` **Changed** (Breaking ⚠️)\n* `gr4vy.payment_methods.create()`: \n  *  `request_body` **Changed** (Breaking ⚠️)\n  *  `response` **Changed**\n* `gr4vy.three_ds_scenarios.create()`: \n  *  `request.outcome.version` **Changed**\n  *  `response.outcome.version` **Changed** (Breaking ⚠️)\n* `gr4vy.three_ds_scenarios.list()`:  `response.items[].outcome.version` **Changed** (Breaking ⚠️)\n* `gr4vy.payment_services.get()`:  `response.method` **Changed**\n* `gr4vy.checkout_sessions.update()`:  `response.payment_method.scheme.enum(qcard)` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options` **Changed**\n  *  `response` **Changed**\n* `gr4vy.transactions.capture()`:  `response.union(Transaction)` **Changed**\n* `gr4vy.transactions.void()`:  `response.union(Transaction)` **Changed**\n* `gr4vy.transactions.cancel()`:  `response.transaction` **Changed**\n* `gr4vy.transactions.sync()`:  `response` **Changed**\n* `gr4vy.payment_service_definitions.list()`:  `response.items[].method` **Changed**\n* `gr4vy.payment_service_definitions.get()`:  `response.method` **Changed**\n* `gr4vy.payment_services.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].method` **Changed**\n* `gr4vy.payment_services.create()`:  `response.method` **Changed**\n* `gr4vy.buyers.payment_methods.list()`:  `response.items[]` **Changed**\n* `gr4vy.payment_services.update()`:  `response.method` **Changed**\n* `gr4vy.checkout_sessions.create()`:  `response.payment_method.scheme.enum(qcard)` **Added**\n* `gr4vy.checkout_sessions.get()`:  `response.payment_method.scheme.enum(qcard)` **Added**\n* `gr4vy.transactions.get()`:  `response` **Changed**\n* `gr4vy.merchant_accounts.list()`:  `response.items[].loon_accepted_schemes[].enum(qcard)` **Added**\n* `gr4vy.merchant_accounts.create()`: \n  *  `request.loon_accepted_schemes[].enum(qcard)` **Added**\n  *  `response.loon_accepted_schemes[].enum(qcard)` **Added**\n* `gr4vy.merchant_accounts.get()`:  `response.loon_accepted_schemes[].enum(qcard)` **Added**\n* `gr4vy.merchant_accounts.update()`: \n  *  `request.loon_accepted_schemes[].enum(qcard)` **Added**\n  *  `response.loon_accepted_schemes[].enum(qcard)` **Added**\n* `gr4vy.merchant_accounts.three_ds_configuration.list()`:  `response.items[].scheme.enum(qcard)` **Added**\n* `gr4vy.merchant_accounts.three_ds_configuration.create()`: \n  *  `request.scheme.enum(qcard)` **Added**\n  *  `response.scheme.enum(qcard)` **Added**\n* `gr4vy.merchant_accounts.three_ds_configuration.update()`: \n  *  `request.scheme.enum(qcard)` **Added**\n  *  `response.scheme.enum(qcard)` **Added**\n* `gr4vy.transactions.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[]` **Changed**\n* `gr4vy.payment_methods.get()`:  `response` **Changed**\n* `gr4vy.payment_methods.list()`:  `response.items[]` **Changed**\n* `gr4vy.payouts.list()`:  `response.items[].payment_method` **Changed**\n* `gr4vy.payouts.create()`: \n  *  `request.payment_method.union(PaymentMethodCard).card_scheme.enum(qcard)` **Added**\n  *  `response.payment_method` **Changed**\n* `gr4vy.payouts.get()`:  `response.payment_method` **Changed**\n* `gr4vy.payment_links.create()`:  `request.connection_options` **Changed**\n"
+releaseNotes: "## Python SDK Changes:\n* `gr4vy.account_updater.jobs.create()`:  `error.resource_id` **Added**\n* `gr4vy.buyers.list()`:  `error.resource_id` **Added**\n* `gr4vy.buyers.create()`:  `error.resource_id` **Added**\n* `gr4vy.buyers.get()`:  `error.resource_id` **Added**\n* `gr4vy.buyers.update()`:  `error.resource_id` **Added**\n* `gr4vy.buyers.delete()`:  `error.resource_id` **Added**\n* `gr4vy.buyers.payment_methods.list()`: \n  *  `response.items[].method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.buyers.gift_cards.list()`:  `error.resource_id` **Added**\n* `gr4vy.buyers.shipping_details.create()`:  `error.resource_id` **Added**\n* `gr4vy.buyers.shipping_details.list()`:  `error.resource_id` **Added**\n* `gr4vy.buyers.shipping_details.get()`:  `error.resource_id` **Added**\n* `gr4vy.buyers.shipping_details.update()`:  `error.resource_id` **Added**\n* `gr4vy.buyers.shipping_details.delete()`:  `error.resource_id` **Added**\n* `gr4vy.payment_methods.list()`: \n  *  `response.items[].method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.payment_methods.create()`: \n  *  `request_body.union(RedirectPaymentMethodCreate).method.enum(swish)` **Added**\n  *  `response.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.payment_methods.get()`: \n  *  `response.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.payment_methods.delete()`:  `error.resource_id` **Added**\n* `gr4vy.payment_methods.payment_service_tokens.list()`:  `error.resource_id` **Added**\n* `gr4vy.payment_methods.payment_service_tokens.create()`:  `error.resource_id` **Added**\n* `gr4vy.payment_methods.payment_service_tokens.delete()`:  `error.resource_id` **Added**\n* `gr4vy.payment_methods.network_tokens.list()`:  `error.resource_id` **Added**\n* `gr4vy.payment_methods.network_tokens.create()`:  `error.resource_id` **Added**\n* `gr4vy.payment_methods.network_tokens.suspend()`:  `error.resource_id` **Added**\n* `gr4vy.payment_methods.network_tokens.resume()`:  `error.resource_id` **Added**\n* `gr4vy.payment_methods.network_tokens.delete()`:  `error.resource_id` **Added**\n* `gr4vy.payment_methods.network_tokens.cryptogram.create()`:  `error.resource_id` **Added**\n* `gr4vy.gift_cards.get()`:  `error.resource_id` **Added**\n* `gr4vy.gift_cards.delete()`:  `error.resource_id` **Added**\n* `gr4vy.gift_cards.create()`:  `error.resource_id` **Added**\n* `gr4vy.gift_cards.list()`:  `error.resource_id` **Added**\n* `gr4vy.gift_cards.balances.list()`:  `error.resource_id` **Added**\n* `gr4vy.card_scheme_definitions.list()`:  `error.resource_id` **Added**\n* `gr4vy.digital_wallets.create()`:  `error.resource_id` **Added**\n* `gr4vy.digital_wallets.list()`:  `error.resource_id` **Added**\n* `gr4vy.digital_wallets.get()`:  `error.resource_id` **Added**\n* `gr4vy.digital_wallets.delete()`:  `error.resource_id` **Added**\n* `gr4vy.digital_wallets.update()`:  `error.resource_id` **Added**\n* `gr4vy.digital_wallets.sessions.google_pay()`:  `error.resource_id` **Added**\n* `gr4vy.digital_wallets.sessions.apple_pay()`:  `error.resource_id` **Added**\n* `gr4vy.digital_wallets.sessions.click_to_pay()`:  `error.resource_id` **Added**\n* `gr4vy.digital_wallets.domains.create()`:  `error.resource_id` **Added**\n* `gr4vy.digital_wallets.domains.delete()`:  `error.resource_id` **Added**\n* `gr4vy.transactions.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].payment_method.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.transactions.create()`: \n  *  `request` **Changed**\n  *  `response.payment_method.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.transactions.get()`: \n  *  `response.payment_method.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.adyen_swish` **Added**\n  *  `response.payment_method.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.transactions.capture()`: \n  *  `response.union(TransactionCapture).transaction.payment_method.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.transactions.void()`: \n  *  `response.union(Transaction).payment_method.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.transactions.cancel()`: \n  *  `response.transaction.payment_method.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.transactions.sync()`: \n  *  `response.payment_method.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.transactions.refunds.list()`:  `error.resource_id` **Added**\n* `gr4vy.transactions.refunds.create()`:  `error.resource_id` **Added**\n* `gr4vy.transactions.refunds.get()`:  `error.resource_id` **Added**\n* `gr4vy.transactions.refunds.all.create()`:  `error.resource_id` **Added**\n* `gr4vy.transactions.actions.list()`:  `error.resource_id` **Added**\n* `gr4vy.transactions.events.list()`:  `error.resource_id` **Added**\n* `gr4vy.transactions.settlements.get()`:  `error.resource_id` **Added**\n* `gr4vy.transactions.settlements.list()`:  `error.resource_id` **Added**\n* `gr4vy.refunds.get()`:  `error.resource_id` **Added**\n* `gr4vy.payment_options.list()`:  `error.resource_id` **Added**\n* `gr4vy.payment_service_definitions.list()`: \n  *  `response.items[].method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.payment_service_definitions.get()`: \n  *  `response.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.payment_service_definitions.session()`:  `error.resource_id` **Added**\n* `gr4vy.payment_services.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.payment_services.create()`: \n  *  `response.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.payment_services.get()`: \n  *  `response.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.payment_services.update()`: \n  *  `response.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.payment_services.delete()`:  `error.resource_id` **Added**\n* `gr4vy.payment_services.verify()`:  `error.resource_id` **Added**\n* `gr4vy.payment_services.session()`:  `error.resource_id` **Added**\n* `gr4vy.audit_logs.list()`:  `error.resource_id` **Added**\n* `gr4vy.reports.list()`:  `error.resource_id` **Added**\n* `gr4vy.reports.create()`:  `error.resource_id` **Added**\n* `gr4vy.reports.get()`:  `error.resource_id` **Added**\n* `gr4vy.reports.put()`:  `error.resource_id` **Added**\n* `gr4vy.reports.executions.list()`:  `error.resource_id` **Added**\n* `gr4vy.reports.executions.url()`:  `error.resource_id` **Added**\n* `gr4vy.reports.executions.get()`:  `error.resource_id` **Added**\n* `gr4vy.report_executions.list()`:  `error.resource_id` **Added**\n* `gr4vy.checkout_sessions.create()`:  `error.resource_id` **Added**\n* `gr4vy.checkout_sessions.update()`:  `error.resource_id` **Added**\n* `gr4vy.checkout_sessions.get()`:  `error.resource_id` **Added**\n* `gr4vy.checkout_sessions.delete()`:  `error.resource_id` **Added**\n* `gr4vy.merchant_accounts.list()`:  `error.resource_id` **Added**\n* `gr4vy.merchant_accounts.create()`:  `error.resource_id` **Added**\n* `gr4vy.merchant_accounts.get()`:  `error.resource_id` **Added**\n* `gr4vy.merchant_accounts.update()`:  `error.resource_id` **Added**\n* `gr4vy.merchant_accounts.three_ds_configuration.create()`:  `error.resource_id` **Added**\n* `gr4vy.merchant_accounts.three_ds_configuration.list()`:  `error.resource_id` **Added**\n* `gr4vy.merchant_accounts.three_ds_configuration.update()`:  `error.resource_id` **Added**\n* `gr4vy.merchant_accounts.three_ds_configuration.delete()`:  `error.resource_id` **Added**\n* `gr4vy.three_ds_scenarios.create()`:  `error.resource_id` **Added**\n* `gr4vy.three_ds_scenarios.list()`:  `error.resource_id` **Added**\n* `gr4vy.three_ds_scenarios.update()`:  `error.resource_id` **Added**\n* `gr4vy.three_ds_scenarios.delete()`:  `error.resource_id` **Added**\n* `gr4vy.payouts.list()`: \n  *  `response.items[].payment_method.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.payouts.create()`: \n  *  `response.payment_method.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.payouts.get()`: \n  *  `response.payment_method.method.enum(swish)` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.payment_links.create()`: \n  *  `request.connection_options.adyen_swish` **Added**\n  *  `error.resource_id` **Added**\n* `gr4vy.payment_links.list()`:  `error.resource_id` **Added**\n* `gr4vy.payment_links.expire()`:  `error.resource_id` **Added**\n* `gr4vy.payment_links.get()`:  `error.resource_id` **Added**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
