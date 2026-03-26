@@ -38,6 +38,7 @@ from .riskifiedantifraudoptions import (
     RiskifiedAntiFraudOptions,
     RiskifiedAntiFraudOptionsTypedDict,
 )
+from .stripecardoptions import StripeCardOptions, StripeCardOptionsTypedDict
 from .stripeoptions import StripeOptions, StripeOptionsTypedDict
 from .travelhuboptions import TravelhubOptions, TravelhubOptionsTypedDict
 from .trustlyoptions import TrustlyOptions, TrustlyOptionsTypedDict
@@ -136,8 +137,12 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `powertranz-card` connector."""
     riskified_anti_fraud: NotRequired[Nullable[RiskifiedAntiFraudOptionsTypedDict]]
     r"""Custom options to be passed to the `riskified-anti-fraud` connector."""
-    stripe_card: NotRequired[Nullable[StripeOptionsTypedDict]]
+    stripe_affirm: NotRequired[Nullable[StripeOptionsTypedDict]]
+    r"""Custom options to be passed to the `stripe-affirm` connector."""
+    stripe_card: NotRequired[Nullable[StripeCardOptionsTypedDict]]
     r"""Custom options to be passed to the `stripe-card` connector."""
+    stripe_klarna: NotRequired[Nullable[StripeOptionsTypedDict]]
+    r"""Custom options to be passed to the `stripe-klarna` connector."""
     travelhub_card: NotRequired[Nullable[TravelhubOptionsTypedDict]]
     r"""Custom options to be passed to the `travelhub-card` connector."""
     trustly_trustly: NotRequired[Nullable[TrustlyOptionsTypedDict]]
@@ -370,10 +375,20 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `riskified-anti-fraud` connector."""
 
+    stripe_affirm: Annotated[
+        OptionalNullable[StripeOptions], pydantic.Field(alias="stripe-affirm")
+    ] = UNSET
+    r"""Custom options to be passed to the `stripe-affirm` connector."""
+
     stripe_card: Annotated[
-        OptionalNullable[StripeOptions], pydantic.Field(alias="stripe-card")
+        OptionalNullable[StripeCardOptions], pydantic.Field(alias="stripe-card")
     ] = UNSET
     r"""Custom options to be passed to the `stripe-card` connector."""
+
+    stripe_klarna: Annotated[
+        OptionalNullable[StripeOptions], pydantic.Field(alias="stripe-klarna")
+    ] = UNSET
+    r"""Custom options to be passed to the `stripe-klarna` connector."""
 
     travelhub_card: Annotated[
         OptionalNullable[TravelhubOptions], pydantic.Field(alias="travelhub-card")
@@ -443,7 +458,9 @@ class TransactionConnectionOptions(BaseModel):
                 "paypal-paypalpaylater",
                 "powertranz-card",
                 "riskified-anti-fraud",
+                "stripe-affirm",
                 "stripe-card",
+                "stripe-klarna",
                 "travelhub-card",
                 "trustly-trustly",
                 "wpay-everydaypay",
@@ -495,7 +512,9 @@ class TransactionConnectionOptions(BaseModel):
                 "paypal-paypalpaylater",
                 "powertranz-card",
                 "riskified-anti-fraud",
+                "stripe-affirm",
                 "stripe-card",
+                "stripe-klarna",
                 "travelhub-card",
                 "trustly-trustly",
                 "wpay-everydaypay",

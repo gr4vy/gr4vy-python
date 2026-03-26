@@ -7,19 +7,24 @@ from pydantic import model_serializer
 from typing_extensions import NotRequired, TypedDict
 
 
-class StripeOptionsTypedDict(TypedDict):
+class StripeCardOptionsTypedDict(TypedDict):
     stripe_connect: NotRequired[Nullable[StripeConnectOptionsTypedDict]]
     r"""Stripe options to support Stripe Connect"""
+    error_on_requires_action: NotRequired[Nullable[bool]]
+    r"""Passes the `error_on_requires_action` option to the Stripe API. Set to true to fail the payment attempt if it transitions into requires_action. Use this parameter for simpler integrations that don't handle customer actions, such as saving cards without authentication."""
 
 
-class StripeOptions(BaseModel):
+class StripeCardOptions(BaseModel):
     stripe_connect: OptionalNullable[StripeConnectOptions] = UNSET
     r"""Stripe options to support Stripe Connect"""
 
+    error_on_requires_action: OptionalNullable[bool] = UNSET
+    r"""Passes the `error_on_requires_action` option to the Stripe API. Set to true to fail the payment attempt if it transitions into requires_action. Use this parameter for simpler integrations that don't handle customer actions, such as saving cards without authentication."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["stripe_connect"])
-        nullable_fields = set(["stripe_connect"])
+        optional_fields = set(["stripe_connect", "error_on_requires_action"])
+        nullable_fields = set(["stripe_connect", "error_on_requires_action"])
         serialized = handler(self)
         m = {}
 

@@ -1090,6 +1090,7 @@ if TYPE_CHECKING:
         ShippingDetailsUpdateTypedDict,
     )
     from .statementdescriptor import StatementDescriptor, StatementDescriptorTypedDict
+    from .stripecardoptions import StripeCardOptions, StripeCardOptionsTypedDict
     from .stripeconnectoptions import (
         StripeConnectOptions,
         StripeConnectOptionsTypedDict,
@@ -2156,6 +2157,8 @@ __all__ = [
     "SpecTypedDict",
     "StatementDescriptor",
     "StatementDescriptorTypedDict",
+    "StripeCardOptions",
+    "StripeCardOptionsTypedDict",
     "StripeConnectOptions",
     "StripeConnectOptionsTypedDict",
     "StripeOptions",
@@ -3162,6 +3165,8 @@ _dynamic_imports: dict[str, str] = {
     "ShippingDetailsUpdateTypedDict": ".shippingdetailsupdate",
     "StatementDescriptor": ".statementdescriptor",
     "StatementDescriptorTypedDict": ".statementdescriptor",
+    "StripeCardOptions": ".stripecardoptions",
+    "StripeCardOptionsTypedDict": ".stripecardoptions",
     "StripeConnectOptions": ".stripeconnectoptions",
     "StripeConnectOptionsTypedDict": ".stripeconnectoptions",
     "StripeOptions": ".stripeoptions",
