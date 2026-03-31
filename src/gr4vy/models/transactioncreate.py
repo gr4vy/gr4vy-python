@@ -73,6 +73,7 @@ from .transactionconnectionoptions import (
 )
 from .transactionintent import TransactionIntent
 from .transactionpaymentsource import TransactionPaymentSource
+from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from pydantic import model_serializer
 from typing import Dict, List, Optional, Union
@@ -244,6 +245,8 @@ class TransactionCreateTypedDict(TypedDict):
     r"""Total shipping amount."""
     integration_client: NotRequired[Nullable[IntegrationClient]]
     r"""Defines the client where the session for this transaction is going to be used. Please refer to the connections documentation for more guidance."""
+    approval_expires_at: NotRequired[Nullable[datetime]]
+    r"""The date and time when the buyer's approval window for this transaction expires. If not provided, this is automatically computed from the connector's default expiration time. The value cannot exceed the connector's maximum approval window."""
 
 
 class TransactionCreate(BaseModel):
@@ -387,6 +390,9 @@ class TransactionCreate(BaseModel):
     integration_client: OptionalNullable[IntegrationClient] = UNSET
     r"""Defines the client where the session for this transaction is going to be used. Please refer to the connections documentation for more guidance."""
 
+    approval_expires_at: OptionalNullable[datetime] = UNSET
+    r"""The date and time when the buyer's approval window for this transaction expires. If not provided, this is automatically computed from the connector's default expiration time. The value cannot exceed the connector's maximum approval window."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -429,6 +435,7 @@ class TransactionCreate(BaseModel):
                 "duty_amount",
                 "shipping_amount",
                 "integration_client",
+                "approval_expires_at",
             ]
         )
         nullable_fields = set(
@@ -463,6 +470,7 @@ class TransactionCreate(BaseModel):
                 "duty_amount",
                 "shipping_amount",
                 "integration_client",
+                "approval_expires_at",
             ]
         )
         serialized = handler(self)
