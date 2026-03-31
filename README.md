@@ -430,9 +430,9 @@ except ValueError as error:
 ### [PaymentServices](docs/sdks/paymentservicessdk/README.md)
 
 * [list](docs/sdks/paymentservicessdk/README.md#list) - List payment services
-* [create](docs/sdks/paymentservicessdk/README.md#create) - Update a configured payment service
+* [create](docs/sdks/paymentservicessdk/README.md#create) - Configure a payment service
 * [get](docs/sdks/paymentservicessdk/README.md#get) - Get payment service
-* [update](docs/sdks/paymentservicessdk/README.md#update) - Configure a payment service
+* [update](docs/sdks/paymentservicessdk/README.md#update) - Update a configured payment service
 * [delete](docs/sdks/paymentservicessdk/README.md#delete) - Delete a configured payment service
 * [verify](docs/sdks/paymentservicessdk/README.md#verify) - Verify payment service credentials
 * [session](docs/sdks/paymentservicessdk/README.md#session) - Create a session for a payment service definition
