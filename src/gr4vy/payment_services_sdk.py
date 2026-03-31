@@ -401,9 +401,9 @@ class PaymentServicesSDK(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.PaymentService:
-        r"""Update a configured payment service
+        r"""Configure a payment service
 
-        Updates the configuration of a payment service.
+        Configures a new payment service for use by merchants.
 
         :param display_name: The display name for the payment service.
         :param payment_service_definition_id: The definition ID of the service to configure.
@@ -435,7 +435,7 @@ class PaymentServicesSDK(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.UpdatePaymentServiceRequest(
+        request = models.CreatePaymentServiceRequest(
             merchant_account_id=merchant_account_id,
             payment_service_create=models.PaymentServiceCreate(
                 display_name=display_name,
@@ -472,7 +472,7 @@ class PaymentServicesSDK(BaseSDK):
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
-            _globals=models.UpdatePaymentServiceGlobals(
+            _globals=models.CreatePaymentServiceGlobals(
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
@@ -499,7 +499,7 @@ class PaymentServicesSDK(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="update_payment_service",
+                operation_id="create_payment_service",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -605,9 +605,9 @@ class PaymentServicesSDK(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.PaymentService:
-        r"""Update a configured payment service
+        r"""Configure a payment service
 
-        Updates the configuration of a payment service.
+        Configures a new payment service for use by merchants.
 
         :param display_name: The display name for the payment service.
         :param payment_service_definition_id: The definition ID of the service to configure.
@@ -639,7 +639,7 @@ class PaymentServicesSDK(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.UpdatePaymentServiceRequest(
+        request = models.CreatePaymentServiceRequest(
             merchant_account_id=merchant_account_id,
             payment_service_create=models.PaymentServiceCreate(
                 display_name=display_name,
@@ -676,7 +676,7 @@ class PaymentServicesSDK(BaseSDK):
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
-            _globals=models.UpdatePaymentServiceGlobals(
+            _globals=models.CreatePaymentServiceGlobals(
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
@@ -703,7 +703,7 @@ class PaymentServicesSDK(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="update_payment_service",
+                operation_id="create_payment_service",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -1107,9 +1107,9 @@ class PaymentServicesSDK(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.PaymentService:
-        r"""Configure a payment service
+        r"""Update a configured payment service
 
-        Configures a new payment service for use by merchants.
+        Updates the configuration of a payment service.
 
         :param payment_service_id: the ID of the payment service
         :param merchant_account_id: The ID of the merchant account to use for this request.
@@ -1141,7 +1141,7 @@ class PaymentServicesSDK(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CreatePaymentServiceRequest(
+        request = models.UpdatePaymentServiceRequest(
             payment_service_id=payment_service_id,
             merchant_account_id=merchant_account_id,
             payment_service_update=models.PaymentServiceUpdate(
@@ -1180,7 +1180,7 @@ class PaymentServicesSDK(BaseSDK):
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
-            _globals=models.CreatePaymentServiceGlobals(
+            _globals=models.UpdatePaymentServiceGlobals(
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
@@ -1207,7 +1207,7 @@ class PaymentServicesSDK(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="create_payment_service",
+                operation_id="update_payment_service",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -1315,9 +1315,9 @@ class PaymentServicesSDK(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.PaymentService:
-        r"""Configure a payment service
+        r"""Update a configured payment service
 
-        Configures a new payment service for use by merchants.
+        Updates the configuration of a payment service.
 
         :param payment_service_id: the ID of the payment service
         :param merchant_account_id: The ID of the merchant account to use for this request.
@@ -1349,7 +1349,7 @@ class PaymentServicesSDK(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.CreatePaymentServiceRequest(
+        request = models.UpdatePaymentServiceRequest(
             payment_service_id=payment_service_id,
             merchant_account_id=merchant_account_id,
             payment_service_update=models.PaymentServiceUpdate(
@@ -1388,7 +1388,7 @@ class PaymentServicesSDK(BaseSDK):
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
-            _globals=models.CreatePaymentServiceGlobals(
+            _globals=models.UpdatePaymentServiceGlobals(
                 merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
             ),
             security=self.sdk_configuration.security,
@@ -1415,7 +1415,7 @@ class PaymentServicesSDK(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="create_payment_service",
+                operation_id="update_payment_service",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security

@@ -5,9 +5,9 @@
 ### Available Operations
 
 * [list](#list) - List payment services
-* [create](#create) - Update a configured payment service
+* [create](#create) - Configure a payment service
 * [get](#get) - Get payment service
-* [update](#update) - Configure a payment service
+* [update](#update) - Update a configured payment service
 * [delete](#delete) - Delete a configured payment service
 * [verify](#verify) - Verify payment service credentials
 * [session](#session) - Create a session for a payment service definition
@@ -73,11 +73,11 @@ with Gr4vy(
 
 ## create
 
-Updates the configuration of a payment service.
+Configures a new payment service for use by merchants.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="update_payment_service" method="post" path="/payment-services" -->
+<!-- UsageSnippet language="python" operationID="create_payment_service" method="post" path="/payment-services" -->
 ```python
 from gr4vy import Gr4vy
 import os
@@ -89,10 +89,6 @@ with Gr4vy(
 ) as g_client:
 
     res = g_client.payment_services.create(display_name="Stripe", payment_service_definition_id="stripe-card", fields=[
-        {
-            "key": "api_key",
-            "value": "key-12345",
-        },
         {
             "key": "api_key",
             "value": "key-12345",
@@ -211,11 +207,11 @@ with Gr4vy(
 
 ## update
 
-Configures a new payment service for use by merchants.
+Updates the configuration of a payment service.
 
 ### Example Usage
 
-<!-- UsageSnippet language="python" operationID="create_payment_service" method="put" path="/payment-services/{payment_service_id}" -->
+<!-- UsageSnippet language="python" operationID="update_payment_service" method="put" path="/payment-services/{payment_service_id}" -->
 ```python
 from gr4vy import Gr4vy
 import os
