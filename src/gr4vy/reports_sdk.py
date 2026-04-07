@@ -154,6 +154,9 @@ class ReportsSDK(BaseSDK):
                 name=name,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None
@@ -337,6 +340,9 @@ class ReportsSDK(BaseSDK):
                 name=name,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
+                server_url=server_url,
+                timeout_ms=timeout_ms,
+                http_headers=http_headers,
             )
 
         response_data: Any = None

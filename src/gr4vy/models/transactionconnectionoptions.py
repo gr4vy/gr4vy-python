@@ -119,6 +119,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `monato-spei` connector."""
     mock_card: NotRequired[Nullable[MockCardOptionsTypedDict]]
     r"""Custom options to be passed to the `mock-card` connector."""
+    mockds_card: NotRequired[Nullable[MockCardOptionsTypedDict]]
+    r"""Custom options to be passed to the `mockds-card` connector."""
     nuvei_card: NotRequired[Nullable[NuveiOptionsTypedDict]]
     r"""Custom options to be passed to the `nuvei-card` connector."""
     nuvei_ideal: NotRequired[Nullable[NuveiIDealOptionsTypedDict]]
@@ -329,6 +331,11 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `mock-card` connector."""
 
+    mockds_card: Annotated[
+        OptionalNullable[MockCardOptions], pydantic.Field(alias="mockds-card")
+    ] = UNSET
+    r"""Custom options to be passed to the `mockds-card` connector."""
+
     nuvei_card: Annotated[
         OptionalNullable[NuveiOptions], pydantic.Field(alias="nuvei-card")
     ] = UNSET
@@ -449,6 +456,7 @@ class TransactionConnectionOptions(BaseModel):
                 "mattilda-tapifintechs",
                 "monato-spei",
                 "mock-card",
+                "mockds-card",
                 "nuvei-card",
                 "nuvei-ideal",
                 "nuvei-klarna",
@@ -503,6 +511,7 @@ class TransactionConnectionOptions(BaseModel):
                 "mattilda-tapifintechs",
                 "monato-spei",
                 "mock-card",
+                "mockds-card",
                 "nuvei-card",
                 "nuvei-ideal",
                 "nuvei-klarna",
