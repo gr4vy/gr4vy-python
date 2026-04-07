@@ -851,12 +851,15 @@ class Transactions(BaseSDK):
         :param browser_info: Information about the browser used by the buyer. This can be used by anti-fraud services.
         :param shipping_details_id: The unique identifier of a set of shipping details stored for the buyer. If provided, the created transaction will include a copy of the details at the point of transaction creation; i.e. it will not be affected by later changes to the detail in the database.
         :param connection_options: Allows for passing optional configuration per connection to take advantage of connection specific features. When provided, the data is only passed to the target connection type to prevent sharing configuration across connections. Please note that each of the keys this object are in kebab-case, for example `cybersource-anti-fraud` as they represent the ID of the connector. All the other keys will be snake case, for example `merchant_defined_data` or camel case to match an external API that the connector uses.
-        :param async_capture: Whether to capture the transaction asynchronously.
+        :param async_capture: Whether to capture the transaction asynchronously when an authorization-capture split occurs.
 
-            - When `async_capture` is `false` (default), the transaction is captured in the same request.
-            - When `async_capture` is `true`, the transaction is automatically captured at a later time.
+            This flag is only used if the transaction flow is split between authorization and capture.
+            The split itself is not controlled by this flag and depends on other conditions, including delayed capture support, direct capture support, card scheme, gift cards, and anti-fraud decision.
 
-            Redirect transactions are not affected by this flag. This flag can only be set to `true` when `intent` is set to `capture`.
+            - When `async_capture` is `false` (default) and applicable, the capture is attempted in the same request.
+            - When `async_capture` is `true` and applicable, the capture is performed outside the context of this request.
+
+            Redirect transactions are not affected by this flag. This flag can only be set to `true` when `intent` is set to `capture`. Please check the public documentation for full authorization-capture split behavior details.
         :param anti_fraud_fingerprint: This field represents the fingerprint data to be passed to the active anti-fraud service.
         :param payment_service_id: The unique identifier of an existing payment service. When provided, the created transaction will be processed by the given payment service and any routing rules will be skipped.
         :param account_funding_transaction: Marks the transaction as an AFT. Requires the payment service to support this feature, and might `recipient` and `buyer` data
@@ -1202,12 +1205,15 @@ class Transactions(BaseSDK):
         :param browser_info: Information about the browser used by the buyer. This can be used by anti-fraud services.
         :param shipping_details_id: The unique identifier of a set of shipping details stored for the buyer. If provided, the created transaction will include a copy of the details at the point of transaction creation; i.e. it will not be affected by later changes to the detail in the database.
         :param connection_options: Allows for passing optional configuration per connection to take advantage of connection specific features. When provided, the data is only passed to the target connection type to prevent sharing configuration across connections. Please note that each of the keys this object are in kebab-case, for example `cybersource-anti-fraud` as they represent the ID of the connector. All the other keys will be snake case, for example `merchant_defined_data` or camel case to match an external API that the connector uses.
-        :param async_capture: Whether to capture the transaction asynchronously.
+        :param async_capture: Whether to capture the transaction asynchronously when an authorization-capture split occurs.
 
-            - When `async_capture` is `false` (default), the transaction is captured in the same request.
-            - When `async_capture` is `true`, the transaction is automatically captured at a later time.
+            This flag is only used if the transaction flow is split between authorization and capture.
+            The split itself is not controlled by this flag and depends on other conditions, including delayed capture support, direct capture support, card scheme, gift cards, and anti-fraud decision.
 
-            Redirect transactions are not affected by this flag. This flag can only be set to `true` when `intent` is set to `capture`.
+            - When `async_capture` is `false` (default) and applicable, the capture is attempted in the same request.
+            - When `async_capture` is `true` and applicable, the capture is performed outside the context of this request.
+
+            Redirect transactions are not affected by this flag. This flag can only be set to `true` when `intent` is set to `capture`. Please check the public documentation for full authorization-capture split behavior details.
         :param anti_fraud_fingerprint: This field represents the fingerprint data to be passed to the active anti-fraud service.
         :param payment_service_id: The unique identifier of an existing payment service. When provided, the created transaction will be processed by the given payment service and any routing rules will be skipped.
         :param account_funding_transaction: Marks the transaction as an AFT. Requires the payment service to support this feature, and might `recipient` and `buyer` data
