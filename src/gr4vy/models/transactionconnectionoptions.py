@@ -65,6 +65,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `adyen-giropay` connector."""
     adyen_ideal: NotRequired[Nullable[AdyenOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-ideal` connector."""
+    adyen_paypay: NotRequired[Nullable[AdyenOptionsTypedDict]]
+    r"""Custom options to be passed to the `adyen-paypay` connector."""
     adyen_pix: NotRequired[Nullable[AdyenOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-pix` connector."""
     adyen_sepa: NotRequired[Nullable[AdyenSepaOptionsTypedDict]]
@@ -190,6 +192,11 @@ class TransactionConnectionOptions(BaseModel):
         OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-ideal")
     ] = UNSET
     r"""Custom options to be passed to the `adyen-ideal` connector."""
+
+    adyen_paypay: Annotated[
+        OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-paypay")
+    ] = UNSET
+    r"""Custom options to be passed to the `adyen-paypay` connector."""
 
     adyen_pix: Annotated[
         OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-pix")
@@ -429,6 +436,7 @@ class TransactionConnectionOptions(BaseModel):
                 "adyen-cashapp",
                 "adyen-giropay",
                 "adyen-ideal",
+                "adyen-paypay",
                 "adyen-pix",
                 "adyen-sepa",
                 "adyen-sofort",
@@ -484,6 +492,7 @@ class TransactionConnectionOptions(BaseModel):
                 "adyen-cashapp",
                 "adyen-giropay",
                 "adyen-ideal",
+                "adyen-paypay",
                 "adyen-pix",
                 "adyen-sepa",
                 "adyen-sofort",
