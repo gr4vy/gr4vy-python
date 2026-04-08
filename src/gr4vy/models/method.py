@@ -82,6 +82,7 @@ Method = Union[
         "paymaya",
         "paypal",
         "paypalpaylater",
+        "paypay",
         "payto",
         "payvalida",
         "picpay",
