@@ -29,12 +29,20 @@ class GiftCardTypedDict(TypedDict):
     r"""The date this gift card record was created at."""
     updated_at: datetime
     r"""The date this gift card record was last updated at."""
+    usage_count: int
+    r"""The number of times this gift card has been used in transactions."""
+    cit_usage_count: int
+    r"""The number of times this gift card has been used in transactions for client initiated transactions."""
     type: Literal["gift-card"]
     r"""Always `gift-card`."""
     expiration_date: NotRequired[Nullable[datetime]]
     r"""The date and time when this gift card expires. This is a full date/time and may be more accurate than the actual expiry date received by the gift card service."""
     buyer: NotRequired[Nullable[BuyerTypedDict]]
     r"""The buyer for which this gift card is stored."""
+    last_used_at: NotRequired[Nullable[datetime]]
+    r"""The timestamp when this gift card was last used in a transaction."""
+    cit_last_used_at: NotRequired[Nullable[datetime]]
+    r"""The timestamp when this gift card was last used in a transaction for client initiated transactions."""
 
 
 class GiftCard(BaseModel):
@@ -61,6 +69,12 @@ class GiftCard(BaseModel):
     updated_at: datetime
     r"""The date this gift card record was last updated at."""
 
+    usage_count: int
+    r"""The number of times this gift card has been used in transactions."""
+
+    cit_usage_count: int
+    r"""The number of times this gift card has been used in transactions for client initiated transactions."""
+
     TYPE: Annotated[
         Annotated[
             Optional[Literal["gift-card"]], AfterValidator(validate_const("gift-card"))
@@ -75,10 +89,20 @@ class GiftCard(BaseModel):
     buyer: OptionalNullable[Buyer] = UNSET
     r"""The buyer for which this gift card is stored."""
 
+    last_used_at: OptionalNullable[datetime] = UNSET
+    r"""The timestamp when this gift card was last used in a transaction."""
+
+    cit_last_used_at: OptionalNullable[datetime] = UNSET
+    r"""The timestamp when this gift card was last used in a transaction for client initiated transactions."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["type", "expiration_date", "buyer"])
-        nullable_fields = set(["expiration_date", "buyer"])
+        optional_fields = set(
+            ["type", "expiration_date", "buyer", "last_used_at", "cit_last_used_at"]
+        )
+        nullable_fields = set(
+            ["expiration_date", "buyer", "last_used_at", "cit_last_used_at"]
+        )
         serialized = handler(self)
         m = {}
 

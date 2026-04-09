@@ -21,6 +21,10 @@ class GiftCardSummaryTypedDict(TypedDict):
     r"""The 3 digits after the `bin` of the full gift card number."""
     last4: str
     r"""The last 4 digits for the gift card."""
+    usage_count: int
+    r"""The number of times this gift card has been used in transactions."""
+    cit_usage_count: int
+    r"""The number of times this gift card has been used in transactions for client initiated transactions."""
     type: Literal["gift-card"]
     r"""Always `gift-card`."""
     id: NotRequired[Nullable[str]]
@@ -37,6 +41,10 @@ class GiftCardSummaryTypedDict(TypedDict):
     r"""If the last balance update failed, this will contain the the raw error code received from the gift card provider."""
     balance_raw_error_message: NotRequired[Nullable[str]]
     r"""If the last balance update failed, this will contain the the raw error message received from the gift card provider."""
+    last_used_at: NotRequired[Nullable[datetime]]
+    r"""The timestamp when this gift card was last used in a transaction."""
+    cit_last_used_at: NotRequired[Nullable[datetime]]
+    r"""The timestamp when this gift card was last used in a transaction for client initiated transactions."""
 
 
 class GiftCardSummary(BaseModel):
@@ -51,6 +59,12 @@ class GiftCardSummary(BaseModel):
 
     last4: str
     r"""The last 4 digits for the gift card."""
+
+    usage_count: int
+    r"""The number of times this gift card has been used in transactions."""
+
+    cit_usage_count: int
+    r"""The number of times this gift card has been used in transactions for client initiated transactions."""
 
     TYPE: Annotated[
         Annotated[
@@ -81,6 +95,12 @@ class GiftCardSummary(BaseModel):
     balance_raw_error_message: OptionalNullable[str] = UNSET
     r"""If the last balance update failed, this will contain the the raw error message received from the gift card provider."""
 
+    last_used_at: OptionalNullable[datetime] = UNSET
+    r"""The timestamp when this gift card was last used in a transaction."""
+
+    cit_last_used_at: OptionalNullable[datetime] = UNSET
+    r"""The timestamp when this gift card was last used in a transaction for client initiated transactions."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -93,6 +113,8 @@ class GiftCardSummary(BaseModel):
                 "balance_error_code",
                 "balance_raw_error_code",
                 "balance_raw_error_message",
+                "last_used_at",
+                "cit_last_used_at",
             ]
         )
         nullable_fields = set(
@@ -104,6 +126,8 @@ class GiftCardSummary(BaseModel):
                 "balance_error_code",
                 "balance_raw_error_code",
                 "balance_raw_error_message",
+                "last_used_at",
+                "cit_last_used_at",
             ]
         )
         serialized = handler(self)
