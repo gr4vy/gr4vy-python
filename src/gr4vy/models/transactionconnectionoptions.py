@@ -97,6 +97,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `dlocal-upi` connector."""
     dlocal_pix: NotRequired[Nullable[DlocalPIXOptionsTypedDict]]
     r"""Custom options to be passed to the `dlocal-pix` connector."""
+    dlocal_gcash: NotRequired[Nullable[DlocalOptionsTypedDict]]
+    r"""Custom options to be passed to the `dlocal-gcash` connector."""
     fiserv_card: NotRequired[Nullable[FiservOptionsTypedDict]]
     r"""Custom options to be passed to the `fiserv-card` connector."""
     forter_anti_fraud: NotRequired[Nullable[ForterAntiFraudOptionsTypedDict]]
@@ -273,6 +275,11 @@ class TransactionConnectionOptions(BaseModel):
         OptionalNullable[DlocalPIXOptions], pydantic.Field(alias="dlocal-pix")
     ] = UNSET
     r"""Custom options to be passed to the `dlocal-pix` connector."""
+
+    dlocal_gcash: Annotated[
+        OptionalNullable[DlocalOptions], pydantic.Field(alias="dlocal-gcash")
+    ] = UNSET
+    r"""Custom options to be passed to the `dlocal-gcash` connector."""
 
     fiserv_card: Annotated[
         OptionalNullable[FiservOptions], pydantic.Field(alias="fiserv-card")
@@ -452,6 +459,7 @@ class TransactionConnectionOptions(BaseModel):
                 "dlocal-nequi",
                 "dlocal-upi",
                 "dlocal-pix",
+                "dlocal-gcash",
                 "fiserv-card",
                 "forter-anti-fraud",
                 "gem-gem",
@@ -508,6 +516,7 @@ class TransactionConnectionOptions(BaseModel):
                 "dlocal-nequi",
                 "dlocal-upi",
                 "dlocal-pix",
+                "dlocal-gcash",
                 "fiserv-card",
                 "forter-anti-fraud",
                 "gem-gem",
