@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 85f03924b059e411c7f74330da180657
+  docChecksum: 0780a7e957b34c2775ff54efe9df73fa
   docVersion: 1.0.0
-  speakeasyVersion: 1.761.1
-  generationVersion: 2.879.6
-  releaseVersion: 2.0.15
-  configChecksum: ae3cb62b5321181c3ec3c607f4213102
+  speakeasyVersion: 1.761.5
+  generationVersion: 2.879.13
+  releaseVersion: 2.0.16
+  configChecksum: 3e36e30bfb0a33414b2329fdbda10697
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: d79100e3-7fba-43c8-80ab-dacd5592e837
-  pristine_commit_hash: f2dc5d0af4e70a318f3a0147d6d24ae2d8a3554d
-  pristine_tree_hash: cdfc33737a7997551d7e1e591252a09087f35e04
+  generation_id: 968d2bec-21d5-4e53-b776-98eb16389b94
+  pristine_commit_hash: 0502c59a8621740d148acc87a32f164bf6c0a086
+  pristine_tree_hash: 57af197fa1b238dc3fa2955e917316b9f2e9e722
 features:
   python:
     additionalDependencies: 1.0.0
@@ -1142,18 +1142,34 @@ trackedFiles:
     id: f26d136b4867
     last_write_checksum: sha1:ed2aa87a96cb9a499272313df4afa8b0d1ce4924
     pristine_git_object: 6d2a75c98800d48f8d8957b2a6e521880465b8f8
+  docs/models/listbuyergiftcardsorderby.md:
+    id: 6e6850ee9a79
+    last_write_checksum: sha1:3342bbe3f5b1d279be30c773c645ce0dfd9754d5
+    pristine_git_object: 569fde7f1b68faa6d2dfdc2df0271666d6ce82a4
   docs/models/listbuyergiftcardsrequest.md:
     id: 495415dd90b9
-    last_write_checksum: sha1:ec59a947b0daf103be573057faff813126e28e2b
-    pristine_git_object: c45607e5bf1503aba987f70a45c5154aeff06690
+    last_write_checksum: sha1:1eb2743929d031d05f9385a4ffecfa97bb2fd29d
+    pristine_git_object: 086b8c826e22d38a9bafa74a3be4d3f9b3be4452
+  docs/models/listbuyergiftcardssortby.md:
+    id: b129a8f5d018
+    last_write_checksum: sha1:2bf488c9222ab3f27b816694fb12bd10b7a2b3be
+    pristine_git_object: d2e0802a2f43876547033667d2e6b6419a11917a
   docs/models/listbuyerpaymentmethodsglobals.md:
     id: ba087d587c98
     last_write_checksum: sha1:ee0c38348f5eee0236cfad02e79f7694ae8b7c71
     pristine_git_object: c8043ae1f0f30e1313f788206d2eb76b9f8ac7f6
+  docs/models/listbuyerpaymentmethodsorderby.md:
+    id: 8962717b1744
+    last_write_checksum: sha1:aba7a57bdd90d23a7b7b52ff57d9e96533b03359
+    pristine_git_object: 430324d3ea9bf27444aa7af08d93b100742e20da
   docs/models/listbuyerpaymentmethodsrequest.md:
     id: fdcc8835ef83
-    last_write_checksum: sha1:0600d6bf36982b0f6a18365bf0317273bb92822e
-    pristine_git_object: 3d2b82bc219e97a2f2873d4f307a0d6ee8cd0f44
+    last_write_checksum: sha1:62b881c2555d2b78b22b13c65977d2ddd188058f
+    pristine_git_object: 9b222d7d0b7537e701884a698c27b8c00a3e521c
+  docs/models/listbuyerpaymentmethodssortby.md:
+    id: ebfd2b73daeb
+    last_write_checksum: sha1:027de9da6f1be82a580c412e8abb2545eb50ec3f
+    pristine_git_object: 0af0677500a3bcdf96a25e986ff1d9476a4c6602
   docs/models/listbuyersglobals.md:
     id: c4a8652bd12c
     last_write_checksum: sha1:3531cd64ab112a85118d9122f2ac4b07a48babb1
@@ -1486,10 +1502,6 @@ trackedFiles:
     id: 5d46a9bdab3b
     last_write_checksum: sha1:8e5d7b7787559b7a45961543ec95c84cf6ac8adb
     pristine_git_object: c65a4c5b8dd875f1d42ff8317ca9a40ca38facd4
-  docs/models/orderby.md:
-    id: 9e749ed80f72
-    last_write_checksum: sha1:c48736971250269d1ce8af026ef5220fd2713ee0
-    pristine_git_object: 678c3a13ad1c68f709cbfbe33eee15bf673c8b31
   docs/models/oxxooptions.md:
     id: 61c2b266cca5
     last_write_checksum: sha1:b40aa7d1d743067d90c65fa16e3b5dfda214257e
@@ -1858,10 +1870,6 @@ trackedFiles:
     id: 836d05082ea8
     last_write_checksum: sha1:b3d5142ddedfb0f1089815aca7f0da595d36618e
     pristine_git_object: 54dc2d6dd521423eab9d82ca4fc4d4bbdbda59ec
-  docs/models/sortby.md:
-    id: ba9d0fca86fe
-    last_write_checksum: sha1:2d090663de3d01ce88e002187ccaef7cdc30cfb7
-    pristine_git_object: 01b9669c2b7202425381a9513a11601e5187de41
   docs/models/spec.md:
     id: a08855025036
     last_write_checksum: sha1:e414d0c029e798b0186efb7c5d8141825187f382
@@ -2280,12 +2288,12 @@ trackedFiles:
     pristine_git_object: a4a4d248e79c9fd392d7fe269f96429d3957b25f
   docs/sdks/buyersgiftcards/README.md:
     id: b24dd6aa2092
-    last_write_checksum: sha1:d4dadf6ff244c82a70ec49ae496493ddb106d361
-    pristine_git_object: 789319b7adbbcf74353ba78ed634e48ce7009974
+    last_write_checksum: sha1:254dcc8a2a6134c8f9ab78ba8a6e4d84e27516a0
+    pristine_git_object: 57348b3cadbb972294e88004ef40e8bf616cfbee
   docs/sdks/buyerspaymentmethods/README.md:
     id: 4aff3957cf89
-    last_write_checksum: sha1:181f513110ce36f53f41ea1cf20e3095c3c5db38
-    pristine_git_object: f49c79250d0c457f82713d7dd7353f7706cd266b
+    last_write_checksum: sha1:d598b095af4853102627cb6a0864faa3e7ea82aa
+    pristine_git_object: dc27e3e9ded1b7d4037f68c22edfb032bd32495e
   docs/sdks/buyerssdk/README.md:
     id: 8921e2d58de1
     last_write_checksum: sha1:8937aefda79e7c67ead096e1a2219ec7f376910f
@@ -2416,8 +2424,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:7365331b2507ff3aff56784aa1bfd2bc5cb480db
-    pristine_git_object: 74288b1139ce037dcba231589133648d1e4b93d0
+    last_write_checksum: sha1:034db06858e9b2bc7de124f9f10ce9bdfe5f91f2
+    pristine_git_object: 4344c965c165865686c90126a097ea68c22ed6d7
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2444,8 +2452,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:c43a8d35f433df2c5a2a5c2f305c8219056b3635
-    pristine_git_object: 615406f7a756795d71ba4ffd35d18d15f4614304
+    last_write_checksum: sha1:49e26e75ade9feca404a8f422064e111a4ccd3ca
+    pristine_git_object: f1e474cd7790f87b504044a88dfbbb6226ec7493
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -2472,12 +2480,12 @@ trackedFiles:
     pristine_git_object: 8173a918a11c9561813c2142e9e15ec074018cc4
   src/gr4vy/buyers_gift_cards.py:
     id: 7e27f7deeab1
-    last_write_checksum: sha1:93956d90c2092bd10ec004a24bd583f7e44ca221
-    pristine_git_object: b5d908263ad7664511f9ff1dffb8b89ed4f4bf7c
+    last_write_checksum: sha1:bc1cb29667346b628f6aecfa25a6209165b315eb
+    pristine_git_object: c1b53b2b9c6fc4ae9940991e421b40a4e220dd47
   src/gr4vy/buyers_payment_methods.py:
     id: a30e8ff787fd
-    last_write_checksum: sha1:49baf083f9809fd0c0a2b4bed70aaccdb362fff6
-    pristine_git_object: 87a95dfe20fe624bc66d70b2f98e43be4169c180
+    last_write_checksum: sha1:3ed0244027347f707a13b484c145b4aa3caa9c83
+    pristine_git_object: c6e41f649c413a341ed6dffa48bce70bddd50d3d
   src/gr4vy/buyers_sdk.py:
     id: 8777cfc0b208
     last_write_checksum: sha1:e9c323f5516d6617a632e7e328af731b252a8301
@@ -2596,8 +2604,8 @@ trackedFiles:
     pristine_git_object: 8a3809186679834dd582bbcf35839aa1117ee6d7
   src/gr4vy/models/__init__.py:
     id: 427cc7fddfe2
-    last_write_checksum: sha1:2443edb8f78836527bd4f102219aa03eae77257f
-    pristine_git_object: e0cd9230b3503deedc1b5e0e1f85aabced854cca
+    last_write_checksum: sha1:660767d6f6a2ac2e8f1b92bc85eaf35e82b7cac7
+    pristine_git_object: 44d8b988f03740b55433bf646efdb0c8143240b2
   src/gr4vy/models/accountsreceivablesreportspec.py:
     id: cc6a9368f988
     last_write_checksum: sha1:1ce9432ce7ae682a7fff1e0fe1ddc7f82dc937e7
@@ -3364,12 +3372,12 @@ trackedFiles:
     pristine_git_object: 35f1639bf25206ea68a0add7143ad5982e1711df
   src/gr4vy/models/list_buyer_gift_cardsop.py:
     id: bc95496f621d
-    last_write_checksum: sha1:9686e009216351c96a336d27d7a6a54c6d223088
-    pristine_git_object: d176ee2d52a1b8fec9e9ce320cf7f89a73ae70c9
+    last_write_checksum: sha1:ef8c8ffdc4512560de803f2d82606e9c044932e4
+    pristine_git_object: 381626d2e0c13fd674d04b5bbcf9fa0a1acf3ef4
   src/gr4vy/models/list_buyer_payment_methodsop.py:
     id: 69a4959bb64d
-    last_write_checksum: sha1:07853cc07ae031621933ea4696a85bf3dcca2007
-    pristine_git_object: 191947467a687ae78766e949dd4d6b2c4a66a1a1
+    last_write_checksum: sha1:1ae580b06694943a85c664d0c2f2440ba6d7dfe4
+    pristine_git_object: 5e78d7530f0caff046ca7823bb3529a771cae058
   src/gr4vy/models/list_buyer_shipping_detailsop.py:
     id: 15e633698675
     last_write_checksum: sha1:0eba24df8f8b0ce6f0d6757ff47d9e2b8e29bd78
@@ -4623,6 +4631,7 @@ examples:
         query:
           timeout_in_seconds: 1
           application_name: "core-api"
+          order_by: "desc"
         header:
           x-gr4vy-merchant-account-id: "default"
       responses:
@@ -8089,11 +8098,7 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes:
-  * `gr4vy.buyers.gift_cards.list()`:  `response.items[]` **Changed**
-  * `gr4vy.gift_cards.get()`:  `response` **Changed**
-  * `gr4vy.gift_cards.create()`:  `response` **Changed**
-  * `gr4vy.gift_cards.list()`:  `response.items[]` **Changed**
-  * `gr4vy.gift_cards.balances.list()`:  `response.items[]` **Changed**
+  * `gr4vy.buyers.gift_cards.list()`:  `request` **Changed**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json

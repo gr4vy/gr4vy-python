@@ -15,6 +15,8 @@ class BuyersGiftCards(BaseSDK):
         *,
         buyer_external_identifier: OptionalNullable[str] = UNSET,
         buyer_id: OptionalNullable[str] = UNSET,
+        sort_by: OptionalNullable[models.ListBuyerGiftCardsSortBy] = UNSET,
+        order_by: Optional[models.ListBuyerGiftCardsOrderBy] = "desc",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -27,6 +29,8 @@ class BuyersGiftCards(BaseSDK):
 
         :param buyer_external_identifier:
         :param buyer_id:
+        :param sort_by: The field to sort the gift cards by.
+        :param order_by: The direction to sort the gift cards in.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -46,6 +50,8 @@ class BuyersGiftCards(BaseSDK):
         request = models.ListBuyerGiftCardsRequest(
             buyer_external_identifier=buyer_external_identifier,
             buyer_id=buyer_id,
+            sort_by=sort_by,
+            order_by=order_by,
             merchant_account_id=merchant_account_id,
         )
 
@@ -166,6 +172,8 @@ class BuyersGiftCards(BaseSDK):
         *,
         buyer_external_identifier: OptionalNullable[str] = UNSET,
         buyer_id: OptionalNullable[str] = UNSET,
+        sort_by: OptionalNullable[models.ListBuyerGiftCardsSortBy] = UNSET,
+        order_by: Optional[models.ListBuyerGiftCardsOrderBy] = "desc",
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -178,6 +186,8 @@ class BuyersGiftCards(BaseSDK):
 
         :param buyer_external_identifier:
         :param buyer_id:
+        :param sort_by: The field to sort the gift cards by.
+        :param order_by: The direction to sort the gift cards in.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -197,6 +207,8 @@ class BuyersGiftCards(BaseSDK):
         request = models.ListBuyerGiftCardsRequest(
             buyer_external_identifier=buyer_external_identifier,
             buyer_id=buyer_id,
+            sort_by=sort_by,
+            order_by=order_by,
             merchant_account_id=merchant_account_id,
         )
 

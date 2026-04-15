@@ -1,14 +1,14 @@
-# OrderBy
+# ListBuyerPaymentMethodsOrderBy
 
 The direction to sort the payment methods in.
 
 ## Example Usage
 
 ```python
-from gr4vy.models import OrderBy
+from gr4vy.models import ListBuyerPaymentMethodsOrderBy
 
 # Open enum: unrecognized values are captured as UnrecognizedStr
-value: OrderBy = "asc"
+value: ListBuyerPaymentMethodsOrderBy = "asc"
 ```
 
 

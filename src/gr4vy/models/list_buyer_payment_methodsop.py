@@ -46,7 +46,7 @@ class ListBuyerPaymentMethodsGlobals(BaseModel):
         return m
 
 
-SortBy = Literal[
+ListBuyerPaymentMethodsSortBy = Literal[
     "last_used_at",
     "usage_count",
     "cit_last_used_at",
@@ -55,7 +55,7 @@ SortBy = Literal[
 r"""The field to sort the payment methods by."""
 
 
-OrderBy = Union[
+ListBuyerPaymentMethodsOrderBy = Union[
     Literal[
         "asc",
         "desc",
@@ -70,9 +70,9 @@ class ListBuyerPaymentMethodsRequestTypedDict(TypedDict):
     r"""The ID of the buyer to query payment methods for."""
     buyer_external_identifier: NotRequired[Nullable[str]]
     r"""The external identifier of the buyer to query payment methods for."""
-    sort_by: NotRequired[Nullable[SortBy]]
+    sort_by: NotRequired[Nullable[ListBuyerPaymentMethodsSortBy]]
     r"""The field to sort the payment methods by."""
-    order_by: NotRequired[OrderBy]
+    order_by: NotRequired[ListBuyerPaymentMethodsOrderBy]
     r"""The direction to sort the payment methods in."""
     country: NotRequired[Nullable[str]]
     r"""The country code to filter payment methods by. This only applies to payment methods with a `country` value."""
@@ -96,13 +96,13 @@ class ListBuyerPaymentMethodsRequest(BaseModel):
     r"""The external identifier of the buyer to query payment methods for."""
 
     sort_by: Annotated[
-        OptionalNullable[SortBy],
+        OptionalNullable[ListBuyerPaymentMethodsSortBy],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
     r"""The field to sort the payment methods by."""
 
     order_by: Annotated[
-        Optional[OrderBy],
+        Optional[ListBuyerPaymentMethodsOrderBy],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = "desc"
     r"""The direction to sort the payment methods in."""
