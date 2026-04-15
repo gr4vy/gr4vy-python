@@ -1,12 +1,12 @@
-# SortBy
+# ListBuyerPaymentMethodsSortBy
 
 The field to sort the payment methods by.
 
 ## Example Usage
 
 ```python
-from gr4vy.models import SortBy
-value: SortBy = "last_used_at"
+from gr4vy.models import ListBuyerPaymentMethodsSortBy
+value: ListBuyerPaymentMethodsSortBy = "last_used_at"
 ```
 
 
