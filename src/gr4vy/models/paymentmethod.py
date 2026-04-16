@@ -37,6 +37,10 @@ class PaymentMethodTypedDict(TypedDict):
     r"""Whether this card has a pending replacement that hasn't been applied yet."""
     usage_count: int
     r"""The number of times this payment method has been used in transactions."""
+    scheme_transaction_id: Nullable[str]
+    r"""The scheme transaction identifier stored against this payment method."""
+    scheme_transaction_id_scheme: Nullable[CardScheme]
+    r"""The scheme associated with scheme_transaction_id. Only applies to card payments."""
     status: PaymentMethodStatus
     created_at: datetime
     r"""The date and time when this payment method was first created in our system."""
@@ -98,6 +102,12 @@ class PaymentMethod(BaseModel):
 
     usage_count: int
     r"""The number of times this payment method has been used in transactions."""
+
+    scheme_transaction_id: Nullable[str]
+    r"""The scheme transaction identifier stored against this payment method."""
+
+    scheme_transaction_id_scheme: Nullable[CardScheme]
+    r"""The scheme associated with scheme_transaction_id. Only applies to card payments."""
 
     status: PaymentMethodStatus
 
@@ -198,6 +208,8 @@ class PaymentMethod(BaseModel):
                 "additional_schemes",
                 "cit_last_used_at",
                 "last_used_at",
+                "scheme_transaction_id",
+                "scheme_transaction_id_scheme",
                 "buyer",
                 "external_identifier",
             ]
