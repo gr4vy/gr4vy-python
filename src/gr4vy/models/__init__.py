@@ -408,6 +408,7 @@ if TYPE_CHECKING:
         DlocalUPIWalletOptionsTypedDict,
     )
     from .dlocalwalletoptions import DlocalWalletOptions, DlocalWalletOptionsTypedDict
+    from .ecommpayoptions import EcommpayOptions, EcommpayOptionsTypedDict
     from .edit_three_ds_configurationop import (
         EditThreeDsConfigurationRequest,
         EditThreeDsConfigurationRequestTypedDict,
@@ -1637,6 +1638,8 @@ __all__ = [
     "DlocalUPIWalletOptionsTypedDict",
     "DlocalWalletOptions",
     "DlocalWalletOptionsTypedDict",
+    "EcommpayOptions",
+    "EcommpayOptionsTypedDict",
     "EditThreeDsConfigurationRequest",
     "EditThreeDsConfigurationRequestTypedDict",
     "ErrorDetail",
@@ -2654,6 +2657,8 @@ _dynamic_imports: dict[str, str] = {
     "DlocalUPIWalletOptionsTypedDict": ".dlocalupiwalletoptions",
     "DlocalWalletOptions": ".dlocalwalletoptions",
     "DlocalWalletOptionsTypedDict": ".dlocalwalletoptions",
+    "EcommpayOptions": ".ecommpayoptions",
+    "EcommpayOptionsTypedDict": ".ecommpayoptions",
     "EditThreeDsConfigurationRequest": ".edit_three_ds_configurationop",
     "EditThreeDsConfigurationRequestTypedDict": ".edit_three_ds_configurationop",
     "ErrorDetail": ".errordetail",

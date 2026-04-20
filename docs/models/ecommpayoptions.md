@@ -1,0 +1,9 @@
+# EcommpayOptions
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               | Example                                                                                   |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `booking_start_date`                                                                      | *OptionalNullable[str]*                                                                   | :heavy_minus_sign:                                                                        | The start date of the booking in ISO 8601 format (YYYY-MM-DD). Required for certain MCCs. | 2030-12-01                                                                                |
+| `booking_end_date`                                                                        | *OptionalNullable[str]*                                                                   | :heavy_minus_sign:                                                                        | The end date of the booking in ISO 8601 format (YYYY-MM-DD). Required for certain MCCs.   | 2030-12-10                                                                                |
