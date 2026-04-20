@@ -16,6 +16,7 @@ from .cybersourceoptions import CybersourceOptions, CybersourceOptionsTypedDict
 from .dlocaloptions import DlocalOptions, DlocalOptionsTypedDict
 from .dlocalpixoptions import DlocalPIXOptions, DlocalPIXOptionsTypedDict
 from .dlocalupioptions import DlocalUPIOptions, DlocalUPIOptionsTypedDict
+from .ecommpayoptions import EcommpayOptions, EcommpayOptionsTypedDict
 from .fiservoptions import FiservOptions, FiservOptionsTypedDict
 from .forterantifraudoptions import (
     ForterAntiFraudOptions,
@@ -99,6 +100,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `dlocal-pix` connector."""
     dlocal_gcash: NotRequired[Nullable[DlocalOptionsTypedDict]]
     r"""Custom options to be passed to the `dlocal-gcash` connector."""
+    ecommpay_card: NotRequired[Nullable[EcommpayOptionsTypedDict]]
+    r"""Custom options to be passed to the `ecommpay-card` connector."""
     fiserv_card: NotRequired[Nullable[FiservOptionsTypedDict]]
     r"""Custom options to be passed to the `fiserv-card` connector."""
     forter_anti_fraud: NotRequired[Nullable[ForterAntiFraudOptionsTypedDict]]
@@ -281,6 +284,11 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `dlocal-gcash` connector."""
 
+    ecommpay_card: Annotated[
+        OptionalNullable[EcommpayOptions], pydantic.Field(alias="ecommpay-card")
+    ] = UNSET
+    r"""Custom options to be passed to the `ecommpay-card` connector."""
+
     fiserv_card: Annotated[
         OptionalNullable[FiservOptions], pydantic.Field(alias="fiserv-card")
     ] = UNSET
@@ -460,6 +468,7 @@ class TransactionConnectionOptions(BaseModel):
                 "dlocal-upi",
                 "dlocal-pix",
                 "dlocal-gcash",
+                "ecommpay-card",
                 "fiserv-card",
                 "forter-anti-fraud",
                 "gem-gem",
@@ -517,6 +526,7 @@ class TransactionConnectionOptions(BaseModel):
                 "dlocal-upi",
                 "dlocal-pix",
                 "dlocal-gcash",
+                "ecommpay-card",
                 "fiserv-card",
                 "forter-anti-fraud",
                 "gem-gem",
