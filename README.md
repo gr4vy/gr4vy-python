@@ -397,6 +397,7 @@ except ValueError as error:
 * [list](docs/sdks/paymentmethodssdk/README.md#list) - List all payment methods
 * [create](docs/sdks/paymentmethodssdk/README.md#create) - Create payment method
 * [get](docs/sdks/paymentmethodssdk/README.md#get) - Get payment method
+* [update](docs/sdks/paymentmethodssdk/README.md#update) - Update payment method
 * [delete](docs/sdks/paymentmethodssdk/README.md#delete) - Delete payment method
 
 #### [PaymentMethods.NetworkTokens](docs/sdks/paymentmethodsnetworktokens/README.md)

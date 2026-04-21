@@ -917,6 +917,7 @@ if TYPE_CHECKING:
         PaymentMethodSummary,
         PaymentMethodSummaryTypedDict,
     )
+    from .paymentmethodupdate import PaymentMethodUpdate, PaymentMethodUpdateTypedDict
     from .paymentoption import (
         Context,
         ContextTypedDict,
@@ -1262,6 +1263,12 @@ if TYPE_CHECKING:
     from .update_merchant_accountop import (
         UpdateMerchantAccountRequest,
         UpdateMerchantAccountRequestTypedDict,
+    )
+    from .update_payment_methodop import (
+        UpdatePaymentMethodGlobals,
+        UpdatePaymentMethodGlobalsTypedDict,
+        UpdatePaymentMethodRequest,
+        UpdatePaymentMethodRequestTypedDict,
     )
     from .update_payment_serviceop import (
         UpdatePaymentServiceGlobals,
@@ -2014,6 +2021,8 @@ __all__ = [
     "PaymentMethodSummary",
     "PaymentMethodSummaryTypedDict",
     "PaymentMethodTypedDict",
+    "PaymentMethodUpdate",
+    "PaymentMethodUpdateTypedDict",
     "PaymentMethods",
     "PaymentMethodsTypedDict",
     "PaymentOption",
@@ -2299,6 +2308,10 @@ __all__ = [
     "UpdateDigitalWalletRequestTypedDict",
     "UpdateMerchantAccountRequest",
     "UpdateMerchantAccountRequestTypedDict",
+    "UpdatePaymentMethodGlobals",
+    "UpdatePaymentMethodGlobalsTypedDict",
+    "UpdatePaymentMethodRequest",
+    "UpdatePaymentMethodRequestTypedDict",
     "UpdatePaymentServiceGlobals",
     "UpdatePaymentServiceGlobalsTypedDict",
     "UpdatePaymentServiceRequest",
@@ -3033,6 +3046,8 @@ _dynamic_imports: dict[str, str] = {
     "PaymentMethodSummariesTypedDict": ".paymentmethodsummaries",
     "PaymentMethodSummary": ".paymentmethodsummary",
     "PaymentMethodSummaryTypedDict": ".paymentmethodsummary",
+    "PaymentMethodUpdate": ".paymentmethodupdate",
+    "PaymentMethodUpdateTypedDict": ".paymentmethodupdate",
     "Context": ".paymentoption",
     "ContextTypedDict": ".paymentoption",
     "PaymentOption": ".paymentoption",
@@ -3312,6 +3327,10 @@ _dynamic_imports: dict[str, str] = {
     "UpdateDigitalWalletRequestTypedDict": ".update_digital_walletop",
     "UpdateMerchantAccountRequest": ".update_merchant_accountop",
     "UpdateMerchantAccountRequestTypedDict": ".update_merchant_accountop",
+    "UpdatePaymentMethodGlobals": ".update_payment_methodop",
+    "UpdatePaymentMethodGlobalsTypedDict": ".update_payment_methodop",
+    "UpdatePaymentMethodRequest": ".update_payment_methodop",
+    "UpdatePaymentMethodRequestTypedDict": ".update_payment_methodop",
     "UpdatePaymentServiceGlobals": ".update_payment_serviceop",
     "UpdatePaymentServiceGlobalsTypedDict": ".update_payment_serviceop",
     "UpdatePaymentServiceRequest": ".update_payment_serviceop",
