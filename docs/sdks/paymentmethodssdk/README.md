@@ -7,6 +7,7 @@
 * [list](#list) - List all payment methods
 * [create](#create) - Create payment method
 * [get](#get) - Get payment method
+* [update](#update) - Update payment method
 * [delete](#delete) - Delete payment method
 
 ## list
@@ -158,6 +159,63 @@ with Gr4vy(
 | `payment_method_id`                                                 | *str*                                                               | :heavy_check_mark:                                                  | The ID of the payment method                                        | ef9496d8-53a5-4aad-8ca2-00eb68334389                                |
 | `merchant_account_id`                                               | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | The ID of the merchant account to use for this request.             | default                                                             |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |                                                                     |
+
+### Response
+
+**[models.PaymentMethod](../../models/paymentmethod.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.Error400            | 400                        | application/json           |
+| errors.Error401            | 401                        | application/json           |
+| errors.Error403            | 403                        | application/json           |
+| errors.Error404            | 404                        | application/json           |
+| errors.Error405            | 405                        | application/json           |
+| errors.Error409            | 409                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.Error425            | 425                        | application/json           |
+| errors.Error429            | 429                        | application/json           |
+| errors.Error500            | 500                        | application/json           |
+| errors.Error502            | 502                        | application/json           |
+| errors.Error504            | 504                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## update
+
+Update the details of a stored payment method.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="update_payment_method" method="put" path="/payment-methods/{payment_method_id}" -->
+```python
+from gr4vy import Gr4vy
+import os
+
+
+with Gr4vy(
+    merchant_account_id="default",
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+) as g_client:
+
+    res = g_client.payment_methods.update(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      | Example                                                                          |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `payment_method_id`                                                              | *str*                                                                            | :heavy_check_mark:                                                               | The ID of the payment method                                                     | ef9496d8-53a5-4aad-8ca2-00eb68334389                                             |
+| `merchant_account_id`                                                            | *Optional[str]*                                                                  | :heavy_minus_sign:                                                               | The ID of the merchant account to use for this request.                          | default                                                                          |
+| `expiration_date`                                                                | *OptionalNullable[str]*                                                          | :heavy_minus_sign:                                                               | The new expiration date for the payment method.                                  | 12/30                                                                            |
+| `scheme_transaction_id`                                                          | *OptionalNullable[str]*                                                          | :heavy_minus_sign:                                                               | A scheme transaction identifier to associate with this payment method.           | 123456789012345                                                                  |
+| `scheme_transaction_id_scheme`                                                   | [OptionalNullable[models.CardScheme]](../../models/cardscheme.md)                | :heavy_minus_sign:                                                               | The scheme associated with scheme_transaction_id. Only applies to card payments. | visa                                                                             |
+| `retries`                                                                        | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                 | :heavy_minus_sign:                                                               | Configuration to override the default retry behavior of the client.              |                                                                                  |
 
 ### Response
 
