@@ -15,6 +15,7 @@ Mode = Union[
         "click-to-pay",
         "gift-card",
         "bank",
+        "paze",
     ],
     UnrecognizedStr,
 ]

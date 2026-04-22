@@ -17,3 +17,4 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"apple"`
 - `"google"`
 - `"click-to-pay"`
+- `"paze"`

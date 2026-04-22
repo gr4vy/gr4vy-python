@@ -92,6 +92,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"paypay"`
 - `"payto"`
 - `"payvalida"`
+- `"paze"`
 - `"picpay"`
 - `"pix"`
 - `"plaid"`
