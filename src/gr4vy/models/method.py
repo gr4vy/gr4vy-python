@@ -85,6 +85,7 @@ Method = Union[
         "paypay",
         "payto",
         "payvalida",
+        "paze",
         "picpay",
         "pix",
         "plaid",

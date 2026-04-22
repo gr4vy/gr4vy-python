@@ -10,6 +10,7 @@ DigitalWalletProvider = Union[
         "apple",
         "google",
         "click-to-pay",
+        "paze",
     ],
     UnrecognizedStr,
 ]
