@@ -936,8 +936,8 @@ class PaymentMethodsSDK(BaseSDK):
         :param payment_method_id: The ID of the payment method
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param expiration_date: The new expiration date for the payment method.
-        :param scheme_transaction_id: A scheme transaction identifier to associate with this payment method.
-        :param scheme_transaction_id_scheme: The scheme associated with scheme_transaction_id. Only applies to card payments.
+        :param scheme_transaction_id: A scheme transaction identifier to associate with this payment method. Explicitly setting this field to `null` will also clear `scheme_transaction_id_scheme` as a side-effect. When setting a new value and `scheme_transaction_id_scheme` is both omitted from the payload and previously unset,`scheme_transaction_id_scheme` will be populated from the payment method's existing `scheme`.
+        :param scheme_transaction_id_scheme: The scheme associated with `scheme_transaction_id`. Only applies to card payments. When setting a new value for `scheme_transaction_id`, if `scheme_transaction_id_scheme`is both omitted from the payload and previously unset, `scheme_transaction_id_scheme` will be populated from the payment method's existing `scheme`.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1083,8 +1083,8 @@ class PaymentMethodsSDK(BaseSDK):
         :param payment_method_id: The ID of the payment method
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param expiration_date: The new expiration date for the payment method.
-        :param scheme_transaction_id: A scheme transaction identifier to associate with this payment method.
-        :param scheme_transaction_id_scheme: The scheme associated with scheme_transaction_id. Only applies to card payments.
+        :param scheme_transaction_id: A scheme transaction identifier to associate with this payment method. Explicitly setting this field to `null` will also clear `scheme_transaction_id_scheme` as a side-effect. When setting a new value and `scheme_transaction_id_scheme` is both omitted from the payload and previously unset,`scheme_transaction_id_scheme` will be populated from the payment method's existing `scheme`.
+        :param scheme_transaction_id_scheme: The scheme associated with `scheme_transaction_id`. Only applies to card payments. When setting a new value for `scheme_transaction_id`, if `scheme_transaction_id_scheme`is both omitted from the payload and previously unset, `scheme_transaction_id_scheme` will be populated from the payment method's existing `scheme`.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
