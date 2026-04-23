@@ -9,7 +9,7 @@ from gr4vy.sessions import Sessions
 from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional
+from typing import Any, Dict, List, Mapping, Optional, Union
 
 
 class DigitalWalletsSDK(BaseSDK):
@@ -37,6 +37,11 @@ class DigitalWalletsSDK(BaseSDK):
         merchant_display_name: OptionalNullable[str] = UNSET,
         merchant_url: OptionalNullable[str] = UNSET,
         merchant_country_code: OptionalNullable[str] = UNSET,
+        merchant_category_code: OptionalNullable[str] = UNSET,
+        address: OptionalNullable[
+            Union[models.DigitalWalletAddress, models.DigitalWalletAddressTypedDict]
+        ] = UNSET,
+        extra_configuration: OptionalNullable[Dict[str, Any]] = UNSET,
         domain_names: Optional[List[str]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -54,6 +59,9 @@ class DigitalWalletsSDK(BaseSDK):
         :param merchant_display_name:
         :param merchant_url:
         :param merchant_country_code:
+        :param merchant_category_code:
+        :param address:
+        :param extra_configuration:
         :param domain_names:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -78,6 +86,11 @@ class DigitalWalletsSDK(BaseSDK):
                 merchant_display_name=merchant_display_name,
                 merchant_url=merchant_url,
                 merchant_country_code=merchant_country_code,
+                merchant_category_code=merchant_category_code,
+                address=utils.get_pydantic_model(
+                    address, OptionalNullable[models.DigitalWalletAddress]
+                ),
+                extra_configuration=extra_configuration,
                 domain_names=domain_names,
                 accept_terms_and_conditions=accept_terms_and_conditions,
             ),
@@ -193,6 +206,11 @@ class DigitalWalletsSDK(BaseSDK):
         merchant_display_name: OptionalNullable[str] = UNSET,
         merchant_url: OptionalNullable[str] = UNSET,
         merchant_country_code: OptionalNullable[str] = UNSET,
+        merchant_category_code: OptionalNullable[str] = UNSET,
+        address: OptionalNullable[
+            Union[models.DigitalWalletAddress, models.DigitalWalletAddressTypedDict]
+        ] = UNSET,
+        extra_configuration: OptionalNullable[Dict[str, Any]] = UNSET,
         domain_names: Optional[List[str]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -210,6 +228,9 @@ class DigitalWalletsSDK(BaseSDK):
         :param merchant_display_name:
         :param merchant_url:
         :param merchant_country_code:
+        :param merchant_category_code:
+        :param address:
+        :param extra_configuration:
         :param domain_names:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -234,6 +255,11 @@ class DigitalWalletsSDK(BaseSDK):
                 merchant_display_name=merchant_display_name,
                 merchant_url=merchant_url,
                 merchant_country_code=merchant_country_code,
+                merchant_category_code=merchant_category_code,
+                address=utils.get_pydantic_model(
+                    address, OptionalNullable[models.DigitalWalletAddress]
+                ),
+                extra_configuration=extra_configuration,
                 domain_names=domain_names,
                 accept_terms_and_conditions=accept_terms_and_conditions,
             ),
@@ -1133,6 +1159,11 @@ class DigitalWalletsSDK(BaseSDK):
         merchant_display_name: OptionalNullable[str] = UNSET,
         merchant_url: OptionalNullable[str] = UNSET,
         merchant_country_code: OptionalNullable[str] = UNSET,
+        merchant_category_code: OptionalNullable[str] = UNSET,
+        address: OptionalNullable[
+            Union[models.DigitalWalletAddress, models.DigitalWalletAddressTypedDict]
+        ] = UNSET,
+        extra_configuration: OptionalNullable[Dict[str, Any]] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1149,6 +1180,9 @@ class DigitalWalletsSDK(BaseSDK):
         :param merchant_display_name:
         :param merchant_url:
         :param merchant_country_code:
+        :param merchant_category_code:
+        :param address:
+        :param extra_configuration:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1173,6 +1207,11 @@ class DigitalWalletsSDK(BaseSDK):
                 merchant_display_name=merchant_display_name,
                 merchant_url=merchant_url,
                 merchant_country_code=merchant_country_code,
+                merchant_category_code=merchant_category_code,
+                address=utils.get_pydantic_model(
+                    address, OptionalNullable[models.DigitalWalletAddress]
+                ),
+                extra_configuration=extra_configuration,
             ),
         )
 
@@ -1286,6 +1325,11 @@ class DigitalWalletsSDK(BaseSDK):
         merchant_display_name: OptionalNullable[str] = UNSET,
         merchant_url: OptionalNullable[str] = UNSET,
         merchant_country_code: OptionalNullable[str] = UNSET,
+        merchant_category_code: OptionalNullable[str] = UNSET,
+        address: OptionalNullable[
+            Union[models.DigitalWalletAddress, models.DigitalWalletAddressTypedDict]
+        ] = UNSET,
+        extra_configuration: OptionalNullable[Dict[str, Any]] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1302,6 +1346,9 @@ class DigitalWalletsSDK(BaseSDK):
         :param merchant_display_name:
         :param merchant_url:
         :param merchant_country_code:
+        :param merchant_category_code:
+        :param address:
+        :param extra_configuration:
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1326,6 +1373,11 @@ class DigitalWalletsSDK(BaseSDK):
                 merchant_display_name=merchant_display_name,
                 merchant_url=merchant_url,
                 merchant_country_code=merchant_country_code,
+                merchant_category_code=merchant_category_code,
+                address=utils.get_pydantic_model(
+                    address, OptionalNullable[models.DigitalWalletAddress]
+                ),
+                extra_configuration=extra_configuration,
             ),
         )
 
