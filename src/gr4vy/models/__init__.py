@@ -380,6 +380,10 @@ if TYPE_CHECKING:
         DetailedSettlementReportSpecTypedDict,
     )
     from .digitalwallet import DigitalWallet, DigitalWalletTypedDict
+    from .digitalwalletaddress import (
+        DigitalWalletAddress,
+        DigitalWalletAddressTypedDict,
+    )
     from .digitalwalletcreate import DigitalWalletCreate, DigitalWalletCreateTypedDict
     from .digitalwalletdomain import DigitalWalletDomain, DigitalWalletDomainTypedDict
     from .digitalwalletprovider import DigitalWalletProvider
@@ -1618,6 +1622,8 @@ __all__ = [
     "DetailedSettlementReportSpec",
     "DetailedSettlementReportSpecTypedDict",
     "DigitalWallet",
+    "DigitalWalletAddress",
+    "DigitalWalletAddressTypedDict",
     "DigitalWalletCreate",
     "DigitalWalletCreateTypedDict",
     "DigitalWalletDomain",
@@ -2642,6 +2648,8 @@ _dynamic_imports: dict[str, str] = {
     "DetailedSettlementReportSpecTypedDict": ".detailedsettlementreportspec",
     "DigitalWallet": ".digitalwallet",
     "DigitalWalletTypedDict": ".digitalwallet",
+    "DigitalWalletAddress": ".digitalwalletaddress",
+    "DigitalWalletAddressTypedDict": ".digitalwalletaddress",
     "DigitalWalletCreate": ".digitalwalletcreate",
     "DigitalWalletCreateTypedDict": ".digitalwalletcreate",
     "DigitalWalletDomain": ".digitalwalletdomain",
