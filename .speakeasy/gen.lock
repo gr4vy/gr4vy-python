@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 272231f22b4d064e5a5791910ffaf812
+  docChecksum: 3b9ee1ccc27ebeb47f0ed0a49ef7bce2
   docVersion: 1.0.0
   speakeasyVersion: 1.761.9
   generationVersion: 2.881.4
-  releaseVersion: 2.0.23
-  configChecksum: 22938c56760326b1efac438d8a0554f4
+  releaseVersion: 2.0.24
+  configChecksum: b51e8be0f515f9aa9384320d0e1081b2
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: ddfe456c-16b6-4e27-b83d-f2d45d8ba576
-  pristine_commit_hash: 854682efd016262f7471bd0b2ac730dbc42e7a38
-  pristine_tree_hash: 1c15831ec500a81e1cae1b82de28aef80d350618
+  generation_id: 304488e2-923b-4360-8de7-ecfaa9bfbf8d
+  pristine_commit_hash: 9c83c61a6d29bef2dd88ce3040c04ebe62eb5900
+  pristine_tree_hash: 167ac24a0999ff4312305aed8829cc589f048d70
 features:
   python:
     additionalDependencies: 1.0.0
@@ -182,6 +182,18 @@ trackedFiles:
     id: 9dae80e273ed
     last_write_checksum: sha1:6f471957fa79997ed800b9886295914c2ab1e3c3
     pristine_git_object: 186c4f0b38e099bb5da095685c666348c31dc38a
+  docs/models/adyenpixoptions.md:
+    id: c33ebe96f6a5
+    last_write_checksum: sha1:de6e825bf5085f3c7a2558135dc26621afb98c0a
+    pristine_git_object: 59d94829969181389fdf555043528571aca50a1f
+  docs/models/adyenpixrecurringamount.md:
+    id: 667c80c8006c
+    last_write_checksum: sha1:e147f2ddbbd14777e3686d21f0cece72a5882e68
+    pristine_git_object: c0718e028b5d6f8e5121acd02c5e45c5823feac0
+  docs/models/adyenpixrecurringoptions.md:
+    id: 08ac5e2e36f8
+    last_write_checksum: sha1:027d57bbb480135d06af4c6e05d34560f10f43a2
+    pristine_git_object: 114ec2784973a342e7eef02158f12e32f4e5ec72
   docs/models/adyensepaoptions.md:
     id: 3fbd37b55095
     last_write_checksum: sha1:1c6567c21b45296d82bb07b1ebab6c5d0b44d91a
@@ -218,6 +230,10 @@ trackedFiles:
     id: aad1246ffd0c
     last_write_checksum: sha1:7c2f0246474f724dc465b9d2ec67b08e5d9d4952
     pristine_git_object: 49c59d6193958c0dc747dfe9d8a5cfac5cec8a5b
+  docs/models/apitypesdigitalwalletaddress.md:
+    id: 75a708c1a902
+    last_write_checksum: sha1:afd23fa3a848fc637ecbcbc621f0ccad1115b410
+    pristine_git_object: b599a5ae76b20a871f63975beecc44947862a7bc
   docs/models/applepaypaymentmethodcreate.md:
     id: 3daf324d8a29
     last_write_checksum: sha1:f287ee0c291261f8785dc9a8e38a0ba9ce41181c
@@ -696,8 +712,8 @@ trackedFiles:
     pristine_git_object: ff10f812d01e9fb478d25fc59a95a34768c6ade2
   docs/models/digitalwallet.md:
     id: 99249f74b960
-    last_write_checksum: sha1:e59b913459c5c30d8ac004eac81bff1b933dc29a
-    pristine_git_object: 1e8d35f887d21cd2ea6a99267e21df06d3bf4a59
+    last_write_checksum: sha1:89f91b588b28aa5c1446002d3d1a0db20af93a43
+    pristine_git_object: cd34982e142d66bea21c276f9a54b0288f696e4b
   docs/models/digitalwalletaddress.md:
     id: 55a7dca1e698
     last_write_checksum: sha1:c4b6f1e39e941cf342b75906ec1d36ecbf05a517
@@ -2044,8 +2060,8 @@ trackedFiles:
     pristine_git_object: 3ce9395068714fd740cb6d824c7262e700d58ece
   docs/models/transactionconnectionoptions.md:
     id: 4c92c21f3107
-    last_write_checksum: sha1:e1f821847a390546306b26c71c95fb45aea39a21
-    pristine_git_object: ca46dda54b6cb6161fe5fa00b8ecb3d0f1ac87e2
+    last_write_checksum: sha1:7d0666d4e8dc041605dee393d6aa61f2ca56a5a2
+    pristine_git_object: 8e6a074dcebf6956a9663e9aaa08c5e41d320f0b
   docs/models/transactioncreate.md:
     id: 2eccca1e0d3d
     last_write_checksum: sha1:0c4b38856880a710ce535150a01133319d151b84
@@ -2444,8 +2460,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:1616b3ce0b490f49deafc2ee012b75d087604c06
-    pristine_git_object: bbcb7914ffa72a188c7717dc7e0c78ad91328644
+    last_write_checksum: sha1:9e95d2d44076ba44d8e0395f20012d46f19b09bc
+    pristine_git_object: eef94e97e9869f07d751df21bbd01f9ddca77f67
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2472,8 +2488,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:71e4105215d841a0116fae08e3c290d8bb7c1ebe
-    pristine_git_object: b6d0afc644bbc035e248ccdfe45ffc22cb3555d2
+    last_write_checksum: sha1:7a6a2a80708fd9a696e2b06be0574c6a8d164836
+    pristine_git_object: abe43104da33fa3b4ea534655699098587eb6612
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -2624,8 +2640,8 @@ trackedFiles:
     pristine_git_object: 144c6e3df212d6877a0986b726460ff2dead777d
   src/gr4vy/models/__init__.py:
     id: 427cc7fddfe2
-    last_write_checksum: sha1:ed34b90ceb821fdf9c9b1621ae9e3f8e29ece1d2
-    pristine_git_object: 88641d4912975be1f2e5ad9d83003137c070b782
+    last_write_checksum: sha1:a3124c111ca0b79e005ebfeea57e1daf7cc44ed5
+    pristine_git_object: 1c308c1c709a890d39e3609121fa2c87946f9c88
   src/gr4vy/models/accountsreceivablesreportspec.py:
     id: cc6a9368f988
     last_write_checksum: sha1:1ce9432ce7ae682a7fff1e0fe1ddc7f82dc937e7
@@ -2686,6 +2702,18 @@ trackedFiles:
     id: 77d460c16e14
     last_write_checksum: sha1:b61eb557bdf7f70041adeee65b61314a283da14d
     pristine_git_object: a2170f15bce859e79d5c51655547110c1f32e174
+  src/gr4vy/models/adyenpixoptions.py:
+    id: 436c351da9af
+    last_write_checksum: sha1:dc86cadb7329ddc1bfbbe80e5dd349cc48cfbcff
+    pristine_git_object: baada58250d817c2a1145d2c20e9878b51e12d24
+  src/gr4vy/models/adyenpixrecurringamount.py:
+    id: 97f46a09a239
+    last_write_checksum: sha1:181fc373c947c8faa12c5d457d9ff7c65b5f4f17
+    pristine_git_object: 79c2766bfcca4b9d5234b26f95ecd8c7302e117c
+  src/gr4vy/models/adyenpixrecurringoptions.py:
+    id: 60bf74cb6fb8
+    last_write_checksum: sha1:0b90573f6917f286082e157557f8e68ac960f7be
+    pristine_git_object: e4219c42a1b730000f8bcd3727bcac0d44e4627a
   src/gr4vy/models/adyensepaoptions.py:
     id: 212ffe8f7a45
     last_write_checksum: sha1:c340a4d5f6bd09cc66960f9373b6d317c501cb9b
@@ -2718,6 +2746,10 @@ trackedFiles:
     id: 87ef178e6e2a
     last_write_checksum: sha1:0005be541a8447aeed9b82fd8f256eaaaabf7a3d
     pristine_git_object: 780aee3eb459740d83b7ffef6c815a1785a3f0e0
+  src/gr4vy/models/api_types_digitalwalletaddress.py:
+    id: bf2c6d0514d5
+    last_write_checksum: sha1:5e67014d10fd1ddd6290fc3dffddb861d1d20ff2
+    pristine_git_object: e34603d9fb6759b0e361a71aee2acc033a7cd52e
   src/gr4vy/models/applepaypaymentmethodcreate.py:
     id: 6f8d3c72e27c
     last_write_checksum: sha1:c3b1e761675a41a9dcb33c56b52624016104edee
@@ -3060,8 +3092,8 @@ trackedFiles:
     pristine_git_object: 024a2082baa66b72e8a66d2f1c40e0415ddf3228
   src/gr4vy/models/digitalwallet.py:
     id: d6e903e09f09
-    last_write_checksum: sha1:2542d0798c72cd9727569dceb39e4ef7c0bcbd98
-    pristine_git_object: a8e65f5188e622ddaa7dcac5db1b66379427d9f2
+    last_write_checksum: sha1:51ec92ad76cab8ff662003503af2754dfababf28
+    pristine_git_object: 6131f0d4b7cd1e1d2d88e9219e20198db7536483
   src/gr4vy/models/digitalwalletaddress.py:
     id: 07e1235c7e90
     last_write_checksum: sha1:99ca35502259286e5ddbb1359c7d9d8621563457
@@ -4052,8 +4084,8 @@ trackedFiles:
     pristine_git_object: a55a2395e9891bdc414bb7ec14f26ed582b0cb1a
   src/gr4vy/models/transactionconnectionoptions.py:
     id: e12dfa576d74
-    last_write_checksum: sha1:6a6a04064791f169cab3f4682fc8715f2603aacb
-    pristine_git_object: 8287dd860956c613d622b320232913880723185f
+    last_write_checksum: sha1:81d908c8092916141f3b13815fe2e46b46a22b23
+    pristine_git_object: 620623e1ce32aca7d606f8ac890044a2c9925b9c
   src/gr4vy/models/transactioncreate.py:
     id: 640e0433670e
     last_write_checksum: sha1:44b61f5b12ac9868b43acf84d90f62e322b4006f
@@ -8166,7 +8198,7 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.digital_wallets.create()`: \n  *  `request` **Changed**\n  *  `response` **Changed**\n* `gr4vy.digital_wallets.list()`:  `response.items[]` **Changed**\n* `gr4vy.digital_wallets.get()`:  `response` **Changed**\n* `gr4vy.digital_wallets.update()`: \n  *  `request` **Changed**\n  *  `response` **Changed**\n"
+releaseNotes: "## Python SDK Changes:\n* `gr4vy.digital_wallets.create()`:  `response.address.line2` **Changed**\n* `gr4vy.digital_wallets.list()`:  `response.items[].address.line2` **Changed**\n* `gr4vy.digital_wallets.get()`:  `response.address.line2` **Changed**\n* `gr4vy.digital_wallets.update()`:  `response.address.line2` **Changed**\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.adyen_pix.pix_recurring` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.adyen_pix.pix_recurring` **Added**\n* `gr4vy.payment_links.create()`: \n  *  `request.connection_options.adyen_pix.pix_recurring` **Added**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json

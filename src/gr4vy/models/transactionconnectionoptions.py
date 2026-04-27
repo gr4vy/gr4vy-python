@@ -4,6 +4,7 @@ from __future__ import annotations
 from .accountupdateroptions import AccountUpdaterOptions, AccountUpdaterOptionsTypedDict
 from .adyencardoptions import AdyenCardOptions, AdyenCardOptionsTypedDict
 from .adyenoptions import AdyenOptions, AdyenOptionsTypedDict
+from .adyenpixoptions import AdyenPixOptions, AdyenPixOptionsTypedDict
 from .adyensepaoptions import AdyenSepaOptions, AdyenSepaOptionsTypedDict
 from .affirmoptions import AffirmOptions, AffirmOptionsTypedDict
 from .braintreeoptions import BraintreeOptions, BraintreeOptionsTypedDict
@@ -68,7 +69,7 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `adyen-ideal` connector."""
     adyen_paypay: NotRequired[Nullable[AdyenOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-paypay` connector."""
-    adyen_pix: NotRequired[Nullable[AdyenOptionsTypedDict]]
+    adyen_pix: NotRequired[Nullable[AdyenPixOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-pix` connector."""
     adyen_sepa: NotRequired[Nullable[AdyenSepaOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-sepa` connector."""
@@ -204,7 +205,7 @@ class TransactionConnectionOptions(BaseModel):
     r"""Custom options to be passed to the `adyen-paypay` connector."""
 
     adyen_pix: Annotated[
-        OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-pix")
+        OptionalNullable[AdyenPixOptions], pydantic.Field(alias="adyen-pix")
     ] = UNSET
     r"""Custom options to be passed to the `adyen-pix` connector."""
 

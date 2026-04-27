@@ -56,6 +56,15 @@ if TYPE_CHECKING:
     from .adyencardautorescuescenariosenum import AdyenCardAutoRescueScenariosEnum
     from .adyencardoptions import AdyenCardOptions, AdyenCardOptionsTypedDict
     from .adyenoptions import AdyenOptions, AdyenOptionsTypedDict
+    from .adyenpixoptions import AdyenPixOptions, AdyenPixOptionsTypedDict
+    from .adyenpixrecurringamount import (
+        AdyenPixRecurringAmount,
+        AdyenPixRecurringAmountTypedDict,
+    )
+    from .adyenpixrecurringoptions import (
+        AdyenPixRecurringOptions,
+        AdyenPixRecurringOptionsTypedDict,
+    )
     from .adyensepaoptions import AdyenSepaOptions, AdyenSepaOptionsTypedDict
     from .adyensplitsoptions import AdyenSplitsOptions, AdyenSplitsOptionsTypedDict
     from .affirmitineraryoptions import (
@@ -67,6 +76,10 @@ if TYPE_CHECKING:
     from .airlineleg import AirlineLeg, AirlineLegTypedDict, RouteType
     from .airlinepassenger import AgeGroup, AirlinePassenger, AirlinePassengerTypedDict
     from .antifrauddecision import AntiFraudDecision
+    from .api_types_digitalwalletaddress import (
+        APITypesDigitalWalletAddress,
+        APITypesDigitalWalletAddressTypedDict,
+    )
     from .applepaypaymentmethodcreate import (
         ApplePayPaymentMethodCreate,
         ApplePayPaymentMethodCreateTypedDict,
@@ -1344,6 +1357,8 @@ if TYPE_CHECKING:
 __all__ = [
     "ACHBankPaymentMethodCreate",
     "ACHBankPaymentMethodCreateTypedDict",
+    "APITypesDigitalWalletAddress",
+    "APITypesDigitalWalletAddressTypedDict",
     "AVSResponseCode",
     "AccountType",
     "AccountUpdaterInquirySummary",
@@ -1380,6 +1395,12 @@ __all__ = [
     "AdyenCardOptionsTypedDict",
     "AdyenOptions",
     "AdyenOptionsTypedDict",
+    "AdyenPixOptions",
+    "AdyenPixOptionsTypedDict",
+    "AdyenPixRecurringAmount",
+    "AdyenPixRecurringAmountTypedDict",
+    "AdyenPixRecurringOptions",
+    "AdyenPixRecurringOptionsTypedDict",
     "AdyenSepaOptions",
     "AdyenSepaOptionsTypedDict",
     "AdyenSplitsOptions",
@@ -2402,6 +2423,12 @@ _dynamic_imports: dict[str, str] = {
     "AdyenCardOptionsTypedDict": ".adyencardoptions",
     "AdyenOptions": ".adyenoptions",
     "AdyenOptionsTypedDict": ".adyenoptions",
+    "AdyenPixOptions": ".adyenpixoptions",
+    "AdyenPixOptionsTypedDict": ".adyenpixoptions",
+    "AdyenPixRecurringAmount": ".adyenpixrecurringamount",
+    "AdyenPixRecurringAmountTypedDict": ".adyenpixrecurringamount",
+    "AdyenPixRecurringOptions": ".adyenpixrecurringoptions",
+    "AdyenPixRecurringOptionsTypedDict": ".adyenpixrecurringoptions",
     "AdyenSepaOptions": ".adyensepaoptions",
     "AdyenSepaOptionsTypedDict": ".adyensepaoptions",
     "AdyenSplitsOptions": ".adyensplitsoptions",
@@ -2420,6 +2447,8 @@ _dynamic_imports: dict[str, str] = {
     "AirlinePassenger": ".airlinepassenger",
     "AirlinePassengerTypedDict": ".airlinepassenger",
     "AntiFraudDecision": ".antifrauddecision",
+    "APITypesDigitalWalletAddress": ".api_types_digitalwalletaddress",
+    "APITypesDigitalWalletAddressTypedDict": ".api_types_digitalwalletaddress",
     "ApplePayPaymentMethodCreate": ".applepaypaymentmethodcreate",
     "ApplePayPaymentMethodCreateTypedDict": ".applepaypaymentmethodcreate",
     "ApplePaySessionRequest": ".applepaysessionrequest",
