@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 3b9ee1ccc27ebeb47f0ed0a49ef7bce2
+  docChecksum: e830f966fc60c9df19923f9dee65ba3b
   docVersion: 1.0.0
   speakeasyVersion: 1.761.9
   generationVersion: 2.881.4
-  releaseVersion: 2.0.24
-  configChecksum: b51e8be0f515f9aa9384320d0e1081b2
+  releaseVersion: 2.0.25
+  configChecksum: 459a5d9ff642dbf810006d2450ab498f
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 304488e2-923b-4360-8de7-ecfaa9bfbf8d
-  pristine_commit_hash: 9c83c61a6d29bef2dd88ce3040c04ebe62eb5900
-  pristine_tree_hash: 167ac24a0999ff4312305aed8829cc589f048d70
+  generation_id: c13305f5-0d4e-4ae5-9258-4f9a4ceec49d
+  pristine_commit_hash: 4b1b6d3ebb630dd744f335de37e1b9163198bbe1
+  pristine_tree_hash: 8a6f17dd198995854a1a78bd9ee0b801c5eeea5a
 features:
   python:
     additionalDependencies: 1.0.0
@@ -1484,8 +1484,8 @@ trackedFiles:
     pristine_git_object: b687758d56d39c9cbc8d0f2fce46d4c4a460d594
   docs/models/name.md:
     id: 6ee802922293
-    last_write_checksum: sha1:08e4ba1d47d1ad7e48ea9c1a179d55d51473c37c
-    pristine_git_object: b76c182a26f406e5a92e64b61ee8af5d0798c287
+    last_write_checksum: sha1:1a4f2fd284960572a2916ffee0d8e10d4a5ae5c1
+    pristine_git_object: 63db4e96cdc9da8201091ef9a33cca19907dbf8f
   docs/models/networktoken.md:
     id: 75b6681f9927
     last_write_checksum: sha1:d42f9cac78368368b0a64f00101fb5ebd8a26ed7
@@ -2460,8 +2460,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:9e95d2d44076ba44d8e0395f20012d46f19b09bc
-    pristine_git_object: eef94e97e9869f07d751df21bbd01f9ddca77f67
+    last_write_checksum: sha1:5d80d2c545cbbbf46e21e0b7b664d3b9237cb85b
+    pristine_git_object: 97300e8b82db8c71fb3194553aae0de7b7871202
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2488,8 +2488,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:7a6a2a80708fd9a696e2b06be0574c6a8d164836
-    pristine_git_object: abe43104da33fa3b4ea534655699098587eb6612
+    last_write_checksum: sha1:3a1b9883dc988ca74ad395da55483b4da38c0ecc
+    pristine_git_object: f3429465919ef7a52028b92a54a695114572e5ac
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -4092,8 +4092,8 @@ trackedFiles:
     pristine_git_object: e11792e30035c1133bbad21254f5ee924dc61398
   src/gr4vy/models/transactionevent.py:
     id: 89844a174227
-    last_write_checksum: sha1:6c062322af73cf2fba4424fa5780caeefc607153
-    pristine_git_object: 70232d108777d7d83bb5cc28d5327aec530d08b9
+    last_write_checksum: sha1:c19ac63f74d35e7a9a21e8dc869e769775ea613d
+    pristine_git_object: c7e7cf20aa33d720daccd8af1e816c64152cf42a
   src/gr4vy/models/transactionevents.py:
     id: be49f777ddc0
     last_write_checksum: sha1:3516f2f892757b64b6a0440dc75a9fe94ddd1619
@@ -8198,7 +8198,9 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.digital_wallets.create()`:  `response.address.line2` **Changed**\n* `gr4vy.digital_wallets.list()`:  `response.items[].address.line2` **Changed**\n* `gr4vy.digital_wallets.get()`:  `response.address.line2` **Changed**\n* `gr4vy.digital_wallets.update()`:  `response.address.line2` **Changed**\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.adyen_pix.pix_recurring` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.adyen_pix.pix_recurring` **Added**\n* `gr4vy.payment_links.create()`: \n  *  `request.connection_options.adyen_pix.pix_recurring` **Added**\n"
+releaseNotes: |
+  ## Python SDK Changes:
+  * `gr4vy.transactions.events.list()`:  `response.items[].name.enum(digital_wallet_paze_token_decrypted)` **Added**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json

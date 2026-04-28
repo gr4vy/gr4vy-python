@@ -58,6 +58,7 @@ Name = Union[
         "digital-wallet-apple-pay-token-decrypted",
         "digital-wallet-google-pay-token-decrypted",
         "digital-wallet-click-to-pay-token-decrypted",
+        "digital-wallet-paze-token-decrypted",
         "network-token-provision-succeeded",
         "network-token-provision-failed",
         "network-token-cryptogram-provision-succeeded",
