@@ -53,6 +53,12 @@ value: models.GooglePayPaymentMethodCreate = /* values here */
 value: models.GooglePayFPANPaymentMethodCreate = /* values here */
 ```
 
+### `models.PazePaymentMethodCreate`
+
+```python
+value: models.PazePaymentMethodCreate = /* values here */
+```
+
 ### `models.NetworkTokenPaymentMethodCreate`
 
 ```python

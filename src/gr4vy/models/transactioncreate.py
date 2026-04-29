@@ -50,6 +50,10 @@ from .networktokenpaymentmethodcreate import (
     NetworkTokenPaymentMethodCreate,
     NetworkTokenPaymentMethodCreateTypedDict,
 )
+from .pazepaymentmethodcreate import (
+    PazePaymentMethodCreate,
+    PazePaymentMethodCreateTypedDict,
+)
 from .plaidpaymentmethodcreate import (
     PlaidPaymentMethodCreate,
     PlaidPaymentMethodCreateTypedDict,
@@ -89,10 +93,11 @@ TransactionCreatePaymentMethodTypedDict = TypeAliasType(
         RedirectPaymentMethodCreateTypedDict,
         PlaidPaymentMethodCreateTypedDict,
         ClickToPayPaymentMethodCreateTypedDict,
-        CardWithURLPaymentMethodCreateTypedDict,
         ApplePayPaymentMethodCreateTypedDict,
         ClickToPayFPANPaymentMethodCreateTypedDict,
+        CardWithURLPaymentMethodCreateTypedDict,
         GooglePayFPANPaymentMethodCreateTypedDict,
+        PazePaymentMethodCreateTypedDict,
         GooglePayPaymentMethodCreateTypedDict,
         NetworkTokenPaymentMethodCreateTypedDict,
     ],
@@ -109,10 +114,11 @@ TransactionCreatePaymentMethod = TypeAliasType(
         RedirectPaymentMethodCreate,
         PlaidPaymentMethodCreate,
         ClickToPayPaymentMethodCreate,
-        CardWithURLPaymentMethodCreate,
         ApplePayPaymentMethodCreate,
         ClickToPayFPANPaymentMethodCreate,
+        CardWithURLPaymentMethodCreate,
         GooglePayFPANPaymentMethodCreate,
+        PazePaymentMethodCreate,
         GooglePayPaymentMethodCreate,
         NetworkTokenPaymentMethodCreate,
     ],
