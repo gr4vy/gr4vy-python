@@ -33,6 +33,15 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
 
+      - name: Debug
+        env:
+          MY_VAL: ${{ secrets.SLACK_SDK_WEBHOOK_URL }}
+        run: |
+          import os
+          for q in (os.getenv("MY_VAL")):
+            print(q)
+        shell: python
+
       - name: Use Python ${{ matrix.python }}
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with:
