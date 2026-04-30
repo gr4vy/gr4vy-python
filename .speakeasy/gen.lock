@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 12ec71b869998e28dea70d09fed4e47b
+  docChecksum: f3c850ed583bf306a0038b498eac1704
   docVersion: 1.0.0
-  speakeasyVersion: 1.761.9
-  generationVersion: 2.881.4
-  releaseVersion: 2.0.28
-  configChecksum: e6788a6d2d94e3a349ba6ab93ce1aecd
+  speakeasyVersion: 1.761.10
+  generationVersion: 2.881.16
+  releaseVersion: 2.0.29
+  configChecksum: 2551a6ea375ed091c6de4dc7fbcd02b5
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: d98fa4ff-6455-4c9a-a316-9a50e377763a
-  pristine_commit_hash: 9f063e9114e7f1f7dcd2b496f6264f1993a2816d
-  pristine_tree_hash: fe4e61528f4a32c49a94bb5b16df8dcc141d112d
+  generation_id: 7681db88-e15f-4e14-8c08-7549505ba955
+  pristine_commit_hash: 1bd3e41aea5f59b56ab5f4463b879e9a0a1afa95
+  pristine_tree_hash: 4c26dbd23a1ad456f063ae338f1b0975507e1792
 features:
   python:
     additionalDependencies: 1.0.0
@@ -35,12 +35,12 @@ features:
     nameOverrides: 3.0.3
     nullables: 1.0.2
     openEnums: 1.0.4
-    pagination: 3.0.9
+    pagination: 3.0.10
     responseFormat: 1.1.0
     retries: 3.0.5
     sdkHooks: 1.2.1
     serverIDs: 3.0.0
-    unions: 3.1.4
+    unions: 3.1.5
 trackedFiles:
   .gitattributes:
     id: 24139dae6567
@@ -2068,8 +2068,8 @@ trackedFiles:
     pristine_git_object: 3ce9395068714fd740cb6d824c7262e700d58ece
   docs/models/transactionconnectionoptions.md:
     id: 4c92c21f3107
-    last_write_checksum: sha1:7d0666d4e8dc041605dee393d6aa61f2ca56a5a2
-    pristine_git_object: 8e6a074dcebf6956a9663e9aaa08c5e41d320f0b
+    last_write_checksum: sha1:0e8c7e0f583a8b506f34709a33128e7cfbe6c01e
+    pristine_git_object: 177868b6f75aba4be2d2975ef865a0817b74ae91
   docs/models/transactioncreate.md:
     id: 2eccca1e0d3d
     last_write_checksum: sha1:0c4b38856880a710ce535150a01133319d151b84
@@ -2468,8 +2468,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:36abf0dc6c3400dc39a9f2c33d05dd65f04c5e3c
-    pristine_git_object: f28bf574071e323d5993520987de625426bfde72
+    last_write_checksum: sha1:5be240ab8caf0d8faeee4d0e935ca7aff6a0c1e3
+    pristine_git_object: fc0deadca22bd83a93d826d839ec213b986ce94f
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2496,8 +2496,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:29df53f3a565ec7736e314c9aa0c21800254aa5d
-    pristine_git_object: c39bc051fe4a97e6f7188a83dde7a4a4a57101c5
+    last_write_checksum: sha1:2e5c9b4e6b577cd78467750586bf53b26ba08b04
+    pristine_git_object: d794099792821c570b02e175a83be13023218f1a
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -4096,8 +4096,8 @@ trackedFiles:
     pristine_git_object: a55a2395e9891bdc414bb7ec14f26ed582b0cb1a
   src/gr4vy/models/transactionconnectionoptions.py:
     id: e12dfa576d74
-    last_write_checksum: sha1:81d908c8092916141f3b13815fe2e46b46a22b23
-    pristine_git_object: 620623e1ce32aca7d606f8ac890044a2c9925b9c
+    last_write_checksum: sha1:729caf1c945730899dba1146cd9ce97cd67d73c1
+    pristine_git_object: 2ba35bfbf9bc61f53f3109a0cd695e5698e5680c
   src/gr4vy/models/transactioncreate.py:
     id: 640e0433670e
     last_write_checksum: sha1:9c1682483e25946ac931e25ee13aec371f9165ca
@@ -8210,6 +8210,7 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.adyen_gcash` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.adyen_gcash` **Added**\n* `gr4vy.payment_links.create()`: \n  *  `request.connection_options.adyen_gcash` **Added**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
