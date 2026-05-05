@@ -14,22 +14,18 @@ from typing import Any, Dict, Literal, Union
 from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
 
 
-GooglePayPaymentMethodCreateTokenTypedDict = TypeAliasType(
-    "GooglePayPaymentMethodCreateTokenTypedDict", Union[str, Dict[str, Any]]
-)
+TokenTypedDict = TypeAliasType("TokenTypedDict", Union[str, Dict[str, Any]])
 r"""The opaque token as received from the Google Pay JS library. This format may change between JS library versions."""
 
 
-GooglePayPaymentMethodCreateToken = TypeAliasType(
-    "GooglePayPaymentMethodCreateToken", Union[str, Dict[str, Any]]
-)
+Token = TypeAliasType("Token", Union[str, Dict[str, Any]])
 r"""The opaque token as received from the Google Pay JS library. This format may change between JS library versions."""
 
 
 class GooglePayPaymentMethodCreateTypedDict(TypedDict):
     r"""Create a Google Pay transaction with a device token."""
 
-    token: GooglePayPaymentMethodCreateTokenTypedDict
+    token: TokenTypedDict
     r"""The opaque token as received from the Google Pay JS library. This format may change between JS library versions."""
     buyer_external_identifier: NotRequired[Nullable[str]]
     r"""The external identifier of the buyer to create a payment for."""
@@ -54,7 +50,7 @@ class GooglePayPaymentMethodCreateTypedDict(TypedDict):
 class GooglePayPaymentMethodCreate(BaseModel):
     r"""Create a Google Pay transaction with a device token."""
 
-    token: GooglePayPaymentMethodCreateToken
+    token: Token
     r"""The opaque token as received from the Google Pay JS library. This format may change between JS library versions."""
 
     buyer_external_identifier: OptionalNullable[str] = UNSET

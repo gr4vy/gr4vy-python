@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: f3c850ed583bf306a0038b498eac1704
+  docChecksum: e42429a2f1ae961827c60dc25fec16d3
   docVersion: 1.0.0
-  speakeasyVersion: 1.761.10
-  generationVersion: 2.881.16
-  releaseVersion: 2.0.29
-  configChecksum: 2551a6ea375ed091c6de4dc7fbcd02b5
+  speakeasyVersion: 1.761.11
+  generationVersion: 2.881.17
+  releaseVersion: 2.0.30
+  configChecksum: 9c8935a8ee21250d89631eaa6d7a530d
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 7681db88-e15f-4e14-8c08-7549505ba955
-  pristine_commit_hash: 1bd3e41aea5f59b56ab5f4463b879e9a0a1afa95
-  pristine_tree_hash: 4c26dbd23a1ad456f063ae338f1b0975507e1792
+  generation_id: 6e7a84d9-79cd-4406-8de5-bb2458826254
+  pristine_commit_hash: 94ba409499d8f06a42205825425554d60158fbba
+  pristine_tree_hash: ed6dd66ea78d2b3928638fe2074ab2b64baa0fc0
 features:
   python:
     additionalDependencies: 1.0.0
@@ -1100,12 +1100,8 @@ trackedFiles:
     pristine_git_object: 390aa26f04056e88d8edceff8a04dc4495212f34
   docs/models/googlepaypaymentmethodcreate.md:
     id: 92c43503b7e8
-    last_write_checksum: sha1:eb279e1042b009ed9761f530b1c25d44e9b1d13b
-    pristine_git_object: 1757a1df8e60feb6324230084121deca901a4fd2
-  docs/models/googlepaypaymentmethodcreatetoken.md:
-    id: d81645088eaa
-    last_write_checksum: sha1:1da5723e76c96cbad830ba6d4f867a95e7111ad7
-    pristine_git_object: 4bd5760312fe9310648738d62f7e0f953c180fdd
+    last_write_checksum: sha1:8106fc8f43097b6d6752a6688cda05d15e2f02db
+    pristine_git_object: f1750c9c327077f56f498cede9cb64b0df5d077c
   docs/models/googlepaypaymentoptioncontext.md:
     id: 92d8b93b2b61
     last_write_checksum: sha1:05f817878ac4ec21d862bfa6c75549ce2f07f8a6
@@ -1712,12 +1708,8 @@ trackedFiles:
     pristine_git_object: c8fc3c2b5ce8eb927d426e9ab1f147aac8f935c6
   docs/models/pazepaymentmethodcreate.md:
     id: e91f142e2031
-    last_write_checksum: sha1:b0d8995100928dd48edf1644853bdef3224591c5
-    pristine_git_object: d213ce25cb5f458f52b61ea6f2427047a7b8e578
-  docs/models/pazepaymentmethodcreatetoken.md:
-    id: abbc29280029
-    last_write_checksum: sha1:a084a5834050eb628136f648bf2e89381894f1dd
-    pristine_git_object: fd11e249bd6bd2e2013e6acea3435e37c6e05ad2
+    last_write_checksum: sha1:53441f4e0b186d75aeaa4bbdcdcdce9ee2b3a9e9
+    pristine_git_object: 03b93bbe6196c07ce11fe2cb52be55b0b405e022
   docs/models/plaidpaymentmethodcreate.md:
     id: 0f87b45637cb
     last_write_checksum: sha1:282a2bca19c804e28b78dfa69984af3553f3286e
@@ -2034,6 +2026,10 @@ trackedFiles:
     id: 0c706ea1ee14
     last_write_checksum: sha1:594323369fc04f05065bfc7e4083af5a420cde4d
     pristine_git_object: 6f25beb8d0810054a2107a10a549da1799a1b637
+  docs/models/token.md:
+    id: 46126814fa13
+    last_write_checksum: sha1:0d8084e2a97f791737571b6f0919761404e44d84
+    pristine_git_object: cf1da05a0513930ce77bbc93967d541aac0170e9
   docs/models/tokenpaymentmethodcreate.md:
     id: 41c5cbeee222
     last_write_checksum: sha1:288bfbc4b35b01c70a35f471786251ee22f32f5b
@@ -2468,8 +2464,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:5be240ab8caf0d8faeee4d0e935ca7aff6a0c1e3
-    pristine_git_object: fc0deadca22bd83a93d826d839ec213b986ce94f
+    last_write_checksum: sha1:7d9918821ddc6cfd56157e19fc37f592d58fc4fb
+    pristine_git_object: a7d2e139037884a9d2808567a7d74f984d9534f6
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2496,8 +2492,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:2e5c9b4e6b577cd78467750586bf53b26ba08b04
-    pristine_git_object: d794099792821c570b02e175a83be13023218f1a
+    last_write_checksum: sha1:fe20740c331c0c6de299c18349e659e6ea84cc41
+    pristine_git_object: b8cdc87602b02df7b03dec89769f04881d957a56
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -2648,8 +2644,8 @@ trackedFiles:
     pristine_git_object: 144c6e3df212d6877a0986b726460ff2dead777d
   src/gr4vy/models/__init__.py:
     id: 427cc7fddfe2
-    last_write_checksum: sha1:d538ffd23573a9d98356ef8b8f587b700c2eb40e
-    pristine_git_object: 26b170725b4470995843f998da0827a647f1e5d6
+    last_write_checksum: sha1:fe28412c2760c063deb2f00a4aefbe8b292686af
+    pristine_git_object: 1bebab618e9d5d7e848b93d629045bc496fa3435
   src/gr4vy/models/accountsreceivablesreportspec.py:
     id: cc6a9368f988
     last_write_checksum: sha1:1ce9432ce7ae682a7fff1e0fe1ddc7f82dc937e7
@@ -3392,8 +3388,8 @@ trackedFiles:
     pristine_git_object: e0def9ec92350653c831d39b4a0df5e608e9fd37
   src/gr4vy/models/googlepaypaymentmethodcreate.py:
     id: 0298d52059c6
-    last_write_checksum: sha1:9aaecad0b963b49927be75e0574c5b449ace6b79
-    pristine_git_object: 6e1291362b18c713b79c9df5c93c2acc0c9a69b0
+    last_write_checksum: sha1:110a6241418c87a9535ee4478e2644e8dbba7497
+    pristine_git_object: 90a643635027221de44f6ac5f9fa9c3f8170310b
   src/gr4vy/models/googlepaypaymentoptioncontext.py:
     id: a07e8ef59cb9
     last_write_checksum: sha1:2c171104056dd069d4a376da9edef598958f079a
@@ -3816,8 +3812,8 @@ trackedFiles:
     pristine_git_object: 9bf9e6bdd2cd7141686d377c08f84393292a23c2
   src/gr4vy/models/pazepaymentmethodcreate.py:
     id: 3a2aaa58f905
-    last_write_checksum: sha1:243d6ddf6d913067dfb0a23bb55c2499e78e1089
-    pristine_git_object: 05eacfe756ff7d3e8b6024849b0df4592e8f314c
+    last_write_checksum: sha1:c0431e202ca78130092c2c5d88a1ce1843d28533
+    pristine_git_object: 9edc7a176e684c8f1582d534a44786a9966c69f2
   src/gr4vy/models/plaidpaymentmethodcreate.py:
     id: 16d9f8af22ec
     last_write_checksum: sha1:747b39aefcec982bb9ef4c482d159fa71e15f0cd
@@ -8210,7 +8206,7 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.adyen_gcash` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.adyen_gcash` **Added**\n* `gr4vy.payment_links.create()`: \n  *  `request.connection_options.adyen_gcash` **Added**\n"
+releaseNotes: "## Python SDK Changes:\n* `gr4vy.transactions.create()`: \n  *  `request.payment_method.union(PazePaymentMethodCreate).token` **Changed** (Breaking ⚠️)\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json

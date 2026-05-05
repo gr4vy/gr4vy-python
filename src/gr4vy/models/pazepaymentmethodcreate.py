@@ -6,26 +6,14 @@ from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator
-from typing import Any, Dict, Literal, Union
-from typing_extensions import Annotated, NotRequired, TypeAliasType, TypedDict
-
-
-PazePaymentMethodCreateTokenTypedDict = TypeAliasType(
-    "PazePaymentMethodCreateTokenTypedDict", Union[str, Dict[str, Any]]
-)
-r"""The opaque token as received from the Paze complete response."""
-
-
-PazePaymentMethodCreateToken = TypeAliasType(
-    "PazePaymentMethodCreateToken", Union[str, Dict[str, Any]]
-)
-r"""The opaque token as received from the Paze complete response."""
+from typing import Literal
+from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class PazePaymentMethodCreateTypedDict(TypedDict):
     r"""Create a Paze transaction with a device token."""
 
-    token: PazePaymentMethodCreateTokenTypedDict
+    token: str
     r"""The opaque token as received from the Paze complete response."""
     buyer_external_identifier: NotRequired[Nullable[str]]
     r"""The external identifier of the buyer to create a payment for."""
@@ -48,7 +36,7 @@ class PazePaymentMethodCreateTypedDict(TypedDict):
 class PazePaymentMethodCreate(BaseModel):
     r"""Create a Paze transaction with a device token."""
 
-    token: PazePaymentMethodCreateToken
+    token: str
     r"""The opaque token as received from the Paze complete response."""
 
     buyer_external_identifier: OptionalNullable[str] = UNSET
