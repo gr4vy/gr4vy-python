@@ -22,6 +22,7 @@ Method = Union[
         "becs",
         "bitpay",
         "blik",
+        "ach",
         "boleto",
         "boost",
         "breb",
