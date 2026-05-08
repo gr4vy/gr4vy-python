@@ -29,6 +29,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"becs"`
 - `"bitpay"`
 - `"blik"`
+- `"ach"`
 - `"boleto"`
 - `"boost"`
 - `"breb"`
