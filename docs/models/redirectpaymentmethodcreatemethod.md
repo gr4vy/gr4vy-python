@@ -81,6 +81,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"pagoefectivo"`
 - `"payid"`
 - `"paymaya"`
+- `"paysquad"`
 - `"paypal"`
 - `"paypalpaylater"`
 - `"paypay"`
