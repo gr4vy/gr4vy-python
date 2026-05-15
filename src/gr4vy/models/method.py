@@ -81,6 +81,7 @@ Method = Union[
         "pagoefectivo",
         "payid",
         "paymaya",
+        "paysquad",
         "paypal",
         "paypalpaylater",
         "paypay",
