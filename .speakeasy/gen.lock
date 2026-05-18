@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 6a828a5a85742104b8cb0ef54b5b8ff2
+  docChecksum: 950ba843fd1a38abaaf42abc0176af40
   docVersion: 1.0.0
   speakeasyVersion: 1.763.1
   generationVersion: 2.884.4
-  releaseVersion: 2.0.33
-  configChecksum: 00c3e1c47f66433ea2be2b6a9ed257c3
+  releaseVersion: 2.0.34
+  configChecksum: 2c26e73e136d2ef1e8f44377cdcd1366
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: f6b40f54-f815-4857-9a16-440165dcd7dc
-  pristine_commit_hash: efc5200a9164018a8b0000ee6ebfb7c55056070b
-  pristine_tree_hash: a55437660fd943d0ac9d6679554ac3a8f63e6d58
+  generation_id: 28570f7a-16da-4040-bd95-8185fae4753a
+  pristine_commit_hash: 4670a9f2065534fd53b35cc20b09d6e2290488e9
+  pristine_tree_hash: 312a20d64de0a5851f30da47ac093ad17e8a299a
 features:
   python:
     additionalDependencies: 1.0.0
@@ -2464,8 +2464,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:5ecfab2eb830c9370aa203f67c0a4db19dc23628
-    pristine_git_object: 91a88fa33cf93d416320167435fa52108ca7ae4f
+    last_write_checksum: sha1:c2a5a099982f74a4601e1265e0f8a25cd0e69b29
+    pristine_git_object: c3a657c25d8b6ccf335dcdf9a8d3bd24416b4686
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2492,8 +2492,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:31d6a4bafd09b21bd97c2719d9686aa5b76ee96d
-    pristine_git_object: ce0542aae32fad644ab48c8fc782f7bb747dbd5b
+    last_write_checksum: sha1:c4239784f4ac538765f2b517ecd83107a0c533fc
+    pristine_git_object: 99e47ca2efd89d3c3c9f2befd8c9e3c12416dd41
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -8206,7 +8206,6 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.buyers.payment_methods.list()`:  `response.items[].method.enum(paysquad)` **Added**\n* `gr4vy.payment_methods.list()`:  `response.items[].method.enum(paysquad)` **Added**\n* `gr4vy.payment_methods.create()`: \n  *  `request_body.union(RedirectPaymentMethodCreate).method.enum(paysquad)` **Added**\n  *  `response.method.enum(paysquad)` **Added**\n* `gr4vy.payment_methods.get()`:  `response.method.enum(paysquad)` **Added**\n* `gr4vy.payment_methods.update()`:  `response.method.enum(paysquad)` **Added**\n* `gr4vy.transactions.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].payment_method.method.enum(paysquad)` **Added**\n* `gr4vy.transactions.create()`: \n  *  `request.payment_method.union(RedirectPaymentMethodCreate).method.enum(paysquad)` **Added**\n  *  `response.payment_method.method.enum(paysquad)` **Added**\n* `gr4vy.transactions.get()`:  `response.payment_method.method.enum(paysquad)` **Added**\n* `gr4vy.transactions.update()`:  `response.payment_method.method.enum(paysquad)` **Added**\n* `gr4vy.transactions.capture()`:  `response.union(TransactionCapture).transaction.payment_method.method.enum(paysquad)` **Added**\n* `gr4vy.transactions.void()`:  `response.union(Transaction).payment_method.method.enum(paysquad)` **Added**\n* `gr4vy.transactions.cancel()`:  `response.transaction.payment_method.method.enum(paysquad)` **Added**\n* `gr4vy.transactions.sync()`:  `response.payment_method.method.enum(paysquad)` **Added**\n* `gr4vy.payment_service_definitions.list()`:  `response.items[].method.enum(paysquad)` **Added**\n* `gr4vy.payment_service_definitions.get()`:  `response.method.enum(paysquad)` **Added**\n* `gr4vy.payment_services.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].method.enum(paysquad)` **Added**\n* `gr4vy.payment_services.create()`:  `response.method.enum(paysquad)` **Added**\n* `gr4vy.payment_services.get()`:  `response.method.enum(paysquad)` **Added**\n* `gr4vy.payment_services.update()`:  `response.method.enum(paysquad)` **Added**\n* `gr4vy.payouts.list()`:  `response.items[].payment_method.method.enum(paysquad)` **Added**\n* `gr4vy.payouts.create()`:  `response.payment_method.method.enum(paysquad)` **Added**\n* `gr4vy.payouts.get()`:  `response.payment_method.method.enum(paysquad)` **Added**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
