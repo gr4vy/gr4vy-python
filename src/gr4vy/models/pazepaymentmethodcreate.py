@@ -31,6 +31,8 @@ class PazePaymentMethodCreateTypedDict(TypedDict):
     r"""The payment scheme of the card."""
     method: Literal["paze"]
     r"""Always `paze`"""
+    checkout_token: NotRequired[Nullable[str]]
+    r"""The signed checkout JWS as received from the Paze checkout response."""
 
 
 class PazePaymentMethodCreate(BaseModel):
@@ -66,6 +68,9 @@ class PazePaymentMethodCreate(BaseModel):
     ] = "paze"
     r"""Always `paze`"""
 
+    checkout_token: OptionalNullable[str] = UNSET
+    r"""The signed checkout JWS as received from the Paze checkout response."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -77,6 +82,7 @@ class PazePaymentMethodCreate(BaseModel):
                 "card_suffix",
                 "card_scheme",
                 "card_type",
+                "checkout_token",
             ]
         )
         nullable_fields = set(
@@ -88,6 +94,7 @@ class PazePaymentMethodCreate(BaseModel):
                 "card_suffix",
                 "card_scheme",
                 "card_type",
+                "checkout_token",
             ]
         )
         serialized = handler(self)
