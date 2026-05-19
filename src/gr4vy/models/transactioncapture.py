@@ -28,6 +28,8 @@ class TransactionCaptureTypedDict(TypedDict):
     r"""The ID of the capture resource created for this capture."""
     payment_service_capture_id: NotRequired[Nullable[str]]
     r"""The payment service's unique ID for the capture."""
+    external_identifier: NotRequired[Nullable[str]]
+    r"""The external identifier for the capture."""
 
 
 class TransactionCapture(BaseModel):
@@ -60,9 +62,14 @@ class TransactionCapture(BaseModel):
     payment_service_capture_id: OptionalNullable[str] = UNSET
     r"""The payment service's unique ID for the capture."""
 
+    external_identifier: OptionalNullable[str] = UNSET
+    r"""The external identifier for the capture."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["type", "capture_id", "payment_service_capture_id"])
+        optional_fields = set(
+            ["type", "capture_id", "payment_service_capture_id", "external_identifier"]
+        )
         nullable_fields = set(
             [
                 "code",
@@ -70,6 +77,7 @@ class TransactionCapture(BaseModel):
                 "raw_response_description",
                 "capture_id",
                 "payment_service_capture_id",
+                "external_identifier",
             ]
         )
         serialized = handler(self)
