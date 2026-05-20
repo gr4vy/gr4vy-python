@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: afadf6aa5ec5054efae6ab622c78413c
+  docChecksum: 039cfb310a039830be11b07cc4c391f0
   docVersion: 1.0.0
-  speakeasyVersion: 1.763.2
-  generationVersion: 2.884.4
-  releaseVersion: 2.0.36
-  configChecksum: a22cefd1dea889a456f4cd156fc2d7cd
+  speakeasyVersion: 1.763.3
+  generationVersion: 2.884.7
+  releaseVersion: 2.0.37
+  configChecksum: 59f179a5a339bbb01251f71e36e061eb
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: e7709b45-1cb2-4b9f-8597-df6fcd228448
-  pristine_commit_hash: 3109c7ef5c427fb6324728ea8acaecab55d71723
-  pristine_tree_hash: 19e322f966beb9a695b428dae51b7c586df583ce
+  generation_id: 4deb8318-549c-4f14-935d-790ff4301676
+  pristine_commit_hash: 6e9d0119deea8596d5b46047ed568a94caaf5ced
+  pristine_tree_hash: ecd04fe068425d2936f15e1fa16910da571ed211
 features:
   python:
     additionalDependencies: 1.0.0
@@ -542,6 +542,14 @@ trackedFiles:
     id: 789815fa2ec4
     last_write_checksum: sha1:7aa5e266f5f2b21d3c0c23b6db7746d64ff65b36
     pristine_git_object: 78d733a121d8bef20808ef245f72ac704f504510
+  docs/models/createpazedigitalwalletsessionglobals.md:
+    id: d85f2ef504df
+    last_write_checksum: sha1:194da86cfa1054b660de02bd51581c9b1fda123c
+    pristine_git_object: 0b83238f25bc0a7cca56a3ed2441abe21b53fbba
+  docs/models/createpazedigitalwalletsessionrequest.md:
+    id: 6f7880a1308a
+    last_write_checksum: sha1:540eabc61f2ee0fa4e85f048474ff8588ada16bb
+    pristine_git_object: 13d96a3aec73927468c63ee532bea8c47ff87626
   docs/models/createreportexecutionurlglobals.md:
     id: 8d4bf68fa346
     last_write_checksum: sha1:7da90e4ed89d9c1c94dcc9f1d9663d8cace3c06e
@@ -1706,10 +1714,22 @@ trackedFiles:
     id: a48982505684
     last_write_checksum: sha1:fc8ca34d0b805e21dab96fe723fd174b29b5aaa8
     pristine_git_object: c8fc3c2b5ce8eb927d426e9ab1f147aac8f935c6
+  docs/models/pazemobilesession.md:
+    id: edacb40a3305
+    last_write_checksum: sha1:97a07b940459160f7de642d1d582afbc02a5f72d
+    pristine_git_object: cab995269e972ad05664e55445676388289a8a6a
   docs/models/pazepaymentmethodcreate.md:
     id: e91f142e2031
     last_write_checksum: sha1:de57e22303809c696eab46e60811e58f7898a5dd
     pristine_git_object: 3c62fecff35af492e2d95123bf9084948ac40a92
+  docs/models/pazesessionrequest.md:
+    id: 12915bfe80e4
+    last_write_checksum: sha1:8697118987dd08a4b04eb1b649d2dd64415299d9
+    pristine_git_object: 6de88b927f240408a690d7eac452c7e6d58fdd6c
+  docs/models/pazewebsession.md:
+    id: e929e29bee74
+    last_write_checksum: sha1:8f0b4045e83532e0147e548c8fabe106324ced7f
+    pristine_git_object: 62ae5cde79d785815cb7ad75fb16833cc142d048
   docs/models/plaidpaymentmethodcreate.md:
     id: 0f87b45637cb
     last_write_checksum: sha1:282a2bca19c804e28b78dfa69984af3553f3286e
@@ -1846,6 +1866,10 @@ trackedFiles:
     id: 2dfa9c780768
     last_write_checksum: sha1:09b1917ececb32330fe6cf45e2fedb7715a173ed
     pristine_git_object: 0d0d1729a75a3f3d7a05d328ad985b48bdb07d0c
+  docs/models/responsecreatepazedigitalwalletsession.md:
+    id: f0f0fb26ee08
+    last_write_checksum: sha1:3fb9aa0826935f954d9ad5bc7624b8ad10b9d4dc
+    pristine_git_object: 8180581e8f060e81af3c2d9790479c1e259d90df
   docs/models/responsedata.md:
     id: e0a6143f9ed8
     last_write_checksum: sha1:d209a1481225b0e71933e72104e50cae1508ff14
@@ -1902,6 +1926,10 @@ trackedFiles:
     id: 836d05082ea8
     last_write_checksum: sha1:b3d5142ddedfb0f1089815aca7f0da595d36618e
     pristine_git_object: 54dc2d6dd521423eab9d82ca4fc4d4bbdbda59ec
+  docs/models/source.md:
+    id: 6541ef7b41e7
+    last_write_checksum: sha1:52b2e26244cc4a97434a714bb340e1919f6b603c
+    pristine_git_object: a8242825d437531fabb893c6281fede116e807e2
   docs/models/spec.md:
     id: a08855025036
     last_write_checksum: sha1:e414d0c029e798b0186efb7c5d8141825187f382
@@ -2428,8 +2456,8 @@ trackedFiles:
     pristine_git_object: 0651fa727dee9a6ccde51039f59cb8db3347d5cd
   docs/sdks/sessions/README.md:
     id: 57ad62844f79
-    last_write_checksum: sha1:362894b9f8c3e1e12abb43e7442703693d925db1
-    pristine_git_object: a3f212b22be155a47de24e7e217168022f33403f
+    last_write_checksum: sha1:86a5058b4d6987aae84f27b1afe0bdc55715992f
+    pristine_git_object: 08e5fc28fa7679298a0a66b291c4018c6b3ca86e
   docs/sdks/threedsconfiguration/README.md:
     id: 86aa349ed0d5
     last_write_checksum: sha1:eb880815995889d811a03a52adf476fc92625ed3
@@ -2464,8 +2492,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:3b9c4c2f46dad4f71c7cc44006a132bd1631d937
-    pristine_git_object: 2830a00600d437fdb9058ea0302047ff59e66a0a
+    last_write_checksum: sha1:3f0ba7c4d8072bd2e6002825ae1338c517e7dfd6
+    pristine_git_object: 29867e88a10ba76c380d135a8be3275be081bb19
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2492,8 +2520,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:389f91d34a6df2bae2713479d58a0ef5fe42f888
-    pristine_git_object: 60b0f7ff6f10681946355ee1d51730cdfd715b95
+    last_write_checksum: sha1:f6a8430acbf94ea4f89836113115280f3063918b
+    pristine_git_object: 99a1942a279584244a4ba527589b0f6741e050bd
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -2644,8 +2672,8 @@ trackedFiles:
     pristine_git_object: 144c6e3df212d6877a0986b726460ff2dead777d
   src/gr4vy/models/__init__.py:
     id: 427cc7fddfe2
-    last_write_checksum: sha1:fe28412c2760c063deb2f00a4aefbe8b292686af
-    pristine_git_object: 1bebab618e9d5d7e848b93d629045bc496fa3435
+    last_write_checksum: sha1:91f34266417fdb88d352dca554f2f9d8a6cc7ca0
+    pristine_git_object: bfd3bd7258b51256885eabe2e0e47597260a612a
   src/gr4vy/models/accountsreceivablesreportspec.py:
     id: cc6a9368f988
     last_write_checksum: sha1:1ce9432ce7ae682a7fff1e0fe1ddc7f82dc937e7
@@ -2986,6 +3014,10 @@ trackedFiles:
     id: fa2b9a7bc0b6
     last_write_checksum: sha1:12c3f08b2a4841ae619977a76d14edc0ad0f2f05
     pristine_git_object: cbcb709ca4b47fc0437ea9568774382ed438ad47
+  src/gr4vy/models/create_paze_digital_wallet_sessionop.py:
+    id: 6097737736c9
+    last_write_checksum: sha1:3b5a18ed73e043c09d7dfa725885a50e6dfc56d5
+    pristine_git_object: 3ce6d48cdaac18194420313c589f77478459dd6a
   src/gr4vy/models/create_report_execution_urlop.py:
     id: e7252aef8bbc
     last_write_checksum: sha1:744aa9eca33c46d059c4fcf4edafaed79fd9b9ad
@@ -3810,10 +3842,22 @@ trackedFiles:
     id: ccfc873df257
     last_write_checksum: sha1:89204db04b07f268e0f158829aabec97e6f5b874
     pristine_git_object: 9bf9e6bdd2cd7141686d377c08f84393292a23c2
+  src/gr4vy/models/pazemobilesession.py:
+    id: 3d45f6f48ab6
+    last_write_checksum: sha1:db2f2a51daa372725a23425800e84caa5f302ab8
+    pristine_git_object: f331c270b3537f51341df395dca90b65a6419bd6
   src/gr4vy/models/pazepaymentmethodcreate.py:
     id: 3a2aaa58f905
     last_write_checksum: sha1:ec864989f809f5af2d133450d618ad4b4c4897e4
     pristine_git_object: 9c808640b3ea3385a6390c9736be120d9b39baa7
+  src/gr4vy/models/pazesessionrequest.py:
+    id: a6e3fec5e32a
+    last_write_checksum: sha1:a7f8a6a0f7a7e49ed6407722760c889814827307
+    pristine_git_object: 5a8b97f27acc6145e02f1ce85b7011af665e65d2
+  src/gr4vy/models/pazewebsession.py:
+    id: 69ba1b8bdc62
+    last_write_checksum: sha1:fe325d81e48ad348fd2d8c43a4955fd7ad51d0f1
+    pristine_git_object: 32fd236b47aa4029b809f09cfba72a3175b760c9
   src/gr4vy/models/plaidpaymentmethodcreate.py:
     id: 16d9f8af22ec
     last_write_checksum: sha1:747b39aefcec982bb9ef4c482d159fa71e15f0cd
@@ -4336,8 +4380,8 @@ trackedFiles:
     pristine_git_object: 19632df8f8460b48a6422f28640a7256352c6766
   src/gr4vy/sessions.py:
     id: c10d3c9c5eec
-    last_write_checksum: sha1:4c6bae0c6200fc4ed03244b3b463ed7b1e2b9010
-    pristine_git_object: f2ddcd56aad06f034677c725e99bce0e26077a18
+    last_write_checksum: sha1:2ce4310812c73fa420ca9c4691d5890a68e3df55
+    pristine_git_object: 287758304938c0c8b318974ae821c4b72f62479a
   src/gr4vy/three_ds_configuration.py:
     id: 408758b2e6fd
     last_write_checksum: sha1:40e532dee2618c1573fb7219bdc42bc6381a20a8
@@ -8204,11 +8248,42 @@ examples:
           application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
         "504":
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
+  create_paze_digital_wallet_session:
+    speakeasy-default-create-paze-digital-wallet-session:
+      requestBody:
+        application/json: {"source": "web"}
+      responses:
+        "200":
+          application/json: {"id": "W8GT9RLCNME754Z7025613H3PDM2T4HF2CSAOi9w2kkP3D4S0", "name": "ACME", "profileId": "550e8400-e29b-41d4-a716-446655440000", "accessToken": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...", "sessionId": "550e8400-e29b-41d4-a716-446655440000"}
+        "400":
+          application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
+        "401":
+          application/json: {"type": "error", "code": "unauthorized", "status": 401, "message": "No valid API authentication found"}
+        "403":
+          application/json: {"type": "error", "code": "forbidden", "status": 403, "message": "Request failed validation"}
+        "404":
+          application/json: {"type": "error", "code": "not_found", "status": 404, "message": "The resource could not be found"}
+        "405":
+          application/json: {"type": "error", "code": "method_not_allowed", "status": 405, "message": "Method Not Allowed"}
+        "409":
+          application/json: {"type": "error", "code": "duplicate_record", "status": 409, "message": "Request failed validation"}
+        "422":
+          application/json: {}
+        "425":
+          application/json: {"type": "error", "code": "too_early", "status": 425, "message": "Request failed validation"}
+        "429":
+          application/json: {"type": "error", "code": "too_many_requests", "status": 429, "message": "Request failed validation"}
+        "500":
+          application/json: {"type": "error", "code": "server_error", "status": 500, "message": "Request could not be processed"}
+        "502":
+          application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
+        "504":
+          application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes:
-  * `gr4vy.transactions.capture()`:  `response.union(TransactionCapture).external_identifier` **Added**
+  * `gr4vy.digital_wallets.sessions.paze()`: **Added**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
