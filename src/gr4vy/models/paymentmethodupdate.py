@@ -16,6 +16,8 @@ class PaymentMethodUpdateTypedDict(TypedDict):
     r"""A scheme transaction identifier to associate with this payment method. Explicitly setting this field to `null` will also clear `scheme_transaction_id_scheme` as a side-effect. When setting a new value and `scheme_transaction_id_scheme` is both omitted from the payload and previously unset,`scheme_transaction_id_scheme` will be populated from the payment method's existing `scheme`."""
     scheme_transaction_id_scheme: NotRequired[Nullable[CardScheme]]
     r"""The scheme associated with `scheme_transaction_id`. Only applies to card payments. When setting a new value for `scheme_transaction_id`, if `scheme_transaction_id_scheme`is both omitted from the payload and previously unset, `scheme_transaction_id_scheme` will be populated from the payment method's existing `scheme`."""
+    transaction_link_id: NotRequired[Nullable[str]]
+    r"""A transaction link identifier to associate with this payment method."""
 
 
 class PaymentMethodUpdate(BaseModel):
@@ -30,13 +32,26 @@ class PaymentMethodUpdate(BaseModel):
     scheme_transaction_id_scheme: OptionalNullable[CardScheme] = UNSET
     r"""The scheme associated with `scheme_transaction_id`. Only applies to card payments. When setting a new value for `scheme_transaction_id`, if `scheme_transaction_id_scheme`is both omitted from the payload and previously unset, `scheme_transaction_id_scheme` will be populated from the payment method's existing `scheme`."""
 
+    transaction_link_id: OptionalNullable[str] = UNSET
+    r"""A transaction link identifier to associate with this payment method."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["expiration_date", "scheme_transaction_id", "scheme_transaction_id_scheme"]
+            [
+                "expiration_date",
+                "scheme_transaction_id",
+                "scheme_transaction_id_scheme",
+                "transaction_link_id",
+            ]
         )
         nullable_fields = set(
-            ["expiration_date", "scheme_transaction_id", "scheme_transaction_id_scheme"]
+            [
+                "expiration_date",
+                "scheme_transaction_id",
+                "scheme_transaction_id_scheme",
+                "transaction_link_id",
+            ]
         )
         serialized = handler(self)
         m = {}
