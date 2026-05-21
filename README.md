@@ -359,6 +359,7 @@ except ValueError as error:
 * [google_pay](docs/sdks/sessions/README.md#google_pay) - Create a Google Pay session
 * [apple_pay](docs/sdks/sessions/README.md#apple_pay) - Create a Apple Pay session
 * [paze](docs/sdks/sessions/README.md#paze) - Create a Paze session
+* [paze_mobile_session_review](docs/sdks/sessions/README.md#paze_mobile_session_review) - Review a Paze session
 * [click_to_pay](docs/sdks/sessions/README.md#click_to_pay) - Create a Click to Pay session
 
 ### [GiftCards](docs/sdks/giftcardssdk/README.md)
