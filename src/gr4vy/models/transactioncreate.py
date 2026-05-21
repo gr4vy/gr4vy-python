@@ -207,6 +207,8 @@ class TransactionCreateTypedDict(TypedDict):
     r"""Details about the payment and the merchant which may end up on the (bank) statement for the payment."""
     previous_scheme_transaction_id: NotRequired[Nullable[str]]
     r"""A scheme's transaction identifier to use in connecting a merchant initiated transaction to a previous customer initiated transaction. If not provided, and a qualifying customer initiated transaction has been previously made with the stored payment method, then Gr4vy will populate this value with the identifier returned for that transaction. This field is also know as the Visa Transaction Identifier, or Mastercard Trace ID."""
+    previous_transaction_link_id: NotRequired[Nullable[str]]
+    r"""A scheme's transaction link identifier to use in connecting a merchant initiated transaction to a previous customer initiated transaction. If not provided, and a qualifying customer initiated transaction has been previously made with the stored payment method, then Gr4vy will populate this value with the identifier returned for that transaction. This field is also know as the Mastercard Transaction Link ID (TLID)."""
     browser_info: NotRequired[Nullable[BrowserInfoTypedDict]]
     r"""Information about the browser used by the buyer. This can be used by anti-fraud services."""
     shipping_details_id: NotRequired[Nullable[str]]
@@ -336,6 +338,9 @@ class TransactionCreate(BaseModel):
     previous_scheme_transaction_id: OptionalNullable[str] = UNSET
     r"""A scheme's transaction identifier to use in connecting a merchant initiated transaction to a previous customer initiated transaction. If not provided, and a qualifying customer initiated transaction has been previously made with the stored payment method, then Gr4vy will populate this value with the identifier returned for that transaction. This field is also know as the Visa Transaction Identifier, or Mastercard Trace ID."""
 
+    previous_transaction_link_id: OptionalNullable[str] = UNSET
+    r"""A scheme's transaction link identifier to use in connecting a merchant initiated transaction to a previous customer initiated transaction. If not provided, and a qualifying customer initiated transaction has been previously made with the stored payment method, then Gr4vy will populate this value with the identifier returned for that transaction. This field is also know as the Mastercard Transaction Link ID (TLID)."""
+
     browser_info: OptionalNullable[BrowserInfo] = UNSET
     r"""Information about the browser used by the buyer. This can be used by anti-fraud services."""
 
@@ -428,6 +433,7 @@ class TransactionCreate(BaseModel):
                 "cart_items",
                 "statement_descriptor",
                 "previous_scheme_transaction_id",
+                "previous_transaction_link_id",
                 "browser_info",
                 "shipping_details_id",
                 "connection_options",
@@ -466,6 +472,7 @@ class TransactionCreate(BaseModel):
                 "cart_items",
                 "statement_descriptor",
                 "previous_scheme_transaction_id",
+                "previous_transaction_link_id",
                 "browser_info",
                 "shipping_details_id",
                 "connection_options",

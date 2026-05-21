@@ -132,6 +132,8 @@ class TransactionTypedDict(TypedDict):
     r"""The statement descriptor is the text to be shown on the buyer's statements."""
     scheme_transaction_id: NotRequired[Nullable[str]]
     r"""An identifier for the transaction used by the scheme itself, when available."""
+    transaction_link_id: NotRequired[Nullable[str]]
+    r"""A transaction link identifier for the transaction used by the scheme itself, when available."""
     three_d_secure: NotRequired[Nullable[TransactionThreeDSecureSummaryTypedDict]]
     r"""The 3-D Secure data that was sent to the payment service for the transaction."""
     payment_service_transaction_id: NotRequired[Nullable[str]]
@@ -324,6 +326,9 @@ class Transaction(BaseModel):
     scheme_transaction_id: OptionalNullable[str] = UNSET
     r"""An identifier for the transaction used by the scheme itself, when available."""
 
+    transaction_link_id: OptionalNullable[str] = UNSET
+    r"""A transaction link identifier for the transaction used by the scheme itself, when available."""
+
     three_d_secure: OptionalNullable[TransactionThreeDSecureSummary] = UNSET
     r"""The 3-D Secure data that was sent to the payment service for the transaction."""
 
@@ -421,6 +426,7 @@ class Transaction(BaseModel):
                 "cart_items",
                 "statement_descriptor",
                 "scheme_transaction_id",
+                "transaction_link_id",
                 "three_d_secure",
                 "payment_service_transaction_id",
                 "additional_identifiers",
@@ -470,6 +476,7 @@ class Transaction(BaseModel):
                 "cart_items",
                 "statement_descriptor",
                 "scheme_transaction_id",
+                "transaction_link_id",
                 "three_d_secure",
                 "payment_service_transaction_id",
                 "metadata",
