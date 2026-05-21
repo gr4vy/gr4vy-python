@@ -136,7 +136,9 @@ class Gr4vy(BaseSDK):
         ), "The provided async_client must implement the AsyncHttpClient protocol."
 
         security: Any = None
-        if callable(bearer_auth):
+        if bearer_auth is None:
+            security = None
+        elif callable(bearer_auth):
             # pylint: disable=unnecessary-lambda-assignment
             security = lambda: models.Security(bearer_auth=bearer_auth())
         else:

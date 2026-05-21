@@ -741,6 +741,7 @@ class Transactions(BaseSDK):
             Union[models.StatementDescriptor, models.StatementDescriptorTypedDict]
         ] = UNSET,
         previous_scheme_transaction_id: OptionalNullable[str] = UNSET,
+        previous_transaction_link_id: OptionalNullable[str] = UNSET,
         browser_info: OptionalNullable[
             Union[models.BrowserInfo, models.BrowserInfoTypedDict]
         ] = UNSET,
@@ -818,6 +819,7 @@ class Transactions(BaseSDK):
         :param cart_items: An array of cart items that represents the line items of a transaction.
         :param statement_descriptor: Details about the payment and the merchant which may end up on the (bank) statement for the payment.
         :param previous_scheme_transaction_id: A scheme's transaction identifier to use in connecting a merchant initiated transaction to a previous customer initiated transaction. If not provided, and a qualifying customer initiated transaction has been previously made with the stored payment method, then Gr4vy will populate this value with the identifier returned for that transaction. This field is also know as the Visa Transaction Identifier, or Mastercard Trace ID.
+        :param previous_transaction_link_id: A scheme's transaction link identifier to use in connecting a merchant initiated transaction to a previous customer initiated transaction. If not provided, and a qualifying customer initiated transaction has been previously made with the stored payment method, then Gr4vy will populate this value with the identifier returned for that transaction. This field is also know as the Mastercard Transaction Link ID (TLID).
         :param browser_info: Information about the browser used by the buyer. This can be used by anti-fraud services.
         :param shipping_details_id: The unique identifier of a set of shipping details stored for the buyer. If provided, the created transaction will include a copy of the details at the point of transaction creation; i.e. it will not be affected by later changes to the detail in the database.
         :param connection_options: Allows for passing optional configuration per connection to take advantage of connection specific features. When provided, the data is only passed to the target connection type to prevent sharing configuration across connections. Please note that each of the keys this object are in kebab-case, for example `cybersource-anti-fraud` as they represent the ID of the connector. All the other keys will be snake case, for example `merchant_defined_data` or camel case to match an external API that the connector uses.
@@ -904,6 +906,7 @@ class Transactions(BaseSDK):
                     statement_descriptor, OptionalNullable[models.StatementDescriptor]
                 ),
                 previous_scheme_transaction_id=previous_scheme_transaction_id,
+                previous_transaction_link_id=previous_transaction_link_id,
                 browser_info=utils.get_pydantic_model(
                     browser_info, OptionalNullable[models.BrowserInfo]
                 ),
@@ -1080,6 +1083,7 @@ class Transactions(BaseSDK):
             Union[models.StatementDescriptor, models.StatementDescriptorTypedDict]
         ] = UNSET,
         previous_scheme_transaction_id: OptionalNullable[str] = UNSET,
+        previous_transaction_link_id: OptionalNullable[str] = UNSET,
         browser_info: OptionalNullable[
             Union[models.BrowserInfo, models.BrowserInfoTypedDict]
         ] = UNSET,
@@ -1157,6 +1161,7 @@ class Transactions(BaseSDK):
         :param cart_items: An array of cart items that represents the line items of a transaction.
         :param statement_descriptor: Details about the payment and the merchant which may end up on the (bank) statement for the payment.
         :param previous_scheme_transaction_id: A scheme's transaction identifier to use in connecting a merchant initiated transaction to a previous customer initiated transaction. If not provided, and a qualifying customer initiated transaction has been previously made with the stored payment method, then Gr4vy will populate this value with the identifier returned for that transaction. This field is also know as the Visa Transaction Identifier, or Mastercard Trace ID.
+        :param previous_transaction_link_id: A scheme's transaction link identifier to use in connecting a merchant initiated transaction to a previous customer initiated transaction. If not provided, and a qualifying customer initiated transaction has been previously made with the stored payment method, then Gr4vy will populate this value with the identifier returned for that transaction. This field is also know as the Mastercard Transaction Link ID (TLID).
         :param browser_info: Information about the browser used by the buyer. This can be used by anti-fraud services.
         :param shipping_details_id: The unique identifier of a set of shipping details stored for the buyer. If provided, the created transaction will include a copy of the details at the point of transaction creation; i.e. it will not be affected by later changes to the detail in the database.
         :param connection_options: Allows for passing optional configuration per connection to take advantage of connection specific features. When provided, the data is only passed to the target connection type to prevent sharing configuration across connections. Please note that each of the keys this object are in kebab-case, for example `cybersource-anti-fraud` as they represent the ID of the connector. All the other keys will be snake case, for example `merchant_defined_data` or camel case to match an external API that the connector uses.
@@ -1243,6 +1248,7 @@ class Transactions(BaseSDK):
                     statement_descriptor, OptionalNullable[models.StatementDescriptor]
                 ),
                 previous_scheme_transaction_id=previous_scheme_transaction_id,
+                previous_transaction_link_id=previous_transaction_link_id,
                 browser_info=utils.get_pydantic_model(
                     browser_info, OptionalNullable[models.BrowserInfo]
                 ),
