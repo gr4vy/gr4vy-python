@@ -1035,6 +1035,21 @@ if TYPE_CHECKING:
         PaypalShippingOptionsItemAmount,
         PaypalShippingOptionsItemAmountTypedDict,
     )
+    from .pazebillingaddress import PazeBillingAddress, PazeBillingAddressTypedDict
+    from .pazeconsumer import PazeConsumer, PazeConsumerTypedDict
+    from .pazedeliverycontactdetails import (
+        PazeDeliveryContactDetails,
+        PazeDeliveryContactDetailsTypedDict,
+    )
+    from .pazedigitalcarddata import PazeDigitalCardData, PazeDigitalCardDataTypedDict
+    from .pazemaskedcard import (
+        Paymentcardbrand,
+        Paymentcardnetwork,
+        Paymentcardtype,
+        PazeMaskedCard,
+        PazeMaskedCardTypedDict,
+    )
+    from .pazemobilenumber import PazeMobileNumber, PazeMobileNumberTypedDict
     from .pazemobilesession import PazeMobileSession, PazeMobileSessionTypedDict
     from .pazepaymentmethodcreate import (
         PazePaymentMethodCreate,
@@ -1045,6 +1060,16 @@ if TYPE_CHECKING:
         PazeSessionRequestTypedDict,
         Source,
     )
+    from .pazesessionreview import PazeSessionReview, PazeSessionReviewTypedDict
+    from .pazesessionreviewlinks import (
+        PazeSessionReviewLinks,
+        PazeSessionReviewLinksTypedDict,
+    )
+    from .pazesessionreviewrequest import (
+        PazeSessionReviewRequest,
+        PazeSessionReviewRequestTypedDict,
+    )
+    from .pazeshippingaddress import PazeShippingAddress, PazeShippingAddressTypedDict
     from .pazewebsession import PazeWebSession, PazeWebSessionTypedDict
     from .plaidpaymentmethodcreate import (
         PlaidPaymentMethodCreate,
@@ -1102,6 +1127,12 @@ if TYPE_CHECKING:
         ResumePaymentMethodNetworkTokenGlobalsTypedDict,
         ResumePaymentMethodNetworkTokenRequest,
         ResumePaymentMethodNetworkTokenRequestTypedDict,
+    )
+    from .review_paze_mobile_sessionop import (
+        ReviewPazeMobileSessionGlobals,
+        ReviewPazeMobileSessionGlobalsTypedDict,
+        ReviewPazeMobileSessionRequest,
+        ReviewPazeMobileSessionRequestTypedDict,
     )
     from .riskifiedantifraudoptions import (
         RiskifiedAntiFraudOptions,
@@ -2106,6 +2137,9 @@ __all__ = [
     "PaymentServiceUpdateTypedDict",
     "PaymentServices",
     "PaymentServicesTypedDict",
+    "Paymentcardbrand",
+    "Paymentcardnetwork",
+    "Paymentcardtype",
     "PayoutCategory",
     "PayoutConnectionOptions",
     "PayoutConnectionOptionsTypedDict",
@@ -2133,12 +2167,32 @@ __all__ = [
     "PaypalShippingOptionsItemType",
     "PaypalShippingOptionsItemTypedDict",
     "PaypalShippingOptionsTypedDict",
+    "PazeBillingAddress",
+    "PazeBillingAddressTypedDict",
+    "PazeConsumer",
+    "PazeConsumerTypedDict",
+    "PazeDeliveryContactDetails",
+    "PazeDeliveryContactDetailsTypedDict",
+    "PazeDigitalCardData",
+    "PazeDigitalCardDataTypedDict",
+    "PazeMaskedCard",
+    "PazeMaskedCardTypedDict",
+    "PazeMobileNumber",
+    "PazeMobileNumberTypedDict",
     "PazeMobileSession",
     "PazeMobileSessionTypedDict",
     "PazePaymentMethodCreate",
     "PazePaymentMethodCreateTypedDict",
     "PazeSessionRequest",
     "PazeSessionRequestTypedDict",
+    "PazeSessionReview",
+    "PazeSessionReviewLinks",
+    "PazeSessionReviewLinksTypedDict",
+    "PazeSessionReviewRequest",
+    "PazeSessionReviewRequestTypedDict",
+    "PazeSessionReviewTypedDict",
+    "PazeShippingAddress",
+    "PazeShippingAddressTypedDict",
     "PazeWebSession",
     "PazeWebSessionTypedDict",
     "PlaidPaymentMethodCreate",
@@ -2208,6 +2262,10 @@ __all__ = [
     "ResumePaymentMethodNetworkTokenGlobalsTypedDict",
     "ResumePaymentMethodNetworkTokenRequest",
     "ResumePaymentMethodNetworkTokenRequestTypedDict",
+    "ReviewPazeMobileSessionGlobals",
+    "ReviewPazeMobileSessionGlobalsTypedDict",
+    "ReviewPazeMobileSessionRequest",
+    "ReviewPazeMobileSessionRequestTypedDict",
     "RiskifiedAntiFraudOptions",
     "RiskifiedAntiFraudOptionsLineItem",
     "RiskifiedAntiFraudOptionsLineItemTypedDict",
@@ -3189,6 +3247,21 @@ _dynamic_imports: dict[str, str] = {
     "PaypalShippingOptionsItemTypedDict": ".paypalshippingoptionsitem",
     "PaypalShippingOptionsItemAmount": ".paypalshippingoptionsitemamount",
     "PaypalShippingOptionsItemAmountTypedDict": ".paypalshippingoptionsitemamount",
+    "PazeBillingAddress": ".pazebillingaddress",
+    "PazeBillingAddressTypedDict": ".pazebillingaddress",
+    "PazeConsumer": ".pazeconsumer",
+    "PazeConsumerTypedDict": ".pazeconsumer",
+    "PazeDeliveryContactDetails": ".pazedeliverycontactdetails",
+    "PazeDeliveryContactDetailsTypedDict": ".pazedeliverycontactdetails",
+    "PazeDigitalCardData": ".pazedigitalcarddata",
+    "PazeDigitalCardDataTypedDict": ".pazedigitalcarddata",
+    "Paymentcardbrand": ".pazemaskedcard",
+    "Paymentcardnetwork": ".pazemaskedcard",
+    "Paymentcardtype": ".pazemaskedcard",
+    "PazeMaskedCard": ".pazemaskedcard",
+    "PazeMaskedCardTypedDict": ".pazemaskedcard",
+    "PazeMobileNumber": ".pazemobilenumber",
+    "PazeMobileNumberTypedDict": ".pazemobilenumber",
     "PazeMobileSession": ".pazemobilesession",
     "PazeMobileSessionTypedDict": ".pazemobilesession",
     "PazePaymentMethodCreate": ".pazepaymentmethodcreate",
@@ -3196,6 +3269,14 @@ _dynamic_imports: dict[str, str] = {
     "PazeSessionRequest": ".pazesessionrequest",
     "PazeSessionRequestTypedDict": ".pazesessionrequest",
     "Source": ".pazesessionrequest",
+    "PazeSessionReview": ".pazesessionreview",
+    "PazeSessionReviewTypedDict": ".pazesessionreview",
+    "PazeSessionReviewLinks": ".pazesessionreviewlinks",
+    "PazeSessionReviewLinksTypedDict": ".pazesessionreviewlinks",
+    "PazeSessionReviewRequest": ".pazesessionreviewrequest",
+    "PazeSessionReviewRequestTypedDict": ".pazesessionreviewrequest",
+    "PazeShippingAddress": ".pazeshippingaddress",
+    "PazeShippingAddressTypedDict": ".pazeshippingaddress",
     "PazeWebSession": ".pazewebsession",
     "PazeWebSessionTypedDict": ".pazewebsession",
     "PlaidPaymentMethodCreate": ".plaidpaymentmethodcreate",
@@ -3254,6 +3335,10 @@ _dynamic_imports: dict[str, str] = {
     "ResumePaymentMethodNetworkTokenGlobalsTypedDict": ".resume_payment_method_network_tokenop",
     "ResumePaymentMethodNetworkTokenRequest": ".resume_payment_method_network_tokenop",
     "ResumePaymentMethodNetworkTokenRequestTypedDict": ".resume_payment_method_network_tokenop",
+    "ReviewPazeMobileSessionGlobals": ".review_paze_mobile_sessionop",
+    "ReviewPazeMobileSessionGlobalsTypedDict": ".review_paze_mobile_sessionop",
+    "ReviewPazeMobileSessionRequest": ".review_paze_mobile_sessionop",
+    "ReviewPazeMobileSessionRequestTypedDict": ".review_paze_mobile_sessionop",
     "RiskifiedAntiFraudOptions": ".riskifiedantifraudoptions",
     "RiskifiedAntiFraudOptionsTypedDict": ".riskifiedantifraudoptions",
     "DeliveredTo": ".riskifiedantifraudoptionslineitem",
