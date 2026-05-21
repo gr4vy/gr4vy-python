@@ -67,6 +67,8 @@ class PaymentMethodSummaryTypedDict(TypedDict):
     r"""The timestamp when this payment method was last used in a transaction for client initiated transactions."""
     last_used_at: NotRequired[Nullable[datetime]]
     r"""The timestamp when this payment method was last used in a transaction."""
+    transaction_link_id: NotRequired[Nullable[str]]
+    r"""The transaction link identifier stored against this payment method."""
 
 
 class PaymentMethodSummary(BaseModel):
@@ -146,6 +148,9 @@ class PaymentMethodSummary(BaseModel):
     last_used_at: OptionalNullable[datetime] = UNSET
     r"""The timestamp when this payment method was last used in a transaction."""
 
+    transaction_link_id: OptionalNullable[str] = UNSET
+    r"""The transaction link identifier stored against this payment method."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -164,6 +169,7 @@ class PaymentMethodSummary(BaseModel):
                 "additional_schemes",
                 "cit_last_used_at",
                 "last_used_at",
+                "transaction_link_id",
             ]
         )
         nullable_fields = set(
@@ -183,6 +189,7 @@ class PaymentMethodSummary(BaseModel):
                 "last_used_at",
                 "scheme_transaction_id",
                 "scheme_transaction_id_scheme",
+                "transaction_link_id",
             ]
         )
         serialized = handler(self)
