@@ -1,0 +1,9 @@
+# PazeCobrandItem
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               | Example                                                                                   |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `name`                                                                                    | *str*                                                                                     | :heavy_check_mark:                                                                        | Product name of the cobrand card. Must match exactly with the card name from the network. | Travel Rewards                                                                            |
+| `benefits_offered`                                                                        | *OptionalNullable[bool]*                                                                  | :heavy_minus_sign:                                                                        | Whether benefits are offered for this cobrand card.                                       |                                                                                           |
