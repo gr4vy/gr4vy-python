@@ -6,7 +6,7 @@ from gr4vy._hooks import HookContext
 from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Dict, Mapping, Optional
+from typing import Any, Dict, List, Mapping, Optional, Union
 
 
 class Sessions(BaseSDK):
@@ -521,6 +521,386 @@ class Sessions(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return unmarshal_json_response(Dict[str, Any], http_res)
+        if utils.match_response(http_res, "400", "application/json"):
+            response_data = unmarshal_json_response(errors.Error400Data, http_res)
+            raise errors.Error400(response_data, http_res)
+        if utils.match_response(http_res, "401", "application/json"):
+            response_data = unmarshal_json_response(errors.Error401Data, http_res)
+            raise errors.Error401(response_data, http_res)
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = unmarshal_json_response(errors.Error403Data, http_res)
+            raise errors.Error403(response_data, http_res)
+        if utils.match_response(http_res, "404", "application/json"):
+            response_data = unmarshal_json_response(errors.Error404Data, http_res)
+            raise errors.Error404(response_data, http_res)
+        if utils.match_response(http_res, "405", "application/json"):
+            response_data = unmarshal_json_response(errors.Error405Data, http_res)
+            raise errors.Error405(response_data, http_res)
+        if utils.match_response(http_res, "409", "application/json"):
+            response_data = unmarshal_json_response(errors.Error409Data, http_res)
+            raise errors.Error409(response_data, http_res)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, "425", "application/json"):
+            response_data = unmarshal_json_response(errors.Error425Data, http_res)
+            raise errors.Error425(response_data, http_res)
+        if utils.match_response(http_res, "429", "application/json"):
+            response_data = unmarshal_json_response(errors.Error429Data, http_res)
+            raise errors.Error429(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
+            response_data = unmarshal_json_response(errors.Error500Data, http_res)
+            raise errors.Error500(response_data, http_res)
+        if utils.match_response(http_res, "502", "application/json"):
+            response_data = unmarshal_json_response(errors.Error502Data, http_res)
+            raise errors.Error502(response_data, http_res)
+        if utils.match_response(http_res, "504", "application/json"):
+            response_data = unmarshal_json_response(errors.Error504Data, http_res)
+            raise errors.Error504(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = await utils.stream_to_text_async(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
+    def paze_mobile_session_create(
+        self,
+        *,
+        client: Union[models.PazeClient, models.PazeClientTypedDict],
+        session_id: str,
+        access_token: str,
+        callback_url_scheme: str,
+        intent: models.Intent,
+        merchant_account_id: Optional[str] = None,
+        transaction_value: OptionalNullable[
+            Union[models.PazeTransactionValue, models.PazeTransactionValueTypedDict]
+        ] = UNSET,
+        transaction_type: OptionalNullable[models.TransactionType] = UNSET,
+        shipping_preference: OptionalNullable[models.ShippingPreference] = UNSET,
+        billing_preference: OptionalNullable[models.BillingPreference] = UNSET,
+        email_address: OptionalNullable[str] = UNSET,
+        phone_number: OptionalNullable[str] = UNSET,
+        cobrand: OptionalNullable[
+            Union[List[models.PazeCobrandItem], List[models.PazeCobrandItemTypedDict]]
+        ] = UNSET,
+        accepted_shipping_countries: OptionalNullable[List[str]] = UNSET,
+        accepted_payment_card_networks: OptionalNullable[
+            List[models.AcceptedPaymentCardNetwork]
+        ] = UNSET,
+        always_enable_checkout: Optional[bool] = False,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PazeMobileSessionCreate:
+        r"""Create a Paze mobile session
+
+        Create a mobile session for use with Paze.
+
+        :param client:
+        :param session_id: Session reference identifier generated by the merchant. Must be reused across all Paze APIs in a checkout session.
+        :param access_token: Access token obtained from the Paze session endpoint with source=mobile.
+        :param callback_url_scheme: Merchant app's ID (iOS bundle identifier or Android application ID) used as the callback URL scheme.
+        :param intent: Primary intent of the checkout session.
+        :param merchant_account_id: The ID of the merchant account to use for this request.
+        :param transaction_value: Currency and amount of the transaction. Required when intent is EXPRESS_CHECKOUT.
+        :param transaction_type: Type of transaction.
+        :param shipping_preference: Whether to collect a shipping address from the consumer.
+        :param billing_preference: Verbosity of billing address required.
+        :param email_address: Consumer email address for checkout flow optimization.
+        :param phone_number: Consumer phone number for checkout flow optimization.
+        :param cobrand: Details for cobranded cards offered by the merchant.
+        :param accepted_shipping_countries: ISO 3166-1 alpha-2 country codes restricting eligible shipping addresses. Empty list or absence means all countries accepted.
+        :param accepted_payment_card_networks: Accepted payment card networks. Empty list or absence means all networks accepted.
+        :param always_enable_checkout: Set to true to enable Paze checkout even if the provided email address or phone number does not match a Paze wallet.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.CreatePazeMobileSessionRequest(
+            merchant_account_id=merchant_account_id,
+            paze_mobile_session_create_request=models.PazeMobileSessionCreateRequest(
+                client=utils.get_pydantic_model(client, models.PazeClient),
+                session_id=session_id,
+                access_token=access_token,
+                callback_url_scheme=callback_url_scheme,
+                intent=intent,
+                transaction_value=utils.get_pydantic_model(
+                    transaction_value, OptionalNullable[models.PazeTransactionValue]
+                ),
+                transaction_type=transaction_type,
+                shipping_preference=shipping_preference,
+                billing_preference=billing_preference,
+                email_address=email_address,
+                phone_number=phone_number,
+                cobrand=utils.get_pydantic_model(
+                    cobrand, OptionalNullable[List[models.PazeCobrandItem]]
+                ),
+                accepted_shipping_countries=accepted_shipping_countries,
+                accepted_payment_card_networks=accepted_payment_card_networks,
+                always_enable_checkout=always_enable_checkout,
+            ),
+        )
+
+        req = self._build_request(
+            method="POST",
+            path="/digital-wallets/paze/session/create",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            _globals=models.CreatePazeMobileSessionGlobals(
+                merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
+            ),
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.paze_mobile_session_create_request,
+                False,
+                False,
+                "json",
+                models.PazeMobileSessionCreateRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = self.do_request(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="create_paze_mobile_session",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(models.PazeMobileSessionCreate, http_res)
+        if utils.match_response(http_res, "400", "application/json"):
+            response_data = unmarshal_json_response(errors.Error400Data, http_res)
+            raise errors.Error400(response_data, http_res)
+        if utils.match_response(http_res, "401", "application/json"):
+            response_data = unmarshal_json_response(errors.Error401Data, http_res)
+            raise errors.Error401(response_data, http_res)
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = unmarshal_json_response(errors.Error403Data, http_res)
+            raise errors.Error403(response_data, http_res)
+        if utils.match_response(http_res, "404", "application/json"):
+            response_data = unmarshal_json_response(errors.Error404Data, http_res)
+            raise errors.Error404(response_data, http_res)
+        if utils.match_response(http_res, "405", "application/json"):
+            response_data = unmarshal_json_response(errors.Error405Data, http_res)
+            raise errors.Error405(response_data, http_res)
+        if utils.match_response(http_res, "409", "application/json"):
+            response_data = unmarshal_json_response(errors.Error409Data, http_res)
+            raise errors.Error409(response_data, http_res)
+        if utils.match_response(http_res, "422", "application/json"):
+            response_data = unmarshal_json_response(
+                errors.HTTPValidationErrorData, http_res
+            )
+            raise errors.HTTPValidationError(response_data, http_res)
+        if utils.match_response(http_res, "425", "application/json"):
+            response_data = unmarshal_json_response(errors.Error425Data, http_res)
+            raise errors.Error425(response_data, http_res)
+        if utils.match_response(http_res, "429", "application/json"):
+            response_data = unmarshal_json_response(errors.Error429Data, http_res)
+            raise errors.Error429(response_data, http_res)
+        if utils.match_response(http_res, "500", "application/json"):
+            response_data = unmarshal_json_response(errors.Error500Data, http_res)
+            raise errors.Error500(response_data, http_res)
+        if utils.match_response(http_res, "502", "application/json"):
+            response_data = unmarshal_json_response(errors.Error502Data, http_res)
+            raise errors.Error502(response_data, http_res)
+        if utils.match_response(http_res, "504", "application/json"):
+            response_data = unmarshal_json_response(errors.Error504Data, http_res)
+            raise errors.Error504(response_data, http_res)
+        if utils.match_response(http_res, "4XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+        if utils.match_response(http_res, "5XX", "*"):
+            http_res_text = utils.stream_to_text(http_res)
+            raise errors.APIError("API error occurred", http_res, http_res_text)
+
+        raise errors.APIError("Unexpected response received", http_res)
+
+    async def paze_mobile_session_create_async(
+        self,
+        *,
+        client: Union[models.PazeClient, models.PazeClientTypedDict],
+        session_id: str,
+        access_token: str,
+        callback_url_scheme: str,
+        intent: models.Intent,
+        merchant_account_id: Optional[str] = None,
+        transaction_value: OptionalNullable[
+            Union[models.PazeTransactionValue, models.PazeTransactionValueTypedDict]
+        ] = UNSET,
+        transaction_type: OptionalNullable[models.TransactionType] = UNSET,
+        shipping_preference: OptionalNullable[models.ShippingPreference] = UNSET,
+        billing_preference: OptionalNullable[models.BillingPreference] = UNSET,
+        email_address: OptionalNullable[str] = UNSET,
+        phone_number: OptionalNullable[str] = UNSET,
+        cobrand: OptionalNullable[
+            Union[List[models.PazeCobrandItem], List[models.PazeCobrandItemTypedDict]]
+        ] = UNSET,
+        accepted_shipping_countries: OptionalNullable[List[str]] = UNSET,
+        accepted_payment_card_networks: OptionalNullable[
+            List[models.AcceptedPaymentCardNetwork]
+        ] = UNSET,
+        always_enable_checkout: Optional[bool] = False,
+        retries: OptionalNullable[utils.RetryConfig] = UNSET,
+        server_url: Optional[str] = None,
+        timeout_ms: Optional[int] = None,
+        http_headers: Optional[Mapping[str, str]] = None,
+    ) -> models.PazeMobileSessionCreate:
+        r"""Create a Paze mobile session
+
+        Create a mobile session for use with Paze.
+
+        :param client:
+        :param session_id: Session reference identifier generated by the merchant. Must be reused across all Paze APIs in a checkout session.
+        :param access_token: Access token obtained from the Paze session endpoint with source=mobile.
+        :param callback_url_scheme: Merchant app's ID (iOS bundle identifier or Android application ID) used as the callback URL scheme.
+        :param intent: Primary intent of the checkout session.
+        :param merchant_account_id: The ID of the merchant account to use for this request.
+        :param transaction_value: Currency and amount of the transaction. Required when intent is EXPRESS_CHECKOUT.
+        :param transaction_type: Type of transaction.
+        :param shipping_preference: Whether to collect a shipping address from the consumer.
+        :param billing_preference: Verbosity of billing address required.
+        :param email_address: Consumer email address for checkout flow optimization.
+        :param phone_number: Consumer phone number for checkout flow optimization.
+        :param cobrand: Details for cobranded cards offered by the merchant.
+        :param accepted_shipping_countries: ISO 3166-1 alpha-2 country codes restricting eligible shipping addresses. Empty list or absence means all countries accepted.
+        :param accepted_payment_card_networks: Accepted payment card networks. Empty list or absence means all networks accepted.
+        :param always_enable_checkout: Set to true to enable Paze checkout even if the provided email address or phone number does not match a Paze wallet.
+        :param retries: Override the default retry configuration for this method
+        :param server_url: Override the default server URL for this method
+        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
+        :param http_headers: Additional headers to set or replace on requests.
+        """
+        base_url = None
+        url_variables = None
+        if timeout_ms is None:
+            timeout_ms = self.sdk_configuration.timeout_ms
+
+        if server_url is not None:
+            base_url = server_url
+        else:
+            base_url = self._get_url(base_url, url_variables)
+
+        request = models.CreatePazeMobileSessionRequest(
+            merchant_account_id=merchant_account_id,
+            paze_mobile_session_create_request=models.PazeMobileSessionCreateRequest(
+                client=utils.get_pydantic_model(client, models.PazeClient),
+                session_id=session_id,
+                access_token=access_token,
+                callback_url_scheme=callback_url_scheme,
+                intent=intent,
+                transaction_value=utils.get_pydantic_model(
+                    transaction_value, OptionalNullable[models.PazeTransactionValue]
+                ),
+                transaction_type=transaction_type,
+                shipping_preference=shipping_preference,
+                billing_preference=billing_preference,
+                email_address=email_address,
+                phone_number=phone_number,
+                cobrand=utils.get_pydantic_model(
+                    cobrand, OptionalNullable[List[models.PazeCobrandItem]]
+                ),
+                accepted_shipping_countries=accepted_shipping_countries,
+                accepted_payment_card_networks=accepted_payment_card_networks,
+                always_enable_checkout=always_enable_checkout,
+            ),
+        )
+
+        req = self._build_request_async(
+            method="POST",
+            path="/digital-wallets/paze/session/create",
+            base_url=base_url,
+            url_variables=url_variables,
+            request=request,
+            request_body_required=True,
+            request_has_path_params=False,
+            request_has_query_params=True,
+            user_agent_header="user-agent",
+            accept_header_value="application/json",
+            http_headers=http_headers,
+            _globals=models.CreatePazeMobileSessionGlobals(
+                merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
+            ),
+            security=self.sdk_configuration.security,
+            get_serialized_body=lambda: utils.serialize_request_body(
+                request.paze_mobile_session_create_request,
+                False,
+                False,
+                "json",
+                models.PazeMobileSessionCreateRequest,
+            ),
+            allow_empty_value=None,
+            timeout_ms=timeout_ms,
+        )
+
+        if retries == UNSET:
+            if self.sdk_configuration.retry_config is not UNSET:
+                retries = self.sdk_configuration.retry_config
+
+        retry_config = None
+        if isinstance(retries, utils.RetryConfig):
+            retry_config = (retries, ["429", "500", "502", "503", "504"])
+
+        http_res = await self.do_request_async(
+            hook_ctx=HookContext(
+                config=self.sdk_configuration,
+                base_url=base_url or "",
+                operation_id="create_paze_mobile_session",
+                oauth2_scopes=None,
+                security_source=get_security_from_env(
+                    self.sdk_configuration.security, models.Security
+                ),
+            ),
+            request=req,
+            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
+            retry_config=retry_config,
+        )
+
+        response_data: Any = None
+        if utils.match_response(http_res, "200", "application/json"):
+            return unmarshal_json_response(models.PazeMobileSessionCreate, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
