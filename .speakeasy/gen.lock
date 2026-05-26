@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 37784ad97997c32a4dceeb0bb8637f10
+  docChecksum: 747d72a1f583f71b0c44d6847302df42
   docVersion: 1.0.0
-  speakeasyVersion: 1.764.1
-  generationVersion: 2.885.1
-  releaseVersion: 2.0.42
-  configChecksum: 6c00c108ddd8c9114fdb3a046c4885bd
+  speakeasyVersion: 1.766.0
+  generationVersion: 2.887.0
+  releaseVersion: 2.0.43
+  configChecksum: 0e3c25f94076c51e8c49e4b1c5594807
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 4c37c82d-11ca-4da5-b34b-83e0f7b4e741
-  pristine_commit_hash: 8b6b59e9bbefe3ed8cfb5fb86154169a085a19ce
-  pristine_tree_hash: 4b43b9064ddbed6a1b703f81de63866d4350d5ee
+  generation_id: 866747ef-4726-46ec-8bcc-24e282b74db6
+  pristine_commit_hash: 80097642f37008fbb0f9a628d97eb3dbbc804f95
+  pristine_tree_hash: 05a10d323ce8af5d4b4741793c9efd2abb745c18
 features:
   python:
     additionalDependencies: 1.0.0
@@ -636,8 +636,8 @@ trackedFiles:
     pristine_git_object: 0b011be7edd1dbb66815d79c04ab15afabd4ea3f
   docs/models/definitionfield.md:
     id: b9a86212a302
-    last_write_checksum: sha1:67a30cedc8b69a4bbfb04136866d1223ce78f3bb
-    pristine_git_object: 1de873c34c10cf83ea789b788faf984e5e79a27a
+    last_write_checksum: sha1:66e11a46e171b6421b9d663081380f7acfb53ac7
+    pristine_git_object: 00b29f3516fb40eace3c1d7e85d9a4ad87643a5d
   docs/models/definitionfieldformat.md:
     id: 51b73d55251f
     last_write_checksum: sha1:9189772e495dd09546d65e272a4cb71406c32ff2
@@ -2600,8 +2600,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:a229412105ad224436a0c0fbad26bf141640fb10
-    pristine_git_object: 4672e5775c24905ab81aee866f70d229af4f3917
+    last_write_checksum: sha1:cd9a79aad5484577b07bf973c52493a492001cc9
+    pristine_git_object: aea8eb6563d82f01e8335df9655671c5564b06d9
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2628,8 +2628,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:15fc80fe5a9fc6beffbb139fc84405a299cdf2ad
-    pristine_git_object: d8b51042c4e255c981602cf90de00b269b506283
+    last_write_checksum: sha1:5290fd605bb3bc4a2d12e1bfd930d6d4d8abe2e8
+    pristine_git_object: 8136a7e3d03dc3e3a27d3980e884874efeb8b6ef
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -3184,8 +3184,8 @@ trackedFiles:
     pristine_git_object: f088da61f87b2f2252ea42ea056f76454bc6166d
   src/gr4vy/models/definitionfield.py:
     id: ba9e7ba0e6e8
-    last_write_checksum: sha1:5d5403602ff0b716d37774aa567ce822f389bbeb
-    pristine_git_object: f9ef84d03ffefa2ce449edee9255005ebb522db2
+    last_write_checksum: sha1:fab0e08b8bd41d59cae588ee4e59415ea48333d5
+    pristine_git_object: 4276d6412548ace0088e73be222886dbe24332e1
   src/gr4vy/models/definitionfieldformat.py:
     id: d6ee2adaf252
     last_write_checksum: sha1:4b624472d084116f3bfece90c8d69e3bfb628b0d
@@ -4580,8 +4580,12 @@ trackedFiles:
     pristine_git_object: 56ecb0fce8e0a9961e8f361bd1e7cb6cb3066917
   src/gr4vy/types/__init__.py:
     id: a264fb492110
-    last_write_checksum: sha1:140ebdd01a46f92ffc710c52c958c4eba3cf68ed
-    pristine_git_object: fc76fe0c5505e29859b5d2bb707d48fd27661b8c
+    last_write_checksum: sha1:f9ad14217f832e74f594285960125add50324be9
+    pristine_git_object: faa268137bc01c9d08cfadc4797017db48747a96
+  src/gr4vy/types/base64fileinput.py:
+    id: 44c3662111d1
+    last_write_checksum: sha1:4780e893d3853b5a6e28d9a6ca3ee102ce0f502d
+    pristine_git_object: 25fc53989ed497649363f983219fc58705c8bf87
   src/gr4vy/types/basemodel.py:
     id: 1af1ed4da662
     last_write_checksum: sha1:10d84aedeb9d35edfdadf2c3020caa1d24d8b584
@@ -6779,7 +6783,7 @@ examples:
           application_name: "core-api"
       responses:
         "200":
-          application/json: {"id": "adyen-ideal", "type": "payment-service-definition", "display_name": "iDEAL", "method": "multibanco", "fields": [{"key": "private_api_key", "display_name": "Private API key", "required": true, "format": "boolean", "secret": true}], "reporting_fields": [{"key": "private_api_key", "display_name": "Private API key", "required": true, "format": "multiline", "secret": true}, {"key": "private_api_key", "display_name": "Private API key", "required": true, "format": "multiline", "secret": true}], "supported_currencies": ["USD", "GBP", "EUR", "AUD"], "supported_countries": ["US"], "mode": "card", "supported_features": {"key": true, "key1": false}, "required_checkout_fields": [{"required_fields": ["address.line1", "address.country", "address.city", "address.postal_code"]}, {"required_fields": ["address.line1", "address.country", "address.city", "address.postal_code"]}, {"required_fields": ["address.line1", "address.country", "address.city", "address.postal_code"]}], "configuration": {"approval_ui_target": "any", "approval_ui_height": "100px", "approval_ui_width": "100px", "cart_items_limit": 100, "cart_items_required": true, "cart_items_should_match_amount": true}, "supported_integration_clients": ["redirect"]}
+          application/json: {"id": "adyen-ideal", "type": "payment-service-definition", "display_name": "iDEAL", "method": "multibanco", "fields": [{"key": "private_api_key", "display_name": "Private API key", "required": true, "format": "boolean", "secret": true, "verifiable": true}], "reporting_fields": [{"key": "private_api_key", "display_name": "Private API key", "required": true, "format": "multiline", "secret": true, "verifiable": true}, {"key": "private_api_key", "display_name": "Private API key", "required": true, "format": "multiline", "secret": true, "verifiable": true}], "supported_currencies": ["USD", "GBP", "EUR", "AUD"], "supported_countries": ["US"], "mode": "card", "supported_features": {"key": true, "key1": false}, "required_checkout_fields": [{"required_fields": ["address.line1", "address.country", "address.city", "address.postal_code"]}, {"required_fields": ["address.line1", "address.country", "address.city", "address.postal_code"]}, {"required_fields": ["address.line1", "address.country", "address.city", "address.postal_code"]}], "configuration": {"approval_ui_target": "any", "approval_ui_height": "100px", "approval_ui_width": "100px", "cart_items_limit": 100, "cart_items_required": true, "cart_items_should_match_amount": true}, "supported_integration_clients": ["redirect"]}
         "400":
           application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
         "401":
@@ -8521,7 +8525,8 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes:
-  * `gr4vy.digital_wallets.sessions.paze_mobile_session_create()`: **Added**
+  * `gr4vy.payment_service_definitions.list()`:  `response.items[].fields[].verifiable` **Added**
+  * `gr4vy.payment_service_definitions.get()`:  `response.fields[].verifiable` **Added**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
