@@ -19,6 +19,8 @@ class DefinitionFieldTypedDict(TypedDict):
     format_: DefinitionFieldFormat
     secret: bool
     r"""Defines if this field is secret. When `true` the field's value is not returned when querying the payment service information."""
+    verifiable: bool
+    r"""Defines if this field can be verified through the verify credentials button."""
 
 
 class DefinitionField(BaseModel):
@@ -37,6 +39,9 @@ class DefinitionField(BaseModel):
 
     secret: bool
     r"""Defines if this field is secret. When `true` the field's value is not returned when querying the payment service information."""
+
+    verifiable: bool
+    r"""Defines if this field can be verified through the verify credentials button."""
 
 
 try:
