@@ -24,7 +24,6 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"arcuspaynetwork"`
 - `"bacs"`
 - `"bancontact"`
-- `"banked"`
 - `"bcp"`
 - `"becs"`
 - `"bitpay"`

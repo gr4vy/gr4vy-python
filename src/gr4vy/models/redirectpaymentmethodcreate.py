@@ -24,7 +24,6 @@ RedirectPaymentMethodCreateMethod = Union[
         "arcuspaynetwork",
         "bacs",
         "bancontact",
-        "banked",
         "bcp",
         "becs",
         "bitpay",
