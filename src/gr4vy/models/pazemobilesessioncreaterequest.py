@@ -29,7 +29,7 @@ Intent = Union[
 r"""Primary intent of the checkout session."""
 
 
-TransactionType = Union[
+PazeMobileSessionCreateRequestTransactionType = Union[
     Literal[
         "PURCHASE",
         "CARD_ON_FILE",
@@ -48,7 +48,7 @@ ShippingPreference = Union[
 ]
 
 
-BillingPreference = Union[
+PazeMobileSessionCreateRequestBillingPreference = Union[
     Literal[
         "ALL",
         "ZIP_COUNTRY",
@@ -79,11 +79,15 @@ class PazeMobileSessionCreateRequestTypedDict(TypedDict):
     r"""Primary intent of the checkout session."""
     transaction_value: NotRequired[Nullable[PazeTransactionValueTypedDict]]
     r"""Currency and amount of the transaction. Required when intent is EXPRESS_CHECKOUT."""
-    transaction_type: NotRequired[Nullable[TransactionType]]
+    transaction_type: NotRequired[
+        Nullable[PazeMobileSessionCreateRequestTransactionType]
+    ]
     r"""Type of transaction."""
     shipping_preference: NotRequired[Nullable[ShippingPreference]]
     r"""Whether to collect a shipping address from the consumer."""
-    billing_preference: NotRequired[Nullable[BillingPreference]]
+    billing_preference: NotRequired[
+        Nullable[PazeMobileSessionCreateRequestBillingPreference]
+    ]
     r"""Verbosity of billing address required."""
     email_address: NotRequired[Nullable[str]]
     r"""Consumer email address for checkout flow optimization."""
@@ -122,7 +126,8 @@ class PazeMobileSessionCreateRequest(BaseModel):
     r"""Currency and amount of the transaction. Required when intent is EXPRESS_CHECKOUT."""
 
     transaction_type: Annotated[
-        OptionalNullable[TransactionType], pydantic.Field(alias="transactionType")
+        OptionalNullable[PazeMobileSessionCreateRequestTransactionType],
+        pydantic.Field(alias="transactionType"),
     ] = UNSET
     r"""Type of transaction."""
 
@@ -132,7 +137,8 @@ class PazeMobileSessionCreateRequest(BaseModel):
     r"""Whether to collect a shipping address from the consumer."""
 
     billing_preference: Annotated[
-        OptionalNullable[BillingPreference], pydantic.Field(alias="billingPreference")
+        OptionalNullable[PazeMobileSessionCreateRequestBillingPreference],
+        pydantic.Field(alias="billingPreference"),
     ] = UNSET
     r"""Verbosity of billing address required."""
 

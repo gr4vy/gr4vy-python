@@ -193,6 +193,12 @@ if TYPE_CHECKING:
         ClickToPaySessionRequest,
         ClickToPaySessionRequestTypedDict,
     )
+    from .complete_paze_mobile_sessionop import (
+        CompletePazeMobileSessionGlobals,
+        CompletePazeMobileSessionGlobalsTypedDict,
+        CompletePazeMobileSessionRequest,
+        CompletePazeMobileSessionRequestTypedDict,
+    )
     from .configure_digital_walletop import (
         ConfigureDigitalWalletGlobals,
         ConfigureDigitalWalletGlobalsTypedDict,
@@ -1050,6 +1056,12 @@ if TYPE_CHECKING:
         PazeDeliveryContactDetailsTypedDict,
     )
     from .pazedigitalcarddata import PazeDigitalCardData, PazeDigitalCardDataTypedDict
+    from .pazeecomdata import PazeEcomData, PazeEcomDataTypedDict
+    from .pazeenhancedtransactiondata import (
+        PazeEnhancedTransactionData,
+        PazeEnhancedTransactionDataTypedDict,
+    )
+    from .pazelocationaddress import PazeLocationAddress, PazeLocationAddressTypedDict
     from .pazemaskedcard import (
         Paymentcardbrand,
         Paymentcardnetwork,
@@ -1065,16 +1077,23 @@ if TYPE_CHECKING:
     )
     from .pazemobilesessioncreaterequest import (
         AcceptedPaymentCardNetwork,
-        BillingPreference,
         Intent,
         PazeMobileSessionCreateRequest,
+        PazeMobileSessionCreateRequestBillingPreference,
+        PazeMobileSessionCreateRequestTransactionType,
         PazeMobileSessionCreateRequestTypedDict,
         ShippingPreference,
-        TransactionType,
     )
     from .pazepaymentmethodcreate import (
         PazePaymentMethodCreate,
         PazePaymentMethodCreateTypedDict,
+    )
+    from .pazesessioncomplete import PazeSessionComplete, PazeSessionCompleteTypedDict
+    from .pazesessioncompleterequest import (
+        PazeSessionCompleteRequest,
+        PazeSessionCompleteRequestTransactiontype,
+        PazeSessionCompleteRequestTypedDict,
+        ProcessingNetwork,
     )
     from .pazesessionrequest import (
         PazeSessionRequest,
@@ -1091,10 +1110,17 @@ if TYPE_CHECKING:
         PazeSessionReviewRequestTypedDict,
     )
     from .pazeshippingaddress import PazeShippingAddress, PazeShippingAddressTypedDict
+    from .pazetransactionoptions import (
+        PayloadTypeIndicator,
+        PazeTransactionOptions,
+        PazeTransactionOptionsBillingPreference,
+        PazeTransactionOptionsTypedDict,
+    )
     from .pazetransactionvalue import (
         PazeTransactionValue,
         PazeTransactionValueTypedDict,
     )
+    from .pazetraveldata import PazeTravelData, PazeTravelDataTypedDict
     from .pazewebsession import PazeWebSession, PazeWebSessionTypedDict
     from .plaidpaymentmethodcreate import (
         PlaidPaymentMethodCreate,
@@ -1515,7 +1541,6 @@ __all__ = [
     "BaseBankPaymentMethodCreateTypedDict",
     "BillingDetails",
     "BillingDetailsTypedDict",
-    "BillingPreference",
     "Body",
     "BodyTypedDict",
     "BraintreeDynamicDataFieldsOptions",
@@ -1580,6 +1605,10 @@ __all__ = [
     "ClickToPaySessionRequest",
     "ClickToPaySessionRequestTypedDict",
     "ClickToPaySessionTypedDict",
+    "CompletePazeMobileSessionGlobals",
+    "CompletePazeMobileSessionGlobalsTypedDict",
+    "CompletePazeMobileSessionRequest",
+    "CompletePazeMobileSessionRequestTypedDict",
     "ConfigureDigitalWalletGlobals",
     "ConfigureDigitalWalletGlobalsTypedDict",
     "ConfigureDigitalWalletRequest",
@@ -2114,6 +2143,7 @@ __all__ = [
     "NuveiPSEOptionsTypedDict",
     "OxxoOptions",
     "OxxoOptionsTypedDict",
+    "PayloadTypeIndicator",
     "PaymentLink",
     "PaymentLinkCreate",
     "PaymentLinkCreateTypedDict",
@@ -2211,6 +2241,12 @@ __all__ = [
     "PazeDeliveryContactDetailsTypedDict",
     "PazeDigitalCardData",
     "PazeDigitalCardDataTypedDict",
+    "PazeEcomData",
+    "PazeEcomDataTypedDict",
+    "PazeEnhancedTransactionData",
+    "PazeEnhancedTransactionDataTypedDict",
+    "PazeLocationAddress",
+    "PazeLocationAddressTypedDict",
     "PazeMaskedCard",
     "PazeMaskedCardTypedDict",
     "PazeMobileNumber",
@@ -2218,11 +2254,18 @@ __all__ = [
     "PazeMobileSession",
     "PazeMobileSessionCreate",
     "PazeMobileSessionCreateRequest",
+    "PazeMobileSessionCreateRequestBillingPreference",
+    "PazeMobileSessionCreateRequestTransactionType",
     "PazeMobileSessionCreateRequestTypedDict",
     "PazeMobileSessionCreateTypedDict",
     "PazeMobileSessionTypedDict",
     "PazePaymentMethodCreate",
     "PazePaymentMethodCreateTypedDict",
+    "PazeSessionComplete",
+    "PazeSessionCompleteRequest",
+    "PazeSessionCompleteRequestTransactiontype",
+    "PazeSessionCompleteRequestTypedDict",
+    "PazeSessionCompleteTypedDict",
     "PazeSessionRequest",
     "PazeSessionRequestTypedDict",
     "PazeSessionReview",
@@ -2233,14 +2276,20 @@ __all__ = [
     "PazeSessionReviewTypedDict",
     "PazeShippingAddress",
     "PazeShippingAddressTypedDict",
+    "PazeTransactionOptions",
+    "PazeTransactionOptionsBillingPreference",
+    "PazeTransactionOptionsTypedDict",
     "PazeTransactionValue",
     "PazeTransactionValueTypedDict",
+    "PazeTravelData",
+    "PazeTravelDataTypedDict",
     "PazeWebSession",
     "PazeWebSessionTypedDict",
     "PlaidPaymentMethodCreate",
     "PlaidPaymentMethodCreateTypedDict",
     "PowertranzOptions",
     "PowertranzOptionsTypedDict",
+    "ProcessingNetwork",
     "ProductType",
     "PurposeCode",
     "Recipient",
@@ -2435,7 +2484,6 @@ __all__ = [
     "TransactionSummaryTypedDict",
     "TransactionThreeDSecureSummary",
     "TransactionThreeDSecureSummaryTypedDict",
-    "TransactionType",
     "TransactionTypedDict",
     "TransactionUpdate",
     "TransactionUpdateTypedDict",
@@ -2672,6 +2720,10 @@ _dynamic_imports: dict[str, str] = {
     "ClickToPaySessionTypedDict": ".clicktopaysession",
     "ClickToPaySessionRequest": ".clicktopaysessionrequest",
     "ClickToPaySessionRequestTypedDict": ".clicktopaysessionrequest",
+    "CompletePazeMobileSessionGlobals": ".complete_paze_mobile_sessionop",
+    "CompletePazeMobileSessionGlobalsTypedDict": ".complete_paze_mobile_sessionop",
+    "CompletePazeMobileSessionRequest": ".complete_paze_mobile_sessionop",
+    "CompletePazeMobileSessionRequestTypedDict": ".complete_paze_mobile_sessionop",
     "ConfigureDigitalWalletGlobals": ".configure_digital_walletop",
     "ConfigureDigitalWalletGlobalsTypedDict": ".configure_digital_walletop",
     "ConfigureDigitalWalletRequest": ".configure_digital_walletop",
@@ -3307,6 +3359,12 @@ _dynamic_imports: dict[str, str] = {
     "PazeDeliveryContactDetailsTypedDict": ".pazedeliverycontactdetails",
     "PazeDigitalCardData": ".pazedigitalcarddata",
     "PazeDigitalCardDataTypedDict": ".pazedigitalcarddata",
+    "PazeEcomData": ".pazeecomdata",
+    "PazeEcomDataTypedDict": ".pazeecomdata",
+    "PazeEnhancedTransactionData": ".pazeenhancedtransactiondata",
+    "PazeEnhancedTransactionDataTypedDict": ".pazeenhancedtransactiondata",
+    "PazeLocationAddress": ".pazelocationaddress",
+    "PazeLocationAddressTypedDict": ".pazelocationaddress",
     "Paymentcardbrand": ".pazemaskedcard",
     "Paymentcardnetwork": ".pazemaskedcard",
     "Paymentcardtype": ".pazemaskedcard",
@@ -3319,14 +3377,20 @@ _dynamic_imports: dict[str, str] = {
     "PazeMobileSessionCreate": ".pazemobilesessioncreate",
     "PazeMobileSessionCreateTypedDict": ".pazemobilesessioncreate",
     "AcceptedPaymentCardNetwork": ".pazemobilesessioncreaterequest",
-    "BillingPreference": ".pazemobilesessioncreaterequest",
     "Intent": ".pazemobilesessioncreaterequest",
     "PazeMobileSessionCreateRequest": ".pazemobilesessioncreaterequest",
+    "PazeMobileSessionCreateRequestBillingPreference": ".pazemobilesessioncreaterequest",
+    "PazeMobileSessionCreateRequestTransactionType": ".pazemobilesessioncreaterequest",
     "PazeMobileSessionCreateRequestTypedDict": ".pazemobilesessioncreaterequest",
     "ShippingPreference": ".pazemobilesessioncreaterequest",
-    "TransactionType": ".pazemobilesessioncreaterequest",
     "PazePaymentMethodCreate": ".pazepaymentmethodcreate",
     "PazePaymentMethodCreateTypedDict": ".pazepaymentmethodcreate",
+    "PazeSessionComplete": ".pazesessioncomplete",
+    "PazeSessionCompleteTypedDict": ".pazesessioncomplete",
+    "PazeSessionCompleteRequest": ".pazesessioncompleterequest",
+    "PazeSessionCompleteRequestTransactiontype": ".pazesessioncompleterequest",
+    "PazeSessionCompleteRequestTypedDict": ".pazesessioncompleterequest",
+    "ProcessingNetwork": ".pazesessioncompleterequest",
     "PazeSessionRequest": ".pazesessionrequest",
     "PazeSessionRequestTypedDict": ".pazesessionrequest",
     "Source": ".pazesessionrequest",
@@ -3338,8 +3402,14 @@ _dynamic_imports: dict[str, str] = {
     "PazeSessionReviewRequestTypedDict": ".pazesessionreviewrequest",
     "PazeShippingAddress": ".pazeshippingaddress",
     "PazeShippingAddressTypedDict": ".pazeshippingaddress",
+    "PayloadTypeIndicator": ".pazetransactionoptions",
+    "PazeTransactionOptions": ".pazetransactionoptions",
+    "PazeTransactionOptionsBillingPreference": ".pazetransactionoptions",
+    "PazeTransactionOptionsTypedDict": ".pazetransactionoptions",
     "PazeTransactionValue": ".pazetransactionvalue",
     "PazeTransactionValueTypedDict": ".pazetransactionvalue",
+    "PazeTravelData": ".pazetraveldata",
+    "PazeTravelDataTypedDict": ".pazetraveldata",
     "PazeWebSession": ".pazewebsession",
     "PazeWebSessionTypedDict": ".pazewebsession",
     "PlaidPaymentMethodCreate": ".plaidpaymentmethodcreate",

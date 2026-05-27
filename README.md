@@ -361,6 +361,7 @@ except ValueError as error:
 * [paze_mobile_session_create](docs/sdks/sessions/README.md#paze_mobile_session_create) - Create a Paze mobile session
 * [paze](docs/sdks/sessions/README.md#paze) - Create a Paze session
 * [paze_mobile_session_review](docs/sdks/sessions/README.md#paze_mobile_session_review) - Review a Paze session
+* [paze_mobile_session_complete](docs/sdks/sessions/README.md#paze_mobile_session_complete) - Complete a Paze session
 * [click_to_pay](docs/sdks/sessions/README.md#click_to_pay) - Create a Click to Pay session
 
 ### [GiftCards](docs/sdks/giftcardssdk/README.md)
