@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 from .airline import Airline, AirlineTypedDict
+from .cartitem import CartItem, CartItemTypedDict
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from pydantic import model_serializer
+from typing import List
 from typing_extensions import NotRequired, TypedDict
 
 
@@ -14,6 +16,8 @@ class TransactionCaptureCreateTypedDict(TypedDict):
     r"""The amount to capture, in the smallest currency unit (e.g., cents). This must be less than or equal to the authorized amount, unless over-capture is available."""
     airline: NotRequired[Nullable[AirlineTypedDict]]
     r"""The airline data to submit to the payment service during the capture call."""
+    cart_items: NotRequired[Nullable[List[CartItemTypedDict]]]
+    r"""An array of cart items that represents the line items of this capture."""
 
 
 class TransactionCaptureCreate(BaseModel):
@@ -25,10 +29,13 @@ class TransactionCaptureCreate(BaseModel):
     airline: OptionalNullable[Airline] = UNSET
     r"""The airline data to submit to the payment service during the capture call."""
 
+    cart_items: OptionalNullable[List[CartItem]] = UNSET
+    r"""An array of cart items that represents the line items of this capture."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["amount", "airline"])
-        nullable_fields = set(["amount", "airline"])
+        optional_fields = set(["amount", "airline", "cart_items"])
+        nullable_fields = set(["amount", "airline", "cart_items"])
         serialized = handler(self)
         m = {}
 
