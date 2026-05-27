@@ -1966,6 +1966,9 @@ class Transactions(BaseSDK):
         airline: OptionalNullable[
             Union[models.Airline, models.AirlineTypedDict]
         ] = UNSET,
+        cart_items: OptionalNullable[
+            Union[List[models.CartItem], List[models.CartItemTypedDict]]
+        ] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1981,6 +1984,7 @@ class Transactions(BaseSDK):
         :param idempotency_key: A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
         :param amount: The amount to capture, in the smallest currency unit (e.g., cents). This must be less than or equal to the authorized amount, unless over-capture is available.
         :param airline: The airline data to submit to the payment service during the capture call.
+        :param cart_items: An array of cart items that represents the line items of this capture.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2005,6 +2009,9 @@ class Transactions(BaseSDK):
                 amount=amount,
                 airline=utils.get_pydantic_model(
                     airline, OptionalNullable[models.Airline]
+                ),
+                cart_items=utils.get_pydantic_model(
+                    cart_items, OptionalNullable[List[models.CartItem]]
                 ),
             ),
         )
@@ -2122,6 +2129,9 @@ class Transactions(BaseSDK):
         airline: OptionalNullable[
             Union[models.Airline, models.AirlineTypedDict]
         ] = UNSET,
+        cart_items: OptionalNullable[
+            Union[List[models.CartItem], List[models.CartItemTypedDict]]
+        ] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2137,6 +2147,7 @@ class Transactions(BaseSDK):
         :param idempotency_key: A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
         :param amount: The amount to capture, in the smallest currency unit (e.g., cents). This must be less than or equal to the authorized amount, unless over-capture is available.
         :param airline: The airline data to submit to the payment service during the capture call.
+        :param cart_items: An array of cart items that represents the line items of this capture.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2161,6 +2172,9 @@ class Transactions(BaseSDK):
                 amount=amount,
                 airline=utils.get_pydantic_model(
                     airline, OptionalNullable[models.Airline]
+                ),
+                cart_items=utils.get_pydantic_model(
+                    cart_items, OptionalNullable[List[models.CartItem]]
                 ),
             ),
         )
