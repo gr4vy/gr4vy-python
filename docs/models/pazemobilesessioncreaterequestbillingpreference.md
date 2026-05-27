@@ -1,12 +1,12 @@
-# BillingPreference
+# PazeMobileSessionCreateRequestBillingPreference
 
 ## Example Usage
 
 ```python
-from gr4vy.models import BillingPreference
+from gr4vy.models import PazeMobileSessionCreateRequestBillingPreference
 
 # Open enum: unrecognized values are captured as UnrecognizedStr
-value: BillingPreference = "ALL"
+value: PazeMobileSessionCreateRequestBillingPreference = "ALL"
 ```
 
 

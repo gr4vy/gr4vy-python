@@ -1,12 +1,12 @@
-# TransactionType
+# PazeMobileSessionCreateRequestTransactionType
 
 ## Example Usage
 
 ```python
-from gr4vy.models import TransactionType
+from gr4vy.models import PazeMobileSessionCreateRequestTransactionType
 
 # Open enum: unrecognized values are captured as UnrecognizedStr
-value: TransactionType = "PURCHASE"
+value: PazeMobileSessionCreateRequestTransactionType = "PURCHASE"
 ```
 
 
