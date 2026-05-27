@@ -17,7 +17,6 @@ Method = Union[
         "bacs",
         "bancontact",
         "bank",
-        "banked",
         "bcp",
         "becs",
         "bitpay",
