@@ -62,6 +62,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"kcp"`
 - `"khipu"`
 - `"klarna"`
+- `"konbini"`
 - `"latitude"`
 - `"latitudeds"`
 - `"laybuy"`
@@ -105,6 +106,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"scalapay"`
 - `"sepa"`
 - `"servipag"`
+- `"seveneleven"`
 - `"shopeepay"`
 - `"singteldash"`
 - `"smartpay"`
