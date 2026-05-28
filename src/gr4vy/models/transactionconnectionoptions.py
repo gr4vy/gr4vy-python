@@ -69,12 +69,16 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `adyen-giropay` connector."""
     adyen_ideal: NotRequired[Nullable[AdyenOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-ideal` connector."""
+    adyen_konbini: NotRequired[Nullable[AdyenOptionsTypedDict]]
+    r"""Custom options to be passed to the `adyen-konbini` connector."""
     adyen_paypay: NotRequired[Nullable[AdyenOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-paypay` connector."""
     adyen_pix: NotRequired[Nullable[AdyenPixOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-pix` connector."""
     adyen_sepa: NotRequired[Nullable[AdyenSepaOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-sepa` connector."""
+    adyen_seveneleven: NotRequired[Nullable[AdyenOptionsTypedDict]]
+    r"""Custom options to be passed to the `adyen-seveneleven` connector."""
     adyen_sofort: NotRequired[Nullable[AdyenOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-sofort` connector."""
     adyen_swish: NotRequired[Nullable[AdyenOptionsTypedDict]]
@@ -206,6 +210,11 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `adyen-ideal` connector."""
 
+    adyen_konbini: Annotated[
+        OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-konbini")
+    ] = UNSET
+    r"""Custom options to be passed to the `adyen-konbini` connector."""
+
     adyen_paypay: Annotated[
         OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-paypay")
     ] = UNSET
@@ -220,6 +229,11 @@ class TransactionConnectionOptions(BaseModel):
         OptionalNullable[AdyenSepaOptions], pydantic.Field(alias="adyen-sepa")
     ] = UNSET
     r"""Custom options to be passed to the `adyen-sepa` connector."""
+
+    adyen_seveneleven: Annotated[
+        OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-seveneleven")
+    ] = UNSET
+    r"""Custom options to be passed to the `adyen-seveneleven` connector."""
 
     adyen_sofort: Annotated[
         OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-sofort")
@@ -460,9 +474,11 @@ class TransactionConnectionOptions(BaseModel):
                 "adyen-gcash",
                 "adyen-giropay",
                 "adyen-ideal",
+                "adyen-konbini",
                 "adyen-paypay",
                 "adyen-pix",
                 "adyen-sepa",
+                "adyen-seveneleven",
                 "adyen-sofort",
                 "adyen-swish",
                 "adyen-vipps",
@@ -519,9 +535,11 @@ class TransactionConnectionOptions(BaseModel):
                 "adyen-gcash",
                 "adyen-giropay",
                 "adyen-ideal",
+                "adyen-konbini",
                 "adyen-paypay",
                 "adyen-pix",
                 "adyen-sepa",
+                "adyen-seveneleven",
                 "adyen-sofort",
                 "adyen-swish",
                 "adyen-vipps",
