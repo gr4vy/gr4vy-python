@@ -33,13 +33,13 @@ python:
   additionalDependencies:
     dev:
       freezegun: ^1.5.1
-      pytest: ^8.3.5
+      pytest: ^9.0.3
       requests: ^2.23.2
       types-Pygments: ^2.19.0.20250305
       types-python-jose: ^3.4.0.20250224
     main:
       PyJWT: ^2.10.1
-      cryptography: ^45.0.7
+      cryptography: ^46.0.7
       python-jose: ^3.4.0
   allowedRedefinedBuiltins:
     - id
