@@ -5,15 +5,15 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.769.1
   generationVersion: 2.892.1
-  releaseVersion: 2.1.0
-  configChecksum: e6558ac36d23ba322ceed51d3aefc959
+  releaseVersion: 2.1.1
+  configChecksum: b638ecfa687c67c8fe9a64b4847eb7a4
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: e41be166-e8da-4724-992c-8587ea02b2a5
-  pristine_commit_hash: 8dc612f406074dfe25c75e127b1ba81be3eb6aa1
-  pristine_tree_hash: cef55951b84d5825bfef5af1f22da404a7e260ff
+  generation_id: f428053e-86c6-4c83-9caf-9b18119c953d
+  pristine_commit_hash: f84994eb64900a8727ca3054900df7fe5dd9916a
+  pristine_tree_hash: 8162e8207f6b73e73f0edd01ca8e4214eb569fe2
 features:
   python:
     additionalDependencies: 1.1.0
@@ -2652,8 +2652,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:13ec7c85c418e83154f7d43f573be72a6cd9318d
-    pristine_git_object: 209db97e04d6ac49e6eb9a58e6c9c86d191d9a2e
+    last_write_checksum: sha1:53123c3e4beac6208a514ffaa70dcd3bd746a005
+    pristine_git_object: 03b616f835190e62fed30c44a3df6ffbe65a4b06
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2680,8 +2680,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:cce1042d13cbd15c71e1cbd7aa2c4ffcedddc585
-    pristine_git_object: 915ac1b05338d0a3126064427bc723d71abe2366
+    last_write_checksum: sha1:4d79da6cd71aebea32018f0525bf8e9322ff997e
+    pristine_git_object: 350c4d26417df93a083423d58aea70fd7f006080
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b

@@ -14,7 +14,7 @@ targets:
         sourceRevisionDigest: sha256:d8fbd0ead85a8e8c678f52d4f90713ec48c7bf7aaf0978f49b1b933fa0899eef
         sourceBlobDigest: sha256:2f459aa83d71400e2c3cbdc1208bd09a0310802d16b711335e174d34c4ff5771
         codeSamplesNamespace: openapi-python-code-samples
-        codeSamplesRevisionDigest: sha256:f3c391326cfa8d4587c7bab41aab3526b8e64f288f36fe4b16b70405f51a53c3
+        codeSamplesRevisionDigest: sha256:170c2167a6646043c2d2df0cc7a5f917f3176690f54594db8d5489d221161061
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
