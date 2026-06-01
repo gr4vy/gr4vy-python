@@ -41,7 +41,7 @@ def test_executions_endpoints(merchant):
     )
 
 
-def test_create_is_reached(merchant):
+def test_create_is_happy_path(merchant):
     sdk = merchant.client
     report = sdk.reports.create(
         name=fixtures.unique_id("report", merchant.merchant_account_id),
