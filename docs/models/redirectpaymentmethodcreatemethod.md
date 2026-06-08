@@ -35,6 +35,9 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"capitec"`
 - `"cashapp"`
 - `"clearpay"`
+- `"custom_push"`
+- `"custom_redirect"`
+- `"custom_tokenize"`
 - `"dana"`
 - `"dcb"`
 - `"dlocal"`
