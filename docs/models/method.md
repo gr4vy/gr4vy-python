@@ -38,6 +38,9 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"chaseorbital"`
 - `"clearpay"`
 - `"click-to-pay"`
+- `"custom_push"`
+- `"custom_redirect"`
+- `"custom_tokenize"`
 - `"dana"`
 - `"dcb"`
 - `"dlocal"`
