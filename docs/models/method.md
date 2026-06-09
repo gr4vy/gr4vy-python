@@ -89,6 +89,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"oxxo"`
 - `"p24"`
 - `"pagoefectivo"`
+- `"paybybank"`
 - `"payid"`
 - `"paymaya"`
 - `"paysquad"`
