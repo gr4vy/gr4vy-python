@@ -82,6 +82,7 @@ Method = Union[
         "oxxo",
         "p24",
         "pagoefectivo",
+        "paybybank",
         "payid",
         "paymaya",
         "paysquad",
