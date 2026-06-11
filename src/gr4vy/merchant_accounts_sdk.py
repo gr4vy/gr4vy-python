@@ -9,7 +9,7 @@ from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
 from jsonpath import JSONPath
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class MerchantAccountsSDK(BaseSDK):
@@ -355,7 +355,7 @@ class MerchantAccountsSDK(BaseSDK):
         over_capture_percentage: OptionalNullable[int] = UNSET,
         loon_client_key: OptionalNullable[str] = UNSET,
         loon_secret_key: OptionalNullable[str] = UNSET,
-        loon_accepted_schemes: OptionalNullable[List[models.CardScheme]] = UNSET,
+        loon_accepted_schemes: OptionalNullable[Iterable[models.CardScheme]] = UNSET,
         visa_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
         visa_network_tokens_app_id: OptionalNullable[str] = UNSET,
         amex_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
@@ -416,7 +416,9 @@ class MerchantAccountsSDK(BaseSDK):
             over_capture_percentage=over_capture_percentage,
             loon_client_key=loon_client_key,
             loon_secret_key=loon_secret_key,
-            loon_accepted_schemes=loon_accepted_schemes,
+            loon_accepted_schemes=utils.unmarshal(
+                loon_accepted_schemes, OptionalNullable[List[models.CardScheme]]
+            ),
             visa_network_tokens_requestor_id=visa_network_tokens_requestor_id,
             visa_network_tokens_app_id=visa_network_tokens_app_id,
             amex_network_tokens_requestor_id=amex_network_tokens_requestor_id,
@@ -535,7 +537,7 @@ class MerchantAccountsSDK(BaseSDK):
         over_capture_percentage: OptionalNullable[int] = UNSET,
         loon_client_key: OptionalNullable[str] = UNSET,
         loon_secret_key: OptionalNullable[str] = UNSET,
-        loon_accepted_schemes: OptionalNullable[List[models.CardScheme]] = UNSET,
+        loon_accepted_schemes: OptionalNullable[Iterable[models.CardScheme]] = UNSET,
         visa_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
         visa_network_tokens_app_id: OptionalNullable[str] = UNSET,
         amex_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
@@ -596,7 +598,9 @@ class MerchantAccountsSDK(BaseSDK):
             over_capture_percentage=over_capture_percentage,
             loon_client_key=loon_client_key,
             loon_secret_key=loon_secret_key,
-            loon_accepted_schemes=loon_accepted_schemes,
+            loon_accepted_schemes=utils.unmarshal(
+                loon_accepted_schemes, OptionalNullable[List[models.CardScheme]]
+            ),
             visa_network_tokens_requestor_id=visa_network_tokens_requestor_id,
             visa_network_tokens_app_id=visa_network_tokens_app_id,
             amex_network_tokens_requestor_id=amex_network_tokens_requestor_id,
@@ -968,7 +972,7 @@ class MerchantAccountsSDK(BaseSDK):
         over_capture_percentage: OptionalNullable[int] = UNSET,
         loon_client_key: OptionalNullable[str] = UNSET,
         loon_secret_key: OptionalNullable[str] = UNSET,
-        loon_accepted_schemes: OptionalNullable[List[models.CardScheme]] = UNSET,
+        loon_accepted_schemes: OptionalNullable[Iterable[models.CardScheme]] = UNSET,
         visa_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
         visa_network_tokens_app_id: OptionalNullable[str] = UNSET,
         amex_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
@@ -1032,7 +1036,9 @@ class MerchantAccountsSDK(BaseSDK):
                 over_capture_percentage=over_capture_percentage,
                 loon_client_key=loon_client_key,
                 loon_secret_key=loon_secret_key,
-                loon_accepted_schemes=loon_accepted_schemes,
+                loon_accepted_schemes=utils.unmarshal(
+                    loon_accepted_schemes, OptionalNullable[List[models.CardScheme]]
+                ),
                 visa_network_tokens_requestor_id=visa_network_tokens_requestor_id,
                 visa_network_tokens_app_id=visa_network_tokens_app_id,
                 amex_network_tokens_requestor_id=amex_network_tokens_requestor_id,
@@ -1154,7 +1160,7 @@ class MerchantAccountsSDK(BaseSDK):
         over_capture_percentage: OptionalNullable[int] = UNSET,
         loon_client_key: OptionalNullable[str] = UNSET,
         loon_secret_key: OptionalNullable[str] = UNSET,
-        loon_accepted_schemes: OptionalNullable[List[models.CardScheme]] = UNSET,
+        loon_accepted_schemes: OptionalNullable[Iterable[models.CardScheme]] = UNSET,
         visa_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
         visa_network_tokens_app_id: OptionalNullable[str] = UNSET,
         amex_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
@@ -1218,7 +1224,9 @@ class MerchantAccountsSDK(BaseSDK):
                 over_capture_percentage=over_capture_percentage,
                 loon_client_key=loon_client_key,
                 loon_secret_key=loon_secret_key,
-                loon_accepted_schemes=loon_accepted_schemes,
+                loon_accepted_schemes=utils.unmarshal(
+                    loon_accepted_schemes, OptionalNullable[List[models.CardScheme]]
+                ),
                 visa_network_tokens_requestor_id=visa_network_tokens_requestor_id,
                 visa_network_tokens_app_id=visa_network_tokens_app_id,
                 amex_network_tokens_requestor_id=amex_network_tokens_requestor_id,

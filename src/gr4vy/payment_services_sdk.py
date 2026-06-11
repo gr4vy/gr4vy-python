@@ -7,7 +7,7 @@ from gr4vy.types import Nullable, OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
 from jsonpath import JSONPath
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class PaymentServicesSDK(BaseSDK):
@@ -352,20 +352,20 @@ class PaymentServicesSDK(BaseSDK):
         *,
         display_name: str,
         payment_service_definition_id: str,
-        fields: Union[List[models.FieldT], List[models.FieldTTypedDict]],
-        accepted_currencies: List[str],
-        accepted_countries: List[str],
+        fields: Union[Iterable[models.FieldT], Iterable[models.FieldTTypedDict]],
+        accepted_currencies: Iterable[str],
+        accepted_countries: Iterable[str],
         merchant_account_id: Optional[str] = None,
         reporting_fields: OptionalNullable[
-            Union[List[models.FieldT], List[models.FieldTTypedDict]]
+            Union[Iterable[models.FieldT], Iterable[models.FieldTTypedDict]]
         ] = UNSET,
         position: OptionalNullable[int] = UNSET,
         active: OptionalNullable[bool] = UNSET,
         three_d_secure_enabled: Optional[bool] = False,
         merchant_profile: OptionalNullable[
             Union[
-                Dict[str, Nullable[models.MerchantProfileScheme]],
-                Dict[str, Nullable[models.MerchantProfileSchemeTypedDict]],
+                Mapping[str, Nullable[models.MerchantProfileScheme]],
+                Mapping[str, Nullable[models.MerchantProfileSchemeTypedDict]],
             ]
         ] = UNSET,
         payment_method_tokenization_enabled: OptionalNullable[bool] = UNSET,
@@ -421,8 +421,8 @@ class PaymentServicesSDK(BaseSDK):
                     reporting_fields, OptionalNullable[List[models.FieldT]]
                 ),
                 position=position,
-                accepted_currencies=accepted_currencies,
-                accepted_countries=accepted_countries,
+                accepted_currencies=utils.unmarshal(accepted_currencies, List[str]),
+                accepted_countries=utils.unmarshal(accepted_countries, List[str]),
                 active=active,
                 three_d_secure_enabled=three_d_secure_enabled,
                 merchant_profile=utils.get_pydantic_model(
@@ -541,20 +541,20 @@ class PaymentServicesSDK(BaseSDK):
         *,
         display_name: str,
         payment_service_definition_id: str,
-        fields: Union[List[models.FieldT], List[models.FieldTTypedDict]],
-        accepted_currencies: List[str],
-        accepted_countries: List[str],
+        fields: Union[Iterable[models.FieldT], Iterable[models.FieldTTypedDict]],
+        accepted_currencies: Iterable[str],
+        accepted_countries: Iterable[str],
         merchant_account_id: Optional[str] = None,
         reporting_fields: OptionalNullable[
-            Union[List[models.FieldT], List[models.FieldTTypedDict]]
+            Union[Iterable[models.FieldT], Iterable[models.FieldTTypedDict]]
         ] = UNSET,
         position: OptionalNullable[int] = UNSET,
         active: OptionalNullable[bool] = UNSET,
         three_d_secure_enabled: Optional[bool] = False,
         merchant_profile: OptionalNullable[
             Union[
-                Dict[str, Nullable[models.MerchantProfileScheme]],
-                Dict[str, Nullable[models.MerchantProfileSchemeTypedDict]],
+                Mapping[str, Nullable[models.MerchantProfileScheme]],
+                Mapping[str, Nullable[models.MerchantProfileSchemeTypedDict]],
             ]
         ] = UNSET,
         payment_method_tokenization_enabled: OptionalNullable[bool] = UNSET,
@@ -610,8 +610,8 @@ class PaymentServicesSDK(BaseSDK):
                     reporting_fields, OptionalNullable[List[models.FieldT]]
                 ),
                 position=position,
-                accepted_currencies=accepted_currencies,
-                accepted_countries=accepted_countries,
+                accepted_currencies=utils.unmarshal(accepted_currencies, List[str]),
+                accepted_countries=utils.unmarshal(accepted_countries, List[str]),
                 active=active,
                 three_d_secure_enabled=three_d_secure_enabled,
                 merchant_profile=utils.get_pydantic_model(
@@ -998,20 +998,24 @@ class PaymentServicesSDK(BaseSDK):
         merchant_account_id: Optional[str] = None,
         display_name: OptionalNullable[str] = UNSET,
         fields: OptionalNullable[
-            Union[List[models.VoidableField], List[models.VoidableFieldTypedDict]]
+            Union[
+                Iterable[models.VoidableField], Iterable[models.VoidableFieldTypedDict]
+            ]
         ] = UNSET,
         reporting_fields: OptionalNullable[
-            Union[List[models.VoidableField], List[models.VoidableFieldTypedDict]]
+            Union[
+                Iterable[models.VoidableField], Iterable[models.VoidableFieldTypedDict]
+            ]
         ] = UNSET,
         position: OptionalNullable[int] = UNSET,
-        accepted_currencies: OptionalNullable[List[str]] = UNSET,
-        accepted_countries: OptionalNullable[List[str]] = UNSET,
+        accepted_currencies: OptionalNullable[Iterable[str]] = UNSET,
+        accepted_countries: OptionalNullable[Iterable[str]] = UNSET,
         active: OptionalNullable[bool] = UNSET,
         three_d_secure_enabled: OptionalNullable[bool] = UNSET,
         merchant_profile: OptionalNullable[
             Union[
-                Dict[str, Nullable[models.MerchantProfileScheme]],
-                Dict[str, Nullable[models.MerchantProfileSchemeTypedDict]],
+                Mapping[str, Nullable[models.MerchantProfileScheme]],
+                Mapping[str, Nullable[models.MerchantProfileSchemeTypedDict]],
             ]
         ] = UNSET,
         payment_method_tokenization_enabled: OptionalNullable[bool] = UNSET,
@@ -1069,8 +1073,12 @@ class PaymentServicesSDK(BaseSDK):
                     reporting_fields, OptionalNullable[List[models.VoidableField]]
                 ),
                 position=position,
-                accepted_currencies=accepted_currencies,
-                accepted_countries=accepted_countries,
+                accepted_currencies=utils.unmarshal(
+                    accepted_currencies, OptionalNullable[List[str]]
+                ),
+                accepted_countries=utils.unmarshal(
+                    accepted_countries, OptionalNullable[List[str]]
+                ),
                 active=active,
                 three_d_secure_enabled=three_d_secure_enabled,
                 merchant_profile=utils.get_pydantic_model(
@@ -1191,20 +1199,24 @@ class PaymentServicesSDK(BaseSDK):
         merchant_account_id: Optional[str] = None,
         display_name: OptionalNullable[str] = UNSET,
         fields: OptionalNullable[
-            Union[List[models.VoidableField], List[models.VoidableFieldTypedDict]]
+            Union[
+                Iterable[models.VoidableField], Iterable[models.VoidableFieldTypedDict]
+            ]
         ] = UNSET,
         reporting_fields: OptionalNullable[
-            Union[List[models.VoidableField], List[models.VoidableFieldTypedDict]]
+            Union[
+                Iterable[models.VoidableField], Iterable[models.VoidableFieldTypedDict]
+            ]
         ] = UNSET,
         position: OptionalNullable[int] = UNSET,
-        accepted_currencies: OptionalNullable[List[str]] = UNSET,
-        accepted_countries: OptionalNullable[List[str]] = UNSET,
+        accepted_currencies: OptionalNullable[Iterable[str]] = UNSET,
+        accepted_countries: OptionalNullable[Iterable[str]] = UNSET,
         active: OptionalNullable[bool] = UNSET,
         three_d_secure_enabled: OptionalNullable[bool] = UNSET,
         merchant_profile: OptionalNullable[
             Union[
-                Dict[str, Nullable[models.MerchantProfileScheme]],
-                Dict[str, Nullable[models.MerchantProfileSchemeTypedDict]],
+                Mapping[str, Nullable[models.MerchantProfileScheme]],
+                Mapping[str, Nullable[models.MerchantProfileSchemeTypedDict]],
             ]
         ] = UNSET,
         payment_method_tokenization_enabled: OptionalNullable[bool] = UNSET,
@@ -1262,8 +1274,12 @@ class PaymentServicesSDK(BaseSDK):
                     reporting_fields, OptionalNullable[List[models.VoidableField]]
                 ),
                 position=position,
-                accepted_currencies=accepted_currencies,
-                accepted_countries=accepted_countries,
+                accepted_currencies=utils.unmarshal(
+                    accepted_currencies, OptionalNullable[List[str]]
+                ),
+                accepted_countries=utils.unmarshal(
+                    accepted_countries, OptionalNullable[List[str]]
+                ),
                 active=active,
                 three_d_secure_enabled=three_d_secure_enabled,
                 merchant_profile=utils.get_pydantic_model(
@@ -1639,7 +1655,7 @@ class PaymentServicesSDK(BaseSDK):
         self,
         *,
         payment_service_definition_id: str,
-        fields: Union[List[models.FieldT], List[models.FieldTTypedDict]],
+        fields: Union[Iterable[models.FieldT], Iterable[models.FieldTTypedDict]],
         merchant_account_id: Optional[str] = None,
         payment_service_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -1783,7 +1799,7 @@ class PaymentServicesSDK(BaseSDK):
         self,
         *,
         payment_service_definition_id: str,
-        fields: Union[List[models.FieldT], List[models.FieldTTypedDict]],
+        fields: Union[Iterable[models.FieldT], Iterable[models.FieldTTypedDict]],
         merchant_account_id: Optional[str] = None,
         payment_service_id: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -1927,7 +1943,7 @@ class PaymentServicesSDK(BaseSDK):
         self,
         *,
         payment_service_id: str,
-        request_body: Dict[str, Any],
+        request_body: Mapping[str, Any],
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -1959,7 +1975,7 @@ class PaymentServicesSDK(BaseSDK):
         request = models.CreatePaymentServiceSessionRequest(
             payment_service_id=payment_service_id,
             merchant_account_id=merchant_account_id,
-            request_body=request_body,
+            request_body=utils.unmarshal(request_body, Dict[str, Any]),
         )
 
         req = self._build_request(
@@ -2062,7 +2078,7 @@ class PaymentServicesSDK(BaseSDK):
         self,
         *,
         payment_service_id: str,
-        request_body: Dict[str, Any],
+        request_body: Mapping[str, Any],
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -2094,7 +2110,7 @@ class PaymentServicesSDK(BaseSDK):
         request = models.CreatePaymentServiceSessionRequest(
             payment_service_id=payment_service_id,
             merchant_account_id=merchant_account_id,
-            request_body=request_body,
+            request_body=utils.unmarshal(request_body, Dict[str, Any]),
         )
 
         req = self._build_request_async(

@@ -579,7 +579,7 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
         self,
         *,
         payment_service_definition_id: str,
-        request_body: Dict[str, Any],
+        request_body: Mapping[str, Any],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -608,7 +608,7 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
 
         request = models.CreatePaymentServiceDefinitionSessionRequest(
             payment_service_definition_id=payment_service_definition_id,
-            request_body=request_body,
+            request_body=utils.unmarshal(request_body, Dict[str, Any]),
         )
 
         req = self._build_request(
@@ -708,7 +708,7 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
         self,
         *,
         payment_service_definition_id: str,
-        request_body: Dict[str, Any],
+        request_body: Mapping[str, Any],
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -737,7 +737,7 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
 
         request = models.CreatePaymentServiceDefinitionSessionRequest(
             payment_service_definition_id=payment_service_definition_id,
-            request_body=request_body,
+            request_body=utils.unmarshal(request_body, Dict[str, Any]),
         )
 
         req = self._build_request_async(

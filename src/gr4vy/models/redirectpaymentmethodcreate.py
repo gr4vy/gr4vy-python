@@ -55,6 +55,7 @@ RedirectPaymentMethodCreateMethod = Union[
         "gopay",
         "grabpay",
         "ideal",
+        "interac",
         "kakaopay",
         "kcp",
         "khipu",

@@ -12,7 +12,7 @@ from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
 from jsonpath import JSONPath
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class PaymentMethodsSDK(BaseSDK):
@@ -41,7 +41,7 @@ class PaymentMethodsSDK(BaseSDK):
         limit: Optional[int] = 20,
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_external_identifier: OptionalNullable[str] = UNSET,
-        status: OptionalNullable[List[models.PaymentMethodStatus]] = UNSET,
+        status: OptionalNullable[Iterable[models.PaymentMethodStatus]] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -80,7 +80,9 @@ class PaymentMethodsSDK(BaseSDK):
             limit=limit,
             buyer_id=buyer_id,
             buyer_external_identifier=buyer_external_identifier,
-            status=status,
+            status=utils.unmarshal(
+                status, OptionalNullable[List[models.PaymentMethodStatus]]
+            ),
             external_identifier=external_identifier,
             merchant_account_id=merchant_account_id,
         )
@@ -217,7 +219,7 @@ class PaymentMethodsSDK(BaseSDK):
         limit: Optional[int] = 20,
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_external_identifier: OptionalNullable[str] = UNSET,
-        status: OptionalNullable[List[models.PaymentMethodStatus]] = UNSET,
+        status: OptionalNullable[Iterable[models.PaymentMethodStatus]] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -256,7 +258,9 @@ class PaymentMethodsSDK(BaseSDK):
             limit=limit,
             buyer_id=buyer_id,
             buyer_external_identifier=buyer_external_identifier,
-            status=status,
+            status=utils.unmarshal(
+                status, OptionalNullable[List[models.PaymentMethodStatus]]
+            ),
             external_identifier=external_identifier,
             merchant_account_id=merchant_account_id,
         )
