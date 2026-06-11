@@ -6,6 +6,7 @@ from datetime import datetime
 from gr4vy import errors, models, utils
 from gr4vy._hooks import HookContext
 from gr4vy.actions import Actions
+from gr4vy.captures import Captures
 from gr4vy.events import Events
 from gr4vy.transactions_refunds import TransactionsRefunds
 from gr4vy.transactions_settlements import TransactionsSettlements
@@ -21,6 +22,7 @@ class Transactions(BaseSDK):
     actions: Actions
     events: Events
     settlements: TransactionsSettlements
+    captures: Captures
 
     def __init__(
         self, sdk_config: SDKConfiguration, parent_ref: Optional[object] = None
@@ -38,6 +40,7 @@ class Transactions(BaseSDK):
         self.settlements = TransactionsSettlements(
             self.sdk_configuration, parent_ref=self.parent_ref
         )
+        self.captures = Captures(self.sdk_configuration, parent_ref=self.parent_ref)
 
     def list(
         self,
@@ -1993,6 +1996,8 @@ class Transactions(BaseSDK):
         cart_items: OptionalNullable[
             Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
+        final: Optional[bool] = True,
+        external_identifier: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2009,6 +2014,8 @@ class Transactions(BaseSDK):
         :param amount: The amount to capture, in the smallest currency unit (e.g., cents). This must be less than or equal to the authorized amount, unless over-capture is available.
         :param airline: The airline data to submit to the payment service during the capture call.
         :param cart_items: An array of cart items that represents the line items of this capture.
+        :param final: Whether this is marked as the final capture for the associated transaction. Must be `true` or omitted when multi-capture is not enabled; a value of `false` is only valid when multi-capture is available on the connection.
+        :param external_identifier: An external identifier that can be used to match the capture against your own records.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2037,6 +2044,8 @@ class Transactions(BaseSDK):
                 cart_items=utils.get_pydantic_model(
                     cart_items, OptionalNullable[List[models.CartItem]]
                 ),
+                final=final,
+                external_identifier=external_identifier,
             ),
         )
 
@@ -2156,6 +2165,8 @@ class Transactions(BaseSDK):
         cart_items: OptionalNullable[
             Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
+        final: Optional[bool] = True,
+        external_identifier: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2172,6 +2183,8 @@ class Transactions(BaseSDK):
         :param amount: The amount to capture, in the smallest currency unit (e.g., cents). This must be less than or equal to the authorized amount, unless over-capture is available.
         :param airline: The airline data to submit to the payment service during the capture call.
         :param cart_items: An array of cart items that represents the line items of this capture.
+        :param final: Whether this is marked as the final capture for the associated transaction. Must be `true` or omitted when multi-capture is not enabled; a value of `false` is only valid when multi-capture is available on the connection.
+        :param external_identifier: An external identifier that can be used to match the capture against your own records.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2200,6 +2213,8 @@ class Transactions(BaseSDK):
                 cart_items=utils.get_pydantic_model(
                     cart_items, OptionalNullable[List[models.CartItem]]
                 ),
+                final=final,
+                external_identifier=external_identifier,
             ),
         )
 
