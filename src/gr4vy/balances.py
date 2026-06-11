@@ -6,14 +6,14 @@ from gr4vy._hooks import HookContext
 from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional, Union
+from typing import Any, Iterable, List, Mapping, Optional, Union
 
 
 class Balances(BaseSDK):
     def list(
         self,
         *,
-        items: Union[List[models.Item], List[models.ItemTypedDict]],
+        items: Union[Iterable[models.Item], Iterable[models.ItemTypedDict]],
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -151,7 +151,7 @@ class Balances(BaseSDK):
     async def list_async(
         self,
         *,
-        items: Union[List[models.Item], List[models.ItemTypedDict]],
+        items: Union[Iterable[models.Item], Iterable[models.ItemTypedDict]],
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,

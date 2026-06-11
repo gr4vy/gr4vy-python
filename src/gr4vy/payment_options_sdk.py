@@ -6,7 +6,7 @@ from gr4vy._hooks import HookContext
 from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class PaymentOptionsSDK(BaseSDK):
@@ -14,13 +14,13 @@ class PaymentOptionsSDK(BaseSDK):
         self,
         *,
         merchant_account_id: Optional[str] = None,
-        metadata: OptionalNullable[Dict[str, str]] = UNSET,
+        metadata: OptionalNullable[Mapping[str, str]] = UNSET,
         country: OptionalNullable[str] = UNSET,
         currency: OptionalNullable[str] = UNSET,
         amount: OptionalNullable[int] = UNSET,
         locale: Optional[str] = "en",
         cart_items: OptionalNullable[
-            Union[List[models.CartItem], List[models.CartItemTypedDict]]
+            Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -56,7 +56,7 @@ class PaymentOptionsSDK(BaseSDK):
         request = models.ListPaymentOptionsRequest(
             merchant_account_id=merchant_account_id,
             payment_option_request=models.PaymentOptionRequest(
-                metadata=metadata,
+                metadata=utils.unmarshal(metadata, OptionalNullable[Dict[str, str]]),
                 country=country,
                 currency=currency,
                 amount=amount,
@@ -171,13 +171,13 @@ class PaymentOptionsSDK(BaseSDK):
         self,
         *,
         merchant_account_id: Optional[str] = None,
-        metadata: OptionalNullable[Dict[str, str]] = UNSET,
+        metadata: OptionalNullable[Mapping[str, str]] = UNSET,
         country: OptionalNullable[str] = UNSET,
         currency: OptionalNullable[str] = UNSET,
         amount: OptionalNullable[int] = UNSET,
         locale: Optional[str] = "en",
         cart_items: OptionalNullable[
-            Union[List[models.CartItem], List[models.CartItemTypedDict]]
+            Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -213,7 +213,7 @@ class PaymentOptionsSDK(BaseSDK):
         request = models.ListPaymentOptionsRequest(
             merchant_account_id=merchant_account_id,
             payment_option_request=models.PaymentOptionRequest(
-                metadata=metadata,
+                metadata=utils.unmarshal(metadata, OptionalNullable[Dict[str, str]]),
                 country=country,
                 currency=currency,
                 amount=amount,

@@ -9,7 +9,7 @@ from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
 from jsonpath import JSONPath
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class ReportsSDK(BaseSDK):
@@ -30,7 +30,7 @@ class ReportsSDK(BaseSDK):
         *,
         cursor: OptionalNullable[str] = UNSET,
         limit: Optional[int] = 20,
-        schedule: OptionalNullable[List[models.ReportSchedule]] = UNSET,
+        schedule: OptionalNullable[Iterable[models.ReportSchedule]] = UNSET,
         schedule_enabled: OptionalNullable[bool] = UNSET,
         name: OptionalNullable[str] = UNSET,
         merchant_account_id: Optional[str] = None,
@@ -67,7 +67,9 @@ class ReportsSDK(BaseSDK):
         request = models.ListReportsRequest(
             cursor=cursor,
             limit=limit,
-            schedule=schedule,
+            schedule=utils.unmarshal(
+                schedule, OptionalNullable[List[models.ReportSchedule]]
+            ),
             schedule_enabled=schedule_enabled,
             name=name,
             merchant_account_id=merchant_account_id,
@@ -201,7 +203,7 @@ class ReportsSDK(BaseSDK):
         *,
         cursor: OptionalNullable[str] = UNSET,
         limit: Optional[int] = 20,
-        schedule: OptionalNullable[List[models.ReportSchedule]] = UNSET,
+        schedule: OptionalNullable[Iterable[models.ReportSchedule]] = UNSET,
         schedule_enabled: OptionalNullable[bool] = UNSET,
         name: OptionalNullable[str] = UNSET,
         merchant_account_id: Optional[str] = None,
@@ -238,7 +240,9 @@ class ReportsSDK(BaseSDK):
         request = models.ListReportsRequest(
             cursor=cursor,
             limit=limit,
-            schedule=schedule,
+            schedule=utils.unmarshal(
+                schedule, OptionalNullable[List[models.ReportSchedule]]
+            ),
             schedule_enabled=schedule_enabled,
             name=name,
             merchant_account_id=merchant_account_id,

@@ -8,7 +8,7 @@ from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
 from jsonpath import JSONPath
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class ReportExecutionsSDK(BaseSDK):
@@ -20,8 +20,8 @@ class ReportExecutionsSDK(BaseSDK):
         report_name: OptionalNullable[str] = UNSET,
         created_at_lte: OptionalNullable[datetime] = UNSET,
         created_at_gte: OptionalNullable[datetime] = UNSET,
-        status: OptionalNullable[List[models.ReportExecutionStatus]] = UNSET,
-        creator_id: OptionalNullable[List[str]] = UNSET,
+        status: OptionalNullable[Iterable[models.ReportExecutionStatus]] = UNSET,
+        creator_id: OptionalNullable[Iterable[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -61,8 +61,10 @@ class ReportExecutionsSDK(BaseSDK):
             report_name=report_name,
             created_at_lte=created_at_lte,
             created_at_gte=created_at_gte,
-            status=status,
-            creator_id=creator_id,
+            status=utils.unmarshal(
+                status, OptionalNullable[List[models.ReportExecutionStatus]]
+            ),
+            creator_id=utils.unmarshal(creator_id, OptionalNullable[List[str]]),
             merchant_account_id=merchant_account_id,
         )
 
@@ -200,8 +202,8 @@ class ReportExecutionsSDK(BaseSDK):
         report_name: OptionalNullable[str] = UNSET,
         created_at_lte: OptionalNullable[datetime] = UNSET,
         created_at_gte: OptionalNullable[datetime] = UNSET,
-        status: OptionalNullable[List[models.ReportExecutionStatus]] = UNSET,
-        creator_id: OptionalNullable[List[str]] = UNSET,
+        status: OptionalNullable[Iterable[models.ReportExecutionStatus]] = UNSET,
+        creator_id: OptionalNullable[Iterable[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -241,8 +243,10 @@ class ReportExecutionsSDK(BaseSDK):
             report_name=report_name,
             created_at_lte=created_at_lte,
             created_at_gte=created_at_gte,
-            status=status,
-            creator_id=creator_id,
+            status=utils.unmarshal(
+                status, OptionalNullable[List[models.ReportExecutionStatus]]
+            ),
+            creator_id=utils.unmarshal(creator_id, OptionalNullable[List[str]]),
             merchant_account_id=merchant_account_id,
         )
 

@@ -6,7 +6,7 @@ from gr4vy._hooks import HookContext
 from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class CheckoutSessions(BaseSDK):
@@ -296,9 +296,9 @@ class CheckoutSessions(BaseSDK):
         session_id: str,
         merchant_account_id: Optional[str] = None,
         cart_items: OptionalNullable[
-            Union[List[models.CartItem], List[models.CartItemTypedDict]]
+            Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
-        metadata: OptionalNullable[Dict[str, str]] = UNSET,
+        metadata: OptionalNullable[Mapping[str, str]] = UNSET,
         buyer: OptionalNullable[
             Union[models.GuestBuyer, models.GuestBuyerTypedDict]
         ] = UNSET,
@@ -350,7 +350,7 @@ class CheckoutSessions(BaseSDK):
                 cart_items=utils.get_pydantic_model(
                     cart_items, OptionalNullable[List[models.CartItem]]
                 ),
-                metadata=metadata,
+                metadata=utils.unmarshal(metadata, OptionalNullable[Dict[str, str]]),
                 buyer=utils.get_pydantic_model(
                     buyer, OptionalNullable[models.GuestBuyer]
                 ),
@@ -470,9 +470,9 @@ class CheckoutSessions(BaseSDK):
         session_id: str,
         merchant_account_id: Optional[str] = None,
         cart_items: OptionalNullable[
-            Union[List[models.CartItem], List[models.CartItemTypedDict]]
+            Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
-        metadata: OptionalNullable[Dict[str, str]] = UNSET,
+        metadata: OptionalNullable[Mapping[str, str]] = UNSET,
         buyer: OptionalNullable[
             Union[models.GuestBuyer, models.GuestBuyerTypedDict]
         ] = UNSET,
@@ -524,7 +524,7 @@ class CheckoutSessions(BaseSDK):
                 cart_items=utils.get_pydantic_model(
                     cart_items, OptionalNullable[List[models.CartItem]]
                 ),
-                metadata=metadata,
+                metadata=utils.unmarshal(metadata, OptionalNullable[Dict[str, str]]),
                 buyer=utils.get_pydantic_model(
                     buyer, OptionalNullable[models.GuestBuyer]
                 ),

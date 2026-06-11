@@ -55,6 +55,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"gopay"`
 - `"grabpay"`
 - `"ideal"`
+- `"interac"`
 - `"kakaopay"`
 - `"kcp"`
 - `"khipu"`

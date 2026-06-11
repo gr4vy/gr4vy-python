@@ -13,7 +13,7 @@ from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
 from jsonpath import JSONPath
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class Transactions(BaseSDK):
@@ -53,24 +53,24 @@ class Transactions(BaseSDK):
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_email_address: OptionalNullable[str] = UNSET,
         ip_address: OptionalNullable[str] = UNSET,
-        status: OptionalNullable[List[models.TransactionStatus]] = UNSET,
+        status: OptionalNullable[Iterable[models.TransactionStatus]] = UNSET,
         id: OptionalNullable[str] = UNSET,
         payment_service_transaction_id: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
-        metadata: OptionalNullable[List[str]] = UNSET,
+        metadata: OptionalNullable[Iterable[str]] = UNSET,
         amount_eq: OptionalNullable[int] = UNSET,
         amount_lte: OptionalNullable[int] = UNSET,
         amount_gte: OptionalNullable[int] = UNSET,
-        currency: OptionalNullable[List[str]] = UNSET,
-        country: OptionalNullable[List[str]] = UNSET,
-        payment_service_id: OptionalNullable[List[str]] = UNSET,
+        currency: OptionalNullable[Iterable[str]] = UNSET,
+        country: OptionalNullable[Iterable[str]] = UNSET,
+        payment_service_id: OptionalNullable[Iterable[str]] = UNSET,
         payment_method_id: OptionalNullable[str] = UNSET,
         payment_method_label: OptionalNullable[str] = UNSET,
-        payment_method_scheme: OptionalNullable[List[str]] = UNSET,
+        payment_method_scheme: OptionalNullable[Iterable[str]] = UNSET,
         payment_method_country: OptionalNullable[str] = UNSET,
         payment_method_fingerprint: OptionalNullable[str] = UNSET,
-        method: OptionalNullable[List[models.Method]] = UNSET,
-        error_code: OptionalNullable[List[str]] = UNSET,
+        method: OptionalNullable[Iterable[models.Method]] = UNSET,
+        error_code: OptionalNullable[Iterable[str]] = UNSET,
         has_refunds: OptionalNullable[bool] = UNSET,
         pending_review: OptionalNullable[bool] = UNSET,
         checkout_session_id: OptionalNullable[str] = UNSET,
@@ -80,12 +80,14 @@ class Transactions(BaseSDK):
         gift_card_last4: OptionalNullable[str] = UNSET,
         has_settlements: OptionalNullable[bool] = UNSET,
         payment_method_bin: OptionalNullable[str] = UNSET,
-        payment_source: OptionalNullable[List[models.TransactionPaymentSource]] = UNSET,
+        payment_source: OptionalNullable[
+            Iterable[models.TransactionPaymentSource]
+        ] = UNSET,
         is_subsequent_payment: OptionalNullable[bool] = UNSET,
         merchant_initiated: OptionalNullable[bool] = UNSET,
         used_3ds: OptionalNullable[bool] = UNSET,
         disputed: OptionalNullable[bool] = UNSET,
-        buyer_search: OptionalNullable[List[str]] = UNSET,
+        buyer_search: OptionalNullable[Iterable[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -168,24 +170,30 @@ class Transactions(BaseSDK):
             buyer_id=buyer_id,
             buyer_email_address=buyer_email_address,
             ip_address=ip_address,
-            status=status,
+            status=utils.unmarshal(
+                status, OptionalNullable[List[models.TransactionStatus]]
+            ),
             id=id,
             payment_service_transaction_id=payment_service_transaction_id,
             external_identifier=external_identifier,
-            metadata=metadata,
+            metadata=utils.unmarshal(metadata, OptionalNullable[List[str]]),
             amount_eq=amount_eq,
             amount_lte=amount_lte,
             amount_gte=amount_gte,
-            currency=currency,
-            country=country,
-            payment_service_id=payment_service_id,
+            currency=utils.unmarshal(currency, OptionalNullable[List[str]]),
+            country=utils.unmarshal(country, OptionalNullable[List[str]]),
+            payment_service_id=utils.unmarshal(
+                payment_service_id, OptionalNullable[List[str]]
+            ),
             payment_method_id=payment_method_id,
             payment_method_label=payment_method_label,
-            payment_method_scheme=payment_method_scheme,
+            payment_method_scheme=utils.unmarshal(
+                payment_method_scheme, OptionalNullable[List[str]]
+            ),
             payment_method_country=payment_method_country,
             payment_method_fingerprint=payment_method_fingerprint,
-            method=method,
-            error_code=error_code,
+            method=utils.unmarshal(method, OptionalNullable[List[models.Method]]),
+            error_code=utils.unmarshal(error_code, OptionalNullable[List[str]]),
             has_refunds=has_refunds,
             pending_review=pending_review,
             checkout_session_id=checkout_session_id,
@@ -195,12 +203,14 @@ class Transactions(BaseSDK):
             gift_card_last4=gift_card_last4,
             has_settlements=has_settlements,
             payment_method_bin=payment_method_bin,
-            payment_source=payment_source,
+            payment_source=utils.unmarshal(
+                payment_source, OptionalNullable[List[models.TransactionPaymentSource]]
+            ),
             is_subsequent_payment=is_subsequent_payment,
             merchant_initiated=merchant_initiated,
             used_3ds=used_3ds,
             disputed=disputed,
-            buyer_search=buyer_search,
+            buyer_search=utils.unmarshal(buyer_search, OptionalNullable[List[str]]),
             merchant_account_id=merchant_account_id,
         )
 
@@ -381,24 +391,24 @@ class Transactions(BaseSDK):
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_email_address: OptionalNullable[str] = UNSET,
         ip_address: OptionalNullable[str] = UNSET,
-        status: OptionalNullable[List[models.TransactionStatus]] = UNSET,
+        status: OptionalNullable[Iterable[models.TransactionStatus]] = UNSET,
         id: OptionalNullable[str] = UNSET,
         payment_service_transaction_id: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
-        metadata: OptionalNullable[List[str]] = UNSET,
+        metadata: OptionalNullable[Iterable[str]] = UNSET,
         amount_eq: OptionalNullable[int] = UNSET,
         amount_lte: OptionalNullable[int] = UNSET,
         amount_gte: OptionalNullable[int] = UNSET,
-        currency: OptionalNullable[List[str]] = UNSET,
-        country: OptionalNullable[List[str]] = UNSET,
-        payment_service_id: OptionalNullable[List[str]] = UNSET,
+        currency: OptionalNullable[Iterable[str]] = UNSET,
+        country: OptionalNullable[Iterable[str]] = UNSET,
+        payment_service_id: OptionalNullable[Iterable[str]] = UNSET,
         payment_method_id: OptionalNullable[str] = UNSET,
         payment_method_label: OptionalNullable[str] = UNSET,
-        payment_method_scheme: OptionalNullable[List[str]] = UNSET,
+        payment_method_scheme: OptionalNullable[Iterable[str]] = UNSET,
         payment_method_country: OptionalNullable[str] = UNSET,
         payment_method_fingerprint: OptionalNullable[str] = UNSET,
-        method: OptionalNullable[List[models.Method]] = UNSET,
-        error_code: OptionalNullable[List[str]] = UNSET,
+        method: OptionalNullable[Iterable[models.Method]] = UNSET,
+        error_code: OptionalNullable[Iterable[str]] = UNSET,
         has_refunds: OptionalNullable[bool] = UNSET,
         pending_review: OptionalNullable[bool] = UNSET,
         checkout_session_id: OptionalNullable[str] = UNSET,
@@ -408,12 +418,14 @@ class Transactions(BaseSDK):
         gift_card_last4: OptionalNullable[str] = UNSET,
         has_settlements: OptionalNullable[bool] = UNSET,
         payment_method_bin: OptionalNullable[str] = UNSET,
-        payment_source: OptionalNullable[List[models.TransactionPaymentSource]] = UNSET,
+        payment_source: OptionalNullable[
+            Iterable[models.TransactionPaymentSource]
+        ] = UNSET,
         is_subsequent_payment: OptionalNullable[bool] = UNSET,
         merchant_initiated: OptionalNullable[bool] = UNSET,
         used_3ds: OptionalNullable[bool] = UNSET,
         disputed: OptionalNullable[bool] = UNSET,
-        buyer_search: OptionalNullable[List[str]] = UNSET,
+        buyer_search: OptionalNullable[Iterable[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -496,24 +508,30 @@ class Transactions(BaseSDK):
             buyer_id=buyer_id,
             buyer_email_address=buyer_email_address,
             ip_address=ip_address,
-            status=status,
+            status=utils.unmarshal(
+                status, OptionalNullable[List[models.TransactionStatus]]
+            ),
             id=id,
             payment_service_transaction_id=payment_service_transaction_id,
             external_identifier=external_identifier,
-            metadata=metadata,
+            metadata=utils.unmarshal(metadata, OptionalNullable[List[str]]),
             amount_eq=amount_eq,
             amount_lte=amount_lte,
             amount_gte=amount_gte,
-            currency=currency,
-            country=country,
-            payment_service_id=payment_service_id,
+            currency=utils.unmarshal(currency, OptionalNullable[List[str]]),
+            country=utils.unmarshal(country, OptionalNullable[List[str]]),
+            payment_service_id=utils.unmarshal(
+                payment_service_id, OptionalNullable[List[str]]
+            ),
             payment_method_id=payment_method_id,
             payment_method_label=payment_method_label,
-            payment_method_scheme=payment_method_scheme,
+            payment_method_scheme=utils.unmarshal(
+                payment_method_scheme, OptionalNullable[List[str]]
+            ),
             payment_method_country=payment_method_country,
             payment_method_fingerprint=payment_method_fingerprint,
-            method=method,
-            error_code=error_code,
+            method=utils.unmarshal(method, OptionalNullable[List[models.Method]]),
+            error_code=utils.unmarshal(error_code, OptionalNullable[List[str]]),
             has_refunds=has_refunds,
             pending_review=pending_review,
             checkout_session_id=checkout_session_id,
@@ -523,12 +541,14 @@ class Transactions(BaseSDK):
             gift_card_last4=gift_card_last4,
             has_settlements=has_settlements,
             payment_method_bin=payment_method_bin,
-            payment_source=payment_source,
+            payment_source=utils.unmarshal(
+                payment_source, OptionalNullable[List[models.TransactionPaymentSource]]
+            ),
             is_subsequent_payment=is_subsequent_payment,
             merchant_initiated=merchant_initiated,
             used_3ds=used_3ds,
             disputed=disputed,
-            buyer_search=buyer_search,
+            buyer_search=utils.unmarshal(buyer_search, OptionalNullable[List[str]]),
             merchant_account_id=merchant_account_id,
         )
 
@@ -716,7 +736,9 @@ class Transactions(BaseSDK):
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_external_identifier: OptionalNullable[str] = UNSET,
         gift_cards: OptionalNullable[
-            Union[List[models.GiftCardUnion], List[models.GiftCardUnionTypedDict]]
+            Union[
+                Iterable[models.GiftCardUnion], Iterable[models.GiftCardUnionTypedDict]
+            ]
         ] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
         intent: Optional[models.TransactionIntent] = None,
@@ -727,7 +749,7 @@ class Transactions(BaseSDK):
         three_d_secure: OptionalNullable[
             Union[models.ThreeDSecure, models.ThreeDSecureTypedDict]
         ] = UNSET,
-        metadata: OptionalNullable[Dict[str, str]] = UNSET,
+        metadata: OptionalNullable[Mapping[str, str]] = UNSET,
         is_subsequent_payment: Optional[bool] = False,
         merchant_initiated: Optional[bool] = False,
         payment_source: Optional[models.TransactionPaymentSource] = None,
@@ -735,7 +757,7 @@ class Transactions(BaseSDK):
             Union[models.Airline, models.AirlineTypedDict]
         ] = UNSET,
         cart_items: OptionalNullable[
-            Union[List[models.CartItem], List[models.CartItemTypedDict]]
+            Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
         statement_descriptor: OptionalNullable[
             Union[models.StatementDescriptor, models.StatementDescriptorTypedDict]
@@ -892,7 +914,7 @@ class Transactions(BaseSDK):
                 three_d_secure=utils.get_pydantic_model(
                     three_d_secure, OptionalNullable[models.ThreeDSecure]
                 ),
-                metadata=metadata,
+                metadata=utils.unmarshal(metadata, OptionalNullable[Dict[str, str]]),
                 is_subsequent_payment=is_subsequent_payment,
                 merchant_initiated=merchant_initiated,
                 payment_source=payment_source,
@@ -1058,7 +1080,9 @@ class Transactions(BaseSDK):
         buyer_id: OptionalNullable[str] = UNSET,
         buyer_external_identifier: OptionalNullable[str] = UNSET,
         gift_cards: OptionalNullable[
-            Union[List[models.GiftCardUnion], List[models.GiftCardUnionTypedDict]]
+            Union[
+                Iterable[models.GiftCardUnion], Iterable[models.GiftCardUnionTypedDict]
+            ]
         ] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
         intent: Optional[models.TransactionIntent] = None,
@@ -1069,7 +1093,7 @@ class Transactions(BaseSDK):
         three_d_secure: OptionalNullable[
             Union[models.ThreeDSecure, models.ThreeDSecureTypedDict]
         ] = UNSET,
-        metadata: OptionalNullable[Dict[str, str]] = UNSET,
+        metadata: OptionalNullable[Mapping[str, str]] = UNSET,
         is_subsequent_payment: Optional[bool] = False,
         merchant_initiated: Optional[bool] = False,
         payment_source: Optional[models.TransactionPaymentSource] = None,
@@ -1077,7 +1101,7 @@ class Transactions(BaseSDK):
             Union[models.Airline, models.AirlineTypedDict]
         ] = UNSET,
         cart_items: OptionalNullable[
-            Union[List[models.CartItem], List[models.CartItemTypedDict]]
+            Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
         statement_descriptor: OptionalNullable[
             Union[models.StatementDescriptor, models.StatementDescriptorTypedDict]
@@ -1234,7 +1258,7 @@ class Transactions(BaseSDK):
                 three_d_secure=utils.get_pydantic_model(
                     three_d_secure, OptionalNullable[models.ThreeDSecure]
                 ),
-                metadata=metadata,
+                metadata=utils.unmarshal(metadata, OptionalNullable[Dict[str, str]]),
                 is_subsequent_payment=is_subsequent_payment,
                 merchant_initiated=merchant_initiated,
                 payment_source=payment_source,
@@ -1651,7 +1675,7 @@ class Transactions(BaseSDK):
         transaction_id: str,
         merchant_account_id: Optional[str] = None,
         external_identifier: OptionalNullable[str] = UNSET,
-        metadata: OptionalNullable[Dict[str, str]] = UNSET,
+        metadata: OptionalNullable[Mapping[str, str]] = UNSET,
         connection_options: OptionalNullable[
             Union[
                 models.TransactionConnectionOptions,
@@ -1692,7 +1716,7 @@ class Transactions(BaseSDK):
             merchant_account_id=merchant_account_id,
             transaction_update=models.TransactionUpdate(
                 external_identifier=external_identifier,
-                metadata=metadata,
+                metadata=utils.unmarshal(metadata, OptionalNullable[Dict[str, str]]),
                 connection_options=utils.get_pydantic_model(
                     connection_options,
                     OptionalNullable[models.TransactionConnectionOptions],
@@ -1806,7 +1830,7 @@ class Transactions(BaseSDK):
         transaction_id: str,
         merchant_account_id: Optional[str] = None,
         external_identifier: OptionalNullable[str] = UNSET,
-        metadata: OptionalNullable[Dict[str, str]] = UNSET,
+        metadata: OptionalNullable[Mapping[str, str]] = UNSET,
         connection_options: OptionalNullable[
             Union[
                 models.TransactionConnectionOptions,
@@ -1847,7 +1871,7 @@ class Transactions(BaseSDK):
             merchant_account_id=merchant_account_id,
             transaction_update=models.TransactionUpdate(
                 external_identifier=external_identifier,
-                metadata=metadata,
+                metadata=utils.unmarshal(metadata, OptionalNullable[Dict[str, str]]),
                 connection_options=utils.get_pydantic_model(
                     connection_options,
                     OptionalNullable[models.TransactionConnectionOptions],
@@ -1959,7 +1983,7 @@ class Transactions(BaseSDK):
         self,
         *,
         transaction_id: str,
-        prefer: OptionalNullable[List[str]] = UNSET,
+        prefer: OptionalNullable[Iterable[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         idempotency_key: OptionalNullable[str] = UNSET,
         amount: OptionalNullable[int] = UNSET,
@@ -1967,7 +1991,7 @@ class Transactions(BaseSDK):
             Union[models.Airline, models.AirlineTypedDict]
         ] = UNSET,
         cart_items: OptionalNullable[
-            Union[List[models.CartItem], List[models.CartItemTypedDict]]
+            Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -2002,7 +2026,7 @@ class Transactions(BaseSDK):
 
         request = models.CaptureTransactionRequest(
             transaction_id=transaction_id,
-            prefer=prefer,
+            prefer=utils.unmarshal(prefer, OptionalNullable[List[str]]),
             merchant_account_id=merchant_account_id,
             idempotency_key=idempotency_key,
             transaction_capture_create=models.TransactionCaptureCreate(
@@ -2122,7 +2146,7 @@ class Transactions(BaseSDK):
         self,
         *,
         transaction_id: str,
-        prefer: OptionalNullable[List[str]] = UNSET,
+        prefer: OptionalNullable[Iterable[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         idempotency_key: OptionalNullable[str] = UNSET,
         amount: OptionalNullable[int] = UNSET,
@@ -2130,7 +2154,7 @@ class Transactions(BaseSDK):
             Union[models.Airline, models.AirlineTypedDict]
         ] = UNSET,
         cart_items: OptionalNullable[
-            Union[List[models.CartItem], List[models.CartItemTypedDict]]
+            Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -2165,7 +2189,7 @@ class Transactions(BaseSDK):
 
         request = models.CaptureTransactionRequest(
             transaction_id=transaction_id,
-            prefer=prefer,
+            prefer=utils.unmarshal(prefer, OptionalNullable[List[str]]),
             merchant_account_id=merchant_account_id,
             idempotency_key=idempotency_key,
             transaction_capture_create=models.TransactionCaptureCreate(
@@ -2285,7 +2309,7 @@ class Transactions(BaseSDK):
         self,
         *,
         transaction_id: str,
-        prefer: OptionalNullable[List[str]] = UNSET,
+        prefer: OptionalNullable[Iterable[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         idempotency_key: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -2318,7 +2342,7 @@ class Transactions(BaseSDK):
 
         request = models.VoidTransactionRequest(
             transaction_id=transaction_id,
-            prefer=prefer,
+            prefer=utils.unmarshal(prefer, OptionalNullable[List[str]]),
             merchant_account_id=merchant_account_id,
             idempotency_key=idempotency_key,
         )
@@ -2420,7 +2444,7 @@ class Transactions(BaseSDK):
         self,
         *,
         transaction_id: str,
-        prefer: OptionalNullable[List[str]] = UNSET,
+        prefer: OptionalNullable[Iterable[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         idempotency_key: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -2453,7 +2477,7 @@ class Transactions(BaseSDK):
 
         request = models.VoidTransactionRequest(
             transaction_id=transaction_id,
-            prefer=prefer,
+            prefer=utils.unmarshal(prefer, OptionalNullable[List[str]]),
             merchant_account_id=merchant_account_id,
             idempotency_key=idempotency_key,
         )

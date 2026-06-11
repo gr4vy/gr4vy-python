@@ -1,24 +1,24 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 05b60c0b439821efd6d4bf81a32717f6
+  docChecksum: 00979b6db87b572ab050cab3e63385d8
   docVersion: 1.0.0
-  speakeasyVersion: 1.773.1
-  generationVersion: 2.897.1
-  releaseVersion: 2.1.5
-  configChecksum: a259393977c89c7a84914df70194495b
+  speakeasyVersion: 1.776.0
+  generationVersion: 2.900.1
+  releaseVersion: 2.1.6
+  configChecksum: 414a9396bab25e69f994a3654edefe2a
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 97520b00-dbf7-487c-ab67-a0ca47141ee5
-  pristine_commit_hash: 62bde6757a737a59917fdaa99c664aeb360e0fbc
-  pristine_tree_hash: 11ca9d017c79d470cf9fe803078769dfcf853c3a
+  generation_id: 46a48a8f-d710-4114-8a35-507414f654ca
+  pristine_commit_hash: a10f69b7ef484a62c3147b7c6b78978ecf998ab6
+  pristine_tree_hash: 18aedafe2fa1f2f32b52168fcab44b6d1cbd5799
 features:
   python:
     additionalDependencies: 1.1.0
     constsAndDefaults: 1.0.7
-    core: 6.0.27
+    core: 6.0.29
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.1
     envVarSecurityUsage: 0.3.3
@@ -31,7 +31,7 @@ features:
     globals: 3.0.0
     groups: 3.0.1
     ignores: 3.0.1
-    methodArguments: 1.1.0
+    methodArguments: 1.1.1
     nameOverrides: 3.0.3
     nullables: 1.0.2
     openEnums: 1.0.4
@@ -1496,8 +1496,8 @@ trackedFiles:
     pristine_git_object: 035ce5c6abfaea3d5bbc1e5863b59248e533e120
   docs/models/method.md:
     id: 51255838a997
-    last_write_checksum: sha1:df8f087a4dd8d625562f4838981f5440ae66425d
-    pristine_git_object: 3c9088e208342a8a163a99bdd6d2d1247c6a2a59
+    last_write_checksum: sha1:d418167e91b29ec0d21e135757a16527a3606e1b
+    pristine_git_object: f4462a51cd8e8ad443e0c09a06a02260a9ae25f4
   docs/models/mockcardmerchantadvicecodeoptions.md:
     id: 2c64efe23406
     last_write_checksum: sha1:9dd1ae6841279ecc29c51acbf4d51ec885c6707d
@@ -1904,8 +1904,8 @@ trackedFiles:
     pristine_git_object: 9fc5693a4598b46699b86b9e5fb8315cd15d2cc1
   docs/models/redirectpaymentmethodcreatemethod.md:
     id: ae93e1391b37
-    last_write_checksum: sha1:0bd6e7c8c4c542ae7803fa6413da9174b279a22b
-    pristine_git_object: 49f4f0e51ea77eaee5c9d35ca2a8da2b412c4cfe
+    last_write_checksum: sha1:4a68c0270abdf6b7af9abae9abee3bf2619f1ae0
+    pristine_git_object: eab03bc855ced0a9d4e8c863919f115d4c78022c
   docs/models/refund.md:
     id: 3be36b1a2825
     last_write_checksum: sha1:2fa86e07647644e2c424a89c39ea160d54559857
@@ -2652,8 +2652,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:ccfd3cad36e12dd679a61698c35c4d8bb631e93c
-    pristine_git_object: 9010c70c0cb7c145376622f642e385ac696c377e
+    last_write_checksum: sha1:99480d9de2013912026b1e51f81d7eea949a45ce
+    pristine_git_object: 8b50068596a8ea6f24cfccb7782504e3b876c43a
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2680,8 +2680,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:6a846c57a743b768c5fa8617ea7d08d85b0713a2
-    pristine_git_object: 459a01fbe4a0c85f011c355111e4197269310a60
+    last_write_checksum: sha1:fa6dc697b101181115974d603aa3123755d63b2f
+    pristine_git_object: e34abac9f16c889c2f7fb7e91c50b4890d34a32b
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -2700,8 +2700,8 @@ trackedFiles:
     pristine_git_object: 49eb9e77eb0b6a95b3a78f2935c540c83d6924d7
   src/gr4vy/balances.py:
     id: 63481e7da260
-    last_write_checksum: sha1:837bd8521311d239c23de0655f06d6cd962662b3
-    pristine_git_object: 6ae6cd5aef0aaf2e527a5f20dd11da24e92ca7cd
+    last_write_checksum: sha1:42a3a85d4f8f8edab7babb43b549e92b420fc342
+    pristine_git_object: 6b9d99c0b14bd6466f3acbbafdb7a2b87b709ae5
   src/gr4vy/basesdk.py:
     id: c0a7e53766ee
     last_write_checksum: sha1:6f03f991d1649c70a60ef626a9da722693d0490e
@@ -2728,12 +2728,12 @@ trackedFiles:
     pristine_git_object: 74e674a21fa90c409292c18c3744b9298506e4bf
   src/gr4vy/checkout_sessions.py:
     id: 5d0686964a24
-    last_write_checksum: sha1:cf75171bfa421432862b37ec7666f9a8ff1e3dc9
-    pristine_git_object: bdb2e5ac171bcb7d916d423f82a77186a7d59732
+    last_write_checksum: sha1:51c4d862ab0570cfbb24626dbfd18c13b8a275ed
+    pristine_git_object: 91ce89e4d9b8f7b95783d5dd491d5d047e90b749
   src/gr4vy/digital_wallets_sdk.py:
     id: e46d209d4b35
-    last_write_checksum: sha1:555e58d58eaec87de101f77fc18bdbce7395526b
-    pristine_git_object: 8463d5881f0360ac4fee55ee979b0c8080a00950
+    last_write_checksum: sha1:002956a18c19a5795f841a1da3f17bdae9bd5d42
+    pristine_git_object: ceea6dfe4616a948b199325573c113640acf81ce
   src/gr4vy/domains.py:
     id: 9018c96b8492
     last_write_checksum: sha1:f8c923774c940f18bc0691226486de18db94232b
@@ -2824,12 +2824,12 @@ trackedFiles:
     pristine_git_object: 89560b566073785535643e694c112bedbd3db13d
   src/gr4vy/jobs.py:
     id: a7a503a0119f
-    last_write_checksum: sha1:566fbe3cea1ca4a466eddea2706b8a86fcbbe4f5
-    pristine_git_object: 2b6e9e8eceffa3d8d14fdc8c2d31fb1ff5cb8212
+    last_write_checksum: sha1:3cbfec3ceb670af8bb6088e22e82abb6931f5bd5
+    pristine_git_object: 8749187daf41b10994d65bb4225065df52afe06d
   src/gr4vy/merchant_accounts_sdk.py:
     id: 6649e2875667
-    last_write_checksum: sha1:01ca59d1309e0d85cf07523a001b86932e073799
-    pristine_git_object: 144c6e3df212d6877a0986b726460ff2dead777d
+    last_write_checksum: sha1:270447e0f1d34171a7a8bc2075c6b0d7dbaa65db
+    pristine_git_object: 5a9000177640808f6c9d07953daf7ee1360b380a
   src/gr4vy/models/__init__.py:
     id: 427cc7fddfe2
     last_write_checksum: sha1:8f17c5104c0001a2b85b71799de5e67ccf28123c
@@ -3780,8 +3780,8 @@ trackedFiles:
     pristine_git_object: f3974e7d85fe1b5a2b60c462124a8e495426930e
   src/gr4vy/models/method.py:
     id: b96e27456af8
-    last_write_checksum: sha1:70bdb715ad88a3c78f62a806f410ce591b8bb4ea
-    pristine_git_object: 4bee6c0a1f0c83b4c66d2633e60ab78c97fa794f
+    last_write_checksum: sha1:f3deb770944696f8478b3b7d9df3bac389485e7d
+    pristine_git_object: e7585244f911a3cc5c2e94f7a05773c8f38e8350
   src/gr4vy/models/mockcardmerchantadvicecodeoptions.py:
     id: 01ae18d5b401
     last_write_checksum: sha1:a497bfa2ec8f4f2728fb7d850015a6e661eb4368
@@ -4132,8 +4132,8 @@ trackedFiles:
     pristine_git_object: 8c9c64adbea69350ed5c2c705f45be9115faddca
   src/gr4vy/models/redirectpaymentmethodcreate.py:
     id: 490d27963970
-    last_write_checksum: sha1:7fb14f58bef113b67f671a71df2638c8ec5ac8ad
-    pristine_git_object: 18dd44fb5b288aa2bbeeb0906410f9dd2c57021b
+    last_write_checksum: sha1:208ee3b4df2206b285d836a40c0e064b54c455db
+    pristine_git_object: aee51386e849c1d9fbe7df4fd1ab6982ed4bae33
   src/gr4vy/models/refund.py:
     id: 8aa63978d78c
     last_write_checksum: sha1:63f066382d875fd371807ad6d22d89767a315359
@@ -4584,8 +4584,8 @@ trackedFiles:
     pristine_git_object: c1e4c5e29ea1a76062d737ce1b79c254f86ad8db
   src/gr4vy/payment_links_sdk.py:
     id: 86fd2e455dc3
-    last_write_checksum: sha1:c6bc4b5cfa3ba19e4aa769cd38e448597ecdb3ac
-    pristine_git_object: bc2b89070d3c946623d5d440bad9dae83ae790f1
+    last_write_checksum: sha1:c2ed8d5a480326fbc255a6ff12d6e8001bdf7acc
+    pristine_git_object: 8881d90cd54df71012742db4b5a63d12941c7232
   src/gr4vy/payment_methods_network_tokens.py:
     id: 18b5696a2982
     last_write_checksum: sha1:4ee55b3fdeae43d882a2639dbca563ae86206b36
@@ -4596,20 +4596,20 @@ trackedFiles:
     pristine_git_object: b258ef192fd4d2cbfaf57b1f8e01bd5cf8bc05bd
   src/gr4vy/payment_methods_sdk.py:
     id: 9174bd428377
-    last_write_checksum: sha1:95df67f628161d3d3fc4317edc5f250ee6fc3bda
-    pristine_git_object: b1e39cf474e9b1e0be74f211e4f02d9452095c3b
+    last_write_checksum: sha1:05160cbaeb745394926fb38cb865b4ee95cacb4c
+    pristine_git_object: 9565732451576c9f0df155b903791150b1874ceb
   src/gr4vy/payment_options_sdk.py:
     id: a90f4cf4c6cf
-    last_write_checksum: sha1:995ee10665b6ff752c092ec669fcb53e83c44dda
-    pristine_git_object: fb7b2dff6c5a849df1f1d8cef7a07b8162215c2e
+    last_write_checksum: sha1:a544a506241c10412e64dadba92587fce09571a1
+    pristine_git_object: 9d059f75e71f1709d2fabd7cd450a3567dd6db93
   src/gr4vy/payment_service_definitions_sdk.py:
     id: d07e0e70ece9
-    last_write_checksum: sha1:8a57231b884e3d34c27f783450a204b19c5fdee9
-    pristine_git_object: c635918bc7e6742e2c8d9d2bb2d252c13289421b
+    last_write_checksum: sha1:38d8b6e9838d88f7650f7f00d3331525fed22d7c
+    pristine_git_object: 7bcdc6c0d5d078e37f6d80808a3cbd0e9e964caf
   src/gr4vy/payment_services_sdk.py:
     id: 2d6fb11197ef
-    last_write_checksum: sha1:86295bc8317c584222431a2ca65c02368a4c4aab
-    pristine_git_object: 7bb808c4b44c5ed09bd7290fbfdc4377564dc04f
+    last_write_checksum: sha1:4b6ed3e6067635590c35ff5167903420331bc473
+    pristine_git_object: bfab008f1e2c7d586478fb66cf3126b652bef2b8
   src/gr4vy/payouts.py:
     id: 2c9652ed3beb
     last_write_checksum: sha1:5aa982c1618ccd8ff7ca01c1ad0b5b15d7e87505
@@ -4624,12 +4624,12 @@ trackedFiles:
     pristine_git_object: 38495ae422ce5bf3003bc45fcf27e46452e6a8c7
   src/gr4vy/report_executions_sdk.py:
     id: b3a70289a98f
-    last_write_checksum: sha1:f336adf94ba039c1875dfb5fb4e8132b9b8ee526
-    pristine_git_object: d5be2a17874b7a6eac1a2e419c63aebf21e08525
+    last_write_checksum: sha1:7e5d441338ccbbaa2745db8b9f1ec4f7fce024c5
+    pristine_git_object: defb128fb8800d34ecfba819de5e4cfdbc60a88d
   src/gr4vy/reports_sdk.py:
     id: 3b9c7e91de97
-    last_write_checksum: sha1:31861e7bc2428a069915e12dba0b523a67e2beb5
-    pristine_git_object: da6d572281ec0a537cfaa5c64f1c39458b4abd67
+    last_write_checksum: sha1:4847e8ae9e9f7ec4e6bc087ae6ae3abe51035680
+    pristine_git_object: 5fcade4437363ab5beec3725cb478ca98acb9c57
   src/gr4vy/sdk.py:
     id: 924d48ddd6b1
     last_write_checksum: sha1:d24b8bbf33c2fd6d2ce929855be9d577b6e8a43f
@@ -4640,20 +4640,20 @@ trackedFiles:
     pristine_git_object: 19632df8f8460b48a6422f28640a7256352c6766
   src/gr4vy/sessions.py:
     id: c10d3c9c5eec
-    last_write_checksum: sha1:339577c41c26ed459cab0dc2df206bc2066ed81d
-    pristine_git_object: 109f97ff9d4fe10c8a9bd41d3a7de05cd7179b60
+    last_write_checksum: sha1:4b9da632495d201869a2510ad8407e48f3139ad9
+    pristine_git_object: 631fa6ef5274fc4348250e4ea967690444a7bf6f
   src/gr4vy/three_ds_configuration.py:
     id: 408758b2e6fd
-    last_write_checksum: sha1:40e532dee2618c1573fb7219bdc42bc6381a20a8
-    pristine_git_object: 031c624c58ca9633b12e3c1a868a83b224e3dedc
+    last_write_checksum: sha1:852ee015f463921b3c4e4c129764cbc5e2ca0b83
+    pristine_git_object: 46120da6a5cde551abc7b24debe093609f006ca0
   src/gr4vy/three_ds_scenarios.py:
     id: 3007c831a97f
     last_write_checksum: sha1:3359231dce35c4b88c7b9d743d18656263c04d69
     pristine_git_object: a40897aec9ac2a8a3f3c79001fd85948074f1b9a
   src/gr4vy/transactions.py:
     id: 88da8fa0ed7f
-    last_write_checksum: sha1:372e702b8464a83c1315b5306939dd9cd0a18743
-    pristine_git_object: 180c93e663967410c381b591ba88e8c6388975ab
+    last_write_checksum: sha1:dc52e16e47bb124da53aed37babf4e745d6639b0
+    pristine_git_object: 1ae1e4d3604b8d7020464566aa571d50c8a15f81
   src/gr4vy/transactions_refunds.py:
     id: ee2cc8522919
     last_write_checksum: sha1:def55fada591e6bb143f17de91c2a9d81fa6e890
@@ -4732,8 +4732,8 @@ trackedFiles:
     pristine_git_object: e6358e87066f4664af963197eb863feb377cf1d3
   src/gr4vy/utils/serializers.py:
     id: fc34f2ffef43
-    last_write_checksum: sha1:61009f2e4ef6613a1a5af813fe020373dae5a492
-    pristine_git_object: d2149f8b909cb96628db140ac3cddb1b1e981367
+    last_write_checksum: sha1:7485f1425b0661fd84836186570df90207eec6af
+    pristine_git_object: 1031ed930bad5ece220cf7416a56c29f40f0588b
   src/gr4vy/utils/unmarshal_json_response.py:
     id: 75cbb870d484
     last_write_checksum: sha1:9afcaf2e030dfc5c12e5cf8fb2b74095a21c99f3
@@ -8638,7 +8638,7 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.buyers.payment_methods.list()`:  `response.items[].method.enum(paybybank)` **Added**\n* `gr4vy.payment_methods.list()`:  `response.items[].method.enum(paybybank)` **Added**\n* `gr4vy.payment_methods.create()`: \n  *  `request_body.union(RedirectPaymentMethodCreate).method.enum(paybybank)` **Added**\n  *  `response.method.enum(paybybank)` **Added**\n* `gr4vy.payment_methods.get()`:  `response.method.enum(paybybank)` **Added**\n* `gr4vy.payment_methods.update()`:  `response.method.enum(paybybank)` **Added**\n* `gr4vy.transactions.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].payment_method.method.enum(paybybank)` **Added**\n* `gr4vy.transactions.create()`: \n  *  `request` **Changed**\n  *  `response.payment_method.method.enum(paybybank)` **Added**\n* `gr4vy.transactions.get()`:  `response.payment_method.method.enum(paybybank)` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.adyen_paybybank` **Added**\n  *  `response.payment_method.method.enum(paybybank)` **Added**\n* `gr4vy.transactions.capture()`:  `response.union(Transaction).payment_method.method.enum(paybybank)` **Added**\n* `gr4vy.transactions.void()`:  `response.union(Transaction).payment_method.method.enum(paybybank)` **Added**\n* `gr4vy.transactions.cancel()`:  `response.transaction.payment_method.method.enum(paybybank)` **Added**\n* `gr4vy.transactions.sync()`:  `response.payment_method.method.enum(paybybank)` **Added**\n* `gr4vy.payment_service_definitions.list()`:  `response.items[].method.enum(paybybank)` **Added**\n* `gr4vy.payment_service_definitions.get()`:  `response.method.enum(paybybank)` **Added**\n* `gr4vy.payment_services.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].method.enum(paybybank)` **Added**\n* `gr4vy.payment_services.create()`:  `response.method.enum(paybybank)` **Added**\n* `gr4vy.payment_services.get()`:  `response.method.enum(paybybank)` **Added**\n* `gr4vy.payment_services.update()`:  `response.method.enum(paybybank)` **Added**\n* `gr4vy.payouts.list()`:  `response.items[].payment_method.method.enum(paybybank)` **Added**\n* `gr4vy.payouts.create()`:  `response.payment_method.method.enum(paybybank)` **Added**\n* `gr4vy.payouts.get()`:  `response.payment_method.method.enum(paybybank)` **Added**\n* `gr4vy.payment_links.create()`: \n  *  `request.connection_options.adyen_paybybank` **Added**\n"
+releaseNotes: "## Python SDK Changes:\n* `gr4vy.buyers.payment_methods.list()`:  `response.items[].method.enum(interac)` **Added**\n* `gr4vy.payment_methods.list()`:  `response.items[].method.enum(interac)` **Added**\n* `gr4vy.payment_methods.create()`: \n  *  `request_body.union(RedirectPaymentMethodCreate).method.enum(interac)` **Added**\n  *  `response.method.enum(interac)` **Added**\n* `gr4vy.payment_methods.get()`:  `response.method.enum(interac)` **Added**\n* `gr4vy.payment_methods.update()`:  `response.method.enum(interac)` **Added**\n* `gr4vy.transactions.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].payment_method.method.enum(interac)` **Added**\n* `gr4vy.transactions.create()`: \n  *  `request.payment_method.union(RedirectPaymentMethodCreate).method.enum(interac)` **Added**\n  *  `response.payment_method.method.enum(interac)` **Added**\n* `gr4vy.transactions.get()`:  `response.payment_method.method.enum(interac)` **Added**\n* `gr4vy.transactions.update()`:  `response.payment_method.method.enum(interac)` **Added**\n* `gr4vy.transactions.capture()`:  `response.union(Transaction).payment_method.method.enum(interac)` **Added**\n* `gr4vy.transactions.void()`:  `response.union(Transaction).payment_method.method.enum(interac)` **Added**\n* `gr4vy.transactions.cancel()`:  `response.transaction.payment_method.method.enum(interac)` **Added**\n* `gr4vy.transactions.sync()`:  `response.payment_method.method.enum(interac)` **Added**\n* `gr4vy.payment_service_definitions.list()`:  `response.items[].method.enum(interac)` **Added**\n* `gr4vy.payment_service_definitions.get()`:  `response.method.enum(interac)` **Added**\n* `gr4vy.payment_services.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].method.enum(interac)` **Added**\n* `gr4vy.payment_services.create()`:  `response.method.enum(interac)` **Added**\n* `gr4vy.payment_services.get()`:  `response.method.enum(interac)` **Added**\n* `gr4vy.payment_services.update()`:  `response.method.enum(interac)` **Added**\n* `gr4vy.payouts.list()`:  `response.items[].payment_method.method.enum(interac)` **Added**\n* `gr4vy.payouts.create()`:  `response.payment_method.method.enum(interac)` **Added**\n* `gr4vy.payouts.get()`:  `response.payment_method.method.enum(interac)` **Added**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
