@@ -126,6 +126,7 @@ if TYPE_CHECKING:
         CancelTransactionRequestTypedDict,
     )
     from .cancelstatus import CancelStatus
+    from .capture import Capture, CaptureTypedDict
     from .capture_transactionop import (
         CaptureTransactionGlobals,
         CaptureTransactionGlobalsTypedDict,
@@ -134,6 +135,7 @@ if TYPE_CHECKING:
         Response200CaptureTransaction,
         Response200CaptureTransactionTypedDict,
     )
+    from .capturecollection import CaptureCollection, CaptureCollectionTypedDict
     from .capturestatus import CaptureStatus
     from .cardpaymentmethodcreate import (
         CardPaymentMethodCreate,
@@ -601,6 +603,12 @@ if TYPE_CHECKING:
         GetThreeDsScenarioResponse,
         GetThreeDsScenarioResponseTypedDict,
     )
+    from .get_transaction_captureop import (
+        GetTransactionCaptureGlobals,
+        GetTransactionCaptureGlobalsTypedDict,
+        GetTransactionCaptureRequest,
+        GetTransactionCaptureRequestTypedDict,
+    )
     from .get_transaction_refundop import (
         GetTransactionRefundGlobals,
         GetTransactionRefundGlobalsTypedDict,
@@ -840,6 +848,12 @@ if TYPE_CHECKING:
         ListTransactionActionsGlobalsTypedDict,
         ListTransactionActionsRequest,
         ListTransactionActionsRequestTypedDict,
+    )
+    from .list_transaction_capturesop import (
+        ListTransactionCapturesGlobals,
+        ListTransactionCapturesGlobalsTypedDict,
+        ListTransactionCapturesRequest,
+        ListTransactionCapturesRequestTypedDict,
     )
     from .list_transaction_eventsop import (
         ListTransactionEventsGlobals,
@@ -1563,11 +1577,15 @@ __all__ = [
     "CancelTransactionGlobalsTypedDict",
     "CancelTransactionRequest",
     "CancelTransactionRequestTypedDict",
+    "Capture",
+    "CaptureCollection",
+    "CaptureCollectionTypedDict",
     "CaptureStatus",
     "CaptureTransactionGlobals",
     "CaptureTransactionGlobalsTypedDict",
     "CaptureTransactionRequest",
     "CaptureTransactionRequestTypedDict",
+    "CaptureTypedDict",
     "CardPaymentMethodCreate",
     "CardPaymentMethodCreateTypedDict",
     "CardScheme",
@@ -1889,6 +1907,10 @@ __all__ = [
     "GetThreeDsScenarioRequestTypedDict",
     "GetThreeDsScenarioResponse",
     "GetThreeDsScenarioResponseTypedDict",
+    "GetTransactionCaptureGlobals",
+    "GetTransactionCaptureGlobalsTypedDict",
+    "GetTransactionCaptureRequest",
+    "GetTransactionCaptureRequestTypedDict",
     "GetTransactionGlobals",
     "GetTransactionGlobalsTypedDict",
     "GetTransactionRefundGlobals",
@@ -2069,6 +2091,10 @@ __all__ = [
     "ListTransactionActionsGlobalsTypedDict",
     "ListTransactionActionsRequest",
     "ListTransactionActionsRequestTypedDict",
+    "ListTransactionCapturesGlobals",
+    "ListTransactionCapturesGlobalsTypedDict",
+    "ListTransactionCapturesRequest",
+    "ListTransactionCapturesRequestTypedDict",
     "ListTransactionEventsGlobals",
     "ListTransactionEventsGlobalsTypedDict",
     "ListTransactionEventsRequest",
@@ -2677,12 +2703,16 @@ _dynamic_imports: dict[str, str] = {
     "CancelTransactionRequest": ".cancel_transactionop",
     "CancelTransactionRequestTypedDict": ".cancel_transactionop",
     "CancelStatus": ".cancelstatus",
+    "Capture": ".capture",
+    "CaptureTypedDict": ".capture",
     "CaptureTransactionGlobals": ".capture_transactionop",
     "CaptureTransactionGlobalsTypedDict": ".capture_transactionop",
     "CaptureTransactionRequest": ".capture_transactionop",
     "CaptureTransactionRequestTypedDict": ".capture_transactionop",
     "Response200CaptureTransaction": ".capture_transactionop",
     "Response200CaptureTransactionTypedDict": ".capture_transactionop",
+    "CaptureCollection": ".capturecollection",
+    "CaptureCollectionTypedDict": ".capturecollection",
     "CaptureStatus": ".capturestatus",
     "CardPaymentMethodCreate": ".cardpaymentmethodcreate",
     "CardPaymentMethodCreateTypedDict": ".cardpaymentmethodcreate",
@@ -3007,6 +3037,10 @@ _dynamic_imports: dict[str, str] = {
     "GetThreeDsScenarioRequestTypedDict": ".get_three_ds_scenarioop",
     "GetThreeDsScenarioResponse": ".get_three_ds_scenarioop",
     "GetThreeDsScenarioResponseTypedDict": ".get_three_ds_scenarioop",
+    "GetTransactionCaptureGlobals": ".get_transaction_captureop",
+    "GetTransactionCaptureGlobalsTypedDict": ".get_transaction_captureop",
+    "GetTransactionCaptureRequest": ".get_transaction_captureop",
+    "GetTransactionCaptureRequestTypedDict": ".get_transaction_captureop",
     "GetTransactionRefundGlobals": ".get_transaction_refundop",
     "GetTransactionRefundGlobalsTypedDict": ".get_transaction_refundop",
     "GetTransactionRefundRequest": ".get_transaction_refundop",
@@ -3187,6 +3221,10 @@ _dynamic_imports: dict[str, str] = {
     "ListTransactionActionsGlobalsTypedDict": ".list_transaction_actionsop",
     "ListTransactionActionsRequest": ".list_transaction_actionsop",
     "ListTransactionActionsRequestTypedDict": ".list_transaction_actionsop",
+    "ListTransactionCapturesGlobals": ".list_transaction_capturesop",
+    "ListTransactionCapturesGlobalsTypedDict": ".list_transaction_capturesop",
+    "ListTransactionCapturesRequest": ".list_transaction_capturesop",
+    "ListTransactionCapturesRequestTypedDict": ".list_transaction_capturesop",
     "ListTransactionEventsGlobals": ".list_transaction_eventsop",
     "ListTransactionEventsGlobalsTypedDict": ".list_transaction_eventsop",
     "ListTransactionEventsRequest": ".list_transaction_eventsop",
