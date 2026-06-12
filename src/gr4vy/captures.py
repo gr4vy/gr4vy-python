@@ -6,27 +6,26 @@ from gr4vy._hooks import HookContext
 from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
-from jsonpath import JSONPath
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Mapping, Optional
 
 
-class PaymentServiceDefinitionsSDK(BaseSDK):
+class Captures(BaseSDK):
     def list(
         self,
         *,
-        cursor: OptionalNullable[str] = UNSET,
-        limit: Optional[int] = 20,
+        transaction_id: str,
+        merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.ListPaymentServiceDefinitionsResponse]:
-        r"""List payment service definitions
+    ) -> models.CaptureCollection:
+        r"""List transaction captures
 
-        List the definitions of each payment service that can be configured.
+        List all captures for a specific transaction.
 
-        :param cursor: A pointer to the page of results to return.
-        :param limit: The maximum number of items that are at returned.
+        :param transaction_id: The unique identifier of the transaction.
+        :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -42,23 +41,26 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.ListPaymentServiceDefinitionsRequest(
-            cursor=cursor,
-            limit=limit,
+        request = models.ListTransactionCapturesRequest(
+            transaction_id=transaction_id,
+            merchant_account_id=merchant_account_id,
         )
 
         req = self._build_request(
             method="GET",
-            path="/payment-service-definitions",
+            path="/transactions/{transaction_id}/captures",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
             request_body_required=False,
-            request_has_path_params=False,
+            request_has_path_params=True,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            _globals=models.ListTransactionCapturesGlobals(
+                merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
+            ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -80,7 +82,7 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="list_payment_service_definitions",
+                operation_id="list_transaction_captures",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -91,34 +93,9 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
             retry_config=retry_config,
         )
 
-        def next_func() -> Optional[models.ListPaymentServiceDefinitionsResponse]:
-            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
-            next_cursor = JSONPath("$.next_cursor").parse(body)
-
-            if len(next_cursor) == 0:
-                return None
-
-            next_cursor = next_cursor[0]
-            if next_cursor is None or str(next_cursor).strip() == "":
-                return None
-
-            return self.list(
-                cursor=next_cursor,
-                limit=limit,
-                retries=retries,
-                server_url=server_url,
-                timeout_ms=timeout_ms,
-                http_headers=http_headers,
-            )
-
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return models.ListPaymentServiceDefinitionsResponse(
-                result=unmarshal_json_response(
-                    models.PaymentServiceDefinitions, http_res
-                ),
-                next=next_func,
-            )
+            return unmarshal_json_response(models.CaptureCollection, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
@@ -169,19 +146,19 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
     async def list_async(
         self,
         *,
-        cursor: OptionalNullable[str] = UNSET,
-        limit: Optional[int] = 20,
+        transaction_id: str,
+        merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Optional[models.ListPaymentServiceDefinitionsResponse]:
-        r"""List payment service definitions
+    ) -> models.CaptureCollection:
+        r"""List transaction captures
 
-        List the definitions of each payment service that can be configured.
+        List all captures for a specific transaction.
 
-        :param cursor: A pointer to the page of results to return.
-        :param limit: The maximum number of items that are at returned.
+        :param transaction_id: The unique identifier of the transaction.
+        :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -197,23 +174,26 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.ListPaymentServiceDefinitionsRequest(
-            cursor=cursor,
-            limit=limit,
+        request = models.ListTransactionCapturesRequest(
+            transaction_id=transaction_id,
+            merchant_account_id=merchant_account_id,
         )
 
         req = self._build_request_async(
             method="GET",
-            path="/payment-service-definitions",
+            path="/transactions/{transaction_id}/captures",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
             request_body_required=False,
-            request_has_path_params=False,
+            request_has_path_params=True,
             request_has_query_params=True,
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            _globals=models.ListTransactionCapturesGlobals(
+                merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
+            ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -235,7 +215,7 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="list_payment_service_definitions",
+                operation_id="list_transaction_captures",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -246,34 +226,9 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
             retry_config=retry_config,
         )
 
-        def next_func() -> Optional[models.ListPaymentServiceDefinitionsResponse]:
-            body = utils.unmarshal_json(http_res.text, Union[Dict[Any, Any], List[Any]])
-            next_cursor = JSONPath("$.next_cursor").parse(body)
-
-            if len(next_cursor) == 0:
-                return None
-
-            next_cursor = next_cursor[0]
-            if next_cursor is None or str(next_cursor).strip() == "":
-                return None
-
-            return self.list(
-                cursor=next_cursor,
-                limit=limit,
-                retries=retries,
-                server_url=server_url,
-                timeout_ms=timeout_ms,
-                http_headers=http_headers,
-            )
-
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return models.ListPaymentServiceDefinitionsResponse(
-                result=unmarshal_json_response(
-                    models.PaymentServiceDefinitions, http_res
-                ),
-                next=next_func,
-            )
+            return unmarshal_json_response(models.CaptureCollection, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
@@ -324,17 +279,21 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
     def get(
         self,
         *,
-        payment_service_definition_id: str,
+        transaction_id: str,
+        capture_id: str,
+        merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PaymentServiceDefinition:
-        r"""Get a payment service definition
+    ) -> models.Capture:
+        r"""Get transaction capture
 
-        Get the definition of a payment service that can be configured.
+        Retrieve a specific capture for a transaction by its unique identifier.
 
-        :param payment_service_definition_id:
+        :param transaction_id: The unique identifier of the transaction.
+        :param capture_id: The unique identifier of the capture.
+        :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -350,13 +309,15 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.GetPaymentServiceDefinitionRequest(
-            payment_service_definition_id=payment_service_definition_id,
+        request = models.GetTransactionCaptureRequest(
+            transaction_id=transaction_id,
+            capture_id=capture_id,
+            merchant_account_id=merchant_account_id,
         )
 
         req = self._build_request(
             method="GET",
-            path="/payment-service-definitions/{payment_service_definition_id}",
+            path="/transactions/{transaction_id}/captures/{capture_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -366,6 +327,9 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            _globals=models.GetTransactionCaptureGlobals(
+                merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
+            ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -387,7 +351,7 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="get_payment_service_definition",
+                operation_id="get_transaction_capture",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -400,7 +364,7 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PaymentServiceDefinition, http_res)
+            return unmarshal_json_response(models.Capture, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)
@@ -451,17 +415,21 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
     async def get_async(
         self,
         *,
-        payment_service_definition_id: str,
+        transaction_id: str,
+        capture_id: str,
+        merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.PaymentServiceDefinition:
-        r"""Get a payment service definition
+    ) -> models.Capture:
+        r"""Get transaction capture
 
-        Get the definition of a payment service that can be configured.
+        Retrieve a specific capture for a transaction by its unique identifier.
 
-        :param payment_service_definition_id:
+        :param transaction_id: The unique identifier of the transaction.
+        :param capture_id: The unique identifier of the capture.
+        :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -477,13 +445,15 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
         else:
             base_url = self._get_url(base_url, url_variables)
 
-        request = models.GetPaymentServiceDefinitionRequest(
-            payment_service_definition_id=payment_service_definition_id,
+        request = models.GetTransactionCaptureRequest(
+            transaction_id=transaction_id,
+            capture_id=capture_id,
+            merchant_account_id=merchant_account_id,
         )
 
         req = self._build_request_async(
             method="GET",
-            path="/payment-service-definitions/{payment_service_definition_id}",
+            path="/transactions/{transaction_id}/captures/{capture_id}",
             base_url=base_url,
             url_variables=url_variables,
             request=request,
@@ -493,6 +463,9 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
             user_agent_header="user-agent",
             accept_header_value="application/json",
             http_headers=http_headers,
+            _globals=models.GetTransactionCaptureGlobals(
+                merchant_account_id=self.sdk_configuration.globals.merchant_account_id,
+            ),
             security=self.sdk_configuration.security,
             allow_empty_value=None,
             timeout_ms=timeout_ms,
@@ -514,7 +487,7 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
             hook_ctx=HookContext(
                 config=self.sdk_configuration,
                 base_url=base_url or "",
-                operation_id="get_payment_service_definition",
+                operation_id="get_transaction_capture",
                 oauth2_scopes=None,
                 security_source=get_security_from_env(
                     self.sdk_configuration.security, models.Security
@@ -527,265 +500,7 @@ class PaymentServiceDefinitionsSDK(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.PaymentServiceDefinition, http_res)
-        if utils.match_response(http_res, "400", "application/json"):
-            response_data = unmarshal_json_response(errors.Error400Data, http_res)
-            raise errors.Error400(response_data, http_res)
-        if utils.match_response(http_res, "401", "application/json"):
-            response_data = unmarshal_json_response(errors.Error401Data, http_res)
-            raise errors.Error401(response_data, http_res)
-        if utils.match_response(http_res, "403", "application/json"):
-            response_data = unmarshal_json_response(errors.Error403Data, http_res)
-            raise errors.Error403(response_data, http_res)
-        if utils.match_response(http_res, "404", "application/json"):
-            response_data = unmarshal_json_response(errors.Error404Data, http_res)
-            raise errors.Error404(response_data, http_res)
-        if utils.match_response(http_res, "405", "application/json"):
-            response_data = unmarshal_json_response(errors.Error405Data, http_res)
-            raise errors.Error405(response_data, http_res)
-        if utils.match_response(http_res, "409", "application/json"):
-            response_data = unmarshal_json_response(errors.Error409Data, http_res)
-            raise errors.Error409(response_data, http_res)
-        if utils.match_response(http_res, "422", "application/json"):
-            response_data = unmarshal_json_response(
-                errors.HTTPValidationErrorData, http_res
-            )
-            raise errors.HTTPValidationError(response_data, http_res)
-        if utils.match_response(http_res, "425", "application/json"):
-            response_data = unmarshal_json_response(errors.Error425Data, http_res)
-            raise errors.Error425(response_data, http_res)
-        if utils.match_response(http_res, "429", "application/json"):
-            response_data = unmarshal_json_response(errors.Error429Data, http_res)
-            raise errors.Error429(response_data, http_res)
-        if utils.match_response(http_res, "500", "application/json"):
-            response_data = unmarshal_json_response(errors.Error500Data, http_res)
-            raise errors.Error500(response_data, http_res)
-        if utils.match_response(http_res, "502", "application/json"):
-            response_data = unmarshal_json_response(errors.Error502Data, http_res)
-            raise errors.Error502(response_data, http_res)
-        if utils.match_response(http_res, "504", "application/json"):
-            response_data = unmarshal_json_response(errors.Error504Data, http_res)
-            raise errors.Error504(response_data, http_res)
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.APIError("API error occurred", http_res, http_res_text)
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = await utils.stream_to_text_async(http_res)
-            raise errors.APIError("API error occurred", http_res, http_res_text)
-
-        raise errors.APIError("Unexpected response received", http_res)
-
-    def session(
-        self,
-        *,
-        payment_service_definition_id: str,
-        request_body: Mapping[str, Any],
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CreateSession:
-        r"""Create a session for a payment service definition
-
-        Creates a session for a payment service that supports sessions.
-
-        :param payment_service_definition_id:
-        :param request_body:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.CreatePaymentServiceDefinitionSessionRequest(
-            payment_service_definition_id=payment_service_definition_id,
-            request_body=utils.unmarshal(request_body, Dict[str, Any]),
-        )
-
-        req = self._build_request(
-            method="POST",
-            path="/payment-service-definitions/{payment_service_definition_id}/sessions",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=True,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            security=self.sdk_configuration.security,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.request_body, False, False, "json", Dict[str, Any]
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = self.do_request(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="create_payment_service_definition_session",
-                oauth2_scopes=None,
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        response_data: Any = None
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.CreateSession, http_res)
-        if utils.match_response(http_res, "400", "application/json"):
-            response_data = unmarshal_json_response(errors.Error400Data, http_res)
-            raise errors.Error400(response_data, http_res)
-        if utils.match_response(http_res, "401", "application/json"):
-            response_data = unmarshal_json_response(errors.Error401Data, http_res)
-            raise errors.Error401(response_data, http_res)
-        if utils.match_response(http_res, "403", "application/json"):
-            response_data = unmarshal_json_response(errors.Error403Data, http_res)
-            raise errors.Error403(response_data, http_res)
-        if utils.match_response(http_res, "404", "application/json"):
-            response_data = unmarshal_json_response(errors.Error404Data, http_res)
-            raise errors.Error404(response_data, http_res)
-        if utils.match_response(http_res, "405", "application/json"):
-            response_data = unmarshal_json_response(errors.Error405Data, http_res)
-            raise errors.Error405(response_data, http_res)
-        if utils.match_response(http_res, "409", "application/json"):
-            response_data = unmarshal_json_response(errors.Error409Data, http_res)
-            raise errors.Error409(response_data, http_res)
-        if utils.match_response(http_res, "422", "application/json"):
-            response_data = unmarshal_json_response(
-                errors.HTTPValidationErrorData, http_res
-            )
-            raise errors.HTTPValidationError(response_data, http_res)
-        if utils.match_response(http_res, "425", "application/json"):
-            response_data = unmarshal_json_response(errors.Error425Data, http_res)
-            raise errors.Error425(response_data, http_res)
-        if utils.match_response(http_res, "429", "application/json"):
-            response_data = unmarshal_json_response(errors.Error429Data, http_res)
-            raise errors.Error429(response_data, http_res)
-        if utils.match_response(http_res, "500", "application/json"):
-            response_data = unmarshal_json_response(errors.Error500Data, http_res)
-            raise errors.Error500(response_data, http_res)
-        if utils.match_response(http_res, "502", "application/json"):
-            response_data = unmarshal_json_response(errors.Error502Data, http_res)
-            raise errors.Error502(response_data, http_res)
-        if utils.match_response(http_res, "504", "application/json"):
-            response_data = unmarshal_json_response(errors.Error504Data, http_res)
-            raise errors.Error504(response_data, http_res)
-        if utils.match_response(http_res, "4XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.APIError("API error occurred", http_res, http_res_text)
-        if utils.match_response(http_res, "5XX", "*"):
-            http_res_text = utils.stream_to_text(http_res)
-            raise errors.APIError("API error occurred", http_res, http_res_text)
-
-        raise errors.APIError("Unexpected response received", http_res)
-
-    async def session_async(
-        self,
-        *,
-        payment_service_definition_id: str,
-        request_body: Mapping[str, Any],
-        retries: OptionalNullable[utils.RetryConfig] = UNSET,
-        server_url: Optional[str] = None,
-        timeout_ms: Optional[int] = None,
-        http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.CreateSession:
-        r"""Create a session for a payment service definition
-
-        Creates a session for a payment service that supports sessions.
-
-        :param payment_service_definition_id:
-        :param request_body:
-        :param retries: Override the default retry configuration for this method
-        :param server_url: Override the default server URL for this method
-        :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
-        :param http_headers: Additional headers to set or replace on requests.
-        """
-        base_url = None
-        url_variables = None
-        if timeout_ms is None:
-            timeout_ms = self.sdk_configuration.timeout_ms
-
-        if server_url is not None:
-            base_url = server_url
-        else:
-            base_url = self._get_url(base_url, url_variables)
-
-        request = models.CreatePaymentServiceDefinitionSessionRequest(
-            payment_service_definition_id=payment_service_definition_id,
-            request_body=utils.unmarshal(request_body, Dict[str, Any]),
-        )
-
-        req = self._build_request_async(
-            method="POST",
-            path="/payment-service-definitions/{payment_service_definition_id}/sessions",
-            base_url=base_url,
-            url_variables=url_variables,
-            request=request,
-            request_body_required=True,
-            request_has_path_params=True,
-            request_has_query_params=True,
-            user_agent_header="user-agent",
-            accept_header_value="application/json",
-            http_headers=http_headers,
-            security=self.sdk_configuration.security,
-            get_serialized_body=lambda: utils.serialize_request_body(
-                request.request_body, False, False, "json", Dict[str, Any]
-            ),
-            allow_empty_value=None,
-            timeout_ms=timeout_ms,
-        )
-
-        if retries == UNSET:
-            if self.sdk_configuration.retry_config is not UNSET:
-                retries = self.sdk_configuration.retry_config
-
-        retry_config = None
-        if isinstance(retries, utils.RetryConfig):
-            retry_config = (retries, ["429", "500", "502", "503", "504"])
-
-        http_res = await self.do_request_async(
-            hook_ctx=HookContext(
-                config=self.sdk_configuration,
-                base_url=base_url or "",
-                operation_id="create_payment_service_definition_session",
-                oauth2_scopes=None,
-                security_source=get_security_from_env(
-                    self.sdk_configuration.security, models.Security
-                ),
-            ),
-            request=req,
-            is_error_status_code=lambda c: utils.match_status_codes(["4XX", "5XX"], c),
-            retry_config=retry_config,
-        )
-
-        response_data: Any = None
-        if utils.match_response(http_res, "200", "application/json"):
-            return unmarshal_json_response(models.CreateSession, http_res)
+            return unmarshal_json_response(models.Capture, http_res)
         if utils.match_response(http_res, "400", "application/json"):
             response_data = unmarshal_json_response(errors.Error400Data, http_res)
             raise errors.Error400(response_data, http_res)

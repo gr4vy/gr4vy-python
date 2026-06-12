@@ -1929,3 +1929,73 @@ Based on:
 - [python v2.1.1] .
 ### Releases
 - [PyPI v2.1.1] https://pypi.org/project/gr4vy/2.1.1 - .
+
+## 2026-06-02 07:55:00
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.769.2 (2.892.5) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v2.1.2] .
+### Releases
+- [PyPI v2.1.2] https://pypi.org/project/gr4vy/2.1.2 - .
+
+## 2026-06-08 15:15:08
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.772.0 (2.896.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v2.1.3] .
+### Releases
+- [PyPI v2.1.3] https://pypi.org/project/gr4vy/2.1.3 - .
+
+## 2026-06-08 15:26:24
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.772.0 (2.896.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v2.1.4] .
+### Releases
+- [PyPI v2.1.4] https://pypi.org/project/gr4vy/2.1.4 - .
+
+## 2026-06-09 09:36:19
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.773.1 (2.897.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v2.1.5] .
+### Releases
+- [PyPI v2.1.5] https://pypi.org/project/gr4vy/2.1.5 - .
+
+## 2026-06-11 08:36:09
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.776.0 (2.900.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v2.1.6] .
+### Releases
+- [PyPI v2.1.6] https://pypi.org/project/gr4vy/2.1.6 - .
+
+## 2026-06-11 13:37:58
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.776.0 (2.900.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v2.1.7] .
+### Releases
+- [PyPI v2.1.7] https://pypi.org/project/gr4vy/2.1.7 - .
+
+## 2026-06-11 19:09:56
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.777.0 (2.903.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v2.1.8] .
+### Releases
+- [PyPI v2.1.8] https://pypi.org/project/gr4vy/2.1.8 - .

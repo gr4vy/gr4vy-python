@@ -21,7 +21,7 @@ class ThreeDsConfiguration(BaseSDK):
         merchant_category_code: str,
         merchant_url: str,
         scheme: models.CardScheme,
-        metadata: Dict[str, str],
+        metadata: Mapping[str, str],
         currency: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -68,7 +68,7 @@ class ThreeDsConfiguration(BaseSDK):
                 merchant_url=merchant_url,
                 scheme=scheme,
                 currency=currency,
-                metadata=metadata,
+                metadata=utils.unmarshal(metadata, Dict[str, str]),
             ),
         )
 
@@ -182,7 +182,7 @@ class ThreeDsConfiguration(BaseSDK):
         merchant_category_code: str,
         merchant_url: str,
         scheme: models.CardScheme,
-        metadata: Dict[str, str],
+        metadata: Mapping[str, str],
         currency: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -229,7 +229,7 @@ class ThreeDsConfiguration(BaseSDK):
                 merchant_url=merchant_url,
                 scheme=scheme,
                 currency=currency,
-                metadata=metadata,
+                metadata=utils.unmarshal(metadata, Dict[str, str]),
             ),
         )
 
@@ -609,7 +609,7 @@ class ThreeDsConfiguration(BaseSDK):
         merchant_url: OptionalNullable[str] = UNSET,
         scheme: OptionalNullable[models.CardScheme] = UNSET,
         currency: OptionalNullable[str] = UNSET,
-        metadata: OptionalNullable[Dict[str, str]] = UNSET,
+        metadata: OptionalNullable[Mapping[str, str]] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -657,7 +657,7 @@ class ThreeDsConfiguration(BaseSDK):
                 merchant_url=merchant_url,
                 scheme=scheme,
                 currency=currency,
-                metadata=metadata,
+                metadata=utils.unmarshal(metadata, OptionalNullable[Dict[str, str]]),
             ),
         )
 
@@ -773,7 +773,7 @@ class ThreeDsConfiguration(BaseSDK):
         merchant_url: OptionalNullable[str] = UNSET,
         scheme: OptionalNullable[models.CardScheme] = UNSET,
         currency: OptionalNullable[str] = UNSET,
-        metadata: OptionalNullable[Dict[str, str]] = UNSET,
+        metadata: OptionalNullable[Mapping[str, str]] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -821,7 +821,7 @@ class ThreeDsConfiguration(BaseSDK):
                 merchant_url=merchant_url,
                 scheme=scheme,
                 currency=currency,
-                metadata=metadata,
+                metadata=utils.unmarshal(metadata, OptionalNullable[Dict[str, str]]),
             ),
         )
 

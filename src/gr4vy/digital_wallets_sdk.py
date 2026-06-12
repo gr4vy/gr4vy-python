@@ -9,7 +9,7 @@ from gr4vy.sessions import Sessions
 from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class DigitalWalletsSDK(BaseSDK):
@@ -41,8 +41,8 @@ class DigitalWalletsSDK(BaseSDK):
         address: OptionalNullable[
             Union[models.DigitalWalletAddress, models.DigitalWalletAddressTypedDict]
         ] = UNSET,
-        extra_configuration: OptionalNullable[Dict[str, Any]] = UNSET,
-        domain_names: Optional[List[str]] = None,
+        extra_configuration: OptionalNullable[Mapping[str, Any]] = UNSET,
+        domain_names: Optional[Iterable[str]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -90,8 +90,10 @@ class DigitalWalletsSDK(BaseSDK):
                 address=utils.get_pydantic_model(
                     address, OptionalNullable[models.DigitalWalletAddress]
                 ),
-                extra_configuration=extra_configuration,
-                domain_names=domain_names,
+                extra_configuration=utils.unmarshal(
+                    extra_configuration, OptionalNullable[Dict[str, Any]]
+                ),
+                domain_names=utils.unmarshal(domain_names, Optional[List[str]]),
                 accept_terms_and_conditions=accept_terms_and_conditions,
             ),
         )
@@ -210,8 +212,8 @@ class DigitalWalletsSDK(BaseSDK):
         address: OptionalNullable[
             Union[models.DigitalWalletAddress, models.DigitalWalletAddressTypedDict]
         ] = UNSET,
-        extra_configuration: OptionalNullable[Dict[str, Any]] = UNSET,
-        domain_names: Optional[List[str]] = None,
+        extra_configuration: OptionalNullable[Mapping[str, Any]] = UNSET,
+        domain_names: Optional[Iterable[str]] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -259,8 +261,10 @@ class DigitalWalletsSDK(BaseSDK):
                 address=utils.get_pydantic_model(
                     address, OptionalNullable[models.DigitalWalletAddress]
                 ),
-                extra_configuration=extra_configuration,
-                domain_names=domain_names,
+                extra_configuration=utils.unmarshal(
+                    extra_configuration, OptionalNullable[Dict[str, Any]]
+                ),
+                domain_names=utils.unmarshal(domain_names, Optional[List[str]]),
                 accept_terms_and_conditions=accept_terms_and_conditions,
             ),
         )
@@ -1155,7 +1159,7 @@ class DigitalWalletsSDK(BaseSDK):
         digital_wallet_id: str,
         merchant_account_id: Optional[str] = None,
         merchant_name: OptionalNullable[str] = UNSET,
-        domain_names: OptionalNullable[List[str]] = UNSET,
+        domain_names: OptionalNullable[Iterable[str]] = UNSET,
         merchant_display_name: OptionalNullable[str] = UNSET,
         merchant_url: OptionalNullable[str] = UNSET,
         merchant_country_code: OptionalNullable[str] = UNSET,
@@ -1163,7 +1167,7 @@ class DigitalWalletsSDK(BaseSDK):
         address: OptionalNullable[
             Union[models.DigitalWalletAddress, models.DigitalWalletAddressTypedDict]
         ] = UNSET,
-        extra_configuration: OptionalNullable[Dict[str, Any]] = UNSET,
+        extra_configuration: OptionalNullable[Mapping[str, Any]] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1203,7 +1207,7 @@ class DigitalWalletsSDK(BaseSDK):
             merchant_account_id=merchant_account_id,
             digital_wallet_update=models.DigitalWalletUpdate(
                 merchant_name=merchant_name,
-                domain_names=domain_names,
+                domain_names=utils.unmarshal(domain_names, OptionalNullable[List[str]]),
                 merchant_display_name=merchant_display_name,
                 merchant_url=merchant_url,
                 merchant_country_code=merchant_country_code,
@@ -1211,7 +1215,9 @@ class DigitalWalletsSDK(BaseSDK):
                 address=utils.get_pydantic_model(
                     address, OptionalNullable[models.DigitalWalletAddress]
                 ),
-                extra_configuration=extra_configuration,
+                extra_configuration=utils.unmarshal(
+                    extra_configuration, OptionalNullable[Dict[str, Any]]
+                ),
             ),
         )
 
@@ -1321,7 +1327,7 @@ class DigitalWalletsSDK(BaseSDK):
         digital_wallet_id: str,
         merchant_account_id: Optional[str] = None,
         merchant_name: OptionalNullable[str] = UNSET,
-        domain_names: OptionalNullable[List[str]] = UNSET,
+        domain_names: OptionalNullable[Iterable[str]] = UNSET,
         merchant_display_name: OptionalNullable[str] = UNSET,
         merchant_url: OptionalNullable[str] = UNSET,
         merchant_country_code: OptionalNullable[str] = UNSET,
@@ -1329,7 +1335,7 @@ class DigitalWalletsSDK(BaseSDK):
         address: OptionalNullable[
             Union[models.DigitalWalletAddress, models.DigitalWalletAddressTypedDict]
         ] = UNSET,
-        extra_configuration: OptionalNullable[Dict[str, Any]] = UNSET,
+        extra_configuration: OptionalNullable[Mapping[str, Any]] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1369,7 +1375,7 @@ class DigitalWalletsSDK(BaseSDK):
             merchant_account_id=merchant_account_id,
             digital_wallet_update=models.DigitalWalletUpdate(
                 merchant_name=merchant_name,
-                domain_names=domain_names,
+                domain_names=utils.unmarshal(domain_names, OptionalNullable[List[str]]),
                 merchant_display_name=merchant_display_name,
                 merchant_url=merchant_url,
                 merchant_country_code=merchant_country_code,
@@ -1377,7 +1383,9 @@ class DigitalWalletsSDK(BaseSDK):
                 address=utils.get_pydantic_model(
                     address, OptionalNullable[models.DigitalWalletAddress]
                 ),
-                extra_configuration=extra_configuration,
+                extra_configuration=utils.unmarshal(
+                    extra_configuration, OptionalNullable[Dict[str, Any]]
+                ),
             ),
         )
 

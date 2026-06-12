@@ -38,6 +38,9 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"chaseorbital"`
 - `"clearpay"`
 - `"click-to-pay"`
+- `"custom_push"`
+- `"custom_redirect"`
+- `"custom_tokenize"`
 - `"dana"`
 - `"dcb"`
 - `"dlocal"`
@@ -58,6 +61,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"gopay"`
 - `"grabpay"`
 - `"ideal"`
+- `"interac"`
 - `"kakaopay"`
 - `"kcp"`
 - `"khipu"`
@@ -86,6 +90,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"oxxo"`
 - `"p24"`
 - `"pagoefectivo"`
+- `"paybybank"`
 - `"payid"`
 - `"paymaya"`
 - `"paysquad"`

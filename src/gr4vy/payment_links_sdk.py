@@ -8,7 +8,7 @@ from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
 from jsonpath import JSONPath
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class PaymentLinksSDK(BaseSDK):
@@ -44,9 +44,9 @@ class PaymentLinksSDK(BaseSDK):
         intent: Optional[models.TransactionIntent] = None,
         return_url: OptionalNullable[str] = UNSET,
         cart_items: OptionalNullable[
-            Union[List[models.CartItem], List[models.CartItemTypedDict]]
+            Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
-        metadata: OptionalNullable[Dict[str, Any]] = UNSET,
+        metadata: OptionalNullable[Mapping[str, Any]] = UNSET,
         payment_source: Optional[models.TransactionPaymentSource] = None,
         store: Optional[bool] = False,
         buyer_id: OptionalNullable[str] = UNSET,
@@ -131,7 +131,7 @@ class PaymentLinksSDK(BaseSDK):
                 cart_items=utils.get_pydantic_model(
                     cart_items, OptionalNullable[List[models.CartItem]]
                 ),
-                metadata=metadata,
+                metadata=utils.unmarshal(metadata, OptionalNullable[Dict[str, Any]]),
                 payment_source=payment_source,
                 store=store,
                 buyer_id=buyer_id,
@@ -271,9 +271,9 @@ class PaymentLinksSDK(BaseSDK):
         intent: Optional[models.TransactionIntent] = None,
         return_url: OptionalNullable[str] = UNSET,
         cart_items: OptionalNullable[
-            Union[List[models.CartItem], List[models.CartItemTypedDict]]
+            Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
-        metadata: OptionalNullable[Dict[str, Any]] = UNSET,
+        metadata: OptionalNullable[Mapping[str, Any]] = UNSET,
         payment_source: Optional[models.TransactionPaymentSource] = None,
         store: Optional[bool] = False,
         buyer_id: OptionalNullable[str] = UNSET,
@@ -358,7 +358,7 @@ class PaymentLinksSDK(BaseSDK):
                 cart_items=utils.get_pydantic_model(
                     cart_items, OptionalNullable[List[models.CartItem]]
                 ),
-                metadata=metadata,
+                metadata=utils.unmarshal(metadata, OptionalNullable[Dict[str, Any]]),
                 payment_source=payment_source,
                 store=store,
                 buyer_id=buyer_id,
@@ -471,7 +471,7 @@ class PaymentLinksSDK(BaseSDK):
         *,
         cursor: OptionalNullable[str] = UNSET,
         limit: Optional[int] = 20,
-        buyer_search: OptionalNullable[List[str]] = UNSET,
+        buyer_search: OptionalNullable[Iterable[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -504,7 +504,7 @@ class PaymentLinksSDK(BaseSDK):
         request = models.ListPaymentLinksRequest(
             cursor=cursor,
             limit=limit,
-            buyer_search=buyer_search,
+            buyer_search=utils.unmarshal(buyer_search, OptionalNullable[List[str]]),
             merchant_account_id=merchant_account_id,
         )
 
@@ -635,7 +635,7 @@ class PaymentLinksSDK(BaseSDK):
         *,
         cursor: OptionalNullable[str] = UNSET,
         limit: Optional[int] = 20,
-        buyer_search: OptionalNullable[List[str]] = UNSET,
+        buyer_search: OptionalNullable[Iterable[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -668,7 +668,7 @@ class PaymentLinksSDK(BaseSDK):
         request = models.ListPaymentLinksRequest(
             cursor=cursor,
             limit=limit,
-            buyer_search=buyer_search,
+            buyer_search=utils.unmarshal(buyer_search, OptionalNullable[List[str]]),
             merchant_account_id=merchant_account_id,
         )
 

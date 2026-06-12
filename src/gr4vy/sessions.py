@@ -6,7 +6,7 @@ from gr4vy._hooks import HookContext
 from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, Dict, List, Mapping, Optional, Union
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Union
 
 
 class Sessions(BaseSDK):
@@ -590,11 +590,14 @@ class Sessions(BaseSDK):
         email_address: OptionalNullable[str] = UNSET,
         phone_number: OptionalNullable[str] = UNSET,
         cobrand: OptionalNullable[
-            Union[List[models.PazeCobrandItem], List[models.PazeCobrandItemTypedDict]]
+            Union[
+                Iterable[models.PazeCobrandItem],
+                Iterable[models.PazeCobrandItemTypedDict],
+            ]
         ] = UNSET,
-        accepted_shipping_countries: OptionalNullable[List[str]] = UNSET,
+        accepted_shipping_countries: OptionalNullable[Iterable[str]] = UNSET,
         accepted_payment_card_networks: OptionalNullable[
-            List[models.AcceptedPaymentCardNetwork]
+            Iterable[models.AcceptedPaymentCardNetwork]
         ] = UNSET,
         always_enable_checkout: Optional[bool] = False,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -656,8 +659,13 @@ class Sessions(BaseSDK):
                 cobrand=utils.get_pydantic_model(
                     cobrand, OptionalNullable[List[models.PazeCobrandItem]]
                 ),
-                accepted_shipping_countries=accepted_shipping_countries,
-                accepted_payment_card_networks=accepted_payment_card_networks,
+                accepted_shipping_countries=utils.unmarshal(
+                    accepted_shipping_countries, OptionalNullable[List[str]]
+                ),
+                accepted_payment_card_networks=utils.unmarshal(
+                    accepted_payment_card_networks,
+                    OptionalNullable[List[models.AcceptedPaymentCardNetwork]],
+                ),
                 always_enable_checkout=always_enable_checkout,
             ),
         )
@@ -784,11 +792,14 @@ class Sessions(BaseSDK):
         email_address: OptionalNullable[str] = UNSET,
         phone_number: OptionalNullable[str] = UNSET,
         cobrand: OptionalNullable[
-            Union[List[models.PazeCobrandItem], List[models.PazeCobrandItemTypedDict]]
+            Union[
+                Iterable[models.PazeCobrandItem],
+                Iterable[models.PazeCobrandItemTypedDict],
+            ]
         ] = UNSET,
-        accepted_shipping_countries: OptionalNullable[List[str]] = UNSET,
+        accepted_shipping_countries: OptionalNullable[Iterable[str]] = UNSET,
         accepted_payment_card_networks: OptionalNullable[
-            List[models.AcceptedPaymentCardNetwork]
+            Iterable[models.AcceptedPaymentCardNetwork]
         ] = UNSET,
         always_enable_checkout: Optional[bool] = False,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -850,8 +861,13 @@ class Sessions(BaseSDK):
                 cobrand=utils.get_pydantic_model(
                     cobrand, OptionalNullable[List[models.PazeCobrandItem]]
                 ),
-                accepted_shipping_countries=accepted_shipping_countries,
-                accepted_payment_card_networks=accepted_payment_card_networks,
+                accepted_shipping_countries=utils.unmarshal(
+                    accepted_shipping_countries, OptionalNullable[List[str]]
+                ),
+                accepted_payment_card_networks=utils.unmarshal(
+                    accepted_payment_card_networks,
+                    OptionalNullable[List[models.AcceptedPaymentCardNetwork]],
+                ),
                 always_enable_checkout=always_enable_checkout,
             ),
         )

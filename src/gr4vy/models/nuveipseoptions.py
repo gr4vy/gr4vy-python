@@ -11,9 +11,9 @@ class NuveiPSEOptionsTypedDict(TypedDict):
     user_type: NotRequired[Nullable[str]]
     r"""Customer type (\"N\" for persona natural, \"J\" for persona jurídica)"""
     user_fis_number: NotRequired[Nullable[str]]
-    r"""Customer’s document type"""
+    r"""Customer's document type"""
     fiscal_number: NotRequired[Nullable[str]]
-    r"""Customer’s document number"""
+    r"""Customer's document number"""
     bank_code: NotRequired[Nullable[str]]
     r"""The bank code of the selected bank"""
 
@@ -27,12 +27,12 @@ class NuveiPSEOptions(BaseModel):
     user_fis_number: Annotated[
         OptionalNullable[str], pydantic.Field(alias="userFisNumber")
     ] = UNSET
-    r"""Customer’s document type"""
+    r"""Customer's document type"""
 
     fiscal_number: Annotated[
         OptionalNullable[str], pydantic.Field(alias="fiscalNumber")
     ] = UNSET
-    r"""Customer’s document number"""
+    r"""Customer's document number"""
 
     bank_code: Annotated[OptionalNullable[str], pydantic.Field(alias="bankCode")] = (
         UNSET

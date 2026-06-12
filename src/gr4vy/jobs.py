@@ -6,14 +6,14 @@ from gr4vy._hooks import HookContext
 from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
-from typing import Any, List, Mapping, Optional
+from typing import Any, Iterable, List, Mapping, Optional
 
 
 class Jobs(BaseSDK):
     def create(
         self,
         *,
-        payment_method_ids: List[str],
+        payment_method_ids: Iterable[str],
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -44,7 +44,7 @@ class Jobs(BaseSDK):
         request = models.CreateAccountUpdaterJobRequest(
             merchant_account_id=merchant_account_id,
             account_updater_job_create=models.AccountUpdaterJobCreate(
-                payment_method_ids=payment_method_ids,
+                payment_method_ids=utils.unmarshal(payment_method_ids, List[str]),
             ),
         )
 
@@ -153,7 +153,7 @@ class Jobs(BaseSDK):
     async def create_async(
         self,
         *,
-        payment_method_ids: List[str],
+        payment_method_ids: Iterable[str],
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -184,7 +184,7 @@ class Jobs(BaseSDK):
         request = models.CreateAccountUpdaterJobRequest(
             merchant_account_id=merchant_account_id,
             account_updater_job_create=models.AccountUpdaterJobCreate(
-                payment_method_ids=payment_method_ids,
+                payment_method_ids=utils.unmarshal(payment_method_ids, List[str]),
             ),
         )
 

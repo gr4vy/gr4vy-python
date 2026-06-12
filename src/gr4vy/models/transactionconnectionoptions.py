@@ -55,6 +55,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class TransactionConnectionOptionsTypedDict(TypedDict):
     account_updater: NotRequired[Nullable[AccountUpdaterOptionsTypedDict]]
     r"""Custom options to be passed to the `account-updater` connector, allowing for simulating different account updater responses."""
+    adyen_ach: NotRequired[Nullable[AdyenOptionsTypedDict]]
+    r"""Custom options to be passed to the `adyen-ach` connector."""
     adyen_afterpay: NotRequired[Nullable[AdyenOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-afterpay` connector."""
     adyen_alipay: NotRequired[Nullable[AdyenOptionsTypedDict]]
@@ -71,6 +73,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `adyen-ideal` connector."""
     adyen_konbini: NotRequired[Nullable[AdyenOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-konbini` connector."""
+    adyen_paybybank: NotRequired[Nullable[AdyenOptionsTypedDict]]
+    r"""Custom options to be passed to the `adyen-paybybank` connector."""
     adyen_paypay: NotRequired[Nullable[AdyenOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-paypay` connector."""
     adyen_pix: NotRequired[Nullable[AdyenPixOptionsTypedDict]]
@@ -175,6 +179,11 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `account-updater` connector, allowing for simulating different account updater responses."""
 
+    adyen_ach: Annotated[
+        OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-ach")
+    ] = UNSET
+    r"""Custom options to be passed to the `adyen-ach` connector."""
+
     adyen_afterpay: Annotated[
         OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-afterpay")
     ] = UNSET
@@ -214,6 +223,11 @@ class TransactionConnectionOptions(BaseModel):
         OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-konbini")
     ] = UNSET
     r"""Custom options to be passed to the `adyen-konbini` connector."""
+
+    adyen_paybybank: Annotated[
+        OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-paybybank")
+    ] = UNSET
+    r"""Custom options to be passed to the `adyen-paybybank` connector."""
 
     adyen_paypay: Annotated[
         OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-paypay")
@@ -467,6 +481,7 @@ class TransactionConnectionOptions(BaseModel):
         optional_fields = set(
             [
                 "account-updater",
+                "adyen-ach",
                 "adyen-afterpay",
                 "adyen-alipay",
                 "adyen-card",
@@ -475,6 +490,7 @@ class TransactionConnectionOptions(BaseModel):
                 "adyen-giropay",
                 "adyen-ideal",
                 "adyen-konbini",
+                "adyen-paybybank",
                 "adyen-paypay",
                 "adyen-pix",
                 "adyen-sepa",
@@ -528,6 +544,7 @@ class TransactionConnectionOptions(BaseModel):
         nullable_fields = set(
             [
                 "account-updater",
+                "adyen-ach",
                 "adyen-afterpay",
                 "adyen-alipay",
                 "adyen-card",
@@ -536,6 +553,7 @@ class TransactionConnectionOptions(BaseModel):
                 "adyen-giropay",
                 "adyen-ideal",
                 "adyen-konbini",
+                "adyen-paybybank",
                 "adyen-paypay",
                 "adyen-pix",
                 "adyen-sepa",
