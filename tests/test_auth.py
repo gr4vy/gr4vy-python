@@ -1,7 +1,15 @@
 from freezegun import freeze_time
 from datetime import datetime, timedelta, timezone
 import jwt
-from gr4vy.auth import get_token, get_embed_token, update_token, with_token, JWTScope
+from unittest.mock import MagicMock
+from gr4vy.auth import (
+    get_token,
+    get_embed_token,
+    get_embed_token_with_checkout_session,
+    update_token,
+    with_token,
+    JWTScope,
+)
 from gr4vy._version import __user_agent__
 
 PRIVATE_KEY = """-----BEGIN PRIVATE KEY-----
@@ -108,6 +116,43 @@ def test_get_embed_token_takes_optional_checkout_session_id():
     decoded = jwt.decode(token, PRIVATE_KEY, algorithms=["ES512"])
 
     assert decoded["checkout_session_id"] == CHECKOUT_SESSION_ID
+
+
+def test_get_embed_token_with_checkout_session_pins_created_id():
+    client = MagicMock()
+    client.checkout_sessions.create.return_value = MagicMock(id=CHECKOUT_SESSION_ID)
+
+    token = get_embed_token_with_checkout_session(
+        client,
+        PRIVATE_KEY,
+        embed_params=EMBED_PARAMS,
+    )
+
+    decoded = jwt.decode(token, PRIVATE_KEY, algorithms=["ES512"])
+
+    client.checkout_sessions.create.assert_called_once()
+    assert decoded["scopes"] == ["embed"]
+    assert decoded["checkout_session_id"] == CHECKOUT_SESSION_ID
+    assert decoded["embed"] == EMBED_PARAMS
+
+
+def test_get_embed_token_with_checkout_session_forwards_body_and_merchant():
+    client = MagicMock()
+    client.checkout_sessions.create.return_value = MagicMock(id=CHECKOUT_SESSION_ID)
+
+    body = {"metadata": {"order": "123"}}
+
+    get_embed_token_with_checkout_session(
+        client,
+        PRIVATE_KEY,
+        checkout_session_create=body,
+        merchant_account_id="default",
+    )
+
+    client.checkout_sessions.create.assert_called_once_with(
+        merchant_account_id="default",
+        checkout_session_create=body,
+    )
 
 
 @freeze_time(datetime.now(timezone.utc))

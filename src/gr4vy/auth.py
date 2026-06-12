@@ -201,3 +201,39 @@ def get_embed_token(
         embed_params=embed_params,
         checkout_session_id=checkout_session_id,
     )
+
+
+def get_embed_token_with_checkout_session(
+    client: Any,
+    private_key: str,
+    embed_params: Optional[Dict[str, Any]] = None,
+    checkout_session_create: Optional[Any] = None,
+    merchant_account_id: Optional[str] = None,
+) -> str:
+    """Creates a checkout session and returns an Embed token with its ID pinned.
+
+    This is a convenience wrapper around :func:`get_embed_token` for the common Embed
+    flow where every transaction should be tied to a checkout session. It uses the
+    provided (already authenticated) SDK client to create the checkout session, then
+    signs an Embed token that pins the resulting ``checkout_session_id``.
+
+    Args:
+        client (Gr4vy): An authenticated Gr4vy SDK client.
+        private_key (str): The RSA private key in string-PEM format.
+        embed_params (Optional[Dict[str, Any]], optional): An optional list of Embed params to pin. Defaults to None.
+        checkout_session_create (Optional[CheckoutSessionCreate], optional): An optional checkout session body to seed cart items, metadata, and so on. Defaults to None.
+        merchant_account_id (Optional[str], optional): An optional merchant account ID override. Defaults to the client's configured one.
+
+    Returns:
+        str: A bearer auth token for use with Embed.
+    """
+    session = client.checkout_sessions.create(
+        merchant_account_id=merchant_account_id,
+        checkout_session_create=checkout_session_create,
+    )
+
+    return get_embed_token(
+        private_key,
+        embed_params=embed_params,
+        checkout_session_id=session.id,
+    )
