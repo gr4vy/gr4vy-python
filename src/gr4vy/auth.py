@@ -227,7 +227,7 @@ def get_embed_token_with_checkout_session(
         client (Gr4vy): An authenticated Gr4vy SDK client.
         private_key (str): The EC private key in string-PEM format.
         embed_params (Optional[Dict[str, Any]], optional): An optional list of Embed params to pin. Defaults to None.
-        checkout_session_create (Optional[CheckoutSessionCreate], optional): An optional checkout session body to seed cart items, metadata, and so on. Defaults to None.
+        checkout_session_create (Optional[Union[CheckoutSessionCreate, CheckoutSessionCreateTypedDict]], optional): An optional checkout session body (a model or a plain dict) to seed cart items, metadata, and so on. Defaults to None.
         merchant_account_id (Optional[str], optional): An optional merchant account ID override. Defaults to the client's configured one.
 
     Returns:
