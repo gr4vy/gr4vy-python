@@ -36,6 +36,31 @@ def test_authorize_capture_refund(merchant):
     assert refunded.refunded_amount == 1299
 
 
+def test_capture_list_and_get(merchant):
+    sdk = merchant.client
+
+    # Authorize, then capture the full amount.
+    txn = checkout_fields.authorize(sdk, amount=4500, currency="USD")
+    assert txn.status == "authorization_succeeded"
+
+    sdk.transactions.capture(transaction_id=txn.id, amount=4500)
+    poll.until(
+        lambda: sdk.transactions.get(transaction_id=txn.id),
+        lambda t: t.captured_amount == 4500,
+        description="transaction captured",
+    )
+
+    # List captures, then read one back by id.
+    captures = sdk.transactions.captures.list(transaction_id=txn.id)
+    assert len(captures.items) >= 1
+
+    capture_id = captures.items[0].id
+    fetched = sdk.transactions.captures.get(
+        transaction_id=txn.id, capture_id=capture_id
+    )
+    assert fetched.id == capture_id
+
+
 def test_authorize_then_void(merchant):
     sdk = merchant.client
 
