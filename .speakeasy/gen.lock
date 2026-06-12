@@ -3,22 +3,22 @@ id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
   docChecksum: 8e4a574ebf1ef17fe41af3e0e02dce82
   docVersion: 1.0.0
-  speakeasyVersion: 1.777.0
-  generationVersion: 2.903.0
-  releaseVersion: 2.1.8
-  configChecksum: 644f399f4ccf0797c6ff224eabef1714
+  speakeasyVersion: 1.778.0
+  generationVersion: 2.904.2
+  releaseVersion: 2.1.9
+  configChecksum: ec87fb624fb14010106b77e475009b14
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 8be3ab69-43f0-4499-a4d4-30bb034786f1
-  pristine_commit_hash: 6e03b65140a64f14c37a70a07c89cf7689a2e367
-  pristine_tree_hash: e587d922de943b473bcea186f3196bd491891721
+  generation_id: 3d8e1a8f-2154-4c38-939b-95014fd5c8eb
+  pristine_commit_hash: b0ed927debe07e22a9a2adbe97a76dbf3340ca3f
+  pristine_tree_hash: 0285a9acaf9a1fa5f4bc751d6452b84dfca6df73
 features:
   python:
     additionalDependencies: 1.1.0
     constsAndDefaults: 1.0.7
-    core: 6.0.29
+    core: 6.0.30
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.1
     envVarSecurityUsage: 0.3.3
@@ -40,7 +40,7 @@ features:
     retries: 3.0.5
     sdkHooks: 1.2.1
     serverIDs: 3.0.0
-    unions: 3.1.5
+    unions: 3.1.6
 trackedFiles:
   .gitattributes:
     id: 24139dae6567
@@ -2680,8 +2680,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:9549224fdc1ec196f81d4673b22363a63b456cbe
-    pristine_git_object: 354e4f5628bada5078a69fa04f0da70109d6154b
+    last_write_checksum: sha1:23fccaf8945d1978b5d99fdd84a4aeb8d7694f4d
+    pristine_git_object: 023870de27a50e906a059d704a341978f96bb093
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2708,8 +2708,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:600e487de6594bc6742cce96779f1b05b1c6964f
-    pristine_git_object: 98ca801e172c2948ffd0c446e4022910226bc678
+    last_write_checksum: sha1:5eace0676b9a1bd7d43a41940c9852991b5bc870
+    pristine_git_object: 9e46a12865fabf98ab39728c5d4718b169a53927
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -4716,8 +4716,8 @@ trackedFiles:
     pristine_git_object: faa268137bc01c9d08cfadc4797017db48747a96
   src/gr4vy/types/base64fileinput.py:
     id: 44c3662111d1
-    last_write_checksum: sha1:4780e893d3853b5a6e28d9a6ca3ee102ce0f502d
-    pristine_git_object: 25fc53989ed497649363f983219fc58705c8bf87
+    last_write_checksum: sha1:1522687ae3398374c35710cad993a6e82b5ab99d
+    pristine_git_object: 862566fe2b1db830276b390e136e65090e5963d2
   src/gr4vy/types/basemodel.py:
     id: 1af1ed4da662
     last_write_checksum: sha1:10d84aedeb9d35edfdadf2c3020caa1d24d8b584
@@ -4744,12 +4744,12 @@ trackedFiles:
     pristine_git_object: 3324e1bc2668c54c4d5f5a1a845675319757a828
   src/gr4vy/utils/eventstreaming.py:
     id: 5efe1493cdda
-    last_write_checksum: sha1:cad7e4feff4f1b2824afd0d30f2b1964a604f4dd
-    pristine_git_object: 1c189bf6fcad7ba90e0ec6d2f36ca7329d33bb99
+    last_write_checksum: sha1:7d1dc68f8b48486ab646653aa05cc38752e1f912
+    pristine_git_object: a8d4fe5cc88d3c7337339e1b36a61bbf7ca8c4eb
   src/gr4vy/utils/forms.py:
     id: 52e38fbd730d
-    last_write_checksum: sha1:15fa7e9ab1611e062a9984cf06cb20969713d295
-    pristine_git_object: f961e76beaf0a8b1fe0dda44754a74eebd3608e7
+    last_write_checksum: sha1:a971cdb120ad3d416d296d5d0ad89e4808350a7f
+    pristine_git_object: fdf0dc9b2a67bca773eefe6b471498cccaa83424
   src/gr4vy/utils/headers.py:
     id: 9c27b169669d
     last_write_checksum: sha1:7c6df233ee006332b566a8afa9ce9a245941d935
