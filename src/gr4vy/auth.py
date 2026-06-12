@@ -6,9 +6,13 @@ import json
 from jose import jwk
 from cryptography.hazmat.primitives import hashes, serialization
 import jwt
-from typing import Optional, Dict, Any, Union
+from typing import Optional, Dict, Any, Union, TYPE_CHECKING
 from datetime import datetime, timedelta, timezone
 from ._version import __user_agent__
+
+if TYPE_CHECKING:
+    from .sdk import Gr4vy
+    from .models import CheckoutSessionCreate, CheckoutSessionCreateTypedDict
 
 class JWTScope(str, enum.Enum):
     READ_ALL = "*.read"
@@ -204,10 +208,12 @@ def get_embed_token(
 
 
 def get_embed_token_with_checkout_session(
-    client: Any,
+    client: "Gr4vy",
     private_key: str,
     embed_params: Optional[Dict[str, Any]] = None,
-    checkout_session_create: Optional[Any] = None,
+    checkout_session_create: Optional[
+        Union["CheckoutSessionCreate", "CheckoutSessionCreateTypedDict"]
+    ] = None,
     merchant_account_id: Optional[str] = None,
 ) -> str:
     """Creates a checkout session and returns an Embed token with its ID pinned.
