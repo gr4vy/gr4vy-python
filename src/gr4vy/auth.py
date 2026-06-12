@@ -98,7 +98,7 @@ def with_token(private_key: str, scopes: Optional[JWTScopes] = None, expires_in:
     """Generates a new token for every API request.
 
     Args:
-        private_key (str): The RSA private key in string-PEM format.
+        private_key (str): The EC private key in string-PEM format.
         scopes (Optional[JWTScopes], optional): List of scopes. If not set, all access will be set as default
         expires_in (int, optional): The expiration time in seconds. Defaults to 3600.
     """
@@ -116,7 +116,7 @@ def get_token(
     """Generates a token for an API request.
 
     Args:
-        private_key (str): The RSA private key in string-PEM format.
+        private_key (str): The EC private key in string-PEM format.
         scopes (Optional[JWTScopes], optional): List of scopes. If not set, all access will be set as default
         expires_in (int, optional): The expiration time in seconds. Defaults to 3600.
         embed_params (Optional[Dict[str, Any]], optional): An optional list of Embed params to pin. Defaults to None.
@@ -158,7 +158,7 @@ def update_token(
 
     Args:
         token (str): The previously generated token.
-        private_key (str): The RSA private key in string-PEM format.
+        private_key (str): The EC private key in string-PEM format.
         scopes (Optional[JWTScopes], optional): List of scopes. If not set, all access will be set as default
         expires_in (int, optional): The expiration time in seconds. Defaults to 3600.
         embed_params (Optional[Dict[str, Any]], optional): An optional list of Embed params to pin. Defaults to None.
@@ -187,7 +187,7 @@ def get_embed_token(
     """Generates a token for use with Embed.
 
     Args:
-        private_key (str): The RSA private key in string-PEM format.
+        private_key (str): The EC private key in string-PEM format.
         embed_params (Optional[Dict[str, Any]], optional): An optional list of Embed params to pin. Defaults to None.
         checkout_session_id (Optional[str], optional): An optional checkout session ID to link the transaction to. Defaults to None.
 
@@ -219,7 +219,7 @@ def get_embed_token_with_checkout_session(
 
     Args:
         client (Gr4vy): An authenticated Gr4vy SDK client.
-        private_key (str): The RSA private key in string-PEM format.
+        private_key (str): The EC private key in string-PEM format.
         embed_params (Optional[Dict[str, Any]], optional): An optional list of Embed params to pin. Defaults to None.
         checkout_session_create (Optional[CheckoutSessionCreate], optional): An optional checkout session body to seed cart items, metadata, and so on. Defaults to None.
         merchant_account_id (Optional[str], optional): An optional merchant account ID override. Defaults to the client's configured one.
