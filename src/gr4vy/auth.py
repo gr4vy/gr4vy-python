@@ -6,9 +6,13 @@ import json
 from jose import jwk
 from cryptography.hazmat.primitives import hashes, serialization
 import jwt
-from typing import Optional, Dict, Any, Union
+from typing import Optional, Dict, Any, Union, TYPE_CHECKING
 from datetime import datetime, timedelta, timezone
 from ._version import __user_agent__
+
+if TYPE_CHECKING:
+    from .sdk import Gr4vy
+    from .models import CheckoutSessionCreate, CheckoutSessionCreateTypedDict
 
 class JWTScope(str, enum.Enum):
     READ_ALL = "*.read"
@@ -98,7 +102,7 @@ def with_token(private_key: str, scopes: Optional[JWTScopes] = None, expires_in:
     """Generates a new token for every API request.
 
     Args:
-        private_key (str): The RSA private key in string-PEM format.
+        private_key (str): The EC private key in string-PEM format.
         scopes (Optional[JWTScopes], optional): List of scopes. If not set, all access will be set as default
         expires_in (int, optional): The expiration time in seconds. Defaults to 3600.
     """
@@ -116,7 +120,7 @@ def get_token(
     """Generates a token for an API request.
 
     Args:
-        private_key (str): The RSA private key in string-PEM format.
+        private_key (str): The EC private key in string-PEM format.
         scopes (Optional[JWTScopes], optional): List of scopes. If not set, all access will be set as default
         expires_in (int, optional): The expiration time in seconds. Defaults to 3600.
         embed_params (Optional[Dict[str, Any]], optional): An optional list of Embed params to pin. Defaults to None.
@@ -158,7 +162,7 @@ def update_token(
 
     Args:
         token (str): The previously generated token.
-        private_key (str): The RSA private key in string-PEM format.
+        private_key (str): The EC private key in string-PEM format.
         scopes (Optional[JWTScopes], optional): List of scopes. If not set, all access will be set as default
         expires_in (int, optional): The expiration time in seconds. Defaults to 3600.
         embed_params (Optional[Dict[str, Any]], optional): An optional list of Embed params to pin. Defaults to None.
@@ -187,7 +191,7 @@ def get_embed_token(
     """Generates a token for use with Embed.
 
     Args:
-        private_key (str): The RSA private key in string-PEM format.
+        private_key (str): The EC private key in string-PEM format.
         embed_params (Optional[Dict[str, Any]], optional): An optional list of Embed params to pin. Defaults to None.
         checkout_session_id (Optional[str], optional): An optional checkout session ID to link the transaction to. Defaults to None.
 
@@ -200,4 +204,42 @@ def get_embed_token(
         expires_in=3600,
         embed_params=embed_params,
         checkout_session_id=checkout_session_id,
+    )
+
+
+def get_embed_token_with_checkout_session(
+    client: "Gr4vy",
+    private_key: str,
+    embed_params: Optional[Dict[str, Any]] = None,
+    checkout_session_create: Optional[
+        Union["CheckoutSessionCreate", "CheckoutSessionCreateTypedDict"]
+    ] = None,
+    merchant_account_id: Optional[str] = None,
+) -> str:
+    """Creates a checkout session and returns an Embed token with its ID pinned.
+
+    This is a convenience wrapper around :func:`get_embed_token` for the common Embed
+    flow where every transaction should be tied to a checkout session. It uses the
+    provided (already authenticated) SDK client to create the checkout session, then
+    signs an Embed token that pins the resulting ``checkout_session_id``.
+
+    Args:
+        client (Gr4vy): An authenticated Gr4vy SDK client.
+        private_key (str): The EC private key in string-PEM format.
+        embed_params (Optional[Dict[str, Any]], optional): An optional list of Embed params to pin. Defaults to None.
+        checkout_session_create (Optional[Union[CheckoutSessionCreate, CheckoutSessionCreateTypedDict]], optional): An optional checkout session body (a model or a plain dict) to seed cart items, metadata, and so on. Defaults to None.
+        merchant_account_id (Optional[str], optional): An optional merchant account ID override. Defaults to the client's configured one.
+
+    Returns:
+        str: A bearer auth token for use with Embed.
+    """
+    session = client.checkout_sessions.create(
+        merchant_account_id=merchant_account_id,
+        checkout_session_create=checkout_session_create,
+    )
+
+    return get_embed_token(
+        private_key,
+        embed_params=embed_params,
+        checkout_session_id=session.id,
     )

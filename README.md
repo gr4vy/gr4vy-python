@@ -233,6 +233,40 @@ auth.get_embed_token(
 > **Note:** This will only create a token once. Use `with_token` to dynamically generate a token
 > for every request.
 
+### Attaching a checkout session automatically
+
+For Embed, it is recommended to attach a checkout session to every transaction. The
+`auth.get_embed_token_with_checkout_session` helper creates a checkout session using your SDK
+client and returns an Embed token with the resulting `checkout_session_id` already pinned, in a
+single call.
+
+```python
+from gr4vy import Gr4vy, auth
+
+private_key = open("./private_key.pem").read()
+
+g_client = Gr4vy(
+    id="example",
+    server="production",
+    merchant_account_id="default",
+    bearer_auth=auth.with_token(private_key)
+)
+
+token = auth.get_embed_token_with_checkout_session(
+    g_client,
+    private_key,
+    embed_params={
+        "amount": 1299,
+        "currency": "USD",
+        "buyer_external_identifier": "user-1234",
+    },
+)
+```
+
+You can optionally pass a `checkout_session_create` body to seed the session (for example with cart
+items or metadata), and a `merchant_account_id` to override the client's configured merchant
+account.
+
 ## Merchant account ID selection
 
 Depending on the key used, you might need to explicitly define a merchant account ID to use. In our API, 
