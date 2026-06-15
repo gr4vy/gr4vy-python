@@ -34,6 +34,7 @@ RedirectPaymentMethodCreateMethod = Union[
         "ach",
         "capitec",
         "cashapp",
+        "cashappafterpay",
         "clearpay",
         "custom_push",
         "custom_redirect",

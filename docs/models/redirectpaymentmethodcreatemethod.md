@@ -34,6 +34,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"ach"`
 - `"capitec"`
 - `"cashapp"`
+- `"cashappafterpay"`
 - `"clearpay"`
 - `"custom_push"`
 - `"custom_redirect"`

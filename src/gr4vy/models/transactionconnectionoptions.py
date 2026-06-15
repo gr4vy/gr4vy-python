@@ -59,6 +59,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `adyen-ach` connector."""
     adyen_afterpay: NotRequired[Nullable[AdyenOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-afterpay` connector."""
+    adyen_cashappafterpay: NotRequired[Nullable[AdyenOptionsTypedDict]]
+    r"""Custom options to be passed to the `adyen-cashappafterpay` connector."""
     adyen_alipay: NotRequired[Nullable[AdyenOptionsTypedDict]]
     r"""Custom options to be passed to the `adyen-alipay` connector."""
     adyen_card: NotRequired[Nullable[AdyenCardOptionsTypedDict]]
@@ -188,6 +190,11 @@ class TransactionConnectionOptions(BaseModel):
         OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-afterpay")
     ] = UNSET
     r"""Custom options to be passed to the `adyen-afterpay` connector."""
+
+    adyen_cashappafterpay: Annotated[
+        OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-cashappafterpay")
+    ] = UNSET
+    r"""Custom options to be passed to the `adyen-cashappafterpay` connector."""
 
     adyen_alipay: Annotated[
         OptionalNullable[AdyenOptions], pydantic.Field(alias="adyen-alipay")
@@ -483,6 +490,7 @@ class TransactionConnectionOptions(BaseModel):
                 "account-updater",
                 "adyen-ach",
                 "adyen-afterpay",
+                "adyen-cashappafterpay",
                 "adyen-alipay",
                 "adyen-card",
                 "adyen-cashapp",
@@ -546,6 +554,7 @@ class TransactionConnectionOptions(BaseModel):
                 "account-updater",
                 "adyen-ach",
                 "adyen-afterpay",
+                "adyen-cashappafterpay",
                 "adyen-alipay",
                 "adyen-card",
                 "adyen-cashapp",
