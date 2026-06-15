@@ -28,6 +28,7 @@ Method = Union[
         "capitec",
         "card",
         "cashapp",
+        "cashappafterpay",
         "chaseorbital",
         "clearpay",
         "click-to-pay",
