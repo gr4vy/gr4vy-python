@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 9faf39793edec13a55a217705a2a6fd9
+  docChecksum: 4fdb818a59991531ca2894adabab5124
   docVersion: 1.0.0
-  speakeasyVersion: 1.778.0
-  generationVersion: 2.904.2
-  releaseVersion: 2.1.10
-  configChecksum: cb5bfdcdb4073015499b550983b99c6d
+  speakeasyVersion: 1.780.0
+  generationVersion: 2.906.0
+  releaseVersion: 2.1.11
+  configChecksum: a4b2b1d859362c5d0ba2efed3fa1da20
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: e2a5a013-c423-4648-ae85-16bdd9395ccc
-  pristine_commit_hash: 9c6ca3bec58bb624b861e6639006e566e364f6f7
-  pristine_tree_hash: c4d370e9a1a26c73f6e57f454d74e6c21ca88993
+  generation_id: f547f727-5aaa-4fc9-86c4-09adccdb4679
+  pristine_commit_hash: b93b03e3455dd717ed22dce7633ecd6a07c87f57
+  pristine_tree_hash: 0176ae0d72f589968c845b6edc780bedec34163f
 features:
   python:
     additionalDependencies: 1.1.0
@@ -37,7 +37,7 @@ features:
     openEnums: 1.0.4
     pagination: 3.0.10
     responseFormat: 1.1.0
-    retries: 3.0.5
+    retries: 3.0.6
     sdkHooks: 1.2.1
     serverIDs: 3.0.0
     unions: 3.1.6
@@ -180,8 +180,8 @@ trackedFiles:
     pristine_git_object: 78276b8752601503bc20e0389189789ab1189858
   docs/models/adyencardoptions.md:
     id: b4250440538b
-    last_write_checksum: sha1:008378be8d8e3e2329c8dd0c59178f202f7179aa
-    pristine_git_object: 253da576995744126f9abbd72f5bf0b49bf5e241
+    last_write_checksum: sha1:ab1c9f15360ff7aa4c757bc696b5ed7b173aba8e
+    pristine_git_object: 0c9d5c1c730aa4e336a1b5d647d4d61e30d078d3
   docs/models/adyenoptions.md:
     id: 9dae80e273ed
     last_write_checksum: sha1:6f471957fa79997ed800b9886295914c2ab1e3c3
@@ -2680,8 +2680,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:909346221099dc094aef858f0510886bf78faa7a
-    pristine_git_object: 4102cafa82114c58f84419763c2b574bc61edab2
+    last_write_checksum: sha1:4dfc7696461275d90ed8c5f62c98ced4cd873c58
+    pristine_git_object: 871f02fd43a8f388f4a5509158f0d2cf7989f3e6
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2708,8 +2708,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:5a90a65ce589939a6e71a662ed45b09a041f2233
-    pristine_git_object: 7432aa522ee4efc6892220c6f91fd1e3237a9792
+    last_write_checksum: sha1:8be4fd492a00e6633d02cc48f883750f4987e7f2
+    pristine_git_object: 14eac953319cb12c29b0b823c4d4c3184a13eedb
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -2920,8 +2920,8 @@ trackedFiles:
     pristine_git_object: 6e326e646ca00e7e57cad5b8bbc0fd793b8ef2a9
   src/gr4vy/models/adyencardoptions.py:
     id: a85776b081fa
-    last_write_checksum: sha1:92b0cb1fdc76fa899f4bdd47c9f1bb18b49c799d
-    pristine_git_object: 75b3312eff478ce8c7d40993b2ec5b0540bc2742
+    last_write_checksum: sha1:0e0c9e306bc17d25ec77ab03186cca9c912a4423
+    pristine_git_object: 59caa6e17acaacae5ef94306ea8d748e741802ea
   src/gr4vy/models/adyenoptions.py:
     id: 77d460c16e14
     last_write_checksum: sha1:b61eb557bdf7f70041adeee65b61314a283da14d
@@ -4772,8 +4772,8 @@ trackedFiles:
     pristine_git_object: 591415af8e64baa410627b507d2740afb5387d13
   src/gr4vy/utils/retries.py:
     id: c486412ce323
-    last_write_checksum: sha1:471372f5c5d1dd5583239c9cf3c75f1b636e5d87
-    pristine_git_object: af07d4e941007af4213c5ec9047ef8a2fca04e5e
+    last_write_checksum: sha1:9fcb404e0a5113634df964b4f393ba4eea5a76f3
+    pristine_git_object: bab2066f128973f7a38a94ccc5b378bd849a3cd9
   src/gr4vy/utils/security.py:
     id: 648156d4ba48
     last_write_checksum: sha1:8f2a2aef55d9cf6eb91a7a752d3b22ff83e98312
@@ -8751,7 +8751,7 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.buyers.payment_methods.list()`:  `response.items[].method.enum(cashappafterpay)` **Added**\n* `gr4vy.payment_methods.list()`:  `response.items[].method.enum(cashappafterpay)` **Added**\n* `gr4vy.payment_methods.create()`: \n  *  `request_body.union(RedirectPaymentMethodCreate).method.enum(cashappafterpay)` **Added**\n  *  `response.method.enum(cashappafterpay)` **Added**\n* `gr4vy.payment_methods.get()`:  `response.method.enum(cashappafterpay)` **Added**\n* `gr4vy.payment_methods.update()`:  `response.method.enum(cashappafterpay)` **Added**\n* `gr4vy.transactions.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].payment_method.method.enum(cashappafterpay)` **Added**\n* `gr4vy.transactions.create()`: \n  *  `request` **Changed**\n  *  `response.payment_method.method.enum(cashappafterpay)` **Added**\n* `gr4vy.transactions.get()`:  `response.payment_method.method.enum(cashappafterpay)` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.adyen_cashappafterpay` **Added**\n  *  `response.payment_method.method.enum(cashappafterpay)` **Added**\n* `gr4vy.transactions.capture()`:  `response.union(TransactionCapture).transaction.payment_method.method.enum(cashappafterpay)` **Added**\n* `gr4vy.transactions.void()`:  `response.union(Transaction).payment_method.method.enum(cashappafterpay)` **Added**\n* `gr4vy.transactions.cancel()`:  `response.transaction.payment_method.method.enum(cashappafterpay)` **Added**\n* `gr4vy.transactions.sync()`:  `response.payment_method.method.enum(cashappafterpay)` **Added**\n* `gr4vy.payment_service_definitions.list()`:  `response.items[].method.enum(cashappafterpay)` **Added**\n* `gr4vy.payment_service_definitions.get()`:  `response.method.enum(cashappafterpay)` **Added**\n* `gr4vy.payment_services.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].method.enum(cashappafterpay)` **Added**\n* `gr4vy.payment_services.create()`:  `response.method.enum(cashappafterpay)` **Added**\n* `gr4vy.payment_services.get()`:  `response.method.enum(cashappafterpay)` **Added**\n* `gr4vy.payment_services.update()`:  `response.method.enum(cashappafterpay)` **Added**\n* `gr4vy.payouts.list()`:  `response.items[].payment_method.method.enum(cashappafterpay)` **Added**\n* `gr4vy.payouts.create()`:  `response.payment_method.method.enum(cashappafterpay)` **Added**\n* `gr4vy.payouts.get()`:  `response.payment_method.method.enum(cashappafterpay)` **Added**\n* `gr4vy.payment_links.create()`: \n  *  `request.connection_options.adyen_cashappafterpay` **Added**\n"
+releaseNotes: "## Python SDK Changes:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.adyen_card` **Changed**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.adyen_card` **Changed**\n* `gr4vy.payment_links.create()`: \n  *  `request.connection_options.adyen_card` **Changed**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json

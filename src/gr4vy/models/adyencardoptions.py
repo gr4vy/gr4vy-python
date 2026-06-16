@@ -6,7 +6,7 @@ from .adyensplitsoptions import AdyenSplitsOptions, AdyenSplitsOptionsTypedDict
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 import pydantic
 from pydantic import model_serializer
-from typing import Dict
+from typing import Any, Dict
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -23,6 +23,16 @@ class AdyenCardOptionsTypedDict(TypedDict):
     r"""The origin of the window where the payment is initiated, used for 3D Secure authentication."""
     splits: NotRequired[Nullable[AdyenSplitsOptionsTypedDict]]
     r"""Passes information of splitting payment amounts to the Adyen API."""
+    merchant_risk_indicator: NotRequired[Nullable[Dict[str, Any]]]
+    r"""Passes `merchantRiskIndicator` data to Adyen."""
+    account_info: NotRequired[Nullable[Dict[str, Any]]]
+    r"""Passes `accountInfo` data to Adyen."""
+    risk_data: NotRequired[Nullable[Dict[str, Any]]]
+    r"""Passes `riskData.customFields` to Adyen."""
+    three_ds_requestor_challenge_ind: NotRequired[Nullable[str]]
+    r"""Passes `threeDS2RequestData.threeDSRequestorChallengeInd` to Adyen."""
+    attempt_authentication: NotRequired[Nullable[str]]
+    r"""Passes `authenticationData.attemptAuthentication` to Adyen."""
 
 
 class AdyenCardOptions(BaseModel):
@@ -53,6 +63,31 @@ class AdyenCardOptions(BaseModel):
     splits: OptionalNullable[AdyenSplitsOptions] = UNSET
     r"""Passes information of splitting payment amounts to the Adyen API."""
 
+    merchant_risk_indicator: Annotated[
+        OptionalNullable[Dict[str, Any]], pydantic.Field(alias="merchantRiskIndicator")
+    ] = UNSET
+    r"""Passes `merchantRiskIndicator` data to Adyen."""
+
+    account_info: Annotated[
+        OptionalNullable[Dict[str, Any]], pydantic.Field(alias="accountInfo")
+    ] = UNSET
+    r"""Passes `accountInfo` data to Adyen."""
+
+    risk_data: Annotated[
+        OptionalNullable[Dict[str, Any]], pydantic.Field(alias="riskData")
+    ] = UNSET
+    r"""Passes `riskData.customFields` to Adyen."""
+
+    three_ds_requestor_challenge_ind: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="threeDSRequestorChallengeInd")
+    ] = UNSET
+    r"""Passes `threeDS2RequestData.threeDSRequestorChallengeInd` to Adyen."""
+
+    attempt_authentication: Annotated[
+        OptionalNullable[str], pydantic.Field(alias="attemptAuthentication")
+    ] = UNSET
+    r"""Passes `authenticationData.attemptAuthentication` to Adyen."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -63,6 +98,11 @@ class AdyenCardOptions(BaseModel):
                 "autoRescueScenario",
                 "window_origin",
                 "splits",
+                "merchantRiskIndicator",
+                "accountInfo",
+                "riskData",
+                "threeDSRequestorChallengeInd",
+                "attemptAuthentication",
             ]
         )
         nullable_fields = set(
@@ -73,6 +113,11 @@ class AdyenCardOptions(BaseModel):
                 "autoRescueScenario",
                 "window_origin",
                 "splits",
+                "merchantRiskIndicator",
+                "accountInfo",
+                "riskData",
+                "threeDSRequestorChallengeInd",
+                "attemptAuthentication",
             ]
         )
         serialized = handler(self)
