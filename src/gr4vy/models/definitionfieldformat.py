@@ -9,6 +9,7 @@ DefinitionFieldFormat = Union[
     Literal[
         "text",
         "multiline",
+        "file",
         "number",
         "timezone",
         "boolean",

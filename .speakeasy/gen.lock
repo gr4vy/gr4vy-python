@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 4fdb818a59991531ca2894adabab5124
+  docChecksum: 6270377e937de137529049c14cdac38e
   docVersion: 1.0.0
-  speakeasyVersion: 1.780.0
-  generationVersion: 2.906.0
-  releaseVersion: 2.1.11
-  configChecksum: a4b2b1d859362c5d0ba2efed3fa1da20
+  speakeasyVersion: 1.781.0
+  generationVersion: 2.907.0
+  releaseVersion: 2.1.12
+  configChecksum: 5a42d2c5e1078e325062088b458fc4b6
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: f547f727-5aaa-4fc9-86c4-09adccdb4679
-  pristine_commit_hash: b93b03e3455dd717ed22dce7633ecd6a07c87f57
-  pristine_tree_hash: 0176ae0d72f589968c845b6edc780bedec34163f
+  generation_id: 511ded9c-fb93-46c7-bf0f-b10c299df27e
+  pristine_commit_hash: 1f73ade3e701be0ed9d375de4196f56abc20f16a
+  pristine_tree_hash: 5f4b4476800540cb41feed5735d0e7a799e1ddd5
 features:
   python:
     additionalDependencies: 1.1.0
@@ -38,7 +38,7 @@ features:
     pagination: 3.0.10
     responseFormat: 1.1.0
     retries: 3.0.6
-    sdkHooks: 1.2.1
+    sdkHooks: 1.2.2
     serverIDs: 3.0.0
     unions: 3.1.6
 trackedFiles:
@@ -652,8 +652,8 @@ trackedFiles:
     pristine_git_object: 00b29f3516fb40eace3c1d7e85d9a4ad87643a5d
   docs/models/definitionfieldformat.md:
     id: 51b73d55251f
-    last_write_checksum: sha1:9189772e495dd09546d65e272a4cb71406c32ff2
-    pristine_git_object: 715e5f310c9f7cb78a204ca262069ba2637cfc65
+    last_write_checksum: sha1:ad747314fbc4f88acfbf5acd96a0c7d1fdb96ffb
+    pristine_git_object: 5fc519dfdfaf71f96517b65c6aad8157fc2d1417
   docs/models/deletebuyerglobals.md:
     id: b4bd631775fd
     last_write_checksum: sha1:8be4737c073459c370ca7afc67e284bf0376993a
@@ -2680,8 +2680,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:4dfc7696461275d90ed8c5f62c98ced4cd873c58
-    pristine_git_object: 871f02fd43a8f388f4a5509158f0d2cf7989f3e6
+    last_write_checksum: sha1:80a82968a450cb893fca80484937825ba4448b86
+    pristine_git_object: 407b8fa1bca1724f91d3e093b2198fc372939c65
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2708,8 +2708,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:8be4fd492a00e6633d02cc48f883750f4987e7f2
-    pristine_git_object: 14eac953319cb12c29b0b823c4d4c3184a13eedb
+    last_write_checksum: sha1:316d2d960aae199986c153218132740d95d7555e
+    pristine_git_object: 3677ea2c8b9a1bfe9351d4485faea027e33aa8a3
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -3284,8 +3284,8 @@ trackedFiles:
     pristine_git_object: 4276d6412548ace0088e73be222886dbe24332e1
   src/gr4vy/models/definitionfieldformat.py:
     id: d6ee2adaf252
-    last_write_checksum: sha1:4b624472d084116f3bfece90c8d69e3bfb628b0d
-    pristine_git_object: a968e7d2bb2cd0c730a90375dff370b960b89a9e
+    last_write_checksum: sha1:7b0aeb1c677f280ecb5b049c3ee4f46914fd8636
+    pristine_git_object: 9c5841840d88139b9f6abaaacf3d5425cf704764
   src/gr4vy/models/delete_buyer_shipping_detailsop.py:
     id: 231a96d5c5cc
     last_write_checksum: sha1:847c59d142f24523de2406551e6242b6a469306e
@@ -8751,7 +8751,10 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.adyen_card` **Changed**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.adyen_card` **Changed**\n* `gr4vy.payment_links.create()`: \n  *  `request.connection_options.adyen_card` **Changed**\n"
+releaseNotes: |
+  ## Python SDK Changes:
+  * `gr4vy.payment_service_definitions.list()`:  `response.items[].fields[].format.enum(file)` **Added**
+  * `gr4vy.payment_service_definitions.get()`:  `response.fields[].format.enum(file)` **Added**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
