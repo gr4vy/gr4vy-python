@@ -1048,6 +1048,11 @@ if TYPE_CHECKING:
     from .payoutsummaries import PayoutSummaries, PayoutSummariesTypedDict
     from .payoutsummary import PayoutSummary, PayoutSummaryTypedDict
     from .paypaloptions import PaypalOptions, PaypalOptionsTypedDict
+    from .paypalorderupdatecallbackconfig import (
+        CallbackEvent,
+        PaypalOrderUpdateCallbackConfig,
+        PaypalOrderUpdateCallbackConfigTypedDict,
+    )
     from .paypalshippingoptions import (
         PaypalShippingOptions,
         PaypalShippingOptionsTypedDict,
@@ -1572,6 +1577,7 @@ __all__ = [
     "Buyers",
     "BuyersTypedDict",
     "CVVResponseCode",
+    "CallbackEvent",
     "CancelStatus",
     "CancelTransactionGlobals",
     "CancelTransactionGlobalsTypedDict",
@@ -2248,6 +2254,8 @@ __all__ = [
     "PayoutSummaryTypedDict",
     "PaypalOptions",
     "PaypalOptionsTypedDict",
+    "PaypalOrderUpdateCallbackConfig",
+    "PaypalOrderUpdateCallbackConfigTypedDict",
     "PaypalShippingOptions",
     "PaypalShippingOptionsItem",
     "PaypalShippingOptionsItemAmount",
@@ -3378,6 +3386,9 @@ _dynamic_imports: dict[str, str] = {
     "PayoutSummaryTypedDict": ".payoutsummary",
     "PaypalOptions": ".paypaloptions",
     "PaypalOptionsTypedDict": ".paypaloptions",
+    "CallbackEvent": ".paypalorderupdatecallbackconfig",
+    "PaypalOrderUpdateCallbackConfig": ".paypalorderupdatecallbackconfig",
+    "PaypalOrderUpdateCallbackConfigTypedDict": ".paypalorderupdatecallbackconfig",
     "PaypalShippingOptions": ".paypalshippingoptions",
     "PaypalShippingOptionsTypedDict": ".paypalshippingoptions",
     "PaypalShippingOptionsItem": ".paypalshippingoptionsitem",
