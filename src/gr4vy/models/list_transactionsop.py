@@ -120,6 +120,8 @@ class ListTransactionsRequestTypedDict(TypedDict):
     r"""Filters for transactions that attempted 3DS authentication or not."""
     disputed: NotRequired[Nullable[bool]]
     r"""Filters for transactions that have been disputed."""
+    reauthorized_from_transaction_id: NotRequired[Nullable[str]]
+    r"""Filters for transactions that were reauthorized from the transaction with the provided ID."""
     buyer_search: NotRequired[Nullable[List[str]]]
     r"""Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values."""
     merchant_account_id: NotRequired[str]
@@ -374,6 +376,12 @@ class ListTransactionsRequest(BaseModel):
     ] = UNSET
     r"""Filters for transactions that have been disputed."""
 
+    reauthorized_from_transaction_id: Annotated[
+        OptionalNullable[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters for transactions that were reauthorized from the transaction with the provided ID."""
+
     buyer_search: Annotated[
         OptionalNullable[List[str]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
@@ -434,6 +442,7 @@ class ListTransactionsRequest(BaseModel):
                 "merchant_initiated",
                 "used_3ds",
                 "disputed",
+                "reauthorized_from_transaction_id",
                 "buyer_search",
                 "merchant_account_id",
             ]
@@ -482,6 +491,7 @@ class ListTransactionsRequest(BaseModel):
                 "merchant_initiated",
                 "used_3ds",
                 "disputed",
+                "reauthorized_from_transaction_id",
                 "buyer_search",
             ]
         )
