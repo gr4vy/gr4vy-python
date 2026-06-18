@@ -90,6 +90,7 @@ class Transactions(BaseSDK):
         merchant_initiated: OptionalNullable[bool] = UNSET,
         used_3ds: OptionalNullable[bool] = UNSET,
         disputed: OptionalNullable[bool] = UNSET,
+        reauthorized_from_transaction_id: OptionalNullable[str] = UNSET,
         buyer_search: OptionalNullable[Iterable[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -144,6 +145,7 @@ class Transactions(BaseSDK):
         :param merchant_initiated: Filters for transactions where the `merchant_initiated` matches the provided value.
         :param used_3ds: Filters for transactions that attempted 3DS authentication or not.
         :param disputed: Filters for transactions that have been disputed.
+        :param reauthorized_from_transaction_id: Filters for transactions that were reauthorized from the transaction with the provided ID.
         :param buyer_search: Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
@@ -213,6 +215,7 @@ class Transactions(BaseSDK):
             merchant_initiated=merchant_initiated,
             used_3ds=used_3ds,
             disputed=disputed,
+            reauthorized_from_transaction_id=reauthorized_from_transaction_id,
             buyer_search=utils.unmarshal(buyer_search, OptionalNullable[List[str]]),
             merchant_account_id=merchant_account_id,
         )
@@ -319,6 +322,7 @@ class Transactions(BaseSDK):
                 merchant_initiated=merchant_initiated,
                 used_3ds=used_3ds,
                 disputed=disputed,
+                reauthorized_from_transaction_id=reauthorized_from_transaction_id,
                 buyer_search=buyer_search,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
@@ -428,6 +432,7 @@ class Transactions(BaseSDK):
         merchant_initiated: OptionalNullable[bool] = UNSET,
         used_3ds: OptionalNullable[bool] = UNSET,
         disputed: OptionalNullable[bool] = UNSET,
+        reauthorized_from_transaction_id: OptionalNullable[str] = UNSET,
         buyer_search: OptionalNullable[Iterable[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -482,6 +487,7 @@ class Transactions(BaseSDK):
         :param merchant_initiated: Filters for transactions where the `merchant_initiated` matches the provided value.
         :param used_3ds: Filters for transactions that attempted 3DS authentication or not.
         :param disputed: Filters for transactions that have been disputed.
+        :param reauthorized_from_transaction_id: Filters for transactions that were reauthorized from the transaction with the provided ID.
         :param buyer_search: Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
@@ -551,6 +557,7 @@ class Transactions(BaseSDK):
             merchant_initiated=merchant_initiated,
             used_3ds=used_3ds,
             disputed=disputed,
+            reauthorized_from_transaction_id=reauthorized_from_transaction_id,
             buyer_search=utils.unmarshal(buyer_search, OptionalNullable[List[str]]),
             merchant_account_id=merchant_account_id,
         )
@@ -657,6 +664,7 @@ class Transactions(BaseSDK):
                 merchant_initiated=merchant_initiated,
                 used_3ds=used_3ds,
                 disputed=disputed,
+                reauthorized_from_transaction_id=reauthorized_from_transaction_id,
                 buyer_search=buyer_search,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
