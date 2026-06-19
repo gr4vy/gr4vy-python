@@ -167,6 +167,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `stripe-klarna` connector."""
     stripe_onelink: NotRequired[Nullable[StripeOptionsTypedDict]]
     r"""Custom options to be passed to the `stripe-onelink` connector."""
+    stripe_stripe: NotRequired[Nullable[StripeOptionsTypedDict]]
+    r"""Custom options to be passed to the `stripe-stripe` connector."""
     travelhub_card: NotRequired[Nullable[TravelhubOptionsTypedDict]]
     r"""Custom options to be passed to the `travelhub-card` connector."""
     trustly_trustly: NotRequired[Nullable[TrustlyOptionsTypedDict]]
@@ -469,6 +471,11 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `stripe-onelink` connector."""
 
+    stripe_stripe: Annotated[
+        OptionalNullable[StripeOptions], pydantic.Field(alias="stripe-stripe")
+    ] = UNSET
+    r"""Custom options to be passed to the `stripe-stripe` connector."""
+
     travelhub_card: Annotated[
         OptionalNullable[TravelhubOptions], pydantic.Field(alias="travelhub-card")
     ] = UNSET
@@ -551,6 +558,7 @@ class TransactionConnectionOptions(BaseModel):
                 "stripe-card",
                 "stripe-klarna",
                 "stripe-onelink",
+                "stripe-stripe",
                 "travelhub-card",
                 "trustly-trustly",
                 "wpay-everydaypay",
@@ -616,6 +624,7 @@ class TransactionConnectionOptions(BaseModel):
                 "stripe-card",
                 "stripe-klarna",
                 "stripe-onelink",
+                "stripe-stripe",
                 "travelhub-card",
                 "trustly-trustly",
                 "wpay-everydaypay",

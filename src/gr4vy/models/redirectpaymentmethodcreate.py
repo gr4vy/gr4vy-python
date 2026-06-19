@@ -112,6 +112,7 @@ RedirectPaymentMethodCreateMethod = Union[
         "spei",
         "stitch",
         "swish",
+        "stripe",
         "stripedd",
         "stripetoken",
         "tapi",
