@@ -21,6 +21,16 @@ class PaypalOptionsTypedDict(TypedDict):
     r"""Additional Set Transaction Context Values (STC) to be sent to PayPal as part of the transaction."""
     shipping: NotRequired[Nullable[PaypalShippingOptionsTypedDict]]
     r"""Shipping information to be passed to the PayPal API."""
+    user_action: NotRequired[Nullable[str]]
+    r"""Customizes the PayPal Checkout button text. Use `PAY_NOW` to show a pay now button, or `CONTINUE` to show a continue button for deferred payments."""
+    shipping_preference: NotRequired[Nullable[str]]
+    r"""Controls the shipping address display in the PayPal Checkout flow. Use `GET_FROM_FILE` to use the shipping address from the PayPal account, `NO_SHIPPING` to hide shipping address fields, or `SET_PROVIDED_ADDRESS` to use the shipping address provided in the request."""
+    brand_name: NotRequired[Nullable[str]]
+    r"""The merchant brand name that appears in the PayPal Checkout flow. Maximum 127 characters."""
+    landing_page: NotRequired[Nullable[str]]
+    r"""The type of landing page to display on the PayPal Checkout. Use `LOGIN` to show the PayPal login page, `GUEST_CHECKOUT` to show the guest checkout page, or `NO_PREFERENCE` to let PayPal decide."""
+    locale: NotRequired[Nullable[str]]
+    r"""The BCP 47 locale used to localize the PayPal Checkout page. For example, `en-US` or `fr-FR`."""
 
 
 class PaypalOptions(BaseModel):
@@ -35,13 +45,46 @@ class PaypalOptions(BaseModel):
     shipping: OptionalNullable[PaypalShippingOptions] = UNSET
     r"""Shipping information to be passed to the PayPal API."""
 
+    user_action: OptionalNullable[str] = UNSET
+    r"""Customizes the PayPal Checkout button text. Use `PAY_NOW` to show a pay now button, or `CONTINUE` to show a continue button for deferred payments."""
+
+    shipping_preference: OptionalNullable[str] = UNSET
+    r"""Controls the shipping address display in the PayPal Checkout flow. Use `GET_FROM_FILE` to use the shipping address from the PayPal account, `NO_SHIPPING` to hide shipping address fields, or `SET_PROVIDED_ADDRESS` to use the shipping address provided in the request."""
+
+    brand_name: OptionalNullable[str] = UNSET
+    r"""The merchant brand name that appears in the PayPal Checkout flow. Maximum 127 characters."""
+
+    landing_page: OptionalNullable[str] = UNSET
+    r"""The type of landing page to display on the PayPal Checkout. Use `LOGIN` to show the PayPal login page, `GUEST_CHECKOUT` to show the guest checkout page, or `NO_PREFERENCE` to let PayPal decide."""
+
+    locale: OptionalNullable[str] = UNSET
+    r"""The BCP 47 locale used to localize the PayPal Checkout page. For example, `en-US` or `fr-FR`."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["order_update_callback_config", "additional_data", "shipping"]
+            [
+                "order_update_callback_config",
+                "additional_data",
+                "shipping",
+                "user_action",
+                "shipping_preference",
+                "brand_name",
+                "landing_page",
+                "locale",
+            ]
         )
         nullable_fields = set(
-            ["order_update_callback_config", "additional_data", "shipping"]
+            [
+                "order_update_callback_config",
+                "additional_data",
+                "shipping",
+                "user_action",
+                "shipping_preference",
+                "brand_name",
+                "landing_page",
+                "locale",
+            ]
         )
         serialized = handler(self)
         m = {}
