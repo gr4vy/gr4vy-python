@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: d246cfb60443fe0301f562449f596e71
+  docChecksum: ab02394776f986472ccee3f9cc4da8da
   docVersion: 1.0.0
-  speakeasyVersion: 1.784.0
-  generationVersion: 2.911.0
-  releaseVersion: 2.1.17
-  configChecksum: 27993176c9fa91631973ee93555fa42d
+  speakeasyVersion: 1.784.1
+  generationVersion: 2.911.3
+  releaseVersion: 2.1.18
+  configChecksum: b76e0e4d26dbbc13569ba3bff7267ab9
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: f8632414-9926-4a26-9414-3cf84f1aaf57
-  pristine_commit_hash: 8acf745cf7dbc85a76c27a0b65bd592daee067f7
-  pristine_tree_hash: 9f8bed878d5b5292b65d1edcb90165e1134e6e24
+  generation_id: 33b8dbd7-f648-4803-b983-af0bdac5b90d
+  pristine_commit_hash: be1318b79c21e3e25b28712c49576ed934e4c1fe
+  pristine_tree_hash: 2b13f698bb408a90994341e9e8bb19ab66aa34be
 features:
   python:
     additionalDependencies: 1.1.0
@@ -1484,12 +1484,12 @@ trackedFiles:
     pristine_git_object: c7998af826fa652d70876ab931cbcb893c08ddad
   docs/models/merchantaccount.md:
     id: e086409ff0fa
-    last_write_checksum: sha1:9a2946d09a6f0ec7fd4d9921d7b8faaec3b26516
-    pristine_git_object: dd12247d6e919ead2acb7bcc6df741596d9a530b
+    last_write_checksum: sha1:80ea54aa8208bf4b0a58406100ffca1fba8ef86b
+    pristine_git_object: 1661265b01a4b58c3d4e1b59ab0a8cde9276639a
   docs/models/merchantaccountcreate.md:
     id: a82f978b5311
-    last_write_checksum: sha1:9625825b1179ce02c484031e64af4659a59580d8
-    pristine_git_object: 6b7c6456e0944dae56e4028448edfe7b21975d39
+    last_write_checksum: sha1:f6f4d6cd9b6d760e6120b48bfa2db0032d437512
+    pristine_git_object: 9193d0c5e3e90fb9d45d725cba9e89d0ce398f19
   docs/models/merchantaccounts.md:
     id: 2b8c0cb06a58
     last_write_checksum: sha1:efa315d8d287df3315adabe99c61b0370675e1c2
@@ -1512,8 +1512,8 @@ trackedFiles:
     pristine_git_object: 927d0350bc20b6eb35b516c7b1840b9fcdcb0c70
   docs/models/merchantaccountupdate.md:
     id: ccd76c07dc8b
-    last_write_checksum: sha1:ae814aed46013d1441e73d93bf325fd50bd35527
-    pristine_git_object: 26ebda8b7c49e0386812dfd920fb17322d337eaa
+    last_write_checksum: sha1:da0ee3cbdd7309d9cb40b8ae2323905299dbbd03
+    pristine_git_object: 3bbde1042fb4f258c25d759ea3e03b6e5bdf8f24
   docs/models/merchantprofilescheme.md:
     id: ce1ddf0f9116
     last_write_checksum: sha1:48bda92c567d4c9339c0176aebafe93a7cd37b6e
@@ -2600,8 +2600,8 @@ trackedFiles:
     pristine_git_object: 1b2ca14485f19909d286ffa638d6fcdd333223ed
   docs/sdks/merchantaccountssdk/README.md:
     id: 39108cecfab1
-    last_write_checksum: sha1:024733ab46ed79d89269adb517a2d945782bf2e3
-    pristine_git_object: 335a078f3578ca0e1068f873ea1f45a8139017ef
+    last_write_checksum: sha1:7e2eb98eeacb5e0cb87892d1507db2d4cdc84a0f
+    pristine_git_object: 9e993143b9d656fc74af7c7ed0f8d1f2178c02f0
   docs/sdks/networktokenscryptogram/README.md:
     id: 7aef02dc3c54
     last_write_checksum: sha1:3ac01232944c881072602290f8de7132617e85fc
@@ -2688,8 +2688,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:377ca3901524971624dab08b79f0553c6928c1a3
-    pristine_git_object: a2cdfdb6a362a936eecfbcb96b331cb761a5071b
+    last_write_checksum: sha1:754e1adfc7fd2b3a3bf9e481474abc5ed7e9eb31
+    pristine_git_object: 3b167f74f57426e9d3b6351d249053b2e6b81cc1
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2716,8 +2716,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:f7e301de793a4efe1a075f5c49e17f720fca30b0
-    pristine_git_object: bb12d346e0c6d179585523e6a7274549d65a7d2a
+    last_write_checksum: sha1:acd803ccd96b7c97807a73e9a99e7a2c97c67bc4
+    pristine_git_object: e80bbfed6e41845db48609b515bce081920759d1
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -2868,8 +2868,8 @@ trackedFiles:
     pristine_git_object: 8749187daf41b10994d65bb4225065df52afe06d
   src/gr4vy/merchant_accounts_sdk.py:
     id: 6649e2875667
-    last_write_checksum: sha1:270447e0f1d34171a7a8bc2075c6b0d7dbaa65db
-    pristine_git_object: 5a9000177640808f6c9d07953daf7ee1360b380a
+    last_write_checksum: sha1:6b4e5d347927619e7a23d09bf932034ab6cfffbb
+    pristine_git_object: b62323c2b4f6b9b380ce38e66122499938fc3974
   src/gr4vy/models/__init__.py:
     id: 427cc7fddfe2
     last_write_checksum: sha1:c683f0bc54a8aedf79e33c185f7bfd009b3d60b8
@@ -3796,12 +3796,12 @@ trackedFiles:
     pristine_git_object: c922f1f5a50906ea113c3667384904aadfa27c36
   src/gr4vy/models/merchantaccount.py:
     id: add81dd64f62
-    last_write_checksum: sha1:58d63d9fd9e50135f097863f4d68b3df19a65478
-    pristine_git_object: 3569cb9a679e203e553d76a700246fa141e5cb46
+    last_write_checksum: sha1:50e0f678185ce7745efe79103369c0d1712a0b5f
+    pristine_git_object: b0ce7bbcb803daeb6cb097defb848bb976cbde71
   src/gr4vy/models/merchantaccountcreate.py:
     id: 0885475f0c84
-    last_write_checksum: sha1:f8df45185d9c3019c04af8886efe4ad682a2fb5f
-    pristine_git_object: d01580b065904b432d920f45a6ccc4f99231d15c
+    last_write_checksum: sha1:9dee3016bb0acc31b8d45cfb64d0f2d919234a9e
+    pristine_git_object: 1cc4f846cfe179668c1740d3bb2c491501943352
   src/gr4vy/models/merchantaccounts.py:
     id: 54ec47424955
     last_write_checksum: sha1:87efe8a0e5e30ac3480b208da645c546c2b3c130
@@ -3824,8 +3824,8 @@ trackedFiles:
     pristine_git_object: c175bb72f54f222dc14b64204780ff0bb46bc32d
   src/gr4vy/models/merchantaccountupdate.py:
     id: 54746d93e043
-    last_write_checksum: sha1:50a38b54896e991cb6f8b748b1c567de3d683a9e
-    pristine_git_object: ae05dc82dea67af8a09bce370f38c39fc7bb2d75
+    last_write_checksum: sha1:59123f642098b3e7a9a3a3481d7052f161c43660
+    pristine_git_object: 5127c891fdba6c84d8e3a97aa16e288094d85cea
   src/gr4vy/models/merchantprofilescheme.py:
     id: 0b23e83e9512
     last_write_checksum: sha1:41672390c45f586f1fa7ec190eac3577a04f3dc5
@@ -8763,7 +8763,7 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.buyers.payment_methods.list()`:  `response.items[].method.enum(stripe)` **Added**\n* `gr4vy.payment_methods.list()`:  `response.items[].method.enum(stripe)` **Added**\n* `gr4vy.payment_methods.create()`: \n  *  `request_body.union(RedirectPaymentMethodCreate).method.enum(stripe)` **Added**\n  *  `response.method.enum(stripe)` **Added**\n* `gr4vy.payment_methods.get()`:  `response.method.enum(stripe)` **Added**\n* `gr4vy.payment_methods.update()`:  `response.method.enum(stripe)` **Added**\n* `gr4vy.transactions.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].payment_method.method.enum(stripe)` **Added**\n* `gr4vy.transactions.create()`: \n  *  `request` **Changed**\n  *  `response.payment_method.method.enum(stripe)` **Added**\n* `gr4vy.transactions.get()`:  `response.payment_method.method.enum(stripe)` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.stripe_stripe` **Added**\n  *  `response.payment_method.method.enum(stripe)` **Added**\n* `gr4vy.transactions.capture()`:  `response.union(Transaction).payment_method.method.enum(stripe)` **Added**\n* `gr4vy.transactions.void()`:  `response.union(Transaction).payment_method.method.enum(stripe)` **Added**\n* `gr4vy.transactions.cancel()`:  `response.transaction.payment_method.method.enum(stripe)` **Added**\n* `gr4vy.transactions.sync()`:  `response.payment_method.method.enum(stripe)` **Added**\n* `gr4vy.payment_service_definitions.list()`:  `response.items[].method.enum(stripe)` **Added**\n* `gr4vy.payment_service_definitions.get()`:  `response.method.enum(stripe)` **Added**\n* `gr4vy.payment_services.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].method.enum(stripe)` **Added**\n* `gr4vy.payment_services.create()`:  `response.method.enum(stripe)` **Added**\n* `gr4vy.payment_services.get()`:  `response.method.enum(stripe)` **Added**\n* `gr4vy.payment_services.update()`:  `response.method.enum(stripe)` **Added**\n* `gr4vy.payouts.list()`:  `response.items[].payment_method.method.enum(stripe)` **Added**\n* `gr4vy.payouts.create()`:  `response.payment_method.method.enum(stripe)` **Added**\n* `gr4vy.payouts.get()`:  `response.payment_method.method.enum(stripe)` **Added**\n* `gr4vy.payment_links.create()`: \n  *  `request.connection_options.stripe_stripe` **Added**\n"
+releaseNotes: "## Python SDK Changes:\n* `gr4vy.merchant_accounts.list()`:  `response.items[]` **Changed**\n* `gr4vy.merchant_accounts.create()`: \n  *  `request` **Changed**\n  *  `response` **Changed**\n* `gr4vy.merchant_accounts.get()`:  `response` **Changed**\n* `gr4vy.merchant_accounts.update()`: \n  *  `request` **Changed**\n  *  `response` **Changed**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json

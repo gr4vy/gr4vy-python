@@ -45,6 +45,10 @@ class MerchantAccountCreateTypedDict(TypedDict):
     r"""Requestor ID provided for Mastercard after onboarding to use Network Tokens."""
     mastercard_network_tokens_app_id: NotRequired[Nullable[str]]
     r"""Application ID provided for Mastercard after onboarding to use Network Tokens."""
+    discover_network_tokens_requestor_id: NotRequired[Nullable[str]]
+    r"""Requestor ID provided for Discover after onboarding to use Network Tokens."""
+    discover_network_tokens_app_id: NotRequired[Nullable[str]]
+    r"""Application ID provided for Discover after onboarding to use Network Tokens."""
     async_network_tokens_enabled: NotRequired[bool]
     r"""When enabled network tokens will be generated asynchronously and only used on subsequent transactions to speed up transaction processing."""
 
@@ -104,6 +108,12 @@ class MerchantAccountCreate(BaseModel):
     mastercard_network_tokens_app_id: OptionalNullable[str] = UNSET
     r"""Application ID provided for Mastercard after onboarding to use Network Tokens."""
 
+    discover_network_tokens_requestor_id: OptionalNullable[str] = UNSET
+    r"""Requestor ID provided for Discover after onboarding to use Network Tokens."""
+
+    discover_network_tokens_app_id: OptionalNullable[str] = UNSET
+    r"""Application ID provided for Discover after onboarding to use Network Tokens."""
+
     async_network_tokens_enabled: Optional[bool] = False
     r"""When enabled network tokens will be generated asynchronously and only used on subsequent transactions to speed up transaction processing."""
 
@@ -127,6 +137,8 @@ class MerchantAccountCreate(BaseModel):
                 "amex_network_tokens_app_id",
                 "mastercard_network_tokens_requestor_id",
                 "mastercard_network_tokens_app_id",
+                "discover_network_tokens_requestor_id",
+                "discover_network_tokens_app_id",
                 "async_network_tokens_enabled",
             ]
         )
@@ -147,6 +159,8 @@ class MerchantAccountCreate(BaseModel):
                 "amex_network_tokens_app_id",
                 "mastercard_network_tokens_requestor_id",
                 "mastercard_network_tokens_app_id",
+                "discover_network_tokens_requestor_id",
+                "discover_network_tokens_app_id",
             ]
         )
         serialized = handler(self)
