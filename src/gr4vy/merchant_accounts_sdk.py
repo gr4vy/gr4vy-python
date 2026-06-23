@@ -362,6 +362,8 @@ class MerchantAccountsSDK(BaseSDK):
         amex_network_tokens_app_id: OptionalNullable[str] = UNSET,
         mastercard_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
         mastercard_network_tokens_app_id: OptionalNullable[str] = UNSET,
+        discover_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
+        discover_network_tokens_app_id: OptionalNullable[str] = UNSET,
         async_network_tokens_enabled: Optional[bool] = False,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -390,6 +392,8 @@ class MerchantAccountsSDK(BaseSDK):
         :param amex_network_tokens_app_id: Application ID provided for American Express after onboarding to use Network Tokens.
         :param mastercard_network_tokens_requestor_id: Requestor ID provided for Mastercard after onboarding to use Network Tokens.
         :param mastercard_network_tokens_app_id: Application ID provided for Mastercard after onboarding to use Network Tokens.
+        :param discover_network_tokens_requestor_id: Requestor ID provided for Discover after onboarding to use Network Tokens.
+        :param discover_network_tokens_app_id: Application ID provided for Discover after onboarding to use Network Tokens.
         :param async_network_tokens_enabled: When enabled network tokens will be generated asynchronously and only used on subsequent transactions to speed up transaction processing.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -425,6 +429,8 @@ class MerchantAccountsSDK(BaseSDK):
             amex_network_tokens_app_id=amex_network_tokens_app_id,
             mastercard_network_tokens_requestor_id=mastercard_network_tokens_requestor_id,
             mastercard_network_tokens_app_id=mastercard_network_tokens_app_id,
+            discover_network_tokens_requestor_id=discover_network_tokens_requestor_id,
+            discover_network_tokens_app_id=discover_network_tokens_app_id,
             async_network_tokens_enabled=async_network_tokens_enabled,
             id=id,
             display_name=display_name,
@@ -544,6 +550,8 @@ class MerchantAccountsSDK(BaseSDK):
         amex_network_tokens_app_id: OptionalNullable[str] = UNSET,
         mastercard_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
         mastercard_network_tokens_app_id: OptionalNullable[str] = UNSET,
+        discover_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
+        discover_network_tokens_app_id: OptionalNullable[str] = UNSET,
         async_network_tokens_enabled: Optional[bool] = False,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -572,6 +580,8 @@ class MerchantAccountsSDK(BaseSDK):
         :param amex_network_tokens_app_id: Application ID provided for American Express after onboarding to use Network Tokens.
         :param mastercard_network_tokens_requestor_id: Requestor ID provided for Mastercard after onboarding to use Network Tokens.
         :param mastercard_network_tokens_app_id: Application ID provided for Mastercard after onboarding to use Network Tokens.
+        :param discover_network_tokens_requestor_id: Requestor ID provided for Discover after onboarding to use Network Tokens.
+        :param discover_network_tokens_app_id: Application ID provided for Discover after onboarding to use Network Tokens.
         :param async_network_tokens_enabled: When enabled network tokens will be generated asynchronously and only used on subsequent transactions to speed up transaction processing.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -607,6 +617,8 @@ class MerchantAccountsSDK(BaseSDK):
             amex_network_tokens_app_id=amex_network_tokens_app_id,
             mastercard_network_tokens_requestor_id=mastercard_network_tokens_requestor_id,
             mastercard_network_tokens_app_id=mastercard_network_tokens_app_id,
+            discover_network_tokens_requestor_id=discover_network_tokens_requestor_id,
+            discover_network_tokens_app_id=discover_network_tokens_app_id,
             async_network_tokens_enabled=async_network_tokens_enabled,
             id=id,
             display_name=display_name,
@@ -979,6 +991,8 @@ class MerchantAccountsSDK(BaseSDK):
         amex_network_tokens_app_id: OptionalNullable[str] = UNSET,
         mastercard_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
         mastercard_network_tokens_app_id: OptionalNullable[str] = UNSET,
+        discover_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
+        discover_network_tokens_app_id: OptionalNullable[str] = UNSET,
         async_network_tokens_enabled: Optional[bool] = False,
         display_name: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -1007,6 +1021,8 @@ class MerchantAccountsSDK(BaseSDK):
         :param amex_network_tokens_app_id: Application ID provided for American Express after onboarding to use Network Tokens.
         :param mastercard_network_tokens_requestor_id: Requestor ID provided for Mastercard after onboarding to use Network Tokens.
         :param mastercard_network_tokens_app_id: Application ID provided for Mastercard after onboarding to use Network Tokens.
+        :param discover_network_tokens_requestor_id: Requestor ID provided for Discover after onboarding to use Network Tokens.
+        :param discover_network_tokens_app_id: Application ID provided for Discover after onboarding to use Network Tokens.
         :param async_network_tokens_enabled: When enabled network tokens will be generated asynchronously and only used on subsequent transactions to speed up transaction processing.
         :param display_name: The display name for the merchant account.
         :param retries: Override the default retry configuration for this method
@@ -1045,6 +1061,8 @@ class MerchantAccountsSDK(BaseSDK):
                 amex_network_tokens_app_id=amex_network_tokens_app_id,
                 mastercard_network_tokens_requestor_id=mastercard_network_tokens_requestor_id,
                 mastercard_network_tokens_app_id=mastercard_network_tokens_app_id,
+                discover_network_tokens_requestor_id=discover_network_tokens_requestor_id,
+                discover_network_tokens_app_id=discover_network_tokens_app_id,
                 async_network_tokens_enabled=async_network_tokens_enabled,
                 display_name=display_name,
             ),
@@ -1167,6 +1185,8 @@ class MerchantAccountsSDK(BaseSDK):
         amex_network_tokens_app_id: OptionalNullable[str] = UNSET,
         mastercard_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
         mastercard_network_tokens_app_id: OptionalNullable[str] = UNSET,
+        discover_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
+        discover_network_tokens_app_id: OptionalNullable[str] = UNSET,
         async_network_tokens_enabled: Optional[bool] = False,
         display_name: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -1195,6 +1215,8 @@ class MerchantAccountsSDK(BaseSDK):
         :param amex_network_tokens_app_id: Application ID provided for American Express after onboarding to use Network Tokens.
         :param mastercard_network_tokens_requestor_id: Requestor ID provided for Mastercard after onboarding to use Network Tokens.
         :param mastercard_network_tokens_app_id: Application ID provided for Mastercard after onboarding to use Network Tokens.
+        :param discover_network_tokens_requestor_id: Requestor ID provided for Discover after onboarding to use Network Tokens.
+        :param discover_network_tokens_app_id: Application ID provided for Discover after onboarding to use Network Tokens.
         :param async_network_tokens_enabled: When enabled network tokens will be generated asynchronously and only used on subsequent transactions to speed up transaction processing.
         :param display_name: The display name for the merchant account.
         :param retries: Override the default retry configuration for this method
@@ -1233,6 +1255,8 @@ class MerchantAccountsSDK(BaseSDK):
                 amex_network_tokens_app_id=amex_network_tokens_app_id,
                 mastercard_network_tokens_requestor_id=mastercard_network_tokens_requestor_id,
                 mastercard_network_tokens_app_id=mastercard_network_tokens_app_id,
+                discover_network_tokens_requestor_id=discover_network_tokens_requestor_id,
+                discover_network_tokens_app_id=discover_network_tokens_app_id,
                 async_network_tokens_enabled=async_network_tokens_enabled,
                 display_name=display_name,
             ),
