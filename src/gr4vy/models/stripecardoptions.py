@@ -10,6 +10,8 @@ from typing_extensions import NotRequired, TypedDict
 class StripeCardOptionsTypedDict(TypedDict):
     stripe_connect: NotRequired[Nullable[StripeConnectOptionsTypedDict]]
     r"""Stripe options to support Stripe Connect"""
+    customer_id: NotRequired[Nullable[str]]
+    r"""A Stripe customer ID (`cus_xxx`) to associate with the PaymentIntent for network token transactions. When provided, Stripe Radar can access the customer's payment history, dispute rate, and account age to improve risk scoring for returning customers."""
     error_on_requires_action: NotRequired[Nullable[bool]]
     r"""Passes the `error_on_requires_action` option to the Stripe API. Set to true to fail the payment attempt if it transitions into requires_action. Use this parameter for simpler integrations that don't handle customer actions, such as saving cards without authentication."""
 
@@ -18,13 +20,20 @@ class StripeCardOptions(BaseModel):
     stripe_connect: OptionalNullable[StripeConnectOptions] = UNSET
     r"""Stripe options to support Stripe Connect"""
 
+    customer_id: OptionalNullable[str] = UNSET
+    r"""A Stripe customer ID (`cus_xxx`) to associate with the PaymentIntent for network token transactions. When provided, Stripe Radar can access the customer's payment history, dispute rate, and account age to improve risk scoring for returning customers."""
+
     error_on_requires_action: OptionalNullable[bool] = UNSET
     r"""Passes the `error_on_requires_action` option to the Stripe API. Set to true to fail the payment attempt if it transitions into requires_action. Use this parameter for simpler integrations that don't handle customer actions, such as saving cards without authentication."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["stripe_connect", "error_on_requires_action"])
-        nullable_fields = set(["stripe_connect", "error_on_requires_action"])
+        optional_fields = set(
+            ["stripe_connect", "customer_id", "error_on_requires_action"]
+        )
+        nullable_fields = set(
+            ["stripe_connect", "customer_id", "error_on_requires_action"]
+        )
         serialized = handler(self)
         m = {}
 

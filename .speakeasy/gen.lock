@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: ab02394776f986472ccee3f9cc4da8da
+  docChecksum: 4e4ae55f72acb18eb914e185bea9aa9c
   docVersion: 1.0.0
   speakeasyVersion: 1.784.1
   generationVersion: 2.911.3
-  releaseVersion: 2.1.18
-  configChecksum: b76e0e4d26dbbc13569ba3bff7267ab9
+  releaseVersion: 2.1.19
+  configChecksum: a0d96263436008fcf3b8601a527f1bc4
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 33b8dbd7-f648-4803-b983-af0bdac5b90d
-  pristine_commit_hash: be1318b79c21e3e25b28712c49576ed934e4c1fe
-  pristine_tree_hash: 2b13f698bb408a90994341e9e8bb19ab66aa34be
+  generation_id: 2675c78e-a293-448d-a8c5-126ee9bfb381
+  pristine_commit_hash: 064e1dcc2086261ff17761594f3d7233e87cbf70
+  pristine_tree_hash: 0c3fa405d2e9e521e3642f1c92b99c920f0130b5
 features:
   python:
     additionalDependencies: 1.1.0
@@ -2132,8 +2132,8 @@ trackedFiles:
     pristine_git_object: 525f3a9a9e0b7f3f8c6c2cd9b38e33196f3813a2
   docs/models/stripecardoptions.md:
     id: 471f144b14bf
-    last_write_checksum: sha1:c5efb73a0e52b98bfef2999e3dd77c0023ad9d5c
-    pristine_git_object: eb50729fb03cec0ac763871b70b5c5b7a5f6e31f
+    last_write_checksum: sha1:6270a6a688e83524001a7fecc66827f42f2f2645
+    pristine_git_object: 38fdf5cb69d7158507ab7c9c4e62b456f5c07387
   docs/models/stripeconnectoptions.md:
     id: fd1c5f15c11a
     last_write_checksum: sha1:6bc0cc64e6d0d188e2e3628efd67e7afa221846d
@@ -2688,8 +2688,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:754e1adfc7fd2b3a3bf9e481474abc5ed7e9eb31
-    pristine_git_object: 3b167f74f57426e9d3b6351d249053b2e6b81cc1
+    last_write_checksum: sha1:62e35dc68d039b8bf6fba9b9c77608c7495be91c
+    pristine_git_object: 1f312007a19a795bf941044180f122fb69c69e89
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2716,8 +2716,8 @@ trackedFiles:
     pristine_git_object: 83a0d00f9b5b1a6d837643a32bfd0f82cd4f98ce
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:acd803ccd96b7c97807a73e9a99e7a2c97c67bc4
-    pristine_git_object: e80bbfed6e41845db48609b515bce081920759d1
+    last_write_checksum: sha1:b3a25807a8a651649b42db1c9a1fa9473e34958c
+    pristine_git_object: 417a8a3c13ac6c030a6e20e0a009b275cb9fdea2
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -4336,8 +4336,8 @@ trackedFiles:
     pristine_git_object: 711211396fbc02dfadd5fbe9faad32755aa49fe6
   src/gr4vy/models/stripecardoptions.py:
     id: bad68f8319e9
-    last_write_checksum: sha1:e21ee5dcd2b073b8c388b309346133eff17377da
-    pristine_git_object: 51e62b1f014cc7edde7012fe6b297720ff94a526
+    last_write_checksum: sha1:892600d7a5b565822956ba5a131f8bc7ee5306aa
+    pristine_git_object: d1170c90da86959842df58ac96fa41adcb1cd09b
   src/gr4vy/models/stripeconnectoptions.py:
     id: f89055383e42
     last_write_checksum: sha1:a170aa8d66cd514ea9219b1d0751aff54aa878ef
@@ -8763,7 +8763,7 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.merchant_accounts.list()`:  `response.items[]` **Changed**\n* `gr4vy.merchant_accounts.create()`: \n  *  `request` **Changed**\n  *  `response` **Changed**\n* `gr4vy.merchant_accounts.get()`:  `response` **Changed**\n* `gr4vy.merchant_accounts.update()`: \n  *  `request` **Changed**\n  *  `response` **Changed**\n"
+releaseNotes: "## Python SDK Changes:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.stripe_card.customer_id` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.stripe_card.customer_id` **Added**\n* `gr4vy.payment_links.create()`: \n  *  `request.connection_options.stripe_card.customer_id` **Added**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
