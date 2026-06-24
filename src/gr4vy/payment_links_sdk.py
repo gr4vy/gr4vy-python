@@ -471,6 +471,15 @@ class PaymentLinksSDK(BaseSDK):
         *,
         cursor: OptionalNullable[str] = UNSET,
         limit: Optional[int] = 20,
+        created_at_lte: OptionalNullable[datetime] = UNSET,
+        created_at_gte: OptionalNullable[datetime] = UNSET,
+        updated_at_lte: OptionalNullable[datetime] = UNSET,
+        updated_at_gte: OptionalNullable[datetime] = UNSET,
+        currency: OptionalNullable[Iterable[str]] = UNSET,
+        amount_eq: OptionalNullable[int] = UNSET,
+        amount_gte: OptionalNullable[int] = UNSET,
+        amount_lte: OptionalNullable[int] = UNSET,
+        status: OptionalNullable[Iterable[models.PaymentLinkStatus]] = UNSET,
         buyer_search: OptionalNullable[Iterable[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -484,6 +493,15 @@ class PaymentLinksSDK(BaseSDK):
 
         :param cursor: A pointer to the page of results to return.
         :param limit: The maximum number of items that are returned.
+        :param created_at_lte: Filters the results to only payment links created before this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`.
+        :param created_at_gte: Filters the results to only payment links created after this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`.
+        :param updated_at_lte: Filters the results to only payment links updated before this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`.
+        :param updated_at_gte: Filters the results to only payment links updated after this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`.
+        :param currency: Filters for payment links that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency codes.
+        :param amount_eq: Filters for payment links that have an `amount` equal to this value.
+        :param amount_gte: Filters for payment links that have an `amount` greater than or equal to this value.
+        :param amount_lte: Filters for payment links that have an `amount` less than or equal to this value.
+        :param status: Filters the results to only the payment links that have a `status` that matches with any of the provided status values.
         :param buyer_search: Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
@@ -504,6 +522,17 @@ class PaymentLinksSDK(BaseSDK):
         request = models.ListPaymentLinksRequest(
             cursor=cursor,
             limit=limit,
+            created_at_lte=created_at_lte,
+            created_at_gte=created_at_gte,
+            updated_at_lte=updated_at_lte,
+            updated_at_gte=updated_at_gte,
+            currency=utils.unmarshal(currency, OptionalNullable[List[str]]),
+            amount_eq=amount_eq,
+            amount_gte=amount_gte,
+            amount_lte=amount_lte,
+            status=utils.unmarshal(
+                status, OptionalNullable[List[models.PaymentLinkStatus]]
+            ),
             buyer_search=utils.unmarshal(buyer_search, OptionalNullable[List[str]]),
             merchant_account_id=merchant_account_id,
         )
@@ -569,6 +598,15 @@ class PaymentLinksSDK(BaseSDK):
             return self.list(
                 cursor=next_cursor,
                 limit=limit,
+                created_at_lte=created_at_lte,
+                created_at_gte=created_at_gte,
+                updated_at_lte=updated_at_lte,
+                updated_at_gte=updated_at_gte,
+                currency=currency,
+                amount_eq=amount_eq,
+                amount_gte=amount_gte,
+                amount_lte=amount_lte,
+                status=status,
                 buyer_search=buyer_search,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
@@ -635,6 +673,15 @@ class PaymentLinksSDK(BaseSDK):
         *,
         cursor: OptionalNullable[str] = UNSET,
         limit: Optional[int] = 20,
+        created_at_lte: OptionalNullable[datetime] = UNSET,
+        created_at_gte: OptionalNullable[datetime] = UNSET,
+        updated_at_lte: OptionalNullable[datetime] = UNSET,
+        updated_at_gte: OptionalNullable[datetime] = UNSET,
+        currency: OptionalNullable[Iterable[str]] = UNSET,
+        amount_eq: OptionalNullable[int] = UNSET,
+        amount_gte: OptionalNullable[int] = UNSET,
+        amount_lte: OptionalNullable[int] = UNSET,
+        status: OptionalNullable[Iterable[models.PaymentLinkStatus]] = UNSET,
         buyer_search: OptionalNullable[Iterable[str]] = UNSET,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
@@ -648,6 +695,15 @@ class PaymentLinksSDK(BaseSDK):
 
         :param cursor: A pointer to the page of results to return.
         :param limit: The maximum number of items that are returned.
+        :param created_at_lte: Filters the results to only payment links created before this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`.
+        :param created_at_gte: Filters the results to only payment links created after this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`.
+        :param updated_at_lte: Filters the results to only payment links updated before this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`.
+        :param updated_at_gte: Filters the results to only payment links updated after this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`.
+        :param currency: Filters for payment links that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency codes.
+        :param amount_eq: Filters for payment links that have an `amount` equal to this value.
+        :param amount_gte: Filters for payment links that have an `amount` greater than or equal to this value.
+        :param amount_lte: Filters for payment links that have an `amount` less than or equal to this value.
+        :param status: Filters the results to only the payment links that have a `status` that matches with any of the provided status values.
         :param buyer_search: Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
@@ -668,6 +724,17 @@ class PaymentLinksSDK(BaseSDK):
         request = models.ListPaymentLinksRequest(
             cursor=cursor,
             limit=limit,
+            created_at_lte=created_at_lte,
+            created_at_gte=created_at_gte,
+            updated_at_lte=updated_at_lte,
+            updated_at_gte=updated_at_gte,
+            currency=utils.unmarshal(currency, OptionalNullable[List[str]]),
+            amount_eq=amount_eq,
+            amount_gte=amount_gte,
+            amount_lte=amount_lte,
+            status=utils.unmarshal(
+                status, OptionalNullable[List[models.PaymentLinkStatus]]
+            ),
             buyer_search=utils.unmarshal(buyer_search, OptionalNullable[List[str]]),
             merchant_account_id=merchant_account_id,
         )
@@ -733,6 +800,15 @@ class PaymentLinksSDK(BaseSDK):
             return self.list(
                 cursor=next_cursor,
                 limit=limit,
+                created_at_lte=created_at_lte,
+                created_at_gte=created_at_gte,
+                updated_at_lte=updated_at_lte,
+                updated_at_gte=updated_at_gte,
+                currency=currency,
+                amount_eq=amount_eq,
+                amount_gte=amount_gte,
+                amount_lte=amount_lte,
+                status=status,
                 buyer_search=buyer_search,
                 merchant_account_id=merchant_account_id,
                 retries=retries,

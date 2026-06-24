@@ -77,6 +77,7 @@ class Transactions(BaseSDK):
         has_refunds: OptionalNullable[bool] = UNSET,
         pending_review: OptionalNullable[bool] = UNSET,
         checkout_session_id: OptionalNullable[str] = UNSET,
+        payment_link_id: OptionalNullable[str] = UNSET,
         reconciliation_id: OptionalNullable[str] = UNSET,
         has_gift_card_redemptions: OptionalNullable[bool] = UNSET,
         gift_card_id: OptionalNullable[str] = UNSET,
@@ -134,6 +135,7 @@ class Transactions(BaseSDK):
         :param has_refunds: Filters for transactions with refunds.
         :param pending_review: Filters for transactions with a pending manual anti-fraud review.
         :param checkout_session_id: Filters for transactions where the `checkout_session_id` matches the provided value.
+        :param payment_link_id: Filters for transactions where the `payment_link_id` matches the provided value.
         :param reconciliation_id: Filters for transactions where the `reconciliation_id` matches the provided value.
         :param has_gift_card_redemptions: Filters for transactions with gift card redemptions.
         :param gift_card_id: Filters for transactions where a gift card used has an `id` that matches the provided value.
@@ -202,6 +204,7 @@ class Transactions(BaseSDK):
             has_refunds=has_refunds,
             pending_review=pending_review,
             checkout_session_id=checkout_session_id,
+            payment_link_id=payment_link_id,
             reconciliation_id=reconciliation_id,
             has_gift_card_redemptions=has_gift_card_redemptions,
             gift_card_id=gift_card_id,
@@ -311,6 +314,7 @@ class Transactions(BaseSDK):
                 has_refunds=has_refunds,
                 pending_review=pending_review,
                 checkout_session_id=checkout_session_id,
+                payment_link_id=payment_link_id,
                 reconciliation_id=reconciliation_id,
                 has_gift_card_redemptions=has_gift_card_redemptions,
                 gift_card_id=gift_card_id,
@@ -419,6 +423,7 @@ class Transactions(BaseSDK):
         has_refunds: OptionalNullable[bool] = UNSET,
         pending_review: OptionalNullable[bool] = UNSET,
         checkout_session_id: OptionalNullable[str] = UNSET,
+        payment_link_id: OptionalNullable[str] = UNSET,
         reconciliation_id: OptionalNullable[str] = UNSET,
         has_gift_card_redemptions: OptionalNullable[bool] = UNSET,
         gift_card_id: OptionalNullable[str] = UNSET,
@@ -476,6 +481,7 @@ class Transactions(BaseSDK):
         :param has_refunds: Filters for transactions with refunds.
         :param pending_review: Filters for transactions with a pending manual anti-fraud review.
         :param checkout_session_id: Filters for transactions where the `checkout_session_id` matches the provided value.
+        :param payment_link_id: Filters for transactions where the `payment_link_id` matches the provided value.
         :param reconciliation_id: Filters for transactions where the `reconciliation_id` matches the provided value.
         :param has_gift_card_redemptions: Filters for transactions with gift card redemptions.
         :param gift_card_id: Filters for transactions where a gift card used has an `id` that matches the provided value.
@@ -544,6 +550,7 @@ class Transactions(BaseSDK):
             has_refunds=has_refunds,
             pending_review=pending_review,
             checkout_session_id=checkout_session_id,
+            payment_link_id=payment_link_id,
             reconciliation_id=reconciliation_id,
             has_gift_card_redemptions=has_gift_card_redemptions,
             gift_card_id=gift_card_id,
@@ -653,6 +660,7 @@ class Transactions(BaseSDK):
                 has_refunds=has_refunds,
                 pending_review=pending_review,
                 checkout_session_id=checkout_session_id,
+                payment_link_id=payment_link_id,
                 reconciliation_id=reconciliation_id,
                 has_gift_card_redemptions=has_gift_card_redemptions,
                 gift_card_id=gift_card_id,

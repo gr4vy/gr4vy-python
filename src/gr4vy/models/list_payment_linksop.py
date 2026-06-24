@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 from .paymentlinks import PaymentLinks, PaymentLinksTypedDict
+from .paymentlinkstatus import PaymentLinkStatus
+from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from gr4vy.utils import FieldMetadata, HeaderMetadata, QueryParamMetadata
 import pydantic
@@ -45,6 +47,24 @@ class ListPaymentLinksRequestTypedDict(TypedDict):
     r"""A pointer to the page of results to return."""
     limit: NotRequired[int]
     r"""The maximum number of items that are returned."""
+    created_at_lte: NotRequired[Nullable[datetime]]
+    r"""Filters the results to only payment links created before this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`."""
+    created_at_gte: NotRequired[Nullable[datetime]]
+    r"""Filters the results to only payment links created after this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`."""
+    updated_at_lte: NotRequired[Nullable[datetime]]
+    r"""Filters the results to only payment links updated before this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`."""
+    updated_at_gte: NotRequired[Nullable[datetime]]
+    r"""Filters the results to only payment links updated after this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`."""
+    currency: NotRequired[Nullable[List[str]]]
+    r"""Filters for payment links that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency codes."""
+    amount_eq: NotRequired[Nullable[int]]
+    r"""Filters for payment links that have an `amount` equal to this value."""
+    amount_gte: NotRequired[Nullable[int]]
+    r"""Filters for payment links that have an `amount` greater than or equal to this value."""
+    amount_lte: NotRequired[Nullable[int]]
+    r"""Filters for payment links that have an `amount` less than or equal to this value."""
+    status: NotRequired[Nullable[List[PaymentLinkStatus]]]
+    r"""Filters the results to only the payment links that have a `status` that matches with any of the provided status values."""
     buyer_search: NotRequired[Nullable[List[str]]]
     r"""Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values."""
     merchant_account_id: NotRequired[str]
@@ -64,6 +84,60 @@ class ListPaymentLinksRequest(BaseModel):
     ] = 20
     r"""The maximum number of items that are returned."""
 
+    created_at_lte: Annotated[
+        OptionalNullable[datetime],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters the results to only payment links created before this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`."""
+
+    created_at_gte: Annotated[
+        OptionalNullable[datetime],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters the results to only payment links created after this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`."""
+
+    updated_at_lte: Annotated[
+        OptionalNullable[datetime],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters the results to only payment links updated before this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`."""
+
+    updated_at_gte: Annotated[
+        OptionalNullable[datetime],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters the results to only payment links updated after this ISO date-time string. The time zone must be included. Ensure that the date-time string is URL encoded, e.g. `2022-01-01T12:00:00+08:00` must be encoded as `2022-01-01T12%3A00%3A00%2B08%3A00`."""
+
+    currency: Annotated[
+        OptionalNullable[List[str]],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters for payment links that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency codes."""
+
+    amount_eq: Annotated[
+        OptionalNullable[int],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters for payment links that have an `amount` equal to this value."""
+
+    amount_gte: Annotated[
+        OptionalNullable[int],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters for payment links that have an `amount` greater than or equal to this value."""
+
+    amount_lte: Annotated[
+        OptionalNullable[int],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters for payment links that have an `amount` less than or equal to this value."""
+
+    status: Annotated[
+        OptionalNullable[List[PaymentLinkStatus]],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters the results to only the payment links that have a `status` that matches with any of the provided status values."""
+
     buyer_search: Annotated[
         OptionalNullable[List[str]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
@@ -80,9 +154,37 @@ class ListPaymentLinksRequest(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["cursor", "limit", "buyer_search", "merchant_account_id"]
+            [
+                "cursor",
+                "limit",
+                "created_at_lte",
+                "created_at_gte",
+                "updated_at_lte",
+                "updated_at_gte",
+                "currency",
+                "amount_eq",
+                "amount_gte",
+                "amount_lte",
+                "status",
+                "buyer_search",
+                "merchant_account_id",
+            ]
         )
-        nullable_fields = set(["cursor", "buyer_search"])
+        nullable_fields = set(
+            [
+                "cursor",
+                "created_at_lte",
+                "created_at_gte",
+                "updated_at_lte",
+                "updated_at_gte",
+                "currency",
+                "amount_eq",
+                "amount_gte",
+                "amount_lte",
+                "status",
+                "buyer_search",
+            ]
+        )
         serialized = handler(self)
         m = {}
 
