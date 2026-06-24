@@ -98,6 +98,8 @@ class ListTransactionsRequestTypedDict(TypedDict):
     r"""Filters for transactions with a pending manual anti-fraud review."""
     checkout_session_id: NotRequired[Nullable[str]]
     r"""Filters for transactions where the `checkout_session_id` matches the provided value."""
+    payment_link_id: NotRequired[Nullable[str]]
+    r"""Filters for transactions where the `payment_link_id` matches the provided value."""
     reconciliation_id: NotRequired[Nullable[str]]
     r"""Filters for transactions where the `reconciliation_id` matches the provided value."""
     has_gift_card_redemptions: NotRequired[Nullable[bool]]
@@ -310,6 +312,12 @@ class ListTransactionsRequest(BaseModel):
     ] = UNSET
     r"""Filters for transactions where the `checkout_session_id` matches the provided value."""
 
+    payment_link_id: Annotated[
+        OptionalNullable[str],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = UNSET
+    r"""Filters for transactions where the `payment_link_id` matches the provided value."""
+
     reconciliation_id: Annotated[
         OptionalNullable[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
@@ -431,6 +439,7 @@ class ListTransactionsRequest(BaseModel):
                 "has_refunds",
                 "pending_review",
                 "checkout_session_id",
+                "payment_link_id",
                 "reconciliation_id",
                 "has_gift_card_redemptions",
                 "gift_card_id",
@@ -480,6 +489,7 @@ class ListTransactionsRequest(BaseModel):
                 "has_refunds",
                 "pending_review",
                 "checkout_session_id",
+                "payment_link_id",
                 "reconciliation_id",
                 "has_gift_card_redemptions",
                 "gift_card_id",
