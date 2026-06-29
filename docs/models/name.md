@@ -55,6 +55,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"payment-connector-response-transaction-void-failed"`
 - `"payment-connector-external-transaction-request"`
 - `"payment-connector-report-transaction-settled"`
+- `"payment-connector-report-refund-settled"`
 - `"payment-connector-report-chargeback-posted"`
 - `"payment-connector-report-chargeback-reversal-posted"`
 - `"payment-connector-transaction-webhook-processed"`
