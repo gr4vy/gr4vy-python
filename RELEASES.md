@@ -2129,3 +2129,13 @@ Based on:
 - [python v2.1.21] .
 ### Releases
 - [PyPI v2.1.21] https://pypi.org/project/gr4vy/2.1.21 - .
+
+## 2026-06-29 08:17:13
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.786.1 (2.913.3) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v2.2.0] .
+### Releases
+- [PyPI v2.2.0] https://pypi.org/project/gr4vy/2.2.0 - .
