@@ -5,6 +5,7 @@ from .accountsreceivablesreportspec import (
     AccountsReceivablesReportSpec,
     AccountsReceivablesReportSpecTypedDict,
 )
+from .aiinsightsreportspec import AIInsightsReportSpec, AIInsightsReportSpecTypedDict
 from .detailedsettlementreportspec import (
     DetailedSettlementReportSpec,
     DetailedSettlementReportSpecTypedDict,
@@ -32,6 +33,7 @@ SpecTypedDict = TypeAliasType(
         TransactionRetriesReportSpecTypedDict,
         DetailedSettlementReportSpecTypedDict,
         AccountsReceivablesReportSpecTypedDict,
+        AIInsightsReportSpecTypedDict,
     ],
 )
 r"""The report specification."""
@@ -40,6 +42,7 @@ r"""The report specification."""
 Spec = Annotated[
     Union[
         Annotated[AccountsReceivablesReportSpec, Tag("accounts_receivables")],
+        Annotated[AIInsightsReportSpec, Tag("ai_insights")],
         Annotated[DetailedSettlementReportSpec, Tag("detailed_settlement")],
         Annotated[TransactionRetriesReportSpec, Tag("transaction_retries")],
         Annotated[TransactionsReportSpec, Tag("transactions")],

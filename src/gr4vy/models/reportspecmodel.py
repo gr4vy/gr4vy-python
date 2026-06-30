@@ -11,6 +11,7 @@ ReportSpecModel = Union[
         "transaction_retries",
         "detailed_settlement",
         "accounts_receivables",
+        "ai_insights",
     ],
     UnrecognizedStr,
 ]
