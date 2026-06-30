@@ -72,6 +72,10 @@ if TYPE_CHECKING:
         AffirmItineraryOptionsTypedDict,
     )
     from .affirmoptions import AffirmOptions, AffirmOptionsTypedDict
+    from .aiinsightsreportspec import (
+        AIInsightsReportSpec,
+        AIInsightsReportSpecTypedDict,
+    )
     from .airline import Airline, AirlineTypedDict, TicketDeliveryMethod
     from .airlineleg import AirlineLeg, AirlineLegTypedDict, RouteType
     from .airlinepassenger import AgeGroup, AirlinePassenger, AirlinePassengerTypedDict
@@ -1477,6 +1481,8 @@ if TYPE_CHECKING:
 __all__ = [
     "ACHBankPaymentMethodCreate",
     "ACHBankPaymentMethodCreateTypedDict",
+    "AIInsightsReportSpec",
+    "AIInsightsReportSpecTypedDict",
     "APITypesDigitalWalletAddress",
     "APITypesDigitalWalletAddressTypedDict",
     "AVSResponseCode",
@@ -2655,6 +2661,8 @@ _dynamic_imports: dict[str, str] = {
     "AffirmItineraryOptionsTypedDict": ".affirmitineraryoptions",
     "AffirmOptions": ".affirmoptions",
     "AffirmOptionsTypedDict": ".affirmoptions",
+    "AIInsightsReportSpec": ".aiinsightsreportspec",
+    "AIInsightsReportSpecTypedDict": ".aiinsightsreportspec",
     "Airline": ".airline",
     "AirlineTypedDict": ".airline",
     "TicketDeliveryMethod": ".airline",

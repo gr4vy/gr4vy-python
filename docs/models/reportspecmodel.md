@@ -18,3 +18,4 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"transaction_retries"`
 - `"detailed_settlement"`
 - `"accounts_receivables"`
+- `"ai_insights"`

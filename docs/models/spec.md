@@ -11,6 +11,12 @@ The report specification.
 value: models.AccountsReceivablesReportSpec = /* values here */
 ```
 
+### `models.AIInsightsReportSpec`
+
+```python
+value: models.AIInsightsReportSpec = /* values here */
+```
+
 ### `models.DetailedSettlementReportSpec`
 
 ```python
