@@ -33,6 +33,8 @@ class RefundTypedDict(TypedDict):
     r"""The date this refund was created at."""
     updated_at: datetime
     r"""The date this refund was last updated at."""
+    settled: bool
+    r"""Indicates whether this refund has been settled."""
     type: Literal["refund"]
     r"""Always `refund`."""
     payment_service_refund_id: NotRequired[Nullable[str]]
@@ -53,6 +55,10 @@ class RefundTypedDict(TypedDict):
     r"""This is the response code received from the payment service. This can be set to any value and is not standardized across different payment services."""
     raw_response_description: NotRequired[Nullable[str]]
     r"""This is the response description received from the payment service. This can be set to any value and is not standardized across different payment services."""
+    settled_currency: NotRequired[Nullable[str]]
+    r"""The ISO 4217 currency code of this refund's settlement."""
+    settled_amount: NotRequired[int]
+    r"""The net amount settled for this refund, in the smallest currency unit (for example, cents or pence)."""
 
 
 class Refund(BaseModel):
@@ -83,6 +89,9 @@ class Refund(BaseModel):
 
     updated_at: datetime
     r"""The date this refund was last updated at."""
+
+    settled: bool
+    r"""Indicates whether this refund has been settled."""
 
     TYPE: Annotated[
         Annotated[
@@ -119,6 +128,12 @@ class Refund(BaseModel):
     raw_response_description: OptionalNullable[str] = UNSET
     r"""This is the response description received from the payment service. This can be set to any value and is not standardized across different payment services."""
 
+    settled_currency: OptionalNullable[str] = UNSET
+    r"""The ISO 4217 currency code of this refund's settlement."""
+
+    settled_amount: Optional[int] = 0
+    r"""The net amount settled for this refund, in the smallest currency unit (for example, cents or pence)."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -133,6 +148,8 @@ class Refund(BaseModel):
                 "error_code",
                 "raw_response_code",
                 "raw_response_description",
+                "settled_currency",
+                "settled_amount",
             ]
         )
         nullable_fields = set(
@@ -146,6 +163,7 @@ class Refund(BaseModel):
                 "error_code",
                 "raw_response_code",
                 "raw_response_description",
+                "settled_currency",
             ]
         )
         serialized = handler(self)
