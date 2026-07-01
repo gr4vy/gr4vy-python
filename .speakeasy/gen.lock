@@ -1,24 +1,24 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 3e1040dcbd621917ed9cc0c0b0b1d1cb
+  docChecksum: f38f0294458f2a2809b7041c8d833b69
   docVersion: 1.0.0
-  speakeasyVersion: 1.786.1
-  generationVersion: 2.913.3
-  releaseVersion: 2.2.1
-  configChecksum: 2d11b526b17b245dd5893918468f7518
+  speakeasyVersion: 1.787.0
+  generationVersion: 2.914.0
+  releaseVersion: 2.2.2
+  configChecksum: d2f104e0bad48e02aa0b83e367721c19
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: a083d37f-7f2b-481b-aa13-e317fa20cb86
-  pristine_commit_hash: 153cbca0c46936c3b1550907cc1d4004c12ff099
-  pristine_tree_hash: 06a04820bb5345bfa815bda00a862be2c818ab9f
+  generation_id: 1cf93a03-25d3-4732-87e2-4f04891cf924
+  pristine_commit_hash: b2e66213ffe2b95edf60d0e0c2ee5a5832d7b365
+  pristine_tree_hash: e7c01dc40569fb75888a6f594c8abc1915c9a2f3
 features:
   python:
     additionalDependencies: 1.1.0
     constsAndDefaults: 1.0.7
-    core: 6.0.32
+    core: 6.0.33
     defaultEnabledRetries: 0.2.0
     enumUnions: 0.1.1
     envVarSecurityUsage: 0.3.3
@@ -1944,8 +1944,8 @@ trackedFiles:
     pristine_git_object: 2f582028e7247589fa15ebc19c92e618b1ec269e
   docs/models/refund.md:
     id: 3be36b1a2825
-    last_write_checksum: sha1:2fa86e07647644e2c424a89c39ea160d54559857
-    pristine_git_object: acb9e1ce3d88ccb71a71db3171d1422722b86d0a
+    last_write_checksum: sha1:7e82f63f6a6644bdbc3cb620c02bc79aa57891a8
+    pristine_git_object: 0d2df50e159f7d6f20eac5fc52f6679c64e6d6bc
   docs/models/refunds.md:
     id: 56cad80f02e4
     last_write_checksum: sha1:142d11ec89618ca4f0d7d8c6637dfb354d3fe6cf
@@ -2692,8 +2692,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:a18a74245fe0d68e5ad416a4985dbd34be25de07
-    pristine_git_object: 0889560f4656cb02fdf29c4549f22ced7779fa9f
+    last_write_checksum: sha1:5c443a2e03001c67b670379d09f2b078886117e0
+    pristine_git_object: 3a531d74cae7aa3bc02858fa4bb1b7295400c6de
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2720,8 +2720,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:06edf3974ca3391f8f6e70edb945c4e1d6ce974e
-    pristine_git_object: 265e0e112a555b9034e75901d3e3d88bba3848d7
+    last_write_checksum: sha1:93cecc20fcb47d3d1ae9b5aeebfd98c16c929069
+    pristine_git_object: 6a9146a501f23e3948120bbd1b156b82c27783a2
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -4204,8 +4204,8 @@ trackedFiles:
     pristine_git_object: 0f6c37ecb659dabfa3a94e68a4245888f0095708
   src/gr4vy/models/refund.py:
     id: 8aa63978d78c
-    last_write_checksum: sha1:63f066382d875fd371807ad6d22d89767a315359
-    pristine_git_object: 1c476e76cd3db5ec1ce8bbfc67e0bbd4cfa3a47e
+    last_write_checksum: sha1:48210c9787846da7109f872e9604969ce5a79909
+    pristine_git_object: c0bdf9acf22bd31664e3494476673283918350ce
   src/gr4vy/models/refunds.py:
     id: a78ea31739c4
     last_write_checksum: sha1:003e76598757f529d1e691ae605eb6fea2ad954b
@@ -6680,7 +6680,7 @@ examples:
           x-gr4vy-merchant-account-id: "default"
       responses:
         "200":
-          application/json: {"items": [{"type": "refund", "id": "6a1d4e46-14ed-4fe1-a45f-eff4e025d211", "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "status": "failed", "currency": "USD", "amount": 1299, "target_type": "payment-method", "reconciliation_id": "7jZXl4gBUNl0CnaLEnfXbt", "transaction_reconciliation_id": "aLEnfXbt7jZXl4gBUNl0Cn", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}, {"type": "refund", "id": "6a1d4e46-14ed-4fe1-a45f-eff4e025d211", "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "status": "failed", "currency": "USD", "amount": 1299, "target_type": "payment-method", "reconciliation_id": "7jZXl4gBUNl0CnaLEnfXbt", "transaction_reconciliation_id": "aLEnfXbt7jZXl4gBUNl0Cn", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}, {"type": "refund", "id": "6a1d4e46-14ed-4fe1-a45f-eff4e025d211", "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "status": "failed", "currency": "USD", "amount": 1299, "target_type": "payment-method", "reconciliation_id": "7jZXl4gBUNl0CnaLEnfXbt", "transaction_reconciliation_id": "aLEnfXbt7jZXl4gBUNl0Cn", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}], "limit": 20}
+          application/json: {"items": [{"type": "refund", "id": "6a1d4e46-14ed-4fe1-a45f-eff4e025d211", "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "status": "failed", "currency": "USD", "amount": 1299, "target_type": "payment-method", "reconciliation_id": "7jZXl4gBUNl0CnaLEnfXbt", "transaction_reconciliation_id": "aLEnfXbt7jZXl4gBUNl0Cn", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00", "settled_amount": 1100, "settled": true}, {"type": "refund", "id": "6a1d4e46-14ed-4fe1-a45f-eff4e025d211", "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "status": "failed", "currency": "USD", "amount": 1299, "target_type": "payment-method", "reconciliation_id": "7jZXl4gBUNl0CnaLEnfXbt", "transaction_reconciliation_id": "aLEnfXbt7jZXl4gBUNl0Cn", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00", "settled_amount": 1100, "settled": true}, {"type": "refund", "id": "6a1d4e46-14ed-4fe1-a45f-eff4e025d211", "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "status": "failed", "currency": "USD", "amount": 1299, "target_type": "payment-method", "reconciliation_id": "7jZXl4gBUNl0CnaLEnfXbt", "transaction_reconciliation_id": "aLEnfXbt7jZXl4gBUNl0Cn", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00", "settled_amount": 1100, "settled": true}], "limit": 20}
         "400":
           application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
         "401":
@@ -6719,7 +6719,7 @@ examples:
         application/json: {}
       responses:
         "201":
-          application/json: {"type": "refund", "id": "6a1d4e46-14ed-4fe1-a45f-eff4e025d211", "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "status": "failed", "currency": "EUR", "amount": 1299, "target_type": "gift-card-redemption", "reconciliation_id": "7jZXl4gBUNl0CnaLEnfXbt", "transaction_reconciliation_id": "aLEnfXbt7jZXl4gBUNl0Cn", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}
+          application/json: {"type": "refund", "id": "6a1d4e46-14ed-4fe1-a45f-eff4e025d211", "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "status": "failed", "currency": "EUR", "amount": 1299, "target_type": "gift-card-redemption", "reconciliation_id": "7jZXl4gBUNl0CnaLEnfXbt", "transaction_reconciliation_id": "aLEnfXbt7jZXl4gBUNl0Cn", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00", "settled_amount": 1100, "settled": true}
         "400":
           application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
         "401":
@@ -6756,7 +6756,7 @@ examples:
           x-gr4vy-merchant-account-id: "default"
       responses:
         "200":
-          application/json: {"type": "refund", "id": "6a1d4e46-14ed-4fe1-a45f-eff4e025d211", "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "status": "declined", "currency": "EUR", "amount": 1299, "target_type": "gift-card-redemption", "reconciliation_id": "7jZXl4gBUNl0CnaLEnfXbt", "transaction_reconciliation_id": "aLEnfXbt7jZXl4gBUNl0Cn", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}
+          application/json: {"type": "refund", "id": "6a1d4e46-14ed-4fe1-a45f-eff4e025d211", "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "status": "declined", "currency": "EUR", "amount": 1299, "target_type": "gift-card-redemption", "reconciliation_id": "7jZXl4gBUNl0CnaLEnfXbt", "transaction_reconciliation_id": "aLEnfXbt7jZXl4gBUNl0Cn", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00", "settled_amount": 1100, "settled": true}
         "400":
           application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
         "401":
@@ -6795,7 +6795,7 @@ examples:
         application/json: {"reason": "Refund due to user request.", "external_identifier": "refund-12345"}
       responses:
         "201":
-          application/json: {"items": [{"type": "refund", "id": "6a1d4e46-14ed-4fe1-a45f-eff4e025d211", "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "status": "voided", "currency": "GBP", "amount": 1299, "target_type": "payment-method", "reconciliation_id": "7jZXl4gBUNl0CnaLEnfXbt", "transaction_reconciliation_id": "aLEnfXbt7jZXl4gBUNl0Cn", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}, {"type": "refund", "id": "6a1d4e46-14ed-4fe1-a45f-eff4e025d211", "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "status": "voided", "currency": "GBP", "amount": 1299, "target_type": "payment-method", "reconciliation_id": "7jZXl4gBUNl0CnaLEnfXbt", "transaction_reconciliation_id": "aLEnfXbt7jZXl4gBUNl0Cn", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}], "limit": 20}
+          application/json: {"items": [{"type": "refund", "id": "6a1d4e46-14ed-4fe1-a45f-eff4e025d211", "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "status": "voided", "currency": "GBP", "amount": 1299, "target_type": "payment-method", "reconciliation_id": "7jZXl4gBUNl0CnaLEnfXbt", "transaction_reconciliation_id": "aLEnfXbt7jZXl4gBUNl0Cn", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00", "settled_amount": 1100, "settled": true}, {"type": "refund", "id": "6a1d4e46-14ed-4fe1-a45f-eff4e025d211", "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "status": "voided", "currency": "GBP", "amount": 1299, "target_type": "payment-method", "reconciliation_id": "7jZXl4gBUNl0CnaLEnfXbt", "transaction_reconciliation_id": "aLEnfXbt7jZXl4gBUNl0Cn", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00", "settled_amount": 1100, "settled": true}], "limit": 20}
         "400":
           application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
         "401":
@@ -6831,7 +6831,7 @@ examples:
           x-gr4vy-merchant-account-id: "default"
       responses:
         "200":
-          application/json: {"type": "refund", "id": "6a1d4e46-14ed-4fe1-a45f-eff4e025d211", "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "status": "succeeded", "currency": "EUR", "amount": 1299, "target_type": "payment-method", "reconciliation_id": "7jZXl4gBUNl0CnaLEnfXbt", "transaction_reconciliation_id": "aLEnfXbt7jZXl4gBUNl0Cn", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}
+          application/json: {"type": "refund", "id": "6a1d4e46-14ed-4fe1-a45f-eff4e025d211", "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "status": "succeeded", "currency": "EUR", "amount": 1299, "target_type": "payment-method", "reconciliation_id": "7jZXl4gBUNl0CnaLEnfXbt", "transaction_reconciliation_id": "aLEnfXbt7jZXl4gBUNl0Cn", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00", "settled_amount": 1100, "settled": true}
         "400":
           application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
         "401":
@@ -8771,7 +8771,13 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.reports.list()`:  `response.items[].spec.model.enum(ai_insights)` **Added**\n* `gr4vy.reports.create()`: \n  *  `request.spec.union(ai_insights)` **Added**\n  *  `response.spec.model.enum(ai_insights)` **Added**\n* `gr4vy.reports.get()`:  `response.spec.model.enum(ai_insights)` **Added**\n* `gr4vy.reports.put()`:  `response.spec.model.enum(ai_insights)` **Added**\n"
+releaseNotes: |
+  ## Python SDK Changes:
+  * `gr4vy.transactions.refunds.list()`:  `response.items[]` **Changed**
+  * `gr4vy.transactions.refunds.create()`:  `response` **Changed**
+  * `gr4vy.transactions.refunds.get()`:  `response` **Changed**
+  * `gr4vy.transactions.refunds.all.create()`:  `response.items[]` **Changed**
+  * `gr4vy.refunds.get()`:  `response` **Changed**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
