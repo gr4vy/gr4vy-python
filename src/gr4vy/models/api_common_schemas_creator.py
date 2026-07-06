@@ -5,13 +5,13 @@ from gr4vy.types import BaseModel
 from typing_extensions import TypedDict
 
 
-class CreatorTypedDict(TypedDict):
+class APICommonSchemasCreatorTypedDict(TypedDict):
     id: str
     name: str
     email_address: str
 
 
-class Creator(BaseModel):
+class APICommonSchemasCreator(BaseModel):
     id: str
 
     name: str

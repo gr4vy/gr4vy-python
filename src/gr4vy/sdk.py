@@ -17,6 +17,7 @@ import weakref
 
 if TYPE_CHECKING:
     from gr4vy.account_updater import AccountUpdater
+    from gr4vy.api_key_pairs import APIKeyPairs
     from gr4vy.audit_logs import AuditLogs
     from gr4vy.buyers_sdk import BuyersSDK
     from gr4vy.card_scheme_definitions_sdk import CardSchemeDefinitionsSDK
@@ -41,6 +42,7 @@ class Gr4vy(BaseSDK):
     r"""Gr4vy: The Gr4vy API."""
 
     account_updater: "AccountUpdater"
+    api_key_pairs: "APIKeyPairs"
     buyers: "BuyersSDK"
     payment_methods: "PaymentMethodsSDK"
     gift_cards: "GiftCardsSDK"
@@ -61,6 +63,7 @@ class Gr4vy(BaseSDK):
     payment_links: "PaymentLinksSDK"
     _sub_sdk_map = {
         "account_updater": ("gr4vy.account_updater", "AccountUpdater"),
+        "api_key_pairs": ("gr4vy.api_key_pairs", "APIKeyPairs"),
         "buyers": ("gr4vy.buyers_sdk", "BuyersSDK"),
         "payment_methods": ("gr4vy.payment_methods_sdk", "PaymentMethodsSDK"),
         "gift_cards": ("gr4vy.gift_cards_sdk", "GiftCardsSDK"),
