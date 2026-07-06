@@ -84,17 +84,9 @@ if TYPE_CHECKING:
         APICommonSchemasCreator,
         APICommonSchemasCreatorTypedDict,
     )
-    from .api_common_schemas_merchantaccount import (
-        APICommonSchemasMerchantAccount,
-        APICommonSchemasMerchantAccountTypedDict,
-    )
     from .api_routers_api_key_pairs_schemas_creator import (
         APIRoutersAPIKeyPairsSchemasCreator,
         APIRoutersAPIKeyPairsSchemasCreatorTypedDict,
-    )
-    from .api_routers_merchant_accounts_schemas_merchantaccount import (
-        APIRoutersMerchantAccountsSchemasMerchantAccount,
-        APIRoutersMerchantAccountsSchemasMerchantAccountTypedDict,
     )
     from .api_types_digitalwalletaddress import (
         APITypesDigitalWalletAddress,
@@ -922,11 +914,16 @@ if TYPE_CHECKING:
         ListTransactionsResponseTypedDict,
     )
     from .mattildatapioptions import MattildaTapiOptions, MattildaTapiOptionsTypedDict
+    from .merchantaccount import MerchantAccount, MerchantAccountTypedDict
     from .merchantaccountcreate import (
         MerchantAccountCreate,
         MerchantAccountCreateTypedDict,
     )
     from .merchantaccounts import MerchantAccounts, MerchantAccountsTypedDict
+    from .merchantaccountsummary import (
+        MerchantAccountSummary,
+        MerchantAccountSummaryTypedDict,
+    )
     from .merchantaccountthreedsconfiguration import (
         MerchantAccountThreeDSConfiguration,
         MerchantAccountThreeDSConfigurationTypedDict,
@@ -1524,8 +1521,6 @@ __all__ = [
     "AIInsightsReportSpecTypedDict",
     "APICommonSchemasCreator",
     "APICommonSchemasCreatorTypedDict",
-    "APICommonSchemasMerchantAccount",
-    "APICommonSchemasMerchantAccountTypedDict",
     "APIKeyPair",
     "APIKeyPairCreate",
     "APIKeyPairCreateTypedDict",
@@ -1534,8 +1529,6 @@ __all__ = [
     "APIKeyPairUpdateTypedDict",
     "APIRoutersAPIKeyPairsSchemasCreator",
     "APIRoutersAPIKeyPairsSchemasCreatorTypedDict",
-    "APIRoutersMerchantAccountsSchemasMerchantAccount",
-    "APIRoutersMerchantAccountsSchemasMerchantAccountTypedDict",
     "APITypesDigitalWalletAddress",
     "APITypesDigitalWalletAddressTypedDict",
     "AVSResponseCode",
@@ -2193,8 +2186,11 @@ __all__ = [
     "LocTypedDict",
     "MattildaTapiOptions",
     "MattildaTapiOptionsTypedDict",
+    "MerchantAccount",
     "MerchantAccountCreate",
     "MerchantAccountCreateTypedDict",
+    "MerchantAccountSummary",
+    "MerchantAccountSummaryTypedDict",
     "MerchantAccountThreeDSConfiguration",
     "MerchantAccountThreeDSConfigurationCreate",
     "MerchantAccountThreeDSConfigurationCreateTypedDict",
@@ -2203,6 +2199,7 @@ __all__ = [
     "MerchantAccountThreeDSConfigurationUpdateTypedDict",
     "MerchantAccountThreeDSConfigurations",
     "MerchantAccountThreeDSConfigurationsTypedDict",
+    "MerchantAccountTypedDict",
     "MerchantAccountUpdate",
     "MerchantAccountUpdateTypedDict",
     "MerchantAccounts",
@@ -2741,12 +2738,8 @@ _dynamic_imports: dict[str, str] = {
     "AntiFraudDecision": ".antifrauddecision",
     "APICommonSchemasCreator": ".api_common_schemas_creator",
     "APICommonSchemasCreatorTypedDict": ".api_common_schemas_creator",
-    "APICommonSchemasMerchantAccount": ".api_common_schemas_merchantaccount",
-    "APICommonSchemasMerchantAccountTypedDict": ".api_common_schemas_merchantaccount",
     "APIRoutersAPIKeyPairsSchemasCreator": ".api_routers_api_key_pairs_schemas_creator",
     "APIRoutersAPIKeyPairsSchemasCreatorTypedDict": ".api_routers_api_key_pairs_schemas_creator",
-    "APIRoutersMerchantAccountsSchemasMerchantAccount": ".api_routers_merchant_accounts_schemas_merchantaccount",
-    "APIRoutersMerchantAccountsSchemasMerchantAccountTypedDict": ".api_routers_merchant_accounts_schemas_merchantaccount",
     "APITypesDigitalWalletAddress": ".api_types_digitalwalletaddress",
     "APITypesDigitalWalletAddressTypedDict": ".api_types_digitalwalletaddress",
     "APIKeyPair": ".apikeypair",
@@ -3352,10 +3345,14 @@ _dynamic_imports: dict[str, str] = {
     "ListTransactionsResponseTypedDict": ".list_transactionsop",
     "MattildaTapiOptions": ".mattildatapioptions",
     "MattildaTapiOptionsTypedDict": ".mattildatapioptions",
+    "MerchantAccount": ".merchantaccount",
+    "MerchantAccountTypedDict": ".merchantaccount",
     "MerchantAccountCreate": ".merchantaccountcreate",
     "MerchantAccountCreateTypedDict": ".merchantaccountcreate",
     "MerchantAccounts": ".merchantaccounts",
     "MerchantAccountsTypedDict": ".merchantaccounts",
+    "MerchantAccountSummary": ".merchantaccountsummary",
+    "MerchantAccountSummaryTypedDict": ".merchantaccountsummary",
     "MerchantAccountThreeDSConfiguration": ".merchantaccountthreedsconfiguration",
     "MerchantAccountThreeDSConfigurationTypedDict": ".merchantaccountthreedsconfiguration",
     "MerchantAccountThreeDSConfigurationCreate": ".merchantaccountthreedsconfigurationcreate",

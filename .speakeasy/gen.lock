@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: b9b181601c9beb9864255e39e1599afd
+  docChecksum: 5939f0944b782a692210e98cfb875ad4
   docVersion: 1.0.0
   speakeasyVersion: 1.788.1
   generationVersion: 2.915.1
-  releaseVersion: 2.2.3
-  configChecksum: 2d9e804c0a4211fd5b5748ef5b3930e5
+  releaseVersion: 2.2.4
+  configChecksum: cde4538ec35ec349030371596b89d8bc
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 741d399b-d6dc-4d9e-9e1b-77191757d3ab
-  pristine_commit_hash: 7cdd98437cf25a4e1e5d73137ad75ec7c4d85f7d
-  pristine_tree_hash: 05ef6efa7e9bf7f94fd1f34721f1722e8a204e09
+  generation_id: ee01cede-ba7c-4759-acbe-12c4c437a098
+  pristine_commit_hash: 1b4b1e29d5ea081991859e90adef4d94aac22d59
+  pristine_tree_hash: 986d031caf316cec1ac13b06b3e82df4939d392a
 features:
   python:
     additionalDependencies: 1.1.0
@@ -242,14 +242,10 @@ trackedFiles:
     id: f084686ed0fb
     last_write_checksum: sha1:b8e99fca68fe7138d59f51909d05904bf0e3e7b3
     pristine_git_object: c1f3d21b4c080ebb0b4ca1f5fc9aadfec8e24fc5
-  docs/models/apicommonschemasmerchantaccount.md:
-    id: "407688441e88"
-    last_write_checksum: sha1:e3dd562f48388081b28ecdfd74c89877c21351d5
-    pristine_git_object: a629dc8788a013798b487bb94f53642e6faae591
   docs/models/apikeypair.md:
     id: aca6b01ba07b
-    last_write_checksum: sha1:440912cc2d902c341f68c94fef50afc1fea90f69
-    pristine_git_object: 8156c5ba219732e601bb95246ccf1cfb4fb80307
+    last_write_checksum: sha1:7a4859d015bad09791d8f0388586d75a52409878
+    pristine_git_object: f6d5e4de643541c7fc9163a0b2eff73602f2b0b0
   docs/models/apikeypaircreate.md:
     id: 8528359e4ec5
     last_write_checksum: sha1:0c9c6e71e91acd0190bc330411803fb456447334
@@ -262,10 +258,6 @@ trackedFiles:
     id: cd07390ea835
     last_write_checksum: sha1:b008b2c2164dbf1d215e054d0d260952068e6d5e
     pristine_git_object: a535ede2c0ad44b4cabee3544bea3f21099fe23b
-  docs/models/apiroutersmerchantaccountsschemasmerchantaccount.md:
-    id: 60990e3f4f00
-    last_write_checksum: sha1:3e8ce87040ced1fa00b3c4e29a2a8209d13b570e
-    pristine_git_object: 3a2cc6ee053464bf03b9d2e40120dd835f7fc005
   docs/models/apitypesdigitalwalletaddress.md:
     id: 75a708c1a902
     last_write_checksum: sha1:afd23fa3a848fc637ecbcbc621f0ccad1115b410
@@ -1148,8 +1140,8 @@ trackedFiles:
     pristine_git_object: 8e7d73086db5750d1834beabfa8e9896d24c7691
   docs/models/giftcardserviceprovider.md:
     id: 938e1140363a
-    last_write_checksum: sha1:03c1b61a4e594c0a0f26ea7daac8efa524ff0c98
-    pristine_git_object: 1c19fcf9d4e05c646e5c19c8bc1a2a924bf4f1da
+    last_write_checksum: sha1:4e044bb4c539effc4ada1ce822b624abf4c73861
+    pristine_git_object: bcdb9d76b01dc0e9af03cfdeb71b60e2c130ac1d
   docs/models/giftcardstoredrequest.md:
     id: e6c5786964b1
     last_write_checksum: sha1:e5756a6378a339a2efab8094a59f1558e6d23bdb
@@ -1534,14 +1526,22 @@ trackedFiles:
     id: 44ebba151746
     last_write_checksum: sha1:73b954f790bcac981542fdabf8f7bbbb4ff89cc9
     pristine_git_object: c7998af826fa652d70876ab931cbcb893c08ddad
+  docs/models/merchantaccount.md:
+    id: e086409ff0fa
+    last_write_checksum: sha1:80ea54aa8208bf4b0a58406100ffca1fba8ef86b
+    pristine_git_object: 1661265b01a4b58c3d4e1b59ab0a8cde9276639a
   docs/models/merchantaccountcreate.md:
     id: a82f978b5311
     last_write_checksum: sha1:f6f4d6cd9b6d760e6120b48bfa2db0032d437512
     pristine_git_object: 9193d0c5e3e90fb9d45d725cba9e89d0ce398f19
   docs/models/merchantaccounts.md:
     id: 2b8c0cb06a58
-    last_write_checksum: sha1:f65b7770d28a6efaa9ab1ea363fd3ac7b255cb1b
-    pristine_git_object: e0a2961b75ad54a205c704ecd7147107ee7e528d
+    last_write_checksum: sha1:efa315d8d287df3315adabe99c61b0370675e1c2
+    pristine_git_object: 6b1087e840f2fe77db805fef5a2afba604bd0e02
+  docs/models/merchantaccountsummary.md:
+    id: e64a3c2086fc
+    last_write_checksum: sha1:bb2d0bf93e9f0ad80c664058d33033623b65dacd
+    pristine_git_object: c4149a46d61c8ed0c90905a5af9b9a9acaaeeb1e
   docs/models/merchantaccountthreedsconfiguration.md:
     id: 8b7af4499332
     last_write_checksum: sha1:1d4eeb0e06ec667981b29435d631e4db7607b309
@@ -2664,8 +2664,8 @@ trackedFiles:
     pristine_git_object: 1b2ca14485f19909d286ffa638d6fcdd333223ed
   docs/sdks/merchantaccountssdk/README.md:
     id: 39108cecfab1
-    last_write_checksum: sha1:f2dce1592a26b78819c72bf5fa41cdeac7db505a
-    pristine_git_object: 5a38ea66513a7af38aed18736fc186e18257540f
+    last_write_checksum: sha1:7e2eb98eeacb5e0cb87892d1507db2d4cdc84a0f
+    pristine_git_object: 9e993143b9d656fc74af7c7ed0f8d1f2178c02f0
   docs/sdks/networktokenscryptogram/README.md:
     id: 7aef02dc3c54
     last_write_checksum: sha1:3ac01232944c881072602290f8de7132617e85fc
@@ -2752,8 +2752,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:593ff8d50ca1f4470879b79345c181552e10458c
-    pristine_git_object: f2adfd10c72029c3b1f998c9a941ec0c4ee5bd1e
+    last_write_checksum: sha1:50b98339cff89afc2e736ba523cac9640ca3e227
+    pristine_git_object: 2a650bf03fe158e04cece72ed36694af5812ba3c
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2780,8 +2780,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:8fe3ab5a4869f3e7b8a4fda5cbb4a7e124001013
-    pristine_git_object: 7192251c39c4b3b14915fc4e8fa137b91fe66fdd
+    last_write_checksum: sha1:b40abf72ca22172b2eb989c3cd950edc44726a5c
+    pristine_git_object: 736ebae0ec899484630d656408354eae80f4338b
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -2936,12 +2936,12 @@ trackedFiles:
     pristine_git_object: 76323f5cc11918d04b7ba4e7581ddbf3008db03d
   src/gr4vy/merchant_accounts_sdk.py:
     id: 6649e2875667
-    last_write_checksum: sha1:04cdebf84f52ce9d4c582b3782f177e95bfc368a
-    pristine_git_object: 0fcd6d0309bcdd7e19d84994159a8a9a26593ef1
+    last_write_checksum: sha1:4e4196e3b71e4e4dfea00bef4d93aa53f02c7d1c
+    pristine_git_object: a8fe4dbb14fe921bca872721f3f9ff22fcdc60a2
   src/gr4vy/models/__init__.py:
     id: 427cc7fddfe2
-    last_write_checksum: sha1:61aef05d8c077e490d21ffe58cf06912ccd47c14
-    pristine_git_object: 7b6811a6591bfa0ee050224cc5d83d48d818f3ee
+    last_write_checksum: sha1:e9f7f6bf01a92c87d0c43e942be78a1415309e16
+    pristine_git_object: e71d2ab34ddc56422f0b08fc723d0f931ef7d117
   src/gr4vy/models/accountsreceivablesreportspec.py:
     id: cc6a9368f988
     last_write_checksum: sha1:1ce9432ce7ae682a7fff1e0fe1ddc7f82dc937e7
@@ -3054,26 +3054,18 @@ trackedFiles:
     id: 08a27b22ede8
     last_write_checksum: sha1:00fb41118b519961ec9b48566aef3be128a90beb
     pristine_git_object: 84cf0c105c15a1877c8980f4b4461342c8acdc47
-  src/gr4vy/models/api_common_schemas_merchantaccount.py:
-    id: a7c8c0aa783b
-    last_write_checksum: sha1:a4a32116d2fafaff76c67d4f036a82965f3ea0a6
-    pristine_git_object: 2f923e472ef810a29f22236df10e042e03f42355
   src/gr4vy/models/api_routers_api_key_pairs_schemas_creator.py:
     id: 1712aa09bf67
     last_write_checksum: sha1:d28ea31b8b9a9557bd22d293c34623e13269f575
     pristine_git_object: 321b724d742ebc456eb15c4c1093594393a8eab4
-  src/gr4vy/models/api_routers_merchant_accounts_schemas_merchantaccount.py:
-    id: cee1ee8030a9
-    last_write_checksum: sha1:7dd0f2aee843a34539062b50d60e30660b081304
-    pristine_git_object: 91c25edc40fb128e9d54c281fd4390b606e03d02
   src/gr4vy/models/api_types_digitalwalletaddress.py:
     id: bf2c6d0514d5
     last_write_checksum: sha1:5e67014d10fd1ddd6290fc3dffddb861d1d20ff2
     pristine_git_object: e34603d9fb6759b0e361a71aee2acc033a7cd52e
   src/gr4vy/models/apikeypair.py:
     id: ee9aa74e9446
-    last_write_checksum: sha1:c8cf45a1a8cc7e0005b80ebb09a4367d4ea665df
-    pristine_git_object: 1cfc1b641ea03b1e74c776ec7b902f97bd8d280c
+    last_write_checksum: sha1:060d856bc92d1e5940d26c68228032bee6143277
+    pristine_git_object: f20a4e9631166b8ed5a6dfa2c4354415cd4466bf
   src/gr4vy/models/apikeypaircreate.py:
     id: 8f5617480068
     last_write_checksum: sha1:5bfbe402e206b63d834e4efd0fac343c60d6809e
@@ -3712,8 +3704,8 @@ trackedFiles:
     pristine_git_object: 17c57feee06561ecd253ad7f8798bd853426e817
   src/gr4vy/models/giftcardserviceprovider.py:
     id: ad227de98764
-    last_write_checksum: sha1:913fab7636c42ab31b6710025fed15bf9e2b3523
-    pristine_git_object: acaec863c382795de908874eae80b8af202f5a80
+    last_write_checksum: sha1:d30f1add16b2d7b07a0c81c3f268796f9b5ef52a
+    pristine_git_object: aedb60008508e4cd9786b496e12876a356865448
   src/gr4vy/models/giftcardstoredrequest.py:
     id: 21cf7fc4958f
     last_write_checksum: sha1:e4768e2f5acb89e472b352f6be424af9b9e775c9
@@ -3910,14 +3902,22 @@ trackedFiles:
     id: 0f2489008cf3
     last_write_checksum: sha1:2bed39828e4b2185c316fcd5fa259dd373780918
     pristine_git_object: c922f1f5a50906ea113c3667384904aadfa27c36
+  src/gr4vy/models/merchantaccount.py:
+    id: add81dd64f62
+    last_write_checksum: sha1:50e0f678185ce7745efe79103369c0d1712a0b5f
+    pristine_git_object: b0ce7bbcb803daeb6cb097defb848bb976cbde71
   src/gr4vy/models/merchantaccountcreate.py:
     id: 0885475f0c84
     last_write_checksum: sha1:9dee3016bb0acc31b8d45cfb64d0f2d919234a9e
     pristine_git_object: 1cc4f846cfe179668c1740d3bb2c491501943352
   src/gr4vy/models/merchantaccounts.py:
     id: 54ec47424955
-    last_write_checksum: sha1:299e0a3957e40678ef59d15a52599a311f29518b
-    pristine_git_object: 6c8bc8b2e6bdad1b61eb1db9f1dccaeea57e64fc
+    last_write_checksum: sha1:87efe8a0e5e30ac3480b208da645c546c2b3c130
+    pristine_git_object: 016691dc4fd1d186e38354b7bf826f47cb79220b
+  src/gr4vy/models/merchantaccountsummary.py:
+    id: 14904b37e207
+    last_write_checksum: sha1:4404d6ee967da425108de0994455742d5dced78c
+    pristine_git_object: 3b949a7953be50f2bda1becef20cd2b4c25eb247
   src/gr4vy/models/merchantaccountthreedsconfiguration.py:
     id: 80000774859e
     last_write_checksum: sha1:10ab4831da797b1d8209670c62837d7c0a1c9485
@@ -9048,11 +9048,17 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes:
-  * `gr4vy.api_key_pairs.list()`: **Added**
-  * `gr4vy.api_key_pairs.create()`: **Added**
-  * `gr4vy.api_key_pairs.get()`: **Added**
-  * `gr4vy.api_key_pairs.update()`: **Added**
-  * `gr4vy.api_key_pairs.delete()`: **Added**
+  * `gr4vy.gift_cards.get()`:  `response.gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
+  * `gr4vy.gift_cards.create()`:  `response.gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
+  * `gr4vy.gift_cards.list()`:  `response.items[].gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
+  * `gr4vy.transactions.list()`:  `response.items[].gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
+  * `gr4vy.transactions.create()`:  `response.gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
+  * `gr4vy.transactions.get()`:  `response.gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
+  * `gr4vy.transactions.update()`:  `response.gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
+  * `gr4vy.transactions.capture()`:  `response.union(Transaction).gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
+  * `gr4vy.transactions.void()`:  `response.union(Transaction).gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
+  * `gr4vy.transactions.cancel()`:  `response.transaction.gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
+  * `gr4vy.transactions.sync()`:  `response.gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json

@@ -9,6 +9,7 @@ GiftCardServiceProvider = Union[
     Literal[
         "mock-gift-card",
         "qwikcilver-gift-card",
+        "valuelink-gift-card",
     ],
     UnrecognizedStr,
 ]

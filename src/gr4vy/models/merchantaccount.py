@@ -12,7 +12,7 @@ from typing import List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class APIRoutersMerchantAccountsSchemasMerchantAccountTypedDict(TypedDict):
+class MerchantAccountTypedDict(TypedDict):
     id: str
     r"""The ID for the merchant account."""
     display_name: str
@@ -63,7 +63,7 @@ class APIRoutersMerchantAccountsSchemasMerchantAccountTypedDict(TypedDict):
     r"""When enabled network tokens will be generated asynchronously and only used on subsequent transactions to speed up transaction processing."""
 
 
-class APIRoutersMerchantAccountsSchemasMerchantAccount(BaseModel):
+class MerchantAccount(BaseModel):
     id: str
     r"""The ID for the merchant account."""
 
@@ -211,6 +211,6 @@ class APIRoutersMerchantAccountsSchemasMerchantAccount(BaseModel):
 
 
 try:
-    APIRoutersMerchantAccountsSchemasMerchantAccount.model_rebuild()
+    MerchantAccount.model_rebuild()
 except NameError:
     pass
