@@ -2030,6 +2030,7 @@ class Transactions(BaseSDK):
         ] = UNSET,
         final: Optional[bool] = True,
         external_identifier: OptionalNullable[str] = UNSET,
+        reauthorize_if_authorization_expired: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2048,6 +2049,7 @@ class Transactions(BaseSDK):
         :param cart_items: An array of cart items that represents the line items of this capture.
         :param final: Whether this is marked as the final capture for the associated transaction. Must be `true` or omitted when multi-capture is not enabled; a value of `false` is only valid when multi-capture is available on the connection.
         :param external_identifier: An external identifier that can be used to match the capture against your own records.
+        :param reauthorize_if_authorization_expired: Whether this capture request should re-authorize the transaction if it has expired.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2078,6 +2080,7 @@ class Transactions(BaseSDK):
                 ),
                 final=final,
                 external_identifier=external_identifier,
+                reauthorize_if_authorization_expired=reauthorize_if_authorization_expired,
             ),
         )
 
@@ -2201,6 +2204,7 @@ class Transactions(BaseSDK):
         ] = UNSET,
         final: Optional[bool] = True,
         external_identifier: OptionalNullable[str] = UNSET,
+        reauthorize_if_authorization_expired: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -2219,6 +2223,7 @@ class Transactions(BaseSDK):
         :param cart_items: An array of cart items that represents the line items of this capture.
         :param final: Whether this is marked as the final capture for the associated transaction. Must be `true` or omitted when multi-capture is not enabled; a value of `false` is only valid when multi-capture is available on the connection.
         :param external_identifier: An external identifier that can be used to match the capture against your own records.
+        :param reauthorize_if_authorization_expired: Whether this capture request should re-authorize the transaction if it has expired.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -2249,6 +2254,7 @@ class Transactions(BaseSDK):
                 ),
                 final=final,
                 external_identifier=external_identifier,
+                reauthorize_if_authorization_expired=reauthorize_if_authorization_expired,
             ),
         )
 

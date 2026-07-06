@@ -22,6 +22,8 @@ class TransactionCaptureCreateTypedDict(TypedDict):
     r"""Whether this is marked as the final capture for the associated transaction. Must be `true` or omitted when multi-capture is not enabled; a value of `false` is only valid when multi-capture is available on the connection."""
     external_identifier: NotRequired[Nullable[str]]
     r"""An external identifier that can be used to match the capture against your own records."""
+    reauthorize_if_authorization_expired: NotRequired[Nullable[bool]]
+    r"""Whether this capture request should re-authorize the transaction if it has expired."""
 
 
 class TransactionCaptureCreate(BaseModel):
@@ -42,13 +44,29 @@ class TransactionCaptureCreate(BaseModel):
     external_identifier: OptionalNullable[str] = UNSET
     r"""An external identifier that can be used to match the capture against your own records."""
 
+    reauthorize_if_authorization_expired: OptionalNullable[bool] = UNSET
+    r"""Whether this capture request should re-authorize the transaction if it has expired."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["amount", "airline", "cart_items", "final", "external_identifier"]
+            [
+                "amount",
+                "airline",
+                "cart_items",
+                "final",
+                "external_identifier",
+                "reauthorize_if_authorization_expired",
+            ]
         )
         nullable_fields = set(
-            ["amount", "airline", "cart_items", "external_identifier"]
+            [
+                "amount",
+                "airline",
+                "cart_items",
+                "external_identifier",
+                "reauthorize_if_authorization_expired",
+            ]
         )
         serialized = handler(self)
         m = {}

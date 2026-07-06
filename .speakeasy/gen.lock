@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 5939f0944b782a692210e98cfb875ad4
+  docChecksum: dca172a64bab9d8db3907b30e1df441f
   docVersion: 1.0.0
   speakeasyVersion: 1.788.1
   generationVersion: 2.915.1
-  releaseVersion: 2.2.4
-  configChecksum: cde4538ec35ec349030371596b89d8bc
+  releaseVersion: 2.2.5
+  configChecksum: 333346afca9c6e1b36cee1fbd7e74ccb
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: ee01cede-ba7c-4759-acbe-12c4c437a098
-  pristine_commit_hash: 1b4b1e29d5ea081991859e90adef4d94aac22d59
-  pristine_tree_hash: 986d031caf316cec1ac13b06b3e82df4939d392a
+  generation_id: d82579a6-3f05-4e66-b3ab-f9e805c7dfa1
+  pristine_commit_hash: c16346574dd9efb1a436c684d460528f841adbe2
+  pristine_tree_hash: 5445921abaab7c4748276cdb3d51dbc749a06c7a
 features:
   python:
     additionalDependencies: 1.1.0
@@ -2336,8 +2336,8 @@ trackedFiles:
     pristine_git_object: 487f97f14ae5fda17a588a6faf7ca52d6a31a3c3
   docs/models/transactioncapturecreate.md:
     id: ea1f508b22d1
-    last_write_checksum: sha1:6c806d61b03f0c878f4524b25ed3f55c36753469
-    pristine_git_object: fb4b204a97e07de6a69d46c716e44561d312738a
+    last_write_checksum: sha1:7909f5d811d15880e17f876da8c8502bd9da7565
+    pristine_git_object: 131873812def4a46bc198dead12e97f441548a3b
   docs/models/transactionconnectionoptions.md:
     id: 4c92c21f3107
     last_write_checksum: sha1:70017f9c715296d439bc5e9c1feb674e31f41c56
@@ -2728,8 +2728,8 @@ trackedFiles:
     pristine_git_object: b9aef138573acbb2f7108a60bf3ef48ed649e284
   docs/sdks/transactions/README.md:
     id: 85592abe3c6b
-    last_write_checksum: sha1:1d2659add8e8efc538049dc723b9828001aa0f19
-    pristine_git_object: bb0045f3d8a2ff602f0c0b1c854d46424298bfc1
+    last_write_checksum: sha1:3321598b959b73dcf45ae03f17bac9a993f3d6d3
+    pristine_git_object: dba40a0bfb70246dc6b00b0373c7d6babf97aab8
   docs/sdks/transactionsrefunds/README.md:
     id: c6a0400f5020
     last_write_checksum: sha1:9f066fc497802c0814246b158c659f494f74b520
@@ -2752,8 +2752,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:50b98339cff89afc2e736ba523cac9640ca3e227
-    pristine_git_object: 2a650bf03fe158e04cece72ed36694af5812ba3c
+    last_write_checksum: sha1:b9b41590debb2ff3ce6f41e1c4b5590552d6d800
+    pristine_git_object: 5827946d894846b369b84387bb640b718c603ea7
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2780,8 +2780,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:b40abf72ca22172b2eb989c3cd950edc44726a5c
-    pristine_git_object: 736ebae0ec899484630d656408354eae80f4338b
+    last_write_checksum: sha1:4f31a3ea5b68c33181910a037e01a23d734e844d
+    pristine_git_object: a1b9cac968bf0c5054320f01e8c9cff763afbfc4
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -4572,8 +4572,8 @@ trackedFiles:
     pristine_git_object: f89093ebc037a9fb56f58993009bc9837ca95f98
   src/gr4vy/models/transactioncapturecreate.py:
     id: 3cf410dfbb05
-    last_write_checksum: sha1:125dcc29fc2670c6dbd3b908643f753df42337bb
-    pristine_git_object: afc5f2b30bee4921c4e45f46bb2f01a322744526
+    last_write_checksum: sha1:8c4db094343aa27f6287a86f5d5f8dfe0d1db16b
+    pristine_git_object: d86a8513e92c48013bbf8a2c95ce4fbe4cc559f6
   src/gr4vy/models/transactionconnectionoptions.py:
     id: e12dfa576d74
     last_write_checksum: sha1:e199ff3e48e4408af6e34ba733a634a1066e115b
@@ -4836,8 +4836,8 @@ trackedFiles:
     pristine_git_object: 1bf1fe5162561e909510a79dd04f48b18966afce
   src/gr4vy/transactions.py:
     id: 88da8fa0ed7f
-    last_write_checksum: sha1:0a704295b4e0ca9014937c274eaf3bcc57d28484
-    pristine_git_object: 0a6f822c9287c741898758c74e7355f5a6a578c1
+    last_write_checksum: sha1:63764cdd709a4fac120d301b8a35aee0f15aac68
+    pristine_git_object: bec32c45f9a862d243690d0996aaa4d47b667ae5
   src/gr4vy/transactions_refunds.py:
     id: ee2cc8522919
     last_write_checksum: sha1:329290af3df537053ee26f2af2e7e526c2d34470
@@ -9048,17 +9048,7 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes:
-  * `gr4vy.gift_cards.get()`:  `response.gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
-  * `gr4vy.gift_cards.create()`:  `response.gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
-  * `gr4vy.gift_cards.list()`:  `response.items[].gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
-  * `gr4vy.transactions.list()`:  `response.items[].gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
-  * `gr4vy.transactions.create()`:  `response.gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
-  * `gr4vy.transactions.get()`:  `response.gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
-  * `gr4vy.transactions.update()`:  `response.gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
-  * `gr4vy.transactions.capture()`:  `response.union(Transaction).gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
-  * `gr4vy.transactions.void()`:  `response.union(Transaction).gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
-  * `gr4vy.transactions.cancel()`:  `response.transaction.gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
-  * `gr4vy.transactions.sync()`:  `response.gift_card_service.gift_card_service_definition_id.enum(valuelink_gift_card)` **Added**
+  * `gr4vy.transactions.capture()`:  `request.reauthorize_if_authorization_expired` **Added**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
