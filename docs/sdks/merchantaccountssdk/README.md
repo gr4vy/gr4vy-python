@@ -117,7 +117,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.APIRoutersMerchantAccountsSchemasMerchantAccount](../../models/apiroutersmerchantaccountsschemasmerchantaccount.md)**
+**[models.MerchantAccount](../../models/merchantaccount.md)**
 
 ### Errors
 
@@ -169,7 +169,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.APIRoutersMerchantAccountsSchemasMerchantAccount](../../models/apiroutersmerchantaccountsschemasmerchantaccount.md)**
+**[models.MerchantAccount](../../models/merchantaccount.md)**
 
 ### Errors
 
@@ -241,7 +241,7 @@ with Gr4vy(
 
 ### Response
 
-**[models.APIRoutersMerchantAccountsSchemasMerchantAccount](../../models/apiroutersmerchantaccountsschemasmerchantaccount.md)**
+**[models.MerchantAccount](../../models/merchantaccount.md)**
 
 ### Errors
 

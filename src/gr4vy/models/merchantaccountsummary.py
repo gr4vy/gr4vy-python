@@ -11,7 +11,7 @@ from typing import Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
-class APICommonSchemasMerchantAccountTypedDict(TypedDict):
+class MerchantAccountSummaryTypedDict(TypedDict):
     id: str
     display_name: str
     created_at: datetime
@@ -21,7 +21,7 @@ class APICommonSchemasMerchantAccountTypedDict(TypedDict):
     over_capture_percentage: NotRequired[Nullable[int]]
 
 
-class APICommonSchemasMerchantAccount(BaseModel):
+class MerchantAccountSummary(BaseModel):
     id: str
 
     display_name: str
@@ -71,6 +71,6 @@ class APICommonSchemasMerchantAccount(BaseModel):
 
 
 try:
-    APICommonSchemasMerchantAccount.model_rebuild()
+    MerchantAccountSummary.model_rebuild()
 except NameError:
     pass
