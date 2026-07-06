@@ -336,6 +336,14 @@ except ValueError as error:
 
 * [create](docs/sdks/jobs/README.md#create) - Create account updater job
 
+### [ApiKeyPairs](docs/sdks/apikeypairs/README.md)
+
+* [list](docs/sdks/apikeypairs/README.md#list) - List all API key pairs
+* [create](docs/sdks/apikeypairs/README.md#create) - Create an API key pair
+* [get](docs/sdks/apikeypairs/README.md#get) - Get an API key pair
+* [update](docs/sdks/apikeypairs/README.md#update) - Update an API key pair
+* [delete](docs/sdks/apikeypairs/README.md#delete) - Delete an API key pair
+
 ### [AuditLogs](docs/sdks/auditlogs/README.md)
 
 * [list](docs/sdks/auditlogs/README.md#list) - List audit log entries
@@ -603,11 +611,10 @@ import os
 
 
 with Gr4vy(
-    merchant_account_id="default",
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.buyers.list(cursor="ZXhhbXBsZTE", limit=20, search="John", external_identifier="buyer-12345")
+    res = g_client.api_key_pairs.list(limit=20)
 
     while res is not None:
         # Handle items

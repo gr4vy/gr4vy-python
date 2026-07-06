@@ -80,10 +80,29 @@ if TYPE_CHECKING:
     from .airlineleg import AirlineLeg, AirlineLegTypedDict, RouteType
     from .airlinepassenger import AgeGroup, AirlinePassenger, AirlinePassengerTypedDict
     from .antifrauddecision import AntiFraudDecision
+    from .api_common_schemas_creator import (
+        APICommonSchemasCreator,
+        APICommonSchemasCreatorTypedDict,
+    )
+    from .api_common_schemas_merchantaccount import (
+        APICommonSchemasMerchantAccount,
+        APICommonSchemasMerchantAccountTypedDict,
+    )
+    from .api_routers_api_key_pairs_schemas_creator import (
+        APIRoutersAPIKeyPairsSchemasCreator,
+        APIRoutersAPIKeyPairsSchemasCreatorTypedDict,
+    )
+    from .api_routers_merchant_accounts_schemas_merchantaccount import (
+        APIRoutersMerchantAccountsSchemasMerchantAccount,
+        APIRoutersMerchantAccountsSchemasMerchantAccountTypedDict,
+    )
     from .api_types_digitalwalletaddress import (
         APITypesDigitalWalletAddress,
         APITypesDigitalWalletAddressTypedDict,
     )
+    from .apikeypair import APIKeyPair, APIKeyPairTypedDict
+    from .apikeypaircreate import APIKeyPairCreate, APIKeyPairCreateTypedDict
+    from .apikeypairupdate import APIKeyPairUpdate, APIKeyPairUpdateTypedDict
     from .applepaypaymentmethodcreate import (
         ApplePayPaymentMethodCreate,
         ApplePayPaymentMethodCreateTypedDict,
@@ -160,6 +179,7 @@ if TYPE_CHECKING:
         CardWithURLPaymentMethodCreateTypedDict,
     )
     from .cartitem import CartItem, CartItemTypedDict
+    from .certificatealgorithm import CertificateAlgorithm
     from .chaseoptions import ChaseOptions, ChaseOptionsTypedDict
     from .checkoutpayoutoptions import (
         CheckoutPayoutOptions,
@@ -198,6 +218,10 @@ if TYPE_CHECKING:
     from .clicktopaysessionrequest import (
         ClickToPaySessionRequest,
         ClickToPaySessionRequestTypedDict,
+    )
+    from .collection_apikeypair_ import (
+        CollectionAPIKeyPair,
+        CollectionAPIKeyPairTypedDict,
     )
     from .complete_paze_mobile_sessionop import (
         CompletePazeMobileSessionGlobals,
@@ -339,7 +363,6 @@ if TYPE_CHECKING:
     )
     from .createsession import CreateSession, CreateSessionTypedDict
     from .createsessionstatus import CreateSessionStatus
-    from .creator import Creator, CreatorTypedDict
     from .cryptogram import Cryptogram, CryptogramTypedDict
     from .cryptogramcreate import CryptogramCreate, CryptogramCreateTypedDict
     from .cvvresponsecode import CVVResponseCode
@@ -350,6 +373,10 @@ if TYPE_CHECKING:
     from .cybersourceoptions import CybersourceOptions, CybersourceOptionsTypedDict
     from .definitionfield import DefinitionField, DefinitionFieldTypedDict
     from .definitionfieldformat import DefinitionFieldFormat
+    from .delete_api_key_pairop import (
+        DeleteAPIKeyPairRequest,
+        DeleteAPIKeyPairRequestTypedDict,
+    )
     from .delete_buyer_shipping_detailsop import (
         DeleteBuyerShippingDetailsGlobals,
         DeleteBuyerShippingDetailsGlobalsTypedDict,
@@ -519,6 +546,7 @@ if TYPE_CHECKING:
         ForterAntiFraudOptionsDiscountCouponDiscountAmount,
         ForterAntiFraudOptionsDiscountCouponDiscountAmountTypedDict,
     )
+    from .get_api_key_pairop import GetAPIKeyPairRequest, GetAPIKeyPairRequestTypedDict
     from .get_buyer_shipping_detailsop import (
         GetBuyerShippingDetailsGlobals,
         GetBuyerShippingDetailsGlobalsTypedDict,
@@ -700,6 +728,12 @@ if TYPE_CHECKING:
         ListAllReportExecutionsRequestTypedDict,
         ListAllReportExecutionsResponse,
         ListAllReportExecutionsResponseTypedDict,
+    )
+    from .list_api_key_pairsop import (
+        ListAPIKeyPairsRequest,
+        ListAPIKeyPairsRequestTypedDict,
+        ListAPIKeyPairsResponse,
+        ListAPIKeyPairsResponseTypedDict,
     )
     from .list_audit_logsop import (
         ListAuditLogsGlobals,
@@ -888,7 +922,6 @@ if TYPE_CHECKING:
         ListTransactionsResponseTypedDict,
     )
     from .mattildatapioptions import MattildaTapiOptions, MattildaTapiOptionsTypedDict
-    from .merchantaccount import MerchantAccount, MerchantAccountTypedDict
     from .merchantaccountcreate import (
         MerchantAccountCreate,
         MerchantAccountCreateTypedDict,
@@ -1145,6 +1178,7 @@ if TYPE_CHECKING:
     )
     from .pazetraveldata import PazeTravelData, PazeTravelDataTypedDict
     from .pazewebsession import PazeWebSession, PazeWebSessionTypedDict
+    from .permissionset import PermissionSet, PermissionSetTypedDict
     from .plaidpaymentmethodcreate import (
         PlaidPaymentMethodCreate,
         PlaidPaymentMethodCreateTypedDict,
@@ -1217,6 +1251,7 @@ if TYPE_CHECKING:
         RiskifiedAntiFraudOptionsLineItem,
         RiskifiedAntiFraudOptionsLineItemTypedDict,
     )
+    from .role import Role, RoleTypedDict
     from .security import Security, SecurityTypedDict
     from .sepabankpaymentmethodcreate import (
         SEPABankPaymentMethodCreate,
@@ -1377,6 +1412,10 @@ if TYPE_CHECKING:
         UnregisterDigitalWalletDomainRequest,
         UnregisterDigitalWalletDomainRequestTypedDict,
     )
+    from .update_api_key_pairop import (
+        UpdateAPIKeyPairRequest,
+        UpdateAPIKeyPairRequestTypedDict,
+    )
     from .update_buyer_shipping_detailsop import (
         UpdateBuyerShippingDetailsGlobals,
         UpdateBuyerShippingDetailsGlobalsTypedDict,
@@ -1483,6 +1522,20 @@ __all__ = [
     "ACHBankPaymentMethodCreateTypedDict",
     "AIInsightsReportSpec",
     "AIInsightsReportSpecTypedDict",
+    "APICommonSchemasCreator",
+    "APICommonSchemasCreatorTypedDict",
+    "APICommonSchemasMerchantAccount",
+    "APICommonSchemasMerchantAccountTypedDict",
+    "APIKeyPair",
+    "APIKeyPairCreate",
+    "APIKeyPairCreateTypedDict",
+    "APIKeyPairTypedDict",
+    "APIKeyPairUpdate",
+    "APIKeyPairUpdateTypedDict",
+    "APIRoutersAPIKeyPairsSchemasCreator",
+    "APIRoutersAPIKeyPairsSchemasCreatorTypedDict",
+    "APIRoutersMerchantAccountsSchemasMerchantAccount",
+    "APIRoutersMerchantAccountsSchemasMerchantAccountTypedDict",
     "APITypesDigitalWalletAddress",
     "APITypesDigitalWalletAddressTypedDict",
     "AVSResponseCode",
@@ -1611,6 +1664,7 @@ __all__ = [
     "CardWithURLPaymentMethodCreateTypedDict",
     "CartItem",
     "CartItemTypedDict",
+    "CertificateAlgorithm",
     "ChaseOptions",
     "ChaseOptionsTypedDict",
     "CheckoutPayoutOptions",
@@ -1635,6 +1689,8 @@ __all__ = [
     "ClickToPaySessionRequest",
     "ClickToPaySessionRequestTypedDict",
     "ClickToPaySessionTypedDict",
+    "CollectionAPIKeyPair",
+    "CollectionAPIKeyPairTypedDict",
     "CompletePazeMobileSessionGlobals",
     "CompletePazeMobileSessionGlobalsTypedDict",
     "CompletePazeMobileSessionRequest",
@@ -1728,8 +1784,6 @@ __all__ = [
     "CreateTransactionRefundRequestTypedDict",
     "CreateTransactionRequest",
     "CreateTransactionRequestTypedDict",
-    "Creator",
-    "CreatorTypedDict",
     "Cryptogram",
     "CryptogramCreate",
     "CryptogramCreateTypedDict",
@@ -1741,6 +1795,8 @@ __all__ = [
     "DefinitionField",
     "DefinitionFieldFormat",
     "DefinitionFieldTypedDict",
+    "DeleteAPIKeyPairRequest",
+    "DeleteAPIKeyPairRequestTypedDict",
     "DeleteBuyerGlobals",
     "DeleteBuyerGlobalsTypedDict",
     "DeleteBuyerRequest",
@@ -1861,6 +1917,8 @@ __all__ = [
     "ForterAntiFraudOptionsDiscountTypedDict",
     "ForterAntiFraudOptionsTypedDict",
     "Frequency",
+    "GetAPIKeyPairRequest",
+    "GetAPIKeyPairRequestTypedDict",
     "GetBuyerGlobals",
     "GetBuyerGlobalsTypedDict",
     "GetBuyerRequest",
@@ -1989,6 +2047,10 @@ __all__ = [
     "ItemTypedDict",
     "LatitudeOptions",
     "LatitudeOptionsTypedDict",
+    "ListAPIKeyPairsRequest",
+    "ListAPIKeyPairsRequestTypedDict",
+    "ListAPIKeyPairsResponse",
+    "ListAPIKeyPairsResponseTypedDict",
     "ListAllReportExecutionsGlobals",
     "ListAllReportExecutionsGlobalsTypedDict",
     "ListAllReportExecutionsRequest",
@@ -2131,7 +2193,6 @@ __all__ = [
     "LocTypedDict",
     "MattildaTapiOptions",
     "MattildaTapiOptionsTypedDict",
-    "MerchantAccount",
     "MerchantAccountCreate",
     "MerchantAccountCreateTypedDict",
     "MerchantAccountThreeDSConfiguration",
@@ -2142,7 +2203,6 @@ __all__ = [
     "MerchantAccountThreeDSConfigurationUpdateTypedDict",
     "MerchantAccountThreeDSConfigurations",
     "MerchantAccountThreeDSConfigurationsTypedDict",
-    "MerchantAccountTypedDict",
     "MerchantAccountUpdate",
     "MerchantAccountUpdateTypedDict",
     "MerchantAccounts",
@@ -2325,6 +2385,8 @@ __all__ = [
     "PazeTravelDataTypedDict",
     "PazeWebSession",
     "PazeWebSessionTypedDict",
+    "PermissionSet",
+    "PermissionSetTypedDict",
     "PlaidPaymentMethodCreate",
     "PlaidPaymentMethodCreateTypedDict",
     "PowertranzOptions",
@@ -2401,6 +2463,8 @@ __all__ = [
     "RiskifiedAntiFraudOptionsLineItem",
     "RiskifiedAntiFraudOptionsLineItemTypedDict",
     "RiskifiedAntiFraudOptionsTypedDict",
+    "Role",
+    "RoleTypedDict",
     "RouteType",
     "SEPABankPaymentMethodCreate",
     "SEPABankPaymentMethodCreateTypedDict",
@@ -2541,6 +2605,8 @@ __all__ = [
     "UnregisterDigitalWalletDomainGlobalsTypedDict",
     "UnregisterDigitalWalletDomainRequest",
     "UnregisterDigitalWalletDomainRequestTypedDict",
+    "UpdateAPIKeyPairRequest",
+    "UpdateAPIKeyPairRequestTypedDict",
     "UpdateBuyerGlobals",
     "UpdateBuyerGlobalsTypedDict",
     "UpdateBuyerRequest",
@@ -2673,8 +2739,22 @@ _dynamic_imports: dict[str, str] = {
     "AirlinePassenger": ".airlinepassenger",
     "AirlinePassengerTypedDict": ".airlinepassenger",
     "AntiFraudDecision": ".antifrauddecision",
+    "APICommonSchemasCreator": ".api_common_schemas_creator",
+    "APICommonSchemasCreatorTypedDict": ".api_common_schemas_creator",
+    "APICommonSchemasMerchantAccount": ".api_common_schemas_merchantaccount",
+    "APICommonSchemasMerchantAccountTypedDict": ".api_common_schemas_merchantaccount",
+    "APIRoutersAPIKeyPairsSchemasCreator": ".api_routers_api_key_pairs_schemas_creator",
+    "APIRoutersAPIKeyPairsSchemasCreatorTypedDict": ".api_routers_api_key_pairs_schemas_creator",
+    "APIRoutersMerchantAccountsSchemasMerchantAccount": ".api_routers_merchant_accounts_schemas_merchantaccount",
+    "APIRoutersMerchantAccountsSchemasMerchantAccountTypedDict": ".api_routers_merchant_accounts_schemas_merchantaccount",
     "APITypesDigitalWalletAddress": ".api_types_digitalwalletaddress",
     "APITypesDigitalWalletAddressTypedDict": ".api_types_digitalwalletaddress",
+    "APIKeyPair": ".apikeypair",
+    "APIKeyPairTypedDict": ".apikeypair",
+    "APIKeyPairCreate": ".apikeypaircreate",
+    "APIKeyPairCreateTypedDict": ".apikeypaircreate",
+    "APIKeyPairUpdate": ".apikeypairupdate",
+    "APIKeyPairUpdateTypedDict": ".apikeypairupdate",
     "ApplePayPaymentMethodCreate": ".applepaypaymentmethodcreate",
     "ApplePayPaymentMethodCreateTypedDict": ".applepaypaymentmethodcreate",
     "ApplePaySessionRequest": ".applepaysessionrequest",
@@ -2742,6 +2822,7 @@ _dynamic_imports: dict[str, str] = {
     "CardWithURLPaymentMethodCreateTypedDict": ".cardwithurlpaymentmethodcreate",
     "CartItem": ".cartitem",
     "CartItemTypedDict": ".cartitem",
+    "CertificateAlgorithm": ".certificatealgorithm",
     "ChaseOptions": ".chaseoptions",
     "ChaseOptionsTypedDict": ".chaseoptions",
     "CheckoutPayoutOptions": ".checkoutpayoutoptions",
@@ -2766,6 +2847,8 @@ _dynamic_imports: dict[str, str] = {
     "ClickToPaySessionTypedDict": ".clicktopaysession",
     "ClickToPaySessionRequest": ".clicktopaysessionrequest",
     "ClickToPaySessionRequestTypedDict": ".clicktopaysessionrequest",
+    "CollectionAPIKeyPair": ".collection_apikeypair_",
+    "CollectionAPIKeyPairTypedDict": ".collection_apikeypair_",
     "CompletePazeMobileSessionGlobals": ".complete_paze_mobile_sessionop",
     "CompletePazeMobileSessionGlobalsTypedDict": ".complete_paze_mobile_sessionop",
     "CompletePazeMobileSessionRequest": ".complete_paze_mobile_sessionop",
@@ -2861,8 +2944,6 @@ _dynamic_imports: dict[str, str] = {
     "CreateSession": ".createsession",
     "CreateSessionTypedDict": ".createsession",
     "CreateSessionStatus": ".createsessionstatus",
-    "Creator": ".creator",
-    "CreatorTypedDict": ".creator",
     "Cryptogram": ".cryptogram",
     "CryptogramTypedDict": ".cryptogram",
     "CryptogramCreate": ".cryptogramcreate",
@@ -2875,6 +2956,8 @@ _dynamic_imports: dict[str, str] = {
     "DefinitionField": ".definitionfield",
     "DefinitionFieldTypedDict": ".definitionfield",
     "DefinitionFieldFormat": ".definitionfieldformat",
+    "DeleteAPIKeyPairRequest": ".delete_api_key_pairop",
+    "DeleteAPIKeyPairRequestTypedDict": ".delete_api_key_pairop",
     "DeleteBuyerShippingDetailsGlobals": ".delete_buyer_shipping_detailsop",
     "DeleteBuyerShippingDetailsGlobalsTypedDict": ".delete_buyer_shipping_detailsop",
     "DeleteBuyerShippingDetailsRequest": ".delete_buyer_shipping_detailsop",
@@ -2995,6 +3078,8 @@ _dynamic_imports: dict[str, str] = {
     "ForterAntiFraudOptionsDiscountTypedDict": ".forterantifraudoptionsdiscount",
     "ForterAntiFraudOptionsDiscountCouponDiscountAmount": ".forterantifraudoptionsdiscountcoupondiscountamount",
     "ForterAntiFraudOptionsDiscountCouponDiscountAmountTypedDict": ".forterantifraudoptionsdiscountcoupondiscountamount",
+    "GetAPIKeyPairRequest": ".get_api_key_pairop",
+    "GetAPIKeyPairRequestTypedDict": ".get_api_key_pairop",
     "GetBuyerShippingDetailsGlobals": ".get_buyer_shipping_detailsop",
     "GetBuyerShippingDetailsGlobalsTypedDict": ".get_buyer_shipping_detailsop",
     "GetBuyerShippingDetailsRequest": ".get_buyer_shipping_detailsop",
@@ -3129,6 +3214,10 @@ _dynamic_imports: dict[str, str] = {
     "ListAllReportExecutionsRequestTypedDict": ".list_all_report_executionsop",
     "ListAllReportExecutionsResponse": ".list_all_report_executionsop",
     "ListAllReportExecutionsResponseTypedDict": ".list_all_report_executionsop",
+    "ListAPIKeyPairsRequest": ".list_api_key_pairsop",
+    "ListAPIKeyPairsRequestTypedDict": ".list_api_key_pairsop",
+    "ListAPIKeyPairsResponse": ".list_api_key_pairsop",
+    "ListAPIKeyPairsResponseTypedDict": ".list_api_key_pairsop",
     "ListAuditLogsGlobals": ".list_audit_logsop",
     "ListAuditLogsGlobalsTypedDict": ".list_audit_logsop",
     "ListAuditLogsRequest": ".list_audit_logsop",
@@ -3263,8 +3352,6 @@ _dynamic_imports: dict[str, str] = {
     "ListTransactionsResponseTypedDict": ".list_transactionsop",
     "MattildaTapiOptions": ".mattildatapioptions",
     "MattildaTapiOptionsTypedDict": ".mattildatapioptions",
-    "MerchantAccount": ".merchantaccount",
-    "MerchantAccountTypedDict": ".merchantaccount",
     "MerchantAccountCreate": ".merchantaccountcreate",
     "MerchantAccountCreateTypedDict": ".merchantaccountcreate",
     "MerchantAccounts": ".merchantaccounts",
@@ -3469,6 +3556,8 @@ _dynamic_imports: dict[str, str] = {
     "PazeTravelDataTypedDict": ".pazetraveldata",
     "PazeWebSession": ".pazewebsession",
     "PazeWebSessionTypedDict": ".pazewebsession",
+    "PermissionSet": ".permissionset",
+    "PermissionSetTypedDict": ".permissionset",
     "PlaidPaymentMethodCreate": ".plaidpaymentmethodcreate",
     "PlaidPaymentMethodCreateTypedDict": ".plaidpaymentmethodcreate",
     "PowertranzOptions": ".powertranzoptions",
@@ -3534,6 +3623,8 @@ _dynamic_imports: dict[str, str] = {
     "DeliveredTo": ".riskifiedantifraudoptionslineitem",
     "RiskifiedAntiFraudOptionsLineItem": ".riskifiedantifraudoptionslineitem",
     "RiskifiedAntiFraudOptionsLineItemTypedDict": ".riskifiedantifraudoptionslineitem",
+    "Role": ".role",
+    "RoleTypedDict": ".role",
     "Security": ".security",
     "SecurityTypedDict": ".security",
     "SEPABankPaymentMethodCreate": ".sepabankpaymentmethodcreate",
@@ -3670,6 +3761,8 @@ _dynamic_imports: dict[str, str] = {
     "UnregisterDigitalWalletDomainGlobalsTypedDict": ".unregister_digital_wallet_domainop",
     "UnregisterDigitalWalletDomainRequest": ".unregister_digital_wallet_domainop",
     "UnregisterDigitalWalletDomainRequestTypedDict": ".unregister_digital_wallet_domainop",
+    "UpdateAPIKeyPairRequest": ".update_api_key_pairop",
+    "UpdateAPIKeyPairRequestTypedDict": ".update_api_key_pairop",
     "UpdateBuyerShippingDetailsGlobals": ".update_buyer_shipping_detailsop",
     "UpdateBuyerShippingDetailsGlobalsTypedDict": ".update_buyer_shipping_detailsop",
     "UpdateBuyerShippingDetailsRequest": ".update_buyer_shipping_detailsop",
