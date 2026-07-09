@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 86d79e1171f120174654454c3bbc2326
+  docChecksum: e50568793ccb24574e41b90df8390c03
   docVersion: 1.0.0
   speakeasyVersion: 1.789.0
   generationVersion: 2.916.2
-  releaseVersion: 2.2.7
-  configChecksum: 83333125383361b9c961bf3a8a83e8a9
+  releaseVersion: 2.2.8
+  configChecksum: 362a8b83d63259b2151197974ee1ccd4
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 6210940f-da03-4f42-9832-bf77a8a8b876
-  pristine_commit_hash: 8e3d98b6cc8ecb92f98b0d37cb719d43c66fc08b
-  pristine_tree_hash: f7a00b3d427285a4ec4a2ab49f5cbae8acecc5ab
+  generation_id: de80141e-10c7-478e-9d10-2f15279f010f
+  pristine_commit_hash: b1f2d1cadd34f82421ac7d8e47e36c9c1ee90956
+  pristine_tree_hash: 8dace81262d528533ee539dc2306abe2e1d84427
 features:
   python:
     additionalDependencies: 1.1.0
@@ -1218,10 +1218,22 @@ trackedFiles:
     id: 9c173b87f41f
     last_write_checksum: sha1:b18306d210f81e87a1f52246c9309cad50e42f59
     pristine_git_object: 9f45bddd19fde8601a56013dda9f0b06e9aab8cb
+  docs/models/interval.md:
+    id: 11a74d2c19c0
+    last_write_checksum: sha1:c5b018b15dafec2f236478b6b8f34a224b213640
+    pristine_git_object: ff4ca6265d1a7fe2a7ccb2029624dbf9438133a9
   docs/models/item.md:
     id: 40dd7473ab87
     last_write_checksum: sha1:ae18a739bb77a539dad4a0648e012a855231b11b
     pristine_git_object: 4e4f290188a0cc940d3632e6e8ee2b4c5c504299
+  docs/models/klarnaoptions.md:
+    id: 9f273fad3fef
+    last_write_checksum: sha1:89e72d46bb40d1a450713e318fddc22494728084
+    pristine_git_object: 8a4998b4b92f2f458e73081a10d1d916e4c5d62d
+  docs/models/klarnasubscriptionoptions.md:
+    id: 382292839a06
+    last_write_checksum: sha1:0b7062b6c28eaab38c9980596a1a44495ad96dd5
+    pristine_git_object: 570a7284fb436d4c49d11cb6fb39ef9d1b7f458d
   docs/models/latitudeoptions.md:
     id: fd99f59418af
     last_write_checksum: sha1:adf0b3c730e5e18fca39fd34f9c8c09065429b52
@@ -2340,8 +2352,8 @@ trackedFiles:
     pristine_git_object: 131873812def4a46bc198dead12e97f441548a3b
   docs/models/transactionconnectionoptions.md:
     id: 4c92c21f3107
-    last_write_checksum: sha1:70017f9c715296d439bc5e9c1feb674e31f41c56
-    pristine_git_object: 8861cae4d70ae1e7a9d44e4643a82eb29b6ade9e
+    last_write_checksum: sha1:d298e7e3614e66a140feb11d0a331511214ffcbc
+    pristine_git_object: 14e4620724eb5efb613fbfc672d26e02bc0c7c28
   docs/models/transactioncreate.md:
     id: 2eccca1e0d3d
     last_write_checksum: sha1:3c6c23bb374cca24e76ca4621a72bce248421444
@@ -2752,8 +2764,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:15870cefd2e5ac26ab580a355ece7ac551d26d76
-    pristine_git_object: a7394b45005ddd20edb677ea21a959c2e75b21b4
+    last_write_checksum: sha1:8ec77793fdd1a41170d8cd47632d7405a2c690f0
+    pristine_git_object: af972401f822d4b7e3a8221b90263b15b49448e2
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2780,8 +2792,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:07dc4435cef1f8847954d371975164e71c9a4edf
-    pristine_git_object: a5cb9575e52617cb1b105613c57e35cf75728070
+    last_write_checksum: sha1:0867b955457209d067dfee8ab59ef4b9e4210e99
+    pristine_git_object: 3e4e832abbffa7fec03f65d63fdaa7c1dc945821
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -2940,8 +2952,8 @@ trackedFiles:
     pristine_git_object: a8fe4dbb14fe921bca872721f3f9ff22fcdc60a2
   src/gr4vy/models/__init__.py:
     id: 427cc7fddfe2
-    last_write_checksum: sha1:e9f7f6bf01a92c87d0c43e942be78a1415309e16
-    pristine_git_object: e71d2ab34ddc56422f0b08fc723d0f931ef7d117
+    last_write_checksum: sha1:1fa1f0963f73e9b813348b63a23eb6401e0741f9
+    pristine_git_object: 3d49b901c93a1a4afc0121fc53da7128074c0fdf
   src/gr4vy/models/accountsreceivablesreportspec.py:
     id: cc6a9368f988
     last_write_checksum: sha1:1ce9432ce7ae682a7fff1e0fe1ddc7f82dc937e7
@@ -3778,6 +3790,14 @@ trackedFiles:
     id: 0776cadaeda1
     last_write_checksum: sha1:2dd6df292228b2428a2e7702ca7fe8a90c040697
     pristine_git_object: a6c5a920c605d137efbb42668b99cc9ecd615dc6
+  src/gr4vy/models/klarnaoptions.py:
+    id: 27733b856cdc
+    last_write_checksum: sha1:50f806c854a417d348236742a681a13a359e7fe5
+    pristine_git_object: ac6a05fbe9989c137f9902f12e7f87b4f3a6398a
+  src/gr4vy/models/klarnasubscriptionoptions.py:
+    id: 45a11c950029
+    last_write_checksum: sha1:f00de3d2e79d1878694efd167b2cac6fe610ad35
+    pristine_git_object: ac16e5d01a3a5d8f3d6ec96f025a61d3aab6e8ad
   src/gr4vy/models/latitudeoptions.py:
     id: 75043d25ef29
     last_write_checksum: sha1:1efc78cb9354999f2ab4ea2eccea478bfb84a7c4
@@ -4576,8 +4596,8 @@ trackedFiles:
     pristine_git_object: d86a8513e92c48013bbf8a2c95ce4fbe4cc559f6
   src/gr4vy/models/transactionconnectionoptions.py:
     id: e12dfa576d74
-    last_write_checksum: sha1:e199ff3e48e4408af6e34ba733a634a1066e115b
-    pristine_git_object: 6435fa8453ce2a127df0721ef74df77a7ec7ad5f
+    last_write_checksum: sha1:80459ba2e37e957adf78e67a0b2af37ca347072b
+    pristine_git_object: 2be49f045d4f6279696e1e16b967a369637aacbb
   src/gr4vy/models/transactioncreate.py:
     id: 640e0433670e
     last_write_checksum: sha1:3a00fb8cda9c16222dc884c87dea12ea68547745
@@ -9046,6 +9066,7 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.klarna_klarna` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.klarna_klarna` **Added**\n* `gr4vy.payment_links.create()`: \n  *  `request.connection_options.klarna_klarna` **Added**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json

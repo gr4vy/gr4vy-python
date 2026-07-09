@@ -712,6 +712,12 @@ if TYPE_CHECKING:
     from .guestbuyer import GuestBuyer, GuestBuyerTypedDict
     from .instrumenttype import InstrumentType
     from .integrationclient import IntegrationClient
+    from .klarnaoptions import KlarnaOptions, KlarnaOptionsTypedDict
+    from .klarnasubscriptionoptions import (
+        Interval,
+        KlarnaSubscriptionOptions,
+        KlarnaSubscriptionOptionsTypedDict,
+    )
     from .latitudeoptions import LatitudeOptions, LatitudeOptionsTypedDict
     from .list_all_report_executionsop import (
         ListAllReportExecutionsGlobals,
@@ -2036,8 +2042,13 @@ __all__ = [
     "InstrumentType",
     "IntegrationClient",
     "Intent",
+    "Interval",
     "Item",
     "ItemTypedDict",
+    "KlarnaOptions",
+    "KlarnaOptionsTypedDict",
+    "KlarnaSubscriptionOptions",
+    "KlarnaSubscriptionOptionsTypedDict",
     "LatitudeOptions",
     "LatitudeOptionsTypedDict",
     "ListAPIKeyPairsRequest",
@@ -3199,6 +3210,11 @@ _dynamic_imports: dict[str, str] = {
     "GuestBuyerTypedDict": ".guestbuyer",
     "InstrumentType": ".instrumenttype",
     "IntegrationClient": ".integrationclient",
+    "KlarnaOptions": ".klarnaoptions",
+    "KlarnaOptionsTypedDict": ".klarnaoptions",
+    "Interval": ".klarnasubscriptionoptions",
+    "KlarnaSubscriptionOptions": ".klarnasubscriptionoptions",
+    "KlarnaSubscriptionOptionsTypedDict": ".klarnasubscriptionoptions",
     "LatitudeOptions": ".latitudeoptions",
     "LatitudeOptionsTypedDict": ".latitudeoptions",
     "ListAllReportExecutionsGlobals": ".list_all_report_executionsop",
