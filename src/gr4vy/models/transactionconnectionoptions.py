@@ -25,6 +25,7 @@ from .forterantifraudoptions import (
 )
 from .givingblockoptions import GivingBlockOptions, GivingBlockOptionsTypedDict
 from .gocardlessoptions import GoCardlessOptions, GoCardlessOptionsTypedDict
+from .klarnaoptions import KlarnaOptions, KlarnaOptionsTypedDict
 from .latitudeoptions import LatitudeOptions, LatitudeOptionsTypedDict
 from .mattildatapioptions import MattildaTapiOptions, MattildaTapiOptionsTypedDict
 from .mockcardoptions import MockCardOptions, MockCardOptionsTypedDict
@@ -115,6 +116,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `dlocal-gcash` connector."""
     ecommpay_card: NotRequired[Nullable[EcommpayOptionsTypedDict]]
     r"""Custom options to be passed to the `ecommpay-card` connector."""
+    klarna_klarna: NotRequired[Nullable[KlarnaOptionsTypedDict]]
+    r"""Custom options to be passed to the `klarna-klarna` connector."""
     fiserv_card: NotRequired[Nullable[FiservOptionsTypedDict]]
     r"""Custom options to be passed to the `fiserv-card` connector."""
     forter_anti_fraud: NotRequired[Nullable[ForterAntiFraudOptionsTypedDict]]
@@ -336,6 +339,11 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `ecommpay-card` connector."""
 
+    klarna_klarna: Annotated[
+        OptionalNullable[KlarnaOptions], pydantic.Field(alias="klarna-klarna")
+    ] = UNSET
+    r"""Custom options to be passed to the `klarna-klarna` connector."""
+
     fiserv_card: Annotated[
         OptionalNullable[FiservOptions], pydantic.Field(alias="fiserv-card")
     ] = UNSET
@@ -532,6 +540,7 @@ class TransactionConnectionOptions(BaseModel):
                 "dlocal-pix",
                 "dlocal-gcash",
                 "ecommpay-card",
+                "klarna-klarna",
                 "fiserv-card",
                 "forter-anti-fraud",
                 "gem-gem",
@@ -598,6 +607,7 @@ class TransactionConnectionOptions(BaseModel):
                 "dlocal-pix",
                 "dlocal-gcash",
                 "ecommpay-card",
+                "klarna-klarna",
                 "fiserv-card",
                 "forter-anti-fraud",
                 "gem-gem",

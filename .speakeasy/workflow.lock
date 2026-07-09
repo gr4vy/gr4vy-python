@@ -2,8 +2,8 @@ speakeasyVersion: 1.789.0
 sources:
     openapi:
         sourceNamespace: openapi
-        sourceRevisionDigest: sha256:60d837ada64cd2bfc77ca978cce770dfdfc54fc0433a893e90b60ba189b67686
-        sourceBlobDigest: sha256:9126b82e358452527e4b1731bb00c7174cb83369eec9a8a06e8b9d76342890d9
+        sourceRevisionDigest: sha256:380e5b5bc84a1eeef60063a38bf5a76baffd8d54c2cf0521e79d1e707514424d
+        sourceBlobDigest: sha256:8c9bdbe9bb8d5d45f46f25c0d921a051091dc58a2c473aa2d321690782484ee6
         tags:
             - latest
             - 1.0.0
@@ -11,10 +11,10 @@ targets:
     python:
         source: openapi
         sourceNamespace: openapi
-        sourceRevisionDigest: sha256:60d837ada64cd2bfc77ca978cce770dfdfc54fc0433a893e90b60ba189b67686
-        sourceBlobDigest: sha256:9126b82e358452527e4b1731bb00c7174cb83369eec9a8a06e8b9d76342890d9
+        sourceRevisionDigest: sha256:380e5b5bc84a1eeef60063a38bf5a76baffd8d54c2cf0521e79d1e707514424d
+        sourceBlobDigest: sha256:8c9bdbe9bb8d5d45f46f25c0d921a051091dc58a2c473aa2d321690782484ee6
         codeSamplesNamespace: openapi-python-code-samples
-        codeSamplesRevisionDigest: sha256:ed61bcd1e06e7110ffeecba83402d014c8c9f03720a1fe89b4b9c9b68cade1ac
+        codeSamplesRevisionDigest: sha256:4da56fca6ad8e267257aa689f1607f00980d7c819ee0d6c2bbbc02e96cbf8dc1
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
