@@ -29,6 +29,8 @@ class MerchantAccountUpdateTypedDict(TypedDict):
     r"""Secret key provided by Pagos to authenticate to the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well."""
     loon_accepted_schemes: NotRequired[Nullable[List[CardScheme]]]
     r"""Card schemes accepted when creating jobs using this set of Loon API keys. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well."""
+    loon_merchant_account_id: NotRequired[Nullable[str]]
+    r"""Merchant account ID provided by Pagos to identify this merchant account on the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well."""
     visa_network_tokens_requestor_id: NotRequired[Nullable[str]]
     r"""Requestor ID provided for Visa after onboarding to use Network Tokens."""
     visa_network_tokens_app_id: NotRequired[Nullable[str]]
@@ -82,6 +84,9 @@ class MerchantAccountUpdate(BaseModel):
     loon_accepted_schemes: OptionalNullable[List[CardScheme]] = UNSET
     r"""Card schemes accepted when creating jobs using this set of Loon API keys. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well."""
 
+    loon_merchant_account_id: OptionalNullable[str] = UNSET
+    r"""Merchant account ID provided by Pagos to identify this merchant account on the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well."""
+
     visa_network_tokens_requestor_id: OptionalNullable[str] = UNSET
     r"""Requestor ID provided for Visa after onboarding to use Network Tokens."""
 
@@ -126,6 +131,7 @@ class MerchantAccountUpdate(BaseModel):
                 "loon_client_key",
                 "loon_secret_key",
                 "loon_accepted_schemes",
+                "loon_merchant_account_id",
                 "visa_network_tokens_requestor_id",
                 "visa_network_tokens_app_id",
                 "amex_network_tokens_requestor_id",
@@ -149,6 +155,7 @@ class MerchantAccountUpdate(BaseModel):
                 "loon_client_key",
                 "loon_secret_key",
                 "loon_accepted_schemes",
+                "loon_merchant_account_id",
                 "visa_network_tokens_requestor_id",
                 "visa_network_tokens_app_id",
                 "amex_network_tokens_requestor_id",

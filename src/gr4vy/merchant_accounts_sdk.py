@@ -360,6 +360,7 @@ class MerchantAccountsSDK(BaseSDK):
         loon_client_key: OptionalNullable[str] = UNSET,
         loon_secret_key: OptionalNullable[str] = UNSET,
         loon_accepted_schemes: OptionalNullable[Iterable[models.CardScheme]] = UNSET,
+        loon_merchant_account_id: OptionalNullable[str] = UNSET,
         visa_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
         visa_network_tokens_app_id: OptionalNullable[str] = UNSET,
         amex_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
@@ -390,6 +391,7 @@ class MerchantAccountsSDK(BaseSDK):
         :param loon_client_key: Client key provided by Pagos to authenticate to the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well.
         :param loon_secret_key: Secret key provided by Pagos to authenticate to the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well.
         :param loon_accepted_schemes: Card schemes accepted when creating jobs using this set of Loon API keys. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well.
+        :param loon_merchant_account_id: Merchant account ID provided by Pagos to identify this merchant account on the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well.
         :param visa_network_tokens_requestor_id: Requestor ID provided for Visa after onboarding to use Network Tokens.
         :param visa_network_tokens_app_id: Application ID provided for Visa after onboarding to use Network Tokens.
         :param amex_network_tokens_requestor_id: Requestor ID provided for American Express after onboarding to use Network Tokens.
@@ -427,6 +429,7 @@ class MerchantAccountsSDK(BaseSDK):
             loon_accepted_schemes=utils.unmarshal(
                 loon_accepted_schemes, OptionalNullable[List[models.CardScheme]]
             ),
+            loon_merchant_account_id=loon_merchant_account_id,
             visa_network_tokens_requestor_id=visa_network_tokens_requestor_id,
             visa_network_tokens_app_id=visa_network_tokens_app_id,
             amex_network_tokens_requestor_id=amex_network_tokens_requestor_id,
@@ -550,6 +553,7 @@ class MerchantAccountsSDK(BaseSDK):
         loon_client_key: OptionalNullable[str] = UNSET,
         loon_secret_key: OptionalNullable[str] = UNSET,
         loon_accepted_schemes: OptionalNullable[Iterable[models.CardScheme]] = UNSET,
+        loon_merchant_account_id: OptionalNullable[str] = UNSET,
         visa_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
         visa_network_tokens_app_id: OptionalNullable[str] = UNSET,
         amex_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
@@ -580,6 +584,7 @@ class MerchantAccountsSDK(BaseSDK):
         :param loon_client_key: Client key provided by Pagos to authenticate to the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well.
         :param loon_secret_key: Secret key provided by Pagos to authenticate to the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well.
         :param loon_accepted_schemes: Card schemes accepted when creating jobs using this set of Loon API keys. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well.
+        :param loon_merchant_account_id: Merchant account ID provided by Pagos to identify this merchant account on the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well.
         :param visa_network_tokens_requestor_id: Requestor ID provided for Visa after onboarding to use Network Tokens.
         :param visa_network_tokens_app_id: Application ID provided for Visa after onboarding to use Network Tokens.
         :param amex_network_tokens_requestor_id: Requestor ID provided for American Express after onboarding to use Network Tokens.
@@ -617,6 +622,7 @@ class MerchantAccountsSDK(BaseSDK):
             loon_accepted_schemes=utils.unmarshal(
                 loon_accepted_schemes, OptionalNullable[List[models.CardScheme]]
             ),
+            loon_merchant_account_id=loon_merchant_account_id,
             visa_network_tokens_requestor_id=visa_network_tokens_requestor_id,
             visa_network_tokens_app_id=visa_network_tokens_app_id,
             amex_network_tokens_requestor_id=amex_network_tokens_requestor_id,
@@ -997,6 +1003,7 @@ class MerchantAccountsSDK(BaseSDK):
         loon_client_key: OptionalNullable[str] = UNSET,
         loon_secret_key: OptionalNullable[str] = UNSET,
         loon_accepted_schemes: OptionalNullable[Iterable[models.CardScheme]] = UNSET,
+        loon_merchant_account_id: OptionalNullable[str] = UNSET,
         visa_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
         visa_network_tokens_app_id: OptionalNullable[str] = UNSET,
         amex_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
@@ -1027,6 +1034,7 @@ class MerchantAccountsSDK(BaseSDK):
         :param loon_client_key: Client key provided by Pagos to authenticate to the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well.
         :param loon_secret_key: Secret key provided by Pagos to authenticate to the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well.
         :param loon_accepted_schemes: Card schemes accepted when creating jobs using this set of Loon API keys. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well.
+        :param loon_merchant_account_id: Merchant account ID provided by Pagos to identify this merchant account on the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well.
         :param visa_network_tokens_requestor_id: Requestor ID provided for Visa after onboarding to use Network Tokens.
         :param visa_network_tokens_app_id: Application ID provided for Visa after onboarding to use Network Tokens.
         :param amex_network_tokens_requestor_id: Requestor ID provided for American Express after onboarding to use Network Tokens.
@@ -1067,6 +1075,7 @@ class MerchantAccountsSDK(BaseSDK):
                 loon_accepted_schemes=utils.unmarshal(
                     loon_accepted_schemes, OptionalNullable[List[models.CardScheme]]
                 ),
+                loon_merchant_account_id=loon_merchant_account_id,
                 visa_network_tokens_requestor_id=visa_network_tokens_requestor_id,
                 visa_network_tokens_app_id=visa_network_tokens_app_id,
                 amex_network_tokens_requestor_id=amex_network_tokens_requestor_id,
@@ -1193,6 +1202,7 @@ class MerchantAccountsSDK(BaseSDK):
         loon_client_key: OptionalNullable[str] = UNSET,
         loon_secret_key: OptionalNullable[str] = UNSET,
         loon_accepted_schemes: OptionalNullable[Iterable[models.CardScheme]] = UNSET,
+        loon_merchant_account_id: OptionalNullable[str] = UNSET,
         visa_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
         visa_network_tokens_app_id: OptionalNullable[str] = UNSET,
         amex_network_tokens_requestor_id: OptionalNullable[str] = UNSET,
@@ -1223,6 +1233,7 @@ class MerchantAccountsSDK(BaseSDK):
         :param loon_client_key: Client key provided by Pagos to authenticate to the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well.
         :param loon_secret_key: Secret key provided by Pagos to authenticate to the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well.
         :param loon_accepted_schemes: Card schemes accepted when creating jobs using this set of Loon API keys. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well.
+        :param loon_merchant_account_id: Merchant account ID provided by Pagos to identify this merchant account on the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well.
         :param visa_network_tokens_requestor_id: Requestor ID provided for Visa after onboarding to use Network Tokens.
         :param visa_network_tokens_app_id: Application ID provided for Visa after onboarding to use Network Tokens.
         :param amex_network_tokens_requestor_id: Requestor ID provided for American Express after onboarding to use Network Tokens.
@@ -1263,6 +1274,7 @@ class MerchantAccountsSDK(BaseSDK):
                 loon_accepted_schemes=utils.unmarshal(
                     loon_accepted_schemes, OptionalNullable[List[models.CardScheme]]
                 ),
+                loon_merchant_account_id=loon_merchant_account_id,
                 visa_network_tokens_requestor_id=visa_network_tokens_requestor_id,
                 visa_network_tokens_app_id=visa_network_tokens_app_id,
                 amex_network_tokens_requestor_id=amex_network_tokens_requestor_id,
