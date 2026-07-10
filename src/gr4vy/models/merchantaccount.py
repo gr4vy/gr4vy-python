@@ -31,6 +31,8 @@ class MerchantAccountTypedDict(TypedDict):
     r"""Secret key provided by Pagos to authenticate to the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well."""
     loon_accepted_schemes: NotRequired[Nullable[List[CardScheme]]]
     r"""Card schemes accepted when creating jobs using this set of Loon API keys. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well."""
+    loon_merchant_account_id: NotRequired[Nullable[str]]
+    r"""Merchant account ID provided by Pagos to identify this merchant account on the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well."""
     account_updater_request_encryption_key: NotRequired[Nullable[str]]
     r"""The public key used to encrypt the request to the Real-Time Account Updater service. The Account Updater service is used to update card details when cards are lost, stolen or expired. If the field is not set or if it's set to `null`, the Account Updater service doesn't get called. If the field is set, the other `account_updater_*` fields must be set as well."""
     account_updater_request_encryption_key_id: NotRequired[Nullable[str]]
@@ -97,6 +99,9 @@ class MerchantAccount(BaseModel):
     loon_accepted_schemes: OptionalNullable[List[CardScheme]] = UNSET
     r"""Card schemes accepted when creating jobs using this set of Loon API keys. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well."""
 
+    loon_merchant_account_id: OptionalNullable[str] = UNSET
+    r"""Merchant account ID provided by Pagos to identify this merchant account on the Loon API. Loon is the Account Updater service we use and if the field is not set or if it's set to null, the Account Updater service doesn't get configured. If the field is set to `null`, the other `loon_*` fields must be set to null as well."""
+
     account_updater_request_encryption_key: OptionalNullable[str] = UNSET
     r"""The public key used to encrypt the request to the Real-Time Account Updater service. The Account Updater service is used to update card details when cards are lost, stolen or expired. If the field is not set or if it's set to `null`, the Account Updater service doesn't get called. If the field is set, the other `account_updater_*` fields must be set as well."""
 
@@ -150,6 +155,7 @@ class MerchantAccount(BaseModel):
                 "loon_client_key",
                 "loon_secret_key",
                 "loon_accepted_schemes",
+                "loon_merchant_account_id",
                 "account_updater_request_encryption_key",
                 "account_updater_request_encryption_key_id",
                 "account_updater_response_decryption_key",
@@ -172,6 +178,7 @@ class MerchantAccount(BaseModel):
                 "loon_client_key",
                 "loon_secret_key",
                 "loon_accepted_schemes",
+                "loon_merchant_account_id",
                 "account_updater_request_encryption_key",
                 "account_updater_request_encryption_key_id",
                 "account_updater_response_decryption_key",
