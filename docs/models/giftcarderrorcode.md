@@ -35,3 +35,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"service_network_error"`
 - `"unknown_error"`
 - `"max_gift_cards_reached"`
+- `"suspected_fraud"`
+- `"canceled_payment_method"`
+- `"duplicate_transaction"`
+- `"unexpected_state"`
