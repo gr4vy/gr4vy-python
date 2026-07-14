@@ -8,6 +8,7 @@ from gr4vy._hooks import HookContext
 from gr4vy.actions import Actions
 from gr4vy.captures import Captures
 from gr4vy.events import Events
+from gr4vy.transactions_refund_settlements import TransactionsRefundSettlements
 from gr4vy.transactions_refunds import TransactionsRefunds
 from gr4vy.transactions_settlements import TransactionsSettlements
 from gr4vy.types import OptionalNullable, UNSET
@@ -22,6 +23,7 @@ class Transactions(BaseSDK):
     actions: Actions
     events: Events
     settlements: TransactionsSettlements
+    refund_settlements: TransactionsRefundSettlements
     captures: Captures
 
     def __init__(
@@ -38,6 +40,9 @@ class Transactions(BaseSDK):
         self.actions = Actions(self.sdk_configuration, parent_ref=self.parent_ref)
         self.events = Events(self.sdk_configuration, parent_ref=self.parent_ref)
         self.settlements = TransactionsSettlements(
+            self.sdk_configuration, parent_ref=self.parent_ref
+        )
+        self.refund_settlements = TransactionsRefundSettlements(
             self.sdk_configuration, parent_ref=self.parent_ref
         )
         self.captures = Captures(self.sdk_configuration, parent_ref=self.parent_ref)
