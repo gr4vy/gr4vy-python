@@ -633,6 +633,12 @@ if TYPE_CHECKING:
         GetTransactionCaptureRequest,
         GetTransactionCaptureRequestTypedDict,
     )
+    from .get_transaction_refund_settlementop import (
+        GetTransactionRefundSettlementGlobals,
+        GetTransactionRefundSettlementGlobalsTypedDict,
+        GetTransactionRefundSettlementRequest,
+        GetTransactionRefundSettlementRequestTypedDict,
+    )
     from .get_transaction_refundop import (
         GetTransactionRefundGlobals,
         GetTransactionRefundGlobalsTypedDict,
@@ -898,6 +904,12 @@ if TYPE_CHECKING:
         ListTransactionEventsRequestTypedDict,
         ListTransactionEventsResponse,
         ListTransactionEventsResponseTypedDict,
+    )
+    from .list_transaction_refund_settlementsop import (
+        ListTransactionRefundSettlementsGlobals,
+        ListTransactionRefundSettlementsGlobalsTypedDict,
+        ListTransactionRefundSettlementsRequest,
+        ListTransactionRefundSettlementsRequestTypedDict,
     )
     from .list_transaction_refundsop import (
         ListTransactionRefundsGlobals,
@@ -1196,6 +1208,8 @@ if TYPE_CHECKING:
     )
     from .refund import Refund, RefundTypedDict
     from .refunds import Refunds, RefundsTypedDict
+    from .refundsettlement import RefundSettlement, RefundSettlementTypedDict
+    from .refundsettlements import RefundSettlements, RefundSettlementsTypedDict
     from .refundstatus import RefundStatus
     from .refundtargettype import RefundTargetType
     from .register_digital_wallet_domainop import (
@@ -1986,6 +2000,10 @@ __all__ = [
     "GetTransactionRefundGlobalsTypedDict",
     "GetTransactionRefundRequest",
     "GetTransactionRefundRequestTypedDict",
+    "GetTransactionRefundSettlementGlobals",
+    "GetTransactionRefundSettlementGlobalsTypedDict",
+    "GetTransactionRefundSettlementRequest",
+    "GetTransactionRefundSettlementRequestTypedDict",
     "GetTransactionRequest",
     "GetTransactionRequestTypedDict",
     "GetTransactionSettlementGlobals",
@@ -2179,6 +2197,10 @@ __all__ = [
     "ListTransactionEventsRequestTypedDict",
     "ListTransactionEventsResponse",
     "ListTransactionEventsResponseTypedDict",
+    "ListTransactionRefundSettlementsGlobals",
+    "ListTransactionRefundSettlementsGlobalsTypedDict",
+    "ListTransactionRefundSettlementsRequest",
+    "ListTransactionRefundSettlementsRequestTypedDict",
     "ListTransactionRefundsGlobals",
     "ListTransactionRefundsGlobalsTypedDict",
     "ListTransactionRefundsRequest",
@@ -2408,6 +2430,10 @@ __all__ = [
     "RedirectPaymentMethodCreateMethod",
     "RedirectPaymentMethodCreateTypedDict",
     "Refund",
+    "RefundSettlement",
+    "RefundSettlementTypedDict",
+    "RefundSettlements",
+    "RefundSettlementsTypedDict",
     "RefundStatus",
     "RefundTargetType",
     "RefundTypedDict",
@@ -3146,6 +3172,10 @@ _dynamic_imports: dict[str, str] = {
     "GetTransactionCaptureGlobalsTypedDict": ".get_transaction_captureop",
     "GetTransactionCaptureRequest": ".get_transaction_captureop",
     "GetTransactionCaptureRequestTypedDict": ".get_transaction_captureop",
+    "GetTransactionRefundSettlementGlobals": ".get_transaction_refund_settlementop",
+    "GetTransactionRefundSettlementGlobalsTypedDict": ".get_transaction_refund_settlementop",
+    "GetTransactionRefundSettlementRequest": ".get_transaction_refund_settlementop",
+    "GetTransactionRefundSettlementRequestTypedDict": ".get_transaction_refund_settlementop",
     "GetTransactionRefundGlobals": ".get_transaction_refundop",
     "GetTransactionRefundGlobalsTypedDict": ".get_transaction_refundop",
     "GetTransactionRefundRequest": ".get_transaction_refundop",
@@ -3345,6 +3375,10 @@ _dynamic_imports: dict[str, str] = {
     "ListTransactionEventsRequestTypedDict": ".list_transaction_eventsop",
     "ListTransactionEventsResponse": ".list_transaction_eventsop",
     "ListTransactionEventsResponseTypedDict": ".list_transaction_eventsop",
+    "ListTransactionRefundSettlementsGlobals": ".list_transaction_refund_settlementsop",
+    "ListTransactionRefundSettlementsGlobalsTypedDict": ".list_transaction_refund_settlementsop",
+    "ListTransactionRefundSettlementsRequest": ".list_transaction_refund_settlementsop",
+    "ListTransactionRefundSettlementsRequestTypedDict": ".list_transaction_refund_settlementsop",
     "ListTransactionRefundsGlobals": ".list_transaction_refundsop",
     "ListTransactionRefundsGlobalsTypedDict": ".list_transaction_refundsop",
     "ListTransactionRefundsRequest": ".list_transaction_refundsop",
@@ -3585,6 +3619,10 @@ _dynamic_imports: dict[str, str] = {
     "RefundTypedDict": ".refund",
     "Refunds": ".refunds",
     "RefundsTypedDict": ".refunds",
+    "RefundSettlement": ".refundsettlement",
+    "RefundSettlementTypedDict": ".refundsettlement",
+    "RefundSettlements": ".refundsettlements",
+    "RefundSettlementsTypedDict": ".refundsettlements",
     "RefundStatus": ".refundstatus",
     "RefundTargetType": ".refundtargettype",
     "RegisterDigitalWalletDomainGlobals": ".register_digital_wallet_domainop",

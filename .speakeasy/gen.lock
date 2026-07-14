@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 8f4efd92e97ba287620e343c8d8c71e5
+  docChecksum: 80ca0942f8d4185843cbae976c118333
   docVersion: 1.0.0
-  speakeasyVersion: 1.790.0
-  generationVersion: 2.917.0
-  releaseVersion: 2.2.10
-  configChecksum: 8b38dac41ccb0871e834f282a959cdfc
+  speakeasyVersion: 1.790.1
+  generationVersion: 2.918.1
+  releaseVersion: 2.2.11
+  configChecksum: ec779b3c575290f4469ae221d95d17e1
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 28f341a5-51a2-4824-830b-164c32da5d82
-  pristine_commit_hash: ffe5d2d118369d81326422b52566a2a0eead3af2
-  pristine_tree_hash: 03d8a5faeac8071b76dc8d335c17529c561be6a7
+  generation_id: 4456a057-2efa-418a-acd4-985705429858
+  pristine_commit_hash: 905087c8d89b4c461bdf0eeaf70051531649f3e0
+  pristine_tree_hash: 187f6e0b3eaed37eaa5aab403d98f3ced9b97c49
 features:
   python:
     additionalDependencies: 1.1.0
@@ -1090,6 +1090,14 @@ trackedFiles:
     id: 8c5ed772b263
     last_write_checksum: sha1:d1185b14efa9a2724acd33792a57d1667077fa86
     pristine_git_object: e48912964e9e2d36b2d51cd7a2dec5d07b6f8966
+  docs/models/gettransactionrefundsettlementglobals.md:
+    id: ddc36f03c63a
+    last_write_checksum: sha1:b2312bcdf3a365417e6a68821df0e0bd1ec1c32c
+    pristine_git_object: 36213b5c86e10264f9634239a0f87f318deea398
+  docs/models/gettransactionrefundsettlementrequest.md:
+    id: 013ca172680a
+    last_write_checksum: sha1:55be67deb554f9273873c9333f5ae4eb8c39318f
+    pristine_git_object: 65546b258d5155fb0c786e909d484c024bb5271d
   docs/models/gettransactionrequest.md:
     id: 5a5a9882ac72
     last_write_checksum: sha1:8b1ab79177260b7ac2ef4005f080755079a5b9c0
@@ -1502,6 +1510,14 @@ trackedFiles:
     id: 432be93f6dea
     last_write_checksum: sha1:4e81988f287c63fd9184fe16ba13687a72ea36c6
     pristine_git_object: 2562d052172305187586a6ef9d45fcbe155d52b5
+  docs/models/listtransactionrefundsettlementsglobals.md:
+    id: 481a0b182091
+    last_write_checksum: sha1:bad0b93283dc61f9b7cc9aca17fecb61b7055619
+    pristine_git_object: 0f0e11f96348bed0de2f0dbb0898c4e65cdef09b
+  docs/models/listtransactionrefundsettlementsrequest.md:
+    id: 79ebe241a1fd
+    last_write_checksum: sha1:114fd6c8495ac5ac52396da6987b91389f8cbb54
+    pristine_git_object: a912d62ef2762602ea4979b293d749d41636665c
   docs/models/listtransactionrefundsglobals.md:
     id: ee723ea5237e
     last_write_checksum: sha1:20d1be5f58617e204ec82cc6e13cb763cc48068b
@@ -2010,6 +2026,14 @@ trackedFiles:
     id: 56cad80f02e4
     last_write_checksum: sha1:142d11ec89618ca4f0d7d8c6637dfb354d3fe6cf
     pristine_git_object: b7a0612a53c8fc2c94ab15ef23f589951f716764
+  docs/models/refundsettlement.md:
+    id: 44a50653dc12
+    last_write_checksum: sha1:7feedb16557a19be619b93939056e9c1ef779345
+    pristine_git_object: 5c85e59aa56601d47516781ce3292ffb01599f54
+  docs/models/refundsettlements.md:
+    id: 174ec2771164
+    last_write_checksum: sha1:71036f3a0653679f4868d0e17f98fddfb97f8613
+    pristine_git_object: 55f15cf3410e070354c8a9058f279accc10e04c5
   docs/models/refundstatus.md:
     id: 80e238d0a585
     last_write_checksum: sha1:dd1dc7bc779bc0e93b603a38fb0f63818d4a1302
@@ -2746,6 +2770,10 @@ trackedFiles:
     id: c6a0400f5020
     last_write_checksum: sha1:9f066fc497802c0814246b158c659f494f74b520
     pristine_git_object: 16510a22c0a83d51e9a9e5a83f7a1c846cba2d44
+  docs/sdks/transactionsrefundsettlements/README.md:
+    id: 260e2694a8e7
+    last_write_checksum: sha1:2270e1cc78d45f240f9a3e7352c0d1b33eb7db50
+    pristine_git_object: 50167111561622df550d3cd5effa8556700c790c
   docs/sdks/transactionssettlements/README.md:
     id: d6fcf995b933
     last_write_checksum: sha1:51668e0638ef3e27238fa218c2f208417cc0ab31
@@ -2764,8 +2792,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:8b1da08107d73c9a7b9a4278df92d3eda2978a32
-    pristine_git_object: ae6a8cce8e43f1248736be2feabc804f4c99cfb9
+    last_write_checksum: sha1:c987e3b408c846eb3cd24ace86a9dbe734fb1d07
+    pristine_git_object: d52f5356629d1eb0c9115364af34587baf27d07a
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2792,8 +2820,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:bb44bb6e8bc96a3bec6e58f8577defb3a758058f
-    pristine_git_object: ffc379eeb3ef8a5e984d9db69bba6832d13c81ee
+    last_write_checksum: sha1:0f472fc60714fbc58778ac95fa012ef6f9029e52
+    pristine_git_object: 0c423700930fb93a32644f8716d4b19f1f0c44d2
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -2952,8 +2980,8 @@ trackedFiles:
     pristine_git_object: becb7dcefb2ea12bf3e199ed39ece68944623c13
   src/gr4vy/models/__init__.py:
     id: 427cc7fddfe2
-    last_write_checksum: sha1:1fa1f0963f73e9b813348b63a23eb6401e0741f9
-    pristine_git_object: 3d49b901c93a1a4afc0121fc53da7128074c0fdf
+    last_write_checksum: sha1:85faaf392dfc9035e6e45837f3bd1811699deb86
+    pristine_git_object: 23c1546a3f688834506dc9094a81416473ca2d23
   src/gr4vy/models/accountsreceivablesreportspec.py:
     id: cc6a9368f988
     last_write_checksum: sha1:1ce9432ce7ae682a7fff1e0fe1ddc7f82dc937e7
@@ -3666,6 +3694,10 @@ trackedFiles:
     id: 9645fd67fef9
     last_write_checksum: sha1:aec410058ddbccaf1b333b122c0d86cd03a2244c
     pristine_git_object: 49fb17273b0fe79badcbaecc3b4cce6cb051225a
+  src/gr4vy/models/get_transaction_refund_settlementop.py:
+    id: 83f36f15a640
+    last_write_checksum: sha1:60a468b590a90f3e441886592638b54c7f40bc41
+    pristine_git_object: b696f7605f4c871431736799d13af36fc9b6cb2b
   src/gr4vy/models/get_transaction_refundop.py:
     id: f66fd18b1f56
     last_write_checksum: sha1:9d2faae655cb383c0b581a1cc8e2ffbc5f385fde
@@ -3906,6 +3938,10 @@ trackedFiles:
     id: 4329d0e8ec10
     last_write_checksum: sha1:a8a3091c3cb8ca5cc5a9e4bec74654e60878cb43
     pristine_git_object: e4ed0f47978e095230c511600f61a6a78fd730c5
+  src/gr4vy/models/list_transaction_refund_settlementsop.py:
+    id: 063febc623a7
+    last_write_checksum: sha1:8bb433a38e74e71064ed49477ca45bbae8173f13
+    pristine_git_object: 42f8b3446d483e579ab2644162e63417dbf457a1
   src/gr4vy/models/list_transaction_refundsop.py:
     id: 466a9fa07037
     last_write_checksum: sha1:cd4e9ac7688974d14121a39eba02cf2d60ccbfcc
@@ -4338,6 +4374,14 @@ trackedFiles:
     id: a78ea31739c4
     last_write_checksum: sha1:003e76598757f529d1e691ae605eb6fea2ad954b
     pristine_git_object: 23c9c6c15a89ecd634a9a695aa97c4bfa36f39ce
+  src/gr4vy/models/refundsettlement.py:
+    id: 837e651a6e2b
+    last_write_checksum: sha1:e74d76cb227488fbad0a04fa3a24844657193592
+    pristine_git_object: c30892e825fb861afbdd24dba84795a8288a4cd3
+  src/gr4vy/models/refundsettlements.py:
+    id: 114c74fb3117
+    last_write_checksum: sha1:02356b4bf2965ecf59cc9c68f53daac28b242a3f
+    pristine_git_object: c0320ae960a4d3744434facf6fa4b17355f423d6
   src/gr4vy/models/refundstatus.py:
     id: b8f637dc9033
     last_write_checksum: sha1:e2ca822574710103170549e123afe952ab4abce8
@@ -4856,8 +4900,12 @@ trackedFiles:
     pristine_git_object: 1bf1fe5162561e909510a79dd04f48b18966afce
   src/gr4vy/transactions.py:
     id: 88da8fa0ed7f
-    last_write_checksum: sha1:d67756441502ed3a4122a7645212aab1f3148969
-    pristine_git_object: 1e81a06432edb8334194f65d693ec87b88475e7b
+    last_write_checksum: sha1:c04c9e807debeb67cbefe2d150bbe7a90b8f6909
+    pristine_git_object: f045197106e44a7cacc82446f80b71f88922aa7e
+  src/gr4vy/transactions_refund_settlements.py:
+    id: 6f9e238e4fed
+    last_write_checksum: sha1:6b508563a131071dc9a496499715e08a8c031418
+    pristine_git_object: 33ae2d747d1bf65e6e4a353d115fee26fba116b1
   src/gr4vy/transactions_refunds.py:
     id: ee2cc8522919
     last_write_checksum: sha1:329290af3df537053ee26f2af2e7e526c2d34470
@@ -9064,9 +9112,77 @@ examples:
           application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
         "504":
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
+  get_transaction_refund_settlement:
+    speakeasy-default-get-transaction-refund-settlement:
+      parameters:
+        path:
+          transaction_id: "7099948d-7286-47e4-aad8-b68f7eb44591"
+          settlement_id: "b1e2c3d4-5678-1234-9abc-1234567890ab"
+      responses:
+        "200":
+          application/json: {"id": "b1e2c3d4-5678-1234-9abc-1234567890ab", "merchant_account_id": "default", "created_at": "2024-06-01T12:00:00.000Z", "updated_at": "2024-06-01T12:00:00.000Z", "posted_at": "2024-06-01T12:00:00.000Z", "ingested_at": "2024-06-01T12:00:00.000Z", "currency": "EUR", "amount": 1100, "commission": 100, "payment_service_report_id": "a1b2c3d4-5678-1234-9abc-1234567890ab", "payment_service_report_file_ids": ["f1e2d3c4-5678-1234-9abc-1234567890ab"], "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "type": "refund-settlement", "refund_id": "b1e2c3d4-5678-1234-9abc-1234567890ab"}
+        "400":
+          application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
+        "401":
+          application/json: {"type": "error", "code": "unauthorized", "status": 401, "message": "No valid API authentication found"}
+        "403":
+          application/json: {"type": "error", "code": "forbidden", "status": 403, "message": "Request failed validation"}
+        "404":
+          application/json: {"type": "error", "code": "not_found", "status": 404, "message": "The resource could not be found"}
+        "405":
+          application/json: {"type": "error", "code": "method_not_allowed", "status": 405, "message": "Method Not Allowed"}
+        "409":
+          application/json: {"type": "error", "code": "duplicate_record", "status": 409, "message": "Request failed validation"}
+        "422":
+          application/json: {}
+        "425":
+          application/json: {"type": "error", "code": "too_early", "status": 425, "message": "Request failed validation"}
+        "429":
+          application/json: {"type": "error", "code": "too_many_requests", "status": 429, "message": "Request failed validation"}
+        "500":
+          application/json: {"type": "error", "code": "server_error", "status": 500, "message": "Request could not be processed"}
+        "502":
+          application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
+        "504":
+          application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
+  list_transaction_refund_settlements:
+    speakeasy-default-list-transaction-refund-settlements:
+      parameters:
+        path:
+          transaction_id: "7099948d-7286-47e4-aad8-b68f7eb44591"
+      responses:
+        "200":
+          application/json: {"items": [{"id": "b1e2c3d4-5678-1234-9abc-1234567890ab", "merchant_account_id": "default", "created_at": "2024-06-01T12:00:00.000Z", "updated_at": "2024-06-01T12:00:00.000Z", "posted_at": "2024-06-01T12:00:00.000Z", "ingested_at": "2024-06-01T12:00:00.000Z", "currency": "EUR", "amount": 1100, "commission": 100, "payment_service_report_id": "a1b2c3d4-5678-1234-9abc-1234567890ab", "payment_service_report_file_ids": ["f1e2d3c4-5678-1234-9abc-1234567890ab"], "transaction_id": "7099948d-7286-47e4-aad8-b68f7eb44591", "type": "refund-settlement", "refund_id": "b1e2c3d4-5678-1234-9abc-1234567890ab"}]}
+        "400":
+          application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
+        "401":
+          application/json: {"type": "error", "code": "unauthorized", "status": 401, "message": "No valid API authentication found"}
+        "403":
+          application/json: {"type": "error", "code": "forbidden", "status": 403, "message": "Request failed validation"}
+        "404":
+          application/json: {"type": "error", "code": "not_found", "status": 404, "message": "The resource could not be found"}
+        "405":
+          application/json: {"type": "error", "code": "method_not_allowed", "status": 405, "message": "Method Not Allowed"}
+        "409":
+          application/json: {"type": "error", "code": "duplicate_record", "status": 409, "message": "Request failed validation"}
+        "422":
+          application/json: {}
+        "425":
+          application/json: {"type": "error", "code": "too_early", "status": 425, "message": "Request failed validation"}
+        "429":
+          application/json: {"type": "error", "code": "too_many_requests", "status": 429, "message": "Request failed validation"}
+        "500":
+          application/json: {"type": "error", "code": "server_error", "status": 500, "message": "Request could not be processed"}
+        "502":
+          application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
+        "504":
+          application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.transactions.capture()`: \n  *  `request.reauthorize_if_authorization_expired` **Changed** (Breaking ⚠️)\n  *  `response.union(Transaction).gift_card_redemptions[].error_code` **Changed**\n* `gr4vy.buyers.gift_cards.list()`:  `response.items[].balance_error_code` **Changed**\n* `gr4vy.gift_cards.balances.list()`:  `response.items[].balance_error_code` **Changed**\n* `gr4vy.transactions.list()`:  `response.items[].gift_card_redemptions[].error_code` **Changed**\n* `gr4vy.transactions.create()`:  `response.gift_card_redemptions[].error_code` **Changed**\n* `gr4vy.transactions.get()`:  `response.gift_card_redemptions[].error_code` **Changed**\n* `gr4vy.transactions.update()`:  `response.gift_card_redemptions[].error_code` **Changed**\n* `gr4vy.transactions.void()`:  `response.union(Transaction).gift_card_redemptions[].error_code` **Changed**\n* `gr4vy.transactions.cancel()`:  `response.transaction.gift_card_redemptions[].error_code` **Changed**\n* `gr4vy.transactions.sync()`:  `response.gift_card_redemptions[].error_code` **Changed**\n"
+releaseNotes: |
+  ## Python SDK Changes:
+  * `gr4vy.transactions.refund_settlements.get()`: **Added**
+  * `gr4vy.transactions.refund_settlements.list()`: **Added**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
