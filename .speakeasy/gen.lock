@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 80ca0942f8d4185843cbae976c118333
+  docChecksum: 1d968ec17fa846d99d53c7744641495d
   docVersion: 1.0.0
   speakeasyVersion: 1.790.1
   generationVersion: 2.918.1
-  releaseVersion: 2.2.11
-  configChecksum: ec779b3c575290f4469ae221d95d17e1
+  releaseVersion: 2.2.12
+  configChecksum: 093689041269150c5fa09c86c1c27a3f
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 4456a057-2efa-418a-acd4-985705429858
-  pristine_commit_hash: 905087c8d89b4c461bdf0eeaf70051531649f3e0
-  pristine_tree_hash: 187f6e0b3eaed37eaa5aab403d98f3ced9b97c49
+  generation_id: 15882316-d6e8-41a2-90b2-a16583231476
+  pristine_commit_hash: 5fe7c8e38c1add81fa97fdc44a3ecaf5282a5e59
+  pristine_tree_hash: 7804491a6a6f95f2b65bb2fb5d0204b7d7e23795
 features:
   python:
     additionalDependencies: 1.1.0
@@ -258,10 +258,6 @@ trackedFiles:
     id: cd07390ea835
     last_write_checksum: sha1:b008b2c2164dbf1d215e054d0d260952068e6d5e
     pristine_git_object: a535ede2c0ad44b4cabee3544bea3f21099fe23b
-  docs/models/apitypesdigitalwalletaddress.md:
-    id: 75a708c1a902
-    last_write_checksum: sha1:afd23fa3a848fc637ecbcbc621f0ccad1115b410
-    pristine_git_object: b599a5ae76b20a871f63975beecc44947862a7bc
   docs/models/applepaypaymentmethodcreate.md:
     id: 3daf324d8a29
     last_write_checksum: sha1:f287ee0c291261f8785dc9a8e38a0ba9ce41181c
@@ -784,8 +780,8 @@ trackedFiles:
     pristine_git_object: ff10f812d01e9fb478d25fc59a95a34768c6ade2
   docs/models/digitalwallet.md:
     id: 99249f74b960
-    last_write_checksum: sha1:89f91b588b28aa5c1446002d3d1a0db20af93a43
-    pristine_git_object: cd34982e142d66bea21c276f9a54b0288f696e4b
+    last_write_checksum: sha1:e59b913459c5c30d8ac004eac81bff1b933dc29a
+    pristine_git_object: 1e8d35f887d21cd2ea6a99267e21df06d3bf4a59
   docs/models/digitalwalletaddress.md:
     id: 55a7dca1e698
     last_write_checksum: sha1:c4b6f1e39e941cf342b75906ec1d36ecbf05a517
@@ -2792,8 +2788,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:c987e3b408c846eb3cd24ace86a9dbe734fb1d07
-    pristine_git_object: d52f5356629d1eb0c9115364af34587baf27d07a
+    last_write_checksum: sha1:f6d28a6601d91a875280daf7de388ffaaebd52db
+    pristine_git_object: e1472cdc176860891f17622e01587cab41cf857d
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2820,8 +2816,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:0f472fc60714fbc58778ac95fa012ef6f9029e52
-    pristine_git_object: 0c423700930fb93a32644f8716d4b19f1f0c44d2
+    last_write_checksum: sha1:95260a5862c95a4ff8f1de2c4d473bbce72753da
+    pristine_git_object: fad2335e3a1d90249b1684bdbe8db62cfbc5fbc1
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -2980,8 +2976,8 @@ trackedFiles:
     pristine_git_object: becb7dcefb2ea12bf3e199ed39ece68944623c13
   src/gr4vy/models/__init__.py:
     id: 427cc7fddfe2
-    last_write_checksum: sha1:85faaf392dfc9035e6e45837f3bd1811699deb86
-    pristine_git_object: 23c1546a3f688834506dc9094a81416473ca2d23
+    last_write_checksum: sha1:5c73559383e55554edf43afc840bca506ef64bd5
+    pristine_git_object: 76db22fee95f871479942c5e24f3dc03004f3f5f
   src/gr4vy/models/accountsreceivablesreportspec.py:
     id: cc6a9368f988
     last_write_checksum: sha1:1ce9432ce7ae682a7fff1e0fe1ddc7f82dc937e7
@@ -3098,10 +3094,6 @@ trackedFiles:
     id: 1712aa09bf67
     last_write_checksum: sha1:d28ea31b8b9a9557bd22d293c34623e13269f575
     pristine_git_object: 321b724d742ebc456eb15c4c1093594393a8eab4
-  src/gr4vy/models/api_types_digitalwalletaddress.py:
-    id: bf2c6d0514d5
-    last_write_checksum: sha1:5e67014d10fd1ddd6290fc3dffddb861d1d20ff2
-    pristine_git_object: e34603d9fb6759b0e361a71aee2acc033a7cd52e
   src/gr4vy/models/apikeypair.py:
     id: ee9aa74e9446
     last_write_checksum: sha1:060d856bc92d1e5940d26c68228032bee6143277
@@ -3484,8 +3476,8 @@ trackedFiles:
     pristine_git_object: 024a2082baa66b72e8a66d2f1c40e0415ddf3228
   src/gr4vy/models/digitalwallet.py:
     id: d6e903e09f09
-    last_write_checksum: sha1:51ec92ad76cab8ff662003503af2754dfababf28
-    pristine_git_object: 6131f0d4b7cd1e1d2d88e9219e20198db7536483
+    last_write_checksum: sha1:2542d0798c72cd9727569dceb39e4ef7c0bcbd98
+    pristine_git_object: a8e65f5188e622ddaa7dcac5db1b66379427d9f2
   src/gr4vy/models/digitalwalletaddress.py:
     id: 07e1235c7e90
     last_write_checksum: sha1:99ca35502259286e5ddbb1359c7d9d8621563457
@@ -9181,8 +9173,10 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes:
-  * `gr4vy.transactions.refund_settlements.get()`: **Added**
-  * `gr4vy.transactions.refund_settlements.list()`: **Added**
+  * `gr4vy.digital_wallets.create()`:  `response.address.line2` **Changed**
+  * `gr4vy.digital_wallets.list()`:  `response.items[].address.line2` **Changed**
+  * `gr4vy.digital_wallets.get()`:  `response.address.line2` **Changed**
+  * `gr4vy.digital_wallets.update()`:  `response.address.line2` **Changed**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
