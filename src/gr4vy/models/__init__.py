@@ -1492,6 +1492,8 @@ if TYPE_CHECKING:
         Loc,
         LocTypedDict,
         ValidationError,
+        ValidationErrorContext,
+        ValidationErrorContextTypedDict,
         ValidationErrorTypedDict,
     )
     from .verify_payment_service_credentialsop import (
@@ -2676,6 +2678,8 @@ __all__ = [
     "UserDevice",
     "UserStatus",
     "ValidationError",
+    "ValidationErrorContext",
+    "ValidationErrorContextTypedDict",
     "ValidationErrorTypedDict",
     "VaultPaymentMethodCriteria",
     "VerifyCredentials",
@@ -3848,6 +3852,8 @@ _dynamic_imports: dict[str, str] = {
     "Loc": ".validationerror",
     "LocTypedDict": ".validationerror",
     "ValidationError": ".validationerror",
+    "ValidationErrorContext": ".validationerror",
+    "ValidationErrorContextTypedDict": ".validationerror",
     "ValidationErrorTypedDict": ".validationerror",
     "VerifyPaymentServiceCredentialsGlobals": ".verify_payment_service_credentialsop",
     "VerifyPaymentServiceCredentialsGlobalsTypedDict": ".verify_payment_service_credentialsop",
