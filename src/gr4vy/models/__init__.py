@@ -88,10 +88,6 @@ if TYPE_CHECKING:
         APIRoutersAPIKeyPairsSchemasCreator,
         APIRoutersAPIKeyPairsSchemasCreatorTypedDict,
     )
-    from .api_types_digitalwalletaddress import (
-        APITypesDigitalWalletAddress,
-        APITypesDigitalWalletAddressTypedDict,
-    )
     from .apikeypair import APIKeyPair, APIKeyPairTypedDict
     from .apikeypaircreate import APIKeyPairCreate, APIKeyPairCreateTypedDict
     from .apikeypairupdate import APIKeyPairUpdate, APIKeyPairUpdateTypedDict
@@ -1549,8 +1545,6 @@ __all__ = [
     "APIKeyPairUpdateTypedDict",
     "APIRoutersAPIKeyPairsSchemasCreator",
     "APIRoutersAPIKeyPairsSchemasCreatorTypedDict",
-    "APITypesDigitalWalletAddress",
-    "APITypesDigitalWalletAddressTypedDict",
     "AVSResponseCode",
     "AcceptedPaymentCardNetwork",
     "AccountType",
@@ -2777,8 +2771,6 @@ _dynamic_imports: dict[str, str] = {
     "APICommonSchemasCreatorTypedDict": ".api_common_schemas_creator",
     "APIRoutersAPIKeyPairsSchemasCreator": ".api_routers_api_key_pairs_schemas_creator",
     "APIRoutersAPIKeyPairsSchemasCreatorTypedDict": ".api_routers_api_key_pairs_schemas_creator",
-    "APITypesDigitalWalletAddress": ".api_types_digitalwalletaddress",
-    "APITypesDigitalWalletAddressTypedDict": ".api_types_digitalwalletaddress",
     "APIKeyPair": ".apikeypair",
     "APIKeyPairTypedDict": ".apikeypair",
     "APIKeyPairCreate": ".apikeypaircreate",
