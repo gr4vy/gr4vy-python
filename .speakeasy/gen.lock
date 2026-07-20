@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: d4074b4a48b1a6b4dc003d5f28961f64
+  docChecksum: 9f04a98e1af0bb04f9c34fc22dada69c
   docVersion: 1.0.0
-  speakeasyVersion: 1.790.1
-  generationVersion: 2.918.1
-  releaseVersion: 2.2.13
-  configChecksum: 7ce88c3dd97521fdbc06724d2335f0bb
+  speakeasyVersion: 1.790.2
+  generationVersion: 2.918.3
+  releaseVersion: 2.2.14
+  configChecksum: 7780e6acbfa83d10a042176851bef368
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 37a9f340-2c82-4b5a-9282-a26c10bbb165
-  pristine_commit_hash: 82d221e45b0f4a3bd606738ce1a7134daf5a53e2
-  pristine_tree_hash: 7294c567be2b5dff574c965d58b5de2d130cac8f
+  generation_id: 8c063acf-1f99-4157-9d6d-73c75e349a9a
+  pristine_commit_hash: 79d3e0f3b4ad6ec6215d351b35cd41626864f3fc
+  pristine_tree_hash: b4f912ef31e3d4b58239f458bc166d004cfbda35
 features:
   python:
     additionalDependencies: 1.1.0
@@ -1616,8 +1616,8 @@ trackedFiles:
     pristine_git_object: b687758d56d39c9cbc8d0f2fce46d4c4a460d594
   docs/models/name.md:
     id: 6ee802922293
-    last_write_checksum: sha1:79501429a61878e76346438a725d73367726509b
-    pristine_git_object: d07f5c38388639c06d8e9f7e2859d5d8a67cf3b4
+    last_write_checksum: sha1:edd56ac6187909ea793594e5251579f42f2712ff
+    pristine_git_object: 9abf66db60de7eecd70e4548198825955332c274
   docs/models/networktoken.md:
     id: 75b6681f9927
     last_write_checksum: sha1:d42f9cac78368368b0a64f00101fb5ebd8a26ed7
@@ -2792,8 +2792,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:e35ce2c35bf43f99a588e0b0d4077813827dbd8d
-    pristine_git_object: 13fa877cb3e0635b4a4b56e5ca018bd942ac9740
+    last_write_checksum: sha1:1d1473df8b7253c37ed74714fa40cf2e26be808a
+    pristine_git_object: 9826d15b1b337677441fde46f5cf0943dd474056
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2820,8 +2820,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:a65f330e08664f48941fd47da77122bb98573619
-    pristine_git_object: 5c18fedfdde31e81b9afb1c4bd7335d4c421b226
+    last_write_checksum: sha1:4300dd31e2737ecfe544c333cd2b5cb795f19d5a
+    pristine_git_object: ce0fa212f8a12c94548fbfb6d94fa319b5020ce6
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -4644,8 +4644,8 @@ trackedFiles:
     pristine_git_object: 1ac0a80cbb92fe180c5ffa9ad45a887cf0ff6f0b
   src/gr4vy/models/transactionevent.py:
     id: 89844a174227
-    last_write_checksum: sha1:55d7672a8785fe8615da772b575c42ec3bdaf57d
-    pristine_git_object: 6060a7dc37878ce55bbf5a3cc96bc01c449a8afa
+    last_write_checksum: sha1:f1ae61125f20fa9ab87cb1a175e291ce9f3b3826
+    pristine_git_object: 3abe3b2cde1ae71a8b708f91382afc35c5233e7e
   src/gr4vy/models/transactionevents.py:
     id: be49f777ddc0
     last_write_checksum: sha1:3516f2f892757b64b6a0440dc75a9fe94ddd1619
@@ -9177,121 +9177,7 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes:
-  * `gr4vy.account_updater.jobs.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.api_key_pairs.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.api_key_pairs.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.api_key_pairs.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.api_key_pairs.update()`:  `error.detail[]` **Changed**
-  * `gr4vy.api_key_pairs.delete()`:  `error.detail[]` **Changed**
-  * `gr4vy.buyers.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.buyers.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.buyers.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.buyers.update()`:  `error.detail[]` **Changed**
-  * `gr4vy.buyers.delete()`:  `error.detail[]` **Changed**
-  * `gr4vy.buyers.payment_methods.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.buyers.gift_cards.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.buyers.shipping_details.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.buyers.shipping_details.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.buyers.shipping_details.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.buyers.shipping_details.update()`:  `error.detail[]` **Changed**
-  * `gr4vy.buyers.shipping_details.delete()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_methods.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_methods.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_methods.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_methods.update()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_methods.delete()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_methods.payment_service_tokens.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_methods.payment_service_tokens.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_methods.payment_service_tokens.delete()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_methods.network_tokens.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_methods.network_tokens.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_methods.network_tokens.suspend()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_methods.network_tokens.resume()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_methods.network_tokens.delete()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_methods.network_tokens.cryptogram.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.gift_cards.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.gift_cards.delete()`:  `error.detail[]` **Changed**
-  * `gr4vy.gift_cards.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.gift_cards.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.gift_cards.balances.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.card_scheme_definitions.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.digital_wallets.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.digital_wallets.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.digital_wallets.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.digital_wallets.delete()`:  `error.detail[]` **Changed**
-  * `gr4vy.digital_wallets.update()`:  `error.detail[]` **Changed**
-  * `gr4vy.digital_wallets.sessions.google_pay()`:  `error.detail[]` **Changed**
-  * `gr4vy.digital_wallets.sessions.apple_pay()`:  `error.detail[]` **Changed**
-  * `gr4vy.digital_wallets.sessions.paze_mobile_session_create()`:  `error.detail[]` **Changed**
-  * `gr4vy.digital_wallets.sessions.paze()`:  `error.detail[]` **Changed**
-  * `gr4vy.digital_wallets.sessions.paze_mobile_session_review()`:  `error.detail[]` **Changed**
-  * `gr4vy.digital_wallets.sessions.paze_mobile_session_complete()`:  `error.detail[]` **Changed**
-  * `gr4vy.digital_wallets.sessions.click_to_pay()`:  `error.detail[]` **Changed**
-  * `gr4vy.digital_wallets.domains.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.digital_wallets.domains.delete()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.update()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.capture()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.void()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.cancel()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.sync()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.refunds.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.refunds.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.refunds.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.refunds.all.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.actions.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.events.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.settlements.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.settlements.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.refund_settlements.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.refund_settlements.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.captures.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.transactions.captures.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.refunds.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_options.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_service_definitions.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_service_definitions.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_service_definitions.session()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_services.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_services.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_services.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_services.update()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_services.delete()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_services.verify()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_services.session()`:  `error.detail[]` **Changed**
-  * `gr4vy.audit_logs.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.reports.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.reports.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.reports.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.reports.put()`:  `error.detail[]` **Changed**
-  * `gr4vy.reports.executions.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.reports.executions.url()`:  `error.detail[]` **Changed**
-  * `gr4vy.reports.executions.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.report_executions.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.checkout_sessions.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.checkout_sessions.update()`:  `error.detail[]` **Changed**
-  * `gr4vy.checkout_sessions.delete()`:  `error.detail[]` **Changed**
-  * `gr4vy.merchant_accounts.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.merchant_accounts.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.merchant_accounts.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.merchant_accounts.update()`:  `error.detail[]` **Changed**
-  * `gr4vy.merchant_accounts.three_ds_configuration.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.merchant_accounts.three_ds_configuration.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.merchant_accounts.three_ds_configuration.update()`:  `error.detail[]` **Changed**
-  * `gr4vy.merchant_accounts.three_ds_configuration.delete()`:  `error.detail[]` **Changed**
-  * `gr4vy.three_ds_scenarios.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.three_ds_scenarios.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.three_ds_scenarios.update()`:  `error.detail[]` **Changed**
-  * `gr4vy.three_ds_scenarios.delete()`:  `error.detail[]` **Changed**
-  * `gr4vy.payouts.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.payouts.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.payouts.get()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_links.create()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_links.list()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_links.expire()`:  `error.detail[]` **Changed**
-  * `gr4vy.payment_links.get()`:  `error.detail[]` **Changed**
+  * `gr4vy.transactions.events.list()`:  `response.items[].name` **Changed**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
