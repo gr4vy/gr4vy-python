@@ -1,5 +1,5 @@
 """Transactions resource: create/get/list/update plus the read sub-resources
-(actions, events, settlements) and the cancel action. Capture / void / refund /
+(actions, events, settlements, refund settlements) and the cancel action. Capture / void / refund /
 sync are covered as a story in flows/test_transaction_lifecycle.py."""
 
 from utils import MISSING_ID, checkout_fields, fixtures, reach
@@ -51,6 +51,19 @@ def test_read_subresources(merchant):
             transaction_id=txn.id, settlement_id=MISSING_ID
         ),
         "transactions.settlements.get",
+    )
+
+    refund_settlements = sdk.transactions.refund_settlements.list(
+        transaction_id=txn.id
+    )
+    assert refund_settlements is not None
+
+    # A specific refund settlement needs a settled transaction we cannot force here.
+    reach.reaches(
+        lambda: sdk.transactions.refund_settlements.get(
+            transaction_id=txn.id, settlement_id=MISSING_ID
+        ),
+        "transactions.refund_settlements.get",
     )
 
 
