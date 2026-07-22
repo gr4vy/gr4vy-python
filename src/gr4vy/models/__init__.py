@@ -1517,6 +1517,7 @@ if TYPE_CHECKING:
         WalletPaymentOptionContext,
         WalletPaymentOptionContextTypedDict,
     )
+    from .worldpayvapoptions import WorldpayVapOptions, WorldpayVapOptionsTypedDict
     from .wpayeverdaypayoptions import (
         WpayEverdaypayOptions,
         WpayEverdaypayOptionsTypedDict,
@@ -2697,6 +2698,8 @@ __all__ = [
     "VoidableFieldTypedDict",
     "WalletPaymentOptionContext",
     "WalletPaymentOptionContextTypedDict",
+    "WorldpayVapOptions",
+    "WorldpayVapOptionsTypedDict",
     "WpayEverdaypayOptions",
     "WpayEverdaypayOptionsTypedDict",
     "WpayPaytoOptions",
@@ -3872,6 +3875,8 @@ _dynamic_imports: dict[str, str] = {
     "VoidStatus": ".voidstatus",
     "WalletPaymentOptionContext": ".walletpaymentoptioncontext",
     "WalletPaymentOptionContextTypedDict": ".walletpaymentoptioncontext",
+    "WorldpayVapOptions": ".worldpayvapoptions",
+    "WorldpayVapOptionsTypedDict": ".worldpayvapoptions",
     "WpayEverdaypayOptions": ".wpayeverdaypayoptions",
     "WpayEverdaypayOptionsTypedDict": ".wpayeverdaypayoptions",
     "WpayPaytoOptions": ".wpaypaytooptions",
