@@ -45,6 +45,7 @@ from .stripecardoptions import StripeCardOptions, StripeCardOptionsTypedDict
 from .stripeoptions import StripeOptions, StripeOptionsTypedDict
 from .travelhuboptions import TravelhubOptions, TravelhubOptionsTypedDict
 from .trustlyoptions import TrustlyOptions, TrustlyOptionsTypedDict
+from .worldpayvapoptions import WorldpayVapOptions, WorldpayVapOptionsTypedDict
 from .wpayeverdaypayoptions import WpayEverdaypayOptions, WpayEverdaypayOptionsTypedDict
 from .wpaypaytooptions import WpayPaytoOptions, WpayPaytoOptionsTypedDict
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
@@ -176,6 +177,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `travelhub-card` connector."""
     trustly_trustly: NotRequired[Nullable[TrustlyOptionsTypedDict]]
     r"""Custom options to be passed to the `trustly-trustly` connector."""
+    worldpayvap_card: NotRequired[Nullable[WorldpayVapOptionsTypedDict]]
+    r"""Custom options to be passed to the `worldpayvap-card` connector."""
     wpay_everydaypay: NotRequired[Nullable[WpayEverdaypayOptionsTypedDict]]
     r"""Custom options to be passed to the `wpay-everydaypay` connector."""
     wpay_payto: NotRequired[Nullable[WpayPaytoOptionsTypedDict]]
@@ -494,6 +497,11 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `trustly-trustly` connector."""
 
+    worldpayvap_card: Annotated[
+        OptionalNullable[WorldpayVapOptions], pydantic.Field(alias="worldpayvap-card")
+    ] = UNSET
+    r"""Custom options to be passed to the `worldpayvap-card` connector."""
+
     wpay_everydaypay: Annotated[
         OptionalNullable[WpayEverdaypayOptions],
         pydantic.Field(alias="wpay-everydaypay"),
@@ -570,6 +578,7 @@ class TransactionConnectionOptions(BaseModel):
                 "stripe-stripe",
                 "travelhub-card",
                 "trustly-trustly",
+                "worldpayvap-card",
                 "wpay-everydaypay",
                 "wpay-payto",
             ]
@@ -637,6 +646,7 @@ class TransactionConnectionOptions(BaseModel):
                 "stripe-stripe",
                 "travelhub-card",
                 "trustly-trustly",
+                "worldpayvap-card",
                 "wpay-everydaypay",
                 "wpay-payto",
             ]

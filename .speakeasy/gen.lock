@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 9f04a98e1af0bb04f9c34fc22dada69c
+  docChecksum: ee30ace1f73014658d6884ab5966e2ab
   docVersion: 1.0.0
-  speakeasyVersion: 1.790.2
-  generationVersion: 2.918.3
-  releaseVersion: 2.2.14
-  configChecksum: 7780e6acbfa83d10a042176851bef368
+  speakeasyVersion: 1.790.3
+  generationVersion: 2.918.4
+  releaseVersion: 2.2.15
+  configChecksum: 3f68e40c4f200126bfa3550a1ea06f91
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 8c063acf-1f99-4157-9d6d-73c75e349a9a
-  pristine_commit_hash: 79d3e0f3b4ad6ec6215d351b35cd41626864f3fc
-  pristine_tree_hash: b4f912ef31e3d4b58239f458bc166d004cfbda35
+  generation_id: 71916e9a-4dc7-42ca-ac54-76ffcc3371bf
+  pristine_commit_hash: c1e6b84b8bba34a6539536b3ebbaa867997e0517
+  pristine_tree_hash: a0d540ef3a0624fced3604e02df642fc3ae62663
 features:
   python:
     additionalDependencies: 1.1.0
@@ -2372,8 +2372,8 @@ trackedFiles:
     pristine_git_object: c35af2652b92d599b87fcc6b22df4384ee2afb2e
   docs/models/transactionconnectionoptions.md:
     id: 4c92c21f3107
-    last_write_checksum: sha1:d298e7e3614e66a140feb11d0a331511214ffcbc
-    pristine_git_object: 14e4620724eb5efb613fbfc672d26e02bc0c7c28
+    last_write_checksum: sha1:ef61bcc459b359588373e3e2f1b64a7588c2701a
+    pristine_git_object: b11fad6cee3d0f18cab7de56c41bc9ef2ffd1b4d
   docs/models/transactioncreate.md:
     id: 2eccca1e0d3d
     last_write_checksum: sha1:3c6c23bb374cca24e76ca4621a72bce248421444
@@ -2610,6 +2610,10 @@ trackedFiles:
     id: 9dc6641a560f
     last_write_checksum: sha1:582d14699a2b889e66ae68ffdafc5f357fb5b9b7
     pristine_git_object: 028394a9dbee8e6c58ec2d277c7e035c1228d1e1
+  docs/models/worldpayvapoptions.md:
+    id: 0f6ae63f4840
+    last_write_checksum: sha1:529185e5ae4c50f3d4b7008530fa49ed2ba63ea9
+    pristine_git_object: b05ffd79adbb01a837aba1e19077b2f16e66135c
   docs/models/wpayeverdaypayoptions.md:
     id: 0abce7233105
     last_write_checksum: sha1:92ebfad787b87f6d401ab15b3a5a38cabe6b3489
@@ -2792,8 +2796,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:1d1473df8b7253c37ed74714fa40cf2e26be808a
-    pristine_git_object: 9826d15b1b337677441fde46f5cf0943dd474056
+    last_write_checksum: sha1:e9aafd5af79553782f4386af3c4a1ff153364f03
+    pristine_git_object: c6d76080e75511beae3e20099366fa9d6505fa3c
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2820,8 +2824,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:4300dd31e2737ecfe544c333cd2b5cb795f19d5a
-    pristine_git_object: ce0fa212f8a12c94548fbfb6d94fa319b5020ce6
+    last_write_checksum: sha1:d5f01fefd22baf2f6232c2215864f5a6a36edda3
+    pristine_git_object: 20a73cd1d67cdefd7e41e9d4d9beaa0f58e0bb04
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -2980,8 +2984,8 @@ trackedFiles:
     pristine_git_object: becb7dcefb2ea12bf3e199ed39ece68944623c13
   src/gr4vy/models/__init__.py:
     id: 427cc7fddfe2
-    last_write_checksum: sha1:8a77f43e27e77b3070960eb90056a4032bc1fa72
-    pristine_git_object: e2621a21fb42f48d57f3069ac1a1835bf4b96272
+    last_write_checksum: sha1:3608616795585b1fdf1ba713f6b1302e6f56841d
+    pristine_git_object: b579339ba7290d6d9852533fd9f82fe6357d4664
   src/gr4vy/models/accountsreceivablesreportspec.py:
     id: cc6a9368f988
     last_write_checksum: sha1:1ce9432ce7ae682a7fff1e0fe1ddc7f82dc937e7
@@ -4636,8 +4640,8 @@ trackedFiles:
     pristine_git_object: 97b9b6f20d8d5c632881d646bfdd158533a741b3
   src/gr4vy/models/transactionconnectionoptions.py:
     id: e12dfa576d74
-    last_write_checksum: sha1:80459ba2e37e957adf78e67a0b2af37ca347072b
-    pristine_git_object: 2be49f045d4f6279696e1e16b967a369637aacbb
+    last_write_checksum: sha1:32ee00f8b84d2e858dd50cbaf2d87d9e24d1412a
+    pristine_git_object: 95a9e5ed3cebb74185d548cd348419237f252413
   src/gr4vy/models/transactioncreate.py:
     id: 640e0433670e
     last_write_checksum: sha1:3a00fb8cda9c16222dc884c87dea12ea68547745
@@ -4806,6 +4810,10 @@ trackedFiles:
     id: bd6a1fde3081
     last_write_checksum: sha1:277ceeced5f2c7ff255d334a0abb1476bd6d5e04
     pristine_git_object: d0cc282c416ecf3081de38dd0e1df2263ea52591
+  src/gr4vy/models/worldpayvapoptions.py:
+    id: b6a37fd05ad9
+    last_write_checksum: sha1:effa3e453b2be09271350811e3f7328d38fb9629
+    pristine_git_object: 9b462d5c63d2917d7ade51e7e88462c6b0e06bd3
   src/gr4vy/models/wpayeverdaypayoptions.py:
     id: 31cebaa4cecf
     last_write_checksum: sha1:ff2ebd76ffaee9a9cad4274adb0c87dd932c1fc0
@@ -9175,9 +9183,7 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes:
-  * `gr4vy.transactions.events.list()`:  `response.items[].name` **Changed**
+releaseNotes: "## Python SDK Changes:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.worldpayvap_card` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.worldpayvap_card` **Added**\n* `gr4vy.payment_links.create()`: \n  *  `request.connection_options.worldpayvap_card` **Added**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
