@@ -13,6 +13,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 
 
 class BuyerTypedDict(TypedDict):
+    id: str
+    r"""The ID for the buyer."""
     merchant_account_id: str
     r"""The ID of the merchant account this buyer belongs to."""
     created_at: datetime
@@ -21,8 +23,6 @@ class BuyerTypedDict(TypedDict):
     r"""The date this buyer was last updated at."""
     type: Literal["buyer"]
     r"""Always `buyer`."""
-    id: NotRequired[Nullable[str]]
-    r"""The ID for the buyer."""
     display_name: NotRequired[Nullable[str]]
     r"""The display name for the buyer."""
     external_identifier: NotRequired[Nullable[str]]
@@ -34,6 +34,9 @@ class BuyerTypedDict(TypedDict):
 
 
 class Buyer(BaseModel):
+    id: str
+    r"""The ID for the buyer."""
+
     merchant_account_id: str
     r"""The ID of the merchant account this buyer belongs to."""
 
@@ -48,9 +51,6 @@ class Buyer(BaseModel):
         pydantic.Field(alias="type"),
     ] = "buyer"
     r"""Always `buyer`."""
-
-    id: OptionalNullable[str] = UNSET
-    r"""The ID for the buyer."""
 
     display_name: OptionalNullable[str] = UNSET
     r"""The display name for the buyer."""
@@ -69,7 +69,6 @@ class Buyer(BaseModel):
         optional_fields = set(
             [
                 "type",
-                "id",
                 "display_name",
                 "external_identifier",
                 "billing_details",
@@ -77,13 +76,7 @@ class Buyer(BaseModel):
             ]
         )
         nullable_fields = set(
-            [
-                "id",
-                "display_name",
-                "external_identifier",
-                "billing_details",
-                "account_number",
-            ]
+            ["display_name", "external_identifier", "billing_details", "account_number"]
         )
         serialized = handler(self)
         m = {}
