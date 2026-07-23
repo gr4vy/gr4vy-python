@@ -784,6 +784,7 @@ class Transactions(BaseSDK):
         airline: OptionalNullable[
             Union[models.Airline, models.AirlineTypedDict]
         ] = UNSET,
+        description: OptionalNullable[str] = UNSET,
         cart_items: OptionalNullable[
             Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
@@ -866,6 +867,7 @@ class Transactions(BaseSDK):
         :param merchant_initiated: Indicates whether the transaction was initiated by the merchant (true) or customer (false).
         :param payment_source: The way payment method information made it to this transaction.
         :param airline: The airline addendum data which describes the airline booking associated with this transaction.
+        :param description: An optional description for the transaction. Forwarded to the payment processor where supported. Unlike `statement_descriptor`, this field has no character limit and does not appear on the buyer's bank statement.
         :param cart_items: An array of cart items that represents the line items of a transaction.
         :param statement_descriptor: Details about the payment and the merchant which may end up on the (bank) statement for the payment.
         :param previous_scheme_transaction_id: A scheme's transaction identifier to use in connecting a merchant initiated transaction to a previous customer initiated transaction. If not provided, and a qualifying customer initiated transaction has been previously made with the stored payment method, then Gr4vy will populate this value with the identifier returned for that transaction. This field is also know as the Visa Transaction Identifier, or Mastercard Trace ID.
@@ -949,6 +951,7 @@ class Transactions(BaseSDK):
                 airline=utils.get_pydantic_model(
                     airline, OptionalNullable[models.Airline]
                 ),
+                description=description,
                 cart_items=utils.get_pydantic_model(
                     cart_items, OptionalNullable[List[models.CartItem]]
                 ),
@@ -1130,6 +1133,7 @@ class Transactions(BaseSDK):
         airline: OptionalNullable[
             Union[models.Airline, models.AirlineTypedDict]
         ] = UNSET,
+        description: OptionalNullable[str] = UNSET,
         cart_items: OptionalNullable[
             Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
@@ -1212,6 +1216,7 @@ class Transactions(BaseSDK):
         :param merchant_initiated: Indicates whether the transaction was initiated by the merchant (true) or customer (false).
         :param payment_source: The way payment method information made it to this transaction.
         :param airline: The airline addendum data which describes the airline booking associated with this transaction.
+        :param description: An optional description for the transaction. Forwarded to the payment processor where supported. Unlike `statement_descriptor`, this field has no character limit and does not appear on the buyer's bank statement.
         :param cart_items: An array of cart items that represents the line items of a transaction.
         :param statement_descriptor: Details about the payment and the merchant which may end up on the (bank) statement for the payment.
         :param previous_scheme_transaction_id: A scheme's transaction identifier to use in connecting a merchant initiated transaction to a previous customer initiated transaction. If not provided, and a qualifying customer initiated transaction has been previously made with the stored payment method, then Gr4vy will populate this value with the identifier returned for that transaction. This field is also know as the Visa Transaction Identifier, or Mastercard Trace ID.
@@ -1295,6 +1300,7 @@ class Transactions(BaseSDK):
                 airline=utils.get_pydantic_model(
                     airline, OptionalNullable[models.Airline]
                 ),
+                description=description,
                 cart_items=utils.get_pydantic_model(
                     cart_items, OptionalNullable[List[models.CartItem]]
                 ),
