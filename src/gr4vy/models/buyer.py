@@ -15,6 +15,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class BuyerTypedDict(TypedDict):
     id: str
     r"""The ID for the buyer."""
+    reconciliation_id: str
+    r"""The base62 encoded buyer ID. This represents a shorter version of this buyer's `id` which is sent to payment services, anti-fraud services, and other connectors. You can use this ID to reconcile a payment service's buyer against our system."""
     merchant_account_id: str
     r"""The ID of the merchant account this buyer belongs to."""
     created_at: datetime
@@ -36,6 +38,9 @@ class BuyerTypedDict(TypedDict):
 class Buyer(BaseModel):
     id: str
     r"""The ID for the buyer."""
+
+    reconciliation_id: str
+    r"""The base62 encoded buyer ID. This represents a shorter version of this buyer's `id` which is sent to payment services, anti-fraud services, and other connectors. You can use this ID to reconcile a payment service's buyer against our system."""
 
     merchant_account_id: str
     r"""The ID of the merchant account this buyer belongs to."""

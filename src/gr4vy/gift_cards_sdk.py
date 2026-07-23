@@ -4,6 +4,7 @@ from .basesdk import BaseSDK
 from .sdkconfiguration import SDKConfiguration
 from gr4vy import errors, models, utils
 from gr4vy._hooks import HookContext
+from gr4vy.activations import Activations
 from gr4vy.balances import Balances
 from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
@@ -14,6 +15,7 @@ from typing import Any, Dict, List, Mapping, Optional, Union
 
 class GiftCardsSDK(BaseSDK):
     balances: Balances
+    activations: Activations
 
     def __init__(
         self, sdk_config: SDKConfiguration, parent_ref: Optional[object] = None
@@ -24,6 +26,9 @@ class GiftCardsSDK(BaseSDK):
 
     def _init_sdks(self):
         self.balances = Balances(self.sdk_configuration, parent_ref=self.parent_ref)
+        self.activations = Activations(
+            self.sdk_configuration, parent_ref=self.parent_ref
+        )
 
     def get(
         self,
