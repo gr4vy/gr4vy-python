@@ -201,6 +201,8 @@ class TransactionCreateTypedDict(TypedDict):
     r"""The way payment method information made it to this transaction."""
     airline: NotRequired[Nullable[AirlineTypedDict]]
     r"""The airline addendum data which describes the airline booking associated with this transaction."""
+    description: NotRequired[Nullable[str]]
+    r"""An optional description for the transaction. Forwarded to the payment processor where supported. Unlike `statement_descriptor`, this field has no character limit and does not appear on the buyer's bank statement."""
     cart_items: NotRequired[Nullable[List[CartItemTypedDict]]]
     r"""An array of cart items that represents the line items of a transaction."""
     statement_descriptor: NotRequired[Nullable[StatementDescriptorTypedDict]]
@@ -329,6 +331,9 @@ class TransactionCreate(BaseModel):
     airline: OptionalNullable[Airline] = UNSET
     r"""The airline addendum data which describes the airline booking associated with this transaction."""
 
+    description: OptionalNullable[str] = UNSET
+    r"""An optional description for the transaction. Forwarded to the payment processor where supported. Unlike `statement_descriptor`, this field has no character limit and does not appear on the buyer's bank statement."""
+
     cart_items: OptionalNullable[List[CartItem]] = UNSET
     r"""An array of cart items that represents the line items of a transaction."""
 
@@ -430,6 +435,7 @@ class TransactionCreate(BaseModel):
                 "merchant_initiated",
                 "payment_source",
                 "airline",
+                "description",
                 "cart_items",
                 "statement_descriptor",
                 "previous_scheme_transaction_id",
@@ -469,6 +475,7 @@ class TransactionCreate(BaseModel):
                 "three_d_secure",
                 "metadata",
                 "airline",
+                "description",
                 "cart_items",
                 "statement_descriptor",
                 "previous_scheme_transaction_id",
