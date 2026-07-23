@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 4a1f09b41b735b85927b1dfdd9395e0b
+  docChecksum: fea1a55cceed516c00d4145edceb5006
   docVersion: 1.0.0
   speakeasyVersion: 1.790.3
   generationVersion: 2.918.4
-  releaseVersion: 2.2.16
-  configChecksum: 80f1ce4d5efbf20b04f18ea61dafbeba
+  releaseVersion: 2.2.17
+  configChecksum: 4d55fa8530480a75db5a2b7871a4c812
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: db248595-d0b8-45e8-8850-84bbb25f56b0
-  pristine_commit_hash: 8eedf49e7e15ae22b96d67862d1a3ef7e99027b7
-  pristine_tree_hash: 5b8ef9824048287607092218c2340584c5a0b08f
+  generation_id: be52cf8e-b6e2-49d2-8900-97d3deeaa974
+  pristine_commit_hash: 0272c91997954fbe4d8128cea0f1b567c70e94a5
+  pristine_tree_hash: b866f5d3a3dcaef6745b7e99f4bec38d7f8ce78f
 features:
   python:
     additionalDependencies: 1.1.0
@@ -328,8 +328,8 @@ trackedFiles:
     pristine_git_object: 4cfabb755f278b6ecbcd12d3be9b93ea9401f3a0
   docs/models/buyer.md:
     id: b158b496cf37
-    last_write_checksum: sha1:0ba5edb0cd433b08c73669da9fe74ed5a4a4b2fd
-    pristine_git_object: ecbadb66c0921dcca0df6205f65a91c9ded2bf46
+    last_write_checksum: sha1:51c1e0ad76ef4eb08aeaabc53dde480d52eb7fec
+    pristine_git_object: e9df1433ca927d2fd50bf564243ac8f748523379
   docs/models/buyercreate.md:
     id: e7543b89f97f
     last_write_checksum: sha1:7691e4f613ba212659dd3673c47f42bbdf353a13
@@ -2796,8 +2796,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:fac847f1bb43fc8a4243cfce3f2f92b3882a9ad6
-    pristine_git_object: a960840b9e6b438b5e1e24404766d096e56c7605
+    last_write_checksum: sha1:566e93f5104de5520d81dce3511919f171cdca70
+    pristine_git_object: b8b1fb86edba433b7abb1af1b757a6d7a42ea417
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2824,8 +2824,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:29d669c1aa55d0a07bfa7229b25ab5e44dbd6307
-    pristine_git_object: 0c25fe92bcc356ccd47bd2b9b024dd4f729604bb
+    last_write_checksum: sha1:10b60e5182e5fa3087ac1093187ecb149a4379b0
+    pristine_git_object: 6b98ee60b5bbe271f0e8dfe3383efaf1b8c1e7b2
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -3180,8 +3180,8 @@ trackedFiles:
     pristine_git_object: 679499db83eba544d96287d25b2dcd7fa8670616
   src/gr4vy/models/buyer.py:
     id: 00e2d1cefee3
-    last_write_checksum: sha1:6a40e4dddfd6f27fb499ef8f716d508beda4dbf9
-    pristine_git_object: 3d016f43cccd4db40bcc9d159c065f143c3f0275
+    last_write_checksum: sha1:58daa1cb2ce791efd4a3566b9d76bc4a3e53c81e
+    pristine_git_object: eb2833cb5e028170391bcad91a70f0a90a415f54
   src/gr4vy/models/buyercreate.py:
     id: a77b7335440c
     last_write_checksum: sha1:b558f9f031a05b3bcb71fe5a26a4722aff32177b
@@ -5053,7 +5053,7 @@ examples:
           x-gr4vy-merchant-account-id: "default"
       responses:
         "200":
-          application/json: {"items": [{"type": "buyer", "merchant_account_id": "default", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}, {"type": "buyer", "merchant_account_id": "default", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}], "limit": 20}
+          application/json: {"items": [{"type": "buyer", "id": "fe26475d-ec3e-4884-9553-f7356683f7f9", "merchant_account_id": "default", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}, {"type": "buyer", "id": "fe26475d-ec3e-4884-9553-f7356683f7f9", "merchant_account_id": "default", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}], "limit": 20}
         "400":
           application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
         "401":
@@ -5090,7 +5090,7 @@ examples:
         application/json: {}
       responses:
         "201":
-          application/json: {"type": "buyer", "merchant_account_id": "default", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}
+          application/json: {"type": "buyer", "id": "fe26475d-ec3e-4884-9553-f7356683f7f9", "merchant_account_id": "default", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}
         "400":
           application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
         "401":
@@ -5126,7 +5126,7 @@ examples:
           x-gr4vy-merchant-account-id: "default"
       responses:
         "200":
-          application/json: {"type": "buyer", "merchant_account_id": "default", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}
+          application/json: {"type": "buyer", "id": "fe26475d-ec3e-4884-9553-f7356683f7f9", "merchant_account_id": "default", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}
         "400":
           application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
         "401":
@@ -5165,7 +5165,7 @@ examples:
         application/json: {}
       responses:
         "200":
-          application/json: {"type": "buyer", "merchant_account_id": "default", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}
+          application/json: {"type": "buyer", "id": "fe26475d-ec3e-4884-9553-f7356683f7f9", "merchant_account_id": "default", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}
         "400":
           application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
         "401":
@@ -9185,7 +9185,17 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes:
-  * `gr4vy.transactions.create()`:  `request.description` **Added**
+  * `gr4vy.buyers.list()`:  `response.items[].id` **Changed** (Breaking ⚠️)
+  * `gr4vy.buyers.create()`:  `response.id` **Changed** (Breaking ⚠️)
+  * `gr4vy.buyers.get()`:  `response.id` **Changed** (Breaking ⚠️)
+  * `gr4vy.buyers.update()`:  `response.id` **Changed** (Breaking ⚠️)
+  * `gr4vy.payment_methods.list()`:  `response.items[].buyer.id` **Changed** (Breaking ⚠️)
+  * `gr4vy.payment_methods.create()`:  `response.buyer.id` **Changed** (Breaking ⚠️)
+  * `gr4vy.payment_methods.get()`:  `response.buyer.id` **Changed** (Breaking ⚠️)
+  * `gr4vy.payment_methods.update()`:  `response.buyer.id` **Changed** (Breaking ⚠️)
+  * `gr4vy.gift_cards.get()`:  `response.buyer.id` **Changed** (Breaking ⚠️)
+  * `gr4vy.gift_cards.create()`:  `response.buyer.id` **Changed** (Breaking ⚠️)
+  * `gr4vy.gift_cards.list()`:  `response.items[].buyer.id` **Changed** (Breaking ⚠️)
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
