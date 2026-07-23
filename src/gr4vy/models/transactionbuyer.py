@@ -16,6 +16,8 @@ class TransactionBuyerTypedDict(TypedDict):
     r"""Always `buyer`."""
     id: NotRequired[Nullable[str]]
     r"""The ID for the buyer."""
+    reconciliation_id: NotRequired[Nullable[str]]
+    r"""The base62 encoded buyer ID. This represents a shorter version of this buyer's `id` which is sent to payment services, anti-fraud services, and other connectors. You can use this ID to reconcile a payment service's buyer against our system."""
     display_name: NotRequired[Nullable[str]]
     r"""The display name for the buyer."""
     external_identifier: NotRequired[Nullable[str]]
@@ -36,6 +38,9 @@ class TransactionBuyer(BaseModel):
     id: OptionalNullable[str] = UNSET
     r"""The ID for the buyer."""
 
+    reconciliation_id: OptionalNullable[str] = UNSET
+    r"""The base62 encoded buyer ID. This represents a shorter version of this buyer's `id` which is sent to payment services, anti-fraud services, and other connectors. You can use this ID to reconcile a payment service's buyer against our system."""
+
     display_name: OptionalNullable[str] = UNSET
     r"""The display name for the buyer."""
 
@@ -54,6 +59,7 @@ class TransactionBuyer(BaseModel):
             [
                 "type",
                 "id",
+                "reconciliation_id",
                 "display_name",
                 "external_identifier",
                 "billing_details",
@@ -63,6 +69,7 @@ class TransactionBuyer(BaseModel):
         nullable_fields = set(
             [
                 "id",
+                "reconciliation_id",
                 "display_name",
                 "external_identifier",
                 "billing_details",

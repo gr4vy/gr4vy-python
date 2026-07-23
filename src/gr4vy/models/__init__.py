@@ -27,6 +27,12 @@ if TYPE_CHECKING:
         ACHBankPaymentMethodCreateTypedDict,
         AccountType,
     )
+    from .activate_gift_cardop import (
+        ActivateGiftCardGlobals,
+        ActivateGiftCardGlobalsTypedDict,
+        ActivateGiftCardRequest,
+        ActivateGiftCardRequestTypedDict,
+    )
     from .add_buyer_shipping_detailsop import (
         AddBuyerShippingDetailsGlobals,
         AddBuyerShippingDetailsGlobalsTypedDict,
@@ -654,6 +660,10 @@ if TYPE_CHECKING:
         GetTransactionRequestTypedDict,
     )
     from .giftcard import GiftCard, GiftCardTypedDict
+    from .giftcardactivationcreate import (
+        GiftCardActivationCreate,
+        GiftCardActivationCreateTypedDict,
+    )
     from .giftcardbalancerequest import (
         GiftCardBalanceRequest,
         GiftCardBalanceRequestTypedDict,
@@ -1561,6 +1571,10 @@ __all__ = [
     "AccountUpdaterOptionsTypedDict",
     "AccountsReceivablesReportSpec",
     "AccountsReceivablesReportSpecTypedDict",
+    "ActivateGiftCardGlobals",
+    "ActivateGiftCardGlobalsTypedDict",
+    "ActivateGiftCardRequest",
+    "ActivateGiftCardRequestTypedDict",
     "AddBuyerGlobals",
     "AddBuyerGlobalsTypedDict",
     "AddBuyerRequest",
@@ -2008,6 +2022,8 @@ __all__ = [
     "GetTransactionSettlementRequest",
     "GetTransactionSettlementRequestTypedDict",
     "GiftCard",
+    "GiftCardActivationCreate",
+    "GiftCardActivationCreateTypedDict",
     "GiftCardBalanceRequest",
     "GiftCardBalanceRequestTypedDict",
     "GiftCardCreate",
@@ -2724,6 +2740,10 @@ _dynamic_imports: dict[str, str] = {
     "ACHBankPaymentMethodCreate": ".achbankpaymentmethodcreate",
     "ACHBankPaymentMethodCreateTypedDict": ".achbankpaymentmethodcreate",
     "AccountType": ".achbankpaymentmethodcreate",
+    "ActivateGiftCardGlobals": ".activate_gift_cardop",
+    "ActivateGiftCardGlobalsTypedDict": ".activate_gift_cardop",
+    "ActivateGiftCardRequest": ".activate_gift_cardop",
+    "ActivateGiftCardRequestTypedDict": ".activate_gift_cardop",
     "AddBuyerShippingDetailsGlobals": ".add_buyer_shipping_detailsop",
     "AddBuyerShippingDetailsGlobalsTypedDict": ".add_buyer_shipping_detailsop",
     "AddBuyerShippingDetailsRequest": ".add_buyer_shipping_detailsop",
@@ -3189,6 +3209,8 @@ _dynamic_imports: dict[str, str] = {
     "GetTransactionRequestTypedDict": ".get_transactionop",
     "GiftCard": ".giftcard",
     "GiftCardTypedDict": ".giftcard",
+    "GiftCardActivationCreate": ".giftcardactivationcreate",
+    "GiftCardActivationCreateTypedDict": ".giftcardactivationcreate",
     "GiftCardBalanceRequest": ".giftcardbalancerequest",
     "GiftCardBalanceRequestTypedDict": ".giftcardbalancerequest",
     "Item": ".giftcardbalancerequest",
