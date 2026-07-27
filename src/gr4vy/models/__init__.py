@@ -672,6 +672,11 @@ if TYPE_CHECKING:
     )
     from .giftcardcreate import GiftCardCreate, GiftCardCreateTypedDict
     from .giftcarderrorcode import GiftCardErrorCode
+    from .giftcardissuance import GiftCardIssuance, GiftCardIssuanceTypedDict
+    from .giftcardissuancecreate import (
+        GiftCardIssuanceCreate,
+        GiftCardIssuanceCreateTypedDict,
+    )
     from .giftcardredemption import GiftCardRedemption, GiftCardRedemptionTypedDict
     from .giftcardredemptionstatus import GiftCardRedemptionStatus
     from .giftcardrequest import GiftCardRequest, GiftCardRequestTypedDict
@@ -724,6 +729,12 @@ if TYPE_CHECKING:
     from .guestbuyer import GuestBuyer, GuestBuyerTypedDict
     from .instrumenttype import InstrumentType
     from .integrationclient import IntegrationClient
+    from .issue_gift_cardop import (
+        IssueGiftCardGlobals,
+        IssueGiftCardGlobalsTypedDict,
+        IssueGiftCardRequest,
+        IssueGiftCardRequestTypedDict,
+    )
     from .klarnaoptions import KlarnaOptions, KlarnaOptionsTypedDict
     from .klarnasubscriptionoptions import (
         Interval,
@@ -2029,6 +2040,10 @@ __all__ = [
     "GiftCardCreate",
     "GiftCardCreateTypedDict",
     "GiftCardErrorCode",
+    "GiftCardIssuance",
+    "GiftCardIssuanceCreate",
+    "GiftCardIssuanceCreateTypedDict",
+    "GiftCardIssuanceTypedDict",
     "GiftCardRedemption",
     "GiftCardRedemptionStatus",
     "GiftCardRedemptionTypedDict",
@@ -2074,6 +2089,10 @@ __all__ = [
     "IntegrationClient",
     "Intent",
     "Interval",
+    "IssueGiftCardGlobals",
+    "IssueGiftCardGlobalsTypedDict",
+    "IssueGiftCardRequest",
+    "IssueGiftCardRequestTypedDict",
     "Item",
     "ItemTypedDict",
     "KlarnaOptions",
@@ -3218,6 +3237,10 @@ _dynamic_imports: dict[str, str] = {
     "GiftCardCreate": ".giftcardcreate",
     "GiftCardCreateTypedDict": ".giftcardcreate",
     "GiftCardErrorCode": ".giftcarderrorcode",
+    "GiftCardIssuance": ".giftcardissuance",
+    "GiftCardIssuanceTypedDict": ".giftcardissuance",
+    "GiftCardIssuanceCreate": ".giftcardissuancecreate",
+    "GiftCardIssuanceCreateTypedDict": ".giftcardissuancecreate",
     "GiftCardRedemption": ".giftcardredemption",
     "GiftCardRedemptionTypedDict": ".giftcardredemption",
     "GiftCardRedemptionStatus": ".giftcardredemptionstatus",
@@ -3261,6 +3284,10 @@ _dynamic_imports: dict[str, str] = {
     "GuestBuyerTypedDict": ".guestbuyer",
     "InstrumentType": ".instrumenttype",
     "IntegrationClient": ".integrationclient",
+    "IssueGiftCardGlobals": ".issue_gift_cardop",
+    "IssueGiftCardGlobalsTypedDict": ".issue_gift_cardop",
+    "IssueGiftCardRequest": ".issue_gift_cardop",
+    "IssueGiftCardRequestTypedDict": ".issue_gift_cardop",
     "KlarnaOptions": ".klarnaoptions",
     "KlarnaOptionsTypedDict": ".klarnaoptions",
     "Interval": ".klarnasubscriptionoptions",

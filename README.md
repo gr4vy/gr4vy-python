@@ -421,6 +421,10 @@ except ValueError as error:
 
 * [list](docs/sdks/balances/README.md#list) - List gift card balances
 
+#### [GiftCards.Issuances](docs/sdks/issuances/README.md)
+
+* [create](docs/sdks/issuances/README.md#create) - Issue a gift card
+
 ### [MerchantAccounts](docs/sdks/merchantaccountssdk/README.md)
 
 * [list](docs/sdks/merchantaccountssdk/README.md#list) - List all merchant accounts
