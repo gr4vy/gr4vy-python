@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: a94d206307aebe2a6f67b96e53eb696b
+  docChecksum: b033ca882aeb25c1fbfbc1a08865c5a1
   docVersion: 1.0.0
-  speakeasyVersion: 1.790.3
-  generationVersion: 2.918.4
-  releaseVersion: 2.2.18
-  configChecksum: 35a89ccc95e10e7f0658a98538850977
+  speakeasyVersion: 1.791.0
+  generationVersion: 2.924.0
+  releaseVersion: 2.2.19
+  configChecksum: fa3a9bafe561fd233209c219593df793
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: ab9a8df1-2409-433d-9edb-d8d9123402a5
-  pristine_commit_hash: f8c844c564c603748706a70f3b87a94ebec75e41
-  pristine_tree_hash: d36b49214a818b8461a111bd8e39ddc8e2314f20
+  generation_id: d4f73a57-cc60-431e-8341-e944c9c7a814
+  pristine_commit_hash: b4ac673d488b0ecd6aacc09ccbdbe8cdc1f95616
+  pristine_tree_hash: cf2f91889c17113bd3747872ffbe7f7e6bd5ce51
 features:
   python:
     additionalDependencies: 1.1.0
@@ -1134,6 +1134,14 @@ trackedFiles:
     id: f5ca940acdab
     last_write_checksum: sha1:a5c9ab2cf1654555fcda8bdcd606f6bf4c6789a8
     pristine_git_object: e10b73b9aed1dcb93ef86367c54fa5ec91afabfc
+  docs/models/giftcardissuance.md:
+    id: 610872a74210
+    last_write_checksum: sha1:e596db996de90c493fb44c66d2433f14d4c57d9d
+    pristine_git_object: 257fa351c212898813728ec5de23b75f86f9c3c7
+  docs/models/giftcardissuancecreate.md:
+    id: 234da8ca4184
+    last_write_checksum: sha1:99934cf8e606b4547843f7db8920133d945a798b
+    pristine_git_object: d0b47b2f05300871d5b35d3ec2ed0c97d0c0689c
   docs/models/giftcardredemption.md:
     id: f96bf1462e95
     last_write_checksum: sha1:34dc98f40356bc0ca0a9dbcd82c00359f8a00563
@@ -1238,6 +1246,14 @@ trackedFiles:
     id: 11a74d2c19c0
     last_write_checksum: sha1:c5b018b15dafec2f236478b6b8f34a224b213640
     pristine_git_object: ff4ca6265d1a7fe2a7ccb2029624dbf9438133a9
+  docs/models/issuegiftcardglobals.md:
+    id: 7250cf0be399
+    last_write_checksum: sha1:c66ef28c56e8af97571b90f77b67fd71f410b61f
+    pristine_git_object: 5d1ede9996e9ce64c4e1b8c893427b7fe113d738
+  docs/models/issuegiftcardrequest.md:
+    id: 549cc949bf57
+    last_write_checksum: sha1:8fbf94c7d667cc2094e999c6efb7a3bc847f3cc6
+    pristine_git_object: 343172e12f2f995623bee9db13a84ebdc765dae8
   docs/models/item.md:
     id: 40dd7473ab87
     last_write_checksum: sha1:ae18a739bb77a539dad4a0648e012a855231b11b
@@ -2714,6 +2730,10 @@ trackedFiles:
     id: 65ba5ebd6e77
     last_write_checksum: sha1:f7d15ea9ebbc04003c7bf4914fc4a2b995456773
     pristine_git_object: 9a7a069c9959dc77ec82f7059ae17404a13ef6dd
+  docs/sdks/issuances/README.md:
+    id: 13fc25b9c370
+    last_write_checksum: sha1:b1e10d8df81a63c6178e5cc1af12a3f97a2fa733
+    pristine_git_object: 5a44afded86e0688d835e27ad8df5157a039a197
   docs/sdks/jobs/README.md:
     id: 7371cdc8b89a
     last_write_checksum: sha1:3016fca7a62f0bdd542ebaa061d05a7743cc4829
@@ -2812,8 +2832,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:db6df2f402bb072d4b024fafa27b3183b1a4a062
-    pristine_git_object: 1d2faac2abeb304c980b1b0cec0753e2e5067cb9
+    last_write_checksum: sha1:a49e62d23d6d06f60a2d34c077c84bc3c02ebe1b
+    pristine_git_object: de85e862f0f239b5fbcb63e925b909c64f199f02
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2840,8 +2860,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:1899b97df955c15bcdd606e13e664a423dcafe40
-    pristine_git_object: f04b2fff737732f1415a3cef610d02046225d34e
+    last_write_checksum: sha1:23d0864a62c12d0bf1d47f6af718d1c191200d34
+    pristine_git_object: 22d4d24c57e0c1b7589334b53f132fac30256451
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -2988,12 +3008,16 @@ trackedFiles:
     pristine_git_object: fc6e2f1412462feb055203801d7833340f662180
   src/gr4vy/gift_cards_sdk.py:
     id: 9dd50a615409
-    last_write_checksum: sha1:4f6df2b6de2d955709a0c9267de5640e7b386e74
-    pristine_git_object: 833001c3b156cc275995aaa79d45dff8981430e5
+    last_write_checksum: sha1:b98941deec475e1bcc036bdc88a8289ed1374a01
+    pristine_git_object: 4bb74b1b043b40a3279cdd08c0c2f116dc22ddd3
   src/gr4vy/httpclient.py:
     id: 699fc58886e5
     last_write_checksum: sha1:5e55338d6ee9f01ab648cad4380201a8a3da7dd7
     pristine_git_object: 89560b566073785535643e694c112bedbd3db13d
+  src/gr4vy/issuances.py:
+    id: cf8dc297b6bc
+    last_write_checksum: sha1:c016589bd5554d9db1de8f6844255cfa23391b70
+    pristine_git_object: e613eb0aecb1560a2dbf45663723390ac3414d66
   src/gr4vy/jobs.py:
     id: a7a503a0119f
     last_write_checksum: sha1:087288515b203a8feff6e91678371a2fbe0bea42
@@ -3004,8 +3028,8 @@ trackedFiles:
     pristine_git_object: becb7dcefb2ea12bf3e199ed39ece68944623c13
   src/gr4vy/models/__init__.py:
     id: 427cc7fddfe2
-    last_write_checksum: sha1:50b9daa831f6b156856c70ba03351cdb87bf538e
-    pristine_git_object: abc16957c7dd42aa6ea7ec16141d6892dadadeca
+    last_write_checksum: sha1:3c7256e6dc19ae66eb2411d96c6e4f7f17ee6ebe
+    pristine_git_object: 5d1a2d08789caac837141be1efcf1669d889799b
   src/gr4vy/models/accountsreceivablesreportspec.py:
     id: cc6a9368f988
     last_write_checksum: sha1:1ce9432ce7ae682a7fff1e0fe1ddc7f82dc937e7
@@ -3754,6 +3778,14 @@ trackedFiles:
     id: ce66c97d4c7e
     last_write_checksum: sha1:d81dfff426e104072172eba63e49934bcb1826a5
     pristine_git_object: b822b94b4fdab4b439cac15c784685228ddc3068
+  src/gr4vy/models/giftcardissuance.py:
+    id: 680240930fb0
+    last_write_checksum: sha1:4d2122232857158c3751cd6e56e81ca05cb9c724
+    pristine_git_object: 5635b11392093639913d5a71fb293311277bdc07
+  src/gr4vy/models/giftcardissuancecreate.py:
+    id: b8cf3babecc1
+    last_write_checksum: sha1:bd72244a4e7216c0c28a8eaa8c45c18bbe266d24
+    pristine_git_object: 590d4595ada55fdadf6d3d6cdf582392297afd9b
   src/gr4vy/models/giftcardredemption.py:
     id: 13296445ae55
     last_write_checksum: sha1:efe003cacba1da47e7da2079fc88dd0609dac62d
@@ -3850,6 +3882,10 @@ trackedFiles:
     id: 0776cadaeda1
     last_write_checksum: sha1:2dd6df292228b2428a2e7702ca7fe8a90c040697
     pristine_git_object: a6c5a920c605d137efbb42668b99cc9ecd615dc6
+  src/gr4vy/models/issue_gift_cardop.py:
+    id: 208577cd6d54
+    last_write_checksum: sha1:9d5274669aeed7d0be40588e90e5f38f715dc2c8
+    pristine_git_object: 54f931e0a944816bd29856dad8bfd585560012c8
   src/gr4vy/models/klarnaoptions.py:
     id: 27733b856cdc
     last_write_checksum: sha1:50f806c854a417d348236742a681a13a359e7fe5
@@ -9240,36 +9276,42 @@ examples:
           application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
         "504":
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
+  issue_gift_card:
+    speakeasy-default-issue-gift-card:
+      requestBody:
+        application/json: {"theme": "031111372", "amount": 5000, "currency": "EUR"}
+      responses:
+        "201":
+          application/json: {"type": "gift-card-issuance", "id": "356d56e5-fe16-42ae-97ee-8d55d846ae2e", "merchant_account_id": "default", "gift_card_service": {"type": "gift-card-service", "id": "35b60feec-a7c7-4844-b503-f39b09192d81", "gift_card_service_definition_id": "qwikcilver-gift-card", "display_name": "Qwikcilver USA"}, "gift_card_service_payment_issuance_id": "12345", "url": "https://example.com/gift_card_issuance/ABCD1234", "amount": 5000, "currency": "EUR", "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00"}
+        "400":
+          application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
+        "401":
+          application/json: {"type": "error", "code": "unauthorized", "status": 401, "message": "No valid API authentication found"}
+        "403":
+          application/json: {"type": "error", "code": "forbidden", "status": 403, "message": "Request failed validation"}
+        "404":
+          application/json: {"type": "error", "code": "not_found", "status": 404, "message": "The resource could not be found"}
+        "405":
+          application/json: {"type": "error", "code": "method_not_allowed", "status": 405, "message": "Method Not Allowed"}
+        "409":
+          application/json: {"type": "error", "code": "duplicate_record", "status": 409, "message": "Request failed validation"}
+        "422":
+          application/json: {}
+        "425":
+          application/json: {"type": "error", "code": "too_early", "status": 425, "message": "Request failed validation"}
+        "429":
+          application/json: {"type": "error", "code": "too_many_requests", "status": 429, "message": "Request failed validation"}
+        "500":
+          application/json: {"type": "error", "code": "server_error", "status": 500, "message": "Request could not be processed"}
+        "502":
+          application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
+        "504":
+          application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes:
-  * `gr4vy.gift_cards.activations.create()`: **Added**
-  * `gr4vy.buyers.list()`:  `response.items[].reconciliation_id` **Added**
-  * `gr4vy.buyers.create()`:  `response.reconciliation_id` **Added**
-  * `gr4vy.buyers.get()`:  `response.reconciliation_id` **Added**
-  * `gr4vy.buyers.update()`:  `response.reconciliation_id` **Added**
-  * `gr4vy.payment_methods.list()`:  `response.items[].buyer.reconciliation_id` **Added**
-  * `gr4vy.payment_methods.create()`:  `response.buyer.reconciliation_id` **Added**
-  * `gr4vy.payment_methods.get()`:  `response.buyer.reconciliation_id` **Added**
-  * `gr4vy.payment_methods.update()`:  `response.buyer.reconciliation_id` **Added**
-  * `gr4vy.gift_cards.get()`:  `response.buyer.reconciliation_id` **Added**
-  * `gr4vy.gift_cards.create()`:  `response.buyer.reconciliation_id` **Added**
-  * `gr4vy.gift_cards.list()`:  `response.items[].buyer.reconciliation_id` **Added**
-  * `gr4vy.transactions.list()`:  `response.items[].buyer.reconciliation_id` **Added**
-  * `gr4vy.transactions.create()`:  `response.buyer.reconciliation_id` **Added**
-  * `gr4vy.transactions.get()`:  `response.buyer.reconciliation_id` **Added**
-  * `gr4vy.transactions.update()`:  `response.buyer.reconciliation_id` **Added**
-  * `gr4vy.transactions.capture()`:  `response.union(TransactionCapture).transaction.buyer.reconciliation_id` **Added**
-  * `gr4vy.transactions.void()`:  `response.union(Transaction).buyer.reconciliation_id` **Added**
-  * `gr4vy.transactions.cancel()`:  `response.transaction.buyer.reconciliation_id` **Added**
-  * `gr4vy.transactions.sync()`:  `response.buyer.reconciliation_id` **Added**
-  * `gr4vy.payouts.list()`:  `response.items[].buyer.reconciliation_id` **Added**
-  * `gr4vy.payouts.create()`:  `response.buyer.reconciliation_id` **Added**
-  * `gr4vy.payouts.get()`:  `response.buyer.reconciliation_id` **Added**
-  * `gr4vy.payment_links.create()`:  `response.buyer.reconciliation_id` **Added**
-  * `gr4vy.payment_links.list()`:  `response.items[].buyer.reconciliation_id` **Added**
-  * `gr4vy.payment_links.get()`:  `response.buyer.reconciliation_id` **Added**
+  * `gr4vy.gift_cards.issuances.create()`: **Added**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json

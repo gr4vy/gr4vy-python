@@ -6,6 +6,7 @@ from gr4vy import errors, models, utils
 from gr4vy._hooks import HookContext
 from gr4vy.activations import Activations
 from gr4vy.balances import Balances
+from gr4vy.issuances import Issuances
 from gr4vy.types import OptionalNullable, UNSET
 from gr4vy.utils import get_security_from_env
 from gr4vy.utils.unmarshal_json_response import unmarshal_json_response
@@ -16,6 +17,7 @@ from typing import Any, Dict, List, Mapping, Optional, Union
 class GiftCardsSDK(BaseSDK):
     balances: Balances
     activations: Activations
+    issuances: Issuances
 
     def __init__(
         self, sdk_config: SDKConfiguration, parent_ref: Optional[object] = None
@@ -29,6 +31,7 @@ class GiftCardsSDK(BaseSDK):
         self.activations = Activations(
             self.sdk_configuration, parent_ref=self.parent_ref
         )
+        self.issuances = Issuances(self.sdk_configuration, parent_ref=self.parent_ref)
 
     def get(
         self,
