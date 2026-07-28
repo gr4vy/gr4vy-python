@@ -38,6 +38,8 @@ Name = Union[
         "gift-card-refund-succeeded",
         "gift-card-refund-failed",
         "gift-card-reversal-succeeded",
+        "reauthorization-attempted",
+        "reauthorization-created",
         "payment-connector-response-transaction-authorization-succeeded",
         "payment-connector-response-transaction-capture-succeeded",
         "payment-connector-response-transaction-authorization-failed",
