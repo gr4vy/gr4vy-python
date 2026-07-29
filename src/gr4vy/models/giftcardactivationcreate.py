@@ -3,6 +3,7 @@
 from __future__ import annotations
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from pydantic import model_serializer
+from typing import Optional
 from typing_extensions import NotRequired, TypedDict
 
 
@@ -19,6 +20,12 @@ class GiftCardActivationCreateTypedDict(TypedDict):
     r"""The ISO-4217 currency code for the `amount`. Required if `amount` is provided."""
     external_identifier: NotRequired[Nullable[str]]
     r"""An optional external identifier for this activation."""
+    store: NotRequired[bool]
+    r"""Whether to store the activated gift card in the vault. When `true`, a `pin` is required."""
+    buyer_id: NotRequired[Nullable[str]]
+    r"""The ID of the buyer to associate this gift card to. Only allowed when `store` is `true`. If this field is provided then the `buyer_external_identifier` field needs to be unset."""
+    buyer_external_identifier: NotRequired[Nullable[str]]
+    r"""The `external_identifier` of the buyer to associate this gift card to. Only allowed when `store` is `true`. If this field is provided then the `buyer_id` field needs to be unset."""
 
 
 class GiftCardActivationCreate(BaseModel):
@@ -39,10 +46,38 @@ class GiftCardActivationCreate(BaseModel):
     external_identifier: OptionalNullable[str] = UNSET
     r"""An optional external identifier for this activation."""
 
+    store: Optional[bool] = False
+    r"""Whether to store the activated gift card in the vault. When `true`, a `pin` is required."""
+
+    buyer_id: OptionalNullable[str] = UNSET
+    r"""The ID of the buyer to associate this gift card to. Only allowed when `store` is `true`. If this field is provided then the `buyer_external_identifier` field needs to be unset."""
+
+    buyer_external_identifier: OptionalNullable[str] = UNSET
+    r"""The `external_identifier` of the buyer to associate this gift card to. Only allowed when `store` is `true`. If this field is provided then the `buyer_id` field needs to be unset."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["pin", "amount", "currency", "external_identifier"])
-        nullable_fields = set(["pin", "amount", "currency", "external_identifier"])
+        optional_fields = set(
+            [
+                "pin",
+                "amount",
+                "currency",
+                "external_identifier",
+                "store",
+                "buyer_id",
+                "buyer_external_identifier",
+            ]
+        )
+        nullable_fields = set(
+            [
+                "pin",
+                "amount",
+                "currency",
+                "external_identifier",
+                "buyer_id",
+                "buyer_external_identifier",
+            ]
+        )
         serialized = handler(self)
         m = {}
 
