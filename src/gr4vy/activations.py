@@ -20,6 +20,9 @@ class Activations(BaseSDK):
         amount: OptionalNullable[int] = UNSET,
         currency: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
+        store: Optional[bool] = False,
+        buyer_id: OptionalNullable[str] = UNSET,
+        buyer_external_identifier: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -27,7 +30,7 @@ class Activations(BaseSDK):
     ) -> models.GiftCard:
         r"""Activate a gift card
 
-        Activate a physical gift card through the primary gift card service.
+        Activate a physical gift card through the primary gift card service. Set `store` to `true` to also store the activated gift card.
 
         :param number: The 16-19 digit number for the gift card.
         :param idempotency_key: A unique key that identifies this request. If supported by the gift card service, the value will be forwarded to make the activation idempotent. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
@@ -36,6 +39,9 @@ class Activations(BaseSDK):
         :param amount: The amount to load onto the gift card, in the smallest denomination for the currency. Required if `currency` is provided.
         :param currency: The ISO-4217 currency code for the `amount`. Required if `amount` is provided.
         :param external_identifier: An optional external identifier for this activation.
+        :param store: Whether to store the activated gift card in the vault. When `true`, a `pin` is required.
+        :param buyer_id: The ID of the buyer to associate this gift card to. Only allowed when `store` is `true`. If this field is provided then the `buyer_external_identifier` field needs to be unset.
+        :param buyer_external_identifier: The `external_identifier` of the buyer to associate this gift card to. Only allowed when `store` is `true`. If this field is provided then the `buyer_id` field needs to be unset.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -60,6 +66,9 @@ class Activations(BaseSDK):
                 amount=amount,
                 currency=currency,
                 external_identifier=external_identifier,
+                store=store,
+                buyer_id=buyer_id,
+                buyer_external_identifier=buyer_external_identifier,
             ),
         )
 
@@ -175,6 +184,9 @@ class Activations(BaseSDK):
         amount: OptionalNullable[int] = UNSET,
         currency: OptionalNullable[str] = UNSET,
         external_identifier: OptionalNullable[str] = UNSET,
+        store: Optional[bool] = False,
+        buyer_id: OptionalNullable[str] = UNSET,
+        buyer_external_identifier: OptionalNullable[str] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -182,7 +194,7 @@ class Activations(BaseSDK):
     ) -> models.GiftCard:
         r"""Activate a gift card
 
-        Activate a physical gift card through the primary gift card service.
+        Activate a physical gift card through the primary gift card service. Set `store` to `true` to also store the activated gift card.
 
         :param number: The 16-19 digit number for the gift card.
         :param idempotency_key: A unique key that identifies this request. If supported by the gift card service, the value will be forwarded to make the activation idempotent. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions.
@@ -191,6 +203,9 @@ class Activations(BaseSDK):
         :param amount: The amount to load onto the gift card, in the smallest denomination for the currency. Required if `currency` is provided.
         :param currency: The ISO-4217 currency code for the `amount`. Required if `amount` is provided.
         :param external_identifier: An optional external identifier for this activation.
+        :param store: Whether to store the activated gift card in the vault. When `true`, a `pin` is required.
+        :param buyer_id: The ID of the buyer to associate this gift card to. Only allowed when `store` is `true`. If this field is provided then the `buyer_external_identifier` field needs to be unset.
+        :param buyer_external_identifier: The `external_identifier` of the buyer to associate this gift card to. Only allowed when `store` is `true`. If this field is provided then the `buyer_id` field needs to be unset.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -215,6 +230,9 @@ class Activations(BaseSDK):
                 amount=amount,
                 currency=currency,
                 external_identifier=external_identifier,
+                store=store,
+                buyer_id=buyer_id,
+                buyer_external_identifier=buyer_external_identifier,
             ),
         )
 
