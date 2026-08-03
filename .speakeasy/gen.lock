@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: b7503127f454eadbafa2c7c738aa9cc5
+  docChecksum: 82994b82b53e0d0a72d6c70d3f61a988
   docVersion: 1.0.0
   speakeasyVersion: 1.791.1
   generationVersion: 2.926.2
-  releaseVersion: 2.3.3
-  configChecksum: a19d9a039c6da4e79bb2f220f5e5a6af
+  releaseVersion: 2.3.4
+  configChecksum: abc29dee4e2a6ba79068a8162cbab7d0
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: a9133b63-db5f-4485-8de6-ab697b012841
-  pristine_commit_hash: d669f4e77b564df3fd8b80ee9262ec796aeba9c4
-  pristine_tree_hash: 88dbd45dc1ae8ce67eaaa8ecd10fc16867fcea62
+  generation_id: 29f38d66-ca4a-4428-93c7-04dbaf81e1c7
+  pristine_commit_hash: f8fdd55b4c2ebc989340e2375ea3adc669ec2837
+  pristine_tree_hash: 4efddad13b41afdfbb760e84444542b48f25f442
 features:
   python:
     additionalDependencies: 1.1.0
@@ -253,8 +253,8 @@ trackedFiles:
     pristine_git_object: c1f3d21b4c080ebb0b4ca1f5fc9aadfec8e24fc5
   docs/models/apikeypair.md:
     id: aca6b01ba07b
-    last_write_checksum: sha1:7a4859d015bad09791d8f0388586d75a52409878
-    pristine_git_object: f6d5e4de643541c7fc9163a0b2eff73602f2b0b0
+    last_write_checksum: sha1:1d1de73a5c1b76b1aebb5460970f795300eaf930
+    pristine_git_object: 2731ba985adbee8fb636d9d60c16eadc7d5c9df3
   docs/models/apikeypaircreate.md:
     id: 8528359e4ec5
     last_write_checksum: sha1:0c9c6e71e91acd0190bc330411803fb456447334
@@ -2837,8 +2837,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:7c98f3b300aa98797af2e57bce90e2c1bb02941a
-    pristine_git_object: 13bc36c35f4ef366591863a516b1b2f6b213c1d0
+    last_write_checksum: sha1:b135a1a043d2c8d6dec5ba716b9b589b1cc03dd7
+    pristine_git_object: 6c978ab2ddb0fac6760a383d599f8f7dd3a4ab08
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2865,8 +2865,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:41f11cef3fc7b338f37ad820be8ed0ec0017c958
-    pristine_git_object: ac186c951de90c20679522d2d844291818884368
+    last_write_checksum: sha1:c9272eb0e98719e1bf82a24c1ea1db09075c70af
+    pristine_git_object: 3f4a2dd84d638f0d63b6345875eca96e154807b1
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -3157,8 +3157,8 @@ trackedFiles:
     pristine_git_object: 321b724d742ebc456eb15c4c1093594393a8eab4
   src/gr4vy/models/apikeypair.py:
     id: ee9aa74e9446
-    last_write_checksum: sha1:060d856bc92d1e5940d26c68228032bee6143277
-    pristine_git_object: f20a4e9631166b8ed5a6dfa2c4354415cd4466bf
+    last_write_checksum: sha1:7507a113905461f96e5b8f8b07cd75e812620912
+    pristine_git_object: 1d1ec22305f6cf768aa5361dfe29c7b8e4139489
   src/gr4vy/models/apikeypaircreate.py:
     id: 8f5617480068
     last_write_checksum: sha1:5bfbe402e206b63d834e4efd0fac343c60d6809e
@@ -9320,14 +9320,10 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes:
-  * `gr4vy.transactions.list()`:  `response.items[].reauthorized_from_transaction_id` **Added**
-  * `gr4vy.transactions.create()`:  `response.reauthorized_from_transaction_id` **Added**
-  * `gr4vy.transactions.get()`:  `response.reauthorized_from_transaction_id` **Added**
-  * `gr4vy.transactions.update()`:  `response.reauthorized_from_transaction_id` **Added**
-  * `gr4vy.transactions.capture()`:  `response.union(Transaction).reauthorized_from_transaction_id` **Added**
-  * `gr4vy.transactions.void()`:  `response.union(Transaction).reauthorized_from_transaction_id` **Added**
-  * `gr4vy.transactions.cancel()`:  `response.transaction.reauthorized_from_transaction_id` **Added**
-  * `gr4vy.transactions.sync()`:  `response.reauthorized_from_transaction_id` **Added**
+  * `gr4vy.api_key_pairs.list()`:  `response.items[].last_used_at` **Added**
+  * `gr4vy.api_key_pairs.create()`:  `response.last_used_at` **Added**
+  * `gr4vy.api_key_pairs.get()`:  `response.last_used_at` **Added**
+  * `gr4vy.api_key_pairs.update()`:  `response.last_used_at` **Added**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json

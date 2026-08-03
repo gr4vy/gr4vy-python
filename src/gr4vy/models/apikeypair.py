@@ -39,6 +39,8 @@ class APIKeyPairTypedDict(TypedDict):
     r"""The type of this resource."""
     private_key: NotRequired[Nullable[str]]
     r"""The PEM-encoded private key. Only returned once, in the response to creating the API key pair, and only when Gr4vy generated the key pair. Store it securely, as it cannot be retrieved later."""
+    last_used_at: NotRequired[Nullable[datetime]]
+    r"""The date and time when this API key pair was last used to authenticate, or `null` if it has never been used."""
     creator: NotRequired[Nullable[APIRoutersAPIKeyPairsSchemasCreatorTypedDict]]
     r"""The user or API key pair that created this API key pair."""
     merchant_accounts: NotRequired[List[MerchantAccountSummaryTypedDict]]
@@ -80,6 +82,9 @@ class APIKeyPair(BaseModel):
     private_key: OptionalNullable[str] = UNSET
     r"""The PEM-encoded private key. Only returned once, in the response to creating the API key pair, and only when Gr4vy generated the key pair. Store it securely, as it cannot be retrieved later."""
 
+    last_used_at: OptionalNullable[datetime] = UNSET
+    r"""The date and time when this API key pair was last used to authenticate, or `null` if it has never been used."""
+
     creator: OptionalNullable[APIRoutersAPIKeyPairsSchemasCreator] = UNSET
     r"""The user or API key pair that created this API key pair."""
 
@@ -92,9 +97,16 @@ class APIKeyPair(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["type", "private_key", "creator", "merchant_accounts", "roles"]
+            [
+                "type",
+                "private_key",
+                "last_used_at",
+                "creator",
+                "merchant_accounts",
+                "roles",
+            ]
         )
-        nullable_fields = set(["private_key", "creator"])
+        nullable_fields = set(["private_key", "last_used_at", "creator"])
         serialized = handler(self)
         m = {}
 
