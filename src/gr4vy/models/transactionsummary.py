@@ -92,6 +92,8 @@ class TransactionSummaryTypedDict(TypedDict):
     r"""The identifier for the checkout session this transaction is associated with."""
     gift_card_service: NotRequired[Nullable[GiftCardServiceTypedDict]]
     r"""The gift card service used for this transaction."""
+    reauthorized_from_transaction_id: NotRequired[Nullable[str]]
+    r"""The identifier of the transaction from which this transaction was reauthorized."""
 
 
 class TransactionSummary(BaseModel):
@@ -197,6 +199,9 @@ class TransactionSummary(BaseModel):
     gift_card_service: OptionalNullable[GiftCardService] = UNSET
     r"""The gift card service used for this transaction."""
 
+    reauthorized_from_transaction_id: OptionalNullable[str] = UNSET
+    r"""The identifier of the transaction from which this transaction was reauthorized."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -217,6 +222,7 @@ class TransactionSummary(BaseModel):
                 "shipping_details",
                 "checkout_session_id",
                 "gift_card_service",
+                "reauthorized_from_transaction_id",
             ]
         )
         nullable_fields = set(
@@ -235,6 +241,7 @@ class TransactionSummary(BaseModel):
                 "shipping_details",
                 "checkout_session_id",
                 "gift_card_service",
+                "reauthorized_from_transaction_id",
             ]
         )
         serialized = handler(self)
