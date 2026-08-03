@@ -536,6 +536,7 @@ except ValueError as error:
 * [void](docs/sdks/transactions/README.md#void) - Void transaction
 * [cancel](docs/sdks/transactions/README.md#cancel) - Cancel transaction
 * [sync](docs/sdks/transactions/README.md#sync) - Sync transaction
+* [increment_authorization](docs/sdks/transactions/README.md#increment_authorization) - Increment transaction authorization
 
 #### [Transactions.Actions](docs/sdks/actions/README.md)
 

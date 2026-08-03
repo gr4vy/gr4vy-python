@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 82994b82b53e0d0a72d6c70d3f61a988
+  docChecksum: 40c5ae72737aefbe61cc75760dbff5e1
   docVersion: 1.0.0
   speakeasyVersion: 1.791.1
   generationVersion: 2.926.2
-  releaseVersion: 2.3.4
-  configChecksum: abc29dee4e2a6ba79068a8162cbab7d0
+  releaseVersion: 2.3.5
+  configChecksum: 7b85557b9b76ece4bd92304b2ad698a4
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 29f38d66-ca4a-4428-93c7-04dbaf81e1c7
-  pristine_commit_hash: f8fdd55b4c2ebc989340e2375ea3adc669ec2837
-  pristine_tree_hash: 4efddad13b41afdfbb760e84444542b48f25f442
+  generation_id: 134935a1-b06d-4b20-b6d7-13bbbb017b06
+  pristine_commit_hash: 729bb44bf708539ae25fa682bdcd20526f292a30
+  pristine_tree_hash: 96753343eda99cc130dd51a37c87851ed2ad53f1
 features:
   python:
     additionalDependencies: 1.1.0
@@ -1231,6 +1231,18 @@ trackedFiles:
     id: f614f2f20234
     last_write_checksum: sha1:8f4df1c81c5d6c8274a248883f0f3cd6e9834a6f
     pristine_git_object: 01aec82a828097ec214a1a654823ecffc1ec9cd7
+  docs/models/incrementalauthorizationstatus.md:
+    id: 25a7c54d7c1e
+    last_write_checksum: sha1:beeab036e256809512fcbdd283daebf9e154e4e0
+    pristine_git_object: 0b5b1bfc4244fc01d9b88147fd644ba0d29daa7c
+  docs/models/incrementtransactionauthorizationglobals.md:
+    id: 76776a35e84f
+    last_write_checksum: sha1:33394dcf42063df4b573c5ef8e28bdf318471e75
+    pristine_git_object: 404c5f06a678fb5599e1fe1bcd9431d6369af995
+  docs/models/incrementtransactionauthorizationrequest.md:
+    id: d2eb42b9c7b7
+    last_write_checksum: sha1:a15940053f01204a4d0204d38661a3511bac85a0
+    pristine_git_object: 5e706b3257bcf6cdc8d4f664fa32a02451999cf6
   docs/models/instrumenttype.md:
     id: 20a72633fef2
     last_write_checksum: sha1:35c8e26cdc02c3792b59c36247e3e5aef6e2fec7
@@ -2387,6 +2399,14 @@ trackedFiles:
     id: 4ebec510958f
     last_write_checksum: sha1:ae0ba972ec79a592b3c768f731ac9c26308291b5
     pristine_git_object: 24798c85ea5ced283a68860064692eb5b76a33b1
+  docs/models/transactionauthorizationincrement.md:
+    id: 35d0f5af66af
+    last_write_checksum: sha1:7349260c8e3e8e4c5765492d70c7d4e9d753932a
+    pristine_git_object: d0a0ae61f049d6aea28bccb42baa19cdf78ee871
+  docs/models/transactionauthorizationincrementcreate.md:
+    id: 446f1498a81e
+    last_write_checksum: sha1:7e53572d449610f6cd900434cd25423d8242b2ab
+    pristine_git_object: 87c0da4d9047eba7003d6f1b0b83138561211465
   docs/models/transactionbuyer.md:
     id: 87325ab5464d
     last_write_checksum: sha1:ebc3326858ce5de08debf9d611f4ad1d5210cfb1
@@ -2809,8 +2829,8 @@ trackedFiles:
     pristine_git_object: b9aef138573acbb2f7108a60bf3ef48ed649e284
   docs/sdks/transactions/README.md:
     id: 85592abe3c6b
-    last_write_checksum: sha1:7d55838bfedaa6167492aab200175ffe3d02fc5a
-    pristine_git_object: 94587c45be2812984deb0b1c9e8653c220bbd0bc
+    last_write_checksum: sha1:b8d00fbcf17ca5ceeb3e49c78e31a0b6837bd08c
+    pristine_git_object: c78bd87792999ebf7f39adeccec5d3366c56b2c0
   docs/sdks/transactionsrefunds/README.md:
     id: c6a0400f5020
     last_write_checksum: sha1:9f066fc497802c0814246b158c659f494f74b520
@@ -2837,8 +2857,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:b135a1a043d2c8d6dec5ba716b9b589b1cc03dd7
-    pristine_git_object: 6c978ab2ddb0fac6760a383d599f8f7dd3a4ab08
+    last_write_checksum: sha1:3cbdb42e50bbf46f5d3e4245a656ba56833ee00a
+    pristine_git_object: b76004ee599261408ab70be03c17622a8c5c073a
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2865,8 +2885,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:c9272eb0e98719e1bf82a24c1ea1db09075c70af
-    pristine_git_object: 3f4a2dd84d638f0d63b6345875eca96e154807b1
+    last_write_checksum: sha1:677fa725c8832f9cb2733b988869f3f6d34305b5
+    pristine_git_object: 906ae3f72be047bf07212a61d35c221905b26b72
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -3033,8 +3053,8 @@ trackedFiles:
     pristine_git_object: becb7dcefb2ea12bf3e199ed39ece68944623c13
   src/gr4vy/models/__init__.py:
     id: 427cc7fddfe2
-    last_write_checksum: sha1:124bfd1947f3f22e1f36cc6c373d0dc1a3ec6e61
-    pristine_git_object: 1de27c8c6ee7de8ac6ab9c4fd5f85ec6b7722833
+    last_write_checksum: sha1:445a382980ae05a7fcffe1cab14490f6467067bd
+    pristine_git_object: e9c2efc3cda7c8e527c0ee0da6a8259ea5a83e2c
   src/gr4vy/models/accountsreceivablesreportspec.py:
     id: cc6a9368f988
     last_write_checksum: sha1:1ce9432ce7ae682a7fff1e0fe1ddc7f82dc937e7
@@ -3875,6 +3895,14 @@ trackedFiles:
     id: 358b694dfe0a
     last_write_checksum: sha1:6b1f11e414eee942a73bdf246a99cd7990f5843d
     pristine_git_object: 7e7c40698c40e24cc690181038acda37d3aa90ec
+  src/gr4vy/models/increment_transaction_authorizationop.py:
+    id: 73d9209a510a
+    last_write_checksum: sha1:4d582ac128b5cef0e850ff80aabe6291b8e71945
+    pristine_git_object: ccf896b0ca08cfcd3a2178bf0711bc8a9f921b49
+  src/gr4vy/models/incrementalauthorizationstatus.py:
+    id: 1ad6427f1b79
+    last_write_checksum: sha1:93d7a80361211fa6d54292ca2af0e010f3d1528d
+    pristine_git_object: f95c2f826b6555a8d3f935ecedc5abecc2f02bfb
   src/gr4vy/models/instrumenttype.py:
     id: c103465b49eb
     last_write_checksum: sha1:4cf75355c11bb1f1543c988e27093291ab56dec4
@@ -4695,6 +4723,14 @@ trackedFiles:
     id: cce442cab6e3
     last_write_checksum: sha1:63b88d2745e75c78395026ec358457c7144e201e
     pristine_git_object: be0d6becfb795a87edc17df2737ee904460aaba8
+  src/gr4vy/models/transactionauthorizationincrement.py:
+    id: 039fa33723b7
+    last_write_checksum: sha1:0c46f5efe9261196d6475837283c5ccd3c47c69e
+    pristine_git_object: e19148db807088adfb81d2737335705e7267f88e
+  src/gr4vy/models/transactionauthorizationincrementcreate.py:
+    id: 30575bf9ace9
+    last_write_checksum: sha1:bf2773bca7020ed24483778053e50ad451821c44
+    pristine_git_object: 3fb3f3a2a731724d49537ff6dc33a7dd639c6427
   src/gr4vy/models/transactionbuyer.py:
     id: 054aeeabf8b5
     last_write_checksum: sha1:7b8b7da3f09818c7bd750b040e4a616dbd5b0dd5
@@ -4977,8 +5013,8 @@ trackedFiles:
     pristine_git_object: 1bf1fe5162561e909510a79dd04f48b18966afce
   src/gr4vy/transactions.py:
     id: 88da8fa0ed7f
-    last_write_checksum: sha1:7dc3092122919dfee2d6f7d14dcc9372c2dab2e1
-    pristine_git_object: 02a585fe99440ce1c93e98a0ca710eb961ce2a41
+    last_write_checksum: sha1:0d61ac25ef94608fe4de6ef6902cd05aa8724f41
+    pristine_git_object: 17d174139db8e533a6eed1a4e9fdc23358bb238f
   src/gr4vy/transactions_refund_settlements.py:
     id: 6f9e238e4fed
     last_write_checksum: sha1:6b508563a131071dc9a496499715e08a8c031418
@@ -9316,14 +9352,45 @@ examples:
           application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
         "504":
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
+  increment_transaction_authorization:
+    speakeasy-default-increment-transaction-authorization:
+      parameters:
+        path:
+          transaction_id: "7099948d-7286-47e4-aad8-b68f7eb44591"
+      requestBody:
+        application/json: {"amount": 1299}
+      responses:
+        "200":
+          application/json: {"type": "transaction-authorization-increment", "status": "succeeded", "code": "service_error", "raw_response_code": "E104", "raw_response_description": "Internal error", "transaction": {"type": "transaction", "id": "7099948d-7286-47e4-aad8-b68f7eb44591", "reconciliation_id": "default", "merchant_account_id": "default", "currency": "EUR", "amount": 1299, "status": "authorization_declined", "authorized_amount": 1299, "captured_amount": 1299, "refunded_amount": 1299, "settled_amount": 1100, "settled": true, "intent": "authorize", "pending_review": false, "gift_card_redemptions": [{"type": "gift-card-redemption", "id": "31e65fb1-9c67-432e-9c06-83300b9d4059", "status": "skipped", "amount": 100, "refunded_amount": 50, "gift_card": {"type": "gift-card", "bin": "412345", "sub_bin": "554", "last4": "1234"}}], "created_at": "2013-07-16T19:23:00.000+00:00", "updated_at": "2013-07-16T19:23:00.000+00:00", "disputed": true, "payment_source": "moto", "merchant_initiated": true, "is_subsequent_payment": false, "intent_outcome": "pending", "multi_tender": true, "account_funding_transaction": true}}
+        "400":
+          application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
+        "401":
+          application/json: {"type": "error", "code": "unauthorized", "status": 401, "message": "No valid API authentication found"}
+        "403":
+          application/json: {"type": "error", "code": "forbidden", "status": 403, "message": "Request failed validation"}
+        "404":
+          application/json: {"type": "error", "code": "not_found", "status": 404, "message": "The resource could not be found"}
+        "405":
+          application/json: {"type": "error", "code": "method_not_allowed", "status": 405, "message": "Method Not Allowed"}
+        "409":
+          application/json: {"type": "error", "code": "duplicate_record", "status": 409, "message": "Request failed validation"}
+        "422":
+          application/json: {}
+        "425":
+          application/json: {"type": "error", "code": "too_early", "status": 425, "message": "Request failed validation"}
+        "429":
+          application/json: {"type": "error", "code": "too_many_requests", "status": 429, "message": "Request failed validation"}
+        "500":
+          application/json: {"type": "error", "code": "server_error", "status": 500, "message": "Request could not be processed"}
+        "502":
+          application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
+        "504":
+          application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Python SDK Changes:
-  * `gr4vy.api_key_pairs.list()`:  `response.items[].last_used_at` **Added**
-  * `gr4vy.api_key_pairs.create()`:  `response.last_used_at` **Added**
-  * `gr4vy.api_key_pairs.get()`:  `response.last_used_at` **Added**
-  * `gr4vy.api_key_pairs.update()`:  `response.last_used_at` **Added**
+  * `gr4vy.transactions.increment_authorization()`: **Added**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json

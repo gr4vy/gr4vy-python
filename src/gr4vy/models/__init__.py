@@ -728,6 +728,13 @@ if TYPE_CHECKING:
         GooglePaySessionRequestTypedDict,
     )
     from .guestbuyer import GuestBuyer, GuestBuyerTypedDict
+    from .increment_transaction_authorizationop import (
+        IncrementTransactionAuthorizationGlobals,
+        IncrementTransactionAuthorizationGlobalsTypedDict,
+        IncrementTransactionAuthorizationRequest,
+        IncrementTransactionAuthorizationRequestTypedDict,
+    )
+    from .incrementalauthorizationstatus import IncrementalAuthorizationStatus
     from .instrumenttype import InstrumentType
     from .integrationclient import IntegrationClient
     from .issue_gift_cardop import (
@@ -1373,6 +1380,14 @@ if TYPE_CHECKING:
     from .transaction import Transaction, TransactionTypedDict
     from .transactionaction import TransactionAction, TransactionActionTypedDict
     from .transactionactions import TransactionActions, TransactionActionsTypedDict
+    from .transactionauthorizationincrement import (
+        TransactionAuthorizationIncrement,
+        TransactionAuthorizationIncrementTypedDict,
+    )
+    from .transactionauthorizationincrementcreate import (
+        TransactionAuthorizationIncrementCreate,
+        TransactionAuthorizationIncrementCreateTypedDict,
+    )
     from .transactionbuyer import TransactionBuyer, TransactionBuyerTypedDict
     from .transactioncancel import TransactionCancel, TransactionCancelTypedDict
     from .transactioncapture import TransactionCapture, TransactionCaptureTypedDict
@@ -2088,6 +2103,11 @@ __all__ = [
     "GooglePaySessionTypedDict",
     "GuestBuyer",
     "GuestBuyerTypedDict",
+    "IncrementTransactionAuthorizationGlobals",
+    "IncrementTransactionAuthorizationGlobalsTypedDict",
+    "IncrementTransactionAuthorizationRequest",
+    "IncrementTransactionAuthorizationRequestTypedDict",
+    "IncrementalAuthorizationStatus",
     "InstrumentType",
     "IntegrationClient",
     "Intent",
@@ -2617,6 +2637,10 @@ __all__ = [
     "TransactionActionTypedDict",
     "TransactionActions",
     "TransactionActionsTypedDict",
+    "TransactionAuthorizationIncrement",
+    "TransactionAuthorizationIncrementCreate",
+    "TransactionAuthorizationIncrementCreateTypedDict",
+    "TransactionAuthorizationIncrementTypedDict",
     "TransactionBuyer",
     "TransactionBuyerTypedDict",
     "TransactionCancel",
@@ -3287,6 +3311,11 @@ _dynamic_imports: dict[str, str] = {
     "GooglePaySessionRequestTypedDict": ".googlepaysessionrequest",
     "GuestBuyer": ".guestbuyer",
     "GuestBuyerTypedDict": ".guestbuyer",
+    "IncrementTransactionAuthorizationGlobals": ".increment_transaction_authorizationop",
+    "IncrementTransactionAuthorizationGlobalsTypedDict": ".increment_transaction_authorizationop",
+    "IncrementTransactionAuthorizationRequest": ".increment_transaction_authorizationop",
+    "IncrementTransactionAuthorizationRequestTypedDict": ".increment_transaction_authorizationop",
+    "IncrementalAuthorizationStatus": ".incrementalauthorizationstatus",
     "InstrumentType": ".instrumenttype",
     "IntegrationClient": ".integrationclient",
     "IssueGiftCardGlobals": ".issue_gift_cardop",
@@ -3802,6 +3831,10 @@ _dynamic_imports: dict[str, str] = {
     "TransactionActionTypedDict": ".transactionaction",
     "TransactionActions": ".transactionactions",
     "TransactionActionsTypedDict": ".transactionactions",
+    "TransactionAuthorizationIncrement": ".transactionauthorizationincrement",
+    "TransactionAuthorizationIncrementTypedDict": ".transactionauthorizationincrement",
+    "TransactionAuthorizationIncrementCreate": ".transactionauthorizationincrementcreate",
+    "TransactionAuthorizationIncrementCreateTypedDict": ".transactionauthorizationincrementcreate",
     "TransactionBuyer": ".transactionbuyer",
     "TransactionBuyerTypedDict": ".transactionbuyer",
     "TransactionCancel": ".transactioncancel",

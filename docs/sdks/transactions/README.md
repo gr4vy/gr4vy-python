@@ -12,6 +12,7 @@
 * [void](#void) - Void transaction
 * [cancel](#cancel) - Cancel transaction
 * [sync](#sync) - Sync transaction
+* [increment_authorization](#increment_authorization) - Increment transaction authorization
 
 ## list
 
@@ -561,6 +562,62 @@ with Gr4vy(
 ### Response
 
 **[models.Transaction](../../models/transaction.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| errors.Error400            | 400                        | application/json           |
+| errors.Error401            | 401                        | application/json           |
+| errors.Error403            | 403                        | application/json           |
+| errors.Error404            | 404                        | application/json           |
+| errors.Error405            | 405                        | application/json           |
+| errors.Error409            | 409                        | application/json           |
+| errors.HTTPValidationError | 422                        | application/json           |
+| errors.Error425            | 425                        | application/json           |
+| errors.Error429            | 429                        | application/json           |
+| errors.Error500            | 500                        | application/json           |
+| errors.Error502            | 502                        | application/json           |
+| errors.Error504            | 504                        | application/json           |
+| errors.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## increment_authorization
+
+Increment the transaction authorization amount of a given transaction_id.
+
+### Example Usage
+
+<!-- UsageSnippet language="python" operationID="increment_transaction_authorization" method="post" path="/transactions/{transaction_id}/authorization/increment" -->
+```python
+from gr4vy import Gr4vy
+import os
+
+
+with Gr4vy(
+    merchant_account_id="default",
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+) as g_client:
+
+    res = g_client.transactions.increment_authorization(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591", amount=1299)
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                                             | Type                                                                                                                                                                                                  | Required                                                                                                                                                                                              | Description                                                                                                                                                                                           | Example                                                                                                                                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `transaction_id`                                                                                                                                                                                      | *str*                                                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                                                    | The unique identifier of the transaction.                                                                                                                                                             | 7099948d-7286-47e4-aad8-b68f7eb44591                                                                                                                                                                  |
+| `amount`                                                                                                                                                                                              | *int*                                                                                                                                                                                                 | :heavy_check_mark:                                                                                                                                                                                    | The amount by which to increment the authorization, in the smallest currency unit of the transaction's currency. For example, `1299` cents to increment the authorization by `$12.99`.                | 1299                                                                                                                                                                                                  |
+| `merchant_account_id`                                                                                                                                                                                 | *Optional[str]*                                                                                                                                                                                       | :heavy_minus_sign:                                                                                                                                                                                    | The ID of the merchant account to use for this request.                                                                                                                                               | default                                                                                                                                                                                               |
+| `idempotency_key`                                                                                                                                                                                     | *OptionalNullable[str]*                                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                                                    | A unique key that identifies this request. Providing this header will make this an idempotent request. We recommend using V4 UUIDs, or another random string with enough entropy to avoid collisions. | request-12345                                                                                                                                                                                         |
+| `retries`                                                                                                                                                                                             | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)                                                                                                                                      | :heavy_minus_sign:                                                                                                                                                                                    | Configuration to override the default retry behavior of the client.                                                                                                                                   |                                                                                                                                                                                                       |
+
+### Response
+
+**[models.TransactionAuthorizationIncrement](../../models/transactionauthorizationincrement.md)**
 
 ### Errors
 
