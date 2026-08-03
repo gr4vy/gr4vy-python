@@ -14,6 +14,7 @@ from .cybersourceantifraudoptions import (
     CybersourceAntiFraudOptionsTypedDict,
 )
 from .cybersourceoptions import CybersourceOptions, CybersourceOptionsTypedDict
+from .dlocalcardoptions import DlocalCardOptions, DlocalCardOptionsTypedDict
 from .dlocaloptions import DlocalOptions, DlocalOptionsTypedDict
 from .dlocalpixoptions import DlocalPIXOptions, DlocalPIXOptionsTypedDict
 from .dlocalupioptions import DlocalUPIOptions, DlocalUPIOptionsTypedDict
@@ -107,6 +108,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `cybersource-ideal` connector."""
     cybersource_kcp: NotRequired[Nullable[CybersourceOptionsTypedDict]]
     r"""Custom options to be passed to the `cybersource-kcp` connector."""
+    dlocal_card: NotRequired[Nullable[DlocalCardOptionsTypedDict]]
+    r"""Custom options to be passed to the `dlocal-card` connector."""
     dlocal_nequi: NotRequired[Nullable[DlocalOptionsTypedDict]]
     r"""Custom options to be passed to the `dlocal-nequi` connector."""
     dlocal_upi: NotRequired[Nullable[DlocalUPIOptionsTypedDict]]
@@ -316,6 +319,11 @@ class TransactionConnectionOptions(BaseModel):
         OptionalNullable[CybersourceOptions], pydantic.Field(alias="cybersource-kcp")
     ] = UNSET
     r"""Custom options to be passed to the `cybersource-kcp` connector."""
+
+    dlocal_card: Annotated[
+        OptionalNullable[DlocalCardOptions], pydantic.Field(alias="dlocal-card")
+    ] = UNSET
+    r"""Custom options to be passed to the `dlocal-card` connector."""
 
     dlocal_nequi: Annotated[
         OptionalNullable[DlocalOptions], pydantic.Field(alias="dlocal-nequi")
@@ -543,6 +551,7 @@ class TransactionConnectionOptions(BaseModel):
                 "cybersource-card",
                 "cybersource-ideal",
                 "cybersource-kcp",
+                "dlocal-card",
                 "dlocal-nequi",
                 "dlocal-upi",
                 "dlocal-pix",
@@ -611,6 +620,7 @@ class TransactionConnectionOptions(BaseModel):
                 "cybersource-card",
                 "cybersource-ideal",
                 "cybersource-kcp",
+                "dlocal-card",
                 "dlocal-nequi",
                 "dlocal-upi",
                 "dlocal-pix",

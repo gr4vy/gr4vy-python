@@ -449,6 +449,7 @@ if TYPE_CHECKING:
     from .digitalwalletprovider import DigitalWalletProvider
     from .digitalwallets import DigitalWallets, DigitalWalletsTypedDict
     from .digitalwalletupdate import DigitalWalletUpdate, DigitalWalletUpdateTypedDict
+    from .dlocalcardoptions import DlocalCardOptions, DlocalCardOptionsTypedDict
     from .dlocaloptions import DlocalOptions, DlocalOptionsTypedDict
     from .dlocalpixoptions import DlocalPIXOptions, DlocalPIXOptionsTypedDict
     from .dlocalpixsubscriptionamountoptions import (
@@ -1890,6 +1891,8 @@ __all__ = [
     "DigitalWalletUpdateTypedDict",
     "DigitalWallets",
     "DigitalWalletsTypedDict",
+    "DlocalCardOptions",
+    "DlocalCardOptionsTypedDict",
     "DlocalOptions",
     "DlocalOptionsTypedDict",
     "DlocalPIXOptions",
@@ -3083,6 +3086,8 @@ _dynamic_imports: dict[str, str] = {
     "DigitalWalletsTypedDict": ".digitalwallets",
     "DigitalWalletUpdate": ".digitalwalletupdate",
     "DigitalWalletUpdateTypedDict": ".digitalwalletupdate",
+    "DlocalCardOptions": ".dlocalcardoptions",
+    "DlocalCardOptionsTypedDict": ".dlocalcardoptions",
     "DlocalOptions": ".dlocaloptions",
     "DlocalOptionsTypedDict": ".dlocaloptions",
     "DlocalPIXOptions": ".dlocalpixoptions",
