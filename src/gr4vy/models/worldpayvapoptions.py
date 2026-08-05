@@ -10,6 +10,8 @@ from typing_extensions import Annotated, NotRequired, TypedDict
 class WorldpayVapOptionsTypedDict(TypedDict):
     report_group: NotRequired[Nullable[str]]
     r"""Overrides the default report group to pass to the Worldpay VAP API."""
+    order_id: NotRequired[Nullable[str]]
+    r"""Overrides the `orderId` passed to the Worldpay VAP API, which defaults to the Gr4vy transaction ID."""
 
 
 class WorldpayVapOptions(BaseModel):
@@ -18,10 +20,13 @@ class WorldpayVapOptions(BaseModel):
     ] = UNSET
     r"""Overrides the default report group to pass to the Worldpay VAP API."""
 
+    order_id: Annotated[OptionalNullable[str], pydantic.Field(alias="orderId")] = UNSET
+    r"""Overrides the `orderId` passed to the Worldpay VAP API, which defaults to the Gr4vy transaction ID."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["reportGroup"])
-        nullable_fields = set(["reportGroup"])
+        optional_fields = set(["reportGroup", "orderId"])
+        nullable_fields = set(["reportGroup", "orderId"])
         serialized = handler(self)
         m = {}
 
