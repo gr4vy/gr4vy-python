@@ -1,6 +1,6 @@
 """Gift cards. The mock merchant has no gift-card service configured, so create /
-get / delete / balances are reached at the request level (they cleanly 4xx); list
-is a real happy path (it returns an empty page)."""
+get / delete / balances / activations / issuances are reached at the request level
+(they cleanly 4xx); list is a real happy path (it returns an empty page)."""
 
 from utils import MISSING_ID, reach
 
@@ -25,4 +25,33 @@ def test_create_get_delete_balances_are_reached(merchant):
             items=[{"number": "4111111111111111", "pin": "1234"}]
         ),
         "gift_cards.balances.list",
+    )
+
+
+def test_activation_is_reached(merchant):
+    """Activating a gift card needs a configured gift-card service."""
+    sdk = merchant.client
+
+    reach.reaches(
+        lambda: sdk.gift_cards.activations.create(
+            number="4111111111111111",
+            pin="1234",
+            amount=1299,
+            currency="USD",
+        ),
+        "gift_cards.activations.create",
+    )
+
+
+def test_issuance_is_reached(merchant):
+    """Issuing a new gift card needs a configured gift-card service with a theme."""
+    sdk = merchant.client
+
+    reach.reaches(
+        lambda: sdk.gift_cards.issuances.create(
+            theme="default",
+            amount=1299,
+            currency="USD",
+        ),
+        "gift_cards.issuances.create",
     )

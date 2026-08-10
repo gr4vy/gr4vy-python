@@ -67,6 +67,20 @@ def test_read_subresources(merchant):
     )
 
 
+def test_increment_authorization_is_reached(merchant):
+    """Incremental authorization is a PSP capability the mock connector does not
+    offer, so we authorize for real and accept a clean rejection of the increment."""
+    sdk = merchant.client
+    txn = checkout_fields.authorize(sdk)
+
+    reach.reaches(
+        lambda: sdk.transactions.increment_authorization(
+            transaction_id=txn.id, amount=500
+        ),
+        "transactions.increment_authorization",
+    )
+
+
 def test_cancel_is_reached(merchant):
     sdk = merchant.client
     # Cancelling a not-found transaction still exercises the endpoint.
