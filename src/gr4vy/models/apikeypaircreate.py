@@ -12,7 +12,7 @@ class APIKeyPairCreateTypedDict(TypedDict):
     display_name: str
     r"""The display name for the API key pair."""
     role_ids: List[str]
-    r"""The ID of the role to assign to the API key pair. Exactly one role is supported. The caller can only assign a role whose scopes are a subset of its own."""
+    r"""The IDs of the roles to assign to the API key pair. The caller can only assign roles whose scopes are a subset of its own."""
     algorithm: NotRequired[CertificateAlgorithm]
     active: NotRequired[bool]
     r"""Whether the API key pair should be active and usable once created."""
@@ -27,7 +27,7 @@ class APIKeyPairCreate(BaseModel):
     r"""The display name for the API key pair."""
 
     role_ids: List[str]
-    r"""The ID of the role to assign to the API key pair. Exactly one role is supported. The caller can only assign a role whose scopes are a subset of its own."""
+    r"""The IDs of the roles to assign to the API key pair. The caller can only assign roles whose scopes are a subset of its own."""
 
     algorithm: Optional[CertificateAlgorithm] = None
 
