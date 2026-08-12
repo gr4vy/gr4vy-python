@@ -2,20 +2,29 @@
 
 from __future__ import annotations
 from .permissionset import PermissionSet, PermissionSetTypedDict
+from .roleassigneetype import RoleAssigneeType
 from gr4vy.types import BaseModel, UNSET_SENTINEL
 from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator
-from typing import Literal, Optional
+from typing import List, Literal, Optional
 from typing_extensions import Annotated, TypedDict
 
 
 class RoleTypedDict(TypedDict):
     id: str
     name: str
+    slug: str
+    r"""The unique, human-readable identifier for the role."""
     description: str
     permissions: PermissionSetTypedDict
+    assignable_to: List[RoleAssigneeType]
+    r"""The types of resource this role can be assigned to."""
+    applies_to: List[str]
+    r"""The slugs of the roles this role is an add-on of. Empty when this role is not an add-on."""
+    is_standalone_assignable: bool
+    r"""Whether this role can be assigned on its own, without being combined with another role."""
     type: Literal["role"]
 
 
@@ -24,9 +33,21 @@ class Role(BaseModel):
 
     name: str
 
+    slug: str
+    r"""The unique, human-readable identifier for the role."""
+
     description: str
 
     permissions: PermissionSet
+
+    assignable_to: List[RoleAssigneeType]
+    r"""The types of resource this role can be assigned to."""
+
+    applies_to: List[str]
+    r"""The slugs of the roles this role is an add-on of. Empty when this role is not an add-on."""
+
+    is_standalone_assignable: bool
+    r"""Whether this role can be assigned on its own, without being combined with another role."""
 
     TYPE: Annotated[
         Annotated[Optional[Literal["role"]], AfterValidator(validate_const("role"))],
