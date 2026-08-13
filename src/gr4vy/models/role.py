@@ -14,11 +14,15 @@ from typing_extensions import Annotated, TypedDict
 
 class RoleTypedDict(TypedDict):
     id: str
+    r"""The unique ID for the role."""
     name: str
+    r"""The human-readable name of the role."""
     slug: str
     r"""The unique, human-readable identifier for the role."""
     description: str
+    r"""A description of the access this role grants."""
     permissions: PermissionSetTypedDict
+    r"""The permissions granted by a role."""
     assignable_to: List[RoleAssigneeType]
     r"""The types of resource this role can be assigned to."""
     applies_to: List[str]
@@ -26,19 +30,24 @@ class RoleTypedDict(TypedDict):
     is_standalone_assignable: bool
     r"""Whether this role can be assigned on its own, without being combined with another role."""
     type: Literal["role"]
+    r"""Always `role`."""
 
 
 class Role(BaseModel):
     id: str
+    r"""The unique ID for the role."""
 
     name: str
+    r"""The human-readable name of the role."""
 
     slug: str
     r"""The unique, human-readable identifier for the role."""
 
     description: str
+    r"""A description of the access this role grants."""
 
     permissions: PermissionSet
+    r"""The permissions granted by a role."""
 
     assignable_to: List[RoleAssigneeType]
     r"""The types of resource this role can be assigned to."""
@@ -53,6 +62,7 @@ class Role(BaseModel):
         Annotated[Optional[Literal["role"]], AfterValidator(validate_const("role"))],
         pydantic.Field(alias="type"),
     ] = "role"
+    r"""Always `role`."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -7,8 +7,14 @@ from typing_extensions import TypedDict
 
 
 class PermissionSetTypedDict(TypedDict):
+    r"""The permissions granted by a role."""
+
     allow: List[str]
+    r"""The scopes granted by this role."""
 
 
 class PermissionSet(BaseModel):
+    r"""The permissions granted by a role."""
+
     allow: List[str]
+    r"""The scopes granted by this role."""
