@@ -217,6 +217,7 @@ if TYPE_CHECKING:
         CollectionAPIKeyPair,
         CollectionAPIKeyPairTypedDict,
     )
+    from .collection_role_ import CollectionRole, CollectionRoleTypedDict
     from .complete_paze_mobile_sessionop import (
         CompletePazeMobileSessionGlobals,
         CompletePazeMobileSessionGlobalsTypedDict,
@@ -905,6 +906,12 @@ if TYPE_CHECKING:
         ListReportsRequestTypedDict,
         ListReportsResponse,
         ListReportsResponseTypedDict,
+    )
+    from .list_rolesop import (
+        ListRolesRequest,
+        ListRolesRequestTypedDict,
+        ListRolesResponse,
+        ListRolesResponseTypedDict,
     )
     from .list_three_ds_configurationsop import (
         ListThreeDsConfigurationsRequest,
@@ -1743,6 +1750,8 @@ __all__ = [
     "ClickToPaySessionTypedDict",
     "CollectionAPIKeyPair",
     "CollectionAPIKeyPairTypedDict",
+    "CollectionRole",
+    "CollectionRoleTypedDict",
     "CompletePazeMobileSessionGlobals",
     "CompletePazeMobileSessionGlobalsTypedDict",
     "CompletePazeMobileSessionRequest",
@@ -2237,6 +2246,10 @@ __all__ = [
     "ListReportsRequestTypedDict",
     "ListReportsResponse",
     "ListReportsResponseTypedDict",
+    "ListRolesRequest",
+    "ListRolesRequestTypedDict",
+    "ListRolesResponse",
+    "ListRolesResponseTypedDict",
     "ListThreeDsConfigurationsRequest",
     "ListThreeDsConfigurationsRequestTypedDict",
     "ListTransactionActionsGlobals",
@@ -2946,6 +2959,8 @@ _dynamic_imports: dict[str, str] = {
     "ClickToPaySessionRequestTypedDict": ".clicktopaysessionrequest",
     "CollectionAPIKeyPair": ".collection_apikeypair_",
     "CollectionAPIKeyPairTypedDict": ".collection_apikeypair_",
+    "CollectionRole": ".collection_role_",
+    "CollectionRoleTypedDict": ".collection_role_",
     "CompletePazeMobileSessionGlobals": ".complete_paze_mobile_sessionop",
     "CompletePazeMobileSessionGlobalsTypedDict": ".complete_paze_mobile_sessionop",
     "CompletePazeMobileSessionRequest": ".complete_paze_mobile_sessionop",
@@ -3443,6 +3458,10 @@ _dynamic_imports: dict[str, str] = {
     "ListReportsRequestTypedDict": ".list_reportsop",
     "ListReportsResponse": ".list_reportsop",
     "ListReportsResponseTypedDict": ".list_reportsop",
+    "ListRolesRequest": ".list_rolesop",
+    "ListRolesRequestTypedDict": ".list_rolesop",
+    "ListRolesResponse": ".list_rolesop",
+    "ListRolesResponseTypedDict": ".list_rolesop",
     "ListThreeDsConfigurationsRequest": ".list_three_ds_configurationsop",
     "ListThreeDsConfigurationsRequestTypedDict": ".list_three_ds_configurationsop",
     "ListTransactionActionsGlobals": ".list_transaction_actionsop",
