@@ -42,6 +42,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"dana"`
 - `"dcb"`
 - `"dlocal"`
+- `"duitnow"`
 - `"ebanx"`
 - `"eckoh"`
 - `"efecty"`
