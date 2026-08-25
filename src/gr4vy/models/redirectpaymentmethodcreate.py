@@ -42,6 +42,7 @@ RedirectPaymentMethodCreateMethod = Union[
         "dana",
         "dcb",
         "dlocal",
+        "duitnow",
         "ebanx",
         "eckoh",
         "efecty",
