@@ -50,6 +50,8 @@ class ListPaymentServicesRequestTypedDict(TypedDict):
     r"""The maximum number of items that are at returned."""
     deleted: NotRequired[Nullable[bool]]
     r"""Return any deleted payment service."""
+    include_fields: NotRequired[bool]
+    r"""Include the non-secret credential and reporting fields for each payment service. Disable this to reduce response time if you don't need them."""
     merchant_account_id: NotRequired[str]
     r"""The ID of the merchant account to use for this request."""
 
@@ -79,6 +81,12 @@ class ListPaymentServicesRequest(BaseModel):
     ] = UNSET
     r"""Return any deleted payment service."""
 
+    include_fields: Annotated[
+        Optional[bool],
+        FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
+    ] = True
+    r"""Include the non-secret credential and reporting fields for each payment service. Disable this to reduce response time if you don't need them."""
+
     merchant_account_id: Annotated[
         Optional[str],
         pydantic.Field(alias="x-gr4vy-merchant-account-id"),
@@ -89,7 +97,14 @@ class ListPaymentServicesRequest(BaseModel):
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
-            ["method", "cursor", "limit", "deleted", "merchant_account_id"]
+            [
+                "method",
+                "cursor",
+                "limit",
+                "deleted",
+                "include_fields",
+                "merchant_account_id",
+            ]
         )
         nullable_fields = set(["method", "cursor", "deleted"])
         serialized = handler(self)
