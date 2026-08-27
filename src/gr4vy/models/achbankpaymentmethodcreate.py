@@ -25,7 +25,7 @@ AccountType = Union[
     ],
     UnrecognizedStr,
 ]
-r"""Specify whether this is a `checking` or `savings` account"""
+r"""Specify whether this is a `checking` or `savings` account. Defaults to `checking`."""
 
 
 class ACHBankPaymentMethodCreateTypedDict(TypedDict):
@@ -39,8 +39,6 @@ class ACHBankPaymentMethodCreateTypedDict(TypedDict):
     r"""The account number for this ACH bank account"""
     routing_number: str
     r"""The routing number for this ACH bank account"""
-    account_type: AccountType
-    r"""Specify whether this is a `checking` or `savings` account"""
     method: Literal["bank"]
     r"""Always `bank`."""
     buyer_id: NotRequired[Nullable[str]]
@@ -53,6 +51,8 @@ class ACHBankPaymentMethodCreateTypedDict(TypedDict):
     r"""Always `ach`."""
     is_tokenized: NotRequired[bool]
     r"""Whether the account number is tokenized"""
+    account_type: NotRequired[AccountType]
+    r"""Specify whether this is a `checking` or `savings` account. Defaults to `checking`."""
 
 
 class ACHBankPaymentMethodCreate(BaseModel):
@@ -68,9 +68,6 @@ class ACHBankPaymentMethodCreate(BaseModel):
 
     routing_number: str
     r"""The routing number for this ACH bank account"""
-
-    account_type: AccountType
-    r"""Specify whether this is a `checking` or `savings` account"""
 
     METHOD: Annotated[
         Annotated[Optional[Literal["bank"]], AfterValidator(validate_const("bank"))],
@@ -96,6 +93,9 @@ class ACHBankPaymentMethodCreate(BaseModel):
     is_tokenized: Optional[bool] = False
     r"""Whether the account number is tokenized"""
 
+    account_type: Optional[AccountType] = "checking"
+    r"""Specify whether this is a `checking` or `savings` account. Defaults to `checking`."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -106,6 +106,7 @@ class ACHBankPaymentMethodCreate(BaseModel):
                 "external_identifier",
                 "scheme",
                 "is_tokenized",
+                "account_type",
             ]
         )
         nullable_fields = set(
