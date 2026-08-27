@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 46b4d2013a6245328a9b950541ace539
+  docChecksum: ff5d0c01aaaee46574fa93434799ea09
   docVersion: 1.0.0
   speakeasyVersion: 1.796.0
   generationVersion: 2.932.15
-  releaseVersion: 2.4.1
-  configChecksum: 34b34597d28eb1155e00470992f1c968
+  releaseVersion: 2.4.2
+  configChecksum: 77e90e51de21026dab947c344181b823
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 070f8038-cae4-4740-b0a3-4ce2f4f2cb6c
-  pristine_commit_hash: d580247e7bcf97f7d38418d9679757c821016dca
-  pristine_tree_hash: 602498548ada8fb0d764f85b1562df7497151d68
+  generation_id: dff91b9c-9262-40f6-8881-25a267f65841
+  pristine_commit_hash: d61d68853a8a72cf6aae167b5db34fcfadeed90c
+  pristine_tree_hash: 9d3dbd7376786d8bf6adac7d73ce939a91120eda
 features:
   python:
     additionalDependencies: 1.1.0
@@ -113,8 +113,8 @@ trackedFiles:
     pristine_git_object: 48b024d2bd7b6f5653dac82592750e4fb0df0290
   docs/models/accounttype.md:
     id: 3e5f862a6af7
-    last_write_checksum: sha1:feef9aed8bffaaf6dcf8137ab2b65cac348adce8
-    pristine_git_object: 20271b0a046a712007c0fe30faaf1945b046d715
+    last_write_checksum: sha1:ff4871737e8533a03feeafbf4d3e068ac74a3f78
+    pristine_git_object: 8a5d26c39db99eb7237032d044fa9ff4e7c1a335
   docs/models/accountupdaterinquirysummary.md:
     id: 1c8336a44115
     last_write_checksum: sha1:0fcc02e7c3984069b70b1e44f1cb620d61c42a79
@@ -133,8 +133,8 @@ trackedFiles:
     pristine_git_object: 7df6469b3a54446658e826e0726abbef17e34aa9
   docs/models/achbankpaymentmethodcreate.md:
     id: cd1fe5405c9e
-    last_write_checksum: sha1:594b21a245b14883d4e21a4fb1e688baa9b165bc
-    pristine_git_object: 6806068e22ead3a625b4af507b3eddca85bfcef2
+    last_write_checksum: sha1:67c7a7bf3524e51a21929c043b439088844ea913
+    pristine_git_object: 7731f5f6e5e543594a8abb6ad1775302a29c2621
   docs/models/activategiftcardglobals.md:
     id: 77c1014bdc42
     last_write_checksum: sha1:900da7066ce66dac0940429800fd0f96195374f2
@@ -2877,8 +2877,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:2d5562f3215eb8c89aff8f66bcc6aef80d59222d
-    pristine_git_object: 3d0ee6bf4b879c1f084b2ed072ff4161c2e78f37
+    last_write_checksum: sha1:2f213906547c75ede9213d9f52f8356b4d49d6d5
+    pristine_git_object: 2ee29457799d7f985436f9a07e37d027d2354db6
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2905,8 +2905,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:7f4e66142f34738363e8fc99ad5ee01cc95c016d
-    pristine_git_object: ebefc52619c272d5bd6ed2f7dd61316c3d007715
+    last_write_checksum: sha1:daee1d44081b10edba42ee4f23ae5769d816e1ea
+    pristine_git_object: ab4f52c640a61e446d65697d73042fa3769d7864
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -3097,8 +3097,8 @@ trackedFiles:
     pristine_git_object: 51a7ace1767db34a46fa24c0c7815c2576ee059a
   src/gr4vy/models/achbankpaymentmethodcreate.py:
     id: 6ed530a2379b
-    last_write_checksum: sha1:c43c7fe29c0e7ac6556eed45ceae8ff8c4a0a6dc
-    pristine_git_object: cca9417186e04215ccf12e4d2c6d256777eea1da
+    last_write_checksum: sha1:e053769f35cb4213aee9188b78b828c7b0b935b1
+    pristine_git_object: 2dbaa8e6eb5df2cc600c6b36a88f8dc26feb9dbc
   src/gr4vy/models/activate_gift_cardop.py:
     id: 32e41c1c48b6
     last_write_checksum: sha1:df9f32b559e5af443e0cdf5132e8466d3d699702
@@ -9457,9 +9457,7 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes:
-  * `gr4vy.payment_services.list()`:  `request.include_fields` **Added**
+releaseNotes: "## Python SDK Changes:\n* `gr4vy.payment_methods.create()`: \n  *  `request_body.union(ACHBankPaymentMethodCreate).account_type` **Changed**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
