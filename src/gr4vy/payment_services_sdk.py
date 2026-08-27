@@ -18,6 +18,7 @@ class PaymentServicesSDK(BaseSDK):
         cursor: OptionalNullable[str] = UNSET,
         limit: Optional[int] = 20,
         deleted: OptionalNullable[bool] = UNSET,
+        include_fields: Optional[bool] = True,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -32,6 +33,7 @@ class PaymentServicesSDK(BaseSDK):
         :param cursor: A pointer to the page of results to return.
         :param limit: The maximum number of items that are at returned.
         :param deleted: Return any deleted payment service.
+        :param include_fields: Include the non-secret credential and reporting fields for each payment service. Disable this to reduce response time if you don't need them.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -53,6 +55,7 @@ class PaymentServicesSDK(BaseSDK):
             cursor=cursor,
             limit=limit,
             deleted=deleted,
+            include_fields=include_fields,
             merchant_account_id=merchant_account_id,
         )
 
@@ -121,6 +124,7 @@ class PaymentServicesSDK(BaseSDK):
                 cursor=next_cursor,
                 limit=limit,
                 deleted=deleted,
+                include_fields=include_fields,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
                 server_url=server_url,
@@ -188,6 +192,7 @@ class PaymentServicesSDK(BaseSDK):
         cursor: OptionalNullable[str] = UNSET,
         limit: Optional[int] = 20,
         deleted: OptionalNullable[bool] = UNSET,
+        include_fields: Optional[bool] = True,
         merchant_account_id: Optional[str] = None,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
@@ -202,6 +207,7 @@ class PaymentServicesSDK(BaseSDK):
         :param cursor: A pointer to the page of results to return.
         :param limit: The maximum number of items that are at returned.
         :param deleted: Return any deleted payment service.
+        :param include_fields: Include the non-secret credential and reporting fields for each payment service. Disable this to reduce response time if you don't need them.
         :param merchant_account_id: The ID of the merchant account to use for this request.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
@@ -223,6 +229,7 @@ class PaymentServicesSDK(BaseSDK):
             cursor=cursor,
             limit=limit,
             deleted=deleted,
+            include_fields=include_fields,
             merchant_account_id=merchant_account_id,
         )
 
@@ -291,6 +298,7 @@ class PaymentServicesSDK(BaseSDK):
                 cursor=next_cursor,
                 limit=limit,
                 deleted=deleted,
+                include_fields=include_fields,
                 merchant_account_id=merchant_account_id,
                 retries=retries,
                 server_url=server_url,
