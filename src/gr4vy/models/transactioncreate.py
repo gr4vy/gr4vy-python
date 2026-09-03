@@ -96,10 +96,10 @@ TransactionCreatePaymentMethodTypedDict = TypeAliasType(
         ApplePayPaymentMethodCreateTypedDict,
         ClickToPayFPANPaymentMethodCreateTypedDict,
         CardWithURLPaymentMethodCreateTypedDict,
-        GooglePayFPANPaymentMethodCreateTypedDict,
         GooglePayPaymentMethodCreateTypedDict,
         NetworkTokenPaymentMethodCreateTypedDict,
         PazePaymentMethodCreateTypedDict,
+        GooglePayFPANPaymentMethodCreateTypedDict,
     ],
 )
 r"""The optional payment method to use for this transaction. This field is required if no `gift_cards` have been added."""
@@ -117,10 +117,10 @@ TransactionCreatePaymentMethod = TypeAliasType(
         ApplePayPaymentMethodCreate,
         ClickToPayFPANPaymentMethodCreate,
         CardWithURLPaymentMethodCreate,
-        GooglePayFPANPaymentMethodCreate,
         GooglePayPaymentMethodCreate,
         NetworkTokenPaymentMethodCreate,
         PazePaymentMethodCreate,
+        GooglePayFPANPaymentMethodCreate,
     ],
 )
 r"""The optional payment method to use for this transaction. This field is required if no `gift_cards` have been added."""

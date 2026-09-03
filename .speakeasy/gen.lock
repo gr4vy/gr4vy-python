@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 01ddf850ad06b71d489bd6dc6726e2e2
+  docChecksum: e3103aaf732962c3845edc747cb7ed49
   docVersion: 1.0.0
-  speakeasyVersion: 1.796.2
-  generationVersion: 2.933.0
-  releaseVersion: 2.4.3
-  configChecksum: 357b1d808c40d27df4f7fa49b6479d43
+  speakeasyVersion: 1.796.4
+  generationVersion: 2.935.1
+  releaseVersion: 2.4.4
+  configChecksum: d0e6ba4f48f9066867bc8937b03851d6
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 4c9f3bc7-615b-4384-9739-048aab01c8ef
-  pristine_commit_hash: a2b741d4f1a3cee0203e6b31924d56a0acc0d1b4
-  pristine_tree_hash: e8622d6fc65e91a05ed06f9986ba27e626130f54
+  generation_id: 7d26b3b0-8ad1-49a9-af35-8a8d6ab35585
+  pristine_commit_hash: c37a9341f1772cf6b48b3492ca355aef18983d15
+  pristine_tree_hash: 6b16b1a9b7f2155c837191e3b863584ae70312d0
 features:
   python:
     additionalDependencies: 1.1.0
@@ -38,7 +38,7 @@ features:
     openEnums: 1.0.4
     pagination: 3.0.10
     responseFormat: 1.1.0
-    retries: 3.1.1
+    retries: 3.1.2
     sdkHooks: 1.3.0
     serverIDs: 3.0.0
     unions: 3.1.9
@@ -1213,8 +1213,8 @@ trackedFiles:
     pristine_git_object: 653c9f2461ac3f538c98f953202c1e579af9c0e4
   docs/models/googlepayfpanpaymentmethodcreate.md:
     id: 4d04bdf14838
-    last_write_checksum: sha1:8e4233d6a120058089cbaa0df4f97b288ef901d6
-    pristine_git_object: 390aa26f04056e88d8edceff8a04dc4495212f34
+    last_write_checksum: sha1:40df2408a8d33f4c3581c2e534f9f955cb03a359
+    pristine_git_object: 5a98dc6d59cab3b2723ff1cb0de62a9b7e77a48d
   docs/models/googlepaypaymentmethodcreate.md:
     id: 92c43503b7e8
     last_write_checksum: sha1:8106fc8f43097b6d6752a6688cda05d15e2f02db
@@ -2877,8 +2877,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:e95f18791c5d7a6f044d74229cf49b709d06ac4d
-    pristine_git_object: ca5ed3d620f5f85658e240b1713b534eba1b7f0a
+    last_write_checksum: sha1:95d9985592348ec87bc170af1f5110530950ef7b
+    pristine_git_object: 6251795a8fe66636d5c75788d4d2eb8edc465b0b
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2905,8 +2905,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:04acd02452021039a67ed20cc72e7c9257f6ab48
-    pristine_git_object: 9f516761c4a08ab78b8d9d469560cb74247991ba
+    last_write_checksum: sha1:37f5821638bcb91ed172dbfb22ea025059f18943
+    pristine_git_object: e2aa9207ffeeed2e69cb2057c25b7c36e125f27b
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -3897,8 +3897,8 @@ trackedFiles:
     pristine_git_object: 3bf2a16fbcb24da756a4d7a117301199f46d62b1
   src/gr4vy/models/googlepayfpanpaymentmethodcreate.py:
     id: 0cd77ee23fb8
-    last_write_checksum: sha1:b69535bc2bbe721bb52717145fe1f505eeb36f06
-    pristine_git_object: e0def9ec92350653c831d39b4a0df5e608e9fd37
+    last_write_checksum: sha1:d2d9d80af40ceaa996a832fd07d2af0d56f7927b
+    pristine_git_object: 00c6236ba1da201b8dbe1e57c6b42e9551bf59f1
   src/gr4vy/models/googlepaypaymentmethodcreate.py:
     id: 0298d52059c6
     last_write_checksum: sha1:110a6241418c87a9535ee4478e2644e8dbba7497
@@ -4785,8 +4785,8 @@ trackedFiles:
     pristine_git_object: 90516ff7d908b467730ee3d800e86c147323100f
   src/gr4vy/models/transactioncreate.py:
     id: 640e0433670e
-    last_write_checksum: sha1:70b6ee166a42fe9fa6f281a126234c5cb4a7a26f
-    pristine_git_object: 61e2ddef8b7c8fddfb8ae6d7f1d5bfc86eb428f4
+    last_write_checksum: sha1:500bcb324f067c42437f661bf932ff6b1bf30b4e
+    pristine_git_object: 5086a25382f374ef574f164c9f54e276157cbfb7
   src/gr4vy/models/transactionevent.py:
     id: 89844a174227
     last_write_checksum: sha1:bf0f6c26d69d8e70599d10ec8aafce385aabe9aa
@@ -9457,6 +9457,7 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
+releaseNotes: "## Python SDK Changes:\n* `gr4vy.transactions.create()`: \n  *  `request.payment_method.union(GooglePayFPANPaymentMethodCreate).message_expiration` **Added**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
