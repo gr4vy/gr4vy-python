@@ -32,6 +32,8 @@ class GooglePayFPANPaymentMethodCreateTypedDict(TypedDict):
     r"""The URL to redirect a user back to after the complete 3DS in browser."""
     security_code: NotRequired[Nullable[Any]]
     r"""The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD."""
+    message_expiration: NotRequired[Nullable[str]]
+    r"""Expiry of the Google Pay token the PAN was decrypted from, as milliseconds since the epoch."""
 
 
 class GooglePayFPANPaymentMethodCreate(BaseModel):
@@ -70,6 +72,9 @@ class GooglePayFPANPaymentMethodCreate(BaseModel):
     security_code: OptionalNullable[Any] = UNSET
     r"""The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD."""
 
+    message_expiration: OptionalNullable[str] = UNSET
+    r"""Expiry of the Google Pay token the PAN was decrypted from, as milliseconds since the epoch."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -80,6 +85,7 @@ class GooglePayFPANPaymentMethodCreate(BaseModel):
                 "card_type",
                 "redirect_url",
                 "security_code",
+                "message_expiration",
             ]
         )
         nullable_fields = set(
@@ -90,6 +96,7 @@ class GooglePayFPANPaymentMethodCreate(BaseModel):
                 "card_type",
                 "redirect_url",
                 "security_code",
+                "message_expiration",
             ]
         )
         serialized = handler(self)
