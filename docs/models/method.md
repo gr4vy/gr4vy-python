@@ -115,6 +115,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"sepa"`
 - `"servipag"`
 - `"seveneleven"`
+- `"sezzle"`
 - `"shopeepay"`
 - `"singteldash"`
 - `"smartpay"`
