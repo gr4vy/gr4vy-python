@@ -108,6 +108,7 @@ Method = Union[
         "sepa",
         "servipag",
         "seveneleven",
+        "sezzle",
         "shopeepay",
         "singteldash",
         "smartpay",
