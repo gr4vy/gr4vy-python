@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: ebc0a2ff6e8f87388c5aedd1418572ff
+  docChecksum: 9c69539d8410a1022130c7cf81781e95
   docVersion: 1.0.0
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 2.4.6
-  configChecksum: daabbeb38b38c81e597eaa3c33b445f9
+  releaseVersion: 2.4.7
+  configChecksum: d79f86cd7f40ce8067fa838621e156de
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: c4bd9dfe-3ded-4bfc-bc7a-25b81287542f
-  pristine_commit_hash: 6b97da986956ba5308e9bc7d3e27386ed21e19bf
-  pristine_tree_hash: 74e48fc5c3954f1eec1f16ee40b9b96a1d3091eb
+  generation_id: 2e306a3c-be2f-4810-be14-6329e8e4c51e
+  pristine_commit_hash: b8a75ea0f2d88a37d1519037b1a2ee0595a438ae
+  pristine_tree_hash: 2968718746534200a1c6257a5348d5156d732653
 features:
   python:
     additionalDependencies: 1.1.0
@@ -2877,8 +2877,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:cc9071b03281c1cf1700942e6a376679cf9732a8
-    pristine_git_object: fc408489e02a8915bc24e7660ea240221385a968
+    last_write_checksum: sha1:599f85e8c47720f96a4ca1f2b754bfc8b1095342
+    pristine_git_object: c833174a5a9ac9f4063f573b57fc2b903297b050
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2905,8 +2905,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:e3e70b267eef2a15d6ed43b76a0ef64aba9b321d
-    pristine_git_object: 2aa7b7bd53c77f11d47d99c235843650ea223df5
+    last_write_checksum: sha1:54e4bd26eacd1d9f7c55fd9d79543ed5de8ec79f
+    pristine_git_object: d390b84d7ce7c9fad55661cbfcef8047bd575bd7
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
