@@ -91,6 +91,7 @@ RedirectPaymentMethodCreateMethod = Union[
         "paymaya",
         "paysquad",
         "paypal",
+        "paypaldirectorder",
         "paypalpaylater",
         "paypay",
         "payto",

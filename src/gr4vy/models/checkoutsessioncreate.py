@@ -51,7 +51,7 @@ class CheckoutSessionCreate(BaseModel):
     payment_service_id: OptionalNullable[str] = UNSET
     r"""The unique identifier of an existing payment service. When provided, the created transaction will be processed by the given payment service and any routing rules will be skipped."""
 
-    expires_in: Optional[float] = 3600
+    expires_in: Optional[float] = 3600.0
     r"""The time in seconds when this checkout session expires."""
 
     @model_serializer(mode="wrap")

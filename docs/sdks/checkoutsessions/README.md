@@ -309,7 +309,7 @@ with Gr4vy(
     bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
 ) as g_client:
 
-    res = g_client.checkout_sessions.update(session_id="4137b1cf-39ac-42a8-bad6-1c680d5dab6b", expires_in=3600)
+    res = g_client.checkout_sessions.update(session_id="4137b1cf-39ac-42a8-bad6-1c680d5dab6b", expires_in=3600.0)
 
     # Handle response
     print(res)

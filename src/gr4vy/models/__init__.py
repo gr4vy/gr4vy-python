@@ -1131,6 +1131,10 @@ if TYPE_CHECKING:
     from .payoutstatus import PayoutStatus
     from .payoutsummaries import PayoutSummaries, PayoutSummariesTypedDict
     from .payoutsummary import PayoutSummary, PayoutSummaryTypedDict
+    from .paypaldirectorderoptions import (
+        PaypalDirectOrderOptions,
+        PaypalDirectOrderOptionsTypedDict,
+    )
     from .paypaloptions import PaypalOptions, PaypalOptionsTypedDict
     from .paypalorderupdatecallbackconfig import (
         CallbackEvent,
@@ -2417,6 +2421,8 @@ __all__ = [
     "PayoutSummariesTypedDict",
     "PayoutSummary",
     "PayoutSummaryTypedDict",
+    "PaypalDirectOrderOptions",
+    "PaypalDirectOrderOptionsTypedDict",
     "PaypalOptions",
     "PaypalOptionsTypedDict",
     "PaypalOrderUpdateCallbackConfig",
@@ -3629,6 +3635,8 @@ _dynamic_imports: dict[str, str] = {
     "PayoutSummariesTypedDict": ".payoutsummaries",
     "PayoutSummary": ".payoutsummary",
     "PayoutSummaryTypedDict": ".payoutsummary",
+    "PaypalDirectOrderOptions": ".paypaldirectorderoptions",
+    "PaypalDirectOrderOptionsTypedDict": ".paypaldirectorderoptions",
     "PaypalOptions": ".paypaloptions",
     "PaypalOptionsTypedDict": ".paypaloptions",
     "CallbackEvent": ".paypalorderupdatecallbackconfig",

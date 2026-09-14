@@ -91,6 +91,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"paymaya"`
 - `"paysquad"`
 - `"paypal"`
+- `"paypaldirectorder"`
 - `"paypalpaylater"`
 - `"paypay"`
 - `"payto"`

@@ -36,6 +36,10 @@ from .nuveiklarnaoptions import NuveiKlarnaOptions, NuveiKlarnaOptionsTypedDict
 from .nuveioptions import NuveiOptions, NuveiOptionsTypedDict
 from .nuveipseoptions import NuveiPSEOptions, NuveiPSEOptionsTypedDict
 from .oxxooptions import OxxoOptions, OxxoOptionsTypedDict
+from .paypaldirectorderoptions import (
+    PaypalDirectOrderOptions,
+    PaypalDirectOrderOptionsTypedDict,
+)
 from .paypaloptions import PaypalOptions, PaypalOptionsTypedDict
 from .powertranzoptions import PowertranzOptions, PowertranzOptionsTypedDict
 from .riskifiedantifraudoptions import (
@@ -160,6 +164,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `oxxo-oxxo` connector."""
     paypal_paypal: NotRequired[Nullable[PaypalOptionsTypedDict]]
     r"""Custom options to be passed to the `paypal-paypal` connector."""
+    paypal_paypaldirectorder: NotRequired[Nullable[PaypalDirectOrderOptionsTypedDict]]
+    r"""Custom options to be passed to the `paypal-paypaldirectorder` connector."""
     paypal_paypalpaylater: NotRequired[Nullable[PaypalOptionsTypedDict]]
     r"""Custom options to be passed to the `paypal-paypalpaylater` connector."""
     powertranz_card: NotRequired[Nullable[PowertranzOptionsTypedDict]]
@@ -454,6 +460,12 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `paypal-paypal` connector."""
 
+    paypal_paypaldirectorder: Annotated[
+        OptionalNullable[PaypalDirectOrderOptions],
+        pydantic.Field(alias="paypal-paypaldirectorder"),
+    ] = UNSET
+    r"""Custom options to be passed to the `paypal-paypaldirectorder` connector."""
+
     paypal_paypalpaylater: Annotated[
         OptionalNullable[PaypalOptions], pydantic.Field(alias="paypal-paypalpaylater")
     ] = UNSET
@@ -577,6 +589,7 @@ class TransactionConnectionOptions(BaseModel):
                 "nuvei-pse",
                 "oxxo-oxxo",
                 "paypal-paypal",
+                "paypal-paypaldirectorder",
                 "paypal-paypalpaylater",
                 "powertranz-card",
                 "riskified-anti-fraud",
@@ -646,6 +659,7 @@ class TransactionConnectionOptions(BaseModel):
                 "nuvei-pse",
                 "oxxo-oxxo",
                 "paypal-paypal",
+                "paypal-paypaldirectorder",
                 "paypal-paypalpaylater",
                 "powertranz-card",
                 "riskified-anti-fraud",
