@@ -5,15 +5,15 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.797.0
   generationVersion: 2.937.18
-  releaseVersion: 2.4.10
-  configChecksum: 037093625c02bdce06d67453399e9adb
+  releaseVersion: 2.4.11
+  configChecksum: 963b1f5bc88fcc6126d133846102fd56
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: d4629929-24e0-4542-a263-1f331565124a
-  pristine_commit_hash: a72df0148dd2a0c9b2617fa1d978a05878778c77
-  pristine_tree_hash: 819f2e3f5397f6e9f182cd20a431c3e4ac34be0b
+  generation_id: 44adc249-6f2f-4ddd-be3e-fd7e4429f2c4
+  pristine_commit_hash: fbdbb98191badba003e529826149ab0187f18a4e
+  pristine_tree_hash: 508329bf7b75610ad8bdf74d3249e7ae56e7cecb
 features:
   python:
     additionalDependencies: 1.1.0
@@ -2889,8 +2889,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:fb94ab6fedf7d94b9edc82658e1e30f15cbd2d7b
-    pristine_git_object: 0f81540a93e9b6750682f0e03ef3b7fb59c41548
+    last_write_checksum: sha1:dbbb5ce1719ea78af54c0471e27d3af0d0c246d3
+    pristine_git_object: 7802173a2c81a6ddf7ec617140e7f17be4bcd104
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2917,8 +2917,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:698148d3211b49cdf938dc9487a589a98de4b028
-    pristine_git_object: f873e242a4fa2957c8050bb2d55dd967a4e3bb88
+    last_write_checksum: sha1:9b8c2eb0767e3c61889452f6dc7adce9119a6a37
+    pristine_git_object: 2ef813afb121f7cf365d9e958c29cdcfa731e8fa
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -9481,9 +9481,6 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes:
-  * `gr4vy.transactions.capture()`:  `request.tracking` **Added**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
