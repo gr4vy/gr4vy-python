@@ -4,13 +4,14 @@ from __future__ import annotations
 from .billingdetails import BillingDetails, BillingDetailsTypedDict
 from .capturestatus import CaptureStatus
 from .shippingdetails import ShippingDetails, ShippingDetailsTypedDict
+from .tracking import Tracking, TrackingTypedDict
 from .transaction import Transaction, TransactionTypedDict
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator
-from typing import Literal, Optional
+from typing import List, Literal, Optional
 from typing_extensions import Annotated, NotRequired, TypedDict
 
 
@@ -36,6 +37,8 @@ class TransactionCaptureTypedDict(TypedDict):
     r"""The billing details associated with the capture."""
     shipping_details: NotRequired[Nullable[ShippingDetailsTypedDict]]
     r"""The shipping details associated with the catpure."""
+    tracking: NotRequired[Nullable[List[TrackingTypedDict]]]
+    r"""The shipment tracking details associated with the capture."""
 
 
 class TransactionCapture(BaseModel):
@@ -77,6 +80,9 @@ class TransactionCapture(BaseModel):
     shipping_details: OptionalNullable[ShippingDetails] = UNSET
     r"""The shipping details associated with the catpure."""
 
+    tracking: OptionalNullable[List[Tracking]] = UNSET
+    r"""The shipment tracking details associated with the capture."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -87,6 +93,7 @@ class TransactionCapture(BaseModel):
                 "external_identifier",
                 "billing_details",
                 "shipping_details",
+                "tracking",
             ]
         )
         nullable_fields = set(
@@ -99,6 +106,7 @@ class TransactionCapture(BaseModel):
                 "external_identifier",
                 "billing_details",
                 "shipping_details",
+                "tracking",
             ]
         )
         serialized = handler(self)
