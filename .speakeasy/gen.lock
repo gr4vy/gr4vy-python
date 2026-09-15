@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: acd5492c0817822be0c39ac3c9c24a9e
+  docChecksum: de199480e0975525ccd4d4e8c9b8e7ca
   docVersion: 1.0.0
   speakeasyVersion: 1.797.0
   generationVersion: 2.937.18
-  releaseVersion: 2.4.8
-  configChecksum: f3c081938a7eab6689fa2b176ac786d7
+  releaseVersion: 2.4.9
+  configChecksum: 22139e8812a45df98f183e0824dfe62c
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: d9375783-3c04-4c70-a2bb-e154ad9d462f
-  pristine_commit_hash: aeeb812d56441cbb823dd11ef8d9624b40df8744
-  pristine_tree_hash: 8849b345d7f74461b031fd078ad6a8268f957080
+  generation_id: d6ed425f-bf79-4e24-99d1-b6e76fea9454
+  pristine_commit_hash: 339af274505f8efe7d03153c8b1623ac309ab6eb
+  pristine_tree_hash: ab4adf8c22381f192d6b09c317292683e8464794
 features:
   python:
     additionalDependencies: 1.1.0
@@ -417,8 +417,8 @@ trackedFiles:
     pristine_git_object: d1df34183a956bd6332fcf1329709e4fce93e389
   docs/models/cartitem.md:
     id: c5bd6fe27df2
-    last_write_checksum: sha1:592fa063a7f7e9b7d2a0d22ce8cc163b8f3e1945
-    pristine_git_object: a053e9bf678afbee6a37652c54dec6313128687c
+    last_write_checksum: sha1:07bf9dbf18ac04a96a9c38398648e77a89f5341a
+    pristine_git_object: 099d77d697ca54bb120047b44bd68cfb4cdcbd2d
   docs/models/certificatealgorithm.md:
     id: 48af6006cbed
     last_write_checksum: sha1:5ae66f6a7fdab977029492602f4cd72b36f02d8a
@@ -2881,8 +2881,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:7c29cbcf5930c2ecdbde1918cd6af1aa8493e97e
-    pristine_git_object: ad4829d92785d1718ab5da9beb0d56e44c96e562
+    last_write_checksum: sha1:5adf4570eae0660edfb84b66832c47f674011d6b
+    pristine_git_object: 485a887078a168d36e2b818949a2a8c8b8e9c319
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2909,8 +2909,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:bc04afa1dc7a91ef93f0d90c7887c0013d9c88b0
-    pristine_git_object: d0527cc24af12401a7f41f1bce7263c2b92e5385
+    last_write_checksum: sha1:31ae7ae610c14074f0acdba517d3d6406b65b527
+    pristine_git_object: a26d5bb791bb6251c35099b5fedf00ef3be1333e
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -3341,8 +3341,8 @@ trackedFiles:
     pristine_git_object: 6eb499b41132a82fa3e512145f38cf8036e5ec19
   src/gr4vy/models/cartitem.py:
     id: 65243967d320
-    last_write_checksum: sha1:27ab3cebcc910030f6676200e95f944772a4182c
-    pristine_git_object: 01c678ef8dd08a4c4cf7079a6ca8daa6d0606d3f
+    last_write_checksum: sha1:c5c4b1c559b2321527fbbf73de60bca2307a6107
+    pristine_git_object: cd7b2b26be81e90c802356a634d6459635da6cdd
   src/gr4vy/models/certificatealgorithm.py:
     id: d15a00b63a00
     last_write_checksum: sha1:b3ea21499376033e77c05ec4f460fe7f946cfca1
@@ -9465,7 +9465,7 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.buyers.payment_methods.list()`:  `response.items[].method.enum(paypaldirectorder)` **Added**\n* `gr4vy.payment_methods.list()`:  `response.items[].method.enum(paypaldirectorder)` **Added**\n* `gr4vy.payment_methods.create()`: \n  *  `request_body.union(RedirectPaymentMethodCreate).method.enum(paypaldirectorder)` **Added**\n  *  `response.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.payment_methods.get()`:  `response.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.payment_methods.update()`:  `response.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.transactions.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].payment_method.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.transactions.create()`: \n  *  `request` **Changed**\n  *  `response.payment_method.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.transactions.get()`:  `response.payment_method.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.paypal_paypaldirectorder` **Added**\n  *  `response.payment_method.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.transactions.capture()`:  `response.union(Transaction).payment_method.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.transactions.void()`:  `response.union(Transaction).payment_method.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.transactions.cancel()`:  `response.transaction.payment_method.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.transactions.sync()`:  `response.payment_method.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.transactions.increment_authorization()`:  `response.transaction.payment_method.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.payment_service_definitions.list()`:  `response.items[].method.enum(paypaldirectorder)` **Added**\n* `gr4vy.payment_service_definitions.get()`:  `response.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.payment_services.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].method.enum(paypaldirectorder)` **Added**\n* `gr4vy.payment_services.create()`:  `response.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.payment_services.get()`:  `response.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.payment_services.update()`:  `response.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.payouts.list()`:  `response.items[].payment_method.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.payouts.create()`:  `response.payment_method.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.payouts.get()`:  `response.payment_method.method.enum(paypaldirectorder)` **Added**\n* `gr4vy.payment_links.create()`: \n  *  `request.connection_options.paypal_paypaldirectorder` **Added**\n"
+releaseNotes: "## Python SDK Changes:\n* `gr4vy.transactions.create()`: \n  *  `request.cart_items[]` **Changed**\n  *  `response.cart_items[]` **Changed**\n* `gr4vy.transactions.get()`:  `response.cart_items[]` **Changed**\n* `gr4vy.transactions.update()`:  `response.cart_items[]` **Changed**\n* `gr4vy.transactions.capture()`: \n  *  `request.cart_items[]` **Changed**\n  *  `response.union(Transaction).cart_items[]` **Changed**\n* `gr4vy.transactions.void()`:  `response.union(Transaction).cart_items[]` **Changed**\n* `gr4vy.transactions.cancel()`:  `response.transaction.cart_items[]` **Changed**\n* `gr4vy.transactions.sync()`:  `response.cart_items[]` **Changed**\n* `gr4vy.transactions.increment_authorization()`:  `response.transaction.cart_items[]` **Changed**\n* `gr4vy.transactions.captures.list()`:  `response.items[].cart_items[]` **Changed**\n* `gr4vy.transactions.captures.get()`:  `response.cart_items[]` **Changed**\n* `gr4vy.payment_options.list()`: \n  *  `request.cart_items[]` **Changed**\n* `gr4vy.checkout_sessions.create()`: \n  *  `request.checkout_session_create.cart_items[]` **Changed**\n  *  `response.cart_items[]` **Changed**\n* `gr4vy.checkout_sessions.update()`: \n  *  `request.cart_items[]` **Changed**\n  *  `response.cart_items[]` **Changed**\n* `gr4vy.checkout_sessions.get()`:  `response.cart_items[]` **Changed**\n* `gr4vy.payment_links.create()`: \n  *  `request.cart_items[]` **Changed**\n  *  `response.cart_items[]` **Changed**\n* `gr4vy.payment_links.list()`:  `response.items[].cart_items[]` **Changed**\n* `gr4vy.payment_links.get()`:  `response.cart_items[]` **Changed**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json

@@ -31,6 +31,10 @@ class CartItemTypedDict(TypedDict):
     r"""The URL for the image of the item."""
     categories: NotRequired[Nullable[List[str]]]
     r"""A list of strings containing product categories for the item."""
+    subcategories: NotRequired[Nullable[List[str]]]
+    r"""A list of strings containing product subcategories for the item."""
+    brand: NotRequired[Nullable[str]]
+    r"""The brand of the item."""
     product_type: NotRequired[Nullable[ProductType]]
     r"""The product type of the cart item."""
     seller_country: NotRequired[Nullable[str]]
@@ -83,6 +87,12 @@ class CartItem(BaseModel):
     categories: OptionalNullable[List[str]] = UNSET
     r"""A list of strings containing product categories for the item."""
 
+    subcategories: OptionalNullable[List[str]] = UNSET
+    r"""A list of strings containing product subcategories for the item."""
+
+    brand: OptionalNullable[str] = UNSET
+    r"""The brand of the item."""
+
     product_type: OptionalNullable[ProductType] = UNSET
     r"""The product type of the cart item."""
 
@@ -119,6 +129,8 @@ class CartItem(BaseModel):
                 "product_url",
                 "image_url",
                 "categories",
+                "subcategories",
+                "brand",
                 "product_type",
                 "seller_country",
                 "tax_exempt",
@@ -139,6 +151,8 @@ class CartItem(BaseModel):
                 "product_url",
                 "image_url",
                 "categories",
+                "subcategories",
+                "brand",
                 "product_type",
                 "seller_country",
                 "tax_exempt",
