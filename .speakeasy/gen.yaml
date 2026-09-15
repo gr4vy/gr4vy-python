@@ -39,7 +39,7 @@ python:
       types-python-jose: ^3.4.0.20250224
     main:
       PyJWT: ^2.10.1
-      cryptography: ^49.0.0
+      cryptography: ^50.0.1
       python-jose: ^3.4.0
   allowedRedefinedBuiltins:
     - id
