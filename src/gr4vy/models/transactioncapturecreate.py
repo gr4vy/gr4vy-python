@@ -3,6 +3,7 @@
 from __future__ import annotations
 from .airline import Airline, AirlineTypedDict
 from .cartitem import CartItem, CartItemTypedDict
+from .tracking import Tracking, TrackingTypedDict
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from pydantic import model_serializer
 from typing import List, Optional
@@ -18,6 +19,8 @@ class TransactionCaptureCreateTypedDict(TypedDict):
     r"""The airline data to submit to the payment service during the capture call."""
     cart_items: NotRequired[Nullable[List[CartItemTypedDict]]]
     r"""An array of cart items that represents the line items of this capture."""
+    tracking: NotRequired[Nullable[List[TrackingTypedDict]]]
+    r"""An array of shipment tracking details for this capture."""
     final: NotRequired[bool]
     r"""Whether this is marked as the final capture for the associated transaction. Must be `true` or omitted when multi-capture is not enabled; a value of `false` is only valid when multi-capture is available on the connection."""
     external_identifier: NotRequired[Nullable[str]]
@@ -38,6 +41,9 @@ class TransactionCaptureCreate(BaseModel):
     cart_items: OptionalNullable[List[CartItem]] = UNSET
     r"""An array of cart items that represents the line items of this capture."""
 
+    tracking: OptionalNullable[List[Tracking]] = UNSET
+    r"""An array of shipment tracking details for this capture."""
+
     final: Optional[bool] = True
     r"""Whether this is marked as the final capture for the associated transaction. Must be `true` or omitted when multi-capture is not enabled; a value of `false` is only valid when multi-capture is available on the connection."""
 
@@ -54,13 +60,14 @@ class TransactionCaptureCreate(BaseModel):
                 "amount",
                 "airline",
                 "cart_items",
+                "tracking",
                 "final",
                 "external_identifier",
                 "reauthorize_if_authorization_expired",
             ]
         )
         nullable_fields = set(
-            ["amount", "airline", "cart_items", "external_identifier"]
+            ["amount", "airline", "cart_items", "tracking", "external_identifier"]
         )
         serialized = handler(self)
         m = {}

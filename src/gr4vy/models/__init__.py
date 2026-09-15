@@ -1313,6 +1313,7 @@ if TYPE_CHECKING:
     )
     from .settlement import Settlement, SettlementTypedDict
     from .settlements import Settlements, SettlementsTypedDict
+    from .shippingcarrier import ShippingCarrier
     from .shippingdetails import ShippingDetails, ShippingDetailsTypedDict
     from .shippingdetailscreate import (
         ShippingDetailsCreate,
@@ -1389,6 +1390,7 @@ if TYPE_CHECKING:
         TokenPaymentMethodCreate,
         TokenPaymentMethodCreateTypedDict,
     )
+    from .tracking import Tracking, TrackingTypedDict
     from .transaction import Transaction, TransactionTypedDict
     from .transactionaction import TransactionAction, TransactionActionTypedDict
     from .transactionactions import TransactionActions, TransactionActionsTypedDict
@@ -2584,6 +2586,7 @@ __all__ = [
     "SettlementTypedDict",
     "Settlements",
     "SettlementsTypedDict",
+    "ShippingCarrier",
     "ShippingDetails",
     "ShippingDetailsCreate",
     "ShippingDetailsCreateTypedDict",
@@ -2653,6 +2656,8 @@ __all__ = [
     "TokenPaymentMethodCreate",
     "TokenPaymentMethodCreateTypedDict",
     "TokenTypedDict",
+    "Tracking",
+    "TrackingTypedDict",
     "Transaction",
     "TransactionAction",
     "TransactionActionTypedDict",
@@ -3796,6 +3801,7 @@ _dynamic_imports: dict[str, str] = {
     "SettlementTypedDict": ".settlement",
     "Settlements": ".settlements",
     "SettlementsTypedDict": ".settlements",
+    "ShippingCarrier": ".shippingcarrier",
     "ShippingDetails": ".shippingdetails",
     "ShippingDetailsTypedDict": ".shippingdetails",
     "ShippingDetailsCreate": ".shippingdetailscreate",
@@ -3855,6 +3861,8 @@ _dynamic_imports: dict[str, str] = {
     "ThreeDSecureV2TypedDict": ".threedsecurev2",
     "TokenPaymentMethodCreate": ".tokenpaymentmethodcreate",
     "TokenPaymentMethodCreateTypedDict": ".tokenpaymentmethodcreate",
+    "Tracking": ".tracking",
+    "TrackingTypedDict": ".tracking",
     "Transaction": ".transaction",
     "TransactionTypedDict": ".transaction",
     "TransactionAction": ".transactionaction",

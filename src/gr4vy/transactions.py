@@ -2039,6 +2039,9 @@ class Transactions(BaseSDK):
         cart_items: OptionalNullable[
             Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
+        tracking: OptionalNullable[
+            Union[Iterable[models.Tracking], Iterable[models.TrackingTypedDict]]
+        ] = UNSET,
         final: Optional[bool] = True,
         external_identifier: OptionalNullable[str] = UNSET,
         reauthorize_if_authorization_expired: Optional[bool] = False,
@@ -2058,6 +2061,7 @@ class Transactions(BaseSDK):
         :param amount: The amount to capture, in the smallest currency unit (e.g., cents). This must be less than or equal to the authorized amount, unless over-capture is available.
         :param airline: The airline data to submit to the payment service during the capture call.
         :param cart_items: An array of cart items that represents the line items of this capture.
+        :param tracking: An array of shipment tracking details for this capture.
         :param final: Whether this is marked as the final capture for the associated transaction. Must be `true` or omitted when multi-capture is not enabled; a value of `false` is only valid when multi-capture is available on the connection.
         :param external_identifier: An external identifier that can be used to match the capture against your own records.
         :param reauthorize_if_authorization_expired: Whether this capture request should re-authorize the transaction if it has expired.
@@ -2088,6 +2092,9 @@ class Transactions(BaseSDK):
                 ),
                 cart_items=utils.get_pydantic_model(
                     cart_items, OptionalNullable[List[models.CartItem]]
+                ),
+                tracking=utils.get_pydantic_model(
+                    tracking, OptionalNullable[List[models.Tracking]]
                 ),
                 final=final,
                 external_identifier=external_identifier,
@@ -2213,6 +2220,9 @@ class Transactions(BaseSDK):
         cart_items: OptionalNullable[
             Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
+        tracking: OptionalNullable[
+            Union[Iterable[models.Tracking], Iterable[models.TrackingTypedDict]]
+        ] = UNSET,
         final: Optional[bool] = True,
         external_identifier: OptionalNullable[str] = UNSET,
         reauthorize_if_authorization_expired: Optional[bool] = False,
@@ -2232,6 +2242,7 @@ class Transactions(BaseSDK):
         :param amount: The amount to capture, in the smallest currency unit (e.g., cents). This must be less than or equal to the authorized amount, unless over-capture is available.
         :param airline: The airline data to submit to the payment service during the capture call.
         :param cart_items: An array of cart items that represents the line items of this capture.
+        :param tracking: An array of shipment tracking details for this capture.
         :param final: Whether this is marked as the final capture for the associated transaction. Must be `true` or omitted when multi-capture is not enabled; a value of `false` is only valid when multi-capture is available on the connection.
         :param external_identifier: An external identifier that can be used to match the capture against your own records.
         :param reauthorize_if_authorization_expired: Whether this capture request should re-authorize the transaction if it has expired.
@@ -2262,6 +2273,9 @@ class Transactions(BaseSDK):
                 ),
                 cart_items=utils.get_pydantic_model(
                     cart_items, OptionalNullable[List[models.CartItem]]
+                ),
+                tracking=utils.get_pydantic_model(
+                    tracking, OptionalNullable[List[models.Tracking]]
                 ),
                 final=final,
                 external_identifier=external_identifier,
