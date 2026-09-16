@@ -1254,6 +1254,7 @@ if TYPE_CHECKING:
         RegisterDigitalWalletDomainRequest,
         RegisterDigitalWalletDomainRequestTypedDict,
     )
+    from .repaybankoptions import RepayBankOptions, RepayBankOptionsTypedDict, SecCode
     from .report import Report, ReportTypedDict
     from .reportcreate import ReportCreate, ReportCreateTypedDict, Spec, SpecTypedDict
     from .reportcreatortype import ReportCreatorType
@@ -2520,6 +2521,8 @@ __all__ = [
     "RegisterDigitalWalletDomainGlobalsTypedDict",
     "RegisterDigitalWalletDomainRequest",
     "RegisterDigitalWalletDomainRequestTypedDict",
+    "RepayBankOptions",
+    "RepayBankOptionsTypedDict",
     "Report",
     "ReportCreate",
     "ReportCreateTypedDict",
@@ -2580,6 +2583,7 @@ __all__ = [
     "RouteType",
     "SEPABankPaymentMethodCreate",
     "SEPABankPaymentMethodCreateTypedDict",
+    "SecCode",
     "Security",
     "SecurityTypedDict",
     "Settlement",
@@ -3745,6 +3749,9 @@ _dynamic_imports: dict[str, str] = {
     "RegisterDigitalWalletDomainGlobalsTypedDict": ".register_digital_wallet_domainop",
     "RegisterDigitalWalletDomainRequest": ".register_digital_wallet_domainop",
     "RegisterDigitalWalletDomainRequestTypedDict": ".register_digital_wallet_domainop",
+    "RepayBankOptions": ".repaybankoptions",
+    "RepayBankOptionsTypedDict": ".repaybankoptions",
+    "SecCode": ".repaybankoptions",
     "Report": ".report",
     "ReportTypedDict": ".report",
     "ReportCreate": ".reportcreate",

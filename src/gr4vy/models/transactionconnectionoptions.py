@@ -42,6 +42,7 @@ from .paypaldirectorderoptions import (
 )
 from .paypaloptions import PaypalOptions, PaypalOptionsTypedDict
 from .powertranzoptions import PowertranzOptions, PowertranzOptionsTypedDict
+from .repaybankoptions import RepayBankOptions, RepayBankOptionsTypedDict
 from .riskifiedantifraudoptions import (
     RiskifiedAntiFraudOptions,
     RiskifiedAntiFraudOptionsTypedDict,
@@ -170,6 +171,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `paypal-paypalpaylater` connector."""
     powertranz_card: NotRequired[Nullable[PowertranzOptionsTypedDict]]
     r"""Custom options to be passed to the `powertranz-card` connector."""
+    repay_bank: NotRequired[Nullable[RepayBankOptionsTypedDict]]
+    r"""Custom options to be passed to the `repay-bank` connector."""
     riskified_anti_fraud: NotRequired[Nullable[RiskifiedAntiFraudOptionsTypedDict]]
     r"""Custom options to be passed to the `riskified-anti-fraud` connector."""
     stripe_affirm: NotRequired[Nullable[StripeOptionsTypedDict]]
@@ -476,6 +479,11 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `powertranz-card` connector."""
 
+    repay_bank: Annotated[
+        OptionalNullable[RepayBankOptions], pydantic.Field(alias="repay-bank")
+    ] = UNSET
+    r"""Custom options to be passed to the `repay-bank` connector."""
+
     riskified_anti_fraud: Annotated[
         OptionalNullable[RiskifiedAntiFraudOptions],
         pydantic.Field(alias="riskified-anti-fraud"),
@@ -592,6 +600,7 @@ class TransactionConnectionOptions(BaseModel):
                 "paypal-paypaldirectorder",
                 "paypal-paypalpaylater",
                 "powertranz-card",
+                "repay-bank",
                 "riskified-anti-fraud",
                 "stripe-affirm",
                 "stripe-card",
@@ -662,6 +671,7 @@ class TransactionConnectionOptions(BaseModel):
                 "paypal-paypaldirectorder",
                 "paypal-paypalpaylater",
                 "powertranz-card",
+                "repay-bank",
                 "riskified-anti-fraud",
                 "stripe-affirm",
                 "stripe-card",
