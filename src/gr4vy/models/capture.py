@@ -3,6 +3,7 @@
 from __future__ import annotations
 from .capturestatus import CaptureStatus
 from .cartitem import CartItem, CartItemTypedDict
+from .tracking import Tracking, TrackingTypedDict
 from datetime import datetime
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from gr4vy.utils import validate_const
@@ -51,6 +52,8 @@ class CaptureTypedDict(TypedDict):
     r"""The external identifier of the associated transaction."""
     cart_items: NotRequired[Nullable[List[CartItemTypedDict]]]
     r"""An array of cart items that represents the line items of this capture."""
+    tracking: NotRequired[Nullable[List[TrackingTypedDict]]]
+    r"""The shipment tracking details associated with the capture."""
 
 
 class Capture(BaseModel):
@@ -115,6 +118,9 @@ class Capture(BaseModel):
     cart_items: OptionalNullable[List[CartItem]] = UNSET
     r"""An array of cart items that represents the line items of this capture."""
 
+    tracking: OptionalNullable[List[Tracking]] = UNSET
+    r"""The shipment tracking details associated with the capture."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -129,6 +135,7 @@ class Capture(BaseModel):
                 "raw_response_description",
                 "transaction_external_identifier",
                 "cart_items",
+                "tracking",
             ]
         )
         nullable_fields = set(
@@ -142,6 +149,7 @@ class Capture(BaseModel):
                 "raw_response_description",
                 "transaction_external_identifier",
                 "cart_items",
+                "tracking",
             ]
         )
         serialized = handler(self)

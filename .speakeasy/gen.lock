@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 1d0fb5b6bab280a5eac1a2c04e304d0b
+  docChecksum: fddff82daac3120e83150f6c5d93f241
   docVersion: 1.0.0
   speakeasyVersion: 1.797.0
   generationVersion: 2.937.18
-  releaseVersion: 2.4.14
-  configChecksum: 02ddf58791f91eec2902165ea4d204a2
+  releaseVersion: 2.4.15
+  configChecksum: 8c6844025105f3a08fc0101307c30cc9
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 572bf9ba-afa5-4936-a3cb-e7a82442e107
-  pristine_commit_hash: 8e7797823617e3b536b5668a613ca88ff6d5b124
-  pristine_tree_hash: cd1b161b517b122f0975b664c470f57978bf79cf
+  generation_id: 6e9050e9-a712-46e3-9a45-53fe5188cced
+  pristine_commit_hash: 17f40b1dc84d25e20a4023c89c34ca3e058b55bc
+  pristine_tree_hash: 852c23baa1b8b54407f6cc6b9bd21558bbe544f4
 features:
   python:
     additionalDependencies: 1.1.0
@@ -369,8 +369,8 @@ trackedFiles:
     pristine_git_object: 96d68ad7351ecc8574234588ced040650e9482c0
   docs/models/capture.md:
     id: 4b03c62f1b7a
-    last_write_checksum: sha1:0ea0d5071bb3843c27e4f924896b57210346f618
-    pristine_git_object: 99318c633c283549381ac6cde3c7ad1012cf865a
+    last_write_checksum: sha1:54ff978fd76c7efa1ca1cbd49bb8fb68bbcf002b
+    pristine_git_object: 82513a9d2f226d8ce93bbd737d77b8847607944e
   docs/models/capturecollection.md:
     id: dd4e1a13ef2a
     last_write_checksum: sha1:475d9030da6c5fe9cc5bb34e7341b110bdc93573
@@ -2897,8 +2897,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:af076fb130c22bfc7fb32304669b1e126fb17942
-    pristine_git_object: f75d66cbb17ecb7bf6c4631efa347fff9a08ddc9
+    last_write_checksum: sha1:d64ff2267d1df89e36468127b37cd94612a73610
+    pristine_git_object: 30c96dda673c180ffaf4fe1b6d76b8c029bd5757
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2925,8 +2925,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:3b536b7854e11bdaff71c021bc8396c55c0dff4b
-    pristine_git_object: 540f9243a5e39db8c48df318f2fcbad1b3df2118
+    last_write_checksum: sha1:d959e0bfef16fc6e100905644ed96736debcd2d0
+    pristine_git_object: 7cde11f54f9a7b6c6cb723ff381fd2470e52f4bd
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -3317,8 +3317,8 @@ trackedFiles:
     pristine_git_object: 9c07ce68fa1a96fad83539592f950f68dfb19c5e
   src/gr4vy/models/capture.py:
     id: 18d9319b9cb6
-    last_write_checksum: sha1:7d06e2529e3667708fa97ff288c8f888a9fe2edf
-    pristine_git_object: 1a4e772bbd78207bdd177938dde327f22e48ebcf
+    last_write_checksum: sha1:354ee6744343dffc638d638304a7dbbb72746183
+    pristine_git_object: 07831b98de43f53409ed3c55469f90e1b543815f
   src/gr4vy/models/capture_transactionop.py:
     id: 2b1662028651
     last_write_checksum: sha1:8802c591bf1905ac0891c80cbe60ca61f489e462
@@ -9493,7 +9493,10 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.repay_bank` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.repay_bank` **Added**\n* `gr4vy.payment_links.create()`: \n  *  `request.connection_options.repay_bank` **Added**\n"
+releaseNotes: |
+  ## Python SDK Changes:
+  * `gr4vy.transactions.captures.list()`:  `response.items[].tracking` **Added**
+  * `gr4vy.transactions.captures.get()`:  `response.tracking` **Added**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
