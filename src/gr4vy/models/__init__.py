@@ -1305,6 +1305,14 @@ if TYPE_CHECKING:
         RiskifiedAntiFraudOptionsLineItem,
         RiskifiedAntiFraudOptionsLineItemTypedDict,
     )
+    from .riskifiedantifraudoptionsshippingaddress import (
+        RiskifiedAntiFraudOptionsShippingAddress,
+        RiskifiedAntiFraudOptionsShippingAddressTypedDict,
+    )
+    from .riskifiedantifraudoptionsshippingline import (
+        RiskifiedAntiFraudOptionsShippingLine,
+        RiskifiedAntiFraudOptionsShippingLineTypedDict,
+    )
     from .role import Role, RoleTypedDict
     from .roleassigneetype import RoleAssigneeType
     from .security import Security, SecurityTypedDict
@@ -2576,6 +2584,10 @@ __all__ = [
     "RiskifiedAntiFraudOptions",
     "RiskifiedAntiFraudOptionsLineItem",
     "RiskifiedAntiFraudOptionsLineItemTypedDict",
+    "RiskifiedAntiFraudOptionsShippingAddress",
+    "RiskifiedAntiFraudOptionsShippingAddressTypedDict",
+    "RiskifiedAntiFraudOptionsShippingLine",
+    "RiskifiedAntiFraudOptionsShippingLineTypedDict",
     "RiskifiedAntiFraudOptionsTypedDict",
     "Role",
     "RoleAssigneeType",
@@ -3797,6 +3809,10 @@ _dynamic_imports: dict[str, str] = {
     "DeliveredTo": ".riskifiedantifraudoptionslineitem",
     "RiskifiedAntiFraudOptionsLineItem": ".riskifiedantifraudoptionslineitem",
     "RiskifiedAntiFraudOptionsLineItemTypedDict": ".riskifiedantifraudoptionslineitem",
+    "RiskifiedAntiFraudOptionsShippingAddress": ".riskifiedantifraudoptionsshippingaddress",
+    "RiskifiedAntiFraudOptionsShippingAddressTypedDict": ".riskifiedantifraudoptionsshippingaddress",
+    "RiskifiedAntiFraudOptionsShippingLine": ".riskifiedantifraudoptionsshippingline",
+    "RiskifiedAntiFraudOptionsShippingLineTypedDict": ".riskifiedantifraudoptionsshippingline",
     "Role": ".role",
     "RoleTypedDict": ".role",
     "RoleAssigneeType": ".roleassigneetype",
