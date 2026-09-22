@@ -5,6 +5,14 @@ from .riskifiedantifraudoptionslineitem import (
     RiskifiedAntiFraudOptionsLineItem,
     RiskifiedAntiFraudOptionsLineItemTypedDict,
 )
+from .riskifiedantifraudoptionsshippingaddress import (
+    RiskifiedAntiFraudOptionsShippingAddress,
+    RiskifiedAntiFraudOptionsShippingAddressTypedDict,
+)
+from .riskifiedantifraudoptionsshippingline import (
+    RiskifiedAntiFraudOptionsShippingLine,
+    RiskifiedAntiFraudOptionsShippingLineTypedDict,
+)
 from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
 from pydantic import model_serializer
 from typing import List
@@ -13,17 +21,39 @@ from typing_extensions import NotRequired, TypedDict
 
 class RiskifiedAntiFraudOptionsTypedDict(TypedDict):
     line_items: NotRequired[Nullable[List[RiskifiedAntiFraudOptionsLineItemTypedDict]]]
-    r"""A list of line items details to override when passing to the Riskified API."""
+    r"""A list of line items details to override when passing to the Riskified API. Entries are matched by position against the cart items sent to Riskified, which excludes `discount`, `shipping_fee`, `sales_tax` and `store_credit` items."""
+    shipping_lines: NotRequired[
+        Nullable[List[RiskifiedAntiFraudOptionsShippingLineTypedDict]]
+    ]
+    r"""A list of shipping lines details to override when passing to the Riskified API. Entries are matched by position against the `shipping_fee` cart items."""
+    additional_shipping_addresses: NotRequired[
+        Nullable[List[RiskifiedAntiFraudOptionsShippingAddressTypedDict]]
+    ]
+    r"""Additional destinations for orders shipped to more than one address. The address derived from the transaction is always sent first; these are appended after it and may not use the reserved `base-shipping-address` id."""
 
 
 class RiskifiedAntiFraudOptions(BaseModel):
     line_items: OptionalNullable[List[RiskifiedAntiFraudOptionsLineItem]] = UNSET
-    r"""A list of line items details to override when passing to the Riskified API."""
+    r"""A list of line items details to override when passing to the Riskified API. Entries are matched by position against the cart items sent to Riskified, which excludes `discount`, `shipping_fee`, `sales_tax` and `store_credit` items."""
+
+    shipping_lines: OptionalNullable[List[RiskifiedAntiFraudOptionsShippingLine]] = (
+        UNSET
+    )
+    r"""A list of shipping lines details to override when passing to the Riskified API. Entries are matched by position against the `shipping_fee` cart items."""
+
+    additional_shipping_addresses: OptionalNullable[
+        List[RiskifiedAntiFraudOptionsShippingAddress]
+    ] = UNSET
+    r"""Additional destinations for orders shipped to more than one address. The address derived from the transaction is always sent first; these are appended after it and may not use the reserved `base-shipping-address` id."""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["line_items"])
-        nullable_fields = set(["line_items"])
+        optional_fields = set(
+            ["line_items", "shipping_lines", "additional_shipping_addresses"]
+        )
+        nullable_fields = set(
+            ["line_items", "shipping_lines", "additional_shipping_addresses"]
+        )
         serialized = handler(self)
         m = {}
 

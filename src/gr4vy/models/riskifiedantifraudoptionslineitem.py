@@ -26,16 +26,21 @@ DeliveredTo = Union[
 class RiskifiedAntiFraudOptionsLineItemTypedDict(TypedDict):
     delivered_to: NotRequired[Nullable[DeliveredTo]]
     r"""Indicates whether the item will be shipped or picked up."""
+    shipping_address_id: NotRequired[Nullable[str]]
+    r"""The shipping address this item is delivered to. Must be `base-shipping-address` for the address derived from the transaction, or the `id` of an `additional_shipping_addresses` entry. Must not be provided when `additional_shipping_addresses` is empty."""
 
 
 class RiskifiedAntiFraudOptionsLineItem(BaseModel):
     delivered_to: OptionalNullable[DeliveredTo] = UNSET
     r"""Indicates whether the item will be shipped or picked up."""
 
+    shipping_address_id: OptionalNullable[str] = UNSET
+    r"""The shipping address this item is delivered to. Must be `base-shipping-address` for the address derived from the transaction, or the `id` of an `additional_shipping_addresses` entry. Must not be provided when `additional_shipping_addresses` is empty."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = set(["delivered_to"])
-        nullable_fields = set(["delivered_to"])
+        optional_fields = set(["delivered_to", "shipping_address_id"])
+        nullable_fields = set(["delivered_to", "shipping_address_id"])
         serialized = handler(self)
         m = {}
 
