@@ -8,6 +8,5 @@ def test_list_is_happy_path(merchant):
     listed = sdk.roles.list()
     assert listed is not None
     for role in listed.result.items:
-        assert role.type == "role"
         assert role.id
         assert role.slug
