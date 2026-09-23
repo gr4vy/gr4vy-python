@@ -57,6 +57,10 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"payment-connector-response-transaction-authorization-increment-failed"`
 - `"payment-connector-response-transaction-void-declined"`
 - `"payment-connector-response-transaction-void-failed"`
+- `"payment-connector-response-transaction-capture-reversal-succeeded"`
+- `"payment-connector-response-transaction-capture-reversal-declined"`
+- `"payment-connector-response-transaction-capture-reversal-failed"`
+- `"payment-connector-response-transaction-capture-reversal-delayed"`
 - `"payment-connector-external-transaction-request"`
 - `"payment-connector-report-transaction-settled"`
 - `"payment-connector-report-refund-settled"`

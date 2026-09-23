@@ -11,6 +11,7 @@ CaptureStatus = Union[
         "pending",
         "declined",
         "failed",
+        "canceled",
     ],
     UnrecognizedStr,
 ]
