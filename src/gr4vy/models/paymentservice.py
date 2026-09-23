@@ -40,6 +40,8 @@ class PaymentServiceTypedDict(TypedDict):
     r"""Defines if this payment service is open loop."""
     settlement_reporting_enabled: bool
     r"""Defines if this payment service has settlement reporting enabled."""
+    refund_ingestion_enabled: bool
+    r"""Defines if this payment service has refund ingestion enabled."""
     created_at: datetime
     r"""The date and time when this payment service was first created in our system."""
     updated_at: datetime
@@ -98,6 +100,9 @@ class PaymentService(BaseModel):
 
     settlement_reporting_enabled: bool
     r"""Defines if this payment service has settlement reporting enabled."""
+
+    refund_ingestion_enabled: bool
+    r"""Defines if this payment service has refund ingestion enabled."""
 
     created_at: datetime
     r"""The date and time when this payment service was first created in our system."""

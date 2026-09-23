@@ -42,6 +42,8 @@ class PaymentServiceCreateTypedDict(TypedDict):
     r"""Defines if this payment service is open loop."""
     settlement_reporting_enabled: NotRequired[bool]
     r"""Defines if this payment service has settlement reporting enabled."""
+    refund_ingestion_enabled: NotRequired[bool]
+    r"""Defines if this payment service has refund ingestion enabled."""
 
 
 class PaymentServiceCreate(BaseModel):
@@ -91,6 +93,9 @@ class PaymentServiceCreate(BaseModel):
     settlement_reporting_enabled: Optional[bool] = False
     r"""Defines if this payment service has settlement reporting enabled."""
 
+    refund_ingestion_enabled: Optional[bool] = False
+    r"""Defines if this payment service has refund ingestion enabled."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -104,6 +109,7 @@ class PaymentServiceCreate(BaseModel):
                 "network_tokens_enabled",
                 "open_loop",
                 "settlement_reporting_enabled",
+                "refund_ingestion_enabled",
             ]
         )
         nullable_fields = set(

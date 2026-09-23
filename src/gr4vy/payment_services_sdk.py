@@ -384,6 +384,7 @@ class PaymentServicesSDK(BaseSDK):
         network_tokens_enabled: OptionalNullable[bool] = UNSET,
         open_loop: OptionalNullable[bool] = UNSET,
         settlement_reporting_enabled: Optional[bool] = False,
+        refund_ingestion_enabled: Optional[bool] = False,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -408,6 +409,7 @@ class PaymentServicesSDK(BaseSDK):
         :param network_tokens_enabled: Defines if this payment service supports network tokens.
         :param open_loop: Defines if this payment service is open loop.
         :param settlement_reporting_enabled: Defines if this payment service has settlement reporting enabled.
+        :param refund_ingestion_enabled: Defines if this payment service has refund ingestion enabled.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -445,6 +447,7 @@ class PaymentServicesSDK(BaseSDK):
                 network_tokens_enabled=network_tokens_enabled,
                 open_loop=open_loop,
                 settlement_reporting_enabled=settlement_reporting_enabled,
+                refund_ingestion_enabled=refund_ingestion_enabled,
             ),
         )
 
@@ -575,6 +578,7 @@ class PaymentServicesSDK(BaseSDK):
         network_tokens_enabled: OptionalNullable[bool] = UNSET,
         open_loop: OptionalNullable[bool] = UNSET,
         settlement_reporting_enabled: Optional[bool] = False,
+        refund_ingestion_enabled: Optional[bool] = False,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -599,6 +603,7 @@ class PaymentServicesSDK(BaseSDK):
         :param network_tokens_enabled: Defines if this payment service supports network tokens.
         :param open_loop: Defines if this payment service is open loop.
         :param settlement_reporting_enabled: Defines if this payment service has settlement reporting enabled.
+        :param refund_ingestion_enabled: Defines if this payment service has refund ingestion enabled.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -636,6 +641,7 @@ class PaymentServicesSDK(BaseSDK):
                 network_tokens_enabled=network_tokens_enabled,
                 open_loop=open_loop,
                 settlement_reporting_enabled=settlement_reporting_enabled,
+                refund_ingestion_enabled=refund_ingestion_enabled,
             ),
         )
 
@@ -1042,6 +1048,7 @@ class PaymentServicesSDK(BaseSDK):
         network_tokens_enabled: OptionalNullable[bool] = UNSET,
         open_loop: OptionalNullable[bool] = UNSET,
         settlement_reporting_enabled: Optional[bool] = False,
+        refund_ingestion_enabled: Optional[bool] = False,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1066,6 +1073,7 @@ class PaymentServicesSDK(BaseSDK):
         :param network_tokens_enabled: Defines if this payment service supports network tokens.
         :param open_loop: Defines if this payment service is open loop.
         :param settlement_reporting_enabled: Defines if this payment service has settlement reporting enabled.
+        :param refund_ingestion_enabled: Defines if this payment service has refund ingestion enabled.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1109,6 +1117,7 @@ class PaymentServicesSDK(BaseSDK):
                 network_tokens_enabled=network_tokens_enabled,
                 open_loop=open_loop,
                 settlement_reporting_enabled=settlement_reporting_enabled,
+                refund_ingestion_enabled=refund_ingestion_enabled,
             ),
         )
 
@@ -1245,6 +1254,7 @@ class PaymentServicesSDK(BaseSDK):
         network_tokens_enabled: OptionalNullable[bool] = UNSET,
         open_loop: OptionalNullable[bool] = UNSET,
         settlement_reporting_enabled: Optional[bool] = False,
+        refund_ingestion_enabled: Optional[bool] = False,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1269,6 +1279,7 @@ class PaymentServicesSDK(BaseSDK):
         :param network_tokens_enabled: Defines if this payment service supports network tokens.
         :param open_loop: Defines if this payment service is open loop.
         :param settlement_reporting_enabled: Defines if this payment service has settlement reporting enabled.
+        :param refund_ingestion_enabled: Defines if this payment service has refund ingestion enabled.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1312,6 +1323,7 @@ class PaymentServicesSDK(BaseSDK):
                 network_tokens_enabled=network_tokens_enabled,
                 open_loop=open_loop,
                 settlement_reporting_enabled=settlement_reporting_enabled,
+                refund_ingestion_enabled=refund_ingestion_enabled,
             ),
         )
 
