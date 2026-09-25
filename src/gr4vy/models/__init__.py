@@ -1315,6 +1315,7 @@ if TYPE_CHECKING:
     )
     from .role import Role, RoleTypedDict
     from .roleassigneetype import RoleAssigneeType
+    from .ryftcardoptions import RyftCardOptions, RyftCardOptionsTypedDict
     from .security import Security, SecurityTypedDict
     from .sepabankpaymentmethodcreate import (
         SEPABankPaymentMethodCreate,
@@ -2593,6 +2594,8 @@ __all__ = [
     "RoleAssigneeType",
     "RoleTypedDict",
     "RouteType",
+    "RyftCardOptions",
+    "RyftCardOptionsTypedDict",
     "SEPABankPaymentMethodCreate",
     "SEPABankPaymentMethodCreateTypedDict",
     "SecCode",
@@ -3816,6 +3819,8 @@ _dynamic_imports: dict[str, str] = {
     "Role": ".role",
     "RoleTypedDict": ".role",
     "RoleAssigneeType": ".roleassigneetype",
+    "RyftCardOptions": ".ryftcardoptions",
+    "RyftCardOptionsTypedDict": ".ryftcardoptions",
     "Security": ".security",
     "SecurityTypedDict": ".security",
     "SEPABankPaymentMethodCreate": ".sepabankpaymentmethodcreate",

@@ -47,6 +47,7 @@ from .riskifiedantifraudoptions import (
     RiskifiedAntiFraudOptions,
     RiskifiedAntiFraudOptionsTypedDict,
 )
+from .ryftcardoptions import RyftCardOptions, RyftCardOptionsTypedDict
 from .stripecardoptions import StripeCardOptions, StripeCardOptionsTypedDict
 from .stripeoptions import StripeOptions, StripeOptionsTypedDict
 from .travelhuboptions import TravelhubOptions, TravelhubOptionsTypedDict
@@ -175,6 +176,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `repay-bank` connector."""
     riskified_anti_fraud: NotRequired[Nullable[RiskifiedAntiFraudOptionsTypedDict]]
     r"""Custom options to be passed to the `riskified-anti-fraud` connector."""
+    ryft_card: NotRequired[Nullable[RyftCardOptionsTypedDict]]
+    r"""Custom options to be passed to the `ryft-card` connector."""
     stripe_affirm: NotRequired[Nullable[StripeOptionsTypedDict]]
     r"""Custom options to be passed to the `stripe-affirm` connector."""
     stripe_card: NotRequired[Nullable[StripeCardOptionsTypedDict]]
@@ -490,6 +493,11 @@ class TransactionConnectionOptions(BaseModel):
     ] = UNSET
     r"""Custom options to be passed to the `riskified-anti-fraud` connector."""
 
+    ryft_card: Annotated[
+        OptionalNullable[RyftCardOptions], pydantic.Field(alias="ryft-card")
+    ] = UNSET
+    r"""Custom options to be passed to the `ryft-card` connector."""
+
     stripe_affirm: Annotated[
         OptionalNullable[StripeOptions], pydantic.Field(alias="stripe-affirm")
     ] = UNSET
@@ -602,6 +610,7 @@ class TransactionConnectionOptions(BaseModel):
                 "powertranz-card",
                 "repay-bank",
                 "riskified-anti-fraud",
+                "ryft-card",
                 "stripe-affirm",
                 "stripe-card",
                 "stripe-klarna",
@@ -673,6 +682,7 @@ class TransactionConnectionOptions(BaseModel):
                 "powertranz-card",
                 "repay-bank",
                 "riskified-anti-fraud",
+                "ryft-card",
                 "stripe-affirm",
                 "stripe-card",
                 "stripe-klarna",
