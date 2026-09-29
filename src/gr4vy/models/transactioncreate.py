@@ -260,6 +260,8 @@ class TransactionCreateTypedDict(TypedDict):
     r"""Defines the client where the session for this transaction is going to be used. Please refer to the connections documentation for more guidance."""
     approval_expires_at: NotRequired[Nullable[datetime]]
     r"""The date and time when the buyer's approval window for this transaction expires. If not provided, this is automatically computed from the connector's default expiration time. The value cannot exceed the connector's maximum approval window."""
+    is_amount_estimated: NotRequired[Nullable[bool]]
+    r"""Whether the authorization amount is expected to be modified in the future or not."""
 
 
 class TransactionCreate(BaseModel):
@@ -415,6 +417,9 @@ class TransactionCreate(BaseModel):
     approval_expires_at: OptionalNullable[datetime] = UNSET
     r"""The date and time when the buyer's approval window for this transaction expires. If not provided, this is automatically computed from the connector's default expiration time. The value cannot exceed the connector's maximum approval window."""
 
+    is_amount_estimated: OptionalNullable[bool] = UNSET
+    r"""Whether the authorization amount is expected to be modified in the future or not."""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
         optional_fields = set(
@@ -460,6 +465,7 @@ class TransactionCreate(BaseModel):
                 "shipping_amount",
                 "integration_client",
                 "approval_expires_at",
+                "is_amount_estimated",
             ]
         )
         nullable_fields = set(
@@ -497,6 +503,7 @@ class TransactionCreate(BaseModel):
                 "shipping_amount",
                 "integration_client",
                 "approval_expires_at",
+                "is_amount_estimated",
             ]
         )
         serialized = handler(self)
