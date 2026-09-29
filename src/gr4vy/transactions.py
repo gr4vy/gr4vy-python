@@ -822,6 +822,7 @@ class Transactions(BaseSDK):
         shipping_amount: OptionalNullable[int] = UNSET,
         integration_client: OptionalNullable[models.IntegrationClient] = UNSET,
         approval_expires_at: OptionalNullable[datetime] = UNSET,
+        is_amount_estimated: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -900,6 +901,7 @@ class Transactions(BaseSDK):
         :param shipping_amount: Total shipping amount.
         :param integration_client: Defines the client where the session for this transaction is going to be used. Please refer to the connections documentation for more guidance.
         :param approval_expires_at: The date and time when the buyer's approval window for this transaction expires. If not provided, this is automatically computed from the connector's default expiration time. The value cannot exceed the connector's maximum approval window.
+        :param is_amount_estimated: Whether the authorization amount is expected to be modified in the future or not.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -987,6 +989,7 @@ class Transactions(BaseSDK):
                 shipping_amount=shipping_amount,
                 integration_client=integration_client,
                 approval_expires_at=approval_expires_at,
+                is_amount_estimated=is_amount_estimated,
             ),
         )
 
@@ -1171,6 +1174,7 @@ class Transactions(BaseSDK):
         shipping_amount: OptionalNullable[int] = UNSET,
         integration_client: OptionalNullable[models.IntegrationClient] = UNSET,
         approval_expires_at: OptionalNullable[datetime] = UNSET,
+        is_amount_estimated: OptionalNullable[bool] = UNSET,
         retries: OptionalNullable[utils.RetryConfig] = UNSET,
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
@@ -1249,6 +1253,7 @@ class Transactions(BaseSDK):
         :param shipping_amount: Total shipping amount.
         :param integration_client: Defines the client where the session for this transaction is going to be used. Please refer to the connections documentation for more guidance.
         :param approval_expires_at: The date and time when the buyer's approval window for this transaction expires. If not provided, this is automatically computed from the connector's default expiration time. The value cannot exceed the connector's maximum approval window.
+        :param is_amount_estimated: Whether the authorization amount is expected to be modified in the future or not.
         :param retries: Override the default retry configuration for this method
         :param server_url: Override the default server URL for this method
         :param timeout_ms: Override the default request timeout configuration for this method in milliseconds
@@ -1336,6 +1341,7 @@ class Transactions(BaseSDK):
                 shipping_amount=shipping_amount,
                 integration_client=integration_client,
                 approval_expires_at=approval_expires_at,
+                is_amount_estimated=is_amount_estimated,
             ),
         )
 
