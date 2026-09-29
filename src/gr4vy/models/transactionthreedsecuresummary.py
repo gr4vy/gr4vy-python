@@ -15,11 +15,11 @@ from typing_extensions import NotRequired, TypeAliasType, TypedDict
 ResponseDataTypedDict = TypeAliasType(
     "ResponseDataTypedDict", Union[ThreeDSecureDataV1TypedDict, ThreeDSecureV2TypedDict]
 )
-r"""The 3DS data sent to the payment service for this transaction. This will only be populated if external 3DS data was passed in directly as part of the transaction API call, or if our 3DS server returned a status code of `Y` or `A`. In case of a failure to authenticate (status `N`, `R`, or `U`) this field will not be populated. To see full details about the 3DS calls please use our transaction events API."""
+r"""The 3DS data used for this transaction. To see full details about the 3DS calls please use our transaction events API."""
 
 
 ResponseData = TypeAliasType("ResponseData", Union[ThreeDSecureDataV1, ThreeDSecureV2])
-r"""The 3DS data sent to the payment service for this transaction. This will only be populated if external 3DS data was passed in directly as part of the transaction API call, or if our 3DS server returned a status code of `Y` or `A`. In case of a failure to authenticate (status `N`, `R`, or `U`) this field will not be populated. To see full details about the 3DS calls please use our transaction events API."""
+r"""The 3DS data used for this transaction. To see full details about the 3DS calls please use our transaction events API."""
 
 
 class TransactionThreeDSecureSummaryTypedDict(TypedDict):
@@ -30,7 +30,7 @@ class TransactionThreeDSecureSummaryTypedDict(TypedDict):
     method: NotRequired[Nullable[ThreeDSecureMethod]]
     r"""The method used for 3DS authentication for this transaction."""
     response_data: NotRequired[Nullable[ResponseDataTypedDict]]
-    r"""The 3DS data sent to the payment service for this transaction. This will only be populated if external 3DS data was passed in directly as part of the transaction API call, or if our 3DS server returned a status code of `Y` or `A`. In case of a failure to authenticate (status `N`, `R`, or `U`) this field will not be populated. To see full details about the 3DS calls please use our transaction events API."""
+    r"""The 3DS data used for this transaction. To see full details about the 3DS calls please use our transaction events API."""
     error_data: NotRequired[Nullable[ThreeDSecureErrorTypedDict]]
     r"""The error data received from our 3DS server. This will not be populated if the customer failed the authentication with a status code of `N`, `R`, or `U`. To see full details about the 3DS calls in those situations please use our transaction events API."""
     amount: NotRequired[Nullable[int]]
@@ -48,7 +48,7 @@ class TransactionThreeDSecureSummary(BaseModel):
     r"""The method used for 3DS authentication for this transaction."""
 
     response_data: OptionalNullable[ResponseData] = UNSET
-    r"""The 3DS data sent to the payment service for this transaction. This will only be populated if external 3DS data was passed in directly as part of the transaction API call, or if our 3DS server returned a status code of `Y` or `A`. In case of a failure to authenticate (status `N`, `R`, or `U`) this field will not be populated. To see full details about the 3DS calls please use our transaction events API."""
+    r"""The 3DS data used for this transaction. To see full details about the 3DS calls please use our transaction events API."""
 
     error_data: OptionalNullable[ThreeDSecureError] = UNSET
     r"""The error data received from our 3DS server. This will not be populated if the customer failed the authentication with a status code of `N`, `R`, or `U`. To see full details about the 3DS calls in those situations please use our transaction events API."""
