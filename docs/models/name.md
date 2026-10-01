@@ -19,6 +19,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"transaction-updated-status"`
 - `"transaction-sync-event"`
 - `"transaction-sync-failed-event"`
+- `"network-token-skipped"`
 - `"transaction-modified-event"`
 - `"transaction-api-request"`
 - `"transaction-api-response"`

@@ -16,6 +16,7 @@ Name = Union[
         "transaction-updated-status",
         "transaction-sync-event",
         "transaction-sync-failed-event",
+        "network-token-skipped",
         "transaction-modified-event",
         "transaction-api-request",
         "transaction-api-response",
