@@ -117,25 +117,25 @@ class Transactions(BaseSDK):
         :param search:
         :param buyer_external_identifier:
         :param buyer_id:
-        :param buyer_email_address:
+        :param buyer_email_address: Deprecated. Filters the results to only the items for which the `buyer` has an `email_address` that matches this value. This filter can be slow and is not recommended for use in automated systems. Use `buyer_search`, `buyer_external_identifier` or `buyer_id` instead.
         :param ip_address:
         :param status: Filters the results to only the transactions that have a `status` that matches with any of the provided status values.
         :param id:
         :param payment_service_transaction_id:
         :param external_identifier:
         :param metadata: Filters for transactions where their `metadata` values contain all of the provided `metadata` keys. The value sent for `metadata` must be formatted as a JSON string, and all keys and values must be strings. This value should also be URL encoded.
-        :param amount_eq: Filters for transactions that have an `amount` that is equal to the provided `amount_eq` value.
-        :param amount_lte: Filters for transactions that have an `amount` that is less than or equal to the `amount_lte` value.
-        :param amount_gte: Filters for transactions that have an `amount` that is greater than or equal to the `amount_gte` value.
-        :param currency: Filters for transactions that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency code.
-        :param country: Filters for transactions that have matching `country` values.
+        :param amount_eq: Filters for transactions that have an `amount` that is equal to the provided `amount_eq` value. For best performance, combine it with `created_at_gte` and `created_at_lte`.
+        :param amount_lte: Filters for transactions that have an `amount` that is less than or equal to the `amount_lte` value. For best performance, combine it with `created_at_gte` and `created_at_lte`.
+        :param amount_gte: Filters for transactions that have an `amount` that is greater than or equal to the `amount_gte` value. For best performance, combine it with `created_at_gte` and `created_at_lte`.
+        :param currency: Filters for transactions that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency code. For best performance, combine it with `created_at_gte` and `created_at_lte`.
+        :param country: Filters for transactions that have matching `country` values. For best performance, combine it with `created_at_gte` and `created_at_lte`.
         :param payment_service_id: Filters for transactions that were processed by the provided `payment_service_id` values.
         :param payment_method_id:
         :param payment_method_label:
-        :param payment_method_scheme: Filters for transactions where the `payment_method_scheme` matches one of the provided values.
-        :param payment_method_country: Filters for transactions that have a payment method with a country that matches with the provided value.
+        :param payment_method_scheme: Filters for transactions where the `payment_method_scheme` matches one of the provided values. For best performance, combine it with `created_at_gte` and `created_at_lte`.
+        :param payment_method_country: Filters for transactions that have a payment method with a country that matches with the provided value. For best performance, combine it with `created_at_gte` and `created_at_lte`.
         :param payment_method_fingerprint:
-        :param method: Filters for transactions that have matching `method` values.
+        :param method: Filters for transactions that have matching `method` values. For best performance, combine it with `created_at_gte` and `created_at_lte`.
         :param error_code: Filters for transactions where the `error_code` matches one for the provided values.
         :param has_refunds: Filters for transactions with refunds.
         :param pending_review: Filters for transactions with a pending manual anti-fraud review.
@@ -144,13 +144,13 @@ class Transactions(BaseSDK):
         :param reconciliation_id: Filters for transactions where the `reconciliation_id` matches the provided value.
         :param has_gift_card_redemptions: Filters for transactions with gift card redemptions.
         :param gift_card_id: Filters for transactions where a gift card used has an `id` that matches the provided value.
-        :param gift_card_last4: Filters for transactions that have at least one gift card redemption where the last 4 digits of its gift card number matches exactly with the provided value.
-        :param has_settlements: Filters for transactions that have at least one associated settlement record.
+        :param gift_card_last4: Deprecated. Filters for transactions that have at least one gift card redemption where the last 4 digits of its gift card number matches exactly with the provided value. This filter can be slow and is not recommended for use in automated systems. Use `gift_card_id` instead.
+        :param has_settlements: Filters for transactions that have at least one associated settlement record. When filtering on `false`, combine it with `created_at_gte` and `created_at_lte` for best performance.
         :param payment_method_bin: Filter for transactions that have a card with a BIN that matches exactly with the provided value.
-        :param payment_source: Filters the results to only the transactions that have a payment source that matches with any of the provided values.
-        :param is_subsequent_payment: Filters for transactions where the `is_subsequent_payment` matches the provided value.
-        :param merchant_initiated: Filters for transactions where the `merchant_initiated` matches the provided value.
-        :param used_3ds: Filters for transactions that attempted 3DS authentication or not.
+        :param payment_source: Filters the results to only the transactions that have a payment source that matches with any of the provided values. For best performance, combine it with `created_at_gte` and `created_at_lte`.
+        :param is_subsequent_payment: Filters for transactions where the `is_subsequent_payment` matches the provided value. For best performance, combine it with `created_at_gte` and `created_at_lte`.
+        :param merchant_initiated: Filters for transactions where the `merchant_initiated` matches the provided value. For best performance, combine it with `created_at_gte` and `created_at_lte`.
+        :param used_3ds: Filters for transactions that attempted 3DS authentication or not. For best performance, combine it with `created_at_gte` and `created_at_lte`.
         :param disputed: Filters for transactions that have been disputed.
         :param reauthorized_from_transaction_id: Filters for transactions that were reauthorized from the transaction with the provided ID.
         :param buyer_search: Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values.
@@ -465,25 +465,25 @@ class Transactions(BaseSDK):
         :param search:
         :param buyer_external_identifier:
         :param buyer_id:
-        :param buyer_email_address:
+        :param buyer_email_address: Deprecated. Filters the results to only the items for which the `buyer` has an `email_address` that matches this value. This filter can be slow and is not recommended for use in automated systems. Use `buyer_search`, `buyer_external_identifier` or `buyer_id` instead.
         :param ip_address:
         :param status: Filters the results to only the transactions that have a `status` that matches with any of the provided status values.
         :param id:
         :param payment_service_transaction_id:
         :param external_identifier:
         :param metadata: Filters for transactions where their `metadata` values contain all of the provided `metadata` keys. The value sent for `metadata` must be formatted as a JSON string, and all keys and values must be strings. This value should also be URL encoded.
-        :param amount_eq: Filters for transactions that have an `amount` that is equal to the provided `amount_eq` value.
-        :param amount_lte: Filters for transactions that have an `amount` that is less than or equal to the `amount_lte` value.
-        :param amount_gte: Filters for transactions that have an `amount` that is greater than or equal to the `amount_gte` value.
-        :param currency: Filters for transactions that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency code.
-        :param country: Filters for transactions that have matching `country` values.
+        :param amount_eq: Filters for transactions that have an `amount` that is equal to the provided `amount_eq` value. For best performance, combine it with `created_at_gte` and `created_at_lte`.
+        :param amount_lte: Filters for transactions that have an `amount` that is less than or equal to the `amount_lte` value. For best performance, combine it with `created_at_gte` and `created_at_lte`.
+        :param amount_gte: Filters for transactions that have an `amount` that is greater than or equal to the `amount_gte` value. For best performance, combine it with `created_at_gte` and `created_at_lte`.
+        :param currency: Filters for transactions that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency code. For best performance, combine it with `created_at_gte` and `created_at_lte`.
+        :param country: Filters for transactions that have matching `country` values. For best performance, combine it with `created_at_gte` and `created_at_lte`.
         :param payment_service_id: Filters for transactions that were processed by the provided `payment_service_id` values.
         :param payment_method_id:
         :param payment_method_label:
-        :param payment_method_scheme: Filters for transactions where the `payment_method_scheme` matches one of the provided values.
-        :param payment_method_country: Filters for transactions that have a payment method with a country that matches with the provided value.
+        :param payment_method_scheme: Filters for transactions where the `payment_method_scheme` matches one of the provided values. For best performance, combine it with `created_at_gte` and `created_at_lte`.
+        :param payment_method_country: Filters for transactions that have a payment method with a country that matches with the provided value. For best performance, combine it with `created_at_gte` and `created_at_lte`.
         :param payment_method_fingerprint:
-        :param method: Filters for transactions that have matching `method` values.
+        :param method: Filters for transactions that have matching `method` values. For best performance, combine it with `created_at_gte` and `created_at_lte`.
         :param error_code: Filters for transactions where the `error_code` matches one for the provided values.
         :param has_refunds: Filters for transactions with refunds.
         :param pending_review: Filters for transactions with a pending manual anti-fraud review.
@@ -492,13 +492,13 @@ class Transactions(BaseSDK):
         :param reconciliation_id: Filters for transactions where the `reconciliation_id` matches the provided value.
         :param has_gift_card_redemptions: Filters for transactions with gift card redemptions.
         :param gift_card_id: Filters for transactions where a gift card used has an `id` that matches the provided value.
-        :param gift_card_last4: Filters for transactions that have at least one gift card redemption where the last 4 digits of its gift card number matches exactly with the provided value.
-        :param has_settlements: Filters for transactions that have at least one associated settlement record.
+        :param gift_card_last4: Deprecated. Filters for transactions that have at least one gift card redemption where the last 4 digits of its gift card number matches exactly with the provided value. This filter can be slow and is not recommended for use in automated systems. Use `gift_card_id` instead.
+        :param has_settlements: Filters for transactions that have at least one associated settlement record. When filtering on `false`, combine it with `created_at_gte` and `created_at_lte` for best performance.
         :param payment_method_bin: Filter for transactions that have a card with a BIN that matches exactly with the provided value.
-        :param payment_source: Filters the results to only the transactions that have a payment source that matches with any of the provided values.
-        :param is_subsequent_payment: Filters for transactions where the `is_subsequent_payment` matches the provided value.
-        :param merchant_initiated: Filters for transactions where the `merchant_initiated` matches the provided value.
-        :param used_3ds: Filters for transactions that attempted 3DS authentication or not.
+        :param payment_source: Filters the results to only the transactions that have a payment source that matches with any of the provided values. For best performance, combine it with `created_at_gte` and `created_at_lte`.
+        :param is_subsequent_payment: Filters for transactions where the `is_subsequent_payment` matches the provided value. For best performance, combine it with `created_at_gte` and `created_at_lte`.
+        :param merchant_initiated: Filters for transactions where the `merchant_initiated` matches the provided value. For best performance, combine it with `created_at_gte` and `created_at_lte`.
+        :param used_3ds: Filters for transactions that attempted 3DS authentication or not. For best performance, combine it with `created_at_gte` and `created_at_lte`.
         :param disputed: Filters for transactions that have been disputed.
         :param reauthorized_from_transaction_id: Filters for transactions that were reauthorized from the transaction with the provided ID.
         :param buyer_search: Filters the results to only get the items for which some of the buyer data contains exactly the provided `buyer_search` values.
