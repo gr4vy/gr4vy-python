@@ -35,7 +35,8 @@ def verify_webhook(
         hashlib.sha256
     ).hexdigest()
 
-    if expected_signature not in signatures:
+    # Compare in constant time, so the check doesn't leak how much of one matched.
+    if not any(hmac.compare_digest(expected_signature, signature) for signature in signatures):
         raise ValueError("No matching signature found")
 
     if timestamp_tolerance and timestamp < time.time() - timestamp_tolerance:
