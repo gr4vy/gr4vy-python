@@ -9,6 +9,7 @@ IncrementalAuthorizationStatus = Union[
     Literal[
         "succeeded",
         "failed",
+        "pending",
     ],
     UnrecognizedStr,
 ]
