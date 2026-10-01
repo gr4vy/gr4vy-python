@@ -61,6 +61,7 @@ class ListTransactionsRequestTypedDict(TypedDict):
     buyer_external_identifier: NotRequired[Nullable[str]]
     buyer_id: NotRequired[Nullable[str]]
     buyer_email_address: NotRequired[Nullable[str]]
+    r"""Deprecated. Filters the results to only the items for which the `buyer` has an `email_address` that matches this value. This filter can be slow and is not recommended for use in automated systems. Use `buyer_search`, `buyer_external_identifier` or `buyer_id` instead."""
     ip_address: NotRequired[Nullable[str]]
     status: NotRequired[Nullable[List[TransactionStatus]]]
     r"""Filters the results to only the transactions that have a `status` that matches with any of the provided status values."""
@@ -70,26 +71,26 @@ class ListTransactionsRequestTypedDict(TypedDict):
     metadata: NotRequired[Nullable[List[str]]]
     r"""Filters for transactions where their `metadata` values contain all of the provided `metadata` keys. The value sent for `metadata` must be formatted as a JSON string, and all keys and values must be strings. This value should also be URL encoded."""
     amount_eq: NotRequired[Nullable[int]]
-    r"""Filters for transactions that have an `amount` that is equal to the provided `amount_eq` value."""
+    r"""Filters for transactions that have an `amount` that is equal to the provided `amount_eq` value. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
     amount_lte: NotRequired[Nullable[int]]
-    r"""Filters for transactions that have an `amount` that is less than or equal to the `amount_lte` value."""
+    r"""Filters for transactions that have an `amount` that is less than or equal to the `amount_lte` value. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
     amount_gte: NotRequired[Nullable[int]]
-    r"""Filters for transactions that have an `amount` that is greater than or equal to the `amount_gte` value."""
+    r"""Filters for transactions that have an `amount` that is greater than or equal to the `amount_gte` value. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
     currency: NotRequired[Nullable[List[str]]]
-    r"""Filters for transactions that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency code."""
+    r"""Filters for transactions that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency code. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
     country: NotRequired[Nullable[List[str]]]
-    r"""Filters for transactions that have matching `country` values."""
+    r"""Filters for transactions that have matching `country` values. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
     payment_service_id: NotRequired[Nullable[List[str]]]
     r"""Filters for transactions that were processed by the provided `payment_service_id` values."""
     payment_method_id: NotRequired[Nullable[str]]
     payment_method_label: NotRequired[Nullable[str]]
     payment_method_scheme: NotRequired[Nullable[List[str]]]
-    r"""Filters for transactions where the `payment_method_scheme` matches one of the provided values."""
+    r"""Filters for transactions where the `payment_method_scheme` matches one of the provided values. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
     payment_method_country: NotRequired[Nullable[str]]
-    r"""Filters for transactions that have a payment method with a country that matches with the provided value."""
+    r"""Filters for transactions that have a payment method with a country that matches with the provided value. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
     payment_method_fingerprint: NotRequired[Nullable[str]]
     method: NotRequired[Nullable[List[Method]]]
-    r"""Filters for transactions that have matching `method` values."""
+    r"""Filters for transactions that have matching `method` values. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
     error_code: NotRequired[Nullable[List[str]]]
     r"""Filters for transactions where the `error_code` matches one for the provided values."""
     has_refunds: NotRequired[Nullable[bool]]
@@ -107,19 +108,19 @@ class ListTransactionsRequestTypedDict(TypedDict):
     gift_card_id: NotRequired[Nullable[str]]
     r"""Filters for transactions where a gift card used has an `id` that matches the provided value."""
     gift_card_last4: NotRequired[Nullable[str]]
-    r"""Filters for transactions that have at least one gift card redemption where the last 4 digits of its gift card number matches exactly with the provided value."""
+    r"""Deprecated. Filters for transactions that have at least one gift card redemption where the last 4 digits of its gift card number matches exactly with the provided value. This filter can be slow and is not recommended for use in automated systems. Use `gift_card_id` instead."""
     has_settlements: NotRequired[Nullable[bool]]
-    r"""Filters for transactions that have at least one associated settlement record."""
+    r"""Filters for transactions that have at least one associated settlement record. When filtering on `false`, combine it with `created_at_gte` and `created_at_lte` for best performance."""
     payment_method_bin: NotRequired[Nullable[str]]
     r"""Filter for transactions that have a card with a BIN that matches exactly with the provided value."""
     payment_source: NotRequired[Nullable[List[TransactionPaymentSource]]]
-    r"""Filters the results to only the transactions that have a payment source that matches with any of the provided values."""
+    r"""Filters the results to only the transactions that have a payment source that matches with any of the provided values. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
     is_subsequent_payment: NotRequired[Nullable[bool]]
-    r"""Filters for transactions where the `is_subsequent_payment` matches the provided value."""
+    r"""Filters for transactions where the `is_subsequent_payment` matches the provided value. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
     merchant_initiated: NotRequired[Nullable[bool]]
-    r"""Filters for transactions where the `merchant_initiated` matches the provided value."""
+    r"""Filters for transactions where the `merchant_initiated` matches the provided value. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
     used_3ds: NotRequired[Nullable[bool]]
-    r"""Filters for transactions that attempted 3DS authentication or not."""
+    r"""Filters for transactions that attempted 3DS authentication or not. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
     disputed: NotRequired[Nullable[bool]]
     r"""Filters for transactions that have been disputed."""
     reauthorized_from_transaction_id: NotRequired[Nullable[str]]
@@ -184,8 +185,12 @@ class ListTransactionsRequest(BaseModel):
 
     buyer_email_address: Annotated[
         OptionalNullable[str],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This filter can be slow. Use `buyer_search`, `buyer_external_identifier` or `buyer_id` instead.."
+        ),
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
+    r"""Deprecated. Filters the results to only the items for which the `buyer` has an `email_address` that matches this value. This filter can be slow and is not recommended for use in automated systems. Use `buyer_search`, `buyer_external_identifier` or `buyer_id` instead."""
 
     ip_address: Annotated[
         OptionalNullable[str],
@@ -223,31 +228,31 @@ class ListTransactionsRequest(BaseModel):
         OptionalNullable[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""Filters for transactions that have an `amount` that is equal to the provided `amount_eq` value."""
+    r"""Filters for transactions that have an `amount` that is equal to the provided `amount_eq` value. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
 
     amount_lte: Annotated[
         OptionalNullable[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""Filters for transactions that have an `amount` that is less than or equal to the `amount_lte` value."""
+    r"""Filters for transactions that have an `amount` that is less than or equal to the `amount_lte` value. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
 
     amount_gte: Annotated[
         OptionalNullable[int],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""Filters for transactions that have an `amount` that is greater than or equal to the `amount_gte` value."""
+    r"""Filters for transactions that have an `amount` that is greater than or equal to the `amount_gte` value. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
 
     currency: Annotated[
         OptionalNullable[List[str]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""Filters for transactions that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency code."""
+    r"""Filters for transactions that have matching `currency` values. The `currency` values provided must be formatted as 3-letter ISO currency code. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
 
     country: Annotated[
         OptionalNullable[List[str]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""Filters for transactions that have matching `country` values."""
+    r"""Filters for transactions that have matching `country` values. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
 
     payment_service_id: Annotated[
         OptionalNullable[List[str]],
@@ -269,13 +274,13 @@ class ListTransactionsRequest(BaseModel):
         OptionalNullable[List[str]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""Filters for transactions where the `payment_method_scheme` matches one of the provided values."""
+    r"""Filters for transactions where the `payment_method_scheme` matches one of the provided values. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
 
     payment_method_country: Annotated[
         OptionalNullable[str],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""Filters for transactions that have a payment method with a country that matches with the provided value."""
+    r"""Filters for transactions that have a payment method with a country that matches with the provided value. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
 
     payment_method_fingerprint: Annotated[
         OptionalNullable[str],
@@ -286,7 +291,7 @@ class ListTransactionsRequest(BaseModel):
         OptionalNullable[List[Method]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""Filters for transactions that have matching `method` values."""
+    r"""Filters for transactions that have matching `method` values. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
 
     error_code: Annotated[
         OptionalNullable[List[str]],
@@ -338,15 +343,18 @@ class ListTransactionsRequest(BaseModel):
 
     gift_card_last4: Annotated[
         OptionalNullable[str],
+        pydantic.Field(
+            deprecated="warning: ** DEPRECATED ** - This filter can be slow. Use `gift_card_id` instead.."
+        ),
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""Filters for transactions that have at least one gift card redemption where the last 4 digits of its gift card number matches exactly with the provided value."""
+    r"""Deprecated. Filters for transactions that have at least one gift card redemption where the last 4 digits of its gift card number matches exactly with the provided value. This filter can be slow and is not recommended for use in automated systems. Use `gift_card_id` instead."""
 
     has_settlements: Annotated[
         OptionalNullable[bool],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""Filters for transactions that have at least one associated settlement record."""
+    r"""Filters for transactions that have at least one associated settlement record. When filtering on `false`, combine it with `created_at_gte` and `created_at_lte` for best performance."""
 
     payment_method_bin: Annotated[
         OptionalNullable[str],
@@ -358,25 +366,25 @@ class ListTransactionsRequest(BaseModel):
         OptionalNullable[List[TransactionPaymentSource]],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""Filters the results to only the transactions that have a payment source that matches with any of the provided values."""
+    r"""Filters the results to only the transactions that have a payment source that matches with any of the provided values. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
 
     is_subsequent_payment: Annotated[
         OptionalNullable[bool],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""Filters for transactions where the `is_subsequent_payment` matches the provided value."""
+    r"""Filters for transactions where the `is_subsequent_payment` matches the provided value. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
 
     merchant_initiated: Annotated[
         OptionalNullable[bool],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""Filters for transactions where the `merchant_initiated` matches the provided value."""
+    r"""Filters for transactions where the `merchant_initiated` matches the provided value. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
 
     used_3ds: Annotated[
         OptionalNullable[bool],
         FieldMetadata(query=QueryParamMetadata(style="form", explode=True)),
     ] = UNSET
-    r"""Filters for transactions that attempted 3DS authentication or not."""
+    r"""Filters for transactions that attempted 3DS authentication or not. For best performance, combine it with `created_at_gte` and `created_at_lte`."""
 
     disputed: Annotated[
         OptionalNullable[bool],
