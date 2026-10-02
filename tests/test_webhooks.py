@@ -80,3 +80,17 @@ def test_verify_webhook_rejects_a_nearly_matching_signature():
 
     with pytest.raises(ValueError, match="No matching signature found"):
         verify_webhook("payload", secret, signature_header, "1744018920", 0)
+
+
+def test_verify_webhook_rejects_a_non_ascii_signature():
+    secret = "Ik4L-8FH0ihWczctcIPXZRR_8F0fPNgmhEfVBbZ3zNwqQVa1Or4tBz4Pgw2eNaVDod7H56Y268h_wohEUaWbUg"
+
+    with pytest.raises(ValueError, match="No matching signature found"):
+        verify_webhook("payload", secret, "é", "1744018920", 0)
+
+
+def test_verify_webhook_accepts_a_valid_signature_after_a_non_ascii_one():
+    secret = "Ik4L-8FH0ihWczctcIPXZRR_8F0fPNgmhEfVBbZ3zNwqQVa1Or4tBz4Pgw2eNaVDod7H56Y268h_wohEUaWbUg"
+    signature_header = "é,78aca0c78005107a654a957b8566fa6e0e5e06aea92d7da72a6da9e5a690d013"
+
+    verify_webhook("payload", secret, signature_header, "1744018920", 0)
