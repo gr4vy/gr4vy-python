@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 53e6bc2eedef5f6f1b27830da3b611db
+  docChecksum: 4d4dc0ea216943c54dc1e2b0f24c0017
   docVersion: 1.0.0
   speakeasyVersion: 1.800.1
   generationVersion: 2.943.0
-  releaseVersion: 2.4.24
-  configChecksum: 7bbb4048c2ebc9018b5b106f57fbdff5
+  releaseVersion: 2.4.25
+  configChecksum: c24acf64ae786d7b61d972e9f9c8d7e7
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 8af17b97-ec7b-4936-8bca-4a5768e6b22a
-  pristine_commit_hash: c5a210394209d072241bbe9b2464a09187a0dbc6
-  pristine_tree_hash: b734713f0d137a0f3cba643e246cf00aa6eb5d2f
+  generation_id: 20ab5bd0-715c-4d2a-b911-9867dd262910
+  pristine_commit_hash: a4395af360d2fe31da54af2056164f38057a5ada
+  pristine_tree_hash: 4e1bf089e8b2edd5571def69f2bcd90478f7e867
 features:
   python:
     additionalDependencies: 1.1.0
@@ -2909,8 +2909,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:4b461a17410fa20896b8aa713ea55b87d81a334f
-    pristine_git_object: 16b39bfcbcaffc2c4e1799b6628da701e1846fea
+    last_write_checksum: sha1:2d9ac7a313bf535624a051d6fb04d6635d076895
+    pristine_git_object: ded3698c6c3b053283b68bd44c261153dc5b11d1
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2937,8 +2937,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:3a6ff4297a61535fc45e804887ed60fe567e1404
-    pristine_git_object: f6f44c6134e0ca845e15731f552d0badcd79bf65
+    last_write_checksum: sha1:984cf0cb4b630f9c6bc825108e0e07ca8da62074
+    pristine_git_object: 9c949b16273aa3186f1defad83b90394bcda5042
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
