@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: b0c20ea3c0acbc29383eb7098789428a
+  docChecksum: d0fdbcfe7852d0624109a648614c73aa
   docVersion: 1.0.0
   speakeasyVersion: 1.801.0
   generationVersion: 2.946.0
-  releaseVersion: 2.4.26
-  configChecksum: 6acf4bddda763fea305958a289d56fa7
+  releaseVersion: 2.4.27
+  configChecksum: f64ecb3c341235eae2100e9bdfbc26c5
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: b7c99597-68e6-4d90-a200-d4f4fcec29ca
-  pristine_commit_hash: 013b30239489c31850a01c500e8aadbce5dc5a05
-  pristine_tree_hash: 817dfc6384b10213d5f11e2315cb3bc9a2fcbfc5
+  generation_id: 3142881a-417f-46a5-925f-0609dd445af9
+  pristine_commit_hash: 1451945548def59653e4eaaba99650cbc77395b3
+  pristine_tree_hash: 1ec875cea06430944c2ef400a34cb6e640d457d8
 features:
   python:
     additionalDependencies: 1.1.0
@@ -2909,8 +2909,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:3d6a33546e06e38e0d57719bc60d65a59d645814
-    pristine_git_object: d6565f65432ab099edc9499233242fc89123bcbd
+    last_write_checksum: sha1:d62d17058ff52221d703193af917040e2172fa15
+    pristine_git_object: 0fd6d75109a9abc40155ccb112bf010c3f32b03c
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2937,8 +2937,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:fc9fdab9710d7389ab016624a3da2a48ced5b3ef
-    pristine_git_object: 6988e52c481e60b9f9eff4d0a021e65f75c562a0
+    last_write_checksum: sha1:a310e6d0a768555c17361dc4a905444c1636b862
+    pristine_git_object: 3d801952b4c1acf49348ea6c1e96c3fbb313f12c
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -9517,9 +9517,6 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## Python SDK Changes:
-  * `gr4vy.transactions.events.list()`:  `response.items[].name.enum(refund_ingested)` **Added**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
