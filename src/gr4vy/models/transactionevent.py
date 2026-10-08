@@ -65,6 +65,7 @@ Name = Union[
         "payment-connector-report-chargeback-posted",
         "payment-connector-report-chargeback-reversal-posted",
         "payment-connector-transaction-webhook-processed",
+        "refund-ingested",
         "digital-wallet-apple-pay-token-decrypted",
         "digital-wallet-google-pay-token-decrypted",
         "digital-wallet-click-to-pay-token-decrypted",
