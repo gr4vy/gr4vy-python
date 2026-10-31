@@ -26,7 +26,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.payment_services.list(cursor="ZXhhbXBsZTE", limit=20, deleted=True, include_fields=True)
@@ -86,7 +86,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.payment_services.create(display_name="Stripe", payment_service_definition_id="stripe-card", fields=[
@@ -167,7 +167,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.payment_services.get(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0")
@@ -221,7 +221,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.payment_services.update(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0", settlement_reporting_enabled=True, refund_ingestion_enabled=True)
@@ -289,7 +289,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     g_client.payment_services.delete(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0")
@@ -338,7 +338,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.payment_services.verify(payment_service_definition_id="stripe-card", fields=[])
@@ -394,7 +394,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.payment_services.session(payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0", request_body={

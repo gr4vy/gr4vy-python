@@ -24,7 +24,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.buyers.shipping_details.create(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9")
@@ -83,7 +83,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.buyers.shipping_details.list(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9")
@@ -137,7 +137,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.buyers.shipping_details.get(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", shipping_details_id="bf8c36ad-02d9-4904-b0f9-a230b149e341")
@@ -192,7 +192,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.buyers.shipping_details.update(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", shipping_details_id="bf8c36ad-02d9-4904-b0f9-a230b149e341")
@@ -252,7 +252,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     g_client.buyers.shipping_details.delete(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", shipping_details_id="bf8c36ad-02d9-4904-b0f9-a230b149e341")

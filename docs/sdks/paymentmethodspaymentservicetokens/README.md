@@ -22,7 +22,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.payment_methods.payment_service_tokens.list(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0")
@@ -77,7 +77,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.payment_methods.payment_service_tokens.create(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", payment_service_id="fffd152a-9532-4087-9a4f-de58754210f0", redirect_url="https://example.com/callback")
@@ -134,7 +134,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     g_client.payment_methods.payment_service_tokens.delete(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", payment_service_token_id="703f2d99-3fd1-44bc-9cbd-a25a2d597886")

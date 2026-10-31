@@ -22,7 +22,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.payouts.list(cursor="ZXhhbXBsZTE", limit=20)
@@ -86,7 +86,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.payouts.create(amount=1299, currency="EUR", payment_service_id="ed8bd87d-85ad-40cf-8e8f-007e21e55aad", payment_method={
@@ -153,7 +153,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.payouts.get(payout_id="4344fef2-bc2f-49a6-924f-343e62f67224")

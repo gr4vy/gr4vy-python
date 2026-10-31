@@ -20,7 +20,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.transactions.refunds.all.create(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591", reason="Refund due to user request.", external_identifier="refund-12345")

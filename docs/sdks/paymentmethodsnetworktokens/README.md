@@ -24,7 +24,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.payment_methods.network_tokens.list(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389")
@@ -78,7 +78,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.payment_methods.network_tokens.create(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", merchant_initiated=False, is_subsequent_payment=False)
@@ -135,7 +135,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.payment_methods.network_tokens.suspend(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", network_token_id="f8dd5cfc-7834-4847-95dc-f75a360e2298")
@@ -190,7 +190,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.payment_methods.network_tokens.resume(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", network_token_id="f8dd5cfc-7834-4847-95dc-f75a360e2298")
@@ -245,7 +245,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     g_client.payment_methods.network_tokens.delete(payment_method_id="ef9496d8-53a5-4aad-8ca2-00eb68334389", network_token_id="f8dd5cfc-7834-4847-95dc-f75a360e2298")
