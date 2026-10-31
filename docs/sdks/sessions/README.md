@@ -26,7 +26,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.digital_wallets.sessions.google_pay(origin_domain="example.com")
@@ -80,7 +80,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.digital_wallets.sessions.apple_pay(validation_url="https://apple-pay-gateway-cert.apple.com", domain_name="example.com")
@@ -135,7 +135,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.digital_wallets.sessions.paze_mobile_session_create(client={
@@ -205,7 +205,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.digital_wallets.sessions.paze(source="web")
@@ -260,7 +260,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.digital_wallets.sessions.paze_mobile_session_review(session_id="7c1cba03-d20e-4a3f-9d77-e5dc23a39ac2", code="eyJhdWQiOm51bGwsImtpZCI6IjE3...", access_token="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...")
@@ -316,7 +316,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.digital_wallets.sessions.paze_mobile_session_complete(session_id="7c1cba03-d20e-4a3f-9d77-e5dc23a39ac2", code="eyJhdWQiOm51bGwsImtpZCI6IjE3...", access_token="eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...", transaction_type="PURCHASE")
@@ -376,7 +376,7 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.digital_wallets.sessions.click_to_pay(checkout_session_id="4137b1cf-39ac-42a8-bad6-1c680d5dab6b")

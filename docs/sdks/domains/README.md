@@ -21,7 +21,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.digital_wallets.domains.create(digital_wallet_id="1808f5e6-b49c-4db9-94fa-22371ea352f5", domain_name="example.com")
@@ -76,7 +76,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     g_client.digital_wallets.domains.delete(digital_wallet_id="", domain_name="example.com")

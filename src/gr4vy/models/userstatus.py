@@ -10,6 +10,7 @@ UserStatus = Union[
         "active",
         "pending",
         "deleted",
+        "reset",
     ],
     UnrecognizedStr,
 ]

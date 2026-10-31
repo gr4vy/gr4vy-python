@@ -22,7 +22,7 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.merchant_accounts.list(cursor="ZXhhbXBsZTE", limit=20, search="merchant-12345")
@@ -78,7 +78,7 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.merchant_accounts.create(id="merchant-12345", display_name="Example", account_updater_enabled=True, async_network_tokens_enabled=True)
@@ -151,7 +151,7 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.merchant_accounts.get(merchant_account_id="merchant-12345")
@@ -203,7 +203,7 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.merchant_accounts.update(merchant_account_id="merchant-12345", account_updater_enabled=True, async_network_tokens_enabled=True)

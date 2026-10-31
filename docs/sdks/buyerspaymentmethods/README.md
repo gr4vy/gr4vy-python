@@ -20,7 +20,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.buyers.payment_methods.list(buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", buyer_external_identifier="buyer-12345", sort_by="last_used_at", order_by="desc", country="US", currency="USD")

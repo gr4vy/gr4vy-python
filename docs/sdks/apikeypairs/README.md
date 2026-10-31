@@ -23,7 +23,7 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.api_key_pairs.list(limit=20)
@@ -78,7 +78,7 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.api_key_pairs.create(display_name="Production key", role_ids=[
@@ -137,7 +137,7 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.api_key_pairs.get(api_key_pair_id="fe26475d-ec3e-4884-9553-f7356683f7f9")
@@ -189,7 +189,7 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.api_key_pairs.update(api_key_pair_id="fe26475d-ec3e-4884-9553-f7356683f7f9")
@@ -245,7 +245,7 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     g_client.api_key_pairs.delete(api_key_pair_id="fe26475d-ec3e-4884-9553-f7356683f7f9")

@@ -14,6 +14,7 @@ CardScheme = Union[
         "cirrus",
         "culiance",
         "dankort",
+        "dinacard",
         "diners-club",
         "discover",
         "eftpos-australia",

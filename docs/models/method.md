@@ -19,14 +19,18 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"afterpay"`
 - `"alipay"`
 - `"alipayhk"`
+- `"alipayplus"`
+- `"alma"`
 - `"applepay"`
 - `"arcuspaynetwork"`
 - `"bacs"`
 - `"bancontact"`
 - `"bank"`
+- `"bcmcmobile"`
 - `"bcp"`
 - `"becs"`
 - `"bitpay"`
+- `"bizum"`
 - `"blik"`
 - `"ach"`
 - `"boleto"`
@@ -46,9 +50,11 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"dcb"`
 - `"dlocal"`
 - `"duitnow"`
+- `"ebankingfi"`
 - `"ebanx"`
 - `"eckoh"`
 - `"efecty"`
+- `"eftpad"`
 - `"eps"`
 - `"everydaypay"`
 - `"gcash"`
@@ -75,7 +81,9 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"linepay"`
 - `"linkaja"`
 - `"maybankqrpay"`
+- `"mbway"`
 - `"mercadopago"`
+- `"mobilepay"`
 - `"multibanco"`
 - `"multipago"`
 - `"nequi"`
@@ -94,6 +102,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"p24"`
 - `"pagoefectivo"`
 - `"paybybank"`
+- `"paybybankeu"`
 - `"payid"`
 - `"paymaya"`
 - `"paysquad"`
@@ -112,6 +121,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"razorpay"`
 - `"rapipago"`
 - `"redpagos"`
+- `"riverty"`
 - `"scalapay"`
 - `"sepa"`
 - `"servipag"`
@@ -134,6 +144,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"truemoney"`
 - `"trustly"`
 - `"trustlyeurope"`
+- `"twint"`
 - `"upi"`
 - `"venmo"`
 - `"vipps"`

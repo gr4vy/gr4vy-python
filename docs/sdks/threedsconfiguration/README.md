@@ -22,7 +22,7 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.merchant_accounts.three_ds_configuration.create(merchant_account_id="merchant-12345", merchant_acquirer_bin="516327", merchant_acquirer_id="123456789012345", merchant_name="Acme Inc.", merchant_country_code="840", merchant_category_code="1234", merchant_url="https://example.com", scheme="visa", metadata={
@@ -87,7 +87,7 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.merchant_accounts.three_ds_configuration.list(merchant_account_id="merchant-12345")
@@ -140,7 +140,7 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.merchant_accounts.three_ds_configuration.update(merchant_account_id="merchant-12345", three_ds_configuration_id="1808f5e6-b49c-4db9-94fa-22371ea352f5")
@@ -202,7 +202,7 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     g_client.merchant_accounts.three_ds_configuration.delete(merchant_account_id="merchant-12345", three_ds_configuration_id="1808f5e6-b49c-4db9-94fa-22371ea352f5")

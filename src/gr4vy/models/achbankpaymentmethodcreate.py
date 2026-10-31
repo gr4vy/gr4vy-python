@@ -9,6 +9,8 @@ from gr4vy.types import (
     UNSET,
     UNSET_SENTINEL,
     UnrecognizedStr,
+    current_exclude_none,
+    serialize_with_info,
 )
 from gr4vy.utils import validate_const
 import pydantic
@@ -36,9 +38,9 @@ class ACHBankPaymentMethodCreateTypedDict(TypedDict):
 
     account_holder: BankAccountHolderTypedDict
     account_number: str
-    r"""The account number for this ACH bank account"""
+    r"""The account number for this ACH bank account, made up of at most 17 digits. Spaces and dashes are ignored. Any format is accepted when `is_tokenized` is `true`."""
     routing_number: str
-    r"""The routing number for this ACH bank account"""
+    r"""The routing number for this ACH bank account, made up of 9 digits. Spaces and dashes are ignored."""
     method: Literal["bank"]
     r"""Always `bank`."""
     buyer_id: NotRequired[Nullable[str]]
@@ -64,10 +66,10 @@ class ACHBankPaymentMethodCreate(BaseModel):
     account_holder: BankAccountHolder
 
     account_number: str
-    r"""The account number for this ACH bank account"""
+    r"""The account number for this ACH bank account, made up of at most 17 digits. Spaces and dashes are ignored. Any format is accepted when `is_tokenized` is `true`."""
 
     routing_number: str
-    r"""The routing number for this ACH bank account"""
+    r"""The routing number for this ACH bank account, made up of 9 digits. Spaces and dashes are ignored."""
 
     METHOD: Annotated[
         Annotated[Optional[Literal["bank"]], AfterValidator(validate_const("bank"))],
@@ -97,6 +99,9 @@ class ACHBankPaymentMethodCreate(BaseModel):
     r"""Specify whether this is a `checking` or `savings` account. Defaults to `checking`."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -112,11 +117,14 @@ class ACHBankPaymentMethodCreate(BaseModel):
         nullable_fields = set(
             ["buyer_id", "buyer_external_identifier", "external_identifier"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields

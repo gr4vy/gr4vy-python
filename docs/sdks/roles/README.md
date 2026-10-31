@@ -19,7 +19,7 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.roles.list(limit=20)
