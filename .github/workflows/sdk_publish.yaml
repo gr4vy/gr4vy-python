@@ -1,35 +1,148 @@
 name: Publish SDK
-permissions:
-  checks: write
-  contents: write
-  pull-requests: write
-  statuses: write
-  id-token: write
 "on":
-  push:
+  workflow_run: # zizmor: ignore[dangerous-triggers] never checks out or runs PR code
+    workflows:
+      - CI
+    types:
+      - completed
     branches:
       - main
-    paths:
-      - .speakeasy/gen.lock
   workflow_dispatch: {}
-jobs:
-  publish:
-    uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@fe37b336cd1948f1e2e60383fd94bfb884318cf2 # v15
-    with:
-      target: gr4vy
-    secrets:
-      github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      pypi_token: ${{ secrets.PYPI_TOKEN }}
-      speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
 
-  notify:
-    needs: publish
+permissions:
+  contents: read
+
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.event == 'push' && github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
-    if: always()
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      publish: ${{ steps.gate.outputs.publish }}
+      mode: ${{ github.event_name == 'workflow_dispatch' && 'manual' || steps.gate.outputs.mode }}
+      version: ${{ steps.gate.outputs.version }}
+    steps:
+      - id: gate
+        uses: gr4vy/sdk-release/publish-gate@0d6218b18c2c2f495a206efebea008ba96b174bb
+        with:
+          head-sha: ${{ github.event.workflow_run.head_sha || github.sha }}
+          bot-login: gr4vy-sdk-release[bot]
+
+  request-approval:
+    needs: gate
+    if: needs.gate.outputs.publish == 'true' && needs.gate.outputs.mode == 'manual'
+    runs-on: ubuntu-latest
     steps:
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@e31e87e03dd19038e411e38ae27cbad084a90661 # v2
-        if: github.ref == 'refs/heads/main'
+        env:
+            SLACK_USERNAME: Python SDK
+            SLACK_TITLE: Python SDK
+            SLACK_WEBHOOK: ${{ secrets.SLACK_SDK_WEBHOOK_URL }}
+            SLACK_CHANNEL: sdk-updates
+            SLACK_MSG_AUTHOR: gr4vy-code
+            SLACK_ICON_EMOJI: ":gr4vy:"
+            SLACK_COLOR: "#F3AB0E"
+            SLACK_MESSAGE: "v${{ needs.gate.outputs.version }} is waiting for release approval: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            SLACK_FOOTER: ""
+
+  approve:
+    needs: gate
+    if: needs.gate.outputs.publish == 'true' && needs.gate.outputs.mode == 'manual'
+    runs-on: ubuntu-latest
+    environment: release-manual
+    steps:
+      - run: echo "Release approved."
+
+  publish:
+    needs: [gate, approve]
+    if: >-
+      always() && needs.gate.outputs.publish == 'true' &&
+      (needs.gate.outputs.mode == 'auto' || needs.approve.result == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: sdk-release
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Mint a gr4vy-sdk-release token
+        id: app
+        uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        with:
+          client-id: ${{ secrets.SDK_RELEASE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.SDK_RELEASE_APP_PRIVATE_KEY }}
+          repositories: ${{ github.event.repository.name }}
+          permission-contents: write
+
+      - name: Check out the release commit
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          persist-credentials: false
+
+      - name: Use Python 3.13
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with:
+          python-version: "3.13"
+
+      - name: Install poetry
+        uses: abatilo/actions-poetry@fd0e6716a0de25ef6ade151b8b53190b0376acfd # v3
+        with:
+          poetry-version: 2.1.3
+
+      - name: Build the package
+        id: build
+        env:
+          VERSION: ${{ needs.gate.outputs.version }}
+        run: |
+          PACKAGE_VERSION=$(poetry version -s)
+          if [ "$PACKAGE_VERSION" != "$VERSION" ]; then
+            echo "::error::pyproject.toml is $PACKAGE_VERSION but gen.lock is $VERSION"
+            exit 1
+          fi
+          if curl -sf "https://pypi.org/pypi/gr4vy/$VERSION/json" >/dev/null; then
+            echo "gr4vy $VERSION is already on PyPI"
+            echo "published=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          python scripts/prepare_readme.py
+          poetry build
+
+      - name: Publish to PyPI
+        if: steps.build.outputs.published != 'true'
+        uses: pypa/gh-action-pypi-publish@7245906fb61fa33a13554f9d5fb856fe61758086 # v1.14.3
+
+      - name: Create the GitHub release
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+          VERSION: ${{ needs.gate.outputs.version }}
+          SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+        run: |
+          {
+            echo "[gr4vy $VERSION](https://pypi.org/project/gr4vy/$VERSION/)"
+            echo
+            yq -r '.releaseNotes' .speakeasy/gen.lock
+          } > release-notes.md
+          gh release create "v$VERSION" --repo "$GITHUB_REPOSITORY" --target "$SHA" \
+            --title "python - v$VERSION" --notes-file release-notes.md
+
+  notify:
+    needs: [gate, publish]
+    runs-on: ubuntu-latest
+    if: always() && (needs.gate.result == 'failure' || needs.publish.result != 'skipped')
+    steps:
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@e31e87e03dd19038e411e38ae27cbad084a90661 # v2
         env:
             SLACK_USERNAME: Python SDK 
             SLACK_TITLE: Python SDK
@@ -38,12 +151,13 @@ jobs:
             SLACK_MSG_AUTHOR: gr4vy-code
             SLACK_ICON_EMOJI: ":gr4vy:"
             SLACK_COLOR: "${{ contains(needs.*.result, 'failure') && 'failure' || 'success' }}"
-            SLACK_MESSAGE_ON_SUCCESS: "SDK publishing succeeded - `${{ github.event.head_commit.message }}`"
-            SLACK_MESSAGE_ON_FAILURE: "SDK publishing failed - `${{ github.event.head_commit.message }}`"
+            SLACK_MESSAGE_ON_SUCCESS: "SDK publishing succeeded - `${{ github.event.workflow_run.head_commit.message || 'manual dispatch' }}`"
+            SLACK_MESSAGE_ON_FAILURE: "SDK publishing failed - `${{ github.event.workflow_run.head_commit.message || 'manual dispatch' }}`"
             SLACK_FOOTER: ""
 
   dispatch:
     needs: publish
+    if: always() && needs.publish.result == 'success'
     strategy:
       matrix:
         repo:
