@@ -19,7 +19,7 @@ jobs:
     environment: sdk-release
     steps:
       - id: bot
-        uses: gr4vy/sdk-release/release-bot@0d6218b18c2c2f495a206efebea008ba96b174bb
+        uses: gr4vy/sdk-release/release-bot@bfa153bbce3261827eabbe2fc9aa52c16f8e6231
         with:
           sdk: python
           run-id: ${{ github.event.workflow_run.id }}
