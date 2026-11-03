@@ -2,7 +2,15 @@
 
 from __future__ import annotations
 from .bankaccountholder import BankAccountHolder, BankAccountHolderTypedDict
-from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
+from gr4vy.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
+)
 from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
@@ -19,9 +27,9 @@ class BACSBankPaymentMethodCreateTypedDict(TypedDict):
 
     account_holder: BankAccountHolderTypedDict
     account_number: str
-    r"""The account number for this BACS bank account"""
+    r"""The account number for this BACS bank account, made up of 8 digits. A 6 or 7 digit number is padded with leading zeros. Spaces and dashes are ignored."""
     routing_number: str
-    r"""The sort code for this BACS bank account"""
+    r"""The sort code for this BACS bank account, made up of 6 digits. Spaces and dashes are ignored."""
     method: Literal["bank"]
     r"""Always `bank`."""
     buyer_id: NotRequired[Nullable[str]]
@@ -43,10 +51,10 @@ class BACSBankPaymentMethodCreate(BaseModel):
     account_holder: BankAccountHolder
 
     account_number: str
-    r"""The account number for this BACS bank account"""
+    r"""The account number for this BACS bank account, made up of 8 digits. A 6 or 7 digit number is padded with leading zeros. Spaces and dashes are ignored."""
 
     routing_number: str
-    r"""The sort code for this BACS bank account"""
+    r"""The sort code for this BACS bank account, made up of 6 digits. Spaces and dashes are ignored."""
 
     METHOD: Annotated[
         Annotated[Optional[Literal["bank"]], AfterValidator(validate_const("bank"))],
@@ -70,6 +78,9 @@ class BACSBankPaymentMethodCreate(BaseModel):
     r"""Always `bacs`."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             [
@@ -83,11 +94,14 @@ class BACSBankPaymentMethodCreate(BaseModel):
         nullable_fields = set(
             ["buyer_id", "buyer_external_identifier", "external_identifier"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields

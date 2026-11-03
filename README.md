@@ -604,7 +604,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.merchant_accounts.get(merchant_account_id="merchant-12345")
@@ -629,7 +629,7 @@ import os
 
 
 with Gr4vy(
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.api_key_pairs.list(limit=20)
@@ -656,7 +656,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.account_updater.jobs.create(payment_method_ids=[
@@ -682,7 +682,7 @@ import os
 with Gr4vy(
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.account_updater.jobs.create(payment_method_ids=[
@@ -721,7 +721,7 @@ from typing import Literal
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
     res = None
     try:
@@ -817,7 +817,7 @@ with Gr4vy(
     server="sandbox",
     id="example",
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.account_updater.jobs.create(payment_method_ids=[
@@ -843,7 +843,7 @@ import os
 with Gr4vy(
     server_url="https://api.sandbox.example.gr4vy.app",
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.account_updater.jobs.create(payment_method_ids=[
@@ -968,9 +968,10 @@ def main():
 
     with Gr4vy(
         merchant_account_id="default",
-        bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+        bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
     ) as g_client:
         # Rest of application here...
+        pass
 
 
 # Or when using async:
@@ -978,9 +979,10 @@ async def amain():
 
     async with Gr4vy(
         merchant_account_id="default",
-        bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+        bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
     ) as g_client:
         # Rest of application here...
+        pass
 ```
 <!-- End Resource Management [resource-management] -->
 

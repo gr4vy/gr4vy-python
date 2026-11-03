@@ -23,7 +23,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.gift_cards.get(gift_card_id="356d56e5-fe16-42ae-97ee-8d55d846ae2e")
@@ -77,7 +77,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     g_client.gift_cards.delete(gift_card_id="356d56e5-fe16-42ae-97ee-8d55d846ae2e")
@@ -126,7 +126,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.gift_cards.create(number="4123455541234561234", pin="1234")
@@ -183,7 +183,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.gift_cards.list(limit=20)

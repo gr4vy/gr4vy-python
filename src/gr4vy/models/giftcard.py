@@ -4,7 +4,15 @@ from __future__ import annotations
 from .buyer import Buyer, BuyerTypedDict
 from .giftcardservice import GiftCardService, GiftCardServiceTypedDict
 from datetime import datetime
-from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
+from gr4vy.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
+)
 from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
@@ -96,6 +104,9 @@ class GiftCard(BaseModel):
     r"""The timestamp when this gift card was last used in a transaction for client initiated transactions."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(
             ["type", "expiration_date", "buyer", "last_used_at", "cit_last_used_at"]
@@ -103,11 +114,14 @@ class GiftCard(BaseModel):
         nullable_fields = set(
             ["expiration_date", "buyer", "last_used_at", "cit_last_used_at"]
         )
+        exclude_none = current_exclude_none()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and exclude_none is False:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields

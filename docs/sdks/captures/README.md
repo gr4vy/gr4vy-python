@@ -21,7 +21,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.transactions.captures.list(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591")
@@ -75,7 +75,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.transactions.captures.get(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591", capture_id="b1e2c3d4-5678-1234-9abc-1234567890ab")
