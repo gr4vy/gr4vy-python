@@ -1,4 +1,4 @@
-"""Summarise endpoint reach for the PR comment.
+"""Summarise endpoint reach for the CI run summary and Slack report.
 
 Reach is computed from *observed HTTP calls*, not code coverage: the test HTTP
 client (tests/utils/client.py, gated on ``GR4VY_TRACK_HTTP``) logs the method +
@@ -8,7 +8,7 @@ synchronous ``self._build_request(method=..., path=...)`` call, then mark an
 operation reached only if a matching request was actually sent — so an operation
 that fails local validation before issuing a request does not count.
 
-Writes ``coverage/endpoint-coverage.md`` (for the PR comment) and prints it.
+Writes ``coverage/endpoint-coverage.md`` (for the CI run summary and Slack report) and prints it.
 Exits 0 always — this is a report, not a gate.
 """
 
