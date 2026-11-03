@@ -5,15 +5,15 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.806.0
   generationVersion: 2.956.1
-  releaseVersion: 2.4.28
-  configChecksum: a61eb5a3809196b03ef622208183271a
+  releaseVersion: 2.4.29
+  configChecksum: a21e3610823ae46c970617fdb3ee5a96
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: b4c349d5-d01c-4ba9-ab4d-1d0b046bfdef
-  pristine_commit_hash: 69e89be8db1490213918b736b450166c98049891
-  pristine_tree_hash: b33b6be368842bb66007cd42b86ec8e3d3c31245
+  generation_id: 42993938-42d4-4793-b0ac-2254953abfdb
+  pristine_commit_hash: 854e1bf068a6cc4ba7fc09f1a8bf924e4bd43d69
+  pristine_tree_hash: a0a412674fd67bba6c9b937321d82a1d57592e23
 features:
   python:
     additionalDependencies: 1.1.0
@@ -2909,8 +2909,8 @@ trackedFiles:
     pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:d01ca1c557321439279bb797b59cc778860102b2
-    pristine_git_object: 8a0cc75bef6ddd531b01f340cd0aabbf2cccad6d
+    last_write_checksum: sha1:1457ecf3bf21f8b51d229231f186d8086c5db5fb
+    pristine_git_object: 454138a3409c268fd23089973ce042443c09f741
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2937,8 +2937,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:93f9e6e912fc703a38f0c1d7ba8a0bc58f453f33
-    pristine_git_object: d02ff1ad03eb00fcf3ec339ae3e3f8c7ece6a515
+    last_write_checksum: sha1:b87ab5053b1d391ab546b5453c3256b4f70b0139
+    pristine_git_object: 09476cd20cf40eedccdaa8fd5d81766139beba3c
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -9517,7 +9517,6 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.buyers.payment_methods.list()`:  `response.items[]` **Changed**\n* `gr4vy.payment_methods.list()`:  `response.items[]` **Changed**\n* `gr4vy.payment_methods.create()`: \n  *  `request_body.union(RedirectPaymentMethodCreate).method` **Changed**\n  *  `response` **Changed**\n* `gr4vy.payment_methods.get()`:  `response` **Changed**\n* `gr4vy.payment_methods.update()`: \n  *  `request.scheme_transaction_id_scheme.enum(dinacard)` **Added**\n  *  `response` **Changed**\n* `gr4vy.transactions.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].payment_method` **Changed**\n* `gr4vy.transactions.create()`: \n  *  `request.payment_method` **Changed**\n  *  `response.payment_method` **Changed**\n* `gr4vy.transactions.get()`:  `response.payment_method` **Changed**\n* `gr4vy.transactions.update()`:  `response.payment_method` **Changed**\n* `gr4vy.transactions.capture()`:  `response.union(Transaction).payment_method` **Changed**\n* `gr4vy.transactions.void()`:  `response.union(Transaction).payment_method` **Changed**\n* `gr4vy.transactions.cancel()`:  `response.transaction.payment_method` **Changed**\n* `gr4vy.transactions.sync()`:  `response.payment_method` **Changed**\n* `gr4vy.transactions.increment_authorization()`:  `response.transaction.payment_method` **Changed**\n* `gr4vy.payment_service_definitions.list()`:  `response.items[].method` **Changed**\n* `gr4vy.payment_service_definitions.get()`:  `response.method` **Changed**\n* `gr4vy.payment_services.list()`: \n  *  `request.method` **Changed**\n  *  `response.items[].method` **Changed**\n* `gr4vy.payment_services.create()`:  `response.method` **Changed**\n* `gr4vy.payment_services.get()`:  `response.method` **Changed**\n* `gr4vy.payment_services.update()`:  `response.method` **Changed**\n* `gr4vy.audit_logs.list()`:  `response.items[].user.status.enum(reset)` **Added**\n* `gr4vy.checkout_sessions.create()`:  `response.payment_method.scheme.enum(dinacard)` **Added**\n* `gr4vy.checkout_sessions.update()`:  `response.payment_method.scheme.enum(dinacard)` **Added**\n* `gr4vy.checkout_sessions.get()`:  `response.payment_method.scheme.enum(dinacard)` **Added**\n* `gr4vy.merchant_accounts.list()`:  `response.items[].loon_accepted_schemes[].enum(dinacard)` **Added**\n* `gr4vy.merchant_accounts.create()`: \n  *  `request.loon_accepted_schemes[].enum(dinacard)` **Added**\n  *  `response.loon_accepted_schemes[].enum(dinacard)` **Added**\n* `gr4vy.merchant_accounts.get()`:  `response.loon_accepted_schemes[].enum(dinacard)` **Added**\n* `gr4vy.merchant_accounts.update()`: \n  *  `request.loon_accepted_schemes[].enum(dinacard)` **Added**\n  *  `response.loon_accepted_schemes[].enum(dinacard)` **Added**\n* `gr4vy.merchant_accounts.three_ds_configuration.create()`: \n  *  `request.scheme.enum(dinacard)` **Added**\n  *  `response.scheme.enum(dinacard)` **Added**\n* `gr4vy.merchant_accounts.three_ds_configuration.list()`:  `response.items[].scheme.enum(dinacard)` **Added**\n* `gr4vy.merchant_accounts.three_ds_configuration.update()`: \n  *  `request.scheme.enum(dinacard)` **Added**\n  *  `response.scheme.enum(dinacard)` **Added**\n* `gr4vy.payouts.list()`:  `response.items[].payment_method` **Changed**\n* `gr4vy.payouts.create()`: \n  *  `request.payment_method.union(PaymentMethodCard).card_scheme.enum(dinacard)` **Added**\n  *  `response.payment_method` **Changed**\n* `gr4vy.payouts.get()`:  `response.payment_method` **Changed**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
