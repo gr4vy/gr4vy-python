@@ -29,7 +29,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.transactions.list(cursor="ZXhhbXBsZTE", limit=20, created_at_lte=parse_datetime("2022-01-01T12:00:00+08:00"), created_at_gte=parse_datetime("2022-01-01T12:00:00+08:00"), updated_at_lte=parse_datetime("2022-01-01T12:00:00+08:00"), updated_at_gte=parse_datetime("2022-01-01T12:00:00+08:00"), search="transaction-12345", buyer_external_identifier="buyer-12345", buyer_id="fe26475d-ec3e-4884-9553-f7356683f7f9", buyer_email_address="john@example.com", ip_address="8.214.133.47", status=[
@@ -160,7 +160,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.transactions.create(amount=1299, currency="EUR", idempotency_key="request-12345", store=True, is_subsequent_payment=True, merchant_initiated=True, async_capture=True, account_funding_transaction=True, allow_partial_authorization=False)
@@ -259,7 +259,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.transactions.get(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591")
@@ -313,7 +313,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.transactions.update(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591")
@@ -370,7 +370,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.transactions.capture(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591", final=True, reauthorize_if_authorization_expired=True)
@@ -433,7 +433,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.transactions.void(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591")
@@ -489,7 +489,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.transactions.cancel(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591")
@@ -543,7 +543,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.transactions.sync(transaction_id="2ee546e0-3b11-478e-afec-fdb362611e22")
@@ -597,7 +597,7 @@ import os
 
 with Gr4vy(
     merchant_account_id="default",
-    bearer_auth=os.getenv("GR4VY_BEARER_AUTH", ""),
+    bearer_auth=os.getenv("GR4VY_BEARER_AUTH"),
 ) as g_client:
 
     res = g_client.transactions.increment_authorization(transaction_id="7099948d-7286-47e4-aad8-b68f7eb44591", amount=1299)

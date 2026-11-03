@@ -21,6 +21,7 @@ This is an open enum. Unrecognized values will not fail type checks.
 - `"cirrus"`
 - `"culiance"`
 - `"dankort"`
+- `"dinacard"`
 - `"diners-club"`
 - `"discover"`
 - `"eftpos-australia"`
