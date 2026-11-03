@@ -17,6 +17,9 @@ on:
     # -> every endpoint 500s (Sentry CORE-API-1N0). Keep these apart.
     - cron: 35 8 * * 1-5
 
+permissions:
+  contents: read
+
 jobs:
   # Lint the SDK and the test suite once (the generated SDK only needs one
   # interpreter to lint).
@@ -26,6 +29,8 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
+        with:
+          persist-credentials: false
 
       - name: Use Python 3.13
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
@@ -46,10 +51,14 @@ jobs:
   # E2E suites, sharded by directory so wall-clock stays low. Each shard
   # provisions its own merchant accounts (one per test module), so they are fully
   # independent. The shard map lives here; pytest runs just that directory.
+  # Runs on main only (push, schedule, dispatch). The key lives in the `e2e`
+  # Environment, which only main can use, so a branch workflow can't read it.
   e2e:
     name: e2e (${{ matrix.shard }})
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    environment: e2e
     strategy:
       fail-fast: false
       matrix:
@@ -61,6 +70,8 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
+        with:
+          persist-credentials: false
 
       - name: Use Python 3.13
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
@@ -78,20 +89,8 @@ jobs:
       - name: Run ${{ matrix.shard }} suite
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-          IS_FORK_PR: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name != github.repository }}
-        run: |
-          # Fork PRs don't get repository secrets, so skip the live suite there.
-          # On trusted refs (same-repo PRs / main) a missing key is a real problem —
-          # fail loudly rather than letting ci-complete go green without coverage.
-          if [ -z "$PRIVATE_KEY" ]; then
-            if [ "$IS_FORK_PR" = "true" ]; then
-              echo "Fork PR without secrets — skipping live E2E suite."
-              exit 0
-            fi
-            echo "::error::PRIVATE_KEY is not set on a trusted ref — failing instead of silently skipping the live suite."
-            exit 1
-          fi
-          poetry run pytest ${{ matrix.path }}
+          SUITE_PATH: ${{ matrix.path }}
+        run: poetry run pytest "$SUITE_PATH"
 
   # Offline tests (JWT + webhook signing) across the supported Python versions —
   # fast cross-version sanity that needs no sandbox.
@@ -112,6 +111,8 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
+        with:
+          persist-credentials: false
 
       - name: Use Python ${{ matrix.python }}
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
@@ -129,40 +130,51 @@ jobs:
       - name: Run offline suite
         run: poetry run pytest tests/test_auth.py tests/test_webhooks.py
 
-  # Single stable required check. Branch rulesets should require THIS context
-  # (not the per-shard matrix jobs, whose names change when shards are added).
+  # Single stable required check. Branch rulesets require THIS context (not the
+  # per-shard matrix jobs, whose names change when shards are added). On a PR it
+  # means lint and the offline suites passed; on main it also means the live
+  # suite passed, which is what the publish workflow waits for.
   ci-complete:
     name: ci-complete
     needs: [lint, e2e, offline]
+    if: always()
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pull-requests: write
     steps:
-      - name: All suites passed
-        run: echo "Lint, all E2E shards and offline suites passed."
+      - name: Verify all jobs passed
+        env:
+          LINT: ${{ needs.lint.result }}
+          E2E: ${{ needs.e2e.result }}
+          OFFLINE: ${{ needs.offline.result }}
+          ON_MAIN: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
+        run: |
+          if [ "$LINT" != "success" ] || [ "$OFFLINE" != "success" ]; then
+            echo "lint: $LINT, offline: $OFFLINE"
+            exit 1
+          fi
+          if [ "$ON_MAIN" != "true" ] && [ "$E2E" = "skipped" ]; then
+            exit 0
+          fi
+          if [ "$E2E" != "success" ]; then
+            echo "e2e: $E2E"
+            exit 1
+          fi
 
-      - name: Auto-approve SDK-regen PRs
-        uses: hmarr/auto-approve-action@8f929096a962e83ccdfa8afcf855f39f12d4dac7 # v4
-        if: "github.event.pull_request.user.login == 'github-actions[bot]'"
-        with:
-          github-token: ${{ secrets.DISPATCH_ACCESS_TOKEN }}
-
-  # Endpoint-reach report posted as a sticky PR comment. NOT a merge dependency
-  # (it must never block auto-merge). Same-repo PRs only (needs the secret).
+  # Endpoint reach of the live suite, written to the run summary. Runs after the
+  # live suite on main. continue-on-error keeps a failed report from failing the
+  # CI run, which is what the publish workflow waits for.
   coverage:
     name: coverage
+    needs: e2e
+    if: ${{ !cancelled() && github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
+    continue-on-error: true
     runs-on: ubuntu-latest
     timeout-minutes: 12
-    if: >-
-      github.event_name == 'pull_request' &&
-      github.event.pull_request.head.repo.full_name == github.repository
-    permissions:
-      contents: read
-      pull-requests: write
+    environment: e2e
     steps:
       - name: Check out the repo
         uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
+        with:
+          persist-credentials: false
 
       - name: Use Python 3.13
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
@@ -188,57 +200,19 @@ jobs:
       - name: Build endpoint-coverage report
         run: poetry run python scripts/endpoint_coverage.py
 
-      # A broken suite reaches only a fraction of the endpoints, so flag the
-      # report as incomplete rather than posting a misleading number.
-      - name: Flag report as incomplete
-        if: steps.suite.outcome != 'success'
+      - name: Write the report to the run summary
         env:
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          SUITE: ${{ steps.suite.outcome }}
         run: |
-          {
-            echo "> ⚠️ **The test suite failed in [this run]($RUN_URL), so the reach below is incomplete.** It refreshes when CI is re-run."
-            echo
-            cat coverage/endpoint-coverage.md
-          } > coverage/endpoint-coverage.md.tmp
-          mv coverage/endpoint-coverage.md.tmp coverage/endpoint-coverage.md
+          if [ "$SUITE" != "success" ]; then
+            echo "> ⚠️ **The test suite failed in this run, so the reach below is incomplete.**" >> "$GITHUB_STEP_SUMMARY"
+            echo >> "$GITHUB_STEP_SUMMARY"
+          fi
+          cat coverage/endpoint-coverage.md >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Post coverage comment
-        uses: marocchino/sticky-pull-request-comment@773744901bac0e8cbb5a0dc842800d45e9b2b405 # v2.9.4
-        with:
-          header: endpoint-coverage
-          path: coverage/endpoint-coverage.md
-
-      # Fail the job so "Re-run failed jobs" reruns coverage and replaces the
-      # comment above with a complete report.
       - name: Fail if the suite failed
         if: steps.suite.outcome != 'success'
-        run: |
-          echo "::error::The test suite failed, so the endpoint-coverage report is incomplete."
-          exit 1
-
-  merge:
-    needs: ci-complete
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: write
-      pull-requests: write
-
-    steps:
-      - id: automerge
-        name: automerge
-        if: "github.event.pull_request.user.login == 'github-actions[bot]'"
-        uses: "pascalgn/automerge-action@7961b8b5eec56cc088c140b56d864285eabd3f67" # v0.16.4
-        env:
-          GITHUB_TOKEN: ${{ secrets.DISPATCH_ACCESS_TOKEN }}
-          MERGE_LABELS: ''
-          MERGE_REQUIRED_APPROVALS: 0
-          MERGE_METHOD: squash
-          MERGE_COMMIT_MESSAGE: "pull-request-title"
-          MERGE_ERROR_FAIL: true
-          MERGE_DELETE_BRANCH: true
-          MERGE_FORKS: false
-          UPDATE_METHOD: rebase
+        run: exit 1
 
   notify:
     needs: [lint, e2e, offline]
