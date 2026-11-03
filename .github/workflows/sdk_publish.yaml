@@ -131,7 +131,7 @@ jobs:
           {
             echo "[gr4vy $VERSION](https://pypi.org/project/gr4vy/$VERSION/)"
             echo
-            yq -r '.releaseNotes' .speakeasy/gen.lock
+            yq -r '.releaseNotes // ""' .speakeasy/gen.lock
           } > release-notes.md
           gh release create "v$VERSION" --repo "$GITHUB_REPOSITORY" --target "$SHA" \
             --title "python - v$VERSION" --notes-file release-notes.md

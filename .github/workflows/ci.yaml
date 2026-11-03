@@ -55,7 +55,7 @@ jobs:
   # Environment, which only main can use, so a branch workflow can't read it.
   e2e:
     name: e2e (${{ matrix.shard }})
-    if: github.event_name != 'pull_request'
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment: e2e
@@ -145,13 +145,13 @@ jobs:
           LINT: ${{ needs.lint.result }}
           E2E: ${{ needs.e2e.result }}
           OFFLINE: ${{ needs.offline.result }}
-          EVENT: ${{ github.event_name }}
+          ON_MAIN: ${{ github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
         run: |
           if [ "$LINT" != "success" ] || [ "$OFFLINE" != "success" ]; then
             echo "lint: $LINT, offline: $OFFLINE"
             exit 1
           fi
-          if [ "$EVENT" = "pull_request" ] && [ "$E2E" = "skipped" ]; then
+          if [ "$ON_MAIN" != "true" ] && [ "$E2E" = "skipped" ]; then
             exit 0
           fi
           if [ "$E2E" != "success" ]; then
@@ -165,7 +165,7 @@ jobs:
   coverage:
     name: coverage
     needs: e2e
-    if: ${{ !cancelled() && github.event_name != 'pull_request' }}
+    if: ${{ !cancelled() && github.event_name != 'pull_request' && github.ref == 'refs/heads/main' }}
     continue-on-error: true
     runs-on: ubuntu-latest
     timeout-minutes: 12
