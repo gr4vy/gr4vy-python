@@ -7,13 +7,12 @@ authors = [{ name = "Gr4vy" },]
 readme = "README-PYPI.md"
 requires-python = ">=3.10"
 dependencies = [
-    "PyJWT (>=2.10.1,<3.0.0)",
+    "PyJWT (>=2.15.0,<3.0.0)",
     "cryptography (>=50.0.1,<51.0.0)",
     "httpcore >=1.0.9",
     "httpx >=0.28.1",
     "jsonpath-python >=1.0.6",
     "pydantic >=2.11.2",
-    "python-jose (>=3.4.0,<4.0.0)",
 ]
 
 [tool.poetry]
@@ -32,12 +31,11 @@ in-project = true
 [tool.poetry.group.dev.dependencies]
 freezegun = "^1.5.1"
 mypy = "==1.15.0"
-pylint = "==3.2.3"
+pylint = "==4.1.3"
 pyright = "==1.1.398"
 pytest = "^9.0.3"
-requests = "^2.23.2"
+requests = "^2.33.0"
 types-Pygments = "^2.19.0.20250305"
-types-python-jose = "^3.4.0.20250224"
 
 [build-system]
 requires = ["poetry-core"]

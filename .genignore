@@ -1,2 +1,3 @@
 src/gr4vy/auth.py
 tests/test_auth.py
+pylintrc
