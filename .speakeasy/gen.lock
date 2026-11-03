@@ -5,15 +5,15 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.806.0
   generationVersion: 2.956.1
-  releaseVersion: 2.4.30
-  configChecksum: 9fb5ae2527e097595cae1a31f4079a23
+  releaseVersion: 2.4.31
+  configChecksum: dae69ace16f7a693a937b4a16d933880
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 70910794-4f4d-4445-a0a3-9796c64eb4fa
-  pristine_commit_hash: f9343e412274e392dfeb2d8c26649b47bc4a69cc
-  pristine_tree_hash: 20021975c1d7fe71b83c5621a6f34b8d173c1456
+  generation_id: d2e9b228-673f-45ba-b99f-3276f0986d22
+  pristine_commit_hash: d7191d27c39edbd167fe9cba787cd51ad2d38baa
+  pristine_tree_hash: 1b0c00ee5d34e2d3df6aa8e8e5e3aeac6f312f58
 features:
   python:
     additionalDependencies: 1.1.0
@@ -2903,14 +2903,10 @@ trackedFiles:
     id: 258c3ed47ae4
     last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
     pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
-  pylintrc:
-    id: 7ce8b9f946e6
-    last_write_checksum: sha1:405a401fef1f2af6000d945591041683832b3132
-    pristine_git_object: cb9c15d314c1930557401074329ed7a737147919
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:c71196d6be3a1604343daadc63dd3f07a619ee05
-    pristine_git_object: 1069793de5080100a3310cc099fdee7a2bddb632
+    last_write_checksum: sha1:7360d26f70b6a93848e738c63d83bb32d6edee0e
+    pristine_git_object: dbe6398265e138465ff664db2d44475f972be1d9
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2937,8 +2933,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:7acc2c3acf95001c21646202f4e60142cdd55054
-    pristine_git_object: c40c0e69c19ab889ba1729f9b23060ae2cb17caf
+    last_write_checksum: sha1:3ef8eec7c76b6529129c5c13f6fa948298c84fb3
+    pristine_git_object: a7db427b47868a489148910c01294f1a1a58ea8a
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
