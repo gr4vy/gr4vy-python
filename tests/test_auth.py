@@ -211,3 +211,33 @@ def test_with_token():
     token2 = promise()
 
     assert token1 != token2
+
+
+# Throwaway test key whose public x-coordinate is < 2**512, so its 66-byte
+# big-endian encoding starts with 0x00. The JWK must keep that padding byte
+# (RFC 7518 §6.2.1.2) or the kid changes.
+LEADING_ZERO_PRIVATE_KEY = """-----BEGIN PRIVATE KEY-----
+MIHuAgEAMBAGByqGSM49AgEGBSuBBAAjBIHWMIHTAgEBBEIB0/ZOp16I8c+lFCDX
+mpLamcx0hMkI7cAhZ65XqvMm5Zsta0Xx0mGDqId/q1foQujlYORWsKEao3mDGUiF
+4F3wCrmhgYkDgYYABAAA+MK5QBNhjtofcCTvgf5Uji0HJyE4EUddlN9cS5kJnr7S
+Kg/Q0/+Y7KG9FpBQYaefHakMGBEB1z1mT51cMleO3wBWMvnaS7z/4tmeQCkmSoAn
+T0nW41rOAtAO0lay0TAKuLGbVNs8Nc8ZLsxEMZ8AJa883SctQbUin3F15Gx+2Bw2
+eQ==
+-----END PRIVATE KEY-----"""
+
+
+def test_get_token_sets_rfc7638_thumbprint_as_kid():
+    # Expected value computed with the previous python-jose implementation.
+    token = get_token(PRIVATE_KEY)
+    header = jwt.get_unverified_header(token)
+
+    assert header["alg"] == "ES512"
+    assert header["kid"] == "va-SLs5AxJNfqKXD8LI5Y38BflpNvjZjY4RSWz66U1w"
+
+
+def test_get_token_kid_preserves_leading_zero_coordinate_padding():
+    # Expected value computed with the previous python-jose implementation.
+    token = get_token(LEADING_ZERO_PRIVATE_KEY)
+    header = jwt.get_unverified_header(token)
+
+    assert header["kid"] == "sHeDvX6wjroRYM5jaA-E4bGHjmuRYRyZWji4u7n3_go"

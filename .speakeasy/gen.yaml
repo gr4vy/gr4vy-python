@@ -34,14 +34,13 @@ python:
   additionalDependencies:
     dev:
       freezegun: ^1.5.1
+      pylint: ==4.1.3
       pytest: ^9.0.3
-      requests: ^2.23.2
+      requests: ^2.33.0
       types-Pygments: ^2.19.0.20250305
-      types-python-jose: ^3.4.0.20250224
     main:
-      PyJWT: ^2.10.1
+      PyJWT: ^2.15.0
       cryptography: ^50.0.1
-      python-jose: ^3.4.0
   allowedRedefinedBuiltins:
     - id
     - object

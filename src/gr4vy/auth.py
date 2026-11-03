@@ -3,9 +3,9 @@ import enum
 import base64
 import textwrap
 import json
-from jose import jwk
 from cryptography.hazmat.primitives import hashes, serialization
 import jwt
+from jwt.algorithms import ECAlgorithm
 from typing import Optional, Dict, Any, Union, TYPE_CHECKING
 from datetime import datetime, timedelta, timezone
 from ._version import __user_agent__
@@ -97,7 +97,7 @@ def __b64e(value: bytes) -> str:
 def __thumbprint(private_key: str) -> str:
     private_key_pem = textwrap.dedent(private_key).encode()
     serialized_pem = serialization.load_pem_private_key(private_key_pem, password=None)
-    key = jwk.construct(serialized_pem, algorithm="ES512").to_dict() # type: ignore
+    key = ECAlgorithm.to_jwk(serialized_pem.public_key(), as_dict=True) # type: ignore
     claims = {k: v for k, v in key.items() if k in {"kty", "crv", "x", "y"}}
     json_claims = json.dumps(claims, separators=(",", ":"), sort_keys=True)
     digest = hashes.Hash(hashes.SHA256())
