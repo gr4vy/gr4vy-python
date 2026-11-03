@@ -46,6 +46,9 @@ class PaymentLinksSDK(BaseSDK):
         cart_items: OptionalNullable[
             Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
+        airline: OptionalNullable[
+            Union[models.Airline, models.AirlineTypedDict]
+        ] = UNSET,
         metadata: OptionalNullable[Mapping[str, Any]] = UNSET,
         payment_source: Optional[models.TransactionPaymentSource] = None,
         store: Optional[bool] = False,
@@ -80,6 +83,7 @@ class PaymentLinksSDK(BaseSDK):
         :param intent:
         :param return_url: The return URL after payment completion.
         :param cart_items: The cart items for the payment link.
+        :param airline: The airline addendum data which describes the airline booking associated with this payment link.
         :param metadata: Arbitrary metadata for the payment link.
         :param payment_source: The way payment method information made it to this transaction.
         :param store: Whether to store the payment method for future use.
@@ -130,6 +134,9 @@ class PaymentLinksSDK(BaseSDK):
                 return_url=return_url,
                 cart_items=utils.get_pydantic_model(
                     cart_items, OptionalNullable[List[models.CartItem]]
+                ),
+                airline=utils.get_pydantic_model(
+                    airline, OptionalNullable[models.Airline]
                 ),
                 metadata=utils.unmarshal(metadata, OptionalNullable[Dict[str, Any]]),
                 payment_source=payment_source,
@@ -275,6 +282,9 @@ class PaymentLinksSDK(BaseSDK):
         cart_items: OptionalNullable[
             Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
         ] = UNSET,
+        airline: OptionalNullable[
+            Union[models.Airline, models.AirlineTypedDict]
+        ] = UNSET,
         metadata: OptionalNullable[Mapping[str, Any]] = UNSET,
         payment_source: Optional[models.TransactionPaymentSource] = None,
         store: Optional[bool] = False,
@@ -309,6 +319,7 @@ class PaymentLinksSDK(BaseSDK):
         :param intent:
         :param return_url: The return URL after payment completion.
         :param cart_items: The cart items for the payment link.
+        :param airline: The airline addendum data which describes the airline booking associated with this payment link.
         :param metadata: Arbitrary metadata for the payment link.
         :param payment_source: The way payment method information made it to this transaction.
         :param store: Whether to store the payment method for future use.
@@ -359,6 +370,9 @@ class PaymentLinksSDK(BaseSDK):
                 return_url=return_url,
                 cart_items=utils.get_pydantic_model(
                     cart_items, OptionalNullable[List[models.CartItem]]
+                ),
+                airline=utils.get_pydantic_model(
+                    airline, OptionalNullable[models.Airline]
                 ),
                 metadata=utils.unmarshal(metadata, OptionalNullable[Dict[str, Any]]),
                 payment_source=payment_source,
