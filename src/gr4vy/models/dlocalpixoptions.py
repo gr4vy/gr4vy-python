@@ -5,7 +5,16 @@ from .dlocalpixsubscriptionoptions import (
     DlocalPIXSubscriptionOptions,
     DlocalPIXSubscriptionOptionsTypedDict,
 )
-from gr4vy.types import BaseModel, Nullable, OptionalNullable, UNSET, UNSET_SENTINEL
+from gr4vy.types import (
+    BaseModel,
+    Nullable,
+    OptionalNullable,
+    UNSET,
+    UNSET_SENTINEL,
+    current_exclude_none,
+    serialize_with_info,
+)
+from gr4vy.types.basemodel import current_filtered_dump
 from pydantic import model_serializer
 from typing_extensions import NotRequired, TypedDict
 
@@ -25,14 +34,21 @@ class DlocalPIXOptions(BaseModel):
     r"""Defines scheduled payment start date. Must be provided in ISO 8601 format `(YYYY-MM-DD`). If not specified, The default is 2 days in the future."""
 
     @model_serializer(mode="wrap")
+    def _serialize_model_with_info(self, handler, info):
+        return serialize_with_info(self.serialize_model, handler, info)
+
     def serialize_model(self, handler):
         optional_fields = set(["subscription", "scheduled_date"])
         nullable_fields = set(["subscription", "scheduled_date"])
+        exclude_none = current_exclude_none()
+        skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)
         m = {}
 
         for n, f in type(self).model_fields.items():
-            k = f.alias or n
+            k = f.alias if f.alias is not None else n
+            if k not in serialized and n not in serialized and skip_filtered:
+                continue
             val = serialized.get(k, serialized.get(n))
             is_nullable_and_explicitly_set = (
                 k in nullable_fields
