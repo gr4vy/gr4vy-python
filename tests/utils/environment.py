@@ -89,12 +89,11 @@ def setup_merchant() -> TestMerchant:
     admin = create_client(private_key)
 
     merchant_account_id = secrets.token_hex(8)
-    admin.merchant_accounts.create(
-        id=merchant_account_id, display_name=merchant_account_id
-    )
-
     client = create_client(private_key, merchant_account_id)
     try:
+        admin.merchant_accounts.create(
+            id=merchant_account_id, display_name=merchant_account_id
+        )
         client.payment_services.create(
             display_name="Payment service",
             payment_service_definition_id="mock-card",

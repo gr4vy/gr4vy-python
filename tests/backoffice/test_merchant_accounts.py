@@ -14,10 +14,10 @@ def test_crud_with_partial_update(merchant, request):
     sdk = create_client(merchant.private_key)
     account_id = secrets.token_hex(8)
 
-    created = sdk.merchant_accounts.create(id=account_id, display_name="Original")
     request.addfinalizer(
         lambda: delete_merchant_account(merchant.private_key, account_id)
     )
+    created = sdk.merchant_accounts.create(id=account_id, display_name="Original")
     assert created.id == account_id
 
     fetched = sdk.merchant_accounts.get(merchant_account_id=account_id)
