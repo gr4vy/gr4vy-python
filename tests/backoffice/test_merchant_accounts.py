@@ -5,16 +5,19 @@ configuration needs scheme acquirer credentials; list is a happy path)."""
 import secrets
 
 from utils import MISSING_ID, reach
-from utils.environment import create_client
+from utils.environment import create_client, delete_merchant_account
 
 
-def test_crud_with_partial_update(merchant):
+def test_crud_with_partial_update(merchant, request):
     # Merchant-account operations are account-level, not merchant-scoped, so
     # drive them with an unscoped (admin) client.
     sdk = create_client(merchant.private_key)
     account_id = secrets.token_hex(8)
 
     created = sdk.merchant_accounts.create(id=account_id, display_name="Original")
+    request.addfinalizer(
+        lambda: delete_merchant_account(merchant.private_key, account_id)
+    )
     assert created.id == account_id
 
     fetched = sdk.merchant_accounts.get(merchant_account_id=account_id)

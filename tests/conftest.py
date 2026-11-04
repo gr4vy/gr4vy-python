@@ -7,6 +7,7 @@ isolation is what makes the suite safe to shard by directory across CI.
 
 import os
 import sys
+from typing import Iterator
 
 import pytest
 
@@ -17,10 +18,12 @@ import pytest
 sys.path.insert(0, os.path.dirname(__file__))
 
 # pylint: disable=wrong-import-position
-from utils.environment import setup_merchant
+from utils.environment import delete_merchant_account, setup_merchant
 from utils.merchant import TestMerchant
 
 
 @pytest.fixture(scope="module", name="merchant")
-def merchant_fixture() -> TestMerchant:
-    return setup_merchant()
+def merchant_fixture() -> Iterator[TestMerchant]:
+    merchant = setup_merchant()
+    yield merchant
+    delete_merchant_account(merchant.private_key, merchant.merchant_account_id)
