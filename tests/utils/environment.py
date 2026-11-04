@@ -57,6 +57,29 @@ def create_client(private_key: str, merchant_account_id: Optional[str] = None) -
     )
 
 
+def delete_merchant_account(private_key: str, merchant_account_id: str) -> None:
+    """Delete a merchant account a suite created; log and carry on if it fails.
+
+    The delete endpoint is not in the public spec, so it is called directly.
+    """
+    try:
+        response = httpx.delete(
+            f"{API_BASE_URL}/merchant-accounts/{merchant_account_id}",
+            headers={"Authorization": f"Bearer {auth.get_token(private_key)}"},
+            timeout=httpx.Timeout(30.0, connect=10.0),
+        )
+        if response.status_code not in (204, 404):
+            _logger.warning(
+                "Failed to delete merchant account %s: HTTP %s",
+                merchant_account_id,
+                response.status_code,
+            )
+    except Exception:  # pylint: disable=broad-exception-caught
+        _logger.warning(
+            "Failed to delete merchant account %s", merchant_account_id, exc_info=True
+        )
+
+
 def setup_merchant() -> TestMerchant:
     """Provision an isolated merchant account + mock-card service.
 
@@ -66,19 +89,22 @@ def setup_merchant() -> TestMerchant:
     admin = create_client(private_key)
 
     merchant_account_id = secrets.token_hex(8)
-    admin.merchant_accounts.create(
-        id=merchant_account_id, display_name=merchant_account_id
-    )
-
     client = create_client(private_key, merchant_account_id)
-    client.payment_services.create(
-        display_name="Payment service",
-        payment_service_definition_id="mock-card",
-        fields=[{"key": "merchant_id", "value": "test"}],
-        accepted_currencies=["USD"],
-        accepted_countries=["US"],
-        active=True,
-    )
+    try:
+        admin.merchant_accounts.create(
+            id=merchant_account_id, display_name=merchant_account_id
+        )
+        client.payment_services.create(
+            display_name="Payment service",
+            payment_service_definition_id="mock-card",
+            fields=[{"key": "merchant_id", "value": "test"}],
+            accepted_currencies=["USD"],
+            accepted_countries=["US"],
+            active=True,
+        )
+    except Exception:
+        delete_merchant_account(private_key, merchant_account_id)
+        raise
 
     return TestMerchant(
         client=client,
