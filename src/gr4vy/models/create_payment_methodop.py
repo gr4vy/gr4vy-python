@@ -86,9 +86,9 @@ BodyTypedDict = TypeAliasType(
         CheckoutSessionPaymentMethodCreateTypedDict,
         RedirectPaymentMethodCreateTypedDict,
         PlaidPaymentMethodCreateTypedDict,
-        CardPaymentMethodCreateTypedDict,
         BACSBankPaymentMethodCreateTypedDict,
         SEPABankPaymentMethodCreateTypedDict,
+        CardPaymentMethodCreateTypedDict,
         ACHBankPaymentMethodCreateTypedDict,
     ],
 )
@@ -100,9 +100,9 @@ Body = TypeAliasType(
         CheckoutSessionPaymentMethodCreate,
         RedirectPaymentMethodCreate,
         PlaidPaymentMethodCreate,
-        CardPaymentMethodCreate,
         BACSBankPaymentMethodCreate,
         SEPABankPaymentMethodCreate,
+        CardPaymentMethodCreate,
         ACHBankPaymentMethodCreate,
     ],
 )

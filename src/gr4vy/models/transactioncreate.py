@@ -98,17 +98,17 @@ TransactionCreatePaymentMethodTypedDict = TypeAliasType(
     Union[
         TokenPaymentMethodCreateTypedDict,
         BaseBankPaymentMethodCreateTypedDict,
-        CheckoutSessionWithURLPaymentMethodCreateTypedDict,
         PlaidPaymentMethodCreateTypedDict,
         RedirectPaymentMethodCreateTypedDict,
+        CheckoutSessionWithURLPaymentMethodCreateTypedDict,
         ClickToPayPaymentMethodCreateTypedDict,
         ApplePayPaymentMethodCreateTypedDict,
         ClickToPayFPANPaymentMethodCreateTypedDict,
-        CardWithURLPaymentMethodCreateTypedDict,
         GooglePayPaymentMethodCreateTypedDict,
         NetworkTokenPaymentMethodCreateTypedDict,
         PazePaymentMethodCreateTypedDict,
         GooglePayFPANPaymentMethodCreateTypedDict,
+        CardWithURLPaymentMethodCreateTypedDict,
     ],
 )
 r"""The optional payment method to use for this transaction. This field is required if no `gift_cards` have been added."""
@@ -119,17 +119,17 @@ TransactionCreatePaymentMethod = TypeAliasType(
     Union[
         TokenPaymentMethodCreate,
         BaseBankPaymentMethodCreate,
-        CheckoutSessionWithURLPaymentMethodCreate,
         PlaidPaymentMethodCreate,
         RedirectPaymentMethodCreate,
+        CheckoutSessionWithURLPaymentMethodCreate,
         ClickToPayPaymentMethodCreate,
         ApplePayPaymentMethodCreate,
         ClickToPayFPANPaymentMethodCreate,
-        CardWithURLPaymentMethodCreate,
         GooglePayPaymentMethodCreate,
         NetworkTokenPaymentMethodCreate,
         PazePaymentMethodCreate,
         GooglePayFPANPaymentMethodCreate,
+        CardWithURLPaymentMethodCreate,
     ],
 )
 r"""The optional payment method to use for this transaction. This field is required if no `gift_cards` have been added."""

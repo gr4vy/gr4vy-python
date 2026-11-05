@@ -7,6 +7,7 @@ from gr4vy.types import (
     OptionalNullable,
     UNSET,
     UNSET_SENTINEL,
+    UnrecognizedStr,
     current_exclude_none,
     serialize_with_info,
 )
@@ -15,8 +16,21 @@ from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator
-from typing import Literal, Optional
+from typing import Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
+
+
+CheckoutSessionWithURLPaymentMethodCreatePreferredScheme = Union[
+    Literal[
+        "bancontact",
+        "carte-bancaire",
+        "dankort",
+        "mastercard",
+        "visa",
+        "eftpos-australia",
+    ],
+    UnrecognizedStr,
+]
 
 
 class CheckoutSessionWithURLPaymentMethodCreateTypedDict(TypedDict):
@@ -34,6 +48,10 @@ class CheckoutSessionWithURLPaymentMethodCreateTypedDict(TypedDict):
     r"""The `external_identifier` of a stored buyer to use. Use this instead of the `buyer_id`."""
     redirect_url: NotRequired[Nullable[str]]
     r"""The URL to redirect a user back to after the complete 3DS in browser."""
+    preferred_scheme: NotRequired[
+        Nullable[CheckoutSessionWithURLPaymentMethodCreatePreferredScheme]
+    ]
+    r"""The preferred card scheme to use when processing a co-badged card."""
 
 
 class CheckoutSessionWithURLPaymentMethodCreate(BaseModel):
@@ -63,6 +81,11 @@ class CheckoutSessionWithURLPaymentMethodCreate(BaseModel):
     redirect_url: OptionalNullable[str] = UNSET
     r"""The URL to redirect a user back to after the complete 3DS in browser."""
 
+    preferred_scheme: OptionalNullable[
+        CheckoutSessionWithURLPaymentMethodCreatePreferredScheme
+    ] = UNSET
+    r"""The preferred card scheme to use when processing a co-badged card."""
+
     @model_serializer(mode="wrap")
     def _serialize_model_with_info(self, handler, info):
         return serialize_with_info(self.serialize_model, handler, info)
@@ -75,6 +98,7 @@ class CheckoutSessionWithURLPaymentMethodCreate(BaseModel):
                 "buyer_id",
                 "buyer_external_identifier",
                 "redirect_url",
+                "preferred_scheme",
             ]
         )
         nullable_fields = set(
@@ -83,6 +107,7 @@ class CheckoutSessionWithURLPaymentMethodCreate(BaseModel):
                 "buyer_id",
                 "buyer_external_identifier",
                 "redirect_url",
+                "preferred_scheme",
             ]
         )
         exclude_none = current_exclude_none()
