@@ -8,6 +8,7 @@ from gr4vy.types import (
     OptionalNullable,
     UNSET,
     UNSET_SENTINEL,
+    UnrecognizedStr,
     current_exclude_none,
     serialize_with_info,
 )
@@ -16,8 +17,21 @@ from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator
-from typing import Literal, Optional
+from typing import Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
+
+
+CardWithURLPaymentMethodCreatePreferredScheme = Union[
+    Literal[
+        "bancontact",
+        "carte-bancaire",
+        "dankort",
+        "mastercard",
+        "visa",
+        "eftpos-australia",
+    ],
+    UnrecognizedStr,
+]
 
 
 class CardWithURLPaymentMethodCreateTypedDict(TypedDict):
@@ -39,6 +53,10 @@ class CardWithURLPaymentMethodCreateTypedDict(TypedDict):
     r"""Always `card`"""
     security_code: NotRequired[Nullable[str]]
     r"""The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD."""
+    preferred_scheme: NotRequired[
+        Nullable[CardWithURLPaymentMethodCreatePreferredScheme]
+    ]
+    r"""The preferred card scheme to use when processing a co-badged card."""
     redirect_url: NotRequired[Nullable[str]]
     r"""The URL to redirect a user back to after the complete 3DS in browser."""
 
@@ -73,6 +91,11 @@ class CardWithURLPaymentMethodCreate(BaseModel):
     security_code: OptionalNullable[str] = UNSET
     r"""The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD."""
 
+    preferred_scheme: OptionalNullable[
+        CardWithURLPaymentMethodCreatePreferredScheme
+    ] = UNSET
+    r"""The preferred card scheme to use when processing a co-badged card."""
+
     redirect_url: OptionalNullable[str] = UNSET
     r"""The URL to redirect a user back to after the complete 3DS in browser."""
 
@@ -89,6 +112,7 @@ class CardWithURLPaymentMethodCreate(BaseModel):
                 "card_type",
                 "method",
                 "security_code",
+                "preferred_scheme",
                 "redirect_url",
             ]
         )
@@ -99,6 +123,7 @@ class CardWithURLPaymentMethodCreate(BaseModel):
                 "external_identifier",
                 "card_type",
                 "security_code",
+                "preferred_scheme",
                 "redirect_url",
             ]
         )

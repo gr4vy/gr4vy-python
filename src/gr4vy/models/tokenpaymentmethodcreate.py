@@ -7,6 +7,7 @@ from gr4vy.types import (
     OptionalNullable,
     UNSET,
     UNSET_SENTINEL,
+    UnrecognizedStr,
     current_exclude_none,
     serialize_with_info,
 )
@@ -15,8 +16,21 @@ from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator
-from typing import Literal, Optional
+from typing import Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
+
+
+TokenPaymentMethodCreatePreferredScheme = Union[
+    Literal[
+        "bancontact",
+        "carte-bancaire",
+        "dankort",
+        "mastercard",
+        "visa",
+        "eftpos-australia",
+    ],
+    UnrecognizedStr,
+]
 
 
 class TokenPaymentMethodCreateTypedDict(TypedDict):
@@ -28,6 +42,8 @@ class TokenPaymentMethodCreateTypedDict(TypedDict):
     r"""Always `id`."""
     security_code: NotRequired[Nullable[str]]
     r"""The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD."""
+    preferred_scheme: NotRequired[Nullable[TokenPaymentMethodCreatePreferredScheme]]
+    r"""The preferred card scheme to use when processing a co-badged card."""
     redirect_url: NotRequired[Nullable[str]]
     r"""The URL to redirect a user back to after they approve the transaction in the browser."""
 
@@ -47,6 +63,9 @@ class TokenPaymentMethodCreate(BaseModel):
     security_code: OptionalNullable[str] = UNSET
     r"""The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD."""
 
+    preferred_scheme: OptionalNullable[TokenPaymentMethodCreatePreferredScheme] = UNSET
+    r"""The preferred card scheme to use when processing a co-badged card."""
+
     redirect_url: OptionalNullable[str] = UNSET
     r"""The URL to redirect a user back to after they approve the transaction in the browser."""
 
@@ -55,8 +74,10 @@ class TokenPaymentMethodCreate(BaseModel):
         return serialize_with_info(self.serialize_model, handler, info)
 
     def serialize_model(self, handler):
-        optional_fields = set(["method", "security_code", "redirect_url"])
-        nullable_fields = set(["security_code", "redirect_url"])
+        optional_fields = set(
+            ["method", "security_code", "preferred_scheme", "redirect_url"]
+        )
+        nullable_fields = set(["security_code", "preferred_scheme", "redirect_url"])
         exclude_none = current_exclude_none()
         skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)

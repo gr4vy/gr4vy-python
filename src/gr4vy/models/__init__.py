@@ -156,6 +156,7 @@ if TYPE_CHECKING:
     from .capturestatus import CaptureStatus
     from .cardpaymentmethodcreate import (
         CardPaymentMethodCreate,
+        CardPaymentMethodCreatePreferredScheme,
         CardPaymentMethodCreateTypedDict,
     )
     from .cardscheme import CardScheme
@@ -170,6 +171,7 @@ if TYPE_CHECKING:
     from .cardtype import CardType
     from .cardwithurlpaymentmethodcreate import (
         CardWithURLPaymentMethodCreate,
+        CardWithURLPaymentMethodCreatePreferredScheme,
         CardWithURLPaymentMethodCreateTypedDict,
     )
     from .cartitem import CartItem, CartItemTypedDict
@@ -198,6 +200,7 @@ if TYPE_CHECKING:
     )
     from .checkoutsessionwithurlpaymentmethodcreate import (
         CheckoutSessionWithURLPaymentMethodCreate,
+        CheckoutSessionWithURLPaymentMethodCreatePreferredScheme,
         CheckoutSessionWithURLPaymentMethodCreateTypedDict,
     )
     from .clicktopayfpanpaymentmethodcreate import (
@@ -1398,6 +1401,7 @@ if TYPE_CHECKING:
     from .threedsecurev2 import ThreeDSecureV2, ThreeDSecureV2TypedDict
     from .tokenpaymentmethodcreate import (
         TokenPaymentMethodCreate,
+        TokenPaymentMethodCreatePreferredScheme,
         TokenPaymentMethodCreateTypedDict,
     )
     from .tracking import Tracking, TrackingTypedDict
@@ -1727,6 +1731,7 @@ __all__ = [
     "CaptureTransactionRequestTypedDict",
     "CaptureTypedDict",
     "CardPaymentMethodCreate",
+    "CardPaymentMethodCreatePreferredScheme",
     "CardPaymentMethodCreateTypedDict",
     "CardScheme",
     "CardSchemeDefinition",
@@ -1736,6 +1741,7 @@ __all__ = [
     "CardSource",
     "CardType",
     "CardWithURLPaymentMethodCreate",
+    "CardWithURLPaymentMethodCreatePreferredScheme",
     "CardWithURLPaymentMethodCreateTypedDict",
     "CartItem",
     "CartItemTypedDict",
@@ -1755,6 +1761,7 @@ __all__ = [
     "CheckoutSessionPaymentMethodTypedDict",
     "CheckoutSessionTypedDict",
     "CheckoutSessionWithURLPaymentMethodCreate",
+    "CheckoutSessionWithURLPaymentMethodCreatePreferredScheme",
     "CheckoutSessionWithURLPaymentMethodCreateTypedDict",
     "ClickToPayFPANPaymentMethodCreate",
     "ClickToPayFPANPaymentMethodCreateTypedDict",
@@ -2673,6 +2680,7 @@ __all__ = [
     "TicketDeliveryMethod",
     "Token",
     "TokenPaymentMethodCreate",
+    "TokenPaymentMethodCreatePreferredScheme",
     "TokenPaymentMethodCreateTypedDict",
     "TokenTypedDict",
     "Tracking",
@@ -2951,6 +2959,7 @@ _dynamic_imports: dict[str, str] = {
     "CaptureCollectionTypedDict": ".capturecollection",
     "CaptureStatus": ".capturestatus",
     "CardPaymentMethodCreate": ".cardpaymentmethodcreate",
+    "CardPaymentMethodCreatePreferredScheme": ".cardpaymentmethodcreate",
     "CardPaymentMethodCreateTypedDict": ".cardpaymentmethodcreate",
     "CardScheme": ".cardscheme",
     "CardSchemeDefinition": ".cardschemedefinition",
@@ -2959,6 +2968,7 @@ _dynamic_imports: dict[str, str] = {
     "CardSchemeDefinitionsTypedDict": ".cardschemedefinitions",
     "CardType": ".cardtype",
     "CardWithURLPaymentMethodCreate": ".cardwithurlpaymentmethodcreate",
+    "CardWithURLPaymentMethodCreatePreferredScheme": ".cardwithurlpaymentmethodcreate",
     "CardWithURLPaymentMethodCreateTypedDict": ".cardwithurlpaymentmethodcreate",
     "CartItem": ".cartitem",
     "CartItemTypedDict": ".cartitem",
@@ -2978,6 +2988,7 @@ _dynamic_imports: dict[str, str] = {
     "CheckoutSessionPaymentMethodDetails": ".checkoutsessionpaymentmethoddetails",
     "CheckoutSessionPaymentMethodDetailsTypedDict": ".checkoutsessionpaymentmethoddetails",
     "CheckoutSessionWithURLPaymentMethodCreate": ".checkoutsessionwithurlpaymentmethodcreate",
+    "CheckoutSessionWithURLPaymentMethodCreatePreferredScheme": ".checkoutsessionwithurlpaymentmethodcreate",
     "CheckoutSessionWithURLPaymentMethodCreateTypedDict": ".checkoutsessionwithurlpaymentmethodcreate",
     "ClickToPayFPANPaymentMethodCreate": ".clicktopayfpanpaymentmethodcreate",
     "ClickToPayFPANPaymentMethodCreateTypedDict": ".clicktopayfpanpaymentmethodcreate",
@@ -3888,6 +3899,7 @@ _dynamic_imports: dict[str, str] = {
     "ThreeDSecureV2": ".threedsecurev2",
     "ThreeDSecureV2TypedDict": ".threedsecurev2",
     "TokenPaymentMethodCreate": ".tokenpaymentmethodcreate",
+    "TokenPaymentMethodCreatePreferredScheme": ".tokenpaymentmethodcreate",
     "TokenPaymentMethodCreateTypedDict": ".tokenpaymentmethodcreate",
     "Tracking": ".tracking",
     "TrackingTypedDict": ".tracking",

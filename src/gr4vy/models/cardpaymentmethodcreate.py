@@ -8,6 +8,7 @@ from gr4vy.types import (
     OptionalNullable,
     UNSET,
     UNSET_SENTINEL,
+    UnrecognizedStr,
     current_exclude_none,
     serialize_with_info,
 )
@@ -16,8 +17,21 @@ from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator
-from typing import Literal, Optional
+from typing import Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
+
+
+CardPaymentMethodCreatePreferredScheme = Union[
+    Literal[
+        "bancontact",
+        "carte-bancaire",
+        "dankort",
+        "mastercard",
+        "visa",
+        "eftpos-australia",
+    ],
+    UnrecognizedStr,
+]
 
 
 class CardPaymentMethodCreateTypedDict(TypedDict):
@@ -37,6 +51,8 @@ class CardPaymentMethodCreateTypedDict(TypedDict):
     r"""Always `card`"""
     security_code: NotRequired[Nullable[str]]
     r"""The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD."""
+    preferred_scheme: NotRequired[Nullable[CardPaymentMethodCreatePreferredScheme]]
+    r"""The preferred card scheme to use when processing a co-badged card."""
 
 
 class CardPaymentMethodCreate(BaseModel):
@@ -67,6 +83,9 @@ class CardPaymentMethodCreate(BaseModel):
     security_code: OptionalNullable[str] = UNSET
     r"""The 3 or 4 digit security code often found on the card. This often referred to as the CVV or CVD."""
 
+    preferred_scheme: OptionalNullable[CardPaymentMethodCreatePreferredScheme] = UNSET
+    r"""The preferred card scheme to use when processing a co-badged card."""
+
     @model_serializer(mode="wrap")
     def _serialize_model_with_info(self, handler, info):
         return serialize_with_info(self.serialize_model, handler, info)
@@ -80,6 +99,7 @@ class CardPaymentMethodCreate(BaseModel):
                 "card_type",
                 "method",
                 "security_code",
+                "preferred_scheme",
             ]
         )
         nullable_fields = set(
@@ -89,6 +109,7 @@ class CardPaymentMethodCreate(BaseModel):
                 "external_identifier",
                 "card_type",
                 "security_code",
+                "preferred_scheme",
             ]
         )
         exclude_none = current_exclude_none()
