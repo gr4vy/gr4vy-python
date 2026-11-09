@@ -49,19 +49,23 @@ Context = TypeAliasType(
 
 class PaymentOptionTypedDict(TypedDict):
     method: str
+    icon_url: str
     mode: Mode
+    label: str
     can_store_payment_method: bool
     can_delay_capture: bool
     type: Literal["payment-option"]
-    icon_url: NotRequired[Nullable[str]]
-    label: NotRequired[Nullable[str]]
     context: NotRequired[Nullable[ContextTypedDict]]
 
 
 class PaymentOption(BaseModel):
     method: str
 
+    icon_url: str
+
     mode: Mode
+
+    label: str
 
     can_store_payment_method: bool
 
@@ -75,10 +79,6 @@ class PaymentOption(BaseModel):
         pydantic.Field(alias="type"),
     ] = "payment-option"
 
-    icon_url: OptionalNullable[str] = UNSET
-
-    label: OptionalNullable[str] = UNSET
-
     context: OptionalNullable[Context] = UNSET
 
     @model_serializer(mode="wrap")
@@ -86,8 +86,8 @@ class PaymentOption(BaseModel):
         return serialize_with_info(self.serialize_model, handler, info)
 
     def serialize_model(self, handler):
-        optional_fields = set(["type", "icon_url", "label", "context"])
-        nullable_fields = set(["icon_url", "label", "context"])
+        optional_fields = set(["type", "context"])
+        nullable_fields = set(["context"])
         exclude_none = current_exclude_none()
         skip_filtered = exclude_none is False or current_filtered_dump()
         serialized = handler(self)

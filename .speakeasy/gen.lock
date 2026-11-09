@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 39ec84519837d1d96408f4e8a63f291a
+  docChecksum: 3a13ee635448973551a554dab5c911ac
   docVersion: 1.0.0
   speakeasyVersion: 1.806.0
   generationVersion: 2.956.1
-  releaseVersion: 2.4.33
-  configChecksum: 36f63fba8931c93120e03151d1fd3fc9
+  releaseVersion: 2.4.34
+  configChecksum: b962a5536b01397f30d73237e93f72e4
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: 49a1f16c-baef-474b-9738-60707c927ead
-  pristine_commit_hash: bc2f93c2c0f2ee19d19123d61120a0d26aca613c
-  pristine_tree_hash: c9b070bfe4606f46e11e6695fdee642964ad00df
+  generation_id: 9985989a-5847-40fc-8631-0421fb9c5b95
+  pristine_commit_hash: 15bc822a1acd8a64fbab44baedf33366c9cfe857
+  pristine_tree_hash: 8e7b6e3b48273ea745acafbf53d425c272bcc1a4
 features:
   python:
     additionalDependencies: 1.1.0
@@ -1801,8 +1801,8 @@ trackedFiles:
     pristine_git_object: 95b5fbca5a9f93da5b4ad66d85e67f6ebbab8759
   docs/models/paymentoption.md:
     id: 19cfeb30fff6
-    last_write_checksum: sha1:b7c0c1aa367b298e6db6e4d19fe510b71b585407
-    pristine_git_object: 541618556108d0182bf9b5af196be804dd27aaaa
+    last_write_checksum: sha1:1483df1c1b86cb6b25d713729ca64713b9a3e437
+    pristine_git_object: a2ee2e88eb066e5b94192c85f5558d065fffcb74
   docs/models/paymentoptioncontext.md:
     id: c5ffbc8082cf
     last_write_checksum: sha1:cda46bbd9d26dc2c4cb0da85934775cff17c19b1
@@ -2921,8 +2921,8 @@ trackedFiles:
     pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:69cd3c04484063e21c4960566b490cab91b1d9b6
-    pristine_git_object: c9d513c5c9dad4163e706b7e26366f008e8f2639
+    last_write_checksum: sha1:bc18425f2645aa55fbfc7dd5f5c78e5a3ac93f88
+    pristine_git_object: 397bc2927334c4fcd7000dab0ecd4407aa6a459a
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2949,8 +2949,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:58a8f7f5fbab3535bf2b12558fee058aafb611ed
-    pristine_git_object: dc1fc68a6fee43668926150a791f8bd7b137da02
+    last_write_checksum: sha1:276369597629bedda9cd2d545e1af85d370be9c0
+    pristine_git_object: 307c9710b0196773f128feb14f92c9d6c2f3e4d2
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -4293,8 +4293,8 @@ trackedFiles:
     pristine_git_object: abc9d2d945505c1c81f5ad43fa02276dc28d3609
   src/gr4vy/models/paymentoption.py:
     id: 14989a8d7e20
-    last_write_checksum: sha1:9a9ed906391fcc81dc8dc11e2768b3d1dfe0b106
-    pristine_git_object: a5c5a0d55a5bca3e18fda0b527d19ee9d5d830d3
+    last_write_checksum: sha1:e845bc703261563f6360112b69603c4f46fbda53
+    pristine_git_object: 7da77bcfcb06992ce394209137f2815208c6d633
   src/gr4vy/models/paymentoptioncontext.py:
     id: ff2fd46cd842
     last_write_checksum: sha1:149114684ce95cced7fc4fa73b5b755a3d71aa2f
@@ -7272,7 +7272,7 @@ examples:
         application/json: {"locale": "en"}
       responses:
         "200":
-          application/json: {"items": [{"type": "payment-option", "method": "<value>", "mode": "card", "can_store_payment_method": true, "can_delay_capture": false}]}
+          application/json: {"items": [{"type": "payment-option", "method": "<value>", "icon_url": "https://legal-fibre.com/", "mode": "card", "label": "<value>", "can_store_payment_method": true, "can_delay_capture": false}]}
         "400":
           application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
         "401":
@@ -9529,7 +9529,9 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.payment_methods.create()`: \n  *  `request_body.union(CardPaymentMethodCreate).preferred_scheme` **Added**\n* `gr4vy.transactions.create()`:  `request.payment_method` **Changed**\n"
+releaseNotes: |
+  ## Python SDK Changes:
+  * `gr4vy.payment_options.list()`:  `response.items[]` **Changed** (Breaking ⚠️)
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
