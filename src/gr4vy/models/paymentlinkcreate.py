@@ -4,12 +4,12 @@ from __future__ import annotations
 from .airline import Airline, AirlineTypedDict
 from .cartitem import CartItem, CartItemTypedDict
 from .guestbuyer import GuestBuyer, GuestBuyerTypedDict
+from .paymentlinkintent import PaymentLinkIntent
 from .statementdescriptor import StatementDescriptor, StatementDescriptorTypedDict
 from .transactionconnectionoptions import (
     TransactionConnectionOptions,
     TransactionConnectionOptionsTypedDict,
 )
-from .transactionintent import TransactionIntent
 from .transactionpaymentsource import TransactionPaymentSource
 from datetime import datetime
 from gr4vy.types import (
@@ -60,7 +60,7 @@ class PaymentLinkCreateTypedDict(TypedDict):
     r"""URL to the merchant's terms and conditions."""
     merchant_favicon_url: NotRequired[Nullable[str]]
     r"""URL to the merchant's favicon."""
-    intent: NotRequired[TransactionIntent]
+    intent: NotRequired[PaymentLinkIntent]
     return_url: NotRequired[Nullable[str]]
     r"""The return URL after payment completion."""
     cart_items: NotRequired[Nullable[List[CartItemTypedDict]]]
@@ -128,7 +128,7 @@ class PaymentLinkCreate(BaseModel):
     merchant_favicon_url: OptionalNullable[str] = UNSET
     r"""URL to the merchant's favicon."""
 
-    intent: Optional[TransactionIntent] = None
+    intent: Optional[PaymentLinkIntent] = None
 
     return_url: OptionalNullable[str] = UNSET
     r"""The return URL after payment completion."""

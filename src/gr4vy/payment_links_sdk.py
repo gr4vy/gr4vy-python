@@ -41,7 +41,7 @@ class PaymentLinksSDK(BaseSDK):
         merchant_message: OptionalNullable[str] = UNSET,
         merchant_terms_and_conditions_url: OptionalNullable[str] = UNSET,
         merchant_favicon_url: OptionalNullable[str] = UNSET,
-        intent: Optional[models.TransactionIntent] = None,
+        intent: Optional[models.PaymentLinkIntent] = None,
         return_url: OptionalNullable[str] = UNSET,
         cart_items: OptionalNullable[
             Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]
@@ -277,7 +277,7 @@ class PaymentLinksSDK(BaseSDK):
         merchant_message: OptionalNullable[str] = UNSET,
         merchant_terms_and_conditions_url: OptionalNullable[str] = UNSET,
         merchant_favicon_url: OptionalNullable[str] = UNSET,
-        intent: Optional[models.TransactionIntent] = None,
+        intent: Optional[models.PaymentLinkIntent] = None,
         return_url: OptionalNullable[str] = UNSET,
         cart_items: OptionalNullable[
             Union[Iterable[models.CartItem], Iterable[models.CartItemTypedDict]]

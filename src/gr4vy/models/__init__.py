@@ -1033,6 +1033,7 @@ if TYPE_CHECKING:
     from .oxxooptions import OxxoOptions, OxxoOptionsTypedDict
     from .paymentlink import PaymentLink, PaymentLinkTypedDict
     from .paymentlinkcreate import PaymentLinkCreate, PaymentLinkCreateTypedDict
+    from .paymentlinkintent import PaymentLinkIntent
     from .paymentlinks import PaymentLinks, PaymentLinksTypedDict
     from .paymentlinkstatus import PaymentLinkStatus
     from .paymentmethod import PaymentMethod, PaymentMethodTypedDict
@@ -2367,6 +2368,7 @@ __all__ = [
     "PaymentLink",
     "PaymentLinkCreate",
     "PaymentLinkCreateTypedDict",
+    "PaymentLinkIntent",
     "PaymentLinkStatus",
     "PaymentLinkTypedDict",
     "PaymentLinks",
@@ -3595,6 +3597,7 @@ _dynamic_imports: dict[str, str] = {
     "PaymentLinkTypedDict": ".paymentlink",
     "PaymentLinkCreate": ".paymentlinkcreate",
     "PaymentLinkCreateTypedDict": ".paymentlinkcreate",
+    "PaymentLinkIntent": ".paymentlinkintent",
     "PaymentLinks": ".paymentlinks",
     "PaymentLinksTypedDict": ".paymentlinks",
     "PaymentLinkStatus": ".paymentlinkstatus",

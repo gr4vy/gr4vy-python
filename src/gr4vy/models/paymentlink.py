@@ -3,11 +3,11 @@
 from __future__ import annotations
 from .airline import Airline, AirlineTypedDict
 from .cartitem import CartItem, CartItemTypedDict
+from .paymentlinkintent import PaymentLinkIntent
 from .paymentlinkstatus import PaymentLinkStatus
 from .shippingdetails import ShippingDetails, ShippingDetailsTypedDict
 from .statementdescriptor import StatementDescriptor, StatementDescriptorTypedDict
 from .transactionbuyer import TransactionBuyer, TransactionBuyerTypedDict
-from .transactionintent import TransactionIntent
 from .transactionpaymentsource import TransactionPaymentSource
 from datetime import datetime
 from gr4vy.types import (
@@ -39,7 +39,7 @@ class PaymentLinkTypedDict(TypedDict):
     r"""The country code for the payment link."""
     currency: str
     r"""The currency code for the payment link."""
-    intent: TransactionIntent
+    intent: PaymentLinkIntent
     cart_items: Nullable[List[CartItemTypedDict]]
     r"""The cart items for the payment link."""
     airline: Nullable[AirlineTypedDict]
@@ -109,7 +109,7 @@ class PaymentLink(BaseModel):
     currency: str
     r"""The currency code for the payment link."""
 
-    intent: TransactionIntent
+    intent: PaymentLinkIntent
 
     cart_items: Nullable[List[CartItem]]
     r"""The cart items for the payment link."""
