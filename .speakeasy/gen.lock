@@ -1,24 +1,24 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 15b22d472f4e6220f4aa285149067757
+  docChecksum: ad5e7a352ee7d879f996879f727b104b
   docVersion: 1.0.0
-  speakeasyVersion: 1.808.1
-  generationVersion: 2.960.8
-  releaseVersion: 2.4.36
-  configChecksum: 4ecd535024ae1230564de5111adea039
+  speakeasyVersion: 1.810.0
+  generationVersion: 2.961.1
+  releaseVersion: 2.4.37
+  configChecksum: 0c8f517ff45063aae32c6fc92f095b50
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: c1e5f300-6564-466a-9d71-4477fec13375
-  pristine_commit_hash: 2f938d5d5b826476c604753b5b144bd7a702c298
-  pristine_tree_hash: 054a2f200804606a973ddb6abab070cc859e6a22
+  generation_id: 06a5ac7c-ce49-4e01-8c7a-f8bbe5040e4a
+  pristine_commit_hash: 724ad7f86053a094c37a2c95f73e9ca4e75e2cab
+  pristine_tree_hash: 90f76f72a51c3d101b90319a7551d310f4bb71ab
 features:
   python:
     additionalDependencies: 1.1.0
     constsAndDefaults: 1.0.8
-    core: 6.1.14
+    core: 6.1.15
     defaultEnabledRetries: 0.2.0
     deprecations: 3.0.2
     enumUnions: 0.1.1
@@ -273,8 +273,8 @@ trackedFiles:
     pristine_git_object: 0f434146089133f5720dab8cf27329c504dd5be4
   docs/models/applepaysessionrequest.md:
     id: 45b515bed5ea
-    last_write_checksum: sha1:7630a2f3772647cfb0ba02f80bc2a3cf18bfdb94
-    pristine_git_object: e50d6abc5399c1f869c56d231db66795cf010fe3
+    last_write_checksum: sha1:2d117b8a69d99838aa97aec53472ef933092bf52
+    pristine_git_object: d69936a529a1bb4b2743eafbb77e9c1051edbf8c
   docs/models/approvaltarget.md:
     id: b70505bab353
     last_write_checksum: sha1:d02d0503473fa4d60baa89ccfa6ce46bdf447c7f
@@ -2889,8 +2889,8 @@ trackedFiles:
     pristine_git_object: aaf070e2d8b6ad23bf58cf0cd0393a0ed5efe27b
   docs/sdks/sessions/README.md:
     id: 57ad62844f79
-    last_write_checksum: sha1:8a3ab6ed4959d20227b3263989ca2c966bb43641
-    pristine_git_object: 4094d5c625c0df6f0ea37649f1611f2c5ca814f0
+    last_write_checksum: sha1:21c11d5d6fde7689e963fc967359cc3c4b4bb04d
+    pristine_git_object: 3930aa2cf427866aaecaafcbeec3b7e8060bbcd6
   docs/sdks/threedsconfiguration/README.md:
     id: 86aa349ed0d5
     last_write_checksum: sha1:6559dded4815e4853cf28b0706239281921ec825
@@ -2925,8 +2925,8 @@ trackedFiles:
     pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:ae6a6cfddfd4b28d912ae7b040fdc8c14e361f5f
-    pristine_git_object: c6d39a39f9962c8149c2d66b3d34e832c6568bdc
+    last_write_checksum: sha1:c0f401286883ce62bf9e42063b1b581b06f9daf7
+    pristine_git_object: 6c499e7b3dc63ad9ece02dd108cd441e9a688f0c
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2953,8 +2953,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:2a9c1b8b12a79115d89ec8509c309c828a5a331d
-    pristine_git_object: b107dc83f02cf7be0e399d207e54b852e8b66f58
+    last_write_checksum: sha1:a97e0faa40c7db465837062d403b060242468a08
+    pristine_git_object: 36d798f18cf60add247e94a3f6949cb2f395e4e9
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -5149,8 +5149,8 @@ trackedFiles:
     pristine_git_object: 3a43a78ab719ec504ec95c050c984c843407d366
   src/gr4vy/types/base64fileinput.py:
     id: 44c3662111d1
-    last_write_checksum: sha1:1522687ae3398374c35710cad993a6e82b5ab99d
-    pristine_git_object: 862566fe2b1db830276b390e136e65090e5963d2
+    last_write_checksum: sha1:94a99b9b1b7ab6d3fd8fb2e52385a50b4a2ff333
+    pristine_git_object: de42346d429a62ce8d39b04be6ee568c9d37e619
   src/gr4vy/types/basemodel.py:
     id: 1af1ed4da662
     last_write_checksum: sha1:99c644208e340c4974b94bbe6d52019c80fedb97
@@ -9537,7 +9537,6 @@ examples:
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.payment_links.create()`: \n  *  `request.intent.enum(prefer_authorize)` **Added**\n  *  `response.intent.enum(prefer_authorize)` **Added**\n* `gr4vy.payment_links.list()`:  `response.items[].intent.enum(prefer_authorize)` **Added**\n* `gr4vy.payment_links.get()`:  `response.intent.enum(prefer_authorize)` **Added**\n"
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
