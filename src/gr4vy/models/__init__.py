@@ -1036,7 +1036,11 @@ if TYPE_CHECKING:
     from .paymentlinkintent import PaymentLinkIntent
     from .paymentlinks import PaymentLinks, PaymentLinksTypedDict
     from .paymentlinkstatus import PaymentLinkStatus
-    from .paymentmethod import PaymentMethod, PaymentMethodTypedDict
+    from .paymentmethod import (
+        PaymentMethod,
+        PaymentMethodPreferredScheme,
+        PaymentMethodTypedDict,
+    )
     from .paymentmethodcard import PaymentMethodCard, PaymentMethodCardTypedDict
     from .paymentmethoddetailscard import (
         PaymentMethodDetailsCard,
@@ -1054,9 +1058,14 @@ if TYPE_CHECKING:
     )
     from .paymentmethodsummary import (
         PaymentMethodSummary,
+        PaymentMethodSummaryPreferredScheme,
         PaymentMethodSummaryTypedDict,
     )
-    from .paymentmethodupdate import PaymentMethodUpdate, PaymentMethodUpdateTypedDict
+    from .paymentmethodupdate import (
+        PaymentMethodUpdate,
+        PaymentMethodUpdatePreferredScheme,
+        PaymentMethodUpdateTypedDict,
+    )
     from .paymentoption import (
         Context,
         ContextTypedDict,
@@ -2378,15 +2387,18 @@ __all__ = [
     "PaymentMethodCardTypedDict",
     "PaymentMethodDetailsCard",
     "PaymentMethodDetailsCardTypedDict",
+    "PaymentMethodPreferredScheme",
     "PaymentMethodStatus",
     "PaymentMethodStoredCard",
     "PaymentMethodStoredCardTypedDict",
     "PaymentMethodSummaries",
     "PaymentMethodSummariesTypedDict",
     "PaymentMethodSummary",
+    "PaymentMethodSummaryPreferredScheme",
     "PaymentMethodSummaryTypedDict",
     "PaymentMethodTypedDict",
     "PaymentMethodUpdate",
+    "PaymentMethodUpdatePreferredScheme",
     "PaymentMethodUpdateTypedDict",
     "PaymentMethods",
     "PaymentMethodsTypedDict",
@@ -3602,6 +3614,7 @@ _dynamic_imports: dict[str, str] = {
     "PaymentLinksTypedDict": ".paymentlinks",
     "PaymentLinkStatus": ".paymentlinkstatus",
     "PaymentMethod": ".paymentmethod",
+    "PaymentMethodPreferredScheme": ".paymentmethod",
     "PaymentMethodTypedDict": ".paymentmethod",
     "PaymentMethodCard": ".paymentmethodcard",
     "PaymentMethodCardTypedDict": ".paymentmethodcard",
@@ -3615,8 +3628,10 @@ _dynamic_imports: dict[str, str] = {
     "PaymentMethodSummaries": ".paymentmethodsummaries",
     "PaymentMethodSummariesTypedDict": ".paymentmethodsummaries",
     "PaymentMethodSummary": ".paymentmethodsummary",
+    "PaymentMethodSummaryPreferredScheme": ".paymentmethodsummary",
     "PaymentMethodSummaryTypedDict": ".paymentmethodsummary",
     "PaymentMethodUpdate": ".paymentmethodupdate",
+    "PaymentMethodUpdatePreferredScheme": ".paymentmethodupdate",
     "PaymentMethodUpdateTypedDict": ".paymentmethodupdate",
     "Context": ".paymentoption",
     "ContextTypedDict": ".paymentoption",

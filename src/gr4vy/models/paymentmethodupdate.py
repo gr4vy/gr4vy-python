@@ -8,12 +8,27 @@ from gr4vy.types import (
     OptionalNullable,
     UNSET,
     UNSET_SENTINEL,
+    UnrecognizedStr,
     current_exclude_none,
     serialize_with_info,
 )
 from gr4vy.types.basemodel import current_filtered_dump
 from pydantic import model_serializer
+from typing import Literal, Union
 from typing_extensions import NotRequired, TypedDict
+
+
+PaymentMethodUpdatePreferredScheme = Union[
+    Literal[
+        "bancontact",
+        "carte-bancaire",
+        "dankort",
+        "mastercard",
+        "visa",
+        "eftpos-australia",
+    ],
+    UnrecognizedStr,
+]
 
 
 class PaymentMethodUpdateTypedDict(TypedDict):
@@ -27,6 +42,8 @@ class PaymentMethodUpdateTypedDict(TypedDict):
     r"""The scheme associated with `scheme_transaction_id`. Only applies to card payments. When setting a new value for `scheme_transaction_id`, if `scheme_transaction_id_scheme` is both omitted from the payload and previously unset, `scheme_transaction_id_scheme` will be populated from the payment method's existing `scheme`."""
     transaction_link_id: NotRequired[Nullable[str]]
     r"""A transaction link identifier to associate with this payment method."""
+    preferred_scheme: NotRequired[Nullable[PaymentMethodUpdatePreferredScheme]]
+    r"""The preferred card scheme to use when processing a co-badged card."""
 
 
 class PaymentMethodUpdate(BaseModel):
@@ -44,6 +61,9 @@ class PaymentMethodUpdate(BaseModel):
     transaction_link_id: OptionalNullable[str] = UNSET
     r"""A transaction link identifier to associate with this payment method."""
 
+    preferred_scheme: OptionalNullable[PaymentMethodUpdatePreferredScheme] = UNSET
+    r"""The preferred card scheme to use when processing a co-badged card."""
+
     @model_serializer(mode="wrap")
     def _serialize_model_with_info(self, handler, info):
         return serialize_with_info(self.serialize_model, handler, info)
@@ -55,6 +75,7 @@ class PaymentMethodUpdate(BaseModel):
                 "scheme_transaction_id",
                 "scheme_transaction_id_scheme",
                 "transaction_link_id",
+                "preferred_scheme",
             ]
         )
         nullable_fields = set(
@@ -63,6 +84,7 @@ class PaymentMethodUpdate(BaseModel):
                 "scheme_transaction_id",
                 "scheme_transaction_id_scheme",
                 "transaction_link_id",
+                "preferred_scheme",
             ]
         )
         exclude_none = current_exclude_none()
