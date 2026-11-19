@@ -15,6 +15,7 @@ from gr4vy.types import (
     OptionalNullable,
     UNSET,
     UNSET_SENTINEL,
+    UnrecognizedStr,
     current_exclude_none,
     serialize_with_info,
 )
@@ -23,8 +24,21 @@ from gr4vy.utils import validate_const
 import pydantic
 from pydantic import model_serializer
 from pydantic.functional_validators import AfterValidator
-from typing import List, Literal, Optional
+from typing import List, Literal, Optional, Union
 from typing_extensions import Annotated, NotRequired, TypedDict
+
+
+PaymentMethodSummaryPreferredScheme = Union[
+    Literal[
+        "bancontact",
+        "carte-bancaire",
+        "dankort",
+        "mastercard",
+        "visa",
+        "eftpos-australia",
+    ],
+    UnrecognizedStr,
+]
 
 
 class PaymentMethodSummaryTypedDict(TypedDict):
@@ -72,6 +86,8 @@ class PaymentMethodSummaryTypedDict(TypedDict):
     r"""The scheme of the card. Only applies to card payments."""
     additional_schemes: NotRequired[Nullable[List[CardScheme]]]
     r"""Additional schemes of the card besides the primary scheme. Only applies to card payment methods."""
+    preferred_scheme: NotRequired[Nullable[PaymentMethodSummaryPreferredScheme]]
+    r"""The preferred card scheme to use when processing a co-badged card."""
     cit_last_used_at: NotRequired[Nullable[datetime]]
     r"""The timestamp when this payment method was last used in a transaction for client initiated transactions."""
     last_used_at: NotRequired[Nullable[datetime]]
@@ -151,6 +167,9 @@ class PaymentMethodSummary(BaseModel):
     additional_schemes: OptionalNullable[List[CardScheme]] = UNSET
     r"""Additional schemes of the card besides the primary scheme. Only applies to card payment methods."""
 
+    preferred_scheme: OptionalNullable[PaymentMethodSummaryPreferredScheme] = UNSET
+    r"""The preferred card scheme to use when processing a co-badged card."""
+
     cit_last_used_at: OptionalNullable[datetime] = UNSET
     r"""The timestamp when this payment method was last used in a transaction for client initiated transactions."""
 
@@ -179,6 +198,7 @@ class PaymentMethodSummary(BaseModel):
                 "mode",
                 "scheme",
                 "additional_schemes",
+                "preferred_scheme",
                 "cit_last_used_at",
                 "last_used_at",
                 "transaction_link_id",
@@ -197,6 +217,7 @@ class PaymentMethodSummary(BaseModel):
                 "mode",
                 "scheme",
                 "additional_schemes",
+                "preferred_scheme",
                 "cit_last_used_at",
                 "last_used_at",
                 "scheme_transaction_id",
