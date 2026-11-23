@@ -1309,6 +1309,7 @@ if TYPE_CHECKING:
         ReviewPazeMobileSessionRequest,
         ReviewPazeMobileSessionRequestTypedDict,
     )
+    from .riskifiedaccounttype import RiskifiedAccountType
     from .riskifiedantifraudoptions import (
         RiskifiedAntiFraudOptions,
         RiskifiedAntiFraudOptionsTypedDict,
@@ -2603,6 +2604,7 @@ __all__ = [
     "ReviewPazeMobileSessionGlobalsTypedDict",
     "ReviewPazeMobileSessionRequest",
     "ReviewPazeMobileSessionRequestTypedDict",
+    "RiskifiedAccountType",
     "RiskifiedAntiFraudOptions",
     "RiskifiedAntiFraudOptionsLineItem",
     "RiskifiedAntiFraudOptionsLineItemTypedDict",
@@ -3836,6 +3838,7 @@ _dynamic_imports: dict[str, str] = {
     "ReviewPazeMobileSessionGlobalsTypedDict": ".review_paze_mobile_sessionop",
     "ReviewPazeMobileSessionRequest": ".review_paze_mobile_sessionop",
     "ReviewPazeMobileSessionRequestTypedDict": ".review_paze_mobile_sessionop",
+    "RiskifiedAccountType": ".riskifiedaccounttype",
     "RiskifiedAntiFraudOptions": ".riskifiedantifraudoptions",
     "RiskifiedAntiFraudOptionsTypedDict": ".riskifiedantifraudoptions",
     "DeliveredTo": ".riskifiedantifraudoptionslineitem",
