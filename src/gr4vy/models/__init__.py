@@ -443,6 +443,13 @@ if TYPE_CHECKING:
         DetailedSettlementReportSpec,
         DetailedSettlementReportSpecTypedDict,
     )
+    from .detokenization import Detokenization, DetokenizationTypedDict
+    from .detokenize_payment_methodop import (
+        DetokenizePaymentMethodGlobals,
+        DetokenizePaymentMethodGlobalsTypedDict,
+        DetokenizePaymentMethodRequest,
+        DetokenizePaymentMethodRequestTypedDict,
+    )
     from .digitalwallet import DigitalWallet, DigitalWalletTypedDict
     from .digitalwalletaddress import (
         DigitalWalletAddress,
@@ -1937,6 +1944,12 @@ __all__ = [
     "DeliveredTo",
     "DetailedSettlementReportSpec",
     "DetailedSettlementReportSpecTypedDict",
+    "Detokenization",
+    "DetokenizationTypedDict",
+    "DetokenizePaymentMethodGlobals",
+    "DetokenizePaymentMethodGlobalsTypedDict",
+    "DetokenizePaymentMethodRequest",
+    "DetokenizePaymentMethodRequestTypedDict",
     "DigitalWallet",
     "DigitalWalletAddress",
     "DigitalWalletAddressTypedDict",
@@ -3171,6 +3184,12 @@ _dynamic_imports: dict[str, str] = {
     "DeleteThreeDsScenarioRequestTypedDict": ".delete_three_ds_scenarioop",
     "DetailedSettlementReportSpec": ".detailedsettlementreportspec",
     "DetailedSettlementReportSpecTypedDict": ".detailedsettlementreportspec",
+    "Detokenization": ".detokenization",
+    "DetokenizationTypedDict": ".detokenization",
+    "DetokenizePaymentMethodGlobals": ".detokenize_payment_methodop",
+    "DetokenizePaymentMethodGlobalsTypedDict": ".detokenize_payment_methodop",
+    "DetokenizePaymentMethodRequest": ".detokenize_payment_methodop",
+    "DetokenizePaymentMethodRequestTypedDict": ".detokenize_payment_methodop",
     "DigitalWallet": ".digitalwallet",
     "DigitalWalletTypedDict": ".digitalwallet",
     "DigitalWalletAddress": ".digitalwalletaddress",

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 833c6a67-4a4a-4ef1-ba24-165a29264e4a
 management:
-  docChecksum: 67862765ddedb27c5cef241f28d0d8c5
+  docChecksum: 188ed6816c517635274efb50aa32329f
   docVersion: 1.0.0
   speakeasyVersion: 1.811.0
   generationVersion: 2.968.1
-  releaseVersion: 2.4.40
-  configChecksum: 5e982a6974840a939c9eed02c1f0fcb4
+  releaseVersion: 2.4.41
+  configChecksum: 8cec6256b4d9952220f68ad27f691dcb
   repoURL: https://github.com/gr4vy/gr4vy-python.git
   installationURL: https://github.com/gr4vy/gr4vy-python.git
   published: true
 persistentEdits:
-  generation_id: b843f323-5bfd-42d1-ba91-dd90f5e8a4c2
-  pristine_commit_hash: 18f73d7ac9a80e4b096c12146e6adb69822ac03c
-  pristine_tree_hash: 55c0c6608d5eee840f1590ef19d751aad6b1ee92
+  generation_id: 33deb078-d634-4dcd-ad9c-e460ee86a064
+  pristine_commit_hash: dd6e865e77a008238b15d6c400dd65b3c7edfb97
+  pristine_tree_hash: 2a6bec328595fe88bd2f59623aad477d4c5dd4d2
 features:
   python:
     additionalDependencies: 1.1.0
@@ -803,6 +803,18 @@ trackedFiles:
     id: 38fe9486762c
     last_write_checksum: sha1:411660106d837b929b247e5fc2191bcbbc2ce327
     pristine_git_object: ff10f812d01e9fb478d25fc59a95a34768c6ade2
+  docs/models/detokenization.md:
+    id: e91beb77e193
+    last_write_checksum: sha1:f45f77400d2b735445f4e6d892606333c8ccb678
+    pristine_git_object: afdd69686f41272ca661630038de8b7556aab12e
+  docs/models/detokenizepaymentmethodglobals.md:
+    id: 53efc8cc77ba
+    last_write_checksum: sha1:e6123986a4aa795d53f7f6e03862fefa237cbd96
+    pristine_git_object: 55eba394dd4e0303704c738e7355d5c4815cc68d
+  docs/models/detokenizepaymentmethodrequest.md:
+    id: b2b6f1393879
+    last_write_checksum: sha1:709e227ca528cc94603198ab09bce650cfbf5ef2
+    pristine_git_object: f01517382862ca87ec8c76e6c6e1d17fd3d27768
   docs/models/digitalwallet.md:
     id: 99249f74b960
     last_write_checksum: sha1:e59b913459c5c30d8ac004eac81bff1b933dc29a
@@ -2869,8 +2881,8 @@ trackedFiles:
     pristine_git_object: f26fd4ebb52114c0d88adbfc942c2f9b5a5486ce
   docs/sdks/paymentmethodssdk/README.md:
     id: d1b6df07187c
-    last_write_checksum: sha1:20799bdefb44292d597af901eb30c3f847a92375
-    pristine_git_object: a8f7cca08649d76d8c05e9c20ba4c5f2314c9863
+    last_write_checksum: sha1:eec7d50032cebb27fa90dbef3bf2d127a10ce0af
+    pristine_git_object: 52bf9245511451ed5565c56c313e3a18b81dc833
   docs/sdks/paymentoptionssdk/README.md:
     id: 11172237c4a0
     last_write_checksum: sha1:035cb8b8ca70bccc8bcdfc0b8f0af03b026bc24a
@@ -2941,8 +2953,8 @@ trackedFiles:
     pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
   pyproject.toml:
     id: 5d07e7d72637
-    last_write_checksum: sha1:c27ee284b689652e0f186a2c02ad6f07c76c2198
-    pristine_git_object: 43a49a7caf701ea1fa432c32cce7a34250d32753
+    last_write_checksum: sha1:7353d7729ecc687444a858a79f3c9efa871df832
+    pristine_git_object: 2f7ccf6ffae24ad8a58233beb9cf7efaef2df8d7
   scripts/prepare_readme.py:
     id: e0c5957a6035
     last_write_checksum: sha1:63a92abbd1de3323613f0d4c1ae4412076577710
@@ -2969,8 +2981,8 @@ trackedFiles:
     pristine_git_object: f8ef109bb6a9dbe37d0a7092606176a0738986fd
   src/gr4vy/_version.py:
     id: 1b5ad1da47aa
-    last_write_checksum: sha1:44c50ee187d680d7167f9d7b3f6d73d897c318ad
-    pristine_git_object: 74742cacba90efb7e7d10a78bb333b01840def03
+    last_write_checksum: sha1:555fe1de52a5bca9473be6bfc1eceba1a539c5c7
+    pristine_git_object: 0d1ec19f80e1d6f481f999c8a7d08b2351671077
   src/gr4vy/account_updater.py:
     id: 6dc8f39e2fb9
     last_write_checksum: sha1:fabc79a59dd06fb927ce2d834fbafbcad5836a4b
@@ -3137,8 +3149,8 @@ trackedFiles:
     pristine_git_object: becb7dcefb2ea12bf3e199ed39ece68944623c13
   src/gr4vy/models/__init__.py:
     id: 427cc7fddfe2
-    last_write_checksum: sha1:f536f8fc398eae985b7109bcc4da997b12da82fa
-    pristine_git_object: f8595b9180c49fd51491af59f35a976611b7bfac
+    last_write_checksum: sha1:4b97fd4fc7878622a786eba985a90b54f4e07e39
+    pristine_git_object: 49597761548d329f671e234c70f42e9f298c1e6f
   src/gr4vy/models/accountsreceivablesreportspec.py:
     id: cc6a9368f988
     last_write_checksum: sha1:4f404eb37f5ce14315f1800a5a0c45964f87d7d3
@@ -3643,6 +3655,14 @@ trackedFiles:
     id: eb64e156ba49
     last_write_checksum: sha1:1bf12dc3fd3f057def9b6e7fc0459eeee7fff63d
     pristine_git_object: 1f08877ea66c42da274167c6c0bf7ebecdfde7fa
+  src/gr4vy/models/detokenization.py:
+    id: 780a27081bc5
+    last_write_checksum: sha1:eb6516a1f5b1b2d109f9d00f55fefa28848db2ee
+    pristine_git_object: bec9d91a2518c2bc12780140c73cbfa7ff64a0bf
+  src/gr4vy/models/detokenize_payment_methodop.py:
+    id: 4544d580d5d7
+    last_write_checksum: sha1:a77df04aa76ab4076bff093cbb1684b7eff0c1dd
+    pristine_git_object: d9fce99351a1648fd01c56ffde69a9d6223a573e
   src/gr4vy/models/digitalwallet.py:
     id: d6e903e09f09
     last_write_checksum: sha1:adb1ac2de054b2e35ee08d7ab932dca1fc0afb71
@@ -5089,8 +5109,8 @@ trackedFiles:
     pristine_git_object: e6e4f9ae7379641dd748a189773e136d3519e500
   src/gr4vy/payment_methods_sdk.py:
     id: 9174bd428377
-    last_write_checksum: sha1:9df26db5379766a37c7531ece483bde407ae78c3
-    pristine_git_object: 395e39dba4b064131f406a985d475e226ab75d09
+    last_write_checksum: sha1:16e1c7dffd7230761b16d7f672ed7ac15080d949
+    pristine_git_object: 401e72146451028bb5233091372fca7c1cdfa883
   src/gr4vy/payment_options_sdk.py:
     id: a90f4cf4c6cf
     last_write_checksum: sha1:f2192f3f07222b8a9b142942f5bd36ab69c62793
@@ -9555,9 +9575,43 @@ examples:
           application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
         "504":
           application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
+  detokenize_payment_method:
+    speakeasy-default-detokenize-payment-method:
+      parameters:
+        path:
+          payment_method_id: "ef9496d8-53a5-4aad-8ca2-00eb68334389"
+      responses:
+        "200":
+          application/json: {"type": "payment-method-detokenization", "encrypted_payload": "eyJhbGciOiJSU0EtT0FFUC0yNTYiLCJlbmMiOi..."}
+        "400":
+          application/json: {"type": "error", "code": "bad_request", "status": 400, "message": "Request failed validation"}
+        "401":
+          application/json: {"type": "error", "code": "unauthorized", "status": 401, "message": "No valid API authentication found"}
+        "403":
+          application/json: {"type": "error", "code": "forbidden", "status": 403, "message": "Request failed validation"}
+        "404":
+          application/json: {"type": "error", "code": "not_found", "status": 404, "message": "The resource could not be found"}
+        "405":
+          application/json: {"type": "error", "code": "method_not_allowed", "status": 405, "message": "Method Not Allowed"}
+        "409":
+          application/json: {"type": "error", "code": "duplicate_record", "status": 409, "message": "Request failed validation"}
+        "422":
+          application/json: {}
+        "425":
+          application/json: {"type": "error", "code": "too_early", "status": 425, "message": "Request failed validation"}
+        "429":
+          application/json: {"type": "error", "code": "too_many_requests", "status": 429, "message": "Request failed validation"}
+        "500":
+          application/json: {"type": "error", "code": "server_error", "status": 500, "message": "Request could not be processed"}
+        "502":
+          application/json: {"type": "error", "code": "bad_gateway", "status": 502, "message": "Request could not be processed"}
+        "504":
+          application/json: {"type": "error", "code": "gateway_timeout", "status": 504, "message": "Request could not be processed"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Python SDK Changes:\n* `gr4vy.transactions.create()`: \n  *  `request.connection_options.riskified_anti_fraud.account_type` **Added**\n* `gr4vy.transactions.update()`: \n  *  `request.connection_options.riskified_anti_fraud.account_type` **Added**\n* `gr4vy.payment_links.create()`: \n  *  `request.connection_options.riskified_anti_fraud.account_type` **Added**\n"
+releaseNotes: |
+  ## Python SDK Changes:
+  * `gr4vy.payment_methods.detokenize()`: **Added**
 generatedFiles:
   - .gitattributes
   - .vscode/settings.json
