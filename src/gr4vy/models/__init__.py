@@ -176,6 +176,11 @@ if TYPE_CHECKING:
     )
     from .cartitem import CartItem, CartItemTypedDict
     from .certificatealgorithm import CertificateAlgorithm
+    from .chasebankoptions import (
+        AuthorizationMethod,
+        ChaseBankOptions,
+        ChaseBankOptionsTypedDict,
+    )
     from .chaseoptions import ChaseOptions, ChaseOptionsTypedDict
     from .checkoutpayoutoptions import (
         CheckoutPayoutOptions,
@@ -1708,6 +1713,7 @@ __all__ = [
     "AuditLogEntryTypedDict",
     "AuditLogEntryUser",
     "AuditLogEntryUserTypedDict",
+    "AuthorizationMethod",
     "BACSBankPaymentMethodCreate",
     "BACSBankPaymentMethodCreateTypedDict",
     "BankAccountHolder",
@@ -1764,6 +1770,8 @@ __all__ = [
     "CartItem",
     "CartItemTypedDict",
     "CertificateAlgorithm",
+    "ChaseBankOptions",
+    "ChaseBankOptionsTypedDict",
     "ChaseOptions",
     "ChaseOptionsTypedDict",
     "CheckoutPayoutOptions",
@@ -3002,6 +3010,9 @@ _dynamic_imports: dict[str, str] = {
     "CartItem": ".cartitem",
     "CartItemTypedDict": ".cartitem",
     "CertificateAlgorithm": ".certificatealgorithm",
+    "AuthorizationMethod": ".chasebankoptions",
+    "ChaseBankOptions": ".chasebankoptions",
+    "ChaseBankOptionsTypedDict": ".chasebankoptions",
     "ChaseOptions": ".chaseoptions",
     "ChaseOptionsTypedDict": ".chaseoptions",
     "CheckoutPayoutOptions": ".checkoutpayoutoptions",
