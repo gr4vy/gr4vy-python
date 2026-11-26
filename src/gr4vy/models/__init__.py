@@ -373,6 +373,10 @@ if TYPE_CHECKING:
         CybersourceAntiFraudOptions,
         CybersourceAntiFraudOptionsTypedDict,
     )
+    from .cybersourcecardoptions import (
+        CybersourceCardOptions,
+        CybersourceCardOptionsTypedDict,
+    )
     from .cybersourceoptions import CybersourceOptions, CybersourceOptionsTypedDict
     from .definitionfield import DefinitionField, DefinitionFieldTypedDict
     from .definitionfieldformat import DefinitionFieldFormat
@@ -978,6 +982,10 @@ if TYPE_CHECKING:
         ListTransactionsResponse,
         ListTransactionsResponseTypedDict,
     )
+    from .mastercardcardoptions import (
+        MastercardCardOptions,
+        MastercardCardOptionsTypedDict,
+    )
     from .mattildatapioptions import MattildaTapiOptions, MattildaTapiOptionsTypedDict
     from .merchantaccount import MerchantAccount, MerchantAccountTypedDict
     from .merchantaccountcreate import (
@@ -1367,6 +1375,11 @@ if TYPE_CHECKING:
         StripeConnectOptionsTypedDict,
     )
     from .stripeoptions import StripeOptions, StripeOptionsTypedDict
+    from .submerchantaddressoptions import (
+        SubMerchantAddressOptions,
+        SubMerchantAddressOptionsTypedDict,
+    )
+    from .submerchantoptions import SubMerchantOptions, SubMerchantOptionsTypedDict
     from .suspend_payment_method_network_tokenop import (
         SuspendPaymentMethodNetworkTokenGlobals,
         SuspendPaymentMethodNetworkTokenGlobalsTypedDict,
@@ -1900,6 +1913,8 @@ __all__ = [
     "CryptogramTypedDict",
     "CybersourceAntiFraudOptions",
     "CybersourceAntiFraudOptionsTypedDict",
+    "CybersourceCardOptions",
+    "CybersourceCardOptionsTypedDict",
     "CybersourceOptions",
     "CybersourceOptionsTypedDict",
     "DefinitionField",
@@ -2341,6 +2356,8 @@ __all__ = [
     "ListTransactionsResponseTypedDict",
     "Loc",
     "LocTypedDict",
+    "MastercardCardOptions",
+    "MastercardCardOptionsTypedDict",
     "MattildaTapiOptions",
     "MattildaTapiOptionsTypedDict",
     "MerchantAccount",
@@ -2670,6 +2687,10 @@ __all__ = [
     "StripeConnectOptionsTypedDict",
     "StripeOptions",
     "StripeOptionsTypedDict",
+    "SubMerchantAddressOptions",
+    "SubMerchantAddressOptionsTypedDict",
+    "SubMerchantOptions",
+    "SubMerchantOptionsTypedDict",
     "SubscriptionFrequencyUnit",
     "SuspendPaymentMethodNetworkTokenGlobals",
     "SuspendPaymentMethodNetworkTokenGlobalsTypedDict",
@@ -3144,6 +3165,8 @@ _dynamic_imports: dict[str, str] = {
     "CVVResponseCode": ".cvvresponsecode",
     "CybersourceAntiFraudOptions": ".cybersourceantifraudoptions",
     "CybersourceAntiFraudOptionsTypedDict": ".cybersourceantifraudoptions",
+    "CybersourceCardOptions": ".cybersourcecardoptions",
+    "CybersourceCardOptionsTypedDict": ".cybersourcecardoptions",
     "CybersourceOptions": ".cybersourceoptions",
     "CybersourceOptionsTypedDict": ".cybersourceoptions",
     "DefinitionField": ".definitionfield",
@@ -3583,6 +3606,8 @@ _dynamic_imports: dict[str, str] = {
     "ListTransactionsRequestTypedDict": ".list_transactionsop",
     "ListTransactionsResponse": ".list_transactionsop",
     "ListTransactionsResponseTypedDict": ".list_transactionsop",
+    "MastercardCardOptions": ".mastercardcardoptions",
+    "MastercardCardOptionsTypedDict": ".mastercardcardoptions",
     "MattildaTapiOptions": ".mattildatapioptions",
     "MattildaTapiOptionsTypedDict": ".mattildatapioptions",
     "MerchantAccount": ".merchantaccount",
@@ -3908,6 +3933,10 @@ _dynamic_imports: dict[str, str] = {
     "StripeConnectOptionsTypedDict": ".stripeconnectoptions",
     "StripeOptions": ".stripeoptions",
     "StripeOptionsTypedDict": ".stripeoptions",
+    "SubMerchantAddressOptions": ".submerchantaddressoptions",
+    "SubMerchantAddressOptionsTypedDict": ".submerchantaddressoptions",
+    "SubMerchantOptions": ".submerchantoptions",
+    "SubMerchantOptionsTypedDict": ".submerchantoptions",
     "SuspendPaymentMethodNetworkTokenGlobals": ".suspend_payment_method_network_tokenop",
     "SuspendPaymentMethodNetworkTokenGlobalsTypedDict": ".suspend_payment_method_network_tokenop",
     "SuspendPaymentMethodNetworkTokenRequest": ".suspend_payment_method_network_tokenop",
