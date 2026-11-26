@@ -14,6 +14,10 @@ from .cybersourceantifraudoptions import (
     CybersourceAntiFraudOptions,
     CybersourceAntiFraudOptionsTypedDict,
 )
+from .cybersourcecardoptions import (
+    CybersourceCardOptions,
+    CybersourceCardOptionsTypedDict,
+)
 from .cybersourceoptions import CybersourceOptions, CybersourceOptionsTypedDict
 from .dlocalcardoptions import DlocalCardOptions, DlocalCardOptionsTypedDict
 from .dlocaloptions import DlocalOptions, DlocalOptionsTypedDict
@@ -29,6 +33,7 @@ from .givingblockoptions import GivingBlockOptions, GivingBlockOptionsTypedDict
 from .gocardlessoptions import GoCardlessOptions, GoCardlessOptionsTypedDict
 from .klarnaoptions import KlarnaOptions, KlarnaOptionsTypedDict
 from .latitudeoptions import LatitudeOptions, LatitudeOptionsTypedDict
+from .mastercardcardoptions import MastercardCardOptions, MastercardCardOptionsTypedDict
 from .mattildatapioptions import MattildaTapiOptions, MattildaTapiOptionsTypedDict
 from .mockcardoptions import MockCardOptions, MockCardOptionsTypedDict
 from .monatospeioptions import MonatoSpeiOptions, MonatoSpeiOptionsTypedDict
@@ -120,7 +125,7 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `chaseorbital-card` connector."""
     cybersource_anti_fraud: NotRequired[Nullable[CybersourceAntiFraudOptionsTypedDict]]
     r"""Custom options to be passed to the `cybersource-anti-fraud` connector."""
-    cybersource_card: NotRequired[Nullable[CybersourceOptionsTypedDict]]
+    cybersource_card: NotRequired[Nullable[CybersourceCardOptionsTypedDict]]
     r"""Custom options to be passed to the `cybersource-card` connector."""
     cybersource_ideal: NotRequired[Nullable[CybersourceOptionsTypedDict]]
     r"""Custom options to be passed to the `cybersource-ideal` connector."""
@@ -156,6 +161,8 @@ class TransactionConnectionOptionsTypedDict(TypedDict):
     r"""Custom options to be passed to the `latitude-latitude` connector."""
     latitude_latitudeds: NotRequired[Nullable[LatitudeOptionsTypedDict]]
     r"""Custom options to be passed to the `latitude-latitudeds` connector."""
+    mastercard_card: NotRequired[Nullable[MastercardCardOptionsTypedDict]]
+    r"""Custom options to be passed to the `mastercard-card` connector."""
     mattilda_tapi: NotRequired[Nullable[MattildaTapiOptionsTypedDict]]
     r"""Custom options to be passed to the `mattilda-tapi` connector."""
     mattilda_tapifintechs: NotRequired[Nullable[MattildaTapiOptionsTypedDict]]
@@ -335,7 +342,8 @@ class TransactionConnectionOptions(BaseModel):
     r"""Custom options to be passed to the `cybersource-anti-fraud` connector."""
 
     cybersource_card: Annotated[
-        OptionalNullable[CybersourceOptions], pydantic.Field(alias="cybersource-card")
+        OptionalNullable[CybersourceCardOptions],
+        pydantic.Field(alias="cybersource-card"),
     ] = UNSET
     r"""Custom options to be passed to the `cybersource-card` connector."""
 
@@ -426,6 +434,11 @@ class TransactionConnectionOptions(BaseModel):
         OptionalNullable[LatitudeOptions], pydantic.Field(alias="latitude-latitudeds")
     ] = UNSET
     r"""Custom options to be passed to the `latitude-latitudeds` connector."""
+
+    mastercard_card: Annotated[
+        OptionalNullable[MastercardCardOptions], pydantic.Field(alias="mastercard-card")
+    ] = UNSET
+    r"""Custom options to be passed to the `mastercard-card` connector."""
 
     mattilda_tapi: Annotated[
         OptionalNullable[MattildaTapiOptions], pydantic.Field(alias="mattilda-tapi")
@@ -615,6 +628,7 @@ class TransactionConnectionOptions(BaseModel):
                 "gocardless-gocardless",
                 "latitude-latitude",
                 "latitude-latitudeds",
+                "mastercard-card",
                 "mattilda-tapi",
                 "mattilda-tapifintechs",
                 "monato-spei",
@@ -688,6 +702,7 @@ class TransactionConnectionOptions(BaseModel):
                 "gocardless-gocardless",
                 "latitude-latitude",
                 "latitude-latitudeds",
+                "mastercard-card",
                 "mattilda-tapi",
                 "mattilda-tapifintechs",
                 "monato-spei",
