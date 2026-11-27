@@ -95,3 +95,14 @@ def test_payment_service_tokens_are_reached(merchant):
         ),
         "payment_methods.payment_service_tokens.delete",
     )
+
+
+def test_detokenize_is_reached(merchant):
+    sdk = merchant.client
+    pm = sdk.payment_methods.create(request_body=fixtures.approving_card())
+
+    # 4xx is fine: the per-run merchant may have no public key, and the endpoint is rate limited.
+    reach.reaches(
+        lambda: sdk.payment_methods.detokenize(payment_method_id=pm.id),
+        "payment_methods.detokenize",
+    )
